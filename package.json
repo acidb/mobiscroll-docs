@@ -13,7 +13,8 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "dev": "docusaurus start --config docusaurus.config.dev.js"
+    "dev": "docusaurus start --config docusaurus.config.dev.js",
+    "check": "npm run build && npm run serve"
   },
   "dependencies": {
     "@docusaurus/core": "2.3.1",

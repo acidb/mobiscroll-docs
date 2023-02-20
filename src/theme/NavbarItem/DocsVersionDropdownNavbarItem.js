@@ -9,7 +9,7 @@ import { translate } from '@docusaurus/Translate';
 import { useLocation } from '@docusaurus/router';
 import DefaultNavbarItem from '@theme/NavbarItem/DefaultNavbarItem';
 import DropdownNavbarItem from '@theme/NavbarItem/DropdownNavbarItem';
-import { compareVersionStringDesc } from '@site/src/util/versioning';
+import { compareVersionStringDesc, getSemVerInfo } from '@site/src/util/versioning';
 const getVersionMainDoc = (version) =>
   version.docs.find((doc) => doc.id === version.mainDocId);
 export default function DocsVersionDropdownNavbarItem({
@@ -24,12 +24,8 @@ export default function DocsVersionDropdownNavbarItem({
   const activeDocContext = useActiveDocContext(docsPluginId);
   const versions = useVersions(docsPluginId);
   const { savePreferredVersionName } = useDocsPreferredVersion(docsPluginId);
-  // const latestGroups = {
-  //   '5': ['5.22.1', '5.22.0'],
-  //   'N': ['Next'],
-  // };  // groupVersions(versions);
   const latestGroups = groupVersions(versions);
-  const versionLinks = versions.filter((version) => latestGroups[version.label[0]][0] === version.label).map((version) => {
+  const versionLinks = versions.filter((version) => latestGroups[getGroup(version.label)][0] === version.label).map((version) => {
     // We try to link to the same doc, in another version
     // When not possible, fallback to the "main doc" of the version
     const versionDoc =
@@ -100,7 +96,7 @@ function groupVersions(versions) {
   return groups;
 
   function reducer(gr, version) {
-    const key = version.label[0]; // major version or 'N' (from Next)
+    const key = getGroup(version.label);
     if (!gr[key]) {
       gr[key] = [];
     }
@@ -109,3 +105,12 @@ function groupVersions(versions) {
   }
 }
 
+
+function getGroup(version) {
+  const vInfo = getSemVerInfo(version);
+  if (vInfo) {
+    return vInfo.Major + '.' + vInfo.Minor;
+  } else {
+    return version;
+  }
+}

@@ -4,6 +4,9 @@ interface SemVerInfo {
     Patch?: number;
     Label?: string;
 }
+
+const versionReg = /^([0-9]+)\.([0-9]+)(?:\.(?:([0-9]+)(?:-([a-z]+[a-z0-9.]*))?)|(?:-([a-z]+[a-z0-9.]*)))?$/;
+
 export function compareVersionStringDesc(a: string, b: string) {
     return compareVersionString(b, a);
 }
@@ -21,7 +24,6 @@ export function compareVersionString(a: string, b: string) {
     }
 
     // otherwise
-    const versionReg = /^([0-9]+)\.([0-9]+)(?:\.(?:([0-9]+)(?:-([a-z]+[a-z0-9.]*))?)|(?:-([a-z]+[a-z0-9.]*)))?$/;
     const match1 = versionReg.exec(a);
     const match2 = versionReg.exec(b);
     if (match1 && match2) {
@@ -46,6 +48,27 @@ export function compareVersionString(a: string, b: string) {
             v2.Label = match2[4] ? match2[4] : match2[5];
         }
         return compareVersionObject(v1, v2);
+    }
+}
+
+export function getSemVerInfo(a: string): SemVerInfo | null {
+    const match = versionReg.exec(a);
+    if (match) {
+        const v: SemVerInfo = {
+            Major: parseInt(match[1]),
+            Minor: parseInt(match[2])
+        };
+
+        if (match[3]) {
+            v.Patch = parseInt(match[3]);
+        }
+
+        if (match[4] || match[5]) {
+            v.Label = match[4] ? match[4] : match[5];
+        }
+        return v;
+    } else {
+        return null;
     }
 }
 

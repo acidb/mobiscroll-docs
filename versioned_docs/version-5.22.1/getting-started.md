@@ -7,7 +7,7 @@ slug: /
 
 # Welcome to the Mobiscroll Docs
 
-- [Mobiscroll for Javascript](/javascript/getting-started)
-- [Mobiscroll for jQuery](/jquery/getting-started)
-- [Mobiscroll for React](/react/getting-started)
-- [Mobiscroll for Angular](/angular/getting-started)
+- [Mobiscroll for Javascript](javascript/getting-started)
+- [Mobiscroll for jQuery](jquery/getting-started)
+- [Mobiscroll for React](react/getting-started)
+- [Mobiscroll for Angular](angular/getting-started)

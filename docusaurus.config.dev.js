@@ -75,6 +75,9 @@ const config = {
             label: 'Getting Started',
           },
           {
+            type: 'docsVersionDropdown',
+          },
+          {
             href: 'https://github.com/acidb/mobiscroll-docs',
             label: 'GitHub',
             position: 'right',

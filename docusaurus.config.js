@@ -41,7 +41,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
           includeCurrentVersion: false,
-          lastVersion: '5.22.0',
+          lastVersion: '5.22.1',
         },
         blog: false,
         theme: {
@@ -68,6 +68,9 @@ const config = {
             docId: 'getting-started',
             position: 'left',
             label: 'Getting Started',
+          },
+          {
+            type: 'docsVersionDropdown',
           },
           {
             href: 'https://github.com/acidb/mobiscroll-docs',

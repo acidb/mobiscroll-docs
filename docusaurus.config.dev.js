@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'Mobiscroll Documentation',
+  // tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -65,7 +65,7 @@ const config = {
         title: 'Mobiscroll Docs',
         logo: {
           alt: 'Mobiscroll Logo',
-          src: 'img/logo.svg',
+          src: 'img/mobiscroll-logo-small.svg',
         },
         items: [
           {

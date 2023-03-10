@@ -73,6 +73,32 @@ const config = {
             type: 'docsVersionDropdown',
           },
           {
+            type: 'dropdown',
+            label: 'Framework',
+            items: [
+              {
+                type: 'doc',
+                label: 'Angular',
+                docId: 'angular/getting-started',
+              },
+              {
+                type: 'doc',
+                label: 'React',
+                docId: 'react/getting-started',
+              },
+              {
+                type: 'doc',
+                label: 'jQuery',
+                docId: 'jquery/getting-started',
+              },
+              {
+                type: 'doc',
+                label: 'JavaScript',
+                docId: 'javascript/getting-started',
+              },
+            ]
+          },
+          {
             href: 'https://github.com/acidb/mobiscroll-docs',
             label: 'GitHub',
             position: 'right',

@@ -73,7 +73,7 @@ export default function DocsVersionDropdownNavbarItem({
       />
     );
   }
-  console.log('items:', items);
+  // console.log('items:', items);
   return (
     <DropdownNavbarItem
       {...props}

@@ -10,6 +10,9 @@ import { useLocation } from '@docusaurus/router';
 import DefaultNavbarItem from '@theme/NavbarItem/DefaultNavbarItem';
 import DropdownNavbarItem from '@theme/NavbarItem/DropdownNavbarItem';
 import { compareVersionStringDesc, getSemVerInfo } from '@site/src/util/versioning';
+
+const versionMap = require('../../../version-map.json');
+
 const getVersionMainDoc = (version) =>
   version.docs.find((doc) => doc.id === version.mainDocId);
 export default function DocsVersionDropdownNavbarItem({
@@ -31,8 +34,9 @@ export default function DocsVersionDropdownNavbarItem({
     const versionDoc =
       activeDocContext.alternateDocVersions[version.name] ??
       getVersionMainDoc(version);
+    const label = mapVersion(versionMap, version.label);
     return {
-      label: version.label,
+      label: label,
       // preserve ?search#hash suffix on version switches
       to: `${versionDoc.path}${search}${hash}`,
       isActive: () => version === activeDocContext.activeVersion,
@@ -45,6 +49,7 @@ export default function DocsVersionDropdownNavbarItem({
     ...dropdownItemsAfter,
   ];
   const dropdownVersion = useDocsVersionCandidates(docsPluginId)[0];
+  const dropdownVersionLabel = mapVersion(versionMap, dropdownVersion.label);
   // Mobile dropdown is handled a bit differently
   const dropdownLabel =
     mobile && items.length > 1
@@ -54,7 +59,7 @@ export default function DocsVersionDropdownNavbarItem({
         description:
           'The label for the navbar versions dropdown on mobile view',
       })
-      : dropdownVersion.label;
+      : dropdownVersionLabel;
   const dropdownTo =
     mobile && items.length > 1
       ? undefined
@@ -73,7 +78,7 @@ export default function DocsVersionDropdownNavbarItem({
       />
     );
   }
-  console.log('items:', items);
+  // console.log('items:', items);
   return (
     <DropdownNavbarItem
       {...props}
@@ -86,10 +91,14 @@ export default function DocsVersionDropdownNavbarItem({
   );
 }
 
+function mapVersion(versionMap, version) {
+  return (versionMap && versionMap[version]) ? versionMap[version] : version;
+}
+
 function groupVersions(versions) {
   const initialGroups = {};
   const groups = versions.reduce(reducer, initialGroups);
-  for(const key in groups) {
+  for (const key in groups) {
     const list = groups[key];
     list.sort(compareVersionStringDesc)
   }

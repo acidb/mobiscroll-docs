@@ -62,18 +62,12 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'Mobiscroll Docs',
+         title: 'Mobiscroll Docs',
         logo: {
           alt: 'Mobiscroll Logo',
           src: 'img/mobiscroll-logo-small.svg',
         },
         items: [
-          {
-            type: 'doc',
-            docId: 'getting-started',
-            position: 'left',
-            label: 'Getting Started',
-          },
           {
             type: 'docsVersionDropdown',
           },
@@ -104,8 +98,44 @@ const config = {
             ]
           },
           {
-            href: 'https://github.com/acidb/mobiscroll-docs',
-            label: 'GitHub',
+            type: 'dropdown',
+            label: 'Community',
+            items: [
+              {
+                label: 'Forum',
+                href: 'https://forum.mobiscroll.com/',
+              },
+              {
+                label: 'Blog',
+                href: ' https://blog.mobiscroll.com/',
+              },
+              {
+                href: 'https://github.com/acidb/mobiscroll/issues',
+                label: 'GitHub',
+              }
+
+            ],
+            position: 'right',
+          },
+          {
+            type: 'dropdown',
+            label: 'Support',
+            items: [
+              {
+                href: 'https://mobiscroll.com/account/supporttickets',
+                label: 'Support tickets',
+              },
+              {
+                label: 'Help Center',
+                href: 'http://help.mobiscroll.com',
+              },
+
+            ],
+            position: 'right',
+          },
+          {
+            href: 'https://docs.mobiscroll.com/cli',
+            label: 'CLI',
             position: 'right',
           },
         ],

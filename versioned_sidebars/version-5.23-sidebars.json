@@ -39,60 +39,14 @@
       "href": "/docs/"
     },
     {
-      "type": "category",
+      "type": "doc",
       "label": "Getting started with trial", 
-      "collapsible": true,
-      "collapsed": false,
-      "items": [
-        {
-          "type": "doc",
-          "label": "Load or import scripts", 
-          "id": "javascript/trial-start/install"
-        },
-        {
-          "type": "doc",
-          "label": "Load or import scripts", 
-          "id": "javascript/trial-start/load"
-        },
-        {
-          "type": "doc",
-          "label": "Init components", 
-          "id": "javascript/trial-start/init"
-        },
-        {
-          "type": "doc",
-          "label": "Next steps", 
-          "id": "javascript/trial-start/next"
-        }
-      ]
+      "id": "javascript/trial-start"
     },
     {
-      "type": "category",
+      "type": "doc",
       "label": "Getting started with licensed", 
-      "collapsible": true,
-      "collapsed": false,
-      "items": [
-        {
-          "type": "doc",
-          "label": "Load or import scripts", 
-          "id": "javascript/license-start/install"
-        },
-        {
-          "type": "doc",
-          "label": "Load or import scripts", 
-          "id": "javascript/license-start/load"
-        },
-        {
-          "type": "doc",
-          "label": "Init components", 
-          "id": "javascript/license-start/init"
-        },
-        {
-          "type": "doc",
-          "label": "Next steps", 
-          "id": "javascript/license-start/next"
-        }
-      ]
+      "id": "javascript/licensed-start"
     },
     {
       "type": "category",
@@ -101,114 +55,29 @@
       "collapsed": false,
       "items": [
         {
-          "type": "category",
+          "type": "doc",
           "label": "Component overview", 
-          "collapsible": true,
-          "collapsed": false,
-          "items": [
-            {
-              "type": "doc",
-              "label": "Intro", 
-              "id": "javascript/eventcalendar/intro"
-            },
-            {
-              "type": "doc",
-              "label": "Init", 
-              "id": "javascript/eventcalendar/init"
-            }
-          ]
+          "id": "javascript/eventcalendar/overview"
         },
         {
-          "type": "category",
-          "label": "Calendar view", 
-          "collapsible": true,
-          "collapsed": false,
-          "items": [
-            {
-              "type": "doc",
-              "label": "Intro", 
-              "id": "javascript/eventcalendar/calendar-view/overview"
-            },
-            {
-              "type": "doc",
-              "label": "Intro", 
-              "id": "javascript/eventcalendar/calendar-view/combinations"
-            },
-            {
-              "type": "doc",
-              "label": "Intro", 
-              "id": "javascript/eventcalendar/calendar-view/templating"
-            }
-          ]
+          "type": "doc",
+          "label": "Calendar view",  
+          "id": "javascript/eventcalendar/calendar-view"
         },
         {
-          "type": "category",
+          "type": "doc",
           "label": "Timeline view", 
-          "collapsible": true,
-          "collapsed": false,
-          "items": [
-            {
-              "type": "doc",
-              "label": "Intro", 
-              "id": "javascript/eventcalendar/timeline-view/overview"
-            },
-            {
-              "type": "doc",
-              "label": "Intro", 
-              "id": "javascript/eventcalendar/timeline-view/combinations"
-            },
-            {
-              "type": "doc",
-              "label": "Intro", 
-              "id": "javascript/eventcalendar/timeline-view/templating"
-            }
-          ]
+          "id": "javascript/eventcalendar/timeline-view"
         },
         {
-          "type": "category",
-          "label": "Schedule view", 
-          "collapsible": true,
-          "collapsed": false,
-          "items": [
-            {
-              "type": "doc",
-              "label": "Intro", 
-              "id": "javascript/eventcalendar/schedule-view/overview"
-            },
-            {
-              "type": "doc",
-              "label": "Intro", 
-              "id": "javascript/eventcalendar/schedule-view/combinations"
-            },
-            {
-              "type": "doc",
-              "label": "Intro", 
-              "id": "javascript/eventcalendar/schedule-view/templating"
-            }
-          ]
+          "type": "doc",
+          "label": "Schedule view",  
+          "id": "javascript/eventcalendar/schedule-view"
         },
         {
-          "type": "category",
-          "label": "Agenda view", 
-          "collapsible": true,
-          "collapsed": false,
-          "items": [
-            {
-              "type": "doc",
-              "label": "Intro", 
-              "id": "javascript/eventcalendar/agenda-view/overview"
-            },
-            {
-              "type": "doc",
-              "label": "Intro", 
-              "id": "javascript/eventcalendar/agenda-view/combinations"
-            },
-            {
-              "type": "doc",
-              "label": "Intro", 
-              "id": "javascript/eventcalendar/agenda-view/templating"
-            }
-          ]
+          "type": "doc",
+          "label": "Agenda view",  
+          "id": "javascript/eventcalendar/agenda-view"
         }
       ]
 
@@ -233,60 +102,14 @@
       "href": "/docs/"
     },
     {
-      "type": "category",
+      "type": "doc",
       "label": "Getting started with trial", 
-      "collapsible": true,
-      "collapsed": false,
-      "items": [
-        {
-          "type": "doc",
-          "label": "Load or import scripts", 
-          "id": "react/trial-start/install"
-        },
-        {
-          "type": "doc",
-          "label": "Load or import scripts", 
-          "id": "react/trial-start/load"
-        },
-        {
-          "type": "doc",
-          "label": "Init components", 
-          "id": "react/trial-start/init"
-        },
-        {
-          "type": "doc",
-          "label": "Next steps", 
-          "id": "react/trial-start/next"
-        }
-      ]
+      "id": "react/trial-start"
     },
     {
-      "type": "category",
+      "type": "doc",
       "label": "Getting started with licensed", 
-      "collapsible": true,
-      "collapsed": false,
-      "items": [
-        {
-          "type": "doc",
-          "label": "Load or import scripts", 
-          "id": "react/license-start/install"
-        },
-        {
-          "type": "doc",
-          "label": "Load or import scripts", 
-          "id": "react/license-start/load"
-        },
-        {
-          "type": "doc",
-          "label": "Init components", 
-          "id": "react/license-start/init"
-        },
-        {
-          "type": "doc",
-          "label": "Next steps", 
-          "id": "react/license-start/next"
-        }
-      ]
+      "id": "react/licensed-start"
     },
     {
       "type": "category",
@@ -295,114 +118,79 @@
       "collapsed": false,
       "items": [
         {
-          "type": "category",
+          "type": "doc",
           "label": "Component overview", 
-          "collapsible": true,
-          "collapsed": false,
-          "items": [
-            {
-              "type": "doc",
-              "label": "Intro", 
-              "id": "react/eventcalendar/intro"
-            },
-            {
-              "type": "doc",
-              "label": "Init", 
-              "id": "react/eventcalendar/init"
-            }
-          ]
+          "id": "react/eventcalendar/overview"
         },
         {
-          "type": "category",
-          "label": "Calendar view", 
-          "collapsible": true,
-          "collapsed": false,
-          "items": [
-            {
-              "type": "doc",
-              "label": "Intro", 
-              "id": "react/eventcalendar/calendar-view/overview"
-            },
-            {
-              "type": "doc",
-              "label": "Intro", 
-              "id": "react/eventcalendar/calendar-view/combinations"
-            },
-            {
-              "type": "doc",
-              "label": "Intro", 
-              "id": "react/eventcalendar/calendar-view/templating"
-            }
-          ]
+          "type": "doc",
+          "label": "Calendar view",  
+          "id": "react/eventcalendar/calendar-view"
         },
         {
-          "type": "category",
+          "type": "doc",
           "label": "Timeline view", 
-          "collapsible": true,
-          "collapsed": false,
-          "items": [
-            {
-              "type": "doc",
-              "label": "Intro", 
-              "id": "react/eventcalendar/timeline-view/overview"
-            },
-            {
-              "type": "doc",
-              "label": "Intro", 
-              "id": "react/eventcalendar/timeline-view/combinations"
-            },
-            {
-              "type": "doc",
-              "label": "Intro", 
-              "id": "react/eventcalendar/timeline-view/templating"
-            }
-          ]
+          "id": "react/eventcalendar/timeline-view"
         },
         {
-          "type": "category",
-          "label": "Schedule view", 
-          "collapsible": true,
-          "collapsed": false,
-          "items": [
-            {
-              "type": "doc",
-              "label": "Intro", 
-              "id": "react/eventcalendar/schedule-view/overview"
-            },
-            {
-              "type": "doc",
-              "label": "Intro", 
-              "id": "react/eventcalendar/schedule-view/combinations"
-            },
-            {
-              "type": "doc",
-              "label": "Intro", 
-              "id": "react/eventcalendar/schedule-view/templating"
-            }
-          ]
+          "type": "doc",
+          "label": "Schedule view",  
+          "id": "react/eventcalendar/schedule-view"
         },
         {
-          "type": "category",
-          "label": "Agenda view", 
-          "collapsible": true,
-          "collapsed": false,
-          "items": [
-            {
-              "type": "doc",
-              "label": "Intro", 
-              "id": "react/eventcalendar/agenda-view/overview"
-            },
-            {
-              "type": "doc",
-              "label": "Intro", 
-              "id": "react/eventcalendar/agenda-view/combinations"
-            },
-            {
-              "type": "doc",
-              "label": "Intro", 
-              "id": "react/eventcalendar/agenda-view/templating"
-            }
-          ]
+          "type": "doc",
+          "label": "Agenda view",  
+          "id": "react/eventcalendar/agenda-view"
+        }
+      ]
+    }
+  ],
+  "vueSidebar": [
+    {
+      "type": "link",
+      "label": "Overview", 
+      "href": "/docs/"
+    },
+    {
+      "type": "doc",
+      "label": "Getting started with trial", 
+      "id": "vue/trial-start"
+    },
+    {
+      "type": "doc",
+      "label": "Getting started with licensed", 
+      "id": "vue/licensed-start"
+    },
+    {
+      "type": "category",
+      "label": "Event calendar", 
+      "collapsible": true,
+      "collapsed": false,
+      "items": [
+        {
+          "type": "doc",
+          "label": "Component overview", 
+          "id": "vue/eventcalendar/overview"
+        },
+        {
+          "type": "doc",
+          "label": "Calendar view",  
+          "id": "vue/eventcalendar/calendar-view"
+        },
+        {
+          "type": "doc",
+          "label": "Timeline view", 
+          "id": "vue/eventcalendar/timeline-view"
+        },
+        {
+          "type": "doc",
+          "label": "Schedule view",  
+          "id": "vue/eventcalendar/schedule-view"
+        },
+        {
+          "type": "doc",
+          "label": "Agenda view",  
+          "id": "vue/eventcalendar/agenda-view"
         }
       ]
     }

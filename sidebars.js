@@ -23,23 +23,28 @@ const sidebars = {
     {
       type: 'link',
       label: 'Mobiscroll for Javascript', 
-      href: 'javascript/getting-started',
+      href: 'https://docs.mobiscroll.com/javascript/getting-started',
     },
     {
       type: 'link',
       label: 'Mobiscroll for jQuery', 
-      href: 'jquery/getting-started',
+      href: 'https://docs.mobiscroll.com/jquery/getting-started',
     },
     {
       type: 'link',
       label: 'Mobiscroll for React', 
-      href: 'react/getting-started',
+      href: 'https://docs.mobiscroll.com/react/getting-started',
     },
     {
       type: 'link',
       label: 'Mobiscroll for Angular', 
-      href: 'angular/getting-started',
+      href: 'https://docs.mobiscroll.com/angular/getting-started',
     },
+    {
+      type: 'link',
+      label: 'Mobiscroll for Vue', 
+      href: 'vue/getting-started',
+    }
   ],
 };
 

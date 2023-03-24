@@ -95,6 +95,11 @@ const config = {
                 label: 'JavaScript',
                 docId: 'javascript/getting-started',
               },
+              {
+                type: 'doc',
+                label: 'Vue',
+                docId: 'vue/getting-started',
+              }
             ]
           },
           {

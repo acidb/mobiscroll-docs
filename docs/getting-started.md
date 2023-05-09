@@ -6,7 +6,7 @@ slug: /
 ---
 
 import DocCardList from "@theme/DocCardList";
-import { frameworkLinks } from "../../sidebars.js";
+import { frameworkLinks } from "./frameworkLinks.js";
 
 # Welcome to the Mobiscroll Docs
 
@@ -16,7 +16,7 @@ Mobiscroll is a collection of UI components that helps deliver great mobile apps
 
 <DocCardList items={frameworkLinks} />
 
-[Mobiscroll CLI](/https://docs.mobiscroll.com/cli)
+[Mobiscroll CLI](https://docs.mobiscroll.com/cli)
 
 ## Upgrade from trial
 

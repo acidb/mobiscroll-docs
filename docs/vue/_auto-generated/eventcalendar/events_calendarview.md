@@ -128,16 +128,6 @@ Type: (args: MbscPageLoadedEvent, inst: EventcalendarBase) => void
 Type: (args: MbscPageLoadingEvent, inst: EventcalendarBase) => void
 
 
-### onResourceCollapse {#event-onResourceCollapse}
-
-Type: (args: MbscResourceCollapseEvent, inst: EventcalendarBase) => void
-
-
-### onResourceExpand {#event-onResourceExpand}
-
-Type: (args: MbscResourceExpandEvent, inst: EventcalendarBase) => void
-
-
 ### onSelectedDateChange {#event-onSelectedDateChange}
 
 Type: (args: MbscSelectedDateChangeEvent, inst: EventcalendarBase) => void

@@ -8,16 +8,6 @@ Type: (args: MbscCellClickEvent, inst: EventcalendarBase) => void
 Type: (args: MbscCellClickEvent, inst: EventcalendarBase) => void
 
 
-### onCellHoverIn {#event-onCellHoverIn}
-
-Type: (args: MbscCellHoverEvent, inst: EventcalendarBase) => void
-
-
-### onCellHoverOut {#event-onCellHoverOut}
-
-Type: (args: MbscCellHoverEvent, inst: EventcalendarBase) => void
-
-
 ### onCellRightClick {#event-onCellRightClick}
 
 Type: (args: MbscCellClickEvent, inst: EventcalendarBase) => void
@@ -106,11 +96,6 @@ Type: (args: MbscEventUpdatedEvent, inst: EventcalendarBase) => void
 ### onInit {#event-onInit}
 
 Type: (args: any, inst: BaseComponent) => void
-
-
-### onLabelClick {#event-onLabelClick}
-
-Type: (args: MbscLabelClickEvent, inst: EventcalendarBase) => void
 
 
 ### onPageChange {#event-onPageChange}

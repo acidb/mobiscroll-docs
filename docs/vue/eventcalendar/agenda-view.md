@@ -4,8 +4,24 @@ sidebar_label: Agenda view
 displayed_sidebar: vueSidebar
 ---
 
+import Options from '../_auto-generated/eventcalendar/options_agenda.md';
+import Events from '../_auto-generated/eventcalendar/events_agenda.md';
+import Localizations from '../_auto-generated/eventcalendar/localizations_agenda.md';
+
 # Agenda view
 
 The agenda calendar displays a list of events for a given period of time (year, month, week or day). It can be used as a stand-alon component or in combination with the calendar.
 
 ![Desktop agenda](https://docs.mobiscroll.com/Content/img/docs/desktop-agenda.png)
+
+## Options
+
+<Options />
+
+## Events
+
+<Events />
+
+## Localizations
+
+<Localizations />

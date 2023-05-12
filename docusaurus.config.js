@@ -67,33 +67,6 @@ const config = {
             type: 'docsVersionDropdown',
           },
           {
-            type: 'dropdown',
-            label: 'Framework',
-            items: [
-              {
-                type: 'doc',
-                label: 'Vue',
-                docId: 'vue/getting-started/overview',
-              },
-              {
-                label: 'Angular',
-                href: 'https://docs.mobiscroll.com/angular',
-              },
-              {
-                label: 'React',
-                href: 'https://docs.mobiscroll.com/react',
-              },
-              {
-                label: 'jQuery',
-                href: 'https://docs.mobiscroll.com/jquery',
-              },
-              {
-                label: 'JavaScript',
-                href: 'https://docs.mobiscroll.com/javascript',
-              },
-            ]
-          },
-          {
             href: 'https://docs.mobiscroll.com/cli',
             label: 'CLI',
             position: 'right',
@@ -138,47 +111,6 @@ const config = {
       },
       footer: {
         style: 'dark',
-        // links: [
-        //   {
-        //     title: 'Docs',
-        //     items: [
-        //       {
-        //         label: 'Tutorial',
-        //         to: '/docs/intro',
-        //       },
-        //     ],
-        //   },
-        //   {
-        //     title: 'Community',
-        //     items: [
-        //       {
-        //         label: 'Stack Overflow',
-        //         href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-        //       },
-        //       {
-        //         label: 'Discord',
-        //         href: 'https://discordapp.com/invite/docusaurus',
-        //       },
-        //       {
-        //         label: 'Twitter',
-        //         href: 'https://twitter.com/docusaurus',
-        //       },
-        //     ],
-        //   },
-        //   {
-        //     title: 'More',
-        //     items: [
-        //       {
-        //         label: 'Blog',
-        //         to: '/blog',
-        //       },
-        //       {
-        //         label: 'GitHub',
-        //         href: 'https://github.com/facebook/docusaurus',
-        //       },
-        //     ],
-        //   },
-        // ],
         copyright: `Copyright © ${new Date().getFullYear()} Acid Media LLC. Built with Docusaurus.`,
       },
       prism: {

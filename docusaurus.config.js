@@ -57,7 +57,7 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'Mobiscroll Docs',
+        title: 'Docs',
         logo: {
           alt: 'Mobiscroll Logo',
           src: 'img/mobiscroll-logo.svg',
@@ -72,30 +72,31 @@ const config = {
             items: [
               {
                 type: 'doc',
-                label: 'Angular',
-                docId: 'angular/getting-started',
-              },
-              {
-                type: 'doc',
-                label: 'React',
-                docId: 'react/getting-started',
-              },
-              {
-                type: 'doc',
-                label: 'jQuery',
-                docId: 'jquery/getting-started',
-              },
-              {
-                type: 'doc',
-                label: 'JavaScript',
-                docId: 'javascript/getting-started',
-              },
-              {
-                type: 'doc',
                 label: 'Vue',
-                docId: 'vue/getting-started',
+                docId: 'vue/getting-started/overview',
+              },
+              {
+                label: 'Angular',
+                href: 'https://docs.mobiscroll.com/angular',
+              },
+              {
+                label: 'React',
+                href: 'https://docs.mobiscroll.com/react',
+              },
+              {
+                label: 'jQuery',
+                href: 'https://docs.mobiscroll.com/jquery',
+              },
+              {
+                label: 'JavaScript',
+                href: 'https://docs.mobiscroll.com/javascript',
               },
             ]
+          },
+          {
+            href: 'https://docs.mobiscroll.com/cli',
+            label: 'CLI',
+            position: 'right',
           },
           {
             type: 'dropdown',
@@ -132,12 +133,7 @@ const config = {
 
             ],
             position: 'right',
-          },
-          {
-            href: 'https://docs.mobiscroll.com/cli',
-            label: 'CLI',
-            position: 'right',
-          },
+          }
         ],
       },
       footer: {

@@ -23,7 +23,7 @@ const config = {
         {
             type: 'link',
             label: 'Mobiscroll for Vue',
-            href: 'vue/getting-started',
+            href: 'vue/getting-started/overview',
         }
     ],
 };

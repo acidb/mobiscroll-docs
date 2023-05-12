@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-sidebar_label: Component overview
+sidebar_label: Overview
 displayed_sidebar: vueSidebar
 ---
 

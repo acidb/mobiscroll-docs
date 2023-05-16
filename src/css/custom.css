@@ -54,25 +54,23 @@
   --ifm-color-primary-lightest: #5ca5e1;
 }
 
-.theme-doc-sidebar-item-category
-{
-  font-size: 1.2em;
+.theme-doc-sidebar-item-category {
   padding-bottom: 30px;
 }
+
 .theme-doc-sidebar-item-category.menu__list-item--collapsed {
   padding-bottom: 0;
 }
 
-.option-list h3
-{
+.option-list h3 {
   --ifm-link-color: #ff5722;
   --ifm-link-hover-color: #ff5722;
   padding-top: 35px;
   color: #ff5722
 }
 
-.option-list h3 + p
-{
+/* styling the option type */
+.option-list h3 + p {
   color: #777;
   font-style: italic;
   margin-bottom: 10px;

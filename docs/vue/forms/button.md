@@ -11,6 +11,8 @@ import Localizations from '../\_auto-generated/button/localizations.md';
 
 The buttons come in several shapes, sizes and colors. Use the click events for attaching myClicks to it and see the examples below for the various renderings.
 
+<div className="option-list">
+
 ## Options
 
 <Options />
@@ -22,3 +24,5 @@ The buttons come in several shapes, sizes and colors. Use the click events for a
 ## Localizations
 
 <Localizations />
+
+</div>

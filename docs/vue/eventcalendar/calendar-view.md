@@ -16,6 +16,8 @@ Use the event calendar as a traditional month view or combine it with an agenda 
 
 ![Mobile month view with agenda](https://docs.mobiscroll.com//Content/img/docs/mobile-calendar.png)
 
+<div className="option-list">
+
 ## Options
 
 <Options />
@@ -27,3 +29,5 @@ Use the event calendar as a traditional month view or combine it with an agenda 
 ## Localizations
 
 <Localizations />
+
+</div>

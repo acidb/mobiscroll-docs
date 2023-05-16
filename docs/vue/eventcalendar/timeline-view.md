@@ -18,6 +18,8 @@ The displayed hours can be modified with the startTime and endTime properties of
 
 ![Desktop monthly timeline](https://docs.mobiscroll.com/Content/img/docs/desktop-timeline.png)
 
+<div className="option-list">
+
 ## Options
 
 <Options />
@@ -29,3 +31,5 @@ The displayed hours can be modified with the startTime and endTime properties of
 ## Localizations
 
 <Localizations />
+
+</div>

@@ -12,6 +12,7 @@ import Localizations from '../_auto-generated/eventcalendar/localizations.md';
 Here is a comprehensive list of all the options, events and method the eventcalendar has.
 
 ## Options
+<div className="option-list">
 
 <Options />
 
@@ -22,3 +23,5 @@ Here is a comprehensive list of all the options, events and method the eventcale
 ## Localizations
 
 <Localizations />
+
+</div>

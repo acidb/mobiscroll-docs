@@ -14,6 +14,8 @@ The agenda calendar displays a list of events for a given period of time (year, 
 
 ![Desktop agenda](https://docs.mobiscroll.com/Content/img/docs/desktop-agenda.png)
 
+<div className="option-list">
+
 ## Options
 
 <Options />
@@ -25,3 +27,5 @@ The agenda calendar displays a list of events for a given period of time (year, 
 ## Localizations
 
 <Localizations />
+
+</div>

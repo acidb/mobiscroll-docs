@@ -7,8 +7,12 @@ displayed_sidebar: vueSidebar
 
 Here is a comprehensive list of all the options, events and method the datepicker has.
 
+<div className="option-list">
+
 ## Options
 
 ## Events
 
 ## Localizations
+
+</div>

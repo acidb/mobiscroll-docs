@@ -1,139 +1,167 @@
-### onCellClick {#event-onCellClick}
+### @cell-click {#event-onCellClick}
 
-Type: (args: MbscCellClickEvent, inst: EventcalendarBase) => void
+(args: MbscCellClickEvent, inst: EventcalendarBase) => void
 
 
-### onCellDoubleClick {#event-onCellDoubleClick}
 
-Type: (args: MbscCellClickEvent, inst: EventcalendarBase) => void
+### @cell-double-click {#event-onCellDoubleClick}
 
+(args: MbscCellClickEvent, inst: EventcalendarBase) => void
 
-### onCellHoverIn {#event-onCellHoverIn}
 
-Type: (args: MbscCellHoverEvent, inst: EventcalendarBase) => void
 
+### @cell-hover-in {#event-onCellHoverIn}
 
-### onCellHoverOut {#event-onCellHoverOut}
+(args: MbscCellHoverEvent, inst: EventcalendarBase) => void
 
-Type: (args: MbscCellHoverEvent, inst: EventcalendarBase) => void
 
 
-### onCellRightClick {#event-onCellRightClick}
+### @cell-hover-out {#event-onCellHoverOut}
 
-Type: (args: MbscCellClickEvent, inst: EventcalendarBase) => void
+(args: MbscCellHoverEvent, inst: EventcalendarBase) => void
 
 
-### onDestroy {#event-onDestroy}
 
-Type: (args: any, inst: BaseComponent) => void
+### @cell-right-click {#event-onCellRightClick}
 
+(args: MbscCellClickEvent, inst: EventcalendarBase) => void
 
-### onEventClick {#event-onEventClick}
 
-Type: (args: MbscEventClickEvent, inst: EventcalendarBase) => void
 
+### @destroy {#event-onDestroy}
 
-### onEventCreate {#event-onEventCreate}
+(args: any, inst: BaseComponent) => void
 
-Type: (args: MbscEventCreateEvent, inst: EventcalendarBase) => void
 
 
-### onEventCreateFailed {#event-onEventCreateFailed}
+### @event-click {#event-onEventClick}
 
-Type: (args: MbscEventCreateFailedEvent, inst: EventcalendarBase) => void
+(args: MbscEventClickEvent, inst: EventcalendarBase) => void
 
 
-### onEventCreated {#event-onEventCreated}
 
-Type: (args: MbscEventCreatedEvent, inst: EventcalendarBase) => void
+### @event-create {#event-onEventCreate}
 
+(args: MbscEventCreateEvent, inst: EventcalendarBase) => void
 
-### onEventDelete {#event-onEventDelete}
 
-Type: (args: MbscEventDeleteEvent, inst: EventcalendarBase) => void
 
+### @event-create-failed {#event-onEventCreateFailed}
 
-### onEventDeleted {#event-onEventDeleted}
+(args: MbscEventCreateFailedEvent, inst: EventcalendarBase) => void
 
-Type: (args: MbscEventDeletedEvent, inst: EventcalendarBase) => void
 
 
-### onEventDoubleClick {#event-onEventDoubleClick}
+### @event-created {#event-onEventCreated}
 
-Type: (args: MbscEventClickEvent, inst: EventcalendarBase) => void
+(args: MbscEventCreatedEvent, inst: EventcalendarBase) => void
 
 
-### onEventDragEnd {#event-onEventDragEnd}
 
-Type: (args: MbscEventDragEvent, inst: EventcalendarBase) => void
+### @event-delete {#event-onEventDelete}
 
+(args: MbscEventDeleteEvent, inst: EventcalendarBase) => void
 
-### onEventDragStart {#event-onEventDragStart}
 
-Type: (args: MbscEventDragEvent, inst: EventcalendarBase) => void
 
+### @event-deleted {#event-onEventDeleted}
 
-### onEventHoverIn {#event-onEventHoverIn}
+(args: MbscEventDeletedEvent, inst: EventcalendarBase) => void
 
-Type: (args: MbscEventClickEvent, inst: EventcalendarBase) => void
 
 
-### onEventHoverOut {#event-onEventHoverOut}
+### @event-double-click {#event-onEventDoubleClick}
 
-Type: (args: MbscEventClickEvent, inst: EventcalendarBase) => void
+(args: MbscEventClickEvent, inst: EventcalendarBase) => void
 
 
-### onEventRightClick {#event-onEventRightClick}
 
-Type: (args: MbscEventClickEvent, inst: EventcalendarBase) => void
+### @event-drag-end {#event-onEventDragEnd}
 
+(args: MbscEventDragEvent, inst: EventcalendarBase) => void
 
-### onEventUpdate {#event-onEventUpdate}
 
-Type: (args: MbscEventUpdateEvent, inst: EventcalendarBase) => void
 
+### @event-drag-start {#event-onEventDragStart}
 
-### onEventUpdateFailed {#event-onEventUpdateFailed}
+(args: MbscEventDragEvent, inst: EventcalendarBase) => void
 
-Type: (args: MbscEventUpdateFailedEvent, inst: EventcalendarBase) => void
 
 
-### onEventUpdated {#event-onEventUpdated}
+### @event-hover-in {#event-onEventHoverIn}
 
-Type: (args: MbscEventUpdatedEvent, inst: EventcalendarBase) => void
+(args: MbscEventClickEvent, inst: EventcalendarBase) => void
 
 
-### onInit {#event-onInit}
 
-Type: (args: any, inst: BaseComponent) => void
+### @event-hover-out {#event-onEventHoverOut}
 
+(args: MbscEventClickEvent, inst: EventcalendarBase) => void
 
-### onLabelClick {#event-onLabelClick}
 
-Type: (args: MbscLabelClickEvent, inst: EventcalendarBase) => void
 
+### @event-right-click {#event-onEventRightClick}
 
-### onPageChange {#event-onPageChange}
+(args: MbscEventClickEvent, inst: EventcalendarBase) => void
 
-Type: (args: MbscPageChangeEvent, inst: EventcalendarBase) => void
 
 
-### onPageLoaded {#event-onPageLoaded}
+### @event-update {#event-onEventUpdate}
 
-Type: (args: MbscPageLoadedEvent, inst: EventcalendarBase) => void
+(args: MbscEventUpdateEvent, inst: EventcalendarBase) => void
 
 
-### onPageLoading {#event-onPageLoading}
 
-Type: (args: MbscPageLoadingEvent, inst: EventcalendarBase) => void
+### @event-update-failed {#event-onEventUpdateFailed}
 
+(args: MbscEventUpdateFailedEvent, inst: EventcalendarBase) => void
 
-### onSelectedDateChange {#event-onSelectedDateChange}
 
-Type: (args: MbscSelectedDateChangeEvent, inst: EventcalendarBase) => void
 
+### @event-updated {#event-onEventUpdated}
 
-### onSelectedEventsChange {#event-onSelectedEventsChange}
+(args: MbscEventUpdatedEvent, inst: EventcalendarBase) => void
 
-Type: (args: MbscSelectedEventsChangeEvent, inst: EventcalendarBase) => void
+
+
+### @init {#event-onInit}
+
+(args: any, inst: BaseComponent) => void
+
+
+
+### @label-click {#event-onLabelClick}
+
+(args: MbscLabelClickEvent, inst: EventcalendarBase) => void
+
+
+
+### @page-change {#event-onPageChange}
+
+(args: MbscPageChangeEvent, inst: EventcalendarBase) => void
+
+
+
+### @page-loaded {#event-onPageLoaded}
+
+(args: MbscPageLoadedEvent, inst: EventcalendarBase) => void
+
+
+
+### @page-loading {#event-onPageLoading}
+
+(args: MbscPageLoadingEvent, inst: EventcalendarBase) => void
+
+
+
+### @selected-date-change {#event-onSelectedDateChange}
+
+(args: MbscSelectedDateChangeEvent, inst: EventcalendarBase) => void
+
+
+
+### @selected-events-change {#event-onSelectedEventsChange}
+
+(args: MbscSelectedEventsChangeEvent, inst: EventcalendarBase) => void
+
 

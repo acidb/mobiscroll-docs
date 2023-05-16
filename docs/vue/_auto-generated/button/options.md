@@ -1,90 +1,105 @@
 ### ariaLabel {#opt-ariaLabel}
 
-Type: string
+string
+
 Specifies the `aria-label` attribute value assigned to the component.
 
 **Default value**: `undefined`
 ### color {#opt-color}
 
-Type: "primary" &#124; "secondary" &#124; "success" &#124; "danger" &#124; "warning" &#124; "info" &#124; "dark" &#124; "light"
+"primary" &#124; "secondary" &#124; "success" &#124; "danger" &#124; "warning" &#124; "info" &#124; "dark" &#124; "light"
+
 Specifies the predefined color to style the component.
 ### cssClass {#opt-cssClass}
 
-Type: string
+string
+
 Applies custom css class to the top level element.
 
 **Default value**: undefined
 ### disabled {#opt-disabled}
 
-Type: boolean
+boolean
+
 Specifies the initial disabled state of the component.
 
 **Default value**: `undefined`
 ### endIcon {#opt-endIcon}
 
-Type: any
+any
+
 Specifies the icon name for the form components which will be displayed on the end of the component.
 A font-icon name should be passed. Use [startIcon](#startIcon) option for specifying icon to the opposite side.
 
 **Default value**: `false`
 ### endIconSvg {#opt-endIconSvg}
 
-Type: string
+string
+
 Specifies the svg for the form components which will be displayed on the end of the component.
 An svg should be passed. Use [startIconSvg](#startIconSvg) option for specifying svg to the opposite side.
 
 **Default value**: `undefined`
 ### icon {#opt-icon}
 
-Type: any
+any
+
 Specifies the icon for an icon-only button. An svg should be passed.
 
 **Default value**: `undefined`
 ### iconSrc {#opt-iconSrc}
 
-Type: string
+string
+
 Specifies the icon for an icon-only button. A font-icon name should be passed.
 
 **Default value**: `undefined`
 ### iconSvg {#opt-iconSvg}
 
-Type: string
+string
+
 Specifies the svg for an icon-only button. An image path should be passed.
 
 **Default value**: `undefined`
 ### role {#opt-role}
 
-Type: "button" &#124; "none"
+"button" &#124; "none"
+
 Specifies the aria `role` attribute value assigned to the component.
 ### startIcon {#opt-startIcon}
 
-Type: any
+any
+
 Specify the font icon for the form components which will be displayed on the start of the component.
 A font-icon name should be passed. Use [endIconSvg](#endIconSvg) option for specifying icon to the opposite side.
 
 **Default value**: `'button'`
 ### startIconSvg {#opt-startIconSvg}
 
-Type: string
+string
+
 Specify the icon svg for the form components which will be displayed on the start of the component.
 An svg should be passed. Use [endIconSvg](#endIconSvg) option for specifying svg to the opposite side.
 
 **Default value**: `undefined`
 ### tabIndex {#opt-tabIndex}
 
-Type: number
+number
+
 Specifies the tabIndex html attribute of the component.
 
 **Default value**: `0`
 ### tag {#opt-tag}
 
-Type: "a" &#124; "button" &#124; "span"
+"a" &#124; "button" &#124; "span"
+
 Specifies which HTML tag will be used to render the component.
 
 **Default value**: `'button'`
 ### theme {#opt-theme}
 
-Type: string
+string
+
 Specifies the visual appearance of the component.
 
 If it is &#039;auto&#039; or undefined, the theme will automatically be chosen based on the platform.
@@ -104,7 +119,8 @@ Make sure that the theme you set is included in the downloaded package.
 **Default value**: undefined
 ### themeVariant {#opt-themeVariant}
 
-Type: "dark" &#124; "light" &#124; "auto"
+"dark" &#124; "light" &#124; "auto"
+
 Controls which variant of the theme will be used (light or dark).
 
 Possible values:
@@ -119,13 +135,15 @@ suffixed with &#039;-dark&#039;, e.g.: &#039;my-theme&#039; and &#039;my-theme-d
 **Default value**: undefined
 ### type {#opt-type}
 
-Type: "button" &#124; "reset" &#124; "submit"
+"button" &#124; "reset" &#124; "submit"
+
 Specifies the type of the button.
 
 **Default value**: `undefined`
 ### variant {#opt-variant}
 
-Type: "standard" &#124; "flat" &#124; "outline"
+"standard" &#124; "flat" &#124; "outline"
+
 Specifies the rendered style of the button.
 
 **Default value**: `standard`

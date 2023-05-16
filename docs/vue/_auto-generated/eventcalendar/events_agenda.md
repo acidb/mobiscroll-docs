@@ -1,64 +1,77 @@
-### onDestroy {#event-onDestroy}
+### @destroy {#event-onDestroy}
 
-Type: (args: any, inst: BaseComponent) => void
-
-
-### onEventClick {#event-onEventClick}
-
-Type: (args: MbscEventClickEvent, inst: EventcalendarBase) => void
+(args: any, inst: BaseComponent) => void
 
 
-### onEventDeleted {#event-onEventDeleted}
 
-Type: (args: MbscEventDeletedEvent, inst: EventcalendarBase) => void
+### @event-click {#event-onEventClick}
 
-
-### onEventDoubleClick {#event-onEventDoubleClick}
-
-Type: (args: MbscEventClickEvent, inst: EventcalendarBase) => void
+(args: MbscEventClickEvent, inst: EventcalendarBase) => void
 
 
-### onEventHoverIn {#event-onEventHoverIn}
 
-Type: (args: MbscEventClickEvent, inst: EventcalendarBase) => void
+### @event-deleted {#event-onEventDeleted}
 
-
-### onEventHoverOut {#event-onEventHoverOut}
-
-Type: (args: MbscEventClickEvent, inst: EventcalendarBase) => void
+(args: MbscEventDeletedEvent, inst: EventcalendarBase) => void
 
 
-### onEventRightClick {#event-onEventRightClick}
 
-Type: (args: MbscEventClickEvent, inst: EventcalendarBase) => void
+### @event-double-click {#event-onEventDoubleClick}
 
-
-### onInit {#event-onInit}
-
-Type: (args: any, inst: BaseComponent) => void
+(args: MbscEventClickEvent, inst: EventcalendarBase) => void
 
 
-### onPageChange {#event-onPageChange}
 
-Type: (args: MbscPageChangeEvent, inst: EventcalendarBase) => void
+### @event-hover-in {#event-onEventHoverIn}
 
-
-### onPageLoaded {#event-onPageLoaded}
-
-Type: (args: MbscPageLoadedEvent, inst: EventcalendarBase) => void
+(args: MbscEventClickEvent, inst: EventcalendarBase) => void
 
 
-### onPageLoading {#event-onPageLoading}
 
-Type: (args: MbscPageLoadingEvent, inst: EventcalendarBase) => void
+### @event-hover-out {#event-onEventHoverOut}
 
-
-### onSelectedDateChange {#event-onSelectedDateChange}
-
-Type: (args: MbscSelectedDateChangeEvent, inst: EventcalendarBase) => void
+(args: MbscEventClickEvent, inst: EventcalendarBase) => void
 
 
-### onSelectedEventsChange {#event-onSelectedEventsChange}
 
-Type: (args: MbscSelectedEventsChangeEvent, inst: EventcalendarBase) => void
+### @event-right-click {#event-onEventRightClick}
+
+(args: MbscEventClickEvent, inst: EventcalendarBase) => void
+
+
+
+### @init {#event-onInit}
+
+(args: any, inst: BaseComponent) => void
+
+
+
+### @page-change {#event-onPageChange}
+
+(args: MbscPageChangeEvent, inst: EventcalendarBase) => void
+
+
+
+### @page-loaded {#event-onPageLoaded}
+
+(args: MbscPageLoadedEvent, inst: EventcalendarBase) => void
+
+
+
+### @page-loading {#event-onPageLoading}
+
+(args: MbscPageLoadingEvent, inst: EventcalendarBase) => void
+
+
+
+### @selected-date-change {#event-onSelectedDateChange}
+
+(args: MbscSelectedDateChangeEvent, inst: EventcalendarBase) => void
+
+
+
+### @selected-events-change {#event-onSelectedEventsChange}
+
+(args: MbscSelectedEventsChangeEvent, inst: EventcalendarBase) => void
+
 

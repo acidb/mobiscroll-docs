@@ -1,9 +1,11 @@
-### onDestroy {#event-onDestroy}
+### @destroy {#event-onDestroy}
 
-Type: (args: any, inst: BaseComponent) => void
+(args: any, inst: BaseComponent) => void
 
 
-### onInit {#event-onInit}
 
-Type: (args: any, inst: BaseComponent) => void
+### @init {#event-onInit}
+
+(args: any, inst: BaseComponent) => void
+
 

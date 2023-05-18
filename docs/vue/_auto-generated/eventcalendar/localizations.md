@@ -249,4 +249,4 @@ string
 
 Text for week numbers in the timeline header. The {count} inside the string will be replaced with the number of the current week.
 
-**Default value**: &#039;Today&#039;
+**Default value**: 'Week {count}'

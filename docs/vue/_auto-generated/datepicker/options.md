@@ -249,17 +249,7 @@ Possible values are:
 [IANA time zone database](https://gist.github.com/aviflax/a4093965be1cd008f172) ex. &quot;America/New_York
 
 **Default value**: &#039;local&#039;
-### enableStartOnly {#opt-enableStartOnly}
-
-boolean
-
-
 ### endIcon {#opt-endIcon}
-
-string
-
-
-### endIconSrc {#opt-endIconSrc}
 
 string
 
@@ -639,16 +629,12 @@ min: '2021-08-22T08:00
 will limit the selection to August 22nd 8 o&#039;clock, but will allow selection of times earlier than 8 o&#039;clock on dates after Aug. 22nd.
 :::caution
 This option can&#039;t be used with the [[&#039;datetime&#039;] control](#opt-controls).
+:::
 
 **Default value**: undefined
 ### minWheelWidth {#opt-minWheelWidth}
 
 number &#124; Array&lt;number&gt;
-
-
-### modelValue {#opt-modelValue}
-
-any
 
 
 ### moment {#opt-moment}
@@ -958,11 +944,6 @@ Show week numbers on the calendar view. Enumeration starts with the first week o
 
 **Default value**: false
 ### startIcon {#opt-startIcon}
-
-string
-
-
-### startIconSrc {#opt-startIconSrc}
 
 string
 

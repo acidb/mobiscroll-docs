@@ -12,8 +12,10 @@ import Methods from '../_auto-generated/eventcalendar/methods.md';
 
 Here is a comprehensive list of all the options, events and method the eventcalendar has.
 
-## Options
 <div className="option-list">
+
+## Options
+
 
 <Options />
 
@@ -21,7 +23,7 @@ Here is a comprehensive list of all the options, events and method the eventcale
 
 <Events />
 
-## Localizations
+## Localization
 
 <Localizations />
 

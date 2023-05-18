@@ -16,6 +16,7 @@ The following example will create an event calendar with the default options.
 <script setup>
 import { MbscEventcalendar } from '@mobiscroll/vue';
 </script>
+
 <template>
     <MbscEventcalendar></MbscEventcalendar>
 </template>
@@ -44,6 +45,7 @@ const myData = ref([{
     title: 'My Second Event'
 }]);
 </script>
+
 <template>
     <MbscEventcalendar :data="myData"></MbscEventcalendar>
 </template>
@@ -67,6 +69,7 @@ onMounted(() => {
   );
 });
 </script>
+
 <template>
     <MbscEventcalendar :data="myData"></MbscEventcalendar>
 </template>
@@ -96,6 +99,7 @@ function handlePageLoading(args) {
   );
 }
 </script>
+
 <template>
   <MbscEventcalendar :data="myEvents" @page-loading="handlePageLoading" />
 </template>

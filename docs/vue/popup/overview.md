@@ -21,6 +21,7 @@ import { MbscPopup } from '@mobiscroll/vue';
 
 const isPopupOpen = ref(true)
 </script>
+
 <template>
     <MbscPopup :isOpen="isPopupOpen">
         <div>

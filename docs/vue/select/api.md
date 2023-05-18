@@ -13,6 +13,6 @@ Here is a comprehensive list of all the options, events and method the select co
 
 ## Events
 
-## Localizations
+## Localization
 
 </div>

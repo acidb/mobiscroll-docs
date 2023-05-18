@@ -62,6 +62,17 @@
   padding-bottom: 0;
 }
 
+.option-list {
+  --ifm-paragraph-margin-bottom: 5px;
+}
+
+/* group headers like: Options, Events, Localization */
+.option-list h2 {
+  --ifm-heading-margin-top: 60px;
+  --ifm-h2-font-size: 26px;
+}
+
+/* individual options name and link */
 .option-list h3 {
   --ifm-link-color: #ff5722;
   --ifm-link-hover-color: #ff5722;
@@ -69,13 +80,9 @@
   color: #ff5722
 }
 
-/* styling the option type */
+/* individual options type */
 .option-list h3 + p {
   color: #777;
   font-style: italic;
   margin-bottom: 10px;
-}
-
-.option-list {
-  --ifm-paragraph-margin-bottom: 5px;
 }

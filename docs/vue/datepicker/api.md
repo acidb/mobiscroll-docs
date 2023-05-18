@@ -3,6 +3,11 @@ sidebar_label: API
 displayed_sidebar: vueSidebar
 ---
 
+import Options from '../_auto-generated/datepicker/options.md';
+import Events from '../_auto-generated/datepicker/events.md';
+import Localizations from '../_auto-generated/datepicker/localizations.md';
+import Methods from '../_auto-generated/datepicker/methods.md';
+
 # Datepicker API
 
 Here is a comprehensive list of all the options, events and method the datepicker has.
@@ -11,8 +16,18 @@ Here is a comprehensive list of all the options, events and method the datepicke
 
 ## Options
 
+<Options />
+
 ## Events
 
+<Events />
+
 ## Localizations
+
+<Localizations />
+
+## Method
+
+<Methods />
 
 </div>

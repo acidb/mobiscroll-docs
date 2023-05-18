@@ -249,11 +249,6 @@ Possible values are:
 [IANA time zone database](https://gist.github.com/aviflax/a4093965be1cd008f172) ex. &quot;America/New_York
 
 **Default value**: &#039;local&#039;
-### dropdown {#opt-dropdown}
-
-boolean
-
-
 ### enableStartOnly {#opt-enableStartOnly}
 
 boolean
@@ -379,12 +374,77 @@ as end date.
 
 boolean
 
+Allow the typing into the input field in desktop mode.
 
+**Default value**: true
 ### invalid {#opt-invalid}
 
 Array&lt;DateType&gt; &#124; Array&lt;IValidateProps&gt;
 
+An array containing the invalid values. Can contain dates (Javascript Date objects, ISO 8601 strings, or moment objects),
+or objects with the following properties:
+- allDay: Boolean - If true the specified date will cover the whole day.
+- start: Date, String, Object - Start of the invalid range.
+- end: Date, String, Object - End of the invalid range.
+- recurring: String, Object - Recurrence rule for recurring invalid ranges.
+- recurringException: String, Object, Array - Represents the exception rule of a recurring invalid.
+Useful when specific dates need to be skipped from the rule.
+- recurringExceptionRule: String, Object - Represents the exception rule of a recurring invalid.
+Useful when recurring dates need to be skipped from the rule.
+- title: String - Text which will be displayed on the schedule view for the invalid range.
+- resource: String, Number, Array - specify [resource](#opt-resources) ids for the invalid range.
+The invalid range will be displayed only for the specified resources.
+If there is no resource defined, the invalid range will be displayed for every resource.
+- slot: String, Number - specify [slot](#opt-slots) ids for the invalid range.
+The invalid range will be displayed only for the specified slot.
+If there is no slot defined, the invalid range will be displayed for every slot.
+- cssClass: String - Specifies the custom CSS class name of the invalid.
+Useful when customization is needed for specific invalids.
+This property is only applicable in the case of the scheduler and timeline view.
 
+:::info
+Use the [getInvalids](#method-getInvalids) method to get the invalids between two dates.
+:::
+
+```js title="Example"
+invalid: [
+  // Passing exact dates and times
+   new Date(2021, 1, 7), // Date object
+  '2021-10-15T12:00', // ISO 8601 string
+   moment("2020-12-25"), // moment object
+
+   // Passing invalid ranges
+   {
+     // ISO 8601 strings
+     start: '2021-10-15T12:00',
+     end: '2021-10-18T13:00',
+     title: 'Company 10th anniversary',
+   },
+   {
+     // Date objects
+     allDay: true,
+     start: new Date(2021, 2, 7),
+     end: new Date(2021, 2, 9),
+     title: 'Conference for the whole team',
+   },
+   {
+     // Time range with recurrence
+     start: '13:00',
+     end: '12:00',
+     recurring: { repeat: 'weekly', weekDays: 'MO,TU,WE,TH,FR' },
+     title: 'Lunch break',
+   },
+   {
+     // Disable weekends
+     recurring: {
+         repeat: 'weekly',
+         weekDays: 'SA,SU'
+     }
+   }
+];
+```
+
+**Default value**: undefined
 ### isOpen {#opt-isOpen}
 
 boolean
@@ -826,14 +886,14 @@ and the current view button together with the year and month picker.
 
 boolean
 
-Displays the native tooltip that shows up when hovering over the event.
 
-**Default value**: true
 ### showInput {#opt-showInput}
 
 boolean
 
+If true, it will render an input field for the component.
 
+**Default value**: true
 ### showLabelCount {#opt-showLabelCount}
 
 boolean
@@ -843,12 +903,16 @@ boolean
 
 boolean
 
+Opens the component on element click/tap.
 
+**Default value**: true
 ### showOnFocus {#opt-showOnFocus}
 
 boolean
 
+Pops up the component on element focus.
 
+**Default value**: false on desktop, true on mobile
 ### showOuterDays {#opt-showOuterDays}
 
 boolean
@@ -1031,11 +1095,6 @@ whoknows
 ### valueEquality {#opt-valueEquality}
 
 whoknows
-
-
-### valueMap {#opt-valueMap}
-
-any
 
 
 ### wheelWidth {#opt-wheelWidth}

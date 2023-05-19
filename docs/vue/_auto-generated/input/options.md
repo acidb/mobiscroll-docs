@@ -52,7 +52,7 @@ Controls the error message of the component. If [error option](#opt-error) is se
 **Default value**: undefined
 ### inputStyle {#opt-inputStyle}
 
-"outline" &#124; "box" &#124; "underline"
+"outline" &#124; "underline" &#124; "box"
 
 Defines the input rendering mode. By default the input has the underline styling. Possible values:
  - &#039;underline&#039;
@@ -94,7 +94,7 @@ Defines the password toggle visibility on a password field.
 **Default value**: false
 ### responsive {#opt-responsive}
 
-whoknows
+missing
 
 Specifies different settings for different container widths, in a form of an object,
 where the keys are the name of the breakpoints, and the values are objects containing the settings for the given breakpoint.

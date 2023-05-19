@@ -90,7 +90,9 @@ Can be a selector string or a DOM element.
 
 string
 
+Applies custom css class to the top level element.
 
+**Default value**: undefined
 ### data {#opt-data}
 
 Array&lt;MbscCalendarEvent&gt;
@@ -258,7 +260,8 @@ When using timezones the [exclusiveEndDates option](#opt-exclusiveEndDates) defa
 :::
 ### extendDefaultEvent {#opt-extendDefaultEvent}
 
-whoknows
+(args: MbscNewEventData) => MbscCalendarEvent
+
 
 
 ### externalDrop {#opt-externalDrop}
@@ -470,7 +473,7 @@ If undefined, in case of scheduler/timeline will default to today, in other view
 **Default value**: undefined
 ### responsive {#opt-responsive}
 
-whoknows
+missing
 
 Specifies different settings for different container widths, in a form of an object,
 where the keys are the name of the breakpoints, and the values are objects containing the settings for the given breakpoint.

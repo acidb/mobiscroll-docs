@@ -1,28 +1,74 @@
-### activeElm {#opt-activeElm}
-
-string &#124; HTMLElement
-
-
 ### anchor {#opt-anchor}
 
 HTMLElement
 
-
-### anchorAlign {#opt-anchorAlign}
-
-"center" &#124; "start" &#124; "end"
-
-
+Specifies the anchor element for positioning, if [display](#opt-display) is set to &#039;anchored&#039;.
 ### animation {#opt-animation}
 
 boolean &#124; "pop" &#124; "slide-down" &#124; "slide-up"
 
-
+Animation to use for opening/closing of the control (if [display](#opt-display) is not inline).
+Possible values:
+ - &#039;pop&#039;
+ - &#039;slide-down&#039;
+ - &#039;slide-up&#039;
+If false, turns the animation off.
 ### buttons {#opt-buttons}
 
 Array&lt;string &#124; MbscPopupButton&gt;
 
+Buttons to display. Each item in the array will be a button. A button can be specified as a string, or as a button object.
 
+If a string, it must be one of the predefined buttons:
+ - &#039;ok&#039; - Approve action (if applicable). It&#039;s the same as the &#039;set&#039; button, but will display the caption specified by the
+[okText option](#localization-okText). Just like the &#039;set&#039; button, it will trigger the [onSet event](#event-onSet), when pressed.
+ - &#039;cancel&#039; - Dismisses the popup.
+
+:::note
+To modify the text of the predefined buttons, you can use the [okText](#localization-okText),
+[cancelText](#localization-cancelText) options.
+:::
+
+Every passed object can have the following properties:
+ - text - String - Text of the button.
+ - handler - String, Function - The function which will run when the button is pressed. If a string, it must be one of the predefined
+button handlers:
+   - &#039;set&#039; - Approve action (if applicable).
+   - &#039;cancel&#039; - Dismisses the popup.
+ - icon - String (Optional) - Icon of the button.
+ - cssClass - String (Optional) - Css class of the button.
+ - disabled - Boolean (Optional) - Sets the disabled state of the button.
+ - keyCode - Number, String, Array (Optional) - The key code associated with the button to activate it from keyboard.
+Can be a single value or multiple value passed as an array. Predifine string values are:
+   - &#039;enter&#039;
+   - &#039;esc&#039;
+   - &#039;space&#039;
+
+```js title="Predefined and custom buttons"
+buttons: [
+  'set',
+  {
+    text: 'Custom',
+    icon: 'checkmark',
+    cssClass: 'my-btn',
+    handler: function (event) {
+      alert('Custom button clicked!');
+    }
+  },
+  'cancel'
+]
+```
+```js title="Using a predefined handler"
+buttons: [
+  'set',
+  {
+    text: 'Hide',
+    handler: 'cancel',
+    icon: 'close',
+    cssClass: 'my-btn'
+  }
+]
+```
 ### calendarScroll {#opt-calendarScroll}
 
 "horizontal" &#124; "vertical"
@@ -67,41 +113,21 @@ the [calendarSize option](#opt-calendarSize) (grid month view).
 In case of &#039;week&#039; set the number of displayed weeks using the [calendarSize option](#opt-calendarSize).
 
 **Default value**: 'month'
-### cancelText {#opt-cancelText}
-
-string
-
-
 ### circular {#opt-circular}
 
 boolean &#124; Array&lt;boolean&gt;
-
-
-### clearText {#opt-clearText}
-
-string
 
 
 ### closeOnEsc {#opt-closeOnEsc}
 
 boolean
 
-
+If true, the popup is closed on ESC keypress.
 ### closeOnOverlayClick {#opt-closeOnOverlayClick}
 
 boolean
 
-
-### closeOnScroll {#opt-closeOnScroll}
-
-boolean
-
-
-### closeText {#opt-closeText}
-
-string
-
-
+If true, the popup is closed on overlay tap/click.
 ### colors {#opt-colors}
 
 Array&lt;MbscCalendarColor&gt;
@@ -227,7 +253,14 @@ Initial disabled state of the component. This will take no effect in inline disp
 
 MbscPopupDisplay
 
-
+Controls the positioning of the component. Possible options:
+ - &#039;center&#039; - The component appears as a popup at the center of the viewport.
+ - &#039;inline&#039; - If called on div element, the component is placed inside the div (overwriting existing content), otherwise
+is placed after the original element.
+ - &#039;anchored&#039; - The component appears positioned to the element defined by the [anchor option](#opt-anchor). By default the anchor
+is the original element.
+ - &#039;top&#039; - The component appears docked to the top of the viewport.
+ - &#039;bottom&#039; - The component appears docked to the bottom of the viewport.
 ### displayTimezone {#opt-displayTimezone}
 
 string
@@ -311,17 +344,12 @@ on the localization used.
 
 boolean
 
-
-### focusOnOpen {#opt-focusOnOpen}
-
-boolean
-
-
+Element to focus after the popup is closed. If undefined, the original element will be focused. If false, no focusing will occur.
 ### focusTrap {#opt-focusTrap}
 
 boolean
 
-
+If not in inline mode, focus won&#039;t be allowed to leave the popup.
 ### fromText {#opt-fromText}
 
 string
@@ -331,17 +359,18 @@ string
 
 boolean
 
-
+If true, the popup will appear in full screen, but, by default, its width and height won&#039;t exceed 600px.
+You can change that using the [maxWidth](#opt-maxWidth) and [maxHeight](#opt-maxHeight) options.
 ### headerText {#opt-headerText}
 
 string
 
-
+Text to display in the header.
 ### height {#opt-height}
 
 string &#124; number
 
-
+Sets the height of the component.
 ### inRangeInvalid {#opt-inRangeInvalid}
 
 boolean
@@ -359,7 +388,7 @@ as end date.
 **Default value**: false
 ### inputStyle {#opt-inputStyle}
 
-"outline" &#124; "box" &#124; "underline"
+"outline" &#124; "underline" &#124; "box"
 
 Defines the input rendering mode. By default the input has the underline styling. Possible values:
  - &#039;underline&#039;
@@ -444,7 +473,8 @@ invalid: [
 
 boolean
 
-
+Specifies wether the popup is opened or not. Use it together with the [onClose event](#event-onClose), by setting it
+to false when the popup closes.
 ### itemHeight {#opt-itemHeight}
 
 number
@@ -562,7 +592,7 @@ use the [invalid](#opt-invalid) option with daily recurrence starting from the s
 
 string &#124; number
 
-
+Sets the maximum height of the component. If not specified, on larger screens (>=768px width) it defaults to 600px.
 ### maxRange {#opt-maxRange}
 
 number
@@ -602,7 +632,7 @@ number &#124; Array&lt;number&gt;
 
 string &#124; number
 
-
+Sets the maximum width of the component.
 ### min {#opt-min}
 
 DateType
@@ -657,14 +687,10 @@ this setting should be passed the reference to the Moment.js library.
 Check out our example on how to pass moment to the datepicker!
 
 **Default value**: undefined
-### okText {#opt-okText}
-
-string
-
-
 ### onWheelMove {#opt-onWheelMove}
 
-whoknows
+(args: IWheelMoveArgs) => undefined &#124; Array&lt;any&gt;
+
 
 
 ### pages {#opt-pages}
@@ -722,7 +748,7 @@ any
 
 ### responsive {#opt-responsive}
 
-whoknows
+missing
 
 Specifies different settings for different container widths, in a form of an object,
 where the keys are the name of the breakpoints, and the values are objects containing the settings for the given breakpoint.
@@ -791,7 +817,7 @@ boolean
 
 boolean
 
-
+Disables page scrolling on touchmove (if not in inline mode, and popup height is less than window height).
 ### select {#opt-select}
 
 "date" &#124; "range" &#124; "preset-range"
@@ -845,21 +871,17 @@ The selection will start depending on the [firstSelectDay option](#opt-firstSele
 by the selectSize.
 
 **Default value**: 7
-### setText {#opt-setText}
-
-string
-
-
 ### shouldValidate {#opt-shouldValidate}
 
-whoknows
+(s: any, prevS: any) => boolean
+
 
 
 ### showArrow {#opt-showArrow}
 
 boolean
 
-
+Show or hide the popup arrow, when [display mode](#opt-display) is &#039;anchored&#039;.
 ### showControls {#opt-showControls}
 
 boolean
@@ -916,7 +938,7 @@ Outer days are automatically hidden if [calendarScroll](#opt-calendarScroll) is 
 
 boolean
 
-
+Show or hide overlay.
 ### showRangeLabels {#opt-showRangeLabels}
 
 boolean
@@ -1068,12 +1090,14 @@ Array&lt;DateType&gt; &#124; Array&lt;IValidateProps&gt;
 
 ### validate {#opt-validate}
 
-whoknows
+(args: IScrollerValidateArgs) => {disabled: Array&lt;any&gt;, indexes: Array&lt;number&gt;, init: boolean, valid: Array&lt;any&gt;}
+
 
 
 ### valueEquality {#opt-valueEquality}
 
-whoknows
+(v1: any, v2: any) => boolean
+
 
 
 ### wheelWidth {#opt-wheelWidth}
@@ -1085,7 +1109,7 @@ number &#124; Array&lt;number&gt;
 
 string &#124; number
 
-
+Sets the width of the popup container. This will take no effect in inline display mode.
 ### yearSuffix {#opt-yearSuffix}
 
 string

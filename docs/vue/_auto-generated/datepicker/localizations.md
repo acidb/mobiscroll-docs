@@ -12,6 +12,16 @@ string
 Text for AM.
 
 **Default value**: &#039;am&#039;
+### cancelText {#localization-cancelText}
+
+string
+
+Text for Cancel button.
+### closeText {#localization-closeText}
+
+string
+
+Text for the close button.
 ### dateFormat {#localization-dateFormat}
 
 string
@@ -219,6 +229,11 @@ string
 Label for the [&#039;Now&#039; button](#opt-buttons).
 
 **Default value**: 'Now'
+### okText {#localization-okText}
+
+string
+
+Text for Ok button.
 ### pmText {#localization-pmText}
 
 string
@@ -284,6 +299,11 @@ Specifies the amount of selected items according to the rules of particular lang
 the number of selected items.
 
 **Default value**: '{count} selected'
+### setText {#localization-setText}
+
+string
+
+Text for Set button.
 ### timeFormat {#localization-timeFormat}
 
 string

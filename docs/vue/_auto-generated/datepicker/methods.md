@@ -1,64 +1,50 @@
-### onCancel {#method-onCancel}
+### close
 
-(args: any, inst: any) => void
-
-
+() => void
 
 
-Parameters:
- - args - 
+Closes the component.
+### getTempVal
 
- - inst - 
-
-
-### onChange {#method-onChange}
-
-(args: any, inst: any) => void
+() => null &#124; DateType &#124; Array&lt;DateType&gt; &#124; [null &#124; DateType, null &#124; DateType]
 
 
+Returns the temporary value selected on the datepicker.
+### isVisible
+
+() => boolean
 
 
-Parameters:
- - args - 
+Returns a boolean indicating whether the component is visible or not.
+### navigate
 
- - inst - 
-
-
-### onClose {#method-onClose}
-
-(args: any, inst: any) => void
+(date: DateType) => void
 
 
+Display a specific month on the calendar without setting the date.
+### open
+
+() => void
 
 
-Parameters:
- - args - 
+Opens the component.
+### position
 
- - inst - 
-
-
-### onOpen {#method-onOpen}
-
-(args: any, inst: any) => void
+() => void
 
 
+Recalculates the position of the component (if not inline).
+### setActiveDate
+
+(active: "start" &#124; "end") => void
 
 
-Parameters:
- - args - 
+Sets which date or time is currently selected (start or end).
+### setTempVal
 
- - inst - 
-
-
-### onResize {#method-onResize}
-
-(args: any, inst: any) => void
+(value: null &#124; DateType &#124; Array&lt;null &#124; DateType&gt;) => void
 
 
-
-
-Parameters:
- - args - 
-
- - inst - 
-
+Sets the datepicker temporary value. This temp value is shown on the picker until the selection.
+In the case of inline mode or when the touchUi setting is false the value will be set to the Model as well,
+since in these cases there&#039;s no temporary value.

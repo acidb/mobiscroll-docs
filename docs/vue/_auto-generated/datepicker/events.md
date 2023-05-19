@@ -1,6 +1,6 @@
 ### @active-date-change {#event-onActiveDateChange}
 
-(event: whoknows, inst: any) => void
+(event: {active: "start" &#124; "end"}, inst: any) => void
 
 
 In range selection mode, the onActiveDateChange event is triggered when the active date changes from start to end or vice versa.
@@ -10,6 +10,20 @@ Parameters:
    - active: string - The activated part of the range: either &#039;start&#039; or &#039;end&#039;.
 
  - inst - The instance object of the datepicker.
+
+
+### @cancel {#event-onCancel}
+
+(args: any, inst: any) => void
+
+
+Allows you to define your own event when cancel is pressed.
+
+Parameters:
+ - args - The args object has the following properties:
+   - valueText: String - The selected value as text.
+
+ - inst - The instance object of the picker
 
 
 ### @cell-click {#event-onCellClick}
@@ -27,6 +41,36 @@ Parameters:
    - target: HTMLElement - The DOM element of the clicked cell.
 
  - inst - Object - The instance object of the datepicker.
+
+
+### @change {#event-onChange}
+
+(args: any, inst: any) => void
+
+
+Triggered when the value is changed.
+
+Parameters:
+ - args - Object - The args object has the following properties:
+   - value - The selected value
+   - valueText: String - The selected value as text (if any).
+
+ - inst - The instance object of the picker
+
+
+### @close {#event-onClose}
+
+(args: any, inst: any) => void
+
+
+Triggered when the component is closed.
+
+Parameters:
+ - args - Object - The args object has the following properties:
+   - source: String - Determines what triggered the close event. Can be one of &#039;set&#039;, &#039;cancel&#039;, &#039;ok&#039;, &#039;close&#039;,
+&#039;overlay&#039;, &#039;esc&#039;, &#039;scroll&#039;.
+
+ - inst - Object - The instance object of the component
 
 
 ### @destroy {#event-onDestroy}
@@ -71,6 +115,20 @@ Parameters:
    - target: HTMLElement - The DOM element of the label.
 
  - inst - Object - The instance object of the datepicker.
+
+
+### @open {#event-onOpen}
+
+(args: any, inst: any) => void
+
+
+Triggered when the component is opened.
+
+Parameters:
+ - args - Object - The args object has the following properties:
+   - target: Object - The DOM element containing the generated html.
+
+ - inst - Object - The instance object of the popup.
 
 
 ### @page-change {#event-onPageChange}
@@ -123,7 +181,7 @@ Parameters:
 
 ### @temp-change {#event-onTempChange}
 
-(event: whoknows, inst: any) => void
+(event: {value: DateType &#124; Array&lt;DateType&gt;}, inst: any) => void
 
 
 Triggered when the temporary value is changed.

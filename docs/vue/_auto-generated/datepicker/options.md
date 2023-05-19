@@ -253,12 +253,14 @@ Possible values are:
 
 string
 
-
+Specify the icon name for the form components which will be displayed on the end of the component.
+Use [startIcon option](#opt-startIcon) for specifying icon to the opposite side.
 ### endIconSvg {#opt-endIconSvg}
 
 string
 
-
+Specify the icon svg for the form components which will be displayed on the end of the component.
+Use [startIconSvg option](#opt-startIconSvg) for specifying icon to the opposite side.
 ### endInput {#opt-endInput}
 
 any

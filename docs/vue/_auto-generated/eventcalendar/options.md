@@ -107,7 +107,7 @@ any
 Specify the DOM element in which the component is appended and positioned (if not inline).
 Can be a selector string or a DOM element.
 
-**Default value**: &#039;body&#039;
+**Default value**: 'body'
 ### cssClass {#opt-cssClass}
 
 string
@@ -662,6 +662,7 @@ It&#039;s possible to [modify theme colors or create custom themes](https://docs
 :::note
 Make sure that the theme you set is included in the downloaded package.
 :::
+
 **Default value**: undefined
 ### themeVariant {#opt-themeVariant}
 
@@ -709,7 +710,7 @@ Can be used with the responsive option to change the user interface based on vie
 
 If set to &#039;auto&#039;, the touch UI will be automatically enabled based on the platform.
 
-**Default value**: &#039;auto&#039;
+**Default value**: 'auto'
 ### view {#opt-view}
 
 MbscEventcalendarView

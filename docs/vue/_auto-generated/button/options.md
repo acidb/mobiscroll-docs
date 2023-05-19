@@ -116,6 +116,7 @@ It&#039;s possible to [modify theme colors or create custom themes](https://docs
 :::note
 Make sure that the theme you set is included in the downloaded package.
 :::
+
 **Default value**: undefined
 ### themeVariant {#opt-themeVariant}
 

@@ -160,7 +160,7 @@ any
 Specify the DOM element in which the component is appended and positioned (if not inline).
 Can be a selector string or a DOM element.
 
-**Default value**: &#039;body&#039;
+**Default value**: 'body'
 ### controls {#opt-controls}
 
 Array&lt;TDatepickerControl&gt;
@@ -276,12 +276,12 @@ it will put the range end part of the selection to that input. Similarly the inp
 
 boolean
 
-
+Controls the error state of the component. If true error styles will be displayed.
 ### errorMessage {#opt-errorMessage}
 
 string
 
-
+Controls the error message of the component. If [error option](#opt-error) is set to true the error message will be displayed.
 ### exclusiveEndDates {#opt-exclusiveEndDates}
 
 boolean
@@ -361,7 +361,10 @@ as end date.
 
 "outline" &#124; "box" &#124; "underline"
 
-
+Defines the input rendering mode. By default the input has the underline styling. Possible values:
+ - &#039;underline&#039;
+ - &#039;box&#039;
+ - &#039;outline&#039;
 ### inputTyping {#opt-inputTyping}
 
 boolean
@@ -456,12 +459,17 @@ any
 
 string
 
-
+Sets the label of component.
 ### labelStyle {#opt-labelStyle}
 
 "inline" &#124; "floating" &#124; "stacked"
 
+Defines the position of the label. The default label style depends on the [theme option](#opt-theme).
 
+Possible values:
+ - &#039;stacked&#039;
+ - &#039;inline&#039;
+ - &#039;floating&#039;
 ### labels {#opt-labels}
 
 Array&lt;MbscCalendarLabel&gt;
@@ -649,11 +657,6 @@ this setting should be passed the reference to the Moment.js library.
 Check out our example on how to pass moment to the datepicker!
 
 **Default value**: undefined
-### name {#opt-name}
-
-string
-
-
 ### okText {#opt-okText}
 
 string
@@ -672,11 +675,6 @@ Number of calendar pages (month or week) to display. If &#039;auto&#039;, the di
 viewport size.
 
 **Default value**: 1
-### placeholder {#opt-placeholder}
-
-string
-
-
 ### rangeEndInvalid {#opt-rangeEndInvalid}
 
 boolean
@@ -949,12 +947,14 @@ Show week numbers on the calendar view. Enumeration starts with the first week o
 
 string
 
-
+Specify the icon name for the form component which will be displayed on the start of the component. Use [endIcon option](#opt-endIcon)
+for specifying icon to the opposite side.
 ### startIconSvg {#opt-startIconSvg}
 
 string
 
-
+Specify the icon svg for the form component which will be displayed on the start of the component. Use
+[endIconSvg option](#opt-endIconSvg) for specifying icon to the opposite side.
 ### startInput {#opt-startInput}
 
 any
@@ -987,11 +987,6 @@ number
 Step for the seconds scroll wheel. Also, sets the seconds step for the timegrid.
 
 **Default value**: 1
-### tagInput {#opt-tagInput}
-
-boolean
-
-
 ### theme {#opt-theme}
 
 string
@@ -1012,6 +1007,7 @@ It&#039;s possible to [modify theme colors or create custom themes](https://docs
 :::note
 Make sure that the theme you set is included in the downloaded package.
 :::
+
 **Default value**: undefined
 ### themeVariant {#opt-themeVariant}
 
@@ -1064,7 +1060,7 @@ Can be used with the responsive option to change the user interface based on vie
 
 If set to &#039;auto&#039;, the touch UI will be automatically enabled based on the platform.
 
-**Default value**: &#039;auto&#039;
+**Default value**: 'auto'
 ### valid {#opt-valid}
 
 Array&lt;DateType&gt; &#124; Array&lt;IValidateProps&gt;

@@ -80,11 +80,6 @@ Possible values:
 
 **Default value**: Depends on the theme. With the 'ios' theme the inputs have 'inline' labels,
 with 'material' and 'windows' themes the default label position is 'stacked'.
-### modules {#opt-modules}
-
-Array&lt;IModule&gt;
-
-
 ### passwordToggle {#opt-passwordToggle}
 
 boolean

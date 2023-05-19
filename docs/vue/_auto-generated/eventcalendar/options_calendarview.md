@@ -455,11 +455,6 @@ If navigation is needed, but event creation should not be allowed before a speci
 use the [invalid](#opt-invalid) option with daily recurrence until the specific date.
 
 **Default value**: undefined
-### modules {#opt-modules}
-
-Array&lt;IModule&gt;
-
-
 ### refDate {#opt-refDate}
 
 DateType

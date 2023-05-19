@@ -177,11 +177,6 @@ string &#124; number
 Sets the maximum width of the component.
 
 **Default value**: undefined
-### modules {#opt-modules}
-
-Array&lt;IModule&gt;
-
-
 ### responsive {#opt-responsive}
 
 missing

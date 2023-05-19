@@ -23,11 +23,11 @@ const isPopupOpen = ref(true)
 </script>
 
 <template>
-    <MbscPopup :isOpen="isPopupOpen">
-        <div>
-            <h3>Hi</h3>
-            <p>Are you feeling good today?</p>
-        </div>
-    </MbscPopup>
+  <MbscPopup :isOpen="isPopupOpen">
+    <div>
+      <h3>Hi</h3>
+      <p>Are you feeling good today?</p>
+    </div>
+  </MbscPopup>
 </template>
 ```

@@ -18,7 +18,7 @@ import { MbscEventcalendar } from '@mobiscroll/vue';
 </script>
 
 <template>
-    <MbscEventcalendar></MbscEventcalendar>
+  <MbscEventcalendar></MbscEventcalendar>
 </template>
 ```
 
@@ -36,18 +36,18 @@ import { ref } from 'vue';
 import { MbscEventcalendar } from '@mobiscroll/vue';
 
 const myData = ref([{
-    start: new Date(2020, 2, 18, 8, 0),
-    end: new Date(2020, 2, 18, 17, 0),
-    title: 'My First Event'
+  start: new Date(2020, 2, 18, 8, 0),
+  end: new Date(2020, 2, 18, 17, 0),
+  title: 'My First Event'
 }, {
-    start: new Date(2020, 2, 18, 9, 0),
-    end: new Date(2020, 2, 20, 13, 0),
-    title: 'My Second Event'
+  start: new Date(2020, 2, 18, 9, 0),
+  end: new Date(2020, 2, 20, 13, 0),
+  title: 'My Second Event'
 }]);
 </script>
 
 <template>
-    <MbscEventcalendar :data="myData"></MbscEventcalendar>
+  <MbscEventcalendar :data="myData"></MbscEventcalendar>
 </template>
 ```
 
@@ -71,7 +71,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <MbscEventcalendar :data="myData"></MbscEventcalendar>
+  <MbscEventcalendar :data="myData"></MbscEventcalendar>
 </template>
 ```
 

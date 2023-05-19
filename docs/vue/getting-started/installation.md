@@ -70,7 +70,8 @@ const myView = ref({
   agenda: { type: 'month' }
 });
 </script>
+
 <template>
-    <MbscEventcalendar :view="myView"></MbscEventcalendar>
+  <MbscEventcalendar :view="myView"></MbscEventcalendar>
 </template>
 ```

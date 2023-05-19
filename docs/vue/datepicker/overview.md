@@ -18,6 +18,6 @@ import { MbscDatepicker } from '@mobiscroll/vue';
 </script>
 
 <template>
-    <MbscDatepicker />
+  <MbscDatepicker />
 </template>
 ```

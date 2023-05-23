@@ -4,14 +4,14 @@ string
 
 Text for the cancel button.
 
-**Default value**: 'Cancel'
+**Default value**: `'Cancel'`
 ### closeText {#localization-closeText}
 
 string
 
 Text for the close button.
 
-**Default value**: 'Close'
+**Default value**: `'Close'`
 ### filterEmptyText {#localization-filterEmptyText}
 
 string
@@ -19,14 +19,14 @@ string
 Text for the empty state of the select. The select will show this message,
 when [filtering](#opt-filter) is turned on and there are no results for the searched text.
 
-**Default value**: 'No results'
+**Default value**: `'No results'`
 ### filterPlaceholderText {#localization-filterPlaceholderText}
 
 string
 
 Placeholder text for the filter input, when [filtering](#opt-filter) is turned on.
 
-**Default value**: 'Search'
+**Default value**: `'Search'`
 ### locale {#localization-locale}
 
 string &#124; MbscLocale
@@ -44,7 +44,7 @@ Supported values:
 - Croatian: `localeHr`, `'hr'`
 - Danish: `localeDa`, `'da'`
 - Dutch: `localeNl`, `'nl'`
-- English: `localeEn` or undefined, `'en'`
+- English: `localeEn` or `undefined`, `'en'`
 - English (UK): `localeEnGB`, `'en-GB'`
 - Farsi: `localeFa`, `'fa'`
 - German: `localeDe`, `'de'`
@@ -73,25 +73,25 @@ Supported values:
 - Turkish: `localeTr`, `'tr'`
 - Ukrainian: `localeUa`, `'ua'`
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### okText {#localization-okText}
 
 string
 
 Text for the ok button.
 
-**Default value**: 'Ok'
+**Default value**: `'Ok'`
 ### rtl {#localization-rtl}
 
 boolean
 
 Enables right-to-left display.
 
-**Default value**: false
+**Default value**: `false`
 ### setText {#localization-setText}
 
 string
 
 Text for the set button.
 
-**Default value**: 'Set'
+**Default value**: `'Set'`

@@ -2,7 +2,7 @@
 
 "primary" &#124; "secondary" &#124; "success" &#124; "danger" &#124; "warning" &#124; "info" &#124; "dark" &#124; "light"
 
-Specifies the predefined color of the checkbox.
+Specifies the predefined color for all the radio buttons in the group.
 
 **Default value**: `undefined`
 ### cssClass {#opt-cssClass}
@@ -12,36 +12,59 @@ string
 Specifies a custom CSS class for the component.
 
 **Default value**: `undefined`
-### description {#opt-description}
+### name {#opt-name}
 
 string
 
-Specifies the description text of the checkbox.
-
-**Default value**: `undefined`
-### disabled {#opt-disabled}
-
-boolean
-
-Specifies the disabled state of the checkbox.
-
-**Default value**: `false`
-### label {#opt-label}
-
-string
-
-Specifies the label of the checkbox.
+Specifies the name for the radio button group.
 
 **Default value**: `undefined`
 ### position {#opt-position}
 
 "start" &#124; "end"
 
-Sets the position of the checkbox depending on the [rtl](#localization-rtl) option.
-When in left-to-right mode, `'start'` will render the checkbox to the left, and `'end'` will render it to the right.
-In right-to-left mode, `'start'` will render the checkbox to the right, and `'end'` will render it to the left.
+Sets the position of all the radio buttons in the group depending on the [rtl](#localization-rtl) option.
+When in left-to-right mode, `'start'` will render the radio button to the left, and `'end'` will render it to the right.
+In right-to-left mode, `'start'` will render the radio button to the right, and `'end'` will render it to the left.
 
 **Default value**: `'end'`
+### responsive {#opt-responsive}
+
+missing
+
+Specifies different options for different container widths, in a form of an object,
+where the keys are the name of the breakpoints, and the values are objects containing the options for the given breakpoint.
+
+:::info
+The available width is queried from the container element of the component and not the browsers viewport like in css media queries
+:::
+There are five predefined breakpoints:
+
+- `xsmall` - min-width: 0px
+- `small` - min-width: 576px
+- `medium` - min-width: 768px
+- `large` - min-width: 992px
+- `xlarge` - min-width: 1200px
+
+Custom breakpoints can be defined by passing an object containing the `breakpoint` property specifying the min-width in pixels.
+Example:
+
+```
+responsive: {
+  small: {
+    display: 'bottom'
+  },
+  custom: { // Custom breakpoint
+    breakpoint: 600,
+    display: 'center'
+  },
+  large: {
+    display: 'anchored'
+  }
+}
+```
+
+**Default value**: `undefined`
 ### theme {#opt-theme}
 
 string

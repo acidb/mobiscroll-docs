@@ -64,7 +64,7 @@ buttons: [
 ]
 ```
 
-**Default value**: ['set', 'cancel']
+**Default value**: `['set', 'cancel']`
 ### circular {#opt-circular}
 
 boolean &#124; Array&lt;boolean&gt;
@@ -73,7 +73,7 @@ If `true`, the scroll wheels are circular. If an array, it can be specified as a
 `[true, false, false]` sets the first wheel circular.
 If not specified, if a wheel has more values than the number of the displayed rows, the scroll wheel becomes circular.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### closeOnEsc {#opt-closeOnEsc}
 
 boolean
@@ -96,7 +96,7 @@ string
 
 Specifies a custom CSS class for the component.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### data {#opt-data}
 
 Array&lt;any&gt;
@@ -112,14 +112,14 @@ When it&#039;s an array of objects, the objects can have the follwing properties
 - `group`: *string* - The group name in case of grouped options.
 - `disabled`: *boolean* - The disabled state of the option. Disabled options cannot be selected.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### defaultSelection {#opt-defaultSelection}
 
 any
 
 Default selection which appears on the picker. The provided value will not be set as picker value, it&#039;s only a pre-selection.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### disabled {#opt-disabled}
 
 boolean
@@ -144,7 +144,7 @@ boolean
 
 If `false`, the down arrow icon is hidden.
 
-**Default value**: true
+**Default value**: `true`
 ### endIcon {#opt-endIcon}
 
 string
@@ -171,7 +171,7 @@ Typing in the input will filter the select options and will also trigger the [on
 The default behavior is based on the presence of the search term in the option text.
 The [onFilter](#event-onFilter) event can be used to prevent the default filtering and customize the experience.
 
-**Default value**: false
+**Default value**: `false`
 ### focusOnClose {#opt-focusOnClose}
 
 boolean
@@ -217,7 +217,7 @@ Array&lt;any&gt;
 
 An array of values that are invalid. Invalid options cannot be selected, and show up as disabled on the select.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### isOpen {#opt-isOpen}
 
 boolean
@@ -262,7 +262,7 @@ number &#124; Array&lt;number&gt;
 Maximum width of the scroller wheels in pixels.
 If a number, it is applied to all wheels, if an array, it is applied to each wheel separately.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### maxWidth {#opt-maxWidth}
 
 string &#124; number
@@ -275,7 +275,7 @@ number &#124; Array&lt;number&gt;
 Minimum width of the scroller wheels in pixels.
 If a number, it is applied to all wheels, if an array, it is applied to each wheel separately.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### responsive {#opt-responsive}
 
 missing
@@ -312,7 +312,7 @@ responsive: {
 }
 ```
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### rows {#opt-rows}
 
 number
@@ -332,7 +332,7 @@ boolean
 
 If `true`, multiple selection will be enabled.
 
-**Default value**: false
+**Default value**: `false`
 ### showArrow {#opt-showArrow}
 
 boolean
@@ -347,28 +347,28 @@ the first containing the group labels, and the second one the options.
 Groups can be specified either by `optgroup` elements, when the data comes from the html markup,
 or by using the `group` property of the option objects, when the [data](#opt-data) option is used.
 
-**Default value**: false
+**Default value**: `false`
 ### showInput {#opt-showInput}
 
 boolean
 
 If true, it will render an input field for the component.
 
-**Default value**: true
+**Default value**: `true`
 ### showOnClick {#opt-showOnClick}
 
 boolean
 
 Opens the component on element click/tap.
 
-**Default value**: true
+**Default value**: `true`
 ### showOnFocus {#opt-showOnFocus}
 
 boolean
 
 Opens the component on element focus.
 
-**Default value**: false on desktop, true on mobile
+**Default value**: `false on desktop, true on mobile`
 ### showOverlay {#opt-showOverlay}
 
 boolean
@@ -387,7 +387,7 @@ boolean
 If `true` and used with [multiple selection](#opt-selectMultiple),
 it will display the selected values inside the input as tags (chips).
 
-**Default value**: false
+**Default value**: `false`
 ### theme {#opt-theme}
 
 string
@@ -409,7 +409,7 @@ It&#039;s possible to [modify theme colors or create custom themes](https://docs
 Make sure that the theme you set is included in the downloaded package.
 :::
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### themeVariant {#opt-themeVariant}
 
 "dark" &#124; "light" &#124; "auto"
@@ -424,7 +424,7 @@ Possible values:
 To use the option with custom themes, make sure to create two custom themes, where the dark version has the same name as the light one,
 suffixed with `'-dark'`, e.g.: `'my-theme'` and `'my-theme-dark'`.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### touchUi {#opt-touchUi}
 
 boolean &#124; "auto"
@@ -435,7 +435,7 @@ Can be used with the [responsive](#opt-responsive) option to change the user int
 
 If set to `'auto'`, the touch UI will be automatically enabled based on the platform.
 
-**Default value**: 'auto'
+**Default value**: `'auto'`
 ### wheelWidth {#opt-wheelWidth}
 
 number &#124; Array&lt;number&gt;

@@ -4,35 +4,28 @@
 
 Specifies the predefined color of the stepper.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### cssClass {#opt-cssClass}
 
 string
 
 Specifies a custom CSS class for the component.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### description {#opt-description}
 
 string
 
 Specifies the description text of the stepper.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### disabled {#opt-disabled}
 
 boolean
 
 Specifies the disabled state of the stepper.
 
-**Default value**: false
-### inputClass {#opt-inputClass}
-
-string
-
-Specifies a custom CSS class for the stepper input field.
-
-**Default value**: undefined
+**Default value**: `false`
 ### inputPosition {#opt-inputPosition}
 
 "center" &#124; "start" &#124; "end"
@@ -44,28 +37,28 @@ string
 
 Specifies the label of the stepper.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### max {#opt-max}
 
 number
 
 Specifies the minimum value that can be selected.
 
-**Default value**: 0
+**Default value**: `0`
 ### min {#opt-min}
 
 number
 
 Specifies the maximum value that can be selected.
 
-**Default value**: 100
+**Default value**: `100`
 ### step {#opt-step}
 
 number
 
 Specifies the step between values.
 
-**Default value**: 1
+**Default value**: `1`
 ### theme {#opt-theme}
 
 string
@@ -87,7 +80,7 @@ It&#039;s possible to [modify theme colors or create custom themes](https://docs
 Make sure that the theme you set is included in the downloaded package.
 :::
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### themeVariant {#opt-themeVariant}
 
 "dark" &#124; "light" &#124; "auto"
@@ -102,4 +95,4 @@ Possible values:
 To use the option with custom themes, make sure to create two custom themes, where the dark version has the same name as the light one,
 suffixed with `'-dark'`, e.g.: `'my-theme'` and `'my-theme-dark'`.
 
-**Default value**: undefined
+**Default value**: `undefined`

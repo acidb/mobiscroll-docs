@@ -64,7 +64,7 @@ buttons: [
 ]
 ```
 
-**Default value**: ['set', 'cancel']
+**Default value**: `['set', 'cancel']`
 ### calendarScroll {#opt-calendarScroll}
 
 "horizontal" &#124; "vertical"
@@ -77,7 +77,7 @@ Possible values:
 When navigation is &#039;vertical&#039; the outer days (days from previous and next months) are hidden. You can explicitly override
 it with the [showOuterDays option](#opt-showOuterDays).
 
-**Default value**: 'horizontal'
+**Default value**: `'horizontal'`
 ### calendarSize {#opt-calendarSize}
 
 number
@@ -86,7 +86,7 @@ Number of months/weeks to display.
 
 The months/weeks start from a reference date, that can be set using the [refDate](#opt-refDate) option.
 
-**Default value**: 1
+**Default value**: `1`
 ### calendarSystem {#opt-calendarSystem}
 
 MbscCalendarSystem
@@ -108,7 +108,7 @@ the [calendarSize option](#opt-calendarSize) (grid month view).
 
 In case of &#039;week&#039; set the number of displayed weeks using the [calendarSize option](#opt-calendarSize).
 
-**Default value**: 'month'
+**Default value**: `'month'`
 ### circular {#opt-circular}
 
 boolean &#124; Array&lt;boolean&gt;
@@ -117,7 +117,7 @@ If `true`, the scroll wheels are circular. If an array, it can be specified as a
 `[true, false, false]` sets the first wheel circular.
 If not specified, if a wheel has more values than the number of the displayed rows, the scroll wheel becomes circular.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### closeOnEsc {#opt-closeOnEsc}
 
 boolean
@@ -192,14 +192,14 @@ List of controls to show. Possible values:
 - [&#039;time&#039;]
 - [&#039;timegrid&#039;]
 
-**Default value**: ['calendar']
+**Default value**: `['calendar']`
 ### cssClass {#opt-cssClass}
 
 string
 
 Specifies a custom CSS class for the component.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### dataTimezone {#opt-dataTimezone}
 
 string
@@ -233,7 +233,7 @@ If not provided, the default selection will be the current date and/or time.
 If `null` is passed, in case of the calendar control there will be no selected value, in case of scroller controls the current date
 and time will still be displayed on the selected line, as an empty value cannot be displayed on the scroller.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### disabled {#opt-disabled}
 
 boolean
@@ -289,7 +289,7 @@ When using the datepicker to select a range, it can be used with one, two or no 
 it will put the range end part of the selection to that input. Similarly the input for the beginning part can be specified by the
 [startInput option](#opt-startInput).
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### error {#opt-error}
 
 boolean
@@ -323,8 +323,8 @@ Ex. Sunday is 0, Monday is 1, etc.
 
 The length of the selection can be controlled with the [selectSize](#opt-selectSize) option.
 
-**Default value**: [firstDay](#localization-firstDay). It defaults to the first day of the week, which depends
-on the localization used.
+**Default value**: `[firstDay](#localization-firstDay). It defaults to the first day of the week, which depends
+on the localization used.`
 ### focusOnClose {#opt-focusOnClose}
 
 boolean
@@ -376,7 +376,7 @@ on dates that already have a check-in. In this case, those dates would be disabl
 [rangeEndInvalid option](#opt-rangeEndInvalid) it can be allowed that the first invalid day after the start date can be selected
 as end date.
 
-**Default value**: false
+**Default value**: `false`
 ### inputStyle {#opt-inputStyle}
 
 "outline" &#124; "underline" &#124; "box"
@@ -396,7 +396,7 @@ boolean
 
 Allow the typing into the input field in desktop mode.
 
-**Default value**: true
+**Default value**: `true`
 ### invalid {#opt-invalid}
 
 Array&lt;DateType&gt; &#124; Array&lt;IValidateProps&gt;
@@ -597,7 +597,7 @@ number
 Sets the maximum range that can be selected. When selecting a date without the time part, it sets the maximum number of days the
 selected range can contain. When there is a time part in the selection, it sets the maximum range in milliseconds.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### maxTime {#opt-maxTime}
 
 DateType
@@ -619,7 +619,7 @@ will limit the selection to August 22nd 18 o&#039;clock, but will allow selectio
 This option can&#039;t be used with the [[&#039;datetime&#039;] control](#opt-controls).
 :::
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### maxWheelWidth {#opt-maxWheelWidth}
 
 number &#124; Array&lt;number&gt;
@@ -627,7 +627,7 @@ number &#124; Array&lt;number&gt;
 Maximum width of the scroller wheels in pixels.
 If a number, it is applied to all wheels, if an array, it is applied to each wheel separately.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### maxWidth {#opt-maxWidth}
 
 string &#124; number
@@ -649,7 +649,7 @@ number
 It sets the minimum range that can be selected. When selecting a date range without the time part, it sets the minimum number of days
 the selected range can contain. When there is a time part in the selection, it sets the minimum range in milliseconds.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### minTime {#opt-minTime}
 
 DateType
@@ -671,7 +671,7 @@ will limit the selection to August 22nd 8 o&#039;clock, but will allow selection
 This option can&#039;t be used with the [[&#039;datetime&#039;] control](#opt-controls).
 :::
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### minWheelWidth {#opt-minWheelWidth}
 
 number &#124; Array&lt;number&gt;
@@ -679,7 +679,7 @@ number &#124; Array&lt;number&gt;
 Minimum width of the scroller wheels in pixels.
 If a number, it is applied to all wheels, if an array, it is applied to each wheel separately.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### moment {#opt-moment}
 
 any
@@ -697,7 +697,7 @@ number &#124; "auto"
 Number of calendar pages (month or week) to display. If &#039;auto&#039;, the displayed number of pages will be decided based on the
 viewport size.
 
-**Default value**: 1
+**Default value**: `1`
 ### rangeEndInvalid {#opt-rangeEndInvalid}
 
 boolean
@@ -714,7 +714,7 @@ When the [inRangeInvalid](#opt-inRangeInvalid) option is set to true (default), 
 that off too if you want to use this one.
 :::
 
-**Default value**: false
+**Default value**: `false`
 ### rangeHighlight {#opt-rangeHighlight}
 
 boolean
@@ -727,7 +727,7 @@ and end dates are shown as selected on the calendar.
 On desktop devices where a cursor is available, hovering the calendar days also help to visualize the selecting range.
 The hover styling is also turned off, when the range is not highlighted.
 
-**Default value**: true
+**Default value**: `true`
 ### refDate {#opt-refDate}
 
 DateType
@@ -737,7 +737,7 @@ Specifies the reference date of the component, which represents when to start to
 For example, if you want to display 2 months from the current month, you must specify the first day of the current month as
 the reference date. Then you can use the [calendarSize](#opt-calendarSize) option to show 2 months.
 
-**Default value**: 1970/01/01
+**Default value**: `1970/01/01`
 ### responsive {#opt-responsive}
 
 missing
@@ -774,7 +774,7 @@ responsive: {
 }
 ```
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### returnFormat {#opt-returnFormat}
 
 "locale" &#124; "moment" &#124; "jsdate" &#124; "iso8601"
@@ -823,28 +823,28 @@ Possible values are:
 - &#039;range&#039; - it is used for date range or time range selection
 - &#039;preset-range&#039; - it is used for a week range selection
 
-**Default value**: 'date'
+**Default value**: `'date'`
 ### selectCounter {#opt-selectCounter}
 
 boolean
 
 If true and [multiple selection](#opt-selectMultiple) is enabled, the number of selected items will be displayed in the header.
 
-**Default value**: false
+**Default value**: `false`
 ### selectMax {#opt-selectMax}
 
 number
 
 The maximum number of selected items in case of multiple selection.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### selectMultiple {#opt-selectMultiple}
 
 boolean
 
 If true, multiple selection will be enabled.
 
-**Default value**: false
+**Default value**: `false`
 ### selectSize {#opt-selectSize}
 
 number
@@ -856,7 +856,7 @@ It defaults to the whole week (7 days).
 The selection will start depending on the [firstSelectDay option](#opt-firstSelectDay) and will have the number of days specified
 by the selectSize.
 
-**Default value**: 7
+**Default value**: `7`
 ### showArrow {#opt-showArrow}
 
 boolean
@@ -881,7 +881,7 @@ boolean
 
 If true, it will render an input field for the component.
 
-**Default value**: true
+**Default value**: `true`
 ### showLabelCount {#opt-showLabelCount}
 
 boolean
@@ -893,14 +893,14 @@ boolean
 
 Opens the component on element click/tap.
 
-**Default value**: true
+**Default value**: `true`
 ### showOnFocus {#opt-showOnFocus}
 
 boolean
 
 Opens the component on element focus.
 
-**Default value**: false on desktop, true on mobile
+**Default value**: `false on desktop, true on mobile`
 ### showOuterDays {#opt-showOuterDays}
 
 boolean
@@ -913,7 +913,7 @@ Hiding outer days only works in case of month view, and not supported for week v
 Outer days are automatically hidden if [calendarScroll](#opt-calendarScroll) is set to &#039;vertical&#039;.
 :::
 
-**Default value**: true
+**Default value**: `true`
 ### showOverlay {#opt-showOverlay}
 
 boolean
@@ -932,7 +932,7 @@ The [start label text](#localization-rangeStartLabel) and [end label text](#loca
 [start value placeholder](#localization-rangeStartHelp) and the [end value placeholder](#localization-rangeEndHelp) can be localized
 and/or customized.
 
-**Default value**: true
+**Default value**: `true`
 ### showToday {#opt-showToday}
 
 boolean
@@ -944,7 +944,7 @@ boolean
 
 Show week numbers on the calendar view. Enumeration starts with the first week of the year.
 
-**Default value**: false
+**Default value**: `false`
 ### startIcon {#opt-startIcon}
 
 string
@@ -961,28 +961,28 @@ When using the datepicker to select a range, it can be used with one, two or no 
 it will put the range beginning part of the selection to that input. Similarly the input for the end part can be specified by the
 [endInput option](#opt-endInput).
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### stepHour {#opt-stepHour}
 
 number
 
 Step for the hours scroll wheel. Also, sets the hours step for the timegrid.
 
-**Default value**: 1
+**Default value**: `1`
 ### stepMinute {#opt-stepMinute}
 
 number
 
 Step for the minutes scroll wheel. Also, sets the minutes step for the timegrid.
 
-**Default value**: 1
+**Default value**: `1`
 ### stepSecond {#opt-stepSecond}
 
 number
 
 Step for the seconds scroll wheel. Also, sets the seconds step for the timegrid.
 
-**Default value**: 1
+**Default value**: `1`
 ### theme {#opt-theme}
 
 string
@@ -1004,7 +1004,7 @@ It&#039;s possible to [modify theme colors or create custom themes](https://docs
 Make sure that the theme you set is included in the downloaded package.
 :::
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### themeVariant {#opt-themeVariant}
 
 "dark" &#124; "light" &#124; "auto"
@@ -1019,7 +1019,7 @@ Possible values:
 To use the option with custom themes, make sure to create two custom themes, where the dark version has the same name as the light one,
 suffixed with `'-dark'`, e.g.: `'my-theme'` and `'my-theme-dark'`.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### timezonePlugin {#opt-timezonePlugin}
 
 ITimezonePlugin

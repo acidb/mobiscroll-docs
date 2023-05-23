@@ -4,7 +4,7 @@ HTMLElement
 
 Specifies the anchor element for positioning, if [display](#opt-display) is set to `'anchored'`.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### animation {#opt-animation}
 
 boolean &#124; "pop" &#124; "slide-down" &#124; "slide-up"
@@ -17,7 +17,7 @@ Possible values:
 
 If `false`, the animation is turned off.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### buttons {#opt-buttons}
 
 Array&lt;string &#124; MbscPopupButton&gt;
@@ -68,21 +68,21 @@ buttons: [
 ]
 ```
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### closeOnEsc {#opt-closeOnEsc}
 
 boolean
 
 If `true`, the popup is closed when the ESC key is pressed.
 
-**Default value**: true
+**Default value**: `true`
 ### closeOnOverlayClick {#opt-closeOnOverlayClick}
 
 boolean
 
 If `true`, the popup is closed on overlay click or tap.
 
-**Default value**: true
+**Default value**: `true`
 ### context {#opt-context}
 
 string &#124; HTMLElement
@@ -90,7 +90,7 @@ string &#124; HTMLElement
 Specify the DOM element in which the component is rendered and positioned, if [display](#opt-display) is not `'inline'`.
 Can be a selector string or a DOM element.
 
-**Default value**: 'body'
+**Default value**: `'body'`
 ### cssClass {#opt-cssClass}
 
 string
@@ -114,7 +114,7 @@ Controls the positioning of the component. Possible options:
 The default display mode depends on the [theme](#opt-theme), it defaults to `'bottom'` for the iOS theme and
 to `'center'` for all other themes.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### focusOnClose {#opt-focusOnClose}
 
 boolean
@@ -122,21 +122,21 @@ boolean
 If `true`, after closing the popup the focus will be moved to the last focused element
 before the popup was opened.
 
-**Default value**: true
+**Default value**: `true`
 ### focusOnOpen {#opt-focusOnOpen}
 
 boolean
 
 If `true`, the popup will receive the focus when opened.
 
-**Default value**: true
+**Default value**: `true`
 ### focusTrap {#opt-focusTrap}
 
 boolean
 
 If `true` and [display](#opt-display) is not set to `'inline'`, focus won&#039;t be allowed to leave the popup.
 
-**Default value**: true
+**Default value**: `true`
 ### fullScreen {#opt-fullScreen}
 
 boolean
@@ -144,21 +144,21 @@ boolean
 If `true`, the popup will appear in full screen, but, by default, its width and height won&#039;t exceed 600px.
 You can change that using the [maxWidth](#opt-maxWidth) and [maxHeight](#opt-maxHeight) options.
 
-**Default value**: false
+**Default value**: `false`
 ### headerText {#opt-headerText}
 
 string
 
 Text to display in the header.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### height {#opt-height}
 
 string &#124; number
 
 Sets the height of the component.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### isOpen {#opt-isOpen}
 
 boolean
@@ -166,21 +166,21 @@ boolean
 Specifies if the popup is opened or not. Use it together with the [onClose](#event-onClose) event, by setting it
 to `false` when the popup closes.
 
-**Default value**: false
+**Default value**: `false`
 ### maxHeight {#opt-maxHeight}
 
 string &#124; number
 
 Sets the maximum height of the component. If not specified, on larger screens (>=768px width) it defaults to 600px.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### maxWidth {#opt-maxWidth}
 
 string &#124; number
 
 Sets the maximum width of the component.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### responsive {#opt-responsive}
 
 missing
@@ -217,28 +217,28 @@ responsive: {
 }
 ```
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### scrollLock {#opt-scrollLock}
 
 boolean
 
 Disables page scrolling, if the content of the popup is not scrollable.
 
-**Default value**: true
+**Default value**: `true`
 ### showArrow {#opt-showArrow}
 
 boolean
 
 Show or hide the popup arrow, when [display](#opt-display) is `'anchored'`.
 
-**Default value**: true
+**Default value**: `true`
 ### showOverlay {#opt-showOverlay}
 
 boolean
 
 Show or hide the popup overlay.
 
-**Default value**: true
+**Default value**: `true`
 ### theme {#opt-theme}
 
 string
@@ -260,7 +260,7 @@ It&#039;s possible to [modify theme colors or create custom themes](https://docs
 Make sure that the theme you set is included in the downloaded package.
 :::
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### themeVariant {#opt-themeVariant}
 
 "dark" &#124; "light" &#124; "auto"
@@ -275,7 +275,7 @@ Possible values:
 To use the option with custom themes, make sure to create two custom themes, where the dark version has the same name as the light one,
 suffixed with `'-dark'`, e.g.: `'my-theme'` and `'my-theme-dark'`.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### touchUi {#opt-touchUi}
 
 boolean &#124; "auto"
@@ -286,11 +286,11 @@ Can be used with the [responsive](#opt-responsive) option to change the user int
 
 If set to `'auto'`, the touch UI will be automatically enabled based on the platform.
 
-**Default value**: 'auto'
+**Default value**: `'auto'`
 ### width {#opt-width}
 
 string &#124; number
 
 Sets the width of the component.
 
-**Default value**: undefined
+**Default value**: `undefined`

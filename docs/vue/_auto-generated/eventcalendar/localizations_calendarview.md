@@ -96,7 +96,7 @@ Supported values:
 - Croatian: `localeHr`, `'hr'`
 - Danish: `localeDa`, `'da'`
 - Dutch: `localeNl`, `'nl'`
-- English: `localeEn` or undefined, `'en'`
+- English: `localeEn` or `undefined`, `'en'`
 - English (UK): `localeEnGB`, `'en-GB'`
 - Farsi: `localeFa`, `'fa'`
 - German: `localeDe`, `'de'`
@@ -125,7 +125,7 @@ Supported values:
 - Turkish: `localeTr`, `'tr'`
 - Ukrainian: `localeUa`, `'ua'`
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### monthNames {#localization-monthNames}
 
 Array&lt;string&gt;
@@ -194,7 +194,7 @@ boolean
 
 Enables right-to-left display.
 
-**Default value**: false
+**Default value**: `false`
 ### timeFormat {#localization-timeFormat}
 
 string

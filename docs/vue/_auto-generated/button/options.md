@@ -4,28 +4,28 @@ string
 
 Specifies the accessible name of the button. Recommended for icon-only buttons.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### color {#opt-color}
 
 "primary" &#124; "secondary" &#124; "success" &#124; "danger" &#124; "warning" &#124; "info" &#124; "dark" &#124; "light"
 
 Specifies the predefined color of the button.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### cssClass {#opt-cssClass}
 
 string
 
 Specifies a custom CSS class for the component.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### disabled {#opt-disabled}
 
 boolean
 
 Specifies the disabled state of the button.
 
-**Default value**: false
+**Default value**: `false`
 ### endIcon {#opt-endIcon}
 
 any
@@ -33,14 +33,14 @@ any
 Specifies the icon which will be displayed at the end of the button.
 Use the [startIcon](#opt-startIcon) option for specifying an icon at the start.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### icon {#opt-icon}
 
 any
 
 Specifies the icon for an icon-only button.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### startIcon {#opt-startIcon}
 
 any
@@ -48,14 +48,14 @@ any
 Specifies the icon which will be displayed at the start of the button.
 Use the [endIcon](#opt-endIcon) option for specifying an icon at the end.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### tabIndex {#opt-tabIndex}
 
 number
 
 Specifies the `tabindex` attribute of the button.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### theme {#opt-theme}
 
 string
@@ -77,7 +77,7 @@ It&#039;s possible to [modify theme colors or create custom themes](https://docs
 Make sure that the theme you set is included in the downloaded package.
 :::
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### themeVariant {#opt-themeVariant}
 
 "dark" &#124; "light" &#124; "auto"
@@ -92,11 +92,11 @@ Possible values:
 To use the option with custom themes, make sure to create two custom themes, where the dark version has the same name as the light one,
 suffixed with `'-dark'`, e.g.: `'my-theme'` and `'my-theme-dark'`.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### variant {#opt-variant}
 
 "standard" &#124; "flat" &#124; "outline"
 
 Specifies the style of the button.
 
-**Default value**: 'standard'
+**Default value**: `'standard'`

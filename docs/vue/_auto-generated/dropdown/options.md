@@ -4,14 +4,14 @@ string
 
 Specifies a custom CSS class for the component.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### disabled {#opt-disabled}
 
 boolean
 
 Specifies the disabled state of the input.
 
-**Default value**: false
+**Default value**: `false`
 ### endIcon {#opt-endIcon}
 
 string
@@ -19,21 +19,21 @@ string
 Specifies the icon which will be displayed at the end of the input.
 Use the [startIcon](#opt-startIcon) option for specifying an icon at the start.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### error {#opt-error}
 
 boolean
 
 If `true`, the input will be displayed with error styles.
 
-**Default value**: false
+**Default value**: `false`
 ### errorMessage {#opt-errorMessage}
 
 string
 
 Error message for the input. If the [error](#opt-error) option is set to `true`, the message will be displayed.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### inputStyle {#opt-inputStyle}
 
 "outline" &#124; "underline" &#124; "box"
@@ -48,14 +48,14 @@ The default value depends on the [theme](#opt-theme):
 - Material: `'box'`
 - Windows: `'outline'`
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### label {#opt-label}
 
 string
 
 Specifies the label of the input.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### labelStyle {#opt-labelStyle}
 
 "inline" &#124; "floating" &#124; "stacked"
@@ -70,7 +70,7 @@ The default value depends on the [theme](#opt-theme):
 - Material: `'floating'`
 - Windows: `'stacked'`
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### startIcon {#opt-startIcon}
 
 string
@@ -78,7 +78,7 @@ string
 Specifies the icon which will be displayed at the start of the input.
 Use the [endIcon](#opt-endIcon) option for specifying an icon at the end.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### theme {#opt-theme}
 
 string
@@ -100,7 +100,7 @@ It&#039;s possible to [modify theme colors or create custom themes](https://docs
 Make sure that the theme you set is included in the downloaded package.
 :::
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### themeVariant {#opt-themeVariant}
 
 "dark" &#124; "light" &#124; "auto"
@@ -115,4 +115,4 @@ Possible values:
 To use the option with custom themes, make sure to create two custom themes, where the dark version has the same name as the light one,
 suffixed with `'-dark'`, e.g.: `'my-theme'` and `'my-theme-dark'`.
 
-**Default value**: undefined
+**Default value**: `undefined`

@@ -2,7 +2,7 @@
 
 "primary" &#124; "secondary" &#124; "success" &#124; "danger" &#124; "warning" &#124; "info" &#124; "dark" &#124; "light"
 
-Specifies the predefined color of the checkbox.
+Specifies the predefined color for all the radio buttons in the group.
 
 **Default value**: `undefined`
 ### cssClass {#opt-cssClass}
@@ -12,36 +12,57 @@ string
 Specifies a custom CSS class for the component.
 
 **Default value**: `undefined`
-### description {#opt-description}
+### name {#opt-name}
 
 string
 
-Specifies the description text of the checkbox.
+Specifies the name for the radio button group.
 
 **Default value**: `undefined`
-### disabled {#opt-disabled}
+### responsive {#opt-responsive}
 
-boolean
+missing
 
-Specifies the disabled state of the checkbox.
+Specifies different options for different container widths, in a form of an object,
+where the keys are the name of the breakpoints, and the values are objects containing the options for the given breakpoint.
 
-**Default value**: `false`
-### label {#opt-label}
+:::info
+The available width is queried from the container element of the component and not the browsers viewport like in css media queries
+:::
+There are five predefined breakpoints:
 
-string
+- `xsmall` - min-width: 0px
+- `small` - min-width: 576px
+- `medium` - min-width: 768px
+- `large` - min-width: 992px
+- `xlarge` - min-width: 1200px
 
-Specifies the label of the checkbox.
+Custom breakpoints can be defined by passing an object containing the `breakpoint` property specifying the min-width in pixels.
+Example:
+
+```
+responsive: {
+  small: {
+    display: 'bottom'
+  },
+  custom: { // Custom breakpoint
+    breakpoint: 600,
+    display: 'center'
+  },
+  large: {
+    display: 'anchored'
+  }
+}
+```
 
 **Default value**: `undefined`
-### position {#opt-position}
+### select {#opt-select}
 
-"start" &#124; "end"
+"single" &#124; "multiple"
 
-Sets the position of the checkbox depending on the [rtl](#localization-rtl) option.
-When in left-to-right mode, `'start'` will render the checkbox to the left, and `'end'` will render it to the right.
-In right-to-left mode, `'start'` will render the checkbox to the right, and `'end'` will render it to the left.
+Specifies the selection type of the segmented group.
 
-**Default value**: `'end'`
+**Default value**: `'single'`
 ### theme {#opt-theme}
 
 string

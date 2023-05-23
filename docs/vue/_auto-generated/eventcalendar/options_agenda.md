@@ -23,7 +23,7 @@ string
 
 Specifies a custom CSS class for the component.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### data {#opt-data}
 
 Array&lt;MbscCalendarEvent&gt;
@@ -233,7 +233,7 @@ responsive: {
 }
 ```
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### selectMultipleEvents {#opt-selectMultipleEvents}
 
 boolean
@@ -288,7 +288,7 @@ It&#039;s possible to [modify theme colors or create custom themes](https://docs
 Make sure that the theme you set is included in the downloaded package.
 :::
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### themeVariant {#opt-themeVariant}
 
 "dark" &#124; "light" &#124; "auto"
@@ -303,7 +303,7 @@ Possible values:
 To use the option with custom themes, make sure to create two custom themes, where the dark version has the same name as the light one,
 suffixed with `'-dark'`, e.g.: `'my-theme'` and `'my-theme-dark'`.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### timezonePlugin {#opt-timezonePlugin}
 
 ITimezonePlugin

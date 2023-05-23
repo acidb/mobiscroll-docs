@@ -4,44 +4,44 @@
 
 Specifies the predefined color of the switch.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### cssClass {#opt-cssClass}
 
 string
 
 Specifies a custom CSS class for the component.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### description {#opt-description}
 
 string
 
 Specifies the description text of the switch.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### disabled {#opt-disabled}
 
 boolean
 
 Specifies the disabled state of the switch.
 
-**Default value**: false
+**Default value**: `false`
 ### label {#opt-label}
 
 string
 
 Specifies the label of the switch.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### position {#opt-position}
 
 "start" &#124; "end"
 
-Sets the position of the switch depending on the [rtl](#opt-rtl) option.
+Sets the position of the switch depending on the [rtl](#localization-rtl) option.
 When in left-to-right mode, `'start'` will render the switch to the left, and `'end'` will render it to the right.
 In right-to-left mode, `'start'` will render the switch to the right, and `'end'` will render it to the left.
 
-**Default value**: 'end'
+**Default value**: `'end'`
 ### theme {#opt-theme}
 
 string
@@ -63,7 +63,7 @@ It&#039;s possible to [modify theme colors or create custom themes](https://docs
 Make sure that the theme you set is included in the downloaded package.
 :::
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### themeVariant {#opt-themeVariant}
 
 "dark" &#124; "light" &#124; "auto"
@@ -78,4 +78,4 @@ Possible values:
 To use the option with custom themes, make sure to create two custom themes, where the dark version has the same name as the light one,
 suffixed with `'-dark'`, e.g.: `'my-theme'` and `'my-theme-dark'`.
 
-**Default value**: undefined
+**Default value**: `undefined`

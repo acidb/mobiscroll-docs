@@ -4,14 +4,14 @@ string
 
 Text for the cancel button.
 
-**Default value**: 'Cancel'
+**Default value**: `'Cancel'`
 ### closeText {#localization-closeText}
 
 string
 
 Text for the close button.
 
-**Default value**: 'Close'
+**Default value**: `'Close'`
 ### locale {#localization-locale}
 
 string &#124; MbscLocale
@@ -29,7 +29,7 @@ Supported values:
 - Croatian: `localeHr`, `'hr'`
 - Danish: `localeDa`, `'da'`
 - Dutch: `localeNl`, `'nl'`
-- English: `localeEn` or undefined, `'en'`
+- English: `localeEn` or `undefined`, `'en'`
 - English (UK): `localeEnGB`, `'en-GB'`
 - Farsi: `localeFa`, `'fa'`
 - German: `localeDe`, `'de'`
@@ -58,25 +58,25 @@ Supported values:
 - Turkish: `localeTr`, `'tr'`
 - Ukrainian: `localeUa`, `'ua'`
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### okText {#localization-okText}
 
 string
 
 Text for the ok button.
 
-**Default value**: 'Ok'
+**Default value**: `'Ok'`
 ### rtl {#localization-rtl}
 
 boolean
 
 Enables right-to-left display.
 
-**Default value**: false
+**Default value**: `false`
 ### setText {#localization-setText}
 
 string
 
 Text for the set button.
 
-**Default value**: 'Set'
+**Default value**: `'Set'`

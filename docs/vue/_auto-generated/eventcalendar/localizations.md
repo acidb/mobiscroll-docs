@@ -103,7 +103,7 @@ Supported values:
 - Croatian: `localeHr`, `'hr'`
 - Danish: `localeDa`, `'da'`
 - Dutch: `localeNl`, `'nl'`
-- English: `localeEn` or undefined, `'en'`
+- English: `localeEn` or `undefined`, `'en'`
 - English (UK): `localeEnGB`, `'en-GB'`
 - Farsi: `localeFa`, `'fa'`
 - German: `localeDe`, `'de'`
@@ -132,7 +132,7 @@ Supported values:
 - Turkish: `localeTr`, `'tr'`
 - Ukrainian: `localeUa`, `'ua'`
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### monthNames {#localization-monthNames}
 
 Array&lt;string&gt;
@@ -208,7 +208,7 @@ boolean
 
 Enables right-to-left display.
 
-**Default value**: false
+**Default value**: `false`
 ### timeFormat {#localization-timeFormat}
 
 string
@@ -249,4 +249,4 @@ string
 
 Text for week numbers in the timeline header. The {count} inside the string will be replaced with the number of the current week.
 
-**Default value**: 'Week {count}'
+**Default value**: `'Week {count}'`

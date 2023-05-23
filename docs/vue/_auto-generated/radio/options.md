@@ -2,7 +2,7 @@
 
 "primary" &#124; "secondary" &#124; "success" &#124; "danger" &#124; "warning" &#124; "info" &#124; "dark" &#124; "light"
 
-Specifies the predefined color of the checkbox.
+Specifies the predefined color of the radio button.
 
 **Default value**: `undefined`
 ### cssClass {#opt-cssClass}
@@ -16,30 +16,44 @@ Specifies a custom CSS class for the component.
 
 string
 
-Specifies the description text of the checkbox.
+Specifies the description text of the radio button.
 
 **Default value**: `undefined`
 ### disabled {#opt-disabled}
 
 boolean
 
-Specifies the disabled state of the checkbox.
+Specifies the disabled state of the radio button.
 
 **Default value**: `false`
+### id {#opt-id}
+
+string
+
+Specifies the id of the radio button.
+
+**Default value**: `undefined`
 ### label {#opt-label}
 
 string
 
-Specifies the label of the checkbox.
+Specifies the label of the radio button.
+
+**Default value**: `undefined`
+### name {#opt-name}
+
+string
+
+Specifies the name of the radio button.
 
 **Default value**: `undefined`
 ### position {#opt-position}
 
 "start" &#124; "end"
 
-Sets the position of the checkbox depending on the [rtl](#localization-rtl) option.
-When in left-to-right mode, `'start'` will render the checkbox to the left, and `'end'` will render it to the right.
-In right-to-left mode, `'start'` will render the checkbox to the right, and `'end'` will render it to the left.
+Sets the position of the radio button depending on the [rtl](#localization-rtl) option.
+When in left-to-right mode, `'start'` will render the radio button to the left, and `'end'` will render it to the right.
+In right-to-left mode, `'start'` will render the radio button to the right, and `'end'` will render it to the left.
 
 **Default value**: `'end'`
 ### theme {#opt-theme}

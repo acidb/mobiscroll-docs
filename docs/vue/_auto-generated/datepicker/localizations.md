@@ -18,14 +18,14 @@ string
 
 Text for the cancel button.
 
-**Default value**: 'Cancel'
+**Default value**: `'Cancel'`
 ### closeText {#localization-closeText}
 
 string
 
 Text for the close button.
 
-**Default value**: 'Close'
+**Default value**: `'Close'`
 ### dateFormat {#localization-dateFormat}
 
 string
@@ -77,7 +77,7 @@ the format of the date should be specified between | charchters:
 dateWheels: '|D M d|' // Will produce 'Sun Sep 9'
 ```
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### dayNames {#localization-dayNames}
 
 Array&lt;string&gt;
@@ -149,7 +149,7 @@ Supported values:
 - Croatian: `localeHr`, `'hr'`
 - Danish: `localeDa`, `'da'`
 - Dutch: `localeNl`, `'nl'`
-- English: `localeEn` or undefined, `'en'`
+- English: `localeEn` or `undefined`, `'en'`
 - English (UK): `localeEnGB`, `'en-GB'`
 - Farsi: `localeFa`, `'fa'`
 - German: `localeDe`, `'de'`
@@ -178,7 +178,7 @@ Supported values:
 - Turkish: `localeTr`, `'tr'`
 - Ukrainian: `localeUa`, `'ua'`
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### monthNames {#localization-monthNames}
 
 Array&lt;string&gt;
@@ -232,14 +232,14 @@ string
 
 Label for the [&#039;Now&#039; button](#opt-buttons).
 
-**Default value**: 'Now'
+**Default value**: `'Now'`
 ### okText {#localization-okText}
 
 string
 
 Text for the ok button.
 
-**Default value**: 'Ok'
+**Default value**: `'Ok'`
 ### pmText {#localization-pmText}
 
 string
@@ -260,35 +260,35 @@ string
 
 When selecting a range, it specifies the placeholder text for the end value under the [end label](#opt-showRangeLabels).
 
-**Default value**: 'Please select'
+**Default value**: `'Please select'`
 ### rangeEndLabel {#localization-rangeEndLabel}
 
 string
 
 When selecting a range, it specifies the text of the [end label](#opt-showRangeLabels).
 
-**Default value**: 'End'
+**Default value**: `'End'`
 ### rangeStartHelp {#localization-rangeStartHelp}
 
 string
 
 When selecting a range, it specifies the placeholder text for the start value under the [start label](#opt-showRangeLabels).
 
-**Default value**: 'Please select'
+**Default value**: `'Please select'`
 ### rangeStartLabel {#localization-rangeStartLabel}
 
 string
 
 When selecting a range, it specifies the text of the [start label](#opt-showRangeLabels).
 
-**Default value**: 'Start'
+**Default value**: `'Start'`
 ### rtl {#localization-rtl}
 
 boolean
 
 Enables right-to-left display.
 
-**Default value**: false
+**Default value**: `false`
 ### selectedPluralText {#localization-selectedPluralText}
 
 string
@@ -296,7 +296,7 @@ string
 Specifies the plural form of the amount of selected items according to the rules of particular language. The &#039;{count}&#039; substring will
 be replaced with the number of selected items.
 
-**Default value**: '{count} selected'
+**Default value**: `'{count} selected'`
 ### selectedText {#localization-selectedText}
 
 string
@@ -304,14 +304,14 @@ string
 Specifies the amount of selected items according to the rules of particular language. The &#039;{count}&#039; substring will be replaced with
 the number of selected items.
 
-**Default value**: '{count} selected'
+**Default value**: `'{count} selected'`
 ### setText {#localization-setText}
 
 string
 
 Text for the set button.
 
-**Default value**: 'Set'
+**Default value**: `'Set'`
 ### timeFormat {#localization-timeFormat}
 
 string
@@ -355,7 +355,7 @@ the format of the time should be specified between | charchters:
 timeWheels: '|h:mm A|' // Will produce '9:12 AM'
 ```
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### todayText {#localization-todayText}
 
 string
@@ -369,4 +369,4 @@ string
 
 Text for week numbers in the timeline header. The {count} inside the string will be replaced with the number of the current week.
 
-**Default value**: 'Week {count}'
+**Default value**: `'Week {count}'`

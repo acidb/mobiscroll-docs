@@ -6,4 +6,5 @@ displayed_sidebar: vueSidebar
 
 # Getting started with Mobiscroll for Vue
 
-Mobiscroll is a collection of UI components that helps deliver great mobile apps, websites with a great user experience and in getting five-star app store reviews. The controls follow platform UX guidelines and can be styled with the Theme Builder for a perfect fit.
+Mobiscroll has official support for the Vue 3 library. Mobiscroll for Vue ships native Vue components.
+It shares a common core with the other supported frameworks and libraries, but uses Vue's rendering and reactivity model for a perfect fit in a Vue application.

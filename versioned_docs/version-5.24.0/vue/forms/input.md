@@ -9,8 +9,6 @@ import Localizations from '../\_auto-generated/input/localizations.md';
 
 # Input
 
-
-
 <div className="option-list">
 
 ## Options
@@ -21,7 +19,7 @@ import Localizations from '../\_auto-generated/input/localizations.md';
 
 <Events />
 
-## Localizations
+## Localization
 
 <Localizations />
 

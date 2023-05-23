@@ -9,7 +9,7 @@ import Localizations from '../\_auto-generated/button/localizations.md';
 
 # Button
 
-The buttons come in several shapes, sizes and colors. Use the click events for attaching myClicks to it and see the examples below for the various renderings.
+The Button component can be displayed in several shapes, sizes and colors.
 
 <div className="option-list">
 
@@ -21,7 +21,7 @@ The buttons come in several shapes, sizes and colors. Use the click events for a
 
 <Events />
 
-## Localizations
+## Localization
 
 <Localizations />
 

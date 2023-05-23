@@ -6,20 +6,20 @@ displayed_sidebar: vueSidebar
 
 # Popup
 
-The popup provides a frame for all your pop-over needs, able to render custom content, forms or combined views.
+The Popup component provides a frame for all your popover needs, able to render custom content, forms or combined views.
 
-Use it for contextual pop-ups, data-entry or to inform users in a consistent way with all other Mobiscroll component.
+Use it for contextual pop-ups, data-entry or to inform users in a consistent way with all other Mobiscroll components.
 
 ## Initialization
 
-The following example will create a popup with som static content:
+The following example will create a popup with static content:
 
-```html title="Popup with content"
+```html
 <script setup>
-import { ref } from 'vue';
-import { MbscPopup } from '@mobiscroll/vue';
+  import { ref } from 'vue';
+  import { MbscPopup } from '@mobiscroll/vue';
 
-const isPopupOpen = ref(true)
+  const isPopupOpen = ref(true);
 </script>
 
 <template>

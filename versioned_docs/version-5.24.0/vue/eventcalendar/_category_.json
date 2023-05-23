@@ -1,6 +1,6 @@
 {
-    "position": 2,
-    "label": "Eventcalendar",
-    "collapsible": true,
-    "collapsed": false
+  "position": 2,
+  "label": "Event Calendar",
+  "collapsible": true,
+  "collapsed": false
 }

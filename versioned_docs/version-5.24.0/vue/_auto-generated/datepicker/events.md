@@ -17,13 +17,14 @@ Parameters:
 (args: any, inst: any) => void
 
 
-Allows you to define your own event when cancel is pressed.
+Triggered when the picker is canceled.
 
 Parameters:
- - args - The args object has the following properties:
-   - valueText: String - The selected value as text.
+ - args - The event argument with the following properties:
+   - `value`: *any* - The selected value.
+   - `valueText`: *string* - The selected value as text.
 
- - inst - The instance object of the picker
+ - inst - The component instance.
 
 
 ### @cell-click {#event-onCellClick}
@@ -51,11 +52,11 @@ Parameters:
 Triggered when the value is changed.
 
 Parameters:
- - args - Object - The args object has the following properties:
-   - value - The selected value
-   - valueText: String - The selected value as text (if any).
+ - args - The event argument with the following properties:
+   - `value`: *any* - The selected value.
+   - `valueText`: *string* - The selected value as text.
 
- - inst - The instance object of the picker
+ - inst - The component instance.
 
 
 ### @close {#event-onClose}
@@ -66,37 +67,37 @@ Parameters:
 Triggered when the component is closed.
 
 Parameters:
- - args - Object - The args object has the following properties:
-   - source: String - Determines what triggered the close event. Can be one of &#039;set&#039;, &#039;cancel&#039;, &#039;ok&#039;, &#039;close&#039;,
-&#039;overlay&#039;, &#039;esc&#039;, &#039;scroll&#039;.
+ - args - The event argument with the following properties:
+   - `value`: *any* - The selected value.
+   - `valueText`: *string* - The selected value as text.
 
- - inst - Object - The instance object of the component
+ - inst - The component instance.
 
 
 ### @destroy {#event-onDestroy}
 
-(args: any, inst: BaseComponent) => void
+(args: any, inst: any) => void
 
 
 Triggered when the component is destroyed.
 
 Parameters:
- - args - The argument object passed to the handler.
+ - args - The event argument object.
 
- - inst - The instance of the component.
+ - inst - The component instance.
 
 
 ### @init {#event-onInit}
 
-(args: any, inst: BaseComponent) => void
+(args: any, inst: any) => void
 
 
 Triggered when the component is initialized.
 
 Parameters:
- - args - The argument object passed to the handler.
+ - args - The event argument object.
 
- - inst - The instance of the component.
+ - inst - The component instance.
 
 
 ### @label-click {#event-onLabelClick}
@@ -125,10 +126,10 @@ Parameters:
 Triggered when the component is opened.
 
 Parameters:
- - args - Object - The args object has the following properties:
-   - target: Object - The DOM element containing the generated html.
+ - args - The event argument with the following properties:
+   - `target`: *HTMLElement* - The DOM element of the popup.
 
- - inst - Object - The instance object of the popup.
+ - inst - The component instance.
 
 
 ### @page-change {#event-onPageChange}

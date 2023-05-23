@@ -16,12 +16,16 @@ Text for AM.
 
 string
 
-Text for Cancel button.
+Text for the cancel button.
+
+**Default value**: `'Cancel'`
 ### closeText {#localization-closeText}
 
 string
 
 Text for the close button.
+
+**Default value**: `'Close'`
 ### dateFormat {#localization-dateFormat}
 
 string
@@ -73,7 +77,7 @@ the format of the date should be specified between | charchters:
 dateWheels: '|D M d|' // Will produce 'Sun Sep 9'
 ```
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### dayNames {#localization-dayNames}
 
 Array&lt;string&gt;
@@ -130,51 +134,51 @@ is used the range start day can be specified with the [firstSelectDay](#opt-firs
 **Default value**: 0
 ### locale {#localization-locale}
 
-string &#124; object
+string &#124; MbscLocale
 
-Sets the language of the component. The locale option is an object containing all the translations for a given language.
-Mobiscroll supports a number of languages listed below. If a language is missing from the list, it can also be provided by the user.
-[Here&#039;s a guide on how to write language modules](https://docs.mobiscroll.com/languages).
+Sets the language of the component. The locale object contains all the translations for a given language.
+The built in language modules are listed below. If a language is not listed, it can be provided as a
+[custom language module](https://docs.mobiscroll.com/languages).
 
 Supported values:
-- Arabic: localeAr, &#039;ar&#039;
-- Bulgarian: localeBg, &#039;bg&#039;
-- Catalan: localeCa, &#039;ca&#039;
-- Czech: localeCs, &#039;cs&#039;
-- Chinese: localeZh, &#039;zh&#039;
-- Croatian: localeHr, &#039;hr&#039;
-- Danish: localeDa, &#039;da&#039;
-- Dutch: localeNl, &#039;nl&#039;
-- English: localeEn or undefined, &#039;en&#039;
-- English (UK): localeEnGB, &#039;en-GB&#039;
-- Farsi: localeFa, &#039;fa&#039;
-- German: localeDe, &#039;de&#039;
-- Greek: localeEl, &#039;el&#039;
-- Spanish: localeEs, &#039;es&#039;
-- Finnish: localeFi, &#039;fi&#039;
-- French: localeFr, &#039;fr&#039;
-- Hebrew: localeHe, &#039;he&#039;
-- Hindi: localeHi, &#039;hi&#039;
-- Hungarian: localeHu, &#039;hu&#039;
-- Italian: localeIt, &#039;it&#039;
-- Japanese: localeJa, &#039;ja&#039;
-- Korean: localeKo, &#039;ko&#039;
-- Lithuanian: localeLt, &#039;lt&#039;
-- Norwegian: localeNo, &#039;no&#039;
-- Polish: localePl, &#039;pl&#039;
-- Portuguese (Brazilian): localePtBR, &#039;pt-BR&#039;
-- Portuguese (European): localePtPT, &#039;pt-PT&#039;
-- Romanian: localeRo, &#039;ro&#039;
-- Russian: localeRu, &#039;ru&#039;
-- Russian (UA): localeRuUA, &#039;ru-UA&#039;
-- Slovak: localeSk, &#039;sk&#039;
-- Serbian: localeSr, &#039;sr&#039;
-- Swedish: localeSv, &#039;sv&#039;
-- Thai: localeTh, &#039;th&#039;
-- Turkish: localeTr, &#039;tr&#039;
-- Ukrainian: localeUa, &#039;ua&#039;
+- Arabic: `localeAr`, `'ar'`
+- Bulgarian: `localeBg`, `'bg'`
+- Catalan: `localeCa`, `'ca'`
+- Czech: `localeCs`, `'cs'`
+- Chinese: `localeZh`, `'zh'`
+- Croatian: `localeHr`, `'hr'`
+- Danish: `localeDa`, `'da'`
+- Dutch: `localeNl`, `'nl'`
+- English: `localeEn` or `undefined`, `'en'`
+- English (UK): `localeEnGB`, `'en-GB'`
+- Farsi: `localeFa`, `'fa'`
+- German: `localeDe`, `'de'`
+- Greek: `localeEl`, `'el'`
+- Spanish: `localeEs`, `'es'`
+- Finnish: `localeFi`, `'fi'`
+- French: `localeFr`, `'fr'`
+- Hebrew: `localeHe`, `'he'`
+- Hindi: `localeHi`, `'hi'`
+- Hungarian: `localeHu`, `'hu'`
+- Italian: `localeIt`, `'it'`
+- Japanese: `localeJa`, `'ja'`
+- Korean: `localeKo`, `'ko'`
+- Lithuanian: `localeLt`, `'lt'`
+- Norwegian: `localeNo`, `'no'`
+- Polish: `localePl`, `'pl'`
+- Portuguese (Brazilian): `localePtBR`, `'pt-BR'`
+- Portuguese (European): `localePtPT`, `'pt-PT'`
+- Romanian: `localeRo`, `'ro'`
+- Russian: `localeRu`, `'ru'`
+- Russian (UA): `localeRuUA`, `'ru-UA'`
+- Slovak: `localeSk`, `'sk'`
+- Serbian: `localeSr`, `'sr'`
+- Swedish: `localeSv`, `'sv'`
+- Thai: `localeTh`, `'th'`
+- Turkish: `localeTr`, `'tr'`
+- Ukrainian: `localeUa`, `'ua'`
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### monthNames {#localization-monthNames}
 
 Array&lt;string&gt;
@@ -228,12 +232,14 @@ string
 
 Label for the [&#039;Now&#039; button](#opt-buttons).
 
-**Default value**: 'Now'
+**Default value**: `'Now'`
 ### okText {#localization-okText}
 
 string
 
-Text for Ok button.
+Text for the ok button.
+
+**Default value**: `'Ok'`
 ### pmText {#localization-pmText}
 
 string
@@ -254,35 +260,35 @@ string
 
 When selecting a range, it specifies the placeholder text for the end value under the [end label](#opt-showRangeLabels).
 
-**Default value**: 'Please select'
+**Default value**: `'Please select'`
 ### rangeEndLabel {#localization-rangeEndLabel}
 
 string
 
 When selecting a range, it specifies the text of the [end label](#opt-showRangeLabels).
 
-**Default value**: 'End'
+**Default value**: `'End'`
 ### rangeStartHelp {#localization-rangeStartHelp}
 
 string
 
 When selecting a range, it specifies the placeholder text for the start value under the [start label](#opt-showRangeLabels).
 
-**Default value**: 'Please select'
+**Default value**: `'Please select'`
 ### rangeStartLabel {#localization-rangeStartLabel}
 
 string
 
 When selecting a range, it specifies the text of the [start label](#opt-showRangeLabels).
 
-**Default value**: 'Start'
+**Default value**: `'Start'`
 ### rtl {#localization-rtl}
 
 boolean
 
-Changes the component direction to left display.
+Enables right-to-left display.
 
-**Default value**: undefined
+**Default value**: `false`
 ### selectedPluralText {#localization-selectedPluralText}
 
 string
@@ -290,7 +296,7 @@ string
 Specifies the plural form of the amount of selected items according to the rules of particular language. The &#039;{count}&#039; substring will
 be replaced with the number of selected items.
 
-**Default value**: '{count} selected'
+**Default value**: `'{count} selected'`
 ### selectedText {#localization-selectedText}
 
 string
@@ -298,12 +304,14 @@ string
 Specifies the amount of selected items according to the rules of particular language. The &#039;{count}&#039; substring will be replaced with
 the number of selected items.
 
-**Default value**: '{count} selected'
+**Default value**: `'{count} selected'`
 ### setText {#localization-setText}
 
 string
 
-Text for Set button.
+Text for the set button.
+
+**Default value**: `'Set'`
 ### timeFormat {#localization-timeFormat}
 
 string
@@ -347,7 +355,7 @@ the format of the time should be specified between | charchters:
 timeWheels: '|h:mm A|' // Will produce '9:12 AM'
 ```
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### todayText {#localization-todayText}
 
 string
@@ -361,4 +369,4 @@ string
 
 Text for week numbers in the timeline header. The {count} inside the string will be replaced with the number of the current week.
 
-**Default value**: 'Week {count}'
+**Default value**: `'Week {count}'`

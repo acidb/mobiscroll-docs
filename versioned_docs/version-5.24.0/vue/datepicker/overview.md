@@ -10,11 +10,11 @@ The Datepicker component is the ultimate tool for selecting a single date and/or
 
 ## Initialization
 
-The following example will create a datepicker with the default options.
+The following example will create a datepicker with default options.
 
-```html title="Datepicker with default options"
+```html
 <script setup>
-import { MbscDatepicker } from '@mobiscroll/vue';
+  import { MbscDatepicker } from '@mobiscroll/vue';
 </script>
 
 <template>

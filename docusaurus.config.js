@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Mobiscroll Documentation',
   // tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon-light-32x32.png',
 
   // Set the production url of your site here
   url: 'https://mobiscroll.com',
@@ -41,7 +41,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
           includeCurrentVersion: false,
-          lastVersion: '5.23',
+          lastVersion: '5.24.0',
         },
         blog: false,
         theme: {
@@ -86,8 +86,7 @@ const config = {
               {
                 href: 'https://github.com/acidb/mobiscroll/issues',
                 label: 'GitHub',
-              }
-
+              },
             ],
             position: 'right',
           },
@@ -103,10 +102,9 @@ const config = {
                 label: 'Help Center',
                 href: 'http://help.mobiscroll.com',
               },
-
             ],
             position: 'right',
-          }
+          },
         ],
       },
       footer: {

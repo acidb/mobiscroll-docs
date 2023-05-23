@@ -98,15 +98,15 @@ Parameters:
 
 ### @destroy {#event-onDestroy}
 
-(args: any, inst: BaseComponent) => void
+(args: any, inst: any) => void
 
 
 Triggered when the component is destroyed.
 
 Parameters:
- - args - The argument object passed to the handler.
+ - args - The event argument object.
 
- - inst - The instance of the component.
+ - inst - The component instance.
 
 
 ### @event-click {#event-onEventClick}
@@ -339,15 +339,15 @@ Parameters:
 
 ### @init {#event-onInit}
 
-(args: any, inst: BaseComponent) => void
+(args: any, inst: any) => void
 
 
 Triggered when the component is initialized.
 
 Parameters:
- - args - The argument object passed to the handler.
+ - args - The event argument object.
 
- - inst - The instance of the component.
+ - inst - The component instance.
 
 
 ### @label-click {#event-onLabelClick}

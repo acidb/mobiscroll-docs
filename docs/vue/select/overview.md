@@ -6,23 +6,23 @@ displayed_sidebar: vueSidebar
 
 # Select
 
-The Mobiscroll Select component lets you pick a single or multiple values from a list of options.
+The Select component lets you pick a single value or multiple values from a list of options.
 
 ## Initialization
 
 The following example will create a select component with four options to choose from, each of them being a city.
 
-```html title="Select with 4 option"
+```html
 <script setup>
-const myData = [
-  { text: 'Atlanta', value: 'atl' },
-  { text: 'Berlin', value: 'ber'},
-  { text: 'Chicago', value: 'chi'},
-  { text: 'London', value: 'lon'}
-]
+  const myData = [
+    { text: 'Atlanta', value: 1 },
+    { text: 'Berlin', value: 2 },
+    { text: 'Chicago', value: 3 },
+    { text: 'London', value: 4 },
+  ];
 </script>
 
 <template>
-  <MbscSelect :data="myData" inputComponent="input" />
+  <MbscSelect :data="myData" />
 </template>
 ```

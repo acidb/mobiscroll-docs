@@ -100,19 +100,11 @@ If true arrow will display only at the end side of the connection.
 - to: String - the id of the event where the connection will end.
 
 **Default value**: undefined
-### context {#opt-context}
-
-any
-
-Specify the DOM element in which the component is appended and positioned (if not inline).
-Can be a selector string or a DOM element.
-
-**Default value**: 'body'
 ### cssClass {#opt-cssClass}
 
 string
 
-Applies custom css class to the top level element.
+Specifies a custom CSS class for the component.
 
 **Default value**: undefined
 ### data {#opt-data}
@@ -550,21 +542,22 @@ resources: [{
 
 missing
 
-Specifies different settings for different container widths, in a form of an object,
-where the keys are the name of the breakpoints, and the values are objects containing the settings for the given breakpoint.
+Specifies different options for different container widths, in a form of an object,
+where the keys are the name of the breakpoints, and the values are objects containing the options for the given breakpoint.
 
-:::caution
+:::info
 The available width is queried from the container element of the component and not the browsers viewport like in css media queries
 :::
 There are five predefined breakpoints:
 
-- xsmall - min-width: 0px
-- small - min-width: 576px
-- medium - min-width: 768px
-- large - min-width: 992px
-- xlarge - min-width: 1200px
+- `xsmall` - min-width: 0px
+- `small` - min-width: 576px
+- `medium` - min-width: 768px
+- `large` - min-width: 992px
+- `xlarge` - min-width: 1200px
 
-Custom breakpoints can be defined by passing an object containing the breakpoint property specifying the min-width in pixels. Example:
+Custom breakpoints can be defined by passing an object containing the `breakpoint` property specifying the min-width in pixels.
+Example:
 
 ```
 responsive: {
@@ -647,17 +640,17 @@ string
 
 Specifies the visual appearance of the component.
 
-If it is &#039;auto&#039; or undefined, the theme will automatically be chosen based on the platform.
+If it is `'auto'` or `undefined`, the theme will automatically be chosen based on the platform.
 If custom themes are also present, they will take precedence over the built in themes, e.g. if there&#039;s an iOS based custom theme,
 it will be chosen on the iOS platform instead of the default iOS theme.
 
 Supplied themes:
-
-- &#039;ios&#039; - iOS theme
-- &#039;material&#039; - Material theme
-- &#039;windows&#039; - Windows theme
+- `'ios'` - iOS theme
+- `'material'` - Material theme
+- `'windows'` - Windows theme
 
 It&#039;s possible to [modify theme colors or create custom themes](https://docs.mobiscroll.com/theming).
+
 :::note
 Make sure that the theme you set is included in the downloaded package.
 :::
@@ -667,16 +660,15 @@ Make sure that the theme you set is included in the downloaded package.
 
 "dark" &#124; "light" &#124; "auto"
 
-Controls which variant of the theme will be used (light or dark).
+Controls which variant of the [theme](#opt-theme) will be used (light or dark).
 
 Possible values:
-
-- &#039;light&#039; - Use the light variant of the theme.
-- &#039;dark&#039; - Use the dark variant of the theme.
-- &#039;auto&#039; or undefined - Detect the preferred system theme on devices where this is supported.
+- `'light'` - Use the light variant of the theme.
+- `'dark'` - Use the dark variant of the theme.
+- `'auto'` or `undefined` - Detect the preferred system theme on devices where this is supported.
 
 To use the option with custom themes, make sure to create two custom themes, where the dark version has the same name as the light one,
-suffixed with &#039;-dark&#039;, e.g.: &#039;my-theme&#039; and &#039;my-theme-dark&#039;.
+suffixed with `'-dark'`, e.g.: `'my-theme'` and `'my-theme-dark'`.
 
 **Default value**: undefined
 ### timezonePlugin {#opt-timezonePlugin}
@@ -703,11 +695,11 @@ objects to the timezonePlugin option. These objects can be imported from the mob
 
 boolean &#124; "auto"
 
-Use true to render a touch optimized user interface, or false for a user interface optimized for pointer devices (mouse, touchpad).
+Use `true` to render a touch optimized user interface, or `false` for a user interface optimized for pointer devices (mouse, touchpad).
 
-Can be used with the responsive option to change the user interface based on viewport width.
+Can be used with the [responsive](#opt-responsive) option to change the user interface based on viewport width.
 
-If set to &#039;auto&#039;, the touch UI will be automatically enabled based on the platform.
+If set to `'auto'`, the touch UI will be automatically enabled based on the platform.
 
 **Default value**: 'auto'
 ### view {#opt-view}

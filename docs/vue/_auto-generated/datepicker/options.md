@@ -2,49 +2,42 @@
 
 HTMLElement
 
-Specifies the anchor element for positioning, if [display](#opt-display) is set to &#039;anchored&#039;.
+Specifies the anchor element for positioning, if [display](#opt-display) is set to `'anchored'`.
 ### animation {#opt-animation}
 
 boolean &#124; "pop" &#124; "slide-down" &#124; "slide-up"
 
-Animation to use for opening/closing of the control (if [display](#opt-display) is not inline).
+Animation to use when the component is opened or closed, if [display](#opt-display) is not set to `'inline'`.
 Possible values:
- - &#039;pop&#039;
- - &#039;slide-down&#039;
- - &#039;slide-up&#039;
-If false, turns the animation off.
+- `'pop'`
+- `'slide-down'`
+- `'slide-up'`
+If `false`, the animation is turned off.
 ### buttons {#opt-buttons}
 
 Array&lt;string &#124; MbscPopupButton&gt;
 
-Buttons to display. Each item in the array will be a button. A button can be specified as a string, or as a button object.
+Buttons to display. Each item of the array will be a button. A button can be specified as a string, or as a button object.
 
 If a string, it must be one of the predefined buttons:
- - &#039;ok&#039; - Approve action (if applicable). It&#039;s the same as the &#039;set&#039; button, but will display the caption specified by the
-[okText option](#localization-okText). Just like the &#039;set&#039; button, it will trigger the [onSet event](#event-onSet), when pressed.
- - &#039;cancel&#039; - Dismisses the popup.
+- `'ok'` - Approve action. Will display the caption specified by the [okText](#localization-okText) option.
+- `'cancel'` - Dismisses the popup. Will display the caption specified by the [cancelText](#localization-cancelText) option.
+- `'close'` - Closes the popup. Will display the caption specified by the [closeText](#localization-closeText) option.
+- `'set'` - Approve action. Will display the caption specified by the [setText](#localization-setText) option.
 
-:::note
-To modify the text of the predefined buttons, you can use the [okText](#localization-okText),
-[cancelText](#localization-cancelText) options.
-:::
+The button object can have the following properties:
+- `text`: *string* - Text of the button.
+- `handler`: *string | () => void* - The handler function which will run when the button is pressed.
+If a string, it must be one of the predefined button handlers:
+  - `'set'` - Approve action.
+  - `'cancel'` - Dismiss the popup.
+- `icon`: *string* - Icon for the button.
+- `cssClass`: *string* - CSS class for the button.
+- `disabled`: *boolean* - The disabled state of the button.
+- `keyCode`: *number | string | Array&lt;number | string&gt;* - The key code associated with the button to activate it from keyboard.
+Can be a single value or multiple value passed as an array. Predifined string values are: `'enter'`, `'esc'`, `'space'`.
 
-Every passed object can have the following properties:
- - text - String - Text of the button.
- - handler - String, Function - The function which will run when the button is pressed. If a string, it must be one of the predefined
-button handlers:
-   - &#039;set&#039; - Approve action (if applicable).
-   - &#039;cancel&#039; - Dismisses the popup.
- - icon - String (Optional) - Icon of the button.
- - cssClass - String (Optional) - Css class of the button.
- - disabled - Boolean (Optional) - Sets the disabled state of the button.
- - keyCode - Number, String, Array (Optional) - The key code associated with the button to activate it from keyboard.
-Can be a single value or multiple value passed as an array. Predifine string values are:
-   - &#039;enter&#039;
-   - &#039;esc&#039;
-   - &#039;space&#039;
-
-```js title="Predefined and custom buttons"
+```js title="Example for using predefined and custom buttons"
 buttons: [
   'set',
   {
@@ -58,7 +51,7 @@ buttons: [
   'cancel'
 ]
 ```
-```js title="Using a predefined handler"
+```js title="Example for using a predefined button handler"
 buttons: [
   'set',
   {
@@ -117,17 +110,21 @@ In case of &#039;week&#039; set the number of displayed weeks using the [calenda
 
 boolean &#124; Array&lt;boolean&gt;
 
+If `true`, the scroll wheels are circular. If an array, it can be specified as a per wheel configuration, e.g. for 3 wheels:
+`[true, false, false]` sets the first wheel circular.
+If not specified, if a wheel has more values than the number of the displayed rows, the scroll wheel becomes circular.
 
+**Default value**: undefined
 ### closeOnEsc {#opt-closeOnEsc}
 
 boolean
 
-If true, the popup is closed on ESC keypress.
+If `true`, the popup is closed when the ESC key is pressed.
 ### closeOnOverlayClick {#opt-closeOnOverlayClick}
 
 boolean
 
-If true, the popup is closed on overlay tap/click.
+If `true`, the popup is closed on overlay click or tap.
 ### colors {#opt-colors}
 
 Array&lt;MbscCalendarColor&gt;
@@ -179,14 +176,6 @@ colors: [
 ```
 
 **Default value**: undefined
-### context {#opt-context}
-
-any
-
-Specify the DOM element in which the component is appended and positioned (if not inline).
-Can be a selector string or a DOM element.
-
-**Default value**: 'body'
 ### controls {#opt-controls}
 
 Array&lt;TDatepickerControl&gt;
@@ -205,7 +194,7 @@ List of controls to show. Possible values:
 
 string
 
-Applies custom css class to the top level element.
+Specifies a custom CSS class for the component.
 
 **Default value**: undefined
 ### dataTimezone {#opt-dataTimezone}
@@ -238,7 +227,7 @@ Default selection which appears on the picker. The provided value will not be se
 
 If not provided, the default selection will be the current date and/or time.
 
-If null is passed, in case of the calendar control there will be no selected value, in case of scroller controls the current date
+If `null` is passed, in case of the calendar control there will be no selected value, in case of scroller controls the current date
 and time will still be displayed on the selected line, as an empty value cannot be displayed on the scroller.
 
 **Default value**: undefined
@@ -246,21 +235,20 @@ and time will still be displayed on the selected line, as an empty value cannot 
 
 boolean
 
-Initial disabled state of the component. This will take no effect in inline display mode.
-
-**Default value**: false
+Specifies the disabled state of the input.
 ### display {#opt-display}
 
 MbscPopupDisplay
 
 Controls the positioning of the component. Possible options:
- - &#039;center&#039; - The component appears as a popup at the center of the viewport.
- - &#039;inline&#039; - If called on div element, the component is placed inside the div (overwriting existing content), otherwise
-is placed after the original element.
- - &#039;anchored&#039; - The component appears positioned to the element defined by the [anchor option](#opt-anchor). By default the anchor
-is the original element.
- - &#039;top&#039; - The component appears docked to the top of the viewport.
- - &#039;bottom&#039; - The component appears docked to the bottom of the viewport.
+- `'center'` - The component appears as a popup at the center of the viewport.
+- `'inline'` - The component is rendered inline.
+- `'anchored'` - The component appears positioned to the element defined by the [anchor](#opt-anchor) option.
+- `'top'` - The component appears docked to the top of the viewport.
+- `'bottom'` - The component appears docked to the bottom of the viewport.
+
+The default display mode depends on the [theme](#opt-theme), it defaults to `'bottom'` for the iOS theme and
+to `'center'` for all other themes.
 ### displayTimezone {#opt-displayTimezone}
 
 string
@@ -286,14 +274,8 @@ Possible values are:
 
 string
 
-Specify the icon name for the form components which will be displayed on the end of the component.
-Use [startIcon option](#opt-startIcon) for specifying icon to the opposite side.
-### endIconSvg {#opt-endIconSvg}
-
-string
-
-Specify the icon svg for the form components which will be displayed on the end of the component.
-Use [startIconSvg option](#opt-startIconSvg) for specifying icon to the opposite side.
+Specifies the icon which will be displayed at the end of the input.
+Use the [startIcon](#opt-startIcon) option for specifying an icon at the start.
 ### endInput {#opt-endInput}
 
 any
@@ -309,12 +291,12 @@ it will put the range end part of the selection to that input. Similarly the inp
 
 boolean
 
-Controls the error state of the component. If true error styles will be displayed.
+If `true`, the input will be displayed with error styles.
 ### errorMessage {#opt-errorMessage}
 
 string
 
-Controls the error message of the component. If [error option](#opt-error) is set to true the error message will be displayed.
+Error message for the input. If the [error](#opt-error) option is set to `true`, the message will be displayed.
 ### exclusiveEndDates {#opt-exclusiveEndDates}
 
 boolean
@@ -344,12 +326,18 @@ on the localization used.
 
 boolean
 
-Element to focus after the popup is closed. If undefined, the original element will be focused. If false, no focusing will occur.
+If `true`, after closing the popup the focus will be moved to the last focused element
+before the popup was opened.
+### focusOnOpen {#opt-focusOnOpen}
+
+boolean
+
+If `true`, the popup will receive the focus when opened.
 ### focusTrap {#opt-focusTrap}
 
 boolean
 
-If not in inline mode, focus won&#039;t be allowed to leave the popup.
+If `true` and [display](#opt-display) is not set to `'inline'`, focus won&#039;t be allowed to leave the popup.
 ### fromText {#opt-fromText}
 
 string
@@ -359,7 +347,7 @@ string
 
 boolean
 
-If true, the popup will appear in full screen, but, by default, its width and height won&#039;t exceed 600px.
+If `true`, the popup will appear in full screen, but, by default, its width and height won&#039;t exceed 600px.
 You can change that using the [maxWidth](#opt-maxWidth) and [maxHeight](#opt-maxHeight) options.
 ### headerText {#opt-headerText}
 
@@ -390,10 +378,15 @@ as end date.
 
 "outline" &#124; "underline" &#124; "box"
 
-Defines the input rendering mode. By default the input has the underline styling. Possible values:
- - &#039;underline&#039;
- - &#039;box&#039;
- - &#039;outline&#039;
+Specifies the style of the input. Possible values:
+- `'underline'`
+- `'box'`
+- `'outline'`
+
+The default value depends on the [theme](#opt-theme):
+- iOS: `'underline'`
+- Material: `'box'`
+- Windows: `'outline'`
 ### inputTyping {#opt-inputTyping}
 
 boolean
@@ -473,33 +466,34 @@ invalid: [
 
 boolean
 
-Specifies wether the popup is opened or not. Use it together with the [onClose event](#event-onClose), by setting it
-to false when the popup closes.
+Specifies if the popup is opened or not. Use it together with the [onClose](#event-onClose) event, by setting it
+to `false` when the popup closes.
 ### itemHeight {#opt-itemHeight}
 
 number
 
-Height of the wheel items in pixels.
-### itemTemplate {#opt-itemTemplate}
-
-any
-
-
+Height in pixels of one item on the wheel. The default value depends on the [theme](#opt-theme):
+- iOS: 34
+- Material: 40
+- Windows: 44
 ### label {#opt-label}
 
 string
 
-Sets the label of component.
+Specifies the label of the input.
 ### labelStyle {#opt-labelStyle}
 
 "inline" &#124; "floating" &#124; "stacked"
 
-Defines the position of the label. The default label style depends on the [theme option](#opt-theme).
+Specifies the position of the input label. Possible values:
+- `'stacked'`
+- `'inline'`
+- `'floating'`
 
-Possible values:
- - &#039;stacked&#039;
- - &#039;inline&#039;
- - &#039;floating&#039;
+The default value depends on the [theme](#opt-theme):
+- iOS: `'inline'`
+- Material: `'floating'`
+- Windows: `'stacked'`
 ### labels {#opt-labels}
 
 Array&lt;MbscCalendarLabel&gt;
@@ -627,7 +621,10 @@ This option can&#039;t be used with the [[&#039;datetime&#039;] control](#opt-co
 
 number &#124; Array&lt;number&gt;
 
+Maximum width of the scroller wheels in pixels.
+If a number, it is applied to all wheels, if an array, it is applied to each wheel separately.
 
+**Default value**: undefined
 ### maxWidth {#opt-maxWidth}
 
 string &#124; number
@@ -676,7 +673,10 @@ This option can&#039;t be used with the [[&#039;datetime&#039;] control](#opt-co
 
 number &#124; Array&lt;number&gt;
 
+Minimum width of the scroller wheels in pixels.
+If a number, it is applied to all wheels, if an array, it is applied to each wheel separately.
 
+**Default value**: undefined
 ### moment {#opt-moment}
 
 any
@@ -687,12 +687,6 @@ this setting should be passed the reference to the Moment.js library.
 Check out our example on how to pass moment to the datepicker!
 
 **Default value**: undefined
-### onWheelMove {#opt-onWheelMove}
-
-(args: IWheelMoveArgs) => undefined &#124; Array&lt;any&gt;
-
-
-
 ### pages {#opt-pages}
 
 number &#124; "auto"
@@ -741,30 +735,26 @@ For example, if you want to display 2 months from the current month, you must sp
 the reference date. Then you can use the [calendarSize](#opt-calendarSize) option to show 2 months.
 
 **Default value**: 1970/01/01
-### renderItem {#opt-renderItem}
-
-any
-
-
 ### responsive {#opt-responsive}
 
 missing
 
-Specifies different settings for different container widths, in a form of an object,
-where the keys are the name of the breakpoints, and the values are objects containing the settings for the given breakpoint.
+Specifies different options for different container widths, in a form of an object,
+where the keys are the name of the breakpoints, and the values are objects containing the options for the given breakpoint.
 
-:::caution
+:::info
 The available width is queried from the container element of the component and not the browsers viewport like in css media queries
 :::
 There are five predefined breakpoints:
 
-- xsmall - min-width: 0px
-- small - min-width: 576px
-- medium - min-width: 768px
-- large - min-width: 992px
-- xlarge - min-width: 1200px
+- `xsmall` - min-width: 0px
+- `small` - min-width: 576px
+- `medium` - min-width: 768px
+- `large` - min-width: 992px
+- `xlarge` - min-width: 1200px
 
-Custom breakpoints can be defined by passing an object containing the breakpoint property specifying the min-width in pixels. Example:
+Custom breakpoints can be defined by passing an object containing the `breakpoint` property specifying the min-width in pixels.
+Example:
 
 ```
 responsive: {
@@ -807,17 +797,15 @@ the returned values are always in &#039;iso8601&#039; format and this option is 
 
 number
 
-Number of visible rows on the wheel.
-### scroll3d {#opt-scroll3d}
-
-boolean
-
-
+Number of visible rows on the wheel. The default value depends on the [theme](#opt-theme):
+- iOS: 5
+- Material: 3
+- Windows: 6
 ### scrollLock {#opt-scrollLock}
 
 boolean
 
-Disables page scrolling on touchmove (if not in inline mode, and popup height is less than window height).
+Disables page scrolling, if the content of the popup is not scrollable.
 ### select {#opt-select}
 
 "date" &#124; "range" &#124; "preset-range"
@@ -854,11 +842,6 @@ boolean
 If true, multiple selection will be enabled.
 
 **Default value**: false
-### selectOnScroll {#opt-selectOnScroll}
-
-boolean
-
-
 ### selectSize {#opt-selectSize}
 
 number
@@ -871,17 +854,11 @@ The selection will start depending on the [firstSelectDay option](#opt-firstSele
 by the selectSize.
 
 **Default value**: 7
-### shouldValidate {#opt-shouldValidate}
-
-(s: any, prevS: any) => boolean
-
-
-
 ### showArrow {#opt-showArrow}
 
 boolean
 
-Show or hide the popup arrow, when [display mode](#opt-display) is &#039;anchored&#039;.
+Show or hide the popup arrow, when [display](#opt-display) is `'anchored'`.
 ### showControls {#opt-showControls}
 
 boolean
@@ -918,7 +895,7 @@ Opens the component on element click/tap.
 
 boolean
 
-Pops up the component on element focus.
+Opens the component on element focus.
 
 **Default value**: false on desktop, true on mobile
 ### showOuterDays {#opt-showOuterDays}
@@ -938,7 +915,7 @@ Outer days are automatically hidden if [calendarScroll](#opt-calendarScroll) is 
 
 boolean
 
-Show or hide overlay.
+Show or hide the popup overlay.
 ### showRangeLabels {#opt-showRangeLabels}
 
 boolean
@@ -969,14 +946,8 @@ Show week numbers on the calendar view. Enumeration starts with the first week o
 
 string
 
-Specify the icon name for the form component which will be displayed on the start of the component. Use [endIcon option](#opt-endIcon)
-for specifying icon to the opposite side.
-### startIconSvg {#opt-startIconSvg}
-
-string
-
-Specify the icon svg for the form component which will be displayed on the start of the component. Use
-[endIconSvg option](#opt-endIconSvg) for specifying icon to the opposite side.
+Specifies the icon which will be displayed at the start of the input.
+Use the [endIcon](#opt-endIcon) option for specifying an icon at the end.
 ### startInput {#opt-startInput}
 
 any
@@ -1015,17 +986,17 @@ string
 
 Specifies the visual appearance of the component.
 
-If it is &#039;auto&#039; or undefined, the theme will automatically be chosen based on the platform.
+If it is `'auto'` or `undefined`, the theme will automatically be chosen based on the platform.
 If custom themes are also present, they will take precedence over the built in themes, e.g. if there&#039;s an iOS based custom theme,
 it will be chosen on the iOS platform instead of the default iOS theme.
 
 Supplied themes:
-
-- &#039;ios&#039; - iOS theme
-- &#039;material&#039; - Material theme
-- &#039;windows&#039; - Windows theme
+- `'ios'` - iOS theme
+- `'material'` - Material theme
+- `'windows'` - Windows theme
 
 It&#039;s possible to [modify theme colors or create custom themes](https://docs.mobiscroll.com/theming).
+
 :::note
 Make sure that the theme you set is included in the downloaded package.
 :::
@@ -1035,16 +1006,15 @@ Make sure that the theme you set is included in the downloaded package.
 
 "dark" &#124; "light" &#124; "auto"
 
-Controls which variant of the theme will be used (light or dark).
+Controls which variant of the [theme](#opt-theme) will be used (light or dark).
 
 Possible values:
-
-- &#039;light&#039; - Use the light variant of the theme.
-- &#039;dark&#039; - Use the dark variant of the theme.
-- &#039;auto&#039; or undefined - Detect the preferred system theme on devices where this is supported.
+- `'light'` - Use the light variant of the theme.
+- `'dark'` - Use the dark variant of the theme.
+- `'auto'` or `undefined` - Detect the preferred system theme on devices where this is supported.
 
 To use the option with custom themes, make sure to create two custom themes, where the dark version has the same name as the light one,
-suffixed with &#039;-dark&#039;, e.g.: &#039;my-theme&#039; and &#039;my-theme-dark&#039;.
+suffixed with `'-dark'`, e.g.: `'my-theme'` and `'my-theme-dark'`.
 
 **Default value**: undefined
 ### timezonePlugin {#opt-timezonePlugin}
@@ -1076,11 +1046,11 @@ string
 
 boolean &#124; "auto"
 
-Use true to render a touch optimized user interface, or false for a user interface optimized for pointer devices (mouse, touchpad).
+Use `true` to render a touch optimized user interface, or `false` for a user interface optimized for pointer devices (mouse, touchpad).
 
-Can be used with the responsive option to change the user interface based on viewport width.
+Can be used with the [responsive](#opt-responsive) option to change the user interface based on viewport width.
 
-If set to &#039;auto&#039;, the touch UI will be automatically enabled based on the platform.
+If set to `'auto'`, the touch UI will be automatically enabled based on the platform.
 
 **Default value**: 'auto'
 ### valid {#opt-valid}
@@ -1088,28 +1058,17 @@ If set to &#039;auto&#039;, the touch UI will be automatically enabled based on 
 Array&lt;DateType&gt; &#124; Array&lt;IValidateProps&gt;
 
 
-### validate {#opt-validate}
-
-(args: IScrollerValidateArgs) => {disabled: Array&lt;any&gt;, indexes: Array&lt;number&gt;, init: boolean, valid: Array&lt;any&gt;}
-
-
-
-### valueEquality {#opt-valueEquality}
-
-(v1: any, v2: any) => boolean
-
-
-
 ### wheelWidth {#opt-wheelWidth}
 
 number &#124; Array&lt;number&gt;
 
-
+Width of the scroller wheels, in pixels. Wheel content will be truncated, if it exceeds the width.
+If a number, it is applied to all wheels, if an array, it is applied to each wheel separately.
 ### width {#opt-width}
 
 string &#124; number
 
-Sets the width of the popup container. This will take no effect in inline display mode.
+Sets the width of the component.
 ### yearSuffix {#opt-yearSuffix}
 
 string

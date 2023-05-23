@@ -1,3 +1,5 @@
 {
-    "label": "Form Components"
+  "label": "Form Components",
+  "collapsible": true,
+  "collapsed": false
 }

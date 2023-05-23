@@ -1,17 +1,3 @@
-### ariaLabel {#opt-ariaLabel}
-
-string
-
-Specifies the accessible name of the button. Recommended for icon-only buttons.
-
-**Default value**: undefined
-### color {#opt-color}
-
-"primary" &#124; "secondary" &#124; "success" &#124; "danger" &#124; "warning" &#124; "info" &#124; "dark" &#124; "light"
-
-Specifies the predefined color of the button.
-
-**Default value**: undefined
 ### cssClass {#opt-cssClass}
 
 string
@@ -23,37 +9,74 @@ Specifies a custom CSS class for the component.
 
 boolean
 
-Specifies the disabled state of the button.
+Specifies the disabled state of the input.
 
 **Default value**: false
 ### endIcon {#opt-endIcon}
 
-any
+string
 
-Specifies the icon which will be displayed at the end of the button.
+Specifies the icon which will be displayed at the end of the input.
 Use the [startIcon](#opt-startIcon) option for specifying an icon at the start.
 
 **Default value**: undefined
-### icon {#opt-icon}
+### error {#opt-error}
 
-any
+boolean
 
-Specifies the icon for an icon-only button.
+If `true`, the input will be displayed with error styles.
+
+**Default value**: false
+### errorMessage {#opt-errorMessage}
+
+string
+
+Error message for the input. If the [error](#opt-error) option is set to `true`, the message will be displayed.
+
+**Default value**: undefined
+### inputStyle {#opt-inputStyle}
+
+"outline" &#124; "underline" &#124; "box"
+
+Specifies the style of the input. Possible values:
+- `'underline'`
+- `'box'`
+- `'outline'`
+
+The default value depends on the [theme](#opt-theme):
+- iOS: `'underline'`
+- Material: `'box'`
+- Windows: `'outline'`
+
+**Default value**: undefined
+### label {#opt-label}
+
+string
+
+Specifies the label of the input.
+
+**Default value**: undefined
+### labelStyle {#opt-labelStyle}
+
+"inline" &#124; "floating" &#124; "stacked"
+
+Specifies the position of the input label. Possible values:
+- `'stacked'`
+- `'inline'`
+- `'floating'`
+
+The default value depends on the [theme](#opt-theme):
+- iOS: `'inline'`
+- Material: `'floating'`
+- Windows: `'stacked'`
 
 **Default value**: undefined
 ### startIcon {#opt-startIcon}
 
-any
+string
 
-Specifies the icon which will be displayed at the start of the button.
+Specifies the icon which will be displayed at the start of the input.
 Use the [endIcon](#opt-endIcon) option for specifying an icon at the end.
-
-**Default value**: undefined
-### tabIndex {#opt-tabIndex}
-
-number
-
-Specifies the `tabindex` attribute of the button.
 
 **Default value**: undefined
 ### theme {#opt-theme}
@@ -93,10 +116,3 @@ To use the option with custom themes, make sure to create two custom themes, whe
 suffixed with `'-dark'`, e.g.: `'my-theme'` and `'my-theme-dark'`.
 
 **Default value**: undefined
-### variant {#opt-variant}
-
-"standard" &#124; "flat" &#124; "outline"
-
-Specifies the style of the button.
-
-**Default value**: 'standard'

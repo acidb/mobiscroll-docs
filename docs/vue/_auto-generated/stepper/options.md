@@ -1,15 +1,8 @@
-### ariaLabel {#opt-ariaLabel}
-
-string
-
-Specifies the accessible name of the button. Recommended for icon-only buttons.
-
-**Default value**: undefined
 ### color {#opt-color}
 
 "primary" &#124; "secondary" &#124; "success" &#124; "danger" &#124; "warning" &#124; "info" &#124; "dark" &#124; "light"
 
-Specifies the predefined color of the button.
+Specifies the predefined color of the stepper.
 
 **Default value**: undefined
 ### cssClass {#opt-cssClass}
@@ -19,43 +12,60 @@ string
 Specifies a custom CSS class for the component.
 
 **Default value**: undefined
+### description {#opt-description}
+
+string
+
+Specifies the description text of the stepper.
+
+**Default value**: undefined
 ### disabled {#opt-disabled}
 
 boolean
 
-Specifies the disabled state of the button.
+Specifies the disabled state of the stepper.
 
 **Default value**: false
-### endIcon {#opt-endIcon}
+### inputClass {#opt-inputClass}
 
-any
+string
 
-Specifies the icon which will be displayed at the end of the button.
-Use the [startIcon](#opt-startIcon) option for specifying an icon at the start.
-
-**Default value**: undefined
-### icon {#opt-icon}
-
-any
-
-Specifies the icon for an icon-only button.
+Specifies a custom CSS class for the stepper input field.
 
 **Default value**: undefined
-### startIcon {#opt-startIcon}
+### inputPosition {#opt-inputPosition}
 
-any
+"center" &#124; "start" &#124; "end"
 
-Specifies the icon which will be displayed at the start of the button.
-Use the [endIcon](#opt-endIcon) option for specifying an icon at the end.
+Specifies the input field position compared to the +/- stepper buttons.
+### label {#opt-label}
+
+string
+
+Specifies the label of the stepper.
 
 **Default value**: undefined
-### tabIndex {#opt-tabIndex}
+### max {#opt-max}
 
 number
 
-Specifies the `tabindex` attribute of the button.
+Specifies the minimum value that can be selected.
 
-**Default value**: undefined
+**Default value**: 0
+### min {#opt-min}
+
+number
+
+Specifies the maximum value that can be selected.
+
+**Default value**: 100
+### step {#opt-step}
+
+number
+
+Specifies the step between values.
+
+**Default value**: 1
 ### theme {#opt-theme}
 
 string
@@ -93,10 +103,3 @@ To use the option with custom themes, make sure to create two custom themes, whe
 suffixed with `'-dark'`, e.g.: `'my-theme'` and `'my-theme-dark'`.
 
 **Default value**: undefined
-### variant {#opt-variant}
-
-"standard" &#124; "flat" &#124; "outline"
-
-Specifies the style of the button.
-
-**Default value**: 'standard'

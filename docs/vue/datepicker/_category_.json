@@ -1,4 +1,6 @@
 {
-    "label": "Date & time picker",
-    "position": 3
+  "label": "Date & time picker",
+  "position": 3,
+  "collapsible": true,
+  "collapsed": false
 }

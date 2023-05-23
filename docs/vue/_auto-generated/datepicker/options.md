@@ -12,6 +12,7 @@ Possible values:
 - `'pop'`
 - `'slide-down'`
 - `'slide-up'`
+
 If `false`, the animation is turned off.
 ### buttons {#opt-buttons}
 
@@ -62,6 +63,8 @@ buttons: [
   }
 ]
 ```
+
+**Default value**: ['set', 'cancel']
 ### calendarScroll {#opt-calendarScroll}
 
 "horizontal" &#124; "vertical"
@@ -1042,17 +1045,6 @@ objects to the timezonePlugin option. These objects can be imported from the mob
 string
 
 
-### touchUi {#opt-touchUi}
-
-boolean &#124; "auto"
-
-Use `true` to render a touch optimized user interface, or `false` for a user interface optimized for pointer devices (mouse, touchpad).
-
-Can be used with the [responsive](#opt-responsive) option to change the user interface based on viewport width.
-
-If set to `'auto'`, the touch UI will be automatically enabled based on the platform.
-
-**Default value**: 'auto'
 ### valid {#opt-valid}
 
 Array&lt;DateType&gt; &#124; Array&lt;IValidateProps&gt;

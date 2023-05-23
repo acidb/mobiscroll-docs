@@ -12,6 +12,7 @@ Possible values:
 - `'pop'`
 - `'slide-down'`
 - `'slide-up'`
+
 If `false`, the animation is turned off.
 ### buttons {#opt-buttons}
 
@@ -62,6 +63,8 @@ buttons: [
   }
 ]
 ```
+
+**Default value**: ['set', 'cancel']
 ### circular {#opt-circular}
 
 boolean &#124; Array&lt;boolean&gt;

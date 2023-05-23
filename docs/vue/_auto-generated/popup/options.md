@@ -14,6 +14,7 @@ Possible values:
 - `'pop'`
 - `'slide-down'`
 - `'slide-up'`
+
 If `false`, the animation is turned off.
 
 **Default value**: undefined

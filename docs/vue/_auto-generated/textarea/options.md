@@ -71,13 +71,6 @@ The default value depends on the [theme](#opt-theme):
 - Windows: `'stacked'`
 
 **Default value**: undefined
-### passwordToggle {#opt-passwordToggle}
-
-boolean
-
-Specifies the password toggle visibility on a password field.
-
-**Default value**: false
 ### placeholder {#opt-placeholder}
 
 string
@@ -85,6 +78,13 @@ string
 Specifies the placeholder text for the input.
 
 **Default value**: undefined
+### rows {#opt-rows}
+
+number
+
+Maximum number of rows to display before the textarea becomes scrollable.
+
+**Default value**: 6
 ### startIcon {#opt-startIcon}
 
 string

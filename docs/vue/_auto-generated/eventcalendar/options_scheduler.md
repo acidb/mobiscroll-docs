@@ -549,17 +549,6 @@ Depending on which externa library you use you can pass either the:
 objects to the timezonePlugin option. These objects can be imported from the mobiscroll bundle:
 
 **Default value**: undefined
-### touchUi {#opt-touchUi}
-
-boolean &#124; "auto"
-
-Use `true` to render a touch optimized user interface, or `false` for a user interface optimized for pointer devices (mouse, touchpad).
-
-Can be used with the [responsive](#opt-responsive) option to change the user interface based on viewport width.
-
-If set to `'auto'`, the touch UI will be automatically enabled based on the platform.
-
-**Default value**: 'auto'
 ### width {#opt-width}
 
 string &#124; number

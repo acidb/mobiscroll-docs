@@ -1,8 +1,8 @@
-### color {#opt-color}
+### animation {#opt-animation}
 
-"primary" &#124; "secondary" &#124; "success" &#124; "danger" &#124; "warning" &#124; "info" &#124; "dark" &#124; "light"
+boolean &#124; "pop" &#124; "slide-down" &#124; "slide-up"
 
-Specifies the predefined color of the stepper.
+Animation to use when the component is opened or closed.
 
 **Default value**: `undefined`
 ### cssClass {#opt-cssClass}
@@ -12,55 +12,47 @@ string
 Specifies a custom CSS class for the component.
 
 **Default value**: `undefined`
-### description {#opt-description}
+### display {#opt-display}
+
+"top" &#124; "bottom" &#124; "center"
+
+Controls the positioning of the component.
+
+**Default value**: `undefined`
+### inputType {#opt-inputType}
 
 string
 
-Specifies the description text of the stepper.
+Initial value of the displayed input.
 
 **Default value**: `undefined`
-### disabled {#opt-disabled}
+### isOpen {#opt-isOpen}
 
 boolean
 
-Specifies the disabled state of the stepper.
+Specifies if the component is opened or not. Use it together with the [onClose](#event-onClose) event, by setting it
+to `false` when the component closes.
 
-**Default value**: `false`
-### inputPosition {#opt-inputPosition}
-
-"center" &#124; "start" &#124; "end"
-
-Specifies the input field position compared to the +/- stepper buttons.
-
-**Default value**: `'center'`
+**Default value**: `undefined`
 ### label {#opt-label}
 
 string
 
-Specifies the label of the stepper.
+Label for the displayed input.
 
 **Default value**: `undefined`
-### max {#opt-max}
+### message {#opt-message}
 
-number
+string
 
-Specifies the minimum value that can be selected.
+Message to present.
+### placeholder {#opt-placeholder}
 
-**Default value**: `0`
-### min {#opt-min}
+string
 
-number
+Placeholder text for the displayed input.
 
-Specifies the maximum value that can be selected.
-
-**Default value**: `100`
-### step {#opt-step}
-
-number
-
-Specifies the step between values.
-
-**Default value**: `1`
+**Default value**: `undefined`
 ### theme {#opt-theme}
 
 string
@@ -96,5 +88,19 @@ Possible values:
 
 To use the option with custom themes, make sure to create two custom themes, where the dark version has the same name as the light one,
 suffixed with `'-dark'`, e.g.: `'my-theme'` and `'my-theme-dark'`.
+
+**Default value**: `undefined`
+### title {#opt-title}
+
+string
+
+Title for the dialog.
+
+**Default value**: `undefined`
+### value {#opt-value}
+
+string
+
+Initial value of the displayed input.
 
 **Default value**: `undefined`

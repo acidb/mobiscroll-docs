@@ -1,8 +1,24 @@
+### animation {#opt-animation}
+
+boolean &#124; "pop" &#124; "slide-down" &#124; "slide-up"
+
+Animation to use when the component is opened or closed.
+
+**Default value**: `undefined`
+### button {#opt-button}
+
+{action: () => void
+, icon: string, text: string}
+
+Displays an action button on the snackbar. Properties:
+- `text`: *string* - Text of the button.
+- `icon`: *string* - Icon of the button.
+- `action`: *() => void* - A function which executes when the button is clicked.
 ### color {#opt-color}
 
-"primary" &#124; "secondary" &#124; "success" &#124; "danger" &#124; "warning" &#124; "info" &#124; "dark" &#124; "light"
+"primary" &#124; "secondary" &#124; "success" &#124; "danger" &#124; "warning" &#124; "info"
 
-Specifies the predefined color of the stepper.
+Specifies the predefined background color of the message, each serving its own semantic purpose.
 
 **Default value**: `undefined`
 ### cssClass {#opt-cssClass}
@@ -12,55 +28,33 @@ string
 Specifies a custom CSS class for the component.
 
 **Default value**: `undefined`
-### description {#opt-description}
+### display {#opt-display}
 
-string
+"top" &#124; "bottom" &#124; "center"
 
-Specifies the description text of the stepper.
+Controls the positioning of the component.
 
 **Default value**: `undefined`
-### disabled {#opt-disabled}
+### duration {#opt-duration}
+
+number &#124; boolean
+
+Specifies the display time of the message in milliseconds. If `false`, the message will be persistent.
+
+**Default value**: `3000`
+### isOpen {#opt-isOpen}
 
 boolean
 
-Specifies the disabled state of the stepper.
+Specifies if the component is opened or not. Use it together with the [onClose](#event-onClose) event, by setting it
+to `false` when the component closes.
 
-**Default value**: `false`
-### inputPosition {#opt-inputPosition}
-
-"center" &#124; "start" &#124; "end"
-
-Specifies the input field position compared to the +/- stepper buttons.
-
-**Default value**: `'center'`
-### label {#opt-label}
+**Default value**: `undefined`
+### message {#opt-message}
 
 string
 
-Specifies the label of the stepper.
-
-**Default value**: `undefined`
-### max {#opt-max}
-
-number
-
-Specifies the minimum value that can be selected.
-
-**Default value**: `0`
-### min {#opt-min}
-
-number
-
-Specifies the maximum value that can be selected.
-
-**Default value**: `100`
-### step {#opt-step}
-
-number
-
-Specifies the step between values.
-
-**Default value**: `1`
+Message to present.
 ### theme {#opt-theme}
 
 string

@@ -222,8 +222,8 @@ An array of values that are invalid. Invalid options cannot be selected, and sho
 
 boolean
 
-Specifies if the popup is opened or not. Use it together with the [onClose](#event-onClose) event, by setting it
-to `false` when the popup closes.
+Specifies if the component is opened or not. Use it together with the [onClose](#event-onClose) event, by setting it
+to `false` when the component closes.
 ### itemHeight {#opt-itemHeight}
 
 number

@@ -1,29 +1,32 @@
-### allDayText {#localization-allDayText}
-
-string
-
-Title text for the newly created event with the [dragToCreate](#opt-dragToCreate) action.
-
-**Default value**: &#039;New event&#039;
 ### amText {#localization-amText}
 
 string
 
 Text for AM.
 
-**Default value**: &#039;am&#039;
+**Default value**: `'am'`
+### calendarSystem {#localization-calendarSystem}
+
+MbscCalendarSystem
+
+Specifies the calendar system to be used. Supported calendars:
+- Gregorian - Gregorian calendar. This is the default calendar system.
+- Jalali - Persian calendar. The Farsi language needs to be included to the package.
+- Hijri - Hijri calendar. The Arabic language needs to be included to the package
+
+**Default value**: `undefined`
 ### cancelText {#localization-cancelText}
 
 string
 
-Text for the cancel button.
+Text for the &quot;Cancel&quot; button.
 
 **Default value**: `'Cancel'`
 ### closeText {#localization-closeText}
 
 string
 
-Text for the close button.
+Text for the &quot;Close&quot; button.
 
 **Default value**: `'Close'`
 ### dateFormat {#localization-dateFormat}
@@ -31,50 +34,36 @@ Text for the close button.
 string
 
 The format for parsed and displayed dates:
-- M - month of year (no leading zero)
-- MM - month of year (two digit)
-- MMM - month name short
-- MMMM - month name long
-- D - day of month (no leading zero)
-- DD - day of month (two digit)
-- DDD - day of week (short)
-- DDDD - day of week (long)
-- YY - year (two digit)
-- YYYY - year (four digit)
-- &#039;...&#039; - literal text
-- &#039;&#039; - single quote
+- `M` - month of year (no leading zero)
+- `MM` - month of year (two digit)
+- `MMM` - month name short
+- `MMMM` - month name long
+- `D` - day of month (no leading zero)
+- `DD` - day of month (two digit)
+- `DDD` - day of week (short)
+- `DDDD` - day of week (long)
+- `YY` - year (two digit)
+- `YYYY` - year (four digit)
+- `'...'` - literal text
+- `''` - single quote
 - anything else - literal text
 
-**Default value**: &#039;MM/DD/YYYY&#039;
-### dateFormatLong {#localization-dateFormatLong}
-
-string
-
-Long date format, used by the agenda view day headers. Characters have the same meaning as in the [dateFormat](#opt-dateFormat) option.
-
-**Default value**: &#039;D DDD MMM YYYY&#039;
-### dateText {#localization-dateText}
-
-string
-
-Text for the date word.
-
-**Default value**: &#039;Date&#039;
+**Default value**: `'MM/DD/YYYY'`
 ### dateWheels {#localization-dateWheels}
 
 string
 
-Display order and formating for month/day/year wheels. Characters have the same meaning as in the
-[dateFormat option](#localization-dateFormat). The options also controls if a specific wheel should appear or not,
-e.g. use &#039;mmyy&#039; to display month and year wheels only, &#039;mmD ddy&#039; to display both day of week and date on the day wheel.
+Display order and formatting for month/day/year wheels. Characters have the same meaning as in the
+[dateFormat](#localization-dateFormat) option. The options also controls if a specific wheel should appear or not,
+e.g. use `'MMMMYYYY'` to display month and year wheels only, `'MMDDD DDYYYY'` to display both day of week and date on the day wheel.
 
-If not specified, the order of the wheels will be taken from the [dateFormat option](#localization-dateFormat), and the
-formating will be defined by the theme.
+If not specified, the order of the wheels will be taken from the [dateFormat](#localization-dateFormat) option, and the
+formatting will be defined by the [theme](#opt-theme).
 
-Starting for 3.0.0-beta5 an experimental feature was introduced to display the whole date on one wheel. To activate this mode,
-the format of the date should be specified between | charchters:
+To display the whole date on one wheel, the format of the date should be specified between `|` characters:
+
 ```js
-dateWheels: '|D M d|' // Will produce 'Sun Sep 9'
+dateWheels: '|DDD MMM D|' // Will produce 'Sun Sep 9'
 ```
 
 **Default value**: `undefined`
@@ -82,56 +71,37 @@ dateWheels: '|D M d|' // Will produce 'Sun Sep 9'
 
 Array&lt;string&gt;
 
-The list of long day names, starting from Sunday, for use as requested via the [dateFormat](#dateFormat) setting.
+The list of long day names, starting from Sunday.
 
-**Default value**: [&#039;Sunday&#039;, &#039;Monday&#039;, &#039;Tuesday&#039;, &#039;Wednesday&#039;, &#039;Thursday&#039;, &#039;Friday&#039;, &#039;Saturday&#039;]
+**Default value**: `['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']`
 ### dayNamesMin {#localization-dayNamesMin}
 
 Array&lt;string&gt;
 
-The list of minimal day names, starting from Sunday, for use as requested via the [dateFormat](#dateFormat) setting.
+The list of minimal day names, starting from Sunday.
 
-**Default value**: [&#039;S&#039;, &#039;M&#039;, &#039;T&#039;, &#039;W&#039;, &#039;T&#039;, &#039;F&#039;, &#039;S&#039;]
+**Default value**: `['S', 'M', 'T', 'W', 'T', 'F', 'S']`
 ### dayNamesShort {#localization-dayNamesShort}
 
 Array&lt;string&gt;
 
-The list of abbreviated day names, starting from Sunday, for use as requested via the [dateFormat](#dateFormat) setting.
+The list of abbreviated day names, starting from Sunday.
 
-**Default value**: [&#039;Sun&#039;, &#039;Mon&#039;, &#039;Tue&#039;, &#039;Wed&#039;, &#039;Thu&#039;, &#039;Fri&#039;, &#039;Sat&#039;]
+**Default value**: `['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']`
 ### daySuffix {#localization-daySuffix}
 
 string
 
 Additional string to display after the day on the wheel.
 
-**Default value**: undefined
-### eventText {#localization-eventText}
-
-string
-
-Text for the event word.
-
-**Default value**: &#039;event&#039;
-### eventsText {#localization-eventsText}
-
-string
-
-Text for the events word (plural).
-
-**Default value**: &#039;events&#039;
+**Default value**: `undefined`
 ### firstDay {#localization-firstDay}
 
 number
 
 Set the first day of the week: Sunday is 0, Monday is 1, etc.
 
-:::info
-In case of the Datepicker component when [preset-range selection](#opt-select)
-is used the range start day can be specified with the [firstSelectDay](#opt-firstSelectDay) option.
-:::
-
-**Default value**: 0
+**Default value**: `0`
 ### locale {#localization-locale}
 
 string &#124; MbscLocale
@@ -183,61 +153,54 @@ Supported values:
 
 Array&lt;string&gt;
 
-The list of full month names, for use as requested via the [dateFormat](#opt-dateFormat) setting.
+The list of full month names.
 
-**Default value**:
-[&#039;January&#039;, &#039;February&#039;, &#039;March&#039;, &#039;April&#039;, &#039;May&#039;, &#039;June&#039;, &#039;July&#039;, &#039;August&#039;, &#039;September&#039;, &#039;October&#039;, &#039;November&#039;, &#039;December&#039;]
+**Default value**: `['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']`
 ### monthNamesShort {#localization-monthNamesShort}
 
 Array&lt;string&gt;
 
-The list of abbreviated month names, for use as requested via the [dateFormat](#opt-dateFormat) setting.
+The list of abbreviated month names.
 
-**Default value**: [&#039;Jan&#039;, &#039;Feb&#039;, &#039;Mar&#039;, &#039;Apr&#039;, &#039;May&#039;, &#039;Jun&#039;, &#039;Jul&#039;, &#039;Aug&#039;, &#039;Sep&#039;, &#039;Oct&#039;, &#039;Nov&#039;, &#039;Dec&#039;]
+**Default value**: `['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']`
 ### monthSuffix {#localization-monthSuffix}
 
 string
 
 Additional string to display after the month on the wheel.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### moreEventsPluralText {#localization-moreEventsPluralText}
 
 string
 
 Text for the &quot;more&quot; label on the calendar, when there&#039;s not enough space to display all the labels for the day,
-and there are more than one extra labels. The {count} inside the string will be replaced with the number of extra labels.
-When not specified, the [moreEventsText](#localization-moreEventsText) setting is used for both plural and singular form.
+and there are more than one extra labels.
+The `{count}` inside the string will be replaced with the number of extra labels.
+When not specified, the [moreEventsText](#localization-moreEventsText) option will be used for both plural and singular form.
 
-**Default value**: undefined
+**Default value**: `undefined`
 ### moreEventsText {#localization-moreEventsText}
 
 string
 
 Text for the &quot;more&quot; label on the calendar, when there&#039;s not enough space to display all the labels for the day.
-The {count} inside the string will be replaced with the number of extra labels.
+The `{count}` inside the string will be replaced with the number of extra labels.
 Use the [moreEventsPluralText](#localization-moreEventsPluralText) as well, if the plural form is different.
 
-**Default value**: &#039;{count} more&#039;
+**Default value**: `'{count} more'`
 ### nextPageText {#localization-nextPageText}
 
 string
 
-Text for the next page button in the calendar header, used as accessibility label.
+Text for the next button in the calendar header, used as accessibility label.
 
-**Default value**: &#039;Next page&#039;
-### nowText {#localization-nowText}
-
-string
-
-Label for the [&#039;Now&#039; button](#opt-buttons).
-
-**Default value**: `'Now'`
+**Default value**: `'Next page'`
 ### okText {#localization-okText}
 
 string
 
-Text for the ok button.
+Text for the &quot;Ok&quot; button.
 
 **Default value**: `'Ok'`
 ### pmText {#localization-pmText}
@@ -246,14 +209,14 @@ string
 
 Text for PM.
 
-**Default value**: &#039;pm&#039;
+**Default value**: `'pm'`
 ### prevPageText {#localization-prevPageText}
 
 string
 
-Text for the previous page button in the calendar header, used as accessibility label.
+Text for the previous button in the calendar header, used as accessibility label.
 
-**Default value**: &#039;Previous page&#039;
+**Default value**: `'Previous page'`
 ### rangeEndHelp {#localization-rangeEndHelp}
 
 string
@@ -309,48 +272,41 @@ the number of selected items.
 
 string
 
-Text for the set button.
+Text for the &quot;Set&quot; button.
 
 **Default value**: `'Set'`
 ### timeFormat {#localization-timeFormat}
 
 string
 
-The format for parsed and displayed dates:
-- h - 12 hour format (no leading zero)
-- hh - 12 hour format (leading zero)
-- H - 24 hour format (no leading zero)
-- HH - 24 hour format (leading zero)
-- m - minutes (no leading zero)
-- mm - minutes (leading zero)
-- s - seconds (no leading zero)
-- ss - seconds (leading zero)
-- a - lowercase am/pm
-- A - uppercase AM/PM
-- &#039;...&#039; - literal text
-- &#039;&#039; - single quote
+The format for parsed and displayed times:
+- `h` - 12 hour format (no leading zero)
+- `hh` - 12 hour format (leading zero)
+- `H` - 24 hour format (no leading zero)
+- `HH` - 24 hour format (leading zero)
+- `m` - minutes (no leading zero)
+- `mm` - minutes (leading zero)
+- `s` - seconds (no leading zero)
+- `ss` - seconds (leading zero)
+- `a` - lowercase am/pm
+- `A` - uppercase AM/PM
+- `'...'` - literal text
+- `''` - single quote
 - anything else - literal text
 
-**Default value**: &#039;hh:mm A&#039;
-### timeText {#localization-timeText}
-
-string
-
-Text for the time word.
-
-**Default value**: &#039;Time&#039;
+**Default value**: `'hh:mm A'`
 ### timeWheels {#localization-timeWheels}
 
 string
 
-Display order and formating of the time wheels on the Datepicker. Characters have the same meaning as in the
-[timeFormat option](#localization-timeFormat).
+Display order and formatting of the time wheels. Characters have the same meaning as in the
+[timeFormat](#localization-timeFormat) option.
 
-If not specified, the order of the wheels will be taken from the [timeFormat option](#localization-timeFormat),
-and the formating will be defined by the theme.
+If not specified, the order of the wheels will be taken from the [timeFormat](#localization-timeFormat) option,
+and the formatting will be defined by the theme.
 
-Starting for 3.0.0-beta5 an experimental feature was introduced to display the whole time on one wheel. To activate this mode,
-the format of the time should be specified between | charchters:
+To display the whole time on one wheel, the format of the time should be specified between `|` characters:
+
 ```js
 timeWheels: '|h:mm A|' // Will produce '9:12 AM'
 ```
@@ -362,11 +318,11 @@ string
 
 Text for the &quot;Today&quot; button.
 
-**Default value**: &#039;Today&#039;
-### weekText {#localization-weekText}
+**Default value**: `'Today'`
+### yearSuffix {#localization-yearSuffix}
 
 string
 
-Text for week numbers in the timeline header. The {count} inside the string will be replaced with the number of the current week.
+Additional string to display after the year on the wheel.
 
-**Default value**: `'Week {count}'`
+**Default value**: `undefined`

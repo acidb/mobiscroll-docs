@@ -80,7 +80,7 @@ Supplied themes:
 
 It&#039;s possible to [modify theme colors or create custom themes](https://docs.mobiscroll.com/theming).
 
-:::note
+:::info
 Make sure that the theme you set is included in the downloaded package.
 :::
 

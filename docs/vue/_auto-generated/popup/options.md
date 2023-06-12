@@ -40,7 +40,7 @@ If a string, it must be one of the predefined button handlers:
 - `cssClass`: *string* - CSS class for the button.
 - `disabled`: *boolean* - The disabled state of the button.
 - `keyCode`: *number | string | Array&lt;number | string&gt;* - The key code associated with the button to activate it from keyboard.
-Can be a single value or multiple value passed as an array. Predifined string values are: `'enter'`, `'esc'`, `'space'`.
+Can be a single value or multiple value passed as an array. Predefined string values are: `'enter'`, `'esc'`, `'space'`.
 
 ```js title="Example for using predefined and custom buttons"
 buttons: [
@@ -256,7 +256,7 @@ Supplied themes:
 
 It&#039;s possible to [modify theme colors or create custom themes](https://docs.mobiscroll.com/theming).
 
-:::note
+:::info
 Make sure that the theme you set is included in the downloaded package.
 :::
 

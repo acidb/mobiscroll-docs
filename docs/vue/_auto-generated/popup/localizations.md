@@ -2,14 +2,14 @@
 
 string
 
-Text for the cancel button.
+Text for the &quot;Cancel&quot; button.
 
 **Default value**: `'Cancel'`
 ### closeText {#localization-closeText}
 
 string
 
-Text for the close button.
+Text for the &quot;Close&quot; button.
 
 **Default value**: `'Close'`
 ### locale {#localization-locale}
@@ -63,7 +63,7 @@ Supported values:
 
 string
 
-Text for the ok button.
+Text for the &quot;Ok&quot; button.
 
 **Default value**: `'Ok'`
 ### rtl {#localization-rtl}
@@ -77,6 +77,6 @@ Enables right-to-left display.
 
 string
 
-Text for the set button.
+Text for the &quot;Set&quot; button.
 
 **Default value**: `'Set'`

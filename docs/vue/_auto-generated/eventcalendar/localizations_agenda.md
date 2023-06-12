@@ -4,74 +4,80 @@ string
 
 Text for all day events.
 
-**Default value**: &#039;All-day&#039;
+**Default value**: `'All-day'`
 ### amText {#localization-amText}
 
 string
 
 Text for AM.
 
-**Default value**: &#039;am&#039;
+**Default value**: `'am'`
+### calendarSystem {#localization-calendarSystem}
+
+MbscCalendarSystem
+
+Specifies the calendar system to be used. Supported calendars:
+- Gregorian - Gregorian calendar. This is the default calendar system.
+- Jalali - Persian calendar. The Farsi language needs to be included to the package.
+- Hijri - Hijri calendar. The Arabic language needs to be included to the package
+
+**Default value**: `undefined`
 ### dateFormat {#localization-dateFormat}
 
 string
 
 The format for parsed and displayed dates:
-- M - month of year (no leading zero)
-- MM - month of year (two digit)
-- MMM - month name short
-- MMMM - month name long
-- D - day of month (no leading zero)
-- DD - day of month (two digit)
-- DDD - day of week (short)
-- DDDD - day of week (long)
-- YY - year (two digit)
-- YYYY - year (four digit)
-- &#039;...&#039; - literal text
-- &#039;&#039; - single quote
+- `M` - month of year (no leading zero)
+- `MM` - month of year (two digit)
+- `MMM` - month name short
+- `MMMM` - month name long
+- `D` - day of month (no leading zero)
+- `DD` - day of month (two digit)
+- `DDD` - day of week (short)
+- `DDDD` - day of week (long)
+- `YY` - year (two digit)
+- `YYYY` - year (four digit)
+- `'...'` - literal text
+- `''` - single quote
 - anything else - literal text
 
-**Default value**: &#039;MM/DD/YYYY&#039;
+**Default value**: `'MM/DD/YYYY'`
 ### dateFormatLong {#localization-dateFormatLong}
 
 string
 
-Long date format, used by the agenda view day headers. Characters have the same meaning as in the [dateFormat](#opt-dateFormat) option.
+Long date format, used by the agenda view and timeline day headers.
+Characters have the same meaning as in the [dateFormat](#localization-dateFormat) option.
 
-**Default value**: &#039;D DDD MMM YYYY&#039;
+**Default value**: `'D DDD MMM YYYY'`
 ### dayNames {#localization-dayNames}
 
 Array&lt;string&gt;
 
-The list of long day names, starting from Sunday, for use as requested via the [dateFormat](#dateFormat) setting.
+The list of long day names, starting from Sunday.
 
-**Default value**: [&#039;Sunday&#039;, &#039;Monday&#039;, &#039;Tuesday&#039;, &#039;Wednesday&#039;, &#039;Thursday&#039;, &#039;Friday&#039;, &#039;Saturday&#039;]
+**Default value**: `['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']`
 ### dayNamesMin {#localization-dayNamesMin}
 
 Array&lt;string&gt;
 
-The list of minimal day names, starting from Sunday, for use as requested via the [dateFormat](#dateFormat) setting.
+The list of minimal day names, starting from Sunday.
 
-**Default value**: [&#039;S&#039;, &#039;M&#039;, &#039;T&#039;, &#039;W&#039;, &#039;T&#039;, &#039;F&#039;, &#039;S&#039;]
+**Default value**: `['S', 'M', 'T', 'W', 'T', 'F', 'S']`
 ### dayNamesShort {#localization-dayNamesShort}
 
 Array&lt;string&gt;
 
-The list of abbreviated day names, starting from Sunday, for use as requested via the [dateFormat](#dateFormat) setting.
+The list of abbreviated day names, starting from Sunday.
 
-**Default value**: [&#039;Sun&#039;, &#039;Mon&#039;, &#039;Tue&#039;, &#039;Wed&#039;, &#039;Thu&#039;, &#039;Fri&#039;, &#039;Sat&#039;]
+**Default value**: `['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']`
 ### firstDay {#localization-firstDay}
 
 number
 
 Set the first day of the week: Sunday is 0, Monday is 1, etc.
 
-:::info
-In case of the Datepicker component when [preset-range selection](#opt-select)
-is used the range start day can be specified with the [firstSelectDay](#opt-firstSelectDay) option.
-:::
-
-**Default value**: 0
+**Default value**: `0`
 ### locale {#localization-locale}
 
 string &#124; MbscLocale
@@ -123,45 +129,44 @@ Supported values:
 
 Array&lt;string&gt;
 
-The list of full month names, for use as requested via the [dateFormat](#opt-dateFormat) setting.
+The list of full month names.
 
-**Default value**:
-[&#039;January&#039;, &#039;February&#039;, &#039;March&#039;, &#039;April&#039;, &#039;May&#039;, &#039;June&#039;, &#039;July&#039;, &#039;August&#039;, &#039;September&#039;, &#039;October&#039;, &#039;November&#039;, &#039;December&#039;]
+**Default value**: `['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']`
 ### monthNamesShort {#localization-monthNamesShort}
 
 Array&lt;string&gt;
 
-The list of abbreviated month names, for use as requested via the [dateFormat](#opt-dateFormat) setting.
+The list of abbreviated month names.
 
-**Default value**: [&#039;Jan&#039;, &#039;Feb&#039;, &#039;Mar&#039;, &#039;Apr&#039;, &#039;May&#039;, &#039;Jun&#039;, &#039;Jul&#039;, &#039;Aug&#039;, &#039;Sep&#039;, &#039;Oct&#039;, &#039;Nov&#039;, &#039;Dec&#039;]
+**Default value**: `['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']`
 ### nextPageText {#localization-nextPageText}
 
 string
 
-Text for the next page button in the calendar header, used as accessibility label.
+Text for the next button in the calendar header, used as accessibility label.
 
-**Default value**: &#039;Next page&#039;
+**Default value**: `'Next page'`
 ### noEventsText {#localization-noEventsText}
 
 string
 
 Text for empty event list.
 
-**Default value**: &#039;No events&#039;
+**Default value**: `'No events'`
 ### pmText {#localization-pmText}
 
 string
 
 Text for PM.
 
-**Default value**: &#039;pm&#039;
+**Default value**: `'pm'`
 ### prevPageText {#localization-prevPageText}
 
 string
 
-Text for the previous page button in the calendar header, used as accessibility label.
+Text for the previous button in the calendar header, used as accessibility label.
 
-**Default value**: &#039;Previous page&#039;
+**Default value**: `'Previous page'`
 ### rtl {#localization-rtl}
 
 boolean
@@ -173,33 +178,26 @@ Enables right-to-left display.
 
 string
 
-The format for parsed and displayed dates:
-- h - 12 hour format (no leading zero)
-- hh - 12 hour format (leading zero)
-- H - 24 hour format (no leading zero)
-- HH - 24 hour format (leading zero)
-- m - minutes (no leading zero)
-- mm - minutes (leading zero)
-- s - seconds (no leading zero)
-- ss - seconds (leading zero)
-- a - lowercase am/pm
-- A - uppercase AM/PM
-- &#039;...&#039; - literal text
-- &#039;&#039; - single quote
+The format for parsed and displayed times:
+- `h` - 12 hour format (no leading zero)
+- `hh` - 12 hour format (leading zero)
+- `H` - 24 hour format (no leading zero)
+- `HH` - 24 hour format (leading zero)
+- `m` - minutes (no leading zero)
+- `mm` - minutes (leading zero)
+- `s` - seconds (no leading zero)
+- `ss` - seconds (leading zero)
+- `a` - lowercase am/pm
+- `A` - uppercase AM/PM
+- `'...'` - literal text
+- `''` - single quote
 - anything else - literal text
 
-**Default value**: &#039;hh:mm A&#039;
-### timeText {#localization-timeText}
-
-string
-
-Text for the time word.
-
-**Default value**: &#039;Time&#039;
+**Default value**: `'hh:mm A'`
 ### todayText {#localization-todayText}
 
 string
 
 Text for the &quot;Today&quot; button.
 
-**Default value**: &#039;Today&#039;
+**Default value**: `'Today'`

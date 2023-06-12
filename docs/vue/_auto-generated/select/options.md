@@ -3,6 +3,8 @@
 HTMLElement
 
 Specifies the anchor element for positioning, if [display](#opt-display) is set to `'anchored'`.
+
+**Default value**: `undefined`
 ### animation {#opt-animation}
 
 boolean &#124; "pop" &#124; "slide-down" &#124; "slide-up"
@@ -14,6 +16,8 @@ Possible values:
 - `'slide-up'`
 
 If `false`, the animation is turned off.
+
+**Default value**: `undefined`
 ### buttons {#opt-buttons}
 
 Array&lt;string &#124; MbscPopupButton&gt;
@@ -36,7 +40,7 @@ If a string, it must be one of the predefined button handlers:
 - `cssClass`: *string* - CSS class for the button.
 - `disabled`: *boolean* - The disabled state of the button.
 - `keyCode`: *number | string | Array&lt;number | string&gt;* - The key code associated with the button to activate it from keyboard.
-Can be a single value or multiple value passed as an array. Predifined string values are: `'enter'`, `'esc'`, `'space'`.
+Can be a single value or multiple value passed as an array. Predefined string values are: `'enter'`, `'esc'`, `'space'`.
 
 ```js title="Example for using predefined and custom buttons"
 buttons: [
@@ -79,17 +83,23 @@ If not specified, if a wheel has more values than the number of the displayed ro
 boolean
 
 If `true`, the popup is closed when the ESC key is pressed.
+
+**Default value**: `true`
 ### closeOnOverlayClick {#opt-closeOnOverlayClick}
 
 boolean
 
 If `true`, the popup is closed on overlay click or tap.
+
+**Default value**: `true`
 ### context {#opt-context}
 
 string &#124; HTMLElement
 
 Specify the DOM element in which the component is rendered and positioned, if [display](#opt-display) is not `'inline'`.
 Can be a selector string or a DOM element.
+
+**Default value**: `'body'`
 ### cssClass {#opt-cssClass}
 
 string
@@ -106,7 +116,7 @@ Specifies the selectable options for the component.
 When it&#039;s an array of strings, the selectable options will be the items of the array.
 The strings will appear on the picker, and the selected values will be the strings themselves.
 
-When it&#039;s an array of objects, the objects can have the follwing properties:
+When it&#039;s an array of objects, the objects can have the following properties:
 - `text`: *string* - The text of the option.
 - `value`: *any* - The value of the option.
 - `group`: *string* - The group name in case of grouped options.
@@ -125,6 +135,8 @@ Default selection which appears on the picker. The provided value will not be se
 boolean
 
 Specifies the disabled state of the input.
+
+**Default value**: `false`
 ### display {#opt-display}
 
 MbscPopupDisplay
@@ -138,6 +150,8 @@ Controls the positioning of the component. Possible options:
 
 The default display mode depends on the [theme](#opt-theme), it defaults to `'bottom'` for the iOS theme and
 to `'center'` for all other themes.
+
+**Default value**: `undefined`
 ### dropdown {#opt-dropdown}
 
 boolean
@@ -151,16 +165,22 @@ string
 
 Specifies the icon which will be displayed at the end of the input.
 Use the [startIcon](#opt-startIcon) option for specifying an icon at the start.
+
+**Default value**: `undefined`
 ### error {#opt-error}
 
 boolean
 
 If `true`, the input will be displayed with error styles.
+
+**Default value**: `false`
 ### errorMessage {#opt-errorMessage}
 
 string
 
 Error message for the input. If the [error](#opt-error) option is set to `true`, the message will be displayed.
+
+**Default value**: `undefined`
 ### filter {#opt-filter}
 
 boolean
@@ -178,26 +198,30 @@ boolean
 
 If `true`, after closing the popup the focus will be moved to the last focused element
 before the popup was opened.
+
+**Default value**: `true`
 ### focusOnOpen {#opt-focusOnOpen}
 
 boolean
 
 If `true`, the popup will receive the focus when opened.
+
+**Default value**: `true`
 ### focusTrap {#opt-focusTrap}
 
 boolean
 
 If `true` and [display](#opt-display) is not set to `'inline'`, focus won&#039;t be allowed to leave the popup.
+
+**Default value**: `true`
 ### headerText {#opt-headerText}
 
 string
 
-Text to display in the header.
-### height {#opt-height}
+Specifies a custom string which appears in the picker header.
+If it contains the `'{value}'` string, it will be replaced with the selected value of the picker.
 
-string &#124; number
-
-Sets the height of the component.
+**Default value**: `undefined`
 ### inputStyle {#opt-inputStyle}
 
 "outline" &#124; "underline" &#124; "box"
@@ -211,6 +235,8 @@ The default value depends on the [theme](#opt-theme):
 - iOS: `'underline'`
 - Material: `'box'`
 - Windows: `'outline'`
+
+**Default value**: `undefined`
 ### invalid {#opt-invalid}
 
 Array&lt;any&gt;
@@ -224,6 +250,8 @@ boolean
 
 Specifies if the component is opened or not. Use it together with the [onClose](#event-onClose) event, by setting it
 to `false` when the component closes.
+
+**Default value**: `false`
 ### itemHeight {#opt-itemHeight}
 
 number
@@ -237,6 +265,8 @@ Height in pixels of one item on the wheel. The default value depends on the [the
 string
 
 Specifies the label of the input.
+
+**Default value**: `undefined`
 ### labelStyle {#opt-labelStyle}
 
 "inline" &#124; "floating" &#124; "stacked"
@@ -250,11 +280,8 @@ The default value depends on the [theme](#opt-theme):
 - iOS: `'inline'`
 - Material: `'floating'`
 - Windows: `'stacked'`
-### maxHeight {#opt-maxHeight}
 
-string &#124; number
-
-Sets the maximum height of the component. If not specified, on larger screens (>=768px width) it defaults to 600px.
+**Default value**: `undefined`
 ### maxWheelWidth {#opt-maxWheelWidth}
 
 number &#124; Array&lt;number&gt;
@@ -263,11 +290,6 @@ Maximum width of the scroller wheels in pixels.
 If a number, it is applied to all wheels, if an array, it is applied to each wheel separately.
 
 **Default value**: `undefined`
-### maxWidth {#opt-maxWidth}
-
-string &#124; number
-
-Sets the maximum width of the component.
 ### minWheelWidth {#opt-minWheelWidth}
 
 number &#124; Array&lt;number&gt;
@@ -321,11 +343,6 @@ Number of visible rows on the wheel. The default value depends on the [theme](#o
 - iOS: 5
 - Material: 3
 - Windows: 6
-### scrollLock {#opt-scrollLock}
-
-boolean
-
-Disables page scrolling, if the content of the popup is not scrollable.
 ### selectMultiple {#opt-selectMultiple}
 
 boolean
@@ -338,6 +355,8 @@ If `true`, multiple selection will be enabled.
 boolean
 
 Show or hide the popup arrow, when [display](#opt-display) is `'anchored'`.
+
+**Default value**: `true`
 ### showGroupWheel {#opt-showGroupWheel}
 
 boolean
@@ -352,7 +371,7 @@ or by using the `group` property of the option objects, when the [data](#opt-dat
 
 boolean
 
-If true, it will render an input field for the component.
+If `true`, it will render an input field for the component.
 
 **Default value**: `true`
 ### showOnClick {#opt-showOnClick}
@@ -374,13 +393,17 @@ Opens the component on element focus.
 boolean
 
 Show or hide the popup overlay.
+
+**Default value**: `true`
 ### startIcon {#opt-startIcon}
 
 string
 
 Specifies the icon which will be displayed at the start of the input.
 Use the [endIcon](#opt-endIcon) option for specifying an icon at the end.
-### tags {#opt-tags}
+
+**Default value**: `undefined`
+### tagInput {#opt-tagInput}
 
 boolean
 
@@ -405,7 +428,7 @@ Supplied themes:
 
 It&#039;s possible to [modify theme colors or create custom themes](https://docs.mobiscroll.com/theming).
 
-:::note
+:::info
 Make sure that the theme you set is included in the downloaded package.
 :::
 
@@ -442,8 +465,5 @@ number &#124; Array&lt;number&gt;
 
 Width of the scroller wheels, in pixels. Wheel content will be truncated, if it exceeds the width.
 If a number, it is applied to all wheels, if an array, it is applied to each wheel separately.
-### width {#opt-width}
 
-string &#124; number
-
-Sets the width of the component.
+**Default value**: `undefined`

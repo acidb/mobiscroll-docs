@@ -2,6 +2,7 @@
 sidebar_position: 1
 sidebar_label: Overview
 displayed_sidebar: vueSidebar
+slug: /vue
 ---
 
 # Getting started with Mobiscroll for Vue

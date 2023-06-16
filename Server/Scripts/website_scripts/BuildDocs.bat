@@ -4,14 +4,14 @@ set "branch=main"
 @echo Getting Latest changes
 
 cd "C:\dailybuild\mobiscroll-docs"
-git fetch
-git checkout .
-git checkout %branch%
-git pull
+call git fetch
+call git checkout .
+call git checkout %branch%
+call git pull
 REM if not [%branch%] == [main] pause
 
 
 @echo Build
-npm run build
+call npm run build
 @echo build finished
 pause

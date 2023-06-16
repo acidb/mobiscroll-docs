@@ -4,14 +4,14 @@ set "branch=main"
 @echo Getting Latest changes
 
 cd "C:\dailybuild\mobiscroll-docs-staging"
-git fetch
-git checkout .
-git checkout %branch%
-git pull
+call git fetch
+call git checkout .
+call git checkout %branch%
+call git pull
 if not [%branch%] == [main] pause
 
 
 @echo Build
-npm run build-dev
+call npm run build-dev
 @echo build finished
 pause

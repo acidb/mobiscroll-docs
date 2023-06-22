@@ -72,6 +72,6 @@ In case you installed the library from a downloaded package and did not include 
 </script>
 
 <template>
-  <MbscEventcalendar :view="myView"></MbscEventcalendar>
+  <MbscEventcalendar :view="myView" />
 </template>
 ```

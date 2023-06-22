@@ -8,7 +8,7 @@ displayed_sidebar: vueSidebar
 
 The Eventcalendar component supports four highly configurable views: a calendar view, a scheduler with time grid, a timeline and an agenda view.
 
-## Initialization
+## Usage
 
 The following example will create an event calendar with the default options.
 

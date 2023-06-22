@@ -8,7 +8,7 @@ displayed_sidebar: vueSidebar
 
 The Datepicker component is the ultimate tool for selecting a single date and/or time, multiple dates or a date range.
 
-## Initialization
+## Usage
 
 The following example will create a datepicker with default options.
 

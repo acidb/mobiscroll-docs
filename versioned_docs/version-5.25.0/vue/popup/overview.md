@@ -10,7 +10,7 @@ The Popup component provides a frame for all your popover needs, able to render 
 
 Use it for contextual pop-ups, data-entry or to inform users in a consistent way with all other Mobiscroll components.
 
-## Initialization
+## Usage
 
 The following example will create a popup with static content:
 

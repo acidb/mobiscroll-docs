@@ -8,7 +8,7 @@ displayed_sidebar: vueSidebar
 
 The Select component lets you pick a single value or multiple values from a list of options.
 
-## Initialization
+## Usage
 
 The following example will create a select component with four options to choose from, each of them being a city.
 

@@ -2,6 +2,7 @@
 sidebar_position: 1
 sidebar_label: Getting Started
 displayed_sidebar: null
+hide_table_of_contents: true
 slug: /
 ---
 

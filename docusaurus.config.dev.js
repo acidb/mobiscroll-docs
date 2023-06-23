@@ -66,6 +66,7 @@ const config = {
         logo: {
           alt: 'Mobiscroll Logo',
           src: 'img/mobiscroll-logo.svg',
+          srcDark: 'img/mobiscroll-logo-dark.svg',
         },
         items: [
           {

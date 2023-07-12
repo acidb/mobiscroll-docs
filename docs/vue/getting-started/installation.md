@@ -14,6 +14,17 @@ The first step you need to install the Mobiscroll library into your app is to in
 
 <CliInstall />
 
+## Starting with the trial
+
+Start a free trial by entering your email address on the [Mobiscroll homepage](https://mobiscroll.com) and create your account. When asked, enter your first name, set a password and you're ready to go!
+
+### This is how the free trial works:
+1. You can try Mobiscroll for free.
+2. The trial needs an active connection to Mobiscroll servers for validation. Don't worry, the licensed product will work offline with downloadable resource files.
+Read about the [differences between trial and licensed products](http://help.mobiscroll.com/trials/what-are-the-limitations-of-the-trial).
+3. You can upgrade to the licensed product at any time during or after your trial.
+
+
 ## Installing from NPM
 
 To install the Mobiscroll library from NPM, you will need to open a terminal window in the root folder of you project and run the following command:
@@ -52,12 +63,15 @@ mobiscroll config vue --no-npm
 
 To test the installation, create a single file component (SFC), import the Eventcalendar component in it. You can also pass it a view option and/or set a specific theme if you want.
 
+You will also need to import the css file of the installed library under the node_modules folder (at `@mobiscroll/vue/dist/css/mobiscroll.min.css`). If you are [using SCSS](https://sass-lang.com/), you will also find a full and a modular `.scss` file in the same directory.
+
 In case you installed the library from a downloaded package and did not include the Eventcalendar in the package, you can choose a different component as well.
 
 ```html
 <script setup>
   import { ref } from 'vue';
   import { MbscEventcalendar, setOptions, localeEnGB } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   setOptions({
     locale: localeEnGB,

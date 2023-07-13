@@ -1,0 +1,117 @@
+---
+sidebar_label: Recurrence
+displayed_sidebar: vueSidebar
+---
+
+# Recurrence
+
+Some of the Eventcalendar and Datepicker options support recurrence rules. Recurrence rules regulate if the particular option (event, label, mark, etc...) reoccures periodically.
+
+For example the [data](../eventcalendar/api#opt-data), [colors](../eventcalendar/api#opt-colors), [labels](../eventcalendar/api#opt-labels), [marked](../eventcalendar/api#opt-labels), and [invalid](../eventcalendar/api#opt-invalid) options of the Eventcalendar or the [colors](../datepicker/api#opt-colors), [marked](../datepicker/api#opt-marked), [labels](../datepicker/api#opt-labels) and [invalid](../datepicker/api#opt-invalid) options of the Datepicker support recurrence rules through their `recurring` property. The rule can be an object or a string in `RRULE` format.
+
+## Supported properties
+
+When specifying the recurring rule **as an object**, the following properties are supported:
+* `repeat` String - The frequency of the recurrence. String equivalent: `FREQ`.
+    * `'daily'` - Daily repeat
+    * `'weekly'` - Weekly repeat
+    * `'monthly'` - Monthly repeat
+    * `'yearly'` - Yearly repeat
+* `day` Number - The day of the month in case of monthly and yearly repeat. String equivalent: `BYMONTHDAY`. Negative numbers are calculated from the end of the month, -1 meaning the last day of the month.
+* `month` Number - Specify the month in case of yearly repeat. String equivalent: `BYMONTH`.
+* `weekDays` String - Comma separated list of the week days ('SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA') for the occurrences. String equivalent: `BYDAY`.
+* `weekStart` String - Specifies the first day of the week ('SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'). Default is 'MO'. String equivalent: `WKST`.
+* `pos` Number - Specifies the nth occurrence of the weekdays in a month in case of the monthly and yearly repeat. It also supports negative values in this case the order will be counted from the end of the month. This property depends on the repeat property. String equivalent: `BYSETPOS`.
+* `count` Number - The number of occurrences. String equivalent: `COUNT`.
+* `from` Date, String, Object - The start date of the occurrences. String equivalent: `DTSTART`.
+* `until` Date, String, Object - The end date of the occurrences. String equivalent: `UNTIL`.
+* `interval` Number - The time interval for the rule, e.g. every 3 days, or every 2 weeks. This depends on the repeat property. String equivalent: `INTERVAL`.
+
+```javascript title="Rule specified as an object"
+recurring: {
+  repeat: 'daily',
+  count: 5,
+  interval: 2
+}
+```
+
+When specified **as a string**, the properties are separated by the `;` character.
+
+```javascript title="Rule specified as a string"
+recurring: 'FREQ=DAILY;COUNT=5;INTERVAL=2'
+```
+
+### Full example
+
+```html title="Recurring events on the eventcalendar"
+<script setup>
+  import { ref } from 'vue';
+  import { MbscEventcalendar } from '@mobiscroll/vue';
+  import type { MbscCalendarEvent } from '@mobiscroll/vue';
+
+  const myEvents = ref<MbscCalendarEvent[]>([{
+    start: new Date(2020, 2, 18, 9, 0),
+    end: new Date(2020, 2, 18, 17, 0),
+    title: 'Repeat every 2 days 5 times',
+    recurring: {
+        repeat: 'daily',
+        count: 5,
+        interval: 2
+    }
+  }, {
+    start: new Date(2020, 2, 17, 20, 0),
+    end: new Date(2020, 2, 17, 22, 0),
+    title: 'Football training every Monday and Wednesday',
+    recurring: 'FREQ=WEEKLY;UNTIL=2020-06-17;BYDAY=MO,WE'
+  }, {
+    title: 'Pay the bills - on every first Friday of the months',
+    recurring: {
+        repeat: 'monthly',
+        pos: 1,
+        weekDays: 'FR',
+    }
+  }]);
+</script>
+
+<template>
+  <MbscEventcalendar :data="myEvents" />
+</template>
+```
+
+## Rule exceptions
+
+In case you would like to skip some dates from your rule, that's when the recurring exception come in handy. You can either set specific dates and/or a recurring rule as an exception, using the `recurringException` and the `recurringExceptionRule` properties.
+
+```javascript title="Excluding exact dates from a daily repeating event"
+// repeats daily, every day
+recurring: {
+    repeat: 'daily',
+    interval: 1
+},
+// except on these dates
+recurringException: ['2023-07-10','2023-07-23','2023-07-28'],
+```
+
+The `recurringExceptionRule` property is usefull when there is a rule to the exception you want to enforce. For example, you want to exclude the first day of each month:
+
+```javascript title="Excluding the first day of each month from a daily repeating event"
+// repeats daily, every day
+recurring: {
+    repeat: 'daily',
+    interval: 1
+},
+// except on the 1st day of each month:
+recurringExceptionRule: {
+    repeat: 'monthly',
+    day: 1,
+    interval: 1
+}
+```
+
+:::info
+In case you drag & drop an event on the calendar which is an occurrence of a recurring event, a new event will be created for the moved or resized event and the occurrence date will be added as a recurring exception to the original recurring event.
+:::
+
+:::tip
+There is a [recurring exception configurator demo](https://demo.mobiscroll.com/scheduler/recurring-events) that can be used to experiment with the rules. Check it out on the previous link!
+:::

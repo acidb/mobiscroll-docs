@@ -18,7 +18,7 @@ The displayed week days can be modified with the `startDay` and `endDay` propert
 The displayed hours can be modified with the `startTime` and `endTime` properties of the [view](./api#opt-view) option.
 With these properties both hours and minutes can be specified.
 
-![Desktop monthly timeline](https://docs.mobiscroll.com/Content/img/docs/desktop-timeline.png)
+![Desktop monthly timeline](https://mobiscroll.com/Content/img/docs/desktop-timeline.png)
 
 ## Resource grouping and hierarchy
 
@@ -105,6 +105,26 @@ invalid: [
 ]
 ```
 
+## Slots
+
+Besides the [resources](#opt-resources) which are grouping data for the whole date range, [slots](#opt-slots) introduce a horizontal daily grouping in case of the timeline view. Slots can be used alongside resources.
+
+When slots are used the timeline view will display in daily listing mode and only the [dragToMove](#opt-dragToMove) event iteraction will be available. The [dragToCreate](#opt-dragToCreate) and [dragToResize](#opt-dragToResize) interactions will be truned off.
+
+```javascript title="Slots used for work shift management"
+slots: [{
+    id: 1,
+    name: 'Morning shift',
+}, {
+    id: 2,
+    name: 'Afternoon shift',
+}]
+```
+
+
+![Timeline slots](https://mobiscroll.com/Content/img/docs/timeline-slots.png)
+
+<!-- The [renderSlot](#renderer-renderSlot) option can be used to customize the slot template of the timeline view. -->
 
 <div className="option-list">
 

@@ -124,7 +124,65 @@ slots: [{
 
 ![Timeline slots](https://mobiscroll.com/Content/img/docs/timeline-slots.png)
 
-<!-- The [renderSlot](#renderer-renderSlot) option can be used to customize the slot template of the timeline view. -->
+<!-- The [slot template](#renderer-renderSlot) can be used to customize the slot template of the timeline view. -->
+
+## Event connections
+
+The timeline view can display connections between events. Events will be linked with lines and additionally arrows can be displayed to illustrate the direction of the connection. Events can have multiple connections simultaneously. Connections can be specified with the [connections option](#opt-connections).
+
+![Timeline event connections](https://mobiscroll.com/Content/img/docs/event-connections.png)
+
+
+## Row height
+
+There are three CSS classes which can be used for changing the height of resource rows.
+
+1. For setting the resource row heights in general, you can use the `.mbsc-timeline-row` class.
+
+    ```css
+    .mbsc-timeline-row {
+    height: 80px;
+    }
+    ```
+
+2. For setting the height of the parent resources, you can use the `.mbsc-timeline-parent` class.
+
+    ```css
+    .mbsc-timeline-parent {
+    height: 30px;
+    }
+    ```
+    :::info
+    There's minimum height of the rows which can only be decreased if the event creation is disabled on the relevant resource. You can prevent event creation by using the `eventCreation` property of the the [resources option](#opt-resources).
+    :::
+
+3. For customizing the remaining empty space below the events, you can use the `.mbsc-timeline-row-gutter` class.
+
+    ```css
+    .mbsc-timeline-row-gutter {
+    height: 6px;
+    }
+    ```
+
+## Column width
+
+The resource column width of the timeline view is fixed. It can be overwritten from CSS using the following rules:
+```css title="Custom resource column width"
+.mbsc-timeline-resource-col {
+  width: 200px;
+}
+
+/* For sticky event labels */
+@supports (overflow:clip) {
+    .mbsc-timeline.mbsc-ltr .mbsc-schedule-event-inner {
+        left: 200px;
+    }
+
+    .mbsc-timeline.mbsc-rtl .mbsc-schedule-event-inner {
+        right: 200px;
+    }
+}
+```
 
 <div className="option-list">
 

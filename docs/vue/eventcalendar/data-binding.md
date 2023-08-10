@@ -72,18 +72,20 @@ const weeklyMeeting = {
 
 ## Recurring events
 
+The `recurring`, `recurringException` and `recurringExceptionRule` properties of the event object are used to define events that happen again over time. Check out the [recurrence section](../core-concepts/recurrence) for a more comprehensive description on recurring rules.
+
 ## Local data
 
 To bind local data to the event calendar, you can simply assign a JavaScript array of objects to the [data option](api#opt-data) of the component.
 
 ```html
 <script setup>
-  import { MbscEventcalendar } from '@mobiscroll/vue';
+    import { MbscEventcalendar } from '@mobiscroll/vue';
 
-  const myData = [
-    { id: 'event_id1', start: '2023-07-09', end: '2023-07-13', title: 'My First Event' },
-    { id: 'event_id2', start: '2023-08-01', end: '2023-08-03', title: 'My Second Event' },
-  ]
+    const myData = [
+        { id: 'event_id1', start: '2023-07-09', end: '2023-07-13', title: 'My First Event' },
+        { id: 'event_id2', start: '2023-08-01', end: '2023-08-03', title: 'My Second Event' },
+    ]
 </script>
 
 <template>
@@ -93,4 +95,82 @@ To bind local data to the event calendar, you can simply assign a JavaScript arr
 
 ## Remote data
 
+You can load the data through an external request and assign it to the data option of the component.
+
+```html
+<script setup>
+    import { ref, onMounted } from 'vue'
+    import { MbscEventcalendar, getJson } from '@mobiscroll/vue'
+
+    const myEvents = ref([])
+
+    const myView = {
+        calendar: { type: 'month' },
+        agenda: { type: 'month' }
+    }
+
+    // highlight-start
+    onMounted(() => {
+        getJson(
+            'https://trial.mobiscroll.com/events/?vers=5',
+            (events) => {
+                myEvents.value = events
+            },
+            'jsonp'
+        )
+    })
+    // highlight-end
+</script>
+
+<template>
+  <MbscEventcalendar
+    :view="myView"
+    // highlight-next-line
+    :data="myEvents"
+  />
+</template>
+```
+
 ## On demand loading
+
+Use the [`onPageLoading` event](api#event-onPageLoading) to load the data relevant to the currently active view. The event fires every time the date range of the view changes, for example when someone navigates the event calendar. Getting the events in real time as the user interacts with the UI improves load performance and always serves the most recent data.
+
+:::tip
+You can pass the view variables - like month and year - in the URL and handle the filtering inside the API implementation.
+:::
+
+```html
+<script setup>
+import { ref } from 'vue'
+import { MbscEventcalendar, getJson } from '@mobiscroll/vue'
+
+const myEvents = ref([])
+
+const myView = {
+  schedule: { type: 'day' }
+}
+// highlight-start
+function handlePageLoading(args) {
+  const year = args.month.getFullYear()
+  const month = args.month.getMonth()
+
+  getJson(
+    'https://trial.mobiscroll.com/weeklyevents/?year=' + year + '&month=' + month + '&day=' + day',
+    (data) => {
+      myEvents.value = data
+    },
+    'jsonp'
+  )
+}
+// highlight-end
+</script>
+
+<template>
+  <MbscEventcalendar
+    :view="myView"
+    :data="myEvents"
+    // highlight-next-line
+    @page-loading="handlePageLoading"
+  />
+</template>
+```

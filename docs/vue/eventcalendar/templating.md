@@ -58,7 +58,3 @@ In case of full event templating, whenever there is an event (in the agenda, sch
 - For the scheduler and timeline - use the `scheduleEvent` template for the custom template
 
 ![Event calendar event customization](https://docs.mobiscroll.com/Content/img/docs/customize-the-full-event.png)
-
-## Resource templating
-
-## Calendar header

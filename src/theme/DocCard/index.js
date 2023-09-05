@@ -59,8 +59,18 @@ function CardCategory({item}) {
     />
   );
 }
+function singleIcon(iconStr) {
+  return [...iconStr].length === 1;
+}
+function getIcon(item) {
+  if (item.icon) {
+    return singleIcon(item.icon) ? item.icon : <img className='doc-card-icon' src={item.icon} />
+  }
+  return isInternalUrl(item.href) ? '📄' : '🔗';
+}
+
 function CardLink({item}) {
-  const icon = isInternalUrl(item.href) ? '📄️' : '🔗';
+  const icon = getIcon(item);
   const doc = useDocById(item.docId ?? undefined);
   return (
     <CardLayout

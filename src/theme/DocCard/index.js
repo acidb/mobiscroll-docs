@@ -7,6 +7,7 @@ import {
 } from '@docusaurus/theme-common/internal';
 import isInternalUrl from '@docusaurus/isInternalUrl';
 import {translate} from '@docusaurus/Translate';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 function CardContainer({href, children}) {
   return (
@@ -64,7 +65,7 @@ function singleIcon(iconStr) {
 }
 function getIcon(item) {
   if (item.icon) {
-    return singleIcon(item.icon) ? item.icon : <img className='doc-card-icon' src={item.icon} />
+    return singleIcon(item.icon) ? item.icon : <img className='doc-card-icon' src={useBaseUrl(item.icon)} />
   }
   return isInternalUrl(item.href) ? '📄' : '🔗';
 }

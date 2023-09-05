@@ -10,24 +10,24 @@ Resources can be many things, ranging from **people** through **conference rooms
 
 The resource object supports the following properties:
 
-* `children` *Array of object* - Array of resource objects which will render as a child of the specified resource.
-* `collapsed` *Boolean* - Defines the displayed state of the child resoruce group.
-* `id` *Number, String* - This is an id that can be referenced in the events/invalids/colors data.
-* `name` *String* - The name of the resource that will be displayed at the top of the resource column.
-* `color` *String* - The color controls the default event color of the resource. Event colors can be specified further on the event object itself. If the color is omitted the events of the resource will inherit the default calendar color.
-* `eventCreation` *Boolean* - Disables event creation on specific resources by setting it to false. It's true by default.
-* `eventDragBetweenResources` *Boolean* - Specifies whether the events in the specified resource are movable across resources. It applies for scheduler and timeline views and has precedence over [`dragBetweenResources` option](api#opt-dragBetweenResources).
-* `eventDragInTime` *Boolean* - Specifies whether the events in the specified resource are movable in time. Has precedence over the [`dragInTime` option](api#opt-dragInTime).
-* `eventResize` *Boolean* - Specifies whether the events in the specified resource are resizable. Has precedence over [`dragToResize` option](api#opt-dragToResize).
+- `children` _Array of object_ - Array of resource objects which will render as a child of the specified resource.
+- `collapsed` _Boolean_ - Defines the displayed state of the child resoruce group.
+- `id` _Number, String_ - This is an id that can be referenced in the events/invalids/colors data.
+- `name` _String_ - The name of the resource that will be displayed at the top of the resource column.
+- `color` _String_ - The color controls the default event color of the resource. Event colors can be specified further on the event object itself. If the color is omitted the events of the resource will inherit the default calendar color.
+- `eventCreation` _Boolean_ - Disables event creation on specific resources by setting it to false. It's true by default.
+- `eventDragBetweenResources` _Boolean_ - Specifies whether the events in the specified resource are movable across resources. It applies for scheduler and timeline views and has precedence over [`dragBetweenResources` option](api#opt-dragBetweenResources).
+- `eventDragInTime` _Boolean_ - Specifies whether the events in the specified resource are movable in time. Has precedence over the [`dragInTime` option](api#opt-dragInTime).
+- `eventResize` _Boolean_ - Specifies whether the events in the specified resource are resizable. Has precedence over [`dragToResize` option](api#opt-dragToResize).
 
 Besides the base properties you can add any custom property, like title, job etc...
 
 ```javascript title="Defining resources"
 resources: [
-    { id: 'my_id_1', name: 'Jane', job: 'Developer' },
-    { id: 'my_id_2', name: 'Bob', job: 'Administrator' },
-    { id: 'my_id_3', name: 'Andy', job: 'Designer' },
-]
+  { id: "my_id_1", name: "Jane", job: "Developer" },
+  { id: "my_id_2", name: "Bob", job: "Administrator" },
+  { id: "my_id_3", name: "Andy", job: "Designer" },
+];
 ```
 
 :::tip
@@ -38,23 +38,23 @@ For more information on resource grouping and hierarchy check out the [timeline'
 
 ```javascript title="Invalid rule for specific resources"
 resources: [
-    { id: 1, name: 'General Courier'},
-    // highlight-start
-    { id: 2, name: 'Express Courier'},
-    { id: 3, name: 'Super Express Courier'},
-    // highlight-end
+  { id: 1, name: 'General Courier'},
+  // highlight-start
+  { id: 2, name: 'Express Courier'},
+  { id: 3, name: 'Super Express Courier'},
+  // highlight-end
 ],
 invalid: [
-    {
-        // highlight-next-line
-        resource: [2, 3]
-        // is unavailable at weekends:
-        recurring: {
-            repeat: 'weekly',
-            weekDays: 'SU,SA',
-            interval: 1
-        }
+  {
+    // highlight-next-line
+    resource: [2, 3]
+    // is unavailable at weekends:
+    recurring: {
+      repeat: 'weekly',
+      weekDays: 'SU,SA',
+      interval: 1
     }
+  }
 ]
 ```
 

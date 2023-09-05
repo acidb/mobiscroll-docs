@@ -24,6 +24,7 @@ To define a template, create a `<template>` tag with the `v-slot` directive or t
   </template>
 </mbsc-eventcalendar>
 ```
+
 ```html title="Using the v-slot shorthand"
 <mbsc-eventcalendar>
   <template #scheduleEventContent>
@@ -47,6 +48,7 @@ In most cases you only want to customize the content section of the event. In th
   </template>
 </mbsc-eventcalendar>
 ```
+
 ![Agenda content customization](https://docs.mobiscroll.com/Content/img/docs/customize-the-event-content.png)
 
 ### Full event templating

@@ -94,6 +94,7 @@ invalid: [{
     title: 'Lunch break'
 }],
 ```
+
 ```javascript title="Event tied to multiple resources"
 data: [{
     // highlight-next-line
@@ -104,13 +105,16 @@ data: [{
     allDay: true,
 }],
 ```
+
 ```javascript title="Color rule for all the resources (resource not specified)"
-colors: [{
+colors: [
+  {
     // this color will display at every resource group
     start: new Date(2021, 5, 12, 16),
     end: new Date(2021, 5, 12, 17),
-    color: 'green'
-}]
+    color: "green",
+  },
+];
 ```
 
 ## Row height
@@ -123,7 +127,6 @@ There might be cases when you would like to change the height of the schedule ce
   height: 20px;
 }
 ```
-
 
 <div className="option-list">
 

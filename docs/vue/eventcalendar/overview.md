@@ -14,7 +14,7 @@ The following example will create an event calendar with the default options.
 
 ```html
 <script setup>
-  import { MbscEventcalendar } from '@mobiscroll/vue';
+  import { MbscEventcalendar } from "@mobiscroll/vue";
 </script>
 
 <template>
@@ -33,19 +33,19 @@ To bind local data to the event calendar, you can simply assign a JavaScript arr
 
 ```html
 <script setup>
-  import { ref } from 'vue';
-  import { MbscEventcalendar } from '@mobiscroll/vue';
+  import { ref } from "vue";
+  import { MbscEventcalendar } from "@mobiscroll/vue";
 
   const myData = ref([
     {
       start: new Date(2020, 2, 18, 8, 0),
       end: new Date(2020, 2, 18, 17, 0),
-      title: 'My First Event',
+      title: "My First Event",
     },
     {
       start: new Date(2020, 2, 18, 9, 0),
       end: new Date(2020, 2, 20, 13, 0),
-      title: 'My Second Event',
+      title: "My Second Event",
     },
   ]);
 </script>
@@ -61,18 +61,18 @@ You can load the data through a remote request and assign it to the [data](./api
 
 ```html
 <script setup>
-  import { ref, onMounted } from 'vue';
-  import { MbscEventcalendar, getJson } from '@mobiscroll/vue';
+  import { ref, onMounted } from "vue";
+  import { MbscEventcalendar, getJson } from "@mobiscroll/vue";
 
   const myData = ref([]);
 
   onMounted(() => {
     getJson(
-      'https://trial.mobiscroll.com/events/?vers=5',
+      "https://trial.mobiscroll.com/events/?vers=5",
       (events) => {
         myData.value = events;
       },
-      'jsonp'
+      "jsonp"
     );
   });
 </script>
@@ -92,8 +92,8 @@ You can pass the view variables - like month and year - in the URL and handle th
 
 ```html
 <script setup>
-  import { ref } from 'vue';
-  import { MbscEventcalendar, getJson } from '@mobiscroll/vue';
+  import { ref } from "vue";
+  import { MbscEventcalendar, getJson } from "@mobiscroll/vue";
 
   const myData = ref([]);
 
@@ -107,7 +107,7 @@ You can pass the view variables - like month and year - in the URL and handle th
       (events) => {
         myData.value = events;
       },
-      'jsonp'
+      "jsonp"
     );
   }
 </script>

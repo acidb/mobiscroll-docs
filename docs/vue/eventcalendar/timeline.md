@@ -26,22 +26,22 @@ The timeline view supports resource hierarchy. Hierarchy groups can be defined w
 
 ```javascript title="Multi-level hierarchy groups"
 resources: [{
-    name: 'Site 1',
+  name: 'Site 1',
+  children: [{
+    name: 'Building 1'
     children: [{
-        name: 'Building 1'
-        children: [{
-            name: 'Room 1'
-        }, {
-            name: 'Room 2'
-        }]
+      name: 'Room 1'
     }, {
-        name: 'Building 2'
+      name: 'Room 2'
     }]
+  }, {
+      name: 'Building 2'
+  }]
 }, {
-    name: 'Site 2',
-    children: [{
-        name: 'Building A'
-    }]
+  name: 'Site 2',
+  children: [{
+    name: 'Building A'
+  }]
 }]
 ```
 
@@ -49,28 +49,28 @@ By default every resource group will be displayed and this can be modified with 
 
 ```javascript title="Collapsed groups"
 resources: [{
-    name: 'Main Building',
-    id: 'main',
-    description: 'Used the most for scheduling'
-    collapsed: true,
-    children: [{
-        name: 'Big conf. room'
-        id: 'bfg',
-    }, {
-        name: 'Smaller conf. room'
-        id: 'sfg',
-    }]
+  name: 'Main Building',
+  id: 'main',
+  description: 'Used the most for scheduling'
+  collapsed: true,
+  children: [{
+    name: 'Big conf. room'
+    id: 'bfg',
+  }, {
+    name: 'Smaller conf. room'
+    id: 'sfg',
+  }]
 }, {
-    name: 'Secondary Building',
-    id: 'sec',
-    description: 'For smaller, less important meetings'
-    collapsed: false,
-    children: [...]
+  name: 'Secondary Building',
+  id: 'sec',
+  description: 'For smaller, less important meetings'
+  collapsed: false,
+  children: [...]
 }, {
-    name: 'Long forgotten Cave',
-    id: 'cave',
-    description: 'Where developers used to work'
-    collapsed: false,
+  name: 'Long forgotten Cave',
+  id: 'cave',
+  description: 'Where developers used to work'
+  collapsed: false,
 }],
 ```
 
@@ -78,31 +78,35 @@ Both parent and child rows can contain events and events can be moved between an
 
 ```javascript title="Resources & events"
 resources: [{
-    name: 'Main Building',
-    id: 'main',
-    children: [{
-        name: 'Big conf. room'
-        id: 'bfg',
-    }]
+  name: 'Main Building',
+  id: 'main',
+  children: [{
+    name: 'Big conf. room'
+    id: 'bfg',
+  }]
 }, {
-    name: 'Secondary Building',
-    id: 'sec',
+  name: 'Secondary Building',
+  id: 'sec',
 }],
 data: [
-    { title: 'Open day celebration', resource: 'main', date: '2023-08-24'},
-    { title: 'Monthly staff meeting', resource: 'bfg', start: '2023-08-01T11:00', end: '2023-08-01T11:00' },
-    { title: 'Weekly chit-chat', resource: 'sec', start: '2023-08-02T09:00', end: '2023-08-02T09:40' },
-    ...
+  { title: 'Open day celebration', resource: 'main', date: '2023-08-24'},
+  { title: 'Monthly staff meeting', resource: 'bfg', start: '2023-08-01T11:00', end: '2023-08-01T11:00' },
+  { title: 'Weekly chit-chat', resource: 'sec', start: '2023-08-02T09:00', end: '2023-08-02T09:40' },
+  ...
 ]
 ```
-
 
 Child or parent rows can be disabled by creating an [invalid rule](#opt-invalid) which repeats daily and it is tied to the specific resources. Example:
 
 ```javascript title="Disable parent and/or child resources"
 invalid: [
-    { recurring: { repeat: 'daily' }, resource: [/* resource id(s) */] }
-]
+  {
+    recurring: { repeat: "daily" },
+    resource: [
+      /* resource id(s) */
+    ],
+  },
+];
 ```
 
 ## Slots
@@ -112,15 +116,17 @@ Besides the [resources](#opt-resources) which are grouping data for the whole da
 When slots are used the timeline view will display in daily listing mode and only the [dragToMove](#opt-dragToMove) event iteraction will be available. The [dragToCreate](#opt-dragToCreate) and [dragToResize](#opt-dragToResize) interactions will be truned off.
 
 ```javascript title="Slots used for work shift management"
-slots: [{
+slots: [
+  {
     id: 1,
-    name: 'Morning shift',
-}, {
+    name: "Morning shift",
+  },
+  {
     id: 2,
-    name: 'Afternoon shift',
-}]
+    name: "Afternoon shift",
+  },
+];
 ```
-
 
 ![Timeline slots](https://mobiscroll.com/Content/img/docs/timeline-slots.png)
 
@@ -132,55 +138,56 @@ The timeline view can display connections between events. Events will be linked 
 
 ![Timeline event connections](https://mobiscroll.com/Content/img/docs/event-connections.png)
 
-
 ## Row height
 
 There are three CSS classes which can be used for changing the height of resource rows.
 
 1. For setting the resource row heights in general, you can use the `.mbsc-timeline-row` class.
 
-    ```css
-    .mbsc-timeline-row {
-    height: 80px;
-    }
-    ```
+   ```css
+   .mbsc-timeline-row {
+     height: 80px;
+   }
+   ```
 
 2. For setting the height of the parent resources, you can use the `.mbsc-timeline-parent` class.
 
-    ```css
-    .mbsc-timeline-parent {
-    height: 30px;
-    }
-    ```
-    :::info
-    There's minimum height of the rows which can only be decreased if the event creation is disabled on the relevant resource. You can prevent event creation by using the `eventCreation` property of the the [resources option](#opt-resources).
-    :::
+   ```css
+   .mbsc-timeline-parent {
+     height: 30px;
+   }
+   ```
+
+   :::info
+   There's minimum height of the rows which can only be decreased if the event creation is disabled on the relevant resource. You can prevent event creation by using the `eventCreation` property of the the [resources option](#opt-resources).
+   :::
 
 3. For customizing the remaining empty space below the events, you can use the `.mbsc-timeline-row-gutter` class.
 
-    ```css
-    .mbsc-timeline-row-gutter {
-    height: 6px;
-    }
-    ```
+   ```css
+   .mbsc-timeline-row-gutter {
+     height: 6px;
+   }
+   ```
 
 ## Column width
 
 The resource column width of the timeline view is fixed. It can be overwritten from CSS using the following rules:
+
 ```css title="Custom resource column width"
 .mbsc-timeline-resource-col {
   width: 200px;
 }
 
 /* For sticky event labels */
-@supports (overflow:clip) {
-    .mbsc-timeline.mbsc-ltr .mbsc-schedule-event-inner {
-        left: 200px;
-    }
+@supports (overflow: clip) {
+  .mbsc-timeline.mbsc-ltr .mbsc-schedule-event-inner {
+    left: 200px;
+  }
 
-    .mbsc-timeline.mbsc-rtl .mbsc-schedule-event-inner {
-        right: 200px;
-    }
+  .mbsc-timeline.mbsc-rtl .mbsc-schedule-event-inner {
+    right: 200px;
+  }
 }
 ```
 

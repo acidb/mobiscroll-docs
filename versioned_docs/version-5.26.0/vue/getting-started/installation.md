@@ -24,6 +24,13 @@ Start a free trial by entering your email address on the [Mobiscroll homepage](h
 Read about the [differences between trial and licensed products](http://help.mobiscroll.com/trials/what-are-the-limitations-of-the-trial).
 3. You can upgrade to the licensed product at any time during or after your trial.
 
+### Installing a trial package
+
+To install the Mobiscroll Trial, you will need to open a terminal window in the root folder of you project and run the following command:
+
+```bash
+mobiscroll config vue --trial
+```
 
 ## Installing from NPM
 

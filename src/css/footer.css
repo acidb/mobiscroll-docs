@@ -1,0 +1,122 @@
+/* general.css */
+.container_12 {
+    max-width: 1280px;
+    padding: 0 20px;
+    margin: 0 auto; }
+
+.grid_2,
+.grid_12 {
+    float: left;
+    margin: 0 2%; }
+
+.grid_12 {
+    width: 96%; }
+
+.grid_2 {
+    width: 12.66%; }
+
+
+/* footer.css */
+#footer {
+    padding: 140px 0 0 0;
+    color: #fff;
+    font-weight: 300;
+    text-shadow: none;
+    text-align: left;
+    background-color: #253849;
+    /* new-mobiscroll */
+    font-weight: 400;
+    background: none;
+    color: #011742; }
+
+  .foot-link-c {
+    line-height: 25px; }
+
+  .foot-delimiter {
+    background: #506070;
+    height: 1px;
+    width: 100%;
+    margin: 15px 0; }
+
+  .foot-link {
+    /* new-mobiscroll */
+    color: #011742;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 40px; }
+
+  .foot-link:hover {
+    text-decoration: underline;
+    /* new-mobiscroll */
+    color: #011742; }
+
+  .foot-title {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 35px;
+    /* new-mobiscroll */
+    color: #011742;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: capitalize;
+    line-height: 50px; }
+
+  .foot-bottom {
+    line-height: 49px;
+    vertical-align: middle;
+    padding: 3px 0; }
+
+  .footer-logo {
+    float: right;
+    padding-top: 10px;
+    height: 40px; }
+    .footer-logo svg {
+      width: 160px;
+      height: 30px; }
+
+  .mixp-lnk {
+    float: right;
+    display: block; }
+
+  .mixp-lnk img {
+    display: block; }
+
+  .hr {
+    height: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-top: 1px solid #000; }
+
+  .hr.white {
+    border-top: 1px solid #506070;
+    margin-bottom: 0; }
+
+  #footer .grid_2 {
+    width: 15.66%; }
+
+  @media (max-width: 990px) {
+    #footer .grid_2 {
+      width: 28.66%;
+      padding-bottom: 20px; } }
+
+  @media (max-width: 525px) {
+    #footer .grid_2 {
+      width: 45.66%; } }
+
+  @media (max-width: 763px) {
+    .foot-bottom {
+      text-align: center; }
+    .footer-logo {
+      float: none;
+      display: block;
+      margin: 0 auto; }
+    .foot-text {
+      display: block;
+      line-height: 25px; }
+    #footer .spaces {
+      display: none; }
+    .foot-text:first-child {
+      padding-top: 5px; } }

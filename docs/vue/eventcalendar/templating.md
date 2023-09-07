@@ -37,13 +37,13 @@ To define a template, create a `<template>` tag with the `v-slot` directive or t
 
 In most cases you only want to customize the content section of the event. In this case your template will be used as the content of the event. Mobiscroll will position the event to the right place and will render essential information like the color of the event, the time and if it's an all day event or not. The title, description and any other fields you want to show (like participants, an avatar...) will be coming from your custom template.
 
-- For the agenda and popover - use the `eventContent` template for the custom template
-- For event labels in the calendar and all-day events in the scheduler - use the `labelContent` template for the custom template
-- For the scheduler and timeline - use the `scheduleEventContent` template for the custom template
+- For the agenda and popover - use the [`eventContent`](api#slot-eventContent) template for the custom template
+- For event labels in the calendar and all-day events in the scheduler - use the [`labelContent`](api#slot-labelContent) template for the custom template
+- For the scheduler and timeline - use the [`scheduleEventContent`](api#slot-scheduleEventContent) template for the custom template
 
 ```html
 <mbsc-eventcalendar>
-  <template #eventContent>
+  <template #eventContent="data">
     <!-- your content here -->
   </template>
 </mbsc-eventcalendar>
@@ -55,8 +55,8 @@ In most cases you only want to customize the content section of the event. In th
 
 In case of full event templating, whenever there is an event (in the agenda, scheduler, timeline, labels or popover) your custom template will be used instead of the default template. Mobiscroll will position your component to the right place, but anything else you want to show is up to you... like a title, description, color the background or show any content.
 
-- For the agenda and popover - use the `event` template for the custom template
-- For event labels in the calendar and all-day events in the scheduler - use the `label` template for the custom template
-- For the scheduler and timeline - use the `scheduleEvent` template for the custom template
+- For the agenda and popover - use the [`event`](api#slot-event) template for the custom template
+- For event labels in the calendar and all-day events in the scheduler - use the [`label`](api#slot-label) template for the custom template
+- For the scheduler and timeline - use the [`scheduleEvent`](api#slot-scheduleEvent) template for the custom template
 
 ![Event calendar event customization](https://docs.mobiscroll.com/Content/img/docs/customize-the-full-event.png)

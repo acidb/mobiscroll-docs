@@ -17,19 +17,21 @@ The agenda calendar displays a list of events for a given period of time (year, 
 
 <div className="option-list">
 
-## Options
+## API
+
+### Options
 
 <Options />
 
-## Events
+### Events
 
 <Events />
 
-## Localization
+### Localization
 
 <Localizations />
 
-## Slots
+### Slots
 
 <Slots />
 

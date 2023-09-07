@@ -110,7 +110,11 @@ invalid: [
 ];
 ```
 
-## Slots
+## Event slots
+
+:::info
+Not to be confused with [named slots](#slots). In vue terms slots are used for [templating](#templating), but there is also a [slots](#opt-slots) option for the eventcalendar and this section is dedicated it.
+:::
 
 Besides the [resources](#opt-resources) which are grouping data for the whole date range, [slots](#opt-slots) introduce a horizontal daily grouping in case of the timeline view. Slots can be used alongside resources.
 
@@ -194,19 +198,21 @@ The resource column width of the timeline view is fixed. It can be overwritten f
 
 <div className="option-list">
 
-## Options
+## API
+
+### Options
 
 <Options />
 
-## Events
+### Events
 
 <Events />
 
-## Localization
+### Localization
 
 <Localizations />
 
-## Slots
+### Slots
 
 <Slots />
 

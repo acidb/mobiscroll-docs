@@ -129,21 +129,34 @@ There might be cases when you would like to change the height of the schedule ce
 }
 ```
 
+## Column width
+
+You can use the following CSS classes for changing column widths of the scheduler:
+
+```css
+.mbsc-schedule-col-width {
+  width: 100px;
+}
+```
+
+
 <div className="option-list">
 
-## Options
+## API
+
+### Options
 
 <Options />
 
-## Events
+### Events
 
 <Events />
 
-## Localization
+### Localization
 
 <Localizations />
 
-## Slots
+### Slots
 
 <Slots />
 

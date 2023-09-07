@@ -20,19 +20,21 @@ The events can be rendered as labels or in a popover that is shown on day click.
 
 <div className="option-list">
 
-## Options
+## API
+
+### Options
 
 <Options />
 
-## Events
+### Events
 
 <Events />
 
-## Localization
+### Localization
 
 <Localizations />
 
-## Slots
+### Slots
 
 <Slots />
 

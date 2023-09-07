@@ -1,7 +1,7 @@
 ### agenda {#slot-agenda}
 
 ```html
-  <template #agenda="{ events, options, dayRefs }">...</template>
+<template #agenda="{ events, options, dayRefs }">...</template>
 ```
 
 Customize the agenda listing
@@ -27,7 +27,7 @@ and scrolling the list updates the selected date on the calendar.
 ### agendaEmpty {#slot-agendaEmpty}
 
 ```html
-  <template #agendaEmpty>...</template>
+<template #agendaEmpty>...</template>
 ```
 
 Customize the agenda listing when the events list is empty.
@@ -35,7 +35,7 @@ Customize the agenda listing when the events list is empty.
 ### event {#slot-event}
 
 ```html
-  <template #event="data">...</template>
+<template #event="data">...</template>
 ```
 
 Customize the events that appear on the agenda and the popover.
@@ -58,7 +58,7 @@ The following event specific properties are available:
 ### eventContent {#slot-eventContent}
 
 ```html
-  <template #eventContent="data">...</template>
+<template #eventContent="data">...</template>
 ```
 
 Customize the event content that appears on the agenda and the popover.
@@ -82,7 +82,7 @@ The following event specific properties are available:
 ### header {#slot-header}
 
 ```html
-  <template #header>...</template>
+<template #header>...</template>
 ```
 
 Customize the header of the event calendar.

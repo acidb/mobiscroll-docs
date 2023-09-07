@@ -1,7 +1,7 @@
 ### day {#slot-day}
 
 ```html
-  <template #day="args">...</template>
+<template #day="args">...</template>
 ```
 
 Customize the day cells of the calendar view and the header date container in case of schedule and timeline view.
@@ -22,7 +22,7 @@ when the events are grouped by resources.
 ### dayContent {#slot-dayContent}
 
 ```html
-  <template #dayContent="args">...</template>
+<template #dayContent="args">...</template>
 ```
 
 Customize the day cells content of the event calendar. The event calendar will take care of styling and you can focus on
@@ -42,7 +42,7 @@ when the events are grouped by resources.
 ### event {#slot-event}
 
 ```html
-  <template #event="data">...</template>
+<template #event="data">...</template>
 ```
 
 Customize the events that appear on the agenda and the popover.
@@ -65,7 +65,7 @@ The following event specific properties are available:
 ### eventContent {#slot-eventContent}
 
 ```html
-  <template #eventContent="data">...</template>
+<template #eventContent="data">...</template>
 ```
 
 Customize the event content that appears on the agenda and the popover.
@@ -89,7 +89,7 @@ The following event specific properties are available:
 ### header {#slot-header}
 
 ```html
-  <template #header>...</template>
+<template #header>...</template>
 ```
 
 Customize the header of the event calendar.
@@ -98,7 +98,7 @@ You can use custom html as well as the built in header components of the calenda
 ### hourFooter {#slot-hourFooter}
 
 ```html
-  <template #hourFooter="args">...</template>
+<template #hourFooter="args">...</template>
 ```
 
 Customize the footer hour container in case of the timeline view.
@@ -111,7 +111,7 @@ The following hour specific properties are available:
 ### label {#slot-label}
 
 ```html
-  <template #label="event">...</template>
+<template #label="event">...</template>
 ```
 
 Customize the labels that appear on the calendar.
@@ -131,7 +131,7 @@ The following event specific properties are available:
 ### labelContent {#slot-labelContent}
 
 ```html
-  <template #labelContent="event">...</template>
+<template #labelContent="event">...</template>
 ```
 
 Customize the label contents, that appears on the calendar.

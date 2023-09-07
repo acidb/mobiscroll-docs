@@ -1,7 +1,7 @@
 ### day {#slot-day}
 
 ```html
-  <template #day="args">...</template>
+<template #day="args">...</template>
 ```
 
 Customize the day cells of the calendar view and the header date container in case of schedule and timeline view.
@@ -22,7 +22,7 @@ when the events are grouped by resources.
 ### dayContent {#slot-dayContent}
 
 ```html
-  <template #dayContent="args">...</template>
+<template #dayContent="args">...</template>
 ```
 
 Customize the day cells content of the event calendar. The event calendar will take care of styling and you can focus on
@@ -42,7 +42,7 @@ when the events are grouped by resources.
 ### dayFooter {#slot-dayFooter}
 
 ```html
-  <template #dayFooter="args">...</template>
+<template #dayFooter="args">...</template>
 ```
 
 Customize the footer of each day for the timeline. This option is only available for the timeline.
@@ -54,7 +54,7 @@ The following day specific details are available:
 ### header {#slot-header}
 
 ```html
-  <template #header>...</template>
+<template #header>...</template>
 ```
 
 Customize the header of the event calendar.
@@ -63,7 +63,7 @@ You can use custom html as well as the built in header components of the calenda
 ### hour {#slot-hour}
 
 ```html
-  <template #hour="args">...</template>
+<template #hour="args">...</template>
 ```
 
 Customize the header hour container in case of the timeline view.
@@ -78,7 +78,7 @@ The following hour specific properties are available:
 ### hourFooter {#slot-hourFooter}
 
 ```html
-  <template #hourFooter="args">...</template>
+<template #hourFooter="args">...</template>
 ```
 
 Customize the footer hour container in case of the timeline view.
@@ -91,7 +91,7 @@ The following hour specific properties are available:
 ### month {#slot-month}
 
 ```html
-  <template #month="args">...</template>
+<template #month="args">...</template>
 ```
 
 Customize the header month container in case of the timeline view.
@@ -105,7 +105,7 @@ The following month specific properties are available:
 ### monthFooter {#slot-monthFooter}
 
 ```html
-  <template #monthFooter="args">...</template>
+<template #monthFooter="args">...</template>
 ```
 
 Customize the footer month container in case of the timeline view.
@@ -119,7 +119,7 @@ The following month specific properties are available:
 ### resource {#slot-resource}
 
 ```html
-  <template #resource="resource">...</template>
+<template #resource="resource">...</template>
 ```
 
 Customize how the resources are rendered on the Scheduler/Timeline.
@@ -128,7 +128,7 @@ The resource object is available to help in the customization.
 ### resourceFooter {#slot-resourceFooter}
 
 ```html
-  <template #resourceFooter>...</template>
+<template #resourceFooter>...</template>
 ```
 
 Customize the empty cell content below the resource column.
@@ -138,7 +138,7 @@ option is also used.
 ### resourceHeader {#slot-resourceHeader}
 
 ```html
-  <template #resourceHeader>...</template>
+<template #resourceHeader>...</template>
 ```
 
 Customize the empty cell content above the resource column.
@@ -147,7 +147,7 @@ This options is only available for the timeline view.
 ### scheduleEvent {#slot-scheduleEvent}
 
 ```html
-  <template #scheduleEvent="event">...</template>
+<template #scheduleEvent="event">...</template>
 ```
 
 Customize the events that appear on the scheduler and timeline. The event calendar will take care of the positioning,
@@ -171,7 +171,7 @@ The following event specific properties are available:
 ### scheduleEventContent {#slot-scheduleEventContent}
 
 ```html
-  <template #scheduleEventContent="event">...</template>
+<template #scheduleEventContent="event">...</template>
 ```
 
 Customize the event content that appears on the scheduler and timeline.
@@ -196,7 +196,7 @@ The following event specific properties are available:
 ### sidebar {#slot-sidebar}
 
 ```html
-  <template #sidebar="resource">...</template>
+<template #sidebar="resource">...</template>
 ```
 
 Add a custom sidebar on the right side of the timeline.
@@ -207,7 +207,7 @@ The resource object is available to help in resource specific customizations.
 ### sidebarFooter {#slot-sidebarFooter}
 
 ```html
-  <template #sidebarFooter>...</template>
+<template #sidebarFooter>...</template>
 ```
 
 Customize the empty cell content below the sidebar column.
@@ -217,7 +217,7 @@ is also used.
 ### sidebarHeader {#slot-sidebarHeader}
 
 ```html
-  <template #sidebarHeader>...</template>
+<template #sidebarHeader>...</template>
 ```
 
 Customize the empty cell content above the sidebar column.
@@ -227,10 +227,10 @@ is also used.
 ### slot {#slot-slot}
 
 ```html
-  <template #slot="args">...</template>
+<template #slot="args">...</template>
 ```
 
-Customize the [slot](#opt-slot) template of the Timeline view.
+Customize the [slots](#opt-slots) template of the Timeline view.
 
 The following details are available to help in the customization:
 - `date`: _Date_ - The specific date where the slot is rendered.
@@ -239,7 +239,7 @@ The following details are available to help in the customization:
 ### week {#slot-week}
 
 ```html
-  <template #week="args">...</template>
+<template #week="args">...</template>
 ```
 
 Customize the header week container in case of the timeline view.
@@ -257,7 +257,7 @@ The following week specific properties are available:
 ### weekFooter {#slot-weekFooter}
 
 ```html
-  <template #weekFooter="args">...</template>
+<template #weekFooter="args">...</template>
 ```
 
 Customize the footer week container in case of the timeline view.
@@ -274,7 +274,7 @@ The following week specific properties are available:
 ### year {#slot-year}
 
 ```html
-  <template #year="args">...</template>
+<template #year="args">...</template>
 ```
 
 Customize the header year container in case of the timeline view.
@@ -289,7 +289,7 @@ The following year specific properties are available:
 ### yearFooter {#slot-yearFooter}
 
 ```html
-  <template #yearFooter="args">...</template>
+<template #yearFooter="args">...</template>
 ```
 
 Customize the footer year container in case of the timeline view.

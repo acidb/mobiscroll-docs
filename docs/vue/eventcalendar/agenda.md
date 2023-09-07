@@ -7,6 +7,7 @@ displayed_sidebar: vueSidebar
 import Options from '../\_auto-generated/eventcalendar/options_agenda.md';
 import Events from '../\_auto-generated/eventcalendar/events_agenda.md';
 import Localizations from '../\_auto-generated/eventcalendar/localizations_agenda.md';
+import Slots from '../_auto-generated/eventcalendar/renderers_agenda.md';
 
 # Agenda
 
@@ -27,5 +28,9 @@ The agenda calendar displays a list of events for a given period of time (year, 
 ## Localization
 
 <Localizations />
+
+## Slots
+
+<Slots />
 
 </div>

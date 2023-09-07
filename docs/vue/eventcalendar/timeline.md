@@ -7,6 +7,7 @@ displayed_sidebar: vueSidebar
 import Options from '../\_auto-generated/eventcalendar/options_timeline.md';
 import Events from '../\_auto-generated/eventcalendar/events_timeline.md';
 import Localizations from '../\_auto-generated/eventcalendar/localizations_timeline.md';
+import Slots from '../_auto-generated/eventcalendar/renderers_timeline.md';
 
 # Timeline
 
@@ -204,5 +205,9 @@ The resource column width of the timeline view is fixed. It can be overwritten f
 ## Localization
 
 <Localizations />
+
+## Slots
+
+<Slots />
 
 </div>

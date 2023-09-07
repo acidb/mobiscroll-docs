@@ -196,6 +196,17 @@ The resource column width of the timeline view is fixed. It can be overwritten f
 }
 ```
 
+## Templating
+
+The display of timeline resources can be customized with named slots. The [resource](#slot-resource)
+and [resourceHeader](#slot-resourceHeader) slot can be used to customize the resources.
+
+Besides the resources, an additional sidebar can be rendered on the opposite end of the row through the [sidebar](#slot-sidebar) slot, and a header for it, using the [sidebarHeader](#slot-sidebarHeader) slot.
+
+A footer can be rendered as well for each day using the [dayFooter](#slot-dayFooter) slot. When a footer is used the [resourceFooter](#slot-resourceFooter) and [sidebarFooter](#slot-sidebarFooter) can be defined as well.
+
+![Timeline resource, sidebar and footer templating](https://mobiscroll.com/Content/img/docs/resource-sidebar-footer.png)
+
 <div className="option-list">
 
 ## API

@@ -1,0 +1,111 @@
+---
+sidebar_position: 8
+sidebar_label: Timezones
+displayed_sidebar: vueSidebar
+---
+
+# Timezones
+
+By default the Eventcalendar uses the local timezone of the browser to show event data. If you want to show the data or interpret it in a different timezone, you will need an external library to handle the timezone conversions. There are two libraries that Mobiscroll supports: **moment-timezone** and **luxon**.
+
+When using a timezone plugin with the Eventcalendar, the [exclusiveEndDates](api#opt-exclusiveEndDates) options defaults to `true`. Learn more about [exclusive end dates](#exclusive-end-dates)!
+
+## Library Install
+
+To setup the library, first you have to install it on your page. In this guide we'll assume you are using npm to install packages, but you can consult the installation guide on the libraries official pages ([moment-timezone install page](https://momentjs.com/timezone), [luxon install page](https://moment.github.io/luxon)) for more options on how to install them.
+
+### The Moment-Timezone library
+
+To install the moment-timezone library with npm you will need to run the following commands:
+
+```bash
+npm install moment-timezone
+```
+
+After the library is installed, you will have to import it with the `momentTimezone` object from mobiscroll:
+
+```ts
+import moment from 'moment-timezone';
+import { momentTimezone } from '@mobiscroll/vue';
+```
+
+Then set the mobiscroll's reference to the imported library:
+
+```ts
+momentTimezone.moment = moment;
+```
+
+After that, you can pass the momentTimezone object to the Eventcalendar's timezonePlugin option.
+
+```html
+<MbscEventcalendar :timezonePlugin="momentTimezone" />
+```
+
+### The Luxon library
+
+To install the luxon library with npm you will need to run the following commands:
+
+```bash
+npm install luxon
+```
+
+In case you are using typescript you can also consider installing the types, because they come separately:
+
+```bash
+npm install --save-dev @types/luxon
+```
+
+After the library is installed, you will have to import it with the `luxonTimezone` object from mobiscroll:
+
+```ts
+import * as luxon from 'luxon';
+import { luxonTimezone } from '@mobiscroll/react';
+```
+
+Then set the mobiscroll's reference to the imported library:
+
+```ts
+luxonTimezone.luxon = luxon;
+```
+
+After that, you can pass the luxonTimezone object to the Eventcalendar's timezonePlugin option.
+
+```html
+<MbscEventcalendar :timezonePlugin="luxonTimezone" />
+```
+
+## Using timezones
+
+When working with timezones, you usually have your data stored in one timezone, and display it in a different timezone. A common scenario is storing the data in UTC, and displaying it in the user's local timezone. You can set this using the [`dataTimezone`](api#opt-dataTimezone) and [`displayTimezone`](api#opt-displayTimezone) options.
+
+You can also store the timezone inside the event data, using the `timezone` property. If an event has the timezone specified, this will take precedence over the timezone set by `dataTimezone`. This is particularly useful for recurring events. Storing recurring events in UTC is not useful in most of the cases, since the occurrences will be generated in UTC time, which does not have daylight saving times. When converted to a displayTimezone which uses DST, the event times will be shifted with an hour when DST changes. Storing the timezone on the event makes it unambiguous, and will be correctly converted to `displayTimezone`.
+
+```html title="Example"
+<script setup>
+  import { ref } from "vue";
+  import { MbscEventcalendar, momentTimezone } from "@mobiscroll/vue";
+  // highlight-next-line
+  import moment from 'moment-timezone';
+
+  // setup the reference to moment
+  // highlight-next-line
+  momentTimezone.moment = moment;
+
+  const myEvents = ref([]);
+
+  const myView = {
+    schedule: { type: "week" },
+  };
+</script>
+
+<template>
+  <MbscEventcalendar
+    :data="myEvents"
+    // highlight-start
+    :timezonePlugin="momentTimezone"
+    dataTimezone="utc"
+    displayTimezone="Europe/Berlin"
+    // highlight-end
+  />
+</template>
+```

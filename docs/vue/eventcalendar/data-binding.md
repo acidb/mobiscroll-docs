@@ -133,7 +133,11 @@ You can load the data through an external request and assign it to the data opti
 </script>
 
 <template>
-  <MbscEventcalendar :view="myView" // highlight-next-line :data="myEvents" />
+  <MbscEventcalendar
+    :view="myView"
+    // highlight-next-line
+    :data="myEvents"
+  />
 </template>
 ```
 
@@ -172,7 +176,11 @@ You can pass the view variables - like month and year - in the URL and handle th
 </script>
 
 <template>
-  <MbscEventcalendar :view="myView" :data="myEvents" // highlight-next-line
-  @page-loading="handlePageLoading" />
+  <MbscEventcalendar
+    :view="myView"
+    :data="myEvents"
+    // highlight-next-line
+    @page-loading="handlePageLoading"
+  />
 </template>
 ```

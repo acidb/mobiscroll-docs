@@ -116,3 +116,8 @@
 .w30 {
   width: 30%;
 }
+
+.doc-card-icon {
+  height: 1.2em;
+  vertical-align: text-bottom;
+}

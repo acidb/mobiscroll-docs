@@ -7,6 +7,7 @@ displayed_sidebar: vueSidebar
 import Options from '../\_auto-generated/eventcalendar/options_scheduler.md';
 import Events from '../\_auto-generated/eventcalendar/events_scheduler.md';
 import Localizations from '../\_auto-generated/eventcalendar/localizations_scheduler.md';
+import Slots from '../_auto-generated/eventcalendar/renderers_scheduler.md';
 
 # Scheduler
 
@@ -94,6 +95,7 @@ invalid: [{
     title: 'Lunch break'
 }],
 ```
+
 ```javascript title="Event tied to multiple resources"
 data: [{
     // highlight-next-line
@@ -104,13 +106,16 @@ data: [{
     allDay: true,
 }],
 ```
+
 ```javascript title="Color rule for all the resources (resource not specified)"
-colors: [{
+colors: [
+  {
     // this color will display at every resource group
     start: new Date(2021, 5, 12, 16),
     end: new Date(2021, 5, 12, 17),
-    color: 'green'
-}]
+    color: "green",
+  },
+];
 ```
 
 ## Row height
@@ -124,19 +129,35 @@ There might be cases when you would like to change the height of the schedule ce
 }
 ```
 
+## Column width
+
+You can use the following CSS classes for changing column widths of the scheduler:
+
+```css
+.mbsc-schedule-col-width {
+  width: 100px;
+}
+```
+
 
 <div className="option-list">
 
-## Options
+## API
+
+### Options
 
 <Options />
 
-## Events
+### Events
 
 <Events />
 
-## Localization
+### Localization
 
 <Localizations />
+
+### Slots
+
+<Slots />
 
 </div>

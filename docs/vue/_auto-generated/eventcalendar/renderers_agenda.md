@@ -4,7 +4,7 @@
 <template #agenda="{ events, options, dayRefs }">...</template>
 ```
 
-Customize the agenda listing
+Customize the agenda listing.
 
 Available parameters:
  - `events`: _Array&lt;MbscEventList&gt;_ - The events of the current view, grouped by day. A day object has the following properties:
@@ -15,12 +15,13 @@ Available parameters:
        - `id`: _string_ - The id of the event.
        - `isMultiDay`: _boolean_ - True if the event spans across multiple days.
        - `lastDay`: _boolean_ - True if it&#039;s rendered on the last day of a multiple event.
-       - `original`: _object_ - The original event object.
+       - `original`: _MbscCalendarEvent_ - The original event object.
        - `start`: _string_ - The formatted start time, if the event is not all day.
        - `title`: _string_ - The title of the event.
-    - `timestamp`: _number_ - The timestamp of the day
- - `options`: _object_ - The current settings of the component.
- - `dayRefs`: _object_ - An object holding the references to the DOM elements of the days containing the event listings.
+    - `timestamp`: _number_ - The timestamp of the day.
+ - `options`: _MbscEventcalendarOptions_ - The current options of the component.
+ - `dayRefs`: _{ [key: string]: HTMLElement | null }_ - An object holding the references
+to the DOM elements of the days containing the event lists.
 Needed for the scroll functionality: clicking on a calendar date scrolls to the date on the list as well,
 and scrolling the list updates the selected date on the calendar.
 
@@ -30,7 +31,7 @@ and scrolling the list updates the selected date on the calendar.
 <template #agendaEmpty>...</template>
 ```
 
-Customize the agenda listing when the events list is empty.
+Customize the agenda listing when the list is empty.
 
 ### event {#slot-event}
 
@@ -39,9 +40,8 @@ Customize the agenda listing when the events list is empty.
 ```
 
 Customize the events that appear on the agenda and the popover.
-The event calendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
 
-If you are looking to customize only the content (ex. add custom elements) and don&#039;t want to bother with the styling of the event,
+If you are looking to customize only the content (e.g. add custom elements) and don&#039;t want to bother with the styling of the event,
 you can use the [eventContent](#slot-eventContent) option.
 
 Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
@@ -51,7 +51,7 @@ The following event specific properties are available:
 - `id`: _string_ - The id of the event.
 - `isMultiDay`: _boolean_ - True if the event spans across multiple days.
 - `lastDay`: _boolean_ - True if it&#039;s rendered on the last day of a multiple event.
-- `original`: _object_ - The original event object.
+- `original`: _MbscCalendarEvent_ - The original event object.
 - `start`: _string_ - The formatted start time, if the event is not all day.
 - `title`: _string_ - The title of the event.
 
@@ -62,11 +62,10 @@ The following event specific properties are available:
 ```
 
 Customize the event content that appears on the agenda and the popover.
-The event calendar will take care of styling and you can focus on what you show inside of the event a.k.a the content.
+The event calendar will take care of styling and you can focus on what you show inside of the event.
 
-If you are looking to fully customize the event (ex. add custom hover effects) you will need to use the
-[event](#slot-event) option. In that case you will only get the positioning done
-by the event calendar and everything else is up to you.
+If you are looking to fully customize the event (e.g. add custom hover effects) you will need to use the
+[event](#slot-event) option.
 
 Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
 The following event specific properties are available:
@@ -75,7 +74,7 @@ The following event specific properties are available:
 - `id`: _string_ - The id of the event.
 - `isMultiDay`: _boolean_ - True if the event spans across multiple days.
 - `lastDay`: _boolean_ - True if it&#039;s rendered on the last day of a multiple event.
-- `original`: _object_ - The original event object.
+- `original`: _MbscCalendarEvent_ - The original event object. Any custom property on the event can be accessed through this property.
 - `start`: _string_ - The formatted start time, if the event is not all day.
 - `title`: _string_ - The title of the event.
 
@@ -86,4 +85,4 @@ The following event specific properties are available:
 ```
 
 Customize the header of the event calendar.
-You can use custom html as well as the built in header components of the calendar.
+You can use custom markup and the built in header components of the calendar.

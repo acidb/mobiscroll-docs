@@ -89,3 +89,35 @@
   font-style: italic;
   margin-bottom: 10px;
 }
+
+.img-row {
+  display: flex;
+  align-items: center;
+}
+
+.img-row > * {
+  min-width: 0;
+}
+
+.img-label {
+  text-align: center;
+  display: block;
+  font-style: italic;
+}
+
+.pdg-img {
+  padding: 10px;
+}
+
+.w70 {
+  width: 70%;
+}
+
+.w30 {
+  width: 30%;
+}
+
+.doc-card-icon {
+  height: 1.2em;
+  vertical-align: text-bottom;
+}

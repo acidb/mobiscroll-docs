@@ -7,6 +7,7 @@ displayed_sidebar: vueSidebar
 import Options from '../\_auto-generated/eventcalendar/options_timeline.md';
 import Events from '../\_auto-generated/eventcalendar/events_timeline.md';
 import Localizations from '../\_auto-generated/eventcalendar/localizations_timeline.md';
+import Slots from '../_auto-generated/eventcalendar/renderers_timeline.md';
 
 # Timeline
 
@@ -18,20 +19,212 @@ The displayed week days can be modified with the `startDay` and `endDay` propert
 The displayed hours can be modified with the `startTime` and `endTime` properties of the [view](./api#opt-view) option.
 With these properties both hours and minutes can be specified.
 
-![Desktop monthly timeline](https://docs.mobiscroll.com/Content/img/docs/desktop-timeline.png)
+![Desktop monthly timeline](https://mobiscroll.com/Content/img/docs/desktop-timeline.png)
+
+## Resource grouping and hierarchy
+
+The timeline view supports resource hierarchy. Hierarchy groups can be defined with the `children` property of the resource object. Child objects are also resources and have the same properties, thus they can also have children.
+
+```javascript title="Multi-level hierarchy groups"
+resources: [{
+  name: 'Site 1',
+  children: [{
+    name: 'Building 1'
+    children: [{
+      name: 'Room 1'
+    }, {
+      name: 'Room 2'
+    }]
+  }, {
+      name: 'Building 2'
+  }]
+}, {
+  name: 'Site 2',
+  children: [{
+    name: 'Building A'
+  }]
+}]
+```
+
+By default every resource group will be displayed and this can be modified with the `collapsed` attribute of the parent objects.
+
+```javascript title="Collapsed groups"
+resources: [{
+  name: 'Main Building',
+  id: 'main',
+  description: 'Used the most for scheduling'
+  collapsed: true,
+  children: [{
+    name: 'Big conf. room'
+    id: 'bfg',
+  }, {
+    name: 'Smaller conf. room'
+    id: 'sfg',
+  }]
+}, {
+  name: 'Secondary Building',
+  id: 'sec',
+  description: 'For smaller, less important meetings'
+  collapsed: false,
+  children: [...]
+}, {
+  name: 'Long forgotten Cave',
+  id: 'cave',
+  description: 'Where developers used to work'
+  collapsed: false,
+}],
+```
+
+Both parent and child rows can contain events and events can be moved between any rows.
+
+```javascript title="Resources & events"
+resources: [{
+  name: 'Main Building',
+  id: 'main',
+  children: [{
+    name: 'Big conf. room'
+    id: 'bfg',
+  }]
+}, {
+  name: 'Secondary Building',
+  id: 'sec',
+}],
+data: [
+  { title: 'Open day celebration', resource: 'main', date: '2023-08-24'},
+  { title: 'Monthly staff meeting', resource: 'bfg', start: '2023-08-01T11:00', end: '2023-08-01T11:00' },
+  { title: 'Weekly chit-chat', resource: 'sec', start: '2023-08-02T09:00', end: '2023-08-02T09:40' },
+  ...
+]
+```
+
+Child or parent rows can be disabled by creating an [invalid rule](#opt-invalid) which repeats daily and it is tied to the specific resources. Example:
+
+```javascript title="Disable parent and/or child resources"
+invalid: [
+  {
+    recurring: { repeat: "daily" },
+    resource: [
+      /* resource id(s) */
+    ],
+  },
+];
+```
+
+## Event slots
+
+:::info
+Not to be confused with [named slots](#slots). In vue terms slots are used for [templating](#templating), but there is also a [slots](#opt-slots) option for the eventcalendar and this section is dedicated it.
+:::
+
+Besides the [resources](#opt-resources) which are grouping data for the whole date range, [slots](#opt-slots) introduce a horizontal daily grouping in case of the timeline view. Slots can be used alongside resources.
+
+When slots are used the timeline view will display in daily listing mode and only the [dragToMove](#opt-dragToMove) event iteraction will be available. The [dragToCreate](#opt-dragToCreate) and [dragToResize](#opt-dragToResize) interactions will be truned off.
+
+```javascript title="Slots used for work shift management"
+slots: [
+  {
+    id: 1,
+    name: "Morning shift",
+  },
+  {
+    id: 2,
+    name: "Afternoon shift",
+  },
+];
+```
+
+![Timeline slots](https://mobiscroll.com/Content/img/docs/timeline-slots.png)
+
+<!-- The [slot template](#renderer-renderSlot) can be used to customize the slot template of the timeline view. -->
+
+## Event connections
+
+The timeline view can display connections between events. Events will be linked with lines and additionally arrows can be displayed to illustrate the direction of the connection. Events can have multiple connections simultaneously. Connections can be specified with the [connections option](#opt-connections).
+
+![Timeline event connections](https://mobiscroll.com/Content/img/docs/event-connections.png)
+
+## Row height
+
+There are three CSS classes which can be used for changing the height of resource rows.
+
+1. For setting the resource row heights in general, you can use the `.mbsc-timeline-row` class.
+
+   ```css
+   .mbsc-timeline-row {
+     height: 80px;
+   }
+   ```
+
+2. For setting the height of the parent resources, you can use the `.mbsc-timeline-parent` class.
+
+   ```css
+   .mbsc-timeline-parent {
+     height: 30px;
+   }
+   ```
+
+   :::info
+   There's minimum height of the rows which can only be decreased if the event creation is disabled on the relevant resource. You can prevent event creation by using the `eventCreation` property of the the [resources option](#opt-resources).
+   :::
+
+3. For customizing the remaining empty space below the events, you can use the `.mbsc-timeline-row-gutter` class.
+
+   ```css
+   .mbsc-timeline-row-gutter {
+     height: 6px;
+   }
+   ```
+
+## Column width
+
+The resource column width of the timeline view is fixed. It can be overwritten from CSS using the following rules:
+
+```css title="Custom resource column width"
+.mbsc-timeline-resource-col {
+  width: 200px;
+}
+
+/* For sticky event labels */
+@supports (overflow: clip) {
+  .mbsc-timeline.mbsc-ltr .mbsc-schedule-event-inner {
+    left: 200px;
+  }
+
+  .mbsc-timeline.mbsc-rtl .mbsc-schedule-event-inner {
+    right: 200px;
+  }
+}
+```
+
+## Templating
+
+The display of timeline resources can be customized with named slots. The [resource](#slot-resource)
+and [resourceHeader](#slot-resourceHeader) slot can be used to customize the resources.
+
+Besides the resources, an additional sidebar can be rendered on the opposite end of the row through the [sidebar](#slot-sidebar) slot, and a header for it, using the [sidebarHeader](#slot-sidebarHeader) slot.
+
+A footer can be rendered as well for each day using the [dayFooter](#slot-dayFooter) slot. When a footer is used the [resourceFooter](#slot-resourceFooter) and [sidebarFooter](#slot-sidebarFooter) can be defined as well.
+
+![Timeline resource, sidebar and footer templating](https://mobiscroll.com/Content/img/docs/resource-sidebar-footer.png)
 
 <div className="option-list">
 
-## Options
+## API
+
+### Options
 
 <Options />
 
-## Events
+### Events
 
 <Events />
 
-## Localization
+### Localization
 
 <Localizations />
+
+### Slots
+
+<Slots />
 
 </div>

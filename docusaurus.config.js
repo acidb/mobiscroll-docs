@@ -68,6 +68,33 @@ const config = {
             type: 'docsVersionDropdown',
           },
           {
+            type: 'dropdown',
+            label: 'Framework',
+            items: [
+              {
+                type: 'doc',
+                label: 'Vue',
+                docId: 'vue/getting-started/overview',
+              },
+              {
+                label: 'Angular',
+                href: 'https://docs.mobiscroll.com/angular',
+              },
+              {
+                label: 'React',
+                href: 'https://docs.mobiscroll.com/react',
+              },
+              {
+                label: 'jQuery',
+                href: 'https://docs.mobiscroll.com/jquery',
+              },
+              {
+                label: 'JavaScript',
+                href: 'https://docs.mobiscroll.com/javascript',
+              },
+            ]
+          },
+          {
             href: 'https://docs.mobiscroll.com/cli',
             label: 'CLI',
             position: 'right',

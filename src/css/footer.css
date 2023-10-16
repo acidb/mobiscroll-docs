@@ -17,9 +17,21 @@
 
 
 /* footer.css */
+
+:root {
+  --footer-link-color: #011742;
+  --footer-header-color: var(--footer-link-color);
+  --footer-content-color: var(--footer-link-color);
+}
+
+[data-theme="dark"] {
+  --footer-link-color: var(--ifm-color-content);
+  --footer-header-color: var(--footer-link-color);
+  --footer-content-color: var(--footer-link-color);
+}
+
 #footer {
     padding: 140px 0 0 0;
-    color: #fff;
     font-weight: 300;
     text-shadow: none;
     text-align: left;
@@ -27,7 +39,10 @@
     /* new-mobiscroll */
     font-weight: 400;
     background: none;
-    color: #011742; }
+    color: var(--footer-content-color);
+  }
+
+
 
   .foot-link-c {
     line-height: 25px; }
@@ -40,7 +55,7 @@
 
   .foot-link {
     /* new-mobiscroll */
-    color: #011742;
+    color: var(--footer-link-color);
     font-size: 18px;
     font-weight: 400;
     text-transform: capitalize;
@@ -49,16 +64,10 @@
   .foot-link:hover {
     text-decoration: underline;
     /* new-mobiscroll */
-    color: #011742; }
+    color: var(--footer-link-color); }
 
   .foot-title {
-    text-transform: uppercase;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 35px;
-    /* new-mobiscroll */
-    color: #011742;
+    color: var(--footer-header-color);
     font-size: 18px;
     font-weight: 600;
     text-transform: capitalize;

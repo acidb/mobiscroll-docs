@@ -177,7 +177,18 @@ There are three CSS classes which can be used for changing the height of resourc
 
 ## Column width
 
-The resource column width of the timeline view is fixed. It can be overwritten from CSS using the following rules:
+Setting the timeline grid column widths can be done with the following css rule:
+
+```css
+.mbsc-timeline-header-column.mbsc-ios,
+.mbsc-timeline-column.mbsc-ios {
+  width: 3em;
+}
+```
+
+## Resource column width
+
+The width of the resources column on the timeline view is fixed. It can be overwritten from CSS using the following rules:
 
 ```css title="Custom resource column width"
 .mbsc-timeline-resource-col {

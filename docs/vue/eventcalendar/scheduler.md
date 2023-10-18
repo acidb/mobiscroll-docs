@@ -16,16 +16,7 @@ Work hours and work days along with disabled time-spans, breaks can be added. Us
 
 The displayed week days can be modified with the `startDay` and `endDay` properties of the [view](./api#opt-view) option.
 
-The displayed hours can be modified with the `startTime` and `endTime` properties of the [view](./api#opt-view) option.
-With these properties both hours and minutes can be specified.
-
-## View Combinations
-
-The scheduler displays a time grid with its related events. It can be configured as a daily or weekly schedule. Work hours and work days along with disabled time-spans and breaks can be added. Use it for advanced scheduling tasks with built-in drag & drop.
-
-The displayed week days can be modified with the `startDay` and `endDay` properties of the schedule [view option](#opt-view).
-
-The displayed hours and minutes can be modified with the `startTime` and `endTime` properties of the schedule [view option](#opt-view).
+The displayed hours and minutes can be modified with the `startTime` and `endTime` properties of the [view](./api#opt-view) option.
 
 ```javascript title="Work-week configuration example"
 view: {
@@ -43,6 +34,21 @@ view: {
     <img className="w70 pdg-img" src="https://docs.mobiscroll.com/Content/img/docs/desktop-schedule.png" width="759" height="375" />
     <img className="w30 pdg-img" src="https://docs.mobiscroll.com/Content/img/docs/mobile-schedule.png" width="410" height="205" />
 </div>
+
+## View Combination
+
+The daily scheduler can also be combined with the calendar week view. The view option will look like the following:
+
+```javascript title="Daily Scheduler combined with Weekly Calendar"
+view: {
+  calendar: {
+    type: 'week'
+  },
+  schedule: {
+    type: 'day'
+  },
+}
+```
 
 ## Resource grouping
 

@@ -94,8 +94,8 @@ Both the start and end value of the returned array will respect the [returnForma
 </template>
 ```
 
-The return value will be an array with two strings:
-```javascript
+The return value in the above example will be an array with two ISO8601 strings:
+```javascript title="Example return value"
 ['14:50', '20:45']
 ```
 

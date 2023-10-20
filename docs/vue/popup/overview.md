@@ -12,7 +12,7 @@ Use it for contextual pop-ups, data-entry or to inform users in a consistent way
 
 ## Usage
 
-The following example will create a popup with static content:
+The following example will create a popup with static content. When clicked or tapped the overlay, the popup will close:
 
 ```html
 <script setup>
@@ -20,10 +20,14 @@ The following example will create a popup with static content:
   import { MbscPopup } from '@mobiscroll/vue';
 
   const isPopupOpen = ref(true);
+
+  function closeThePopup() {
+    isPopupOpen.value = false;
+  }
 </script>
 
 <template>
-  <MbscPopup :isOpen="isPopupOpen">
+  <MbscPopup :isOpen="isPopupOpen" @close="closeThePopup">
     <div>
       <h3>Hi</h3>
       <p>Are you feeling good today?</p>

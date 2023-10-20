@@ -1,4 +1,4 @@
-### getEvents
+### getEvents {#method-getEvents}
 
 (start: DateType, end: DateType) => Array&lt;MbscCalendarEvent&gt;
 
@@ -6,7 +6,7 @@
 Returns the [events](#opt-data) between two dates. If `start` and `end` are not specified,
 it defaults to the start and end days of the current view.
 If `end` is not specified, it defaults to start date + 1 day.
-### getInvalids
+### getInvalids {#method-getInvalids}
 
 (start: DateType, end: DateType) => Array&lt;MbscCalendarEvent&gt;
 
@@ -14,13 +14,13 @@ If `end` is not specified, it defaults to start date + 1 day.
 Returns the [invalids](#opt-invalid) between two dates. If `start` and `end` are not specified,
 it defaults to the start and end days of the current view.
 If `end` is not specified, it defaults to start date + 1 day.
-### navigate
+### navigate {#method-navigate}
 
 (date: DateType, animate: boolean) => void
 
 
 Navigates to the specified date on the calendar.
-### navigateToEvent
+### navigateToEvent {#method-navigateToEvent}
 
 (event: MbscCalendarEvent) => void
 

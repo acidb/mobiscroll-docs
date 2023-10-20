@@ -177,7 +177,18 @@ There are three CSS classes which can be used for changing the height of resourc
 
 ## Column width
 
-The resource column width of the timeline view is fixed. It can be overwritten from CSS using the following rules:
+Setting the timeline grid column widths can be done with the following css rule:
+
+```css
+.mbsc-timeline-header-column.mbsc-ios,
+.mbsc-timeline-column.mbsc-ios {
+  width: 3em;
+}
+```
+
+## Resource column width
+
+The width of the resources column on the timeline view is fixed. It can be overwritten from CSS using the following rules:
 
 ```css title="Custom resource column width"
 .mbsc-timeline-resource-col {
@@ -198,6 +209,7 @@ The resource column width of the timeline view is fixed. It can be overwritten f
 
 ## Templating
 
+### Resources, Sidebar, Footer
 The display of timeline resources can be customized with named slots. The [resource](#slot-resource)
 and [resourceHeader](#slot-resourceHeader) slot can be used to customize the resources.
 
@@ -206,6 +218,19 @@ Besides the resources, an additional sidebar can be rendered on the opposite end
 A footer can be rendered as well for each day using the [dayFooter](#slot-dayFooter) slot. When a footer is used the [resourceFooter](#slot-resourceFooter) and [sidebarFooter](#slot-sidebarFooter) can be defined as well.
 
 ![Timeline resource, sidebar and footer templating](https://mobiscroll.com/Content/img/docs/resource-sidebar-footer.png)
+
+### Header
+
+The header of the timeline can also be customized with named slots. Depending on the resolution the first timeline row under the navigation header can show a line for each of the following:
+
+ * [hour](./api.md#slot-hour)
+ * [day](./api.md#slot-day)
+ * [week](./api.md#slot-week)
+ * [month](./api.md#slot-month)
+ * [quarter](./api.md#slot-quarter)
+ * [year](./api.md#slot-year)
+
+Each of these resolution has its own named slot for the header and the footer. For example there is the  [`hour`](./api.md#slot-hour) slot for the header and [`hourFooter`](./api.md#slot-hourFooter) slot for the footer. In similar fashion, each item in the list above has a footer pair as well.
 
 <div className="option-list">
 

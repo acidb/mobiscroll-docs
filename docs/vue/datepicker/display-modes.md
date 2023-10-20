@@ -11,12 +11,15 @@ The datepicker supports five display modes that specify where on the screen is i
 1. `'center'` - will render the datepicker on the center of the screen
 2. `'top'` - will render the datepicker on the top of the screen sliding down
 3. `'bottom'` - will render the datepicker on the bottom of the screen sliding up
-4. `'anchored'` - will render the datepicker above or below the element it is anchored to. The [anchor](./api#opt-anchor) option will specify the element to which the datepicker is positioned. By default it is the input element rendered by the datepicker.
+4. `'anchored'` - will render the datepicker above or below the element it is anchored to. The [`anchor`](./api#opt-anchor) option will specify the element to which the datepicker is positioned. By default it is the input element rendered by the datepicker.
 5. `'inline'` - will render the datepicker into the page embedded.
 
 ```html
 <MbscDatepicker display="anchored" />
 ```
 
-Additionally to the display option, the datepicker also takes into consideration the environment, a.k.a. whether it is used on mobile or a desktop device. This is represented by the [touchUI](./api#opt-touchUI) option and by default it is set to automatically detect the environment.
+Additionally to the display option, the datepicker also takes into consideration the environment, a.k.a. whether it is used on mobile or a desktop device. This is represented by the [`touchUi`](./api#opt-touchUi) option and by default it is set to automatically detect the environment.
 
+:::info
+The default buttons that appear on the picker depend on the display mode and touchUi option. It also determins if the picker operates in [live selection](./live-selection) or not.
+:::

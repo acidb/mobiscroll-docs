@@ -10,7 +10,7 @@ The datepicker component can render different kinds of controls on the screen. T
 
 For example, the Date picker can be used for selecting a single date, as well as the Calendar view. But only the Calendar view can be used for [selecting multiple dates](./value-selection#multiple).
 
-The [controls](./api#opt-controls) option specifies which control is rendered on the UI and it can use the following values:
+The [`controls`](./api#opt-controls) option specifies which control is rendered on the UI and it can use the following values:
 
 
 * The **Calendar view** can be used for single or multiple date selection as well as date range selection. It is represented by the `'calendar'` string. It is the **default** of the controls option.
@@ -40,7 +40,7 @@ The [controls](./api#opt-controls) option specifies which control is rendered on
 
 ## Control combinations
 
-Some controls can't be used in all situations. To have a better user experience, controls can be combined. The [controls](./api#opt-controls) option takes an array of strings, with the above predefined values.
+Some controls can't be used in all situations. To have a better user experience, controls can be combined. The [`controls`](./api#opt-controls) option takes an array of strings, with the above predefined values.
 
 The Time picker and the Timegrid controls can be combined with either the Calendar view or the Date picker for extending the selection precision.
 

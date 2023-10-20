@@ -1,46 +1,46 @@
-### close
+### close {#method-close}
 
 () => void
 
 
 Closes the component.
-### getTempVal
+### getTempVal {#method-getTempVal}
 
 () => null &#124; DateType &#124; Array&lt;DateType&gt; &#124; [null &#124; DateType, null &#124; DateType]
 
 
 Returns the temporary value selected on the datepicker.
-### isVisible
+### isVisible {#method-isVisible}
 
 () => boolean
 
 
 Returns a boolean indicating whether the component is visible or not.
-### navigate
+### navigate {#method-navigate}
 
 (date: DateType) => void
 
 
 Display a specific month on the calendar without setting the date.
-### open
+### open {#method-open}
 
 () => void
 
 
 Opens the component.
-### position
+### position {#method-position}
 
 () => void
 
 
 Recalculates the position of the component (if not inline).
-### setActiveDate
+### setActiveDate {#method-setActiveDate}
 
 (active: "start" &#124; "end") => void
 
 
 Sets which date or time is currently selected (start or end).
-### setTempVal
+### setTempVal {#method-setTempVal}
 
 (value: null &#124; DateType &#124; Array&lt;null &#124; DateType&gt;) => void
 

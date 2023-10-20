@@ -23,6 +23,9 @@ If you are looking to customize only the day cell content and don&#039;t want to
 [dayContent](#slot-dayContent) option.
 
 The following day specific details are available:
+- `date`: _Date_ - The specific date as a Date object.
+- `selected`: _boolean_ - True if the date is selected. (In case of calendar view)
+- `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events of the day.
 
 ### dayContent {#slot-dayContent}
 
@@ -38,3 +41,6 @@ If you are looking to fully customize the day cell (ex. add custom hover effects
 is up to you.
 
 The following day specific details are available:
+- `date`: _Date_ - The specific date as a Date object.
+- `selected`: _boolean_ - True if the date is selected.
+- `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events of the day.

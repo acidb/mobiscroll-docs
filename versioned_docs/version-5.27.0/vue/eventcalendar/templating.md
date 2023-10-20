@@ -108,7 +108,7 @@ The above components can be used inside of the custom header. The following exam
   <template #header>
     <MbscCalendarPrev />
     <MbscCalendarNext />
-    <div class="my-custom-title">{myTitle}</div>
+    <div class="my-custom-title">{{myTitle}}</div>
   </template>
 </MbscEventcalendar>
 ```

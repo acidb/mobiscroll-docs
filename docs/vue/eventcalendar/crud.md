@@ -8,7 +8,7 @@ displayed_sidebar: vueSidebar
 
 ## How to update an event property?
 
-The eventcalendar is bound to an array of event objects as described in the [data binding](data-binding) section. To update a single event with new event data, it's not enough to update the particular event object. A new event array reference is also needed otherwise the change won't be picked up by the eventcalendar.
+The Eventcalendar is bound to an array of event objects as described in the [data binding](data-binding) section. To update a single event with new event data, it's not enough to update the particular event object. A new event array reference is also needed otherwise the change won't be picked up by the eventcalendar.
 
 ```html title="Updating an event title"
 <script setup>
@@ -46,15 +46,15 @@ The eventcalendar is bound to an array of event objects as described in the [dat
 
 The same concept can be used to add or delete a calendar event. Or to update any properties of an event with incoming data. Regardless where the data comes from (outside of the eventcalendar), be it an edit form or an external API.
 
-## How to modify events from the eventcalendar UI?
+## How to modify events from the Eventcalendar UI?
 
-The eventcalendar exposes a variety of [events](api#events) that are triggered on certain actions made on calendar events. These events can be used to send your data to your API or save it to a persistent storage.
+The Eventcalendar exposes a variety of [events](api#events) that are triggered on certain actions made on calendar events. These events can be used to send your data to your API or save it to a persistent storage.
 
 ### Event creation
 
-To enable the creation of events on the eventcalendar you can use the [dragToCreate](api#opt-dragToCreate) and the [clickToCreate](api#opt-clickToCreate) options (desktop browsers only).
+To enable the creation of events on the Eventcalendar you can use the [dragToCreate](api#opt-dragToCreate) and the [clickToCreate](api#opt-clickToCreate) options (desktop browsers only).
 
-When an event is about to be created using click or drag on the eventcalendar UI, the [@event-create](api#event-onEventCreate) event is fired. If not canceled by returning `false` a temporary event is created on the eventcalendar followed by the [@event-created](api#event-onEventCreated). Any of these two events are passed the event properties that can be used to save the event to a persistent storage or to send it through an API.
+When an event is about to be created using click or drag on the Eventcalendar UI, the [@event-create](api#event-onEventCreate) event is fired. If not canceled by returning `false` a temporary event is created on the Eventcalendar followed by the [@event-created](api#event-onEventCreated). Any of these two events are passed the event properties that can be used to save the event to a persistent storage or to send it through an API.
 
 ```html title="Save a new event through an API"
 <script setup>
@@ -91,7 +91,7 @@ When an event is about to be created using click or drag on the eventcalendar UI
 
 Similar to [event creation](#event-creation) above, to enable event editing you can use the [dragToResize](api#opt-dragToResize) and [dragToMove](api#opt-dragToMove) events.
 
-When an event is about to be updated by dragging on the eventcalendar UI, the [@event-update](api#event-onEventUpdate) event is fired. If not canceled by returning `false` the calendar event is updated on the calendar. This update is followed by the [@event-updated](api#event-onEventUpdated). Any of these two events are passed the calendar event previous and new properties that can be used to save the event to a persistent storage or to send it through an API.
+When an event is about to be updated by dragging on the Eventcalendar UI, the [@event-update](api#event-onEventUpdate) event is fired. If not canceled by returning `false` the calendar event is updated on the calendar. This update is followed by the [@event-updated](api#event-onEventUpdated). Any of these two events are passed the calendar event previous and new properties that can be used to save the event to a persistent storage or to send it through an API.
 
 ```html title="Send an updated event through an API"
 <script setup>

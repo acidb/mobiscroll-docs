@@ -11,7 +11,7 @@ import Slots from '../_auto-generated/eventcalendar/renderers_calendarview.md';
 
 # Calendar
 
-Use the event calendar as a traditional month view or combine it with an agenda as a week view.
+Use the Eventcalendar as a traditional month view or combine it with an agenda as a week view.
 The events can be rendered as labels or in a popover that is shown on day click.
 
 ![Desktop calendar with labels and popover](https://docs.mobiscroll.com/Content/img/docs/desktop-calendar.png)

@@ -10,7 +10,7 @@ import Methods from '../_auto-generated/eventcalendar/methods.md';
 
 # Eventcalendar API
 
-Here is a comprehensive list of all the options, events and method the eventcalendar has.
+Here is a comprehensive list of all the options, events and method the Eventcalendar has.
 
 <div className="option-list">
 

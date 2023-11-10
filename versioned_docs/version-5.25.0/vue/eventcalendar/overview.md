@@ -10,7 +10,7 @@ The Eventcalendar component supports four highly configurable views: a calendar 
 
 ## Usage
 
-The following example will create an event calendar with the default options.
+The following example will create an Eventcalendar with the default options.
 
 ```html
 <script setup>
@@ -24,7 +24,7 @@ The following example will create an event calendar with the default options.
 
 ## Data binding
 
-The event calendar accepts an array of event objects through the [data](./api#opt-data) option of the component.
+The Eventcalendar accepts an array of event objects through the [data](./api#opt-data) option of the component.
 The event array can be either a local static array, or populated on demand with remote requests.
 
 ### Local data

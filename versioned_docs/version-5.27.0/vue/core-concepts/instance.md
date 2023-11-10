@@ -30,7 +30,7 @@ Usually for vue components the public methods and properties are on the vue comp
   function log() {
     // highlight-next-line
     const inst = instRef.value.instance;
-    console.log('The eventcalendar instance:', inst);
+    console.log('The Eventcalendar instance:', inst);
   }
 </script>
 
@@ -51,7 +51,7 @@ All the component methods are documented on each components API section. The met
 
 #### Example: Getting invalid dates for a date range
 
-One such a case when you might need to call an instance method would be to get the invalid data for a time period from the eventcalendar. Since the invalid data you pass to the eventcalendar can contain recurring rules, you need a way to calculate the actual occurences. Luckily the eventcalendar has a method that will return the actual occurences for a time period.
+One such a case when you might need to call an instance method would be to get the invalid data for a time period from the eventcalendar. Since the invalid data you pass to the Eventcalendar can contain recurring rules, you need a way to calculate the actual occurences. Luckily the Eventcalendar has a method that will return the actual occurences for a time period.
 
 ```javascript title="Invalid rule that repeats on specific days"
 const invalidsArray = [
@@ -67,7 +67,7 @@ const invalidsArray = [
 ]
 ```
 
-To get the actual invalid days for the month of November, you can call the the [`getInvalids()`](../eventcalendar/api.md#getinvalids) method of the eventcalendar instance.
+To get the actual invalid days for the month of November, you can call the the [`getInvalids()`](../eventcalendar/api.md#getinvalids) method of the Eventcalendar instance.
 
 ```html title="The invalids array needs to be passed to the eventcalendar"
 <MbscEventcalendar ref="instRef" :invalid="invalidsArray" />

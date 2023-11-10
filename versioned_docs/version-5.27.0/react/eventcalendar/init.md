@@ -6,7 +6,7 @@ displayed_sidebar: reactSidebar
 
 # Initialization
 
-The following example will create an event calendar with the default options.
+The following example will create an Eventcalendar with the default options.
 
 ```jsx
 import { Eventcalendar } from "@mobiscroll/react";

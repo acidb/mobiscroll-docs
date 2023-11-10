@@ -7,7 +7,7 @@ import Localization from '../_auto-generated/eventcalendar/localization.md';
 
 ## Usage
 
-This section describes in general, how to use the eventcalendar with Angular.
+This section describes in general, how to use the Eventcalendar with Angular.
 
 <Props />
 

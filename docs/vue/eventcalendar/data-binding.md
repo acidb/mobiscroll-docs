@@ -6,11 +6,11 @@ displayed_sidebar: vueSidebar
 
 # Data binding
 
-The event calendar accepts an array of event objects through the [data option](api#opt-data) of the component. The event array can be either a local static array, or populated on demand with remote requests.
+The Eventcalendar accepts an array of event objects through the [data option](api#opt-data) of the component. The event array can be either a local static array, or populated on demand with remote requests.
 
 ## Event data structure
 
-The events of the eventcalendar are specified as an array of event objects. The event object supports the following properties:
+The events of the Eventcalendar are specified as an array of event objects. The event object supports the following properties:
 
 - `id` _String, Number_ - A unique id for the event. If not specifed, the event will get a generated id.
 - `start` _Date, String, Object_ - Specifies the start of the event.

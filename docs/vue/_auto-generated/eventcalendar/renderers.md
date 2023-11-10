@@ -58,7 +58,7 @@ when the events are grouped by resources.
 <template #dayContent="args">...</template>
 ```
 
-Customize the day cells content of the event calendar. The event calendar will take care of the styling and you can focus on
+Customize the day cells content of the event calendar. The Eventcalendar will take care of the styling and you can focus on
 what you show beside the day number.
 
 If you are looking to fully customize the day (e.g. add custom hover effects) you will need to use the
@@ -112,7 +112,7 @@ The following event specific properties are available:
 ```
 
 Customize the event content that appears on the agenda and the popover.
-The event calendar will take care of styling and you can focus on what you show inside of the event.
+The Eventcalendar will take care of styling and you can focus on what you show inside of the event.
 
 If you are looking to fully customize the event (e.g. add custom hover effects) you will need to use the
 [event](#slot-event) option.
@@ -169,7 +169,7 @@ The following properties are available:
 ```
 
 Customize the labels that appear on the calendar view.
-The event calendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
+The Eventcalendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
 
 If you are looking to customize only the content (e.g. add custom elements) and
 don&#039;t want to bother with the styling of the label, you can use the [labelContent](#slot-labelContent) option.
@@ -189,11 +189,11 @@ The following event specific properties are available:
 ```
 
 Customize the label contents, that appears on the calendar.
-The event calendar will take care of styling and you can focus on what you show inside of the label a.k.a the content.
+The Eventcalendar will take care of styling and you can focus on what you show inside of the label a.k.a the content.
 
 If you are looking to fully customize the label (ex. add custom hover effects) you will need to use the
 [label](#slot-label) option.
-In that case you will only get the positioning done by the event calendar and everything else is up to you.
+In that case you will only get the positioning done by the Eventcalendar and everything else is up to you.
 
 Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
 The following event specific properties are available:
@@ -288,7 +288,7 @@ Customize the cell content above the resource column on the timeline view.
 ```
 
 Customize the events that appear on the scheduler and timeline.
-The event calendar will take care of the positioning,
+The Eventcalendar will take care of the positioning,
 but everything else (like background color, hover effect, etc.) is left to you.
 
 If you are looking to customize only the content (e.g. add custom elements) and don&#039;t want to bother with the styling of the event,
@@ -313,11 +313,11 @@ The following event specific properties are available:
 ```
 
 Customize the event content that appears on the scheduler and timeline.
-The event calendar will take care of styling and you can focus on what you show inside of the event.
+The Eventcalendar will take care of styling and you can focus on what you show inside of the event.
 
 If you are looking to fully customize the event (e.g. add custom hover effects) you will need to use
 the [scheduleEvent](#slot-scheduleEvent) option. In that case you will only get
-the positioning done by the event calendar and everything else is up to you.
+the positioning done by the Eventcalendar and everything else is up to you.
 
 Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
 The following event specific properties are available:

@@ -14,7 +14,7 @@ When using a timezone plugin, the Datepicker will return the selected values in 
 
 Here's a list on supported formats and some hints on where are they really usefull:
 
-- `'jsdate'` - Javascript date object - For example if you need to manipulate programmatically the selected value further, the Date object is a good starting point, since it has most of the functions for date & time manipulation
+- `'jsdate'` - JavaScript date object - For example if you need to manipulate programmatically the selected value further, the Date object is a good starting point, since it has most of the functions for date & time manipulation
 
 - `'iso8601'` - ISO 8601 date string - For example if you need to send the selected value to a server, or need to serialize it, the ISO8601 string is the way to go.
 

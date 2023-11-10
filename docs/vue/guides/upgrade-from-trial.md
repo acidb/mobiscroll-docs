@@ -30,7 +30,7 @@ The third options is for projects, that don't have a dedicated build process, or
 
 ## Upgrading to Framework, Complete or SaaS license {#upgrade-to-full}
 
-This method will include the full mobiscroll package into your project from NPM. In order for this to work, you will need a Full Framework, Complete or SaaS license.
+This method will include the full Mobiscroll package into your project from NPM. In order for this to work, you will need a Full Framework, Complete or SaaS license.
 
 To upgrade the trial package in your project, the commercial license needs to be assigned to your account. If you are the developer, but somebody else purchased the license, then the buyer can assign the license to your account. You should instruct the buyer to log in to his account and proceed to the [licenses page](https://mobiscroll.com/account/licenses). From there, he can assign the license to you account.
 
@@ -84,7 +84,7 @@ The Mobiscroll CLI under the hood will create and install a local NPM package fr
 "@mobiscroll/javascript": "file:./src/lib/mobiscroll-package/mobiscroll-javascript-4.10.1.tgz",
 ```
 
-The `.tgz` file referenced here is the mobiscroll package and it should be added to your repository too.
+The `.tgz` file referenced here is the Mobiscroll package and it should be added to your repository too.
 
 At this point the trial package should be replaced with the commercial package, and building and running your project should work.
 
@@ -110,4 +110,4 @@ You should also check and update the links to the new package in your page if th
 <script src="js/mobiscroll.javascript.min.js"></script>
 ```
 
-At this point you should have a working project with the mobiscroll commercial components included.
+At this point you should have a working project with the Mobiscroll commercial components included.

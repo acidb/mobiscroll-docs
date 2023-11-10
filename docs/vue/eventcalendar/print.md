@@ -20,7 +20,7 @@ npm install @mobiscroll/print
 
 ## Importing the Print Module
 
-The Print Module consists of print specific styles, that need to be loaded into the document. Also, there's a javascript part, that needs to be imported and passed to the component via the [`modules`](./api.md#opt-modules) option.
+The Print Module consists of print specific styles, that need to be loaded into the document. Also, there's a JavaScript part, that needs to be imported and passed to the component via the [`modules`](./api.md#opt-modules) option.
 
 #### Stylesheets
 

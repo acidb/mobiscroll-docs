@@ -6,7 +6,7 @@ displayed_sidebar: javascriptSidebar
 
 # Loading into your app
 
-Here is how can the npm version of the Mobiscroll resources be imported to a Javascript application if you app supports es modules:
+Here is how can the npm version of the Mobiscroll resources be imported to a JavaScript application if you app supports es modules:
 
 ```jsx
 import { Datepicker, Eventcalendar } from "@mobiscroll/react";

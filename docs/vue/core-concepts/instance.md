@@ -8,16 +8,16 @@ displayed_sidebar: vueSidebar
 In object-oriented programming (OOP), an instance is a specific realization of a class. Similarly, in the scope
 of the Mobiscroll library, a component instance is a realization of the component class.
 
-The instantiation (the creation of objects from a class) in case of the mobiscroll components is done by the Vue framework,
+The instantiation (the creation of objects from a class) in case of the Mobiscroll components is done by the Vue framework,
 and accessing the component instances are only needed in a few specific cases.
 
 ## Getting the instance
 
 To get the instance of a component there is a special attribute called `ref`. The `ref` attribute is used to obtain a direct reference
-to the DOM element it is placed on. In the case of [components](https://vuejs.org/guide/essentials/template-refs.html#ref-on-component), the `ref` attribute will return the vue component. The public methods that are callable for Mobiscroll components are accessible under a property called `instance`. The `instance` property is the only public property of the Mobiscroll Vue components and every component methods must be called through it.
+to the DOM element it is placed on. In the case of [components](https://vuejs.org/guide/essentials/template-refs.html#ref-on-component), the `ref` attribute will return the Vue component. The public methods that are callable for Mobiscroll components are accessible under a property called `instance`. The `instance` property is the only public property of the Mobiscroll Vue components and every component methods must be called through it.
 
 :::info
-Usually for vue components the public methods and properties are on the vue component itself, returned by the `ref` attribute. In the case of the Mobiscroll Vue components, this is **different**. The `instance` property is the only accessible property and all the methods must be accessed through it.
+Usually for Vue components the public methods and properties are on the Vue component itself, returned by the `ref` attribute. In the case of the Mobiscroll Vue components, this is **different**. The `instance` property is the only accessible property and all the methods must be accessed through it.
 :::
 
 ```html title="Getting the instance of a Mobiscroll Eventcalendar"

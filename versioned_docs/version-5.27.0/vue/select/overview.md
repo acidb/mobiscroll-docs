@@ -10,7 +10,7 @@ The Select component lets you pick a single value or multiple values from a list
 
 ## Usage
 
-The following example will create a select component with four options to choose from, each of them being a city.
+The following example will create a Select component with four options to choose from, each of them being a city.
 
 ```html
 <script setup>

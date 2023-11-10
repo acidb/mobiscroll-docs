@@ -6,7 +6,7 @@ displayed_sidebar: vueSidebar
 
 # Live selection
 
-The datepicker can operate in two modes that depends on whether the picker renders a Set button or not. When there is no Set button rendered, the picker operates in a "live" selection mode. What is selected on the UI, gets written into the input element and the model immediately. When there is a Set button rendered, the selection on the UI becomes temporary as long as the Set button is not clicked.
+The Datepicker can operate in two modes that depends on whether the picker renders a Set button or not. When there is no Set button rendered, the picker operates in a "live" selection mode. What is selected on the UI, gets written into the input element and the model immediately. When there is a Set button rendered, the selection on the UI becomes temporary as long as the Set button is not clicked.
 
 The default of the rendered buttons depend on the [`display`](./api#opt-display) and the [`touchUi`](./api#opt-touchUI) options, but the defaults can be overwritten with the [`buttons`](./api#opt-buttons) option.
 

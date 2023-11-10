@@ -6,7 +6,7 @@ displayed_sidebar: vueSidebar
 
 # Templating
 
-The selectable options (items) on the select UI can be customized using the [`item`](./api#slot-item) slot and the [`itemHeight`](./api#opt-itemHeight) options.
+The selectable options (items) on the Select UI can be customized using the [`item`](./api#slot-item) slot and the [`itemHeight`](./api#opt-itemHeight) options.
 
 The item data is accessible through the slot parameter `data` property.
 ```html
@@ -49,6 +49,6 @@ The item data is accessible through the slot parameter `data` property.
 
 
 :::info
-Every item on the select must have the same height. For styles that go beyond the default height, the [`itemHeight`](./api#opt-itemHeight) option can be used to adjust the styling.
+Every item on the Select must have the same height. For styles that go beyond the default height, the [`itemHeight`](./api#opt-itemHeight) option can be used to adjust the styling.
 :::
 

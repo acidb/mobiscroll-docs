@@ -10,7 +10,7 @@ The Datepicker component is the ultimate tool for selecting a single date and/or
 
 ## Usage
 
-The following example will create a datepicker with default options.
+The following example will create a Datepicker with default options.
 
 ```html
 <script setup>

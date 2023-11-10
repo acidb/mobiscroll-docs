@@ -48,7 +48,7 @@ There are two slots that enable the customization of calendar cells: the [`dayCo
 
 The difference between the two is that the Datepicker will style the cells by default (background, hover, etc.) in the case of the `dayContent` slot and will render the dates as usual. The custom content will be rendered after the dates in each cell.
 
-In the case of the `day` slot however, the datepicker will only position the elements. Both the styling and the content (the dates too) will come from the custom template.
+In the case of the `day` slot however, the Datepicker will only position the elements. Both the styling and the content (the dates too) will come from the custom template.
 
 ```html title="Example of custom cells"
 <MbscDatepicker>

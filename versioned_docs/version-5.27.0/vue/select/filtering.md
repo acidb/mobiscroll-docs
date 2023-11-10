@@ -8,8 +8,8 @@ displayed_sidebar: vueSidebar
 
 Filtering can be turned on with the [`filter`](./api#opt-filter) option. It is very usefull when using large datasets and you want to find a particular item.
 
-When filtering is on, a filter input is rendered above the select options. The placeholder of the input can be customized and localized with the [`filterPlaceholderText`](./api#localization-filterPlaceholderText) option.
-Typing a text in the input filters the options you can select from. Also, with each change on the filter input text, the [`@filter`](./api#event-onFilter) event is triggered.
+When filtering is on, a filter input is rendered above the selectable options. The placeholder of the input can be customized and localized with the [`filterPlaceholderText`](./api#localization-filterPlaceholderText) option.
+Typing a text in the input filters the options you can choose from. Also, with each change on the filter input text, the [`@filter`](./api#event-onFilter) event is triggered.
 
 When no items match the filter the Mobiscroll Select will show a "No results" message, that can be customized and localized with the [`filterEmptyText`](./api#localization-filterEmptyText) option.
 

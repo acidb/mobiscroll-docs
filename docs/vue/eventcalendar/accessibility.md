@@ -8,7 +8,7 @@ displayed_sidebar: vueSidebar
 
 ## Keyboard Support
 
-The event calendar supports different [views](./api#opt-view) for different jobs and each of these views support keyboard navigation.
+The Eventcalendar supports different [views](./api#opt-view) for different jobs and each of these views support keyboard navigation.
 
 Focus can be moved with the `Tab` key. Focusable elements depend on the displayed view (more details below).
 

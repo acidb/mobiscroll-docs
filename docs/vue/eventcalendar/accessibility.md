@@ -1,0 +1,51 @@
+---
+sidebar_position: 10
+sidebar_label: Accessibility
+displayed_sidebar: vueSidebar
+---
+
+# Accessibility
+
+## Keyboard Support
+
+The event calendar supports different [views](./api#opt-view) for different jobs and each of these views support keyboard navigation.
+
+Focus can be moved with the `Tab` key. Focusable elements depend on the displayed view (more details below).
+
+Buttons can be triggered using the `Space` key when focused.
+
+Rendered events act like buttons. When an event is focused, the [`@event-click`](./api#event-onEventClick) event can be triggered using the `Space` or `Enter` keys.
+
+### Calendar view
+
+Focusable elements are:
+
+* the header buttons: navigation, prev, next and today buttons
+* the events rendered on the calendar view
+* the currently selected day
+
+When the selected day is focused, the focus can be moved using the `Up`, `Down`, `Left` and `Right` arrow keys and set with the `Space` or `Enter` keys.
+
+When the popover is enabled on events, it can be toggled using the `Space` and `Esc` keys.
+
+### Agenda
+
+Focusable elements are:
+
+* the header buttons: navigation, prev, next and today buttons
+* the currently selected day
+* the events listed in the agenda
+
+### Scheduler
+
+Focusable elements are:
+
+* the header buttons: navigation, prev, next and today buttons
+* the events rendered in the scheduler
+
+### Timeline
+
+Focusable elements are:
+
+* the header buttons: navigation, prev, next and today buttons
+* the events rendered on the timeline

@@ -128,9 +128,9 @@ When an event is about to be updated by dragging on the Eventcalendar UI, the [@
 
 
 :::info
-When updating a recurring event, the update won't affect all the occurences of the event. A single instance is updated from a set of occurences by adding an [exception to the rule](../core-concepts/recurrence#rule-exceptions) and creating another event with the changed properties.
+When updating a recurring event from the UI (by dragging for example), the update won't affect all the occurences of the event. A single instance is updated from a set of occurences by adding an [exception to the rule](../core-concepts/recurrence#rule-exceptions) and creating another event with the changed properties.
 
-Adding this exception to the rule is an update to the event, so the [`@event-update`](./api#event-onEventUpdate) and [`@event-updated`](./api#event-onEventUpdated) will be fired as expected. There will also be an [`@event-create`](./api#event-onEventCreate) and [`@event-created](./api#event-onEventCreated) event fired for the changed occurence, that is not be part of the recurring set.
+Adding this exception to the rule is an update to the event, so the [`@event-update`](./api#event-onEventUpdate) and [`@event-updated`](./api#event-onEventUpdated) will be fired as expected. There will also be an [`@event-create`](./api#event-onEventCreate) and [`@event-created](./api#event-onEventCreated) event fired for the changed occurence, that is not be part of the recurring set anymore.
 :::
 
 ### Event delete

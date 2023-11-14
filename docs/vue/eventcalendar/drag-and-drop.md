@@ -4,6 +4,8 @@ sidebar_label: Drag & drop
 displayed_sidebar: vueSidebar
 ---
 
+import DropcontainerEvents from '../_auto-generated/dropcontainer/events.md';
+
 # Drag & drop
 
 Calendar events can be created, moved and resized on the Eventcalendar. Furthermore it is possible to drag and drop events from an external source or to drag and drop to an external target from the Eventcalendar. The following sections describe how these solutions can be implemented and used.
@@ -63,7 +65,7 @@ When an event leaves the Eventcalendar the [`@event-drag-leave`](./api#event-onE
 
 ### Dropcontainer {#dropcontainer}
 
-The Dropcontainer defines a container where events can be dragged from or dropped to. The `@item-drag-leave` and `@item-drag-enter` life-cycle events can be used to track when an event exits or enters the Dropcontainer. When an item is dropped inside the container the `@item-drop` event is triggered. This can be useful for unscheduling work or appointments that were already scheduled.
+The Dropcontainer defines a container where events can be dragged from or dropped to. The [`@item-drag-leave`](#event-onItemDragLeave) and [`@item-drag-enter`](#event-onItemDragEnter) life-cycle events can be used to track when an event exits or enters the Dropcontainer. When an item is dropped inside the container the [`@item-drop`](#event-onItemDrop) event is triggered. This can be useful for unscheduling work or appointments that were already scheduled.
 
 ```html
 <script setup>
@@ -106,3 +108,11 @@ The Dropcontainer defines a container where events can be dragged from or droppe
   <MbscEventcalendar :externalDrop="true" :externalDrag="true" :dragToCreate="true" :dragToMove="true" @event-create="scheduleEvent" />
 </template>
 ```
+
+### Dropcontainer events
+
+<div className="option-list">
+
+<DropcontainerEvents />
+
+</div>

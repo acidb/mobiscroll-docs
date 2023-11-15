@@ -192,8 +192,8 @@ Error message for the input. If the [error](#opt-error) option is set to `true`,
 
 boolean
 
-If `true`, it turns filtering on. A filter input will be rendered above the select options.
-Typing in the input will filter the select options and will also trigger the [onFilter](#event-onFilter) event.
+If `true`, it turns filtering on. A filter input will be rendered above the selectable options.
+Typing in the input will filter the selectable options and will also trigger the [onFilter](#event-onFilter) event.
 
 The default behavior is based on the presence of the search term in the option text.
 The [onFilter](#event-onFilter) event can be used to prevent the default filtering and customize the experience.
@@ -248,7 +248,7 @@ The default value depends on the [theme](#opt-theme):
 
 Array&lt;any&gt;
 
-An array of values that are invalid. Invalid options cannot be selected, and show up as disabled on the select.
+An array of values that are invalid. Invalid options cannot be selected, and show up as disabled on the Select.
 
 **Default value**: `undefined`
 ### isOpen {#opt-isOpen}
@@ -368,7 +368,7 @@ Show or hide the popup arrow, when [display](#opt-display) is `'anchored'`.
 
 boolean
 
-If `true` and the select has groups, two columns will be rendered on the picker,
+If `true` and the Select has groups, two columns will be rendered on the picker,
 the first containing the group labels, and the second one the options.
 Groups can be specified either by `optgroup` elements, when the data comes from the html markup,
 or by using the `group` property of the option objects, when the [data](#opt-data) option is used.

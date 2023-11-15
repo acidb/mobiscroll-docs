@@ -62,7 +62,7 @@ The following event specific properties are available:
 ```
 
 Customize the event content that appears on the agenda and the popover.
-The event calendar will take care of styling and you can focus on what you show inside of the event.
+The Eventcalendar will take care of styling and you can focus on what you show inside of the event.
 
 If you are looking to fully customize the event (e.g. add custom hover effects) you will need to use the
 [event](#slot-event) option.

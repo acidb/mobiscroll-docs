@@ -462,7 +462,7 @@ Parameters:
 
 
 Triggered when the selected date is changed from the UI. You can use this event in conjunction with the
-[selectedDate](#opt-selectedDate) option to customize where the event calendar should navigate.
+[selectedDate](#opt-selectedDate) option to customize where the Eventcalendar should navigate.
 
 Parameters:
  - args - The event argument with the following properties:

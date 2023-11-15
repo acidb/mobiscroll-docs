@@ -9,7 +9,7 @@ sidebar_position: 2
 The Datepicker can be used for 4 major date and time selection tasks:
 
 1. [Single value selection](#single) - a single date, a single time or a single date-time - use the [date & time](https://demo.mobiscroll.com/vue/datetime) or [calendar](https://demo.mobiscroll.com/vue/calendar)
-2. [Multiple value selection](#multiple) - one or more dates - use the [date picker](https://demo.mobiscroll.com/vue/datetime) or [calendar](https://demo.mobiscroll.com/vue/calendar)
+2. [Multiple value selection](#multiple) - one or more dates - use the [calendar](https://demo.mobiscroll.com/vue/calendar)
 3. [Range selection](#range) - a pair of start/end date, a pair of start/end time or a pair of start/end date-times - use the [range picker](https://demo.mobiscroll.com/vue/range)
 4. [Preset range selection](#preset-range) - for selecting a week or a predefined part of the week as a start/end date pair
 
@@ -43,7 +43,7 @@ The type of the selected value depends on the [`returnFormat`](./api#opt-returnF
 
 ## Multiple Value Selection {#multiple}
 
-The [`selectMultiple`](./api#opt-selectMultiple) option will enable the selection of multiple dates. It can be used with either the calendar control or the date control. The selected value in this case will be an array of dates instead of just a single date.
+The [`selectMultiple`](./api#opt-selectMultiple) option will enable the selection of multiple dates. It can be used with the calendar control only. The selected value in this case will be an array of dates instead of just a single date.
 
 ```html
 <script setup>
@@ -73,9 +73,9 @@ const timeRangeExample2 = [new Date(2023, 9, 19, 10, 0), new Date(2023, 9, 19, 1
 ```
 
 Depending on the [controls](./controls) passed to the datepicker, it will select a date range, a time range or a datetime range.
-Both the start and end value of the returned array will respect the [`returnFormat`](./api#opt-returnFormat) option. Learn more on how to work with iso strings or date objects in the [Return value](./return-value) section.
+Both the start and end value of the returned array will respect the [`returnFormat`](./api#opt-returnFormat) option. Learn more on how to work with ISO strings or date objects in the [Return value](./return-value) section.
 
-```html title="Example for time range selection with iso8601 strings"
+```html title="Example for time range selection with ISO8601 strings"
 <script setup>
   import { ref } from 'vue';
   import { MbscDatepicker } from '@mobiscroll/vue';

@@ -16,7 +16,7 @@ Text for the &quot;Close&quot; button.
 
 string
 
-Text for the empty state of the select. The select will show this message,
+Text for the empty state of the Select. The Select will show this message,
 when [filtering](#opt-filter) is turned on and there are no results for the searched text.
 
 **Default value**: `'No results'`

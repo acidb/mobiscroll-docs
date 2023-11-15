@@ -45,6 +45,6 @@ Sets which date or time is currently selected (start or end).
 (value: null &#124; DateType &#124; Array&lt;null &#124; DateType&gt;) => void
 
 
-Sets the datepicker temporary value. This temp value is shown on the picker until the selection.
+Sets the Datepicker temporary value. This temp value is shown on the picker until the selection.
 In the case of inline mode or when the touchUi setting is false the value will be set to the Model as well,
 since in these cases there&#039;s no temporary value.

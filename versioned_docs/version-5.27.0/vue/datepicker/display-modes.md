@@ -18,7 +18,7 @@ The Datepicker supports five display modes that specify where on the screen is i
 <MbscDatepicker display="anchored" />
 ```
 
-Additionally to the display option, the Datepicker also takes into consideration the environment, a.k.a. whether it is used on mobile or a desktop device. This is represented by the [`touchUi`](./api#opt-touchUi) option and by default it is set to automatically detect the environment.
+Additionally to the display option, the Datepicker also takes into consideration the environment, whether it is used on mobile or a desktop device. This is represented by the [`touchUi`](./api#opt-touchUi) option and by default it is set to automatically detect the environment.
 
 :::info
 The default buttons that appear on the picker depend on the display mode and touchUi option. It also determins if the picker operates in [live selection](./live-selection) or not.

@@ -6,7 +6,7 @@ displayed_sidebar: vueSidebar
 
 # Controls
 
-The Datepicker component can render different kinds of controls on the screen. These controls are referred to as the **Calendar view**, the **Date scroller**, the **Time scroller**, the **Date & Time scroller** and the **Timegrid**. Each of these controls are suitable in different scenarios, depending on the use-case.
+The Datepicker component can render different kinds of controls on the screen. These controls are referred to as the **Calendar view**, the **Date scroller**, the **Time scroller**, the **Date & time scroller** and the **Timegrid**. Each of these controls are suitable in different scenarios, depending on the use-case.
 
 For example, the Date scroller can be used for selecting a single date, as well as the Calendar view. But only the Calendar view can be used for [selecting multiple dates](./value-selection#multiple).
 

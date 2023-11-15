@@ -13,8 +13,8 @@ In order to have access to the latest version, you will need an [active maintena
 
 There are multiple options on how to update to the latest version, depending on how you installed Mobiscroll in your project in the first place and what kind of license you have:
 
-1. [Updating from our NPM repository](#npm-update) (only for Framework & Complete license)
-2. [Updating with the Mobiscroll CLI](#cli-update) (only for Framework & Complete license)
+1. [Updating from our NPM repository](#npm-update)
+2. [Updating with the Mobiscroll CLI](#cli-update)
 3. [Updating with the Mobiscroll CLI using a downloaded package](#download-update)
 
 ## Updating from our NPM repository {#npm-update}
@@ -22,7 +22,12 @@ There are multiple options on how to update to the latest version, depending on 
 ### Prerequisites
 
 * Mobiscroll was set up with the Mobiscroll CLI before
-* You own a Framework or Complete License
+* You own one of the following [types of licenses](https://mobiscroll.com/pricing):
+  - Date & Time picking
+  - Scheduling & Calendaring
+  - Complete
+  - Enterprise (SaaS)
+* You have an [active maintenance](http://help.mobiscroll.com/en/articles/666557-maintenance-explained)
 
 ### Update Steps
 
@@ -38,7 +43,12 @@ npm update @mobiscroll/vue
 
 * Mobiscroll was set up with the Mobiscroll CLI before
 * You have the Mobiscroll CLI installed globally
-* You own a Framework or Complete License
+* You own one of the following [types of licenses](https://mobiscroll.com/pricing):
+  - Date & Time picking
+  - Scheduling & Calendaring
+  - Complete
+  - Enterprise (SaaS)
+* You have an [active maintenance](http://help.mobiscroll.com/en/articles/666557-maintenance-explained)
 
 ### Update Steps
 
@@ -50,12 +60,12 @@ mobiscroll config vue
 
 ## Updating from a downloaded package {#download-update}
 
-This option can be used if you don't have access to the full framework (you don't have a Framework or Complete license), or if you customized the package in your project to only contain a number of components that you need.
+This option can be used if you are using a downloaded package in your project.
 
 ### Prerequisites
 
 * Mobiscroll was set up with the Mobiscroll CLI before
-* You have access to the [Mobiscroll Download page](https://download.mobiscroll.com) with a licensed account
+* You have access to the [Download page](https://download.mobiscroll.com) with a licensed account
 
 ### Update Steps
 

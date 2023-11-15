@@ -13,10 +13,31 @@ Typing a text in the input filters the options you can choose from. Also, with e
 
 When no items match the filter the Mobiscroll Select will show a "No results" message, that can be customized and localized with the [`filterEmptyText`](./api#localization-filterEmptyText) option.
 
+## Local Filtering
+
+By defaut filtering is done client side on the dataset passed to the Select with the [data](./api#opt-data) option. The filter text is searched in the option items `text` property and if there is a match the item stays in the list - otherwise it's hidden.
+
+```html
+<script setup>
+  import { MbscSelect } from '@mobiscroll/select';
+
+  const countries = ref([
+    { text: 'US - United States', value: 3 },
+    { text: 'DE - Germany', value: 19 },
+    { text: 'HU - Hungary', value: 93 },
+    // ... long list of 195 countries
+    { text: 'ZW - Zimbabwe', values: 73 },
+  ]);
+</script>
+
+<template>
+  <MbscSelect :data="countries" :filter="true" />
+</template>
+```
 
 ## Remote Filtering
 
-Server side filtering can be implemented using the [`@filter`](./api#event-onFilter) event and the [`data`](./api#opt-data) option dynamically. Returning `false` from the [`@filter`](./api#event-onFilter) event handler will prevent the filtering of the option items locally. Then, a request can be made to the server with the `filterText` and the returned data can be set to the Mobiscroll Select dynamically.
+Server side filtering can be implemented with the help of the [`@filter`](./api#event-onFilter) event and using the [`data`](./api#opt-data) option dynamically. Returning `false` from the [`@filter`](./api#event-onFilter) event handler will prevent the filtering of the option items locally. Then, a request can be made to the server with the `filterText` and the returned data can be set to the Select dynamically.
 
 ```html
 <script setup>

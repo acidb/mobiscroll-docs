@@ -2,10 +2,18 @@
 sidebar_position: 3
 sidebar_label: Calendar integrations
 displayed_sidebar: vueSidebar
+toc_min_heading_level: 1
+toc_max_heading_level: 4
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import GoogleMethods from '../_auto-generated/googlecalendar/methods.md';
+import GoogleEvents from '../_auto-generated/googlecalendar/events.md';
+import GoogleOptions from '../_auto-generated/googlecalendar/options.md';
+import OutlookMethods from '../_auto-generated/outlookcalendar/methods.md';
+import OutlookEvents from '../_auto-generated/outlookcalendar/events.md';
+import OutlookOptions from '../_auto-generated/outlookcalendar/options.md';
 
 # Third party calendar integration
 
@@ -154,7 +162,9 @@ grant_type=refresh_token
 ```
 Return the received response from the request.
 
-#### Complete example with Node.js, ASP.NET and PHP
+#### Complete example
+
+A complete example with Node.js, ASP.NET and PHP
 
 <Tabs>
 
@@ -496,6 +506,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') { // Handle preflight request (in 
 
 </Tabs>
 
+### API {#google-api}
+
+<div className="option-list">
+
+#### Configuration options {#google-options}
+
+  <GoogleOptions />
+
+#### Events {#google-events}
+
+  <GoogleEvents />
+
+#### Methods {#google-methods}
+
+  <GoogleMethods />
+
+</div>
+
 ## Outlook calendar integration
 
 The Outlook Calendar Integration is a part of the third party calendar integrations plugin that manages the synchronization with your Outlook calendar services.
@@ -533,3 +561,20 @@ Calling the `init` function will do the necessary initializations for the third 
 </template>
 ```
 
+### API {#outlook-api}
+
+<div className="option-list">
+
+#### Configuration options {#outlook-config}
+
+  <OutlookOptions />
+
+#### Events {#outlook-events}
+
+  <OutlookEvents />
+
+#### Methods {#outlook-methods}
+
+  <OutlookMethods />
+
+</div>

@@ -76,11 +76,16 @@
 }
 
 /* individual options name and link */
-.option-list h3 {
+.option-list h3,
+.option-list .api-heading {
   --ifm-link-color: #ff5722;
   --ifm-link-hover-color: #ff5722;
   padding-top: 35px;
   color: #ff5722
+}
+
+.option-list .api-heading {
+  color: #011742;
 }
 
 /* individual options type */

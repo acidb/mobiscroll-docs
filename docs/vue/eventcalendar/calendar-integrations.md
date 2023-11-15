@@ -2,7 +2,6 @@
 sidebar_position: 3
 sidebar_label: Calendar integrations
 displayed_sidebar: vueSidebar
-toc_max_heading_level: 4
 ---
 
 import Tabs from '@theme/Tabs';
@@ -507,18 +506,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') { // Handle preflight request (in 
 
 ### API {#google-api}
 
-<div className="option-list">
+<div className="option-list font-size-smaller">
 
-#### Configuration options {#google-options}
-
+  <h3 id="google-options" className="api-heading">Configuration options</h3>
   <GoogleOptions />
 
-#### Events {#google-events}
-
+  <h3 id="google-events" className="api-heading">Events</h3>
   <GoogleEvents />
 
-#### Methods {#google-methods}
-
+  <h3 id="google-methods" className="api-heading">Methods</h3>
   <GoogleMethods />
 
 </div>
@@ -564,16 +560,13 @@ Calling the `init` function will do the necessary initializations for the third 
 
 <div className="option-list">
 
-#### Configuration options {#outlook-config}
-
+  <h3 id="outlook-options" className="api-heading">Configuration options</h3>
   <OutlookOptions />
 
-#### Events {#outlook-events}
-
+  <h3 id="outlook-events" className="api-heading">Events</h3>
   <OutlookEvents />
 
-#### Methods {#outlook-methods}
-
+  <h3 id="outlook-methods" className="api-heading">Methods</h3>
   <OutlookMethods />
 
 </div>

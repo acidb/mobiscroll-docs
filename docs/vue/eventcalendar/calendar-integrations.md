@@ -2,7 +2,6 @@
 sidebar_position: 3
 sidebar_label: Calendar integrations
 displayed_sidebar: vueSidebar
-toc_min_heading_level: 1
 toc_max_heading_level: 4
 ---
 

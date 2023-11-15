@@ -6,7 +6,7 @@ displayed_sidebar: vueSidebar
 
 # Resources
 
-Resources can be many things, ranging from **people** through **conference rooms** to **company assets**, that need schedulig. The eventcalendar can handle multiple resources inside a single instance.
+Resources can be many things, ranging from **people** through **conference rooms** to **company assets**, that need schedulig. The Eventcalendar can handle multiple resources inside a single instance.
 
 The resource object supports the following properties:
 

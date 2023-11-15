@@ -315,7 +315,7 @@ If `false`, the events cannot overlap.
 
 boolean
 
-If `true`, the event calendar will work in exclusive end dates mode,
+If `true`, the Eventcalendar will work in exclusive end dates mode,
 meaning that the last moment of the range (event, invalid, colors, etc.) is not part of the range.
 
 E.g. `end: '2021-07-03T00:00'` means that the event ends on 2nd of July and will not be displayed on 3rd of July.

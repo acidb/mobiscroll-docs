@@ -6,19 +6,19 @@ displayed_sidebar: vueSidebar
 
 # Display modes
 
-The select supports five display modes that specify where on the screen is it going to render itself:
+The Select supports five display modes that specify where on the screen is it going to render itself:
 
-1. `'center'` - will render the select on the center of the screen
-2. `'top'` - will render the select on the top of the screen sliding down
-3. `'bottom'` - will render the select on the bottom of the screen sliding up
-4. `'anchored'` - will render the select above or below the element it is anchored to. The [`anchor`](./api#opt-anchor) option will specify the element to which the select is positioned. By default it is the input element rendered by the select.
-5. `'inline'` - will render the select into the page embedded.
+1. `'center'` - will render the Select on the center of the screen
+2. `'top'` - will render the Select on the top of the screen sliding down
+3. `'bottom'` - will render the Select on the bottom of the screen sliding up
+4. `'anchored'` - will render the Select above or below the element it is anchored to. The [`anchor`](./api#opt-anchor) option will specify the element to which the Select is positioned. By default it is the input element rendered by the select.
+5. `'inline'` - will render the Select into the page embedded.
 
 ```html
 <MbscSelect display="anchored" />
 ```
 
-Additionally to the display option, the select also takes into consideration the environment, a.k.a. whether it is used on mobile or a desktop device. This is represented by the [`touchUi`](./api#opt-touchUi) option and by default it is set to automatically detect the environment.
+Additionally to the display option, the Select also takes into consideration the environment, whether it is used on mobile or a desktop device. This is represented by the [`touchUi`](./api#opt-touchUi) option and by default it is set to automatically detect the environment.
 
 :::info
 The default buttons that appear on the picker depend on the display mode and touchUi option. It also determins if the picker operates in [live selection](./live-selection) or not.

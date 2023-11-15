@@ -69,7 +69,7 @@ In the above example the two arrays will show the same 3 countries to select fro
 
 ## Group options {#grouping}
 
-Through the [`data`](./api#opt-data) option, with each select item can be passed an optional `group` property. This `group` property is a string, that defines the group of the item. When the group is passed to any of the items, the whole data is treated as grouped and a header will be rendered above each group on the select wheels. The header will contain the group name as specified in the group property.
+Through the [`data`](./api#opt-data) option, with each item can be passed an optional `group` property. This `group` property is a string, that defines the group of the item. When the group is passed to any of the items, the whole data is treated as grouped and a header will be rendered above each group on the Select wheels. The header will contain the group name as specified in the group property.
 
 ```javascript title="Assigning groups to items"
 const myCountries = [{

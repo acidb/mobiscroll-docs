@@ -330,7 +330,7 @@ If `false`, the events cannot overlap.
 
 boolean
 
-If `true`, the event calendar will work in exclusive end dates mode,
+If `true`, the Eventcalendar will work in exclusive end dates mode,
 meaning that the last moment of the range (event, invalid, colors, etc.) is not part of the range.
 
 E.g. `end: '2021-07-03T00:00'` means that the event ends on 2nd of July and will not be displayed on 3rd of July.
@@ -785,7 +785,7 @@ objects. These objects can be imported from the mobiscroll bundle.
 
 MbscEventcalendarView
 
-Configures the event calendar view. Possible views:
+Configures the Eventcalendar view. Possible views:
 
 `calendar`: Configures the calendar view. Properties:
 - `type`: *&#039;week&#039; | &#039;month&#039; | &#039;year&#039;* (default `'month'`) - Sets the calendar type.

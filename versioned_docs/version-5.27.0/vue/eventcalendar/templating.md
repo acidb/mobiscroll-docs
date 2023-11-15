@@ -6,7 +6,7 @@ displayed_sidebar: vueSidebar
 
 # Templating
 
-You can customize many parts of the Eventcalendar by writing custom templates. In vue terms these templates are called named slots. You will find a comprehensive list of all the named slots available for the eventcalendar in the [API slots](api#slots) section.
+You can customize many parts of the Eventcalendar by writing custom templates. In Vue terms these templates are called named slots. You will find a comprehensive list of all the named slots available for the Eventcalendar in the [API slots](api#slots) section.
 
 ## Event templating
 
@@ -74,7 +74,7 @@ To customize the display of the resources, the [resource](api#slot-resource) slo
 ```
 
 :::info
-In case of the timeline view there are other parts of the eventcalendar that can be customized through named slots. Check out the [timeline templating](timeline#templating) section for more details.
+In case of the timeline view there are other parts of the Eventcalendar that can be customized through named slots. Check out the [timeline templating](timeline#templating) section for more details.
 :::
 
 ## Header templating

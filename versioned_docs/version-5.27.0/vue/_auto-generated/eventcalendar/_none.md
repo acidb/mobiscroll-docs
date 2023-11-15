@@ -2,7 +2,7 @@
 
 MbscEventcalendarView
 
-Configures the event calendar view. Possible views:
+Configures the Eventcalendar view. Possible views:
 
 `calendar`: Configures the calendar view. Properties:
 - `type`: *&#039;week&#039; | &#039;month&#039; | &#039;year&#039;* (default `'month'`) - Sets the calendar type.

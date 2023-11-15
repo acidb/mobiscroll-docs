@@ -1,10 +1,10 @@
-### getTempVal
+### getTempVal {#method-getTempVal}
 
 () => any
 
 
 Returns the temporary value selected on the picker.
-### setTempVal
+### setTempVal {#method-setTempVal}
 
 (value: any) => void
 

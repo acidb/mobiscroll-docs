@@ -20,7 +20,7 @@ npm install @mobiscroll/print
 
 ## Importing the Print Module
 
-The Print Module consists of print specific styles, that need to be loaded into the document. Also, there's a javascript part, that needs to be imported and passed to the component via the [`modules`](./api.md#opt-modules) option.
+The Print Module consists of print specific styles, that need to be loaded into the document. Also, there's a JavaScript part, that needs to be imported and passed to the component via the [`modules`](./api.md#opt-modules) option.
 
 #### Stylesheets
 
@@ -57,10 +57,10 @@ The print module can be imported from the installed package and passed to the co
 
 ## Printing
 
-Printing the eventcalendar contents can be done using the print method of the eventcalendar [instance](../core-concepts/instance). Calling this method will create a new window containing only the eventcalendar and will invoke the print function of the browser. After the printing is done, the window should close automatically.
+Printing the Eventcalendar contents can be done using the print method of the Eventcalendar [instance](../core-concepts/instance). Calling this method will create a new window containing only the Eventcalendar and will invoke the print function of the browser. After the printing is done, the window should close automatically.
 
 :::info
-When you want to include more than just the eventcalendar in your print, you can invoke the print screen of your browser. You don't have to worry about the printing styles for the eventcalendar, they will be applied in this case as well.
+When you want to include more than just the Eventcalendar in your print, you can invoke the print screen of your browser. You don't have to worry about the printing styles for the eventcalendar, they will be applied in this case as well.
 :::
 
 The new window created by the print method will include all the styles and links to stylesheets from the original page. These styles will be copied over automatically, but in case you are using relative urls, the base url of the new window might not match yours. In this case, the print method can be passed a config object, with your custom `baseUrl`, to make the relative paths work. By default, the `baseUrl` will be the original pages origin.

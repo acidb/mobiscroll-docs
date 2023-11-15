@@ -6,4 +6,4 @@ displayed_sidebar: reactSidebar
 
 # Eventcalendar
 
-The event calendar supports four highly configurable views: a calendar view, a scheduler with time grid, a timeline and an agenda view.
+The Eventcalendar supports four highly configurable views: a calendar view, a scheduler with time grid, a timeline and an agenda view.

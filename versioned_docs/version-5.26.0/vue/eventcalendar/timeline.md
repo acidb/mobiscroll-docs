@@ -113,7 +113,7 @@ invalid: [
 ## Event slots
 
 :::info
-Not to be confused with [named slots](#slots). In vue terms slots are used for [templating](#templating), but there is also a [slots](#opt-slots) option for the eventcalendar and this section is dedicated it.
+Not to be confused with [named slots](#slots). In Vue terms slots are used for [templating](#templating), but there is also a [slots](#opt-slots) option for the Eventcalendar and this section is dedicated it.
 :::
 
 Besides the [resources](#opt-resources) which are grouping data for the whole date range, [slots](#opt-slots) introduce a horizontal daily grouping in case of the timeline view. Slots can be used alongside resources.

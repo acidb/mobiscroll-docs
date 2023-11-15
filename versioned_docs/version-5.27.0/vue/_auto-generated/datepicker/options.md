@@ -299,7 +299,7 @@ any
 
 Sets the input for the end date.
 
-When using the datepicker to [select a range](#opt-select), it can be used with one, two or no inputs.
+When using the Datepicker to [select a range](#opt-select), it can be used with one, two or no inputs.
 When the `endInput` is specified, it will put the range end part of the selection to that input.
 Similarly the input for the range start can be specified using the [startInput](#opt-startInput) option.
 
@@ -801,7 +801,7 @@ Number of visible rows on the wheel. The default value depends on the [theme](#o
 
 "date" &#124; "range" &#124; "preset-range"
 
-In terms of value selection, the datepicker can be used to select a single date/time or multiple dates/times, as well as a date range
+In terms of value selection, the Datepicker can be used to select a single date/time or multiple dates/times, as well as a date range
 or a time range. It is also possible to select a week or a part of the week as a range.
 
 The select option defines if the picker is used for selecting independent dates or a range.
@@ -938,7 +938,7 @@ any
 
 Sets the input for the start date.
 
-When using the datepicker to [select a range](#opt-select), it can be used with one, two or no inputs.
+When using the Datepicker to [select a range](#opt-select), it can be used with one, two or no inputs.
 When the `startInput` is specified, it will put the range start part of the selection to that input.
 Similarly the input for the range end can be specified using the [endInput](#opt-endInput) option.
 

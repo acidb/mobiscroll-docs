@@ -32,7 +32,7 @@ The package will be installed from a private npm registry, which requires authen
 
 ## Installing the Download builder build
 
-### Download the mobiscroll build
+### Download the Mobiscroll build
 
 When building your package, select the required components on the [download page](https://download.mobiscroll.com/).
 

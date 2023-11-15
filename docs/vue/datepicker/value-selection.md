@@ -13,7 +13,7 @@ The Datepicker can be used for 4 major date and time selection tasks:
 3. [Range selection](#range) - a pair of start/end date, a pair of start/end time or a pair of start/end date-times - use the [range picker](https://demo.mobiscroll.com/vue/range)
 4. [Preset range selection](#preset-range) - for selecting a week or a predefined part of the week as a start/end date pair
 
-The [`select`](./api#opt-select) and [`selectMultiple`](.api#opt-selectMultiple) options control how the selection works. Also with the [`firstSelectDay`](./api#opt-firstSelectDay) and [`selectSize`](./api#opt-selectSize) options the selection can be tailored further, when using the `preset-range` selection.
+The [`select`](./api#opt-select) and [`selectMultiple`](./api#opt-selectMultiple) options control how the selection works. Also with the [`firstSelectDay`](./api#opt-firstSelectDay) and [`selectSize`](./api#opt-selectSize) options the selection can be tailored further, when using the `preset-range` selection.
 
 ## Single Value Selection {#single}
 

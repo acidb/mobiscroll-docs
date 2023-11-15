@@ -1,5 +1,5 @@
 ---
-sidebar_position: 8
+sidebar_position: 11
 sidebar_label: Templating
 displayed_sidebar: vueSidebar
 ---

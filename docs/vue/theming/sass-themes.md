@@ -43,6 +43,10 @@ Before you can use the custom theme, you will also need to register it in your j
 </template>
 ```
 
+## Light and Dark variants
+
+To use custom themes together with the `themeVariant` option (which controls whether the light or dark variant of a theme will be used), make sure to create two custom themes. The dark version must have the same name as the light one, suffixed with `'-dark'`, for example: `'my-theme'` and `'my-theme-dark'`.
+
 <div className="option-list">
 
 ## Methods

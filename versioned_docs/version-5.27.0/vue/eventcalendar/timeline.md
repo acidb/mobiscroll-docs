@@ -180,11 +180,15 @@ There are three CSS classes which can be used for changing the height of resourc
 Setting the timeline grid column widths can be done with the following css rule:
 
 ```css
-.mbsc-timeline-header-column.mbsc-ios,
-.mbsc-timeline-column.mbsc-ios {
+.mbsc-timeline-header-column,
+.mbsc-timeline-column {
   width: 3em;
 }
 ```
+
+:::caution
+You need to apply these rules after the mobiscroll default rules, otherwise the default rules will take precedence over them.
+:::
 
 ## Resource column width
 

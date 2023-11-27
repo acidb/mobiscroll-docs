@@ -41,7 +41,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
           includeCurrentVersion: false,
-          lastVersion: '5.27.0',
+          lastVersion: '5.28.0',
         },
         blog: false,
         theme: {
@@ -92,7 +92,7 @@ const config = {
                 label: 'JavaScript',
                 href: 'https://docs.mobiscroll.com/javascript',
               },
-            ]
+            ],
           },
           {
             href: 'https://docs.mobiscroll.com/cli',

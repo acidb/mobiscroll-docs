@@ -40,7 +40,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
-          includeCurrentVersion: true,
+          includeCurrentVersion: false,
           lastVersion: '5.28.0',
         },
         blog: false,

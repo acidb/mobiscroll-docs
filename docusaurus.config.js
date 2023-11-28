@@ -143,6 +143,11 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      algolia: {
+        appId: 'ZA8HPEQBN2',
+        apiKey: 'f79f50f29ffbceae9aa5435ac2e01137',
+        indexName: 'docs_mobiscroll',
+      },
     }),
 };
 

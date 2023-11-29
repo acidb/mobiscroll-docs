@@ -13,7 +13,7 @@ The Textarea component can be used for collecting information from the user in t
 
 ## Usage
 
-Use the [label](#opt-label) option to provide a label to the textarea.
+Use the [`label`](#opt-label) option to provide a label to the textarea.
 
 ```html
 <script setup>

@@ -14,7 +14,7 @@ Steppers are used in situations where a user needs to adjust a value by a small 
 
 ## Usage
 
-Use the [label](#opt-label) option to provide a label to the stepper.
+Use the [`label`](#opt-label) option to provide a label to the stepper.
 
 ```html
 <script setup>

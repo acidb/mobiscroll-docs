@@ -113,12 +113,12 @@ invalid: [
 ## Event slots
 
 :::info
-Not to be confused with [named slots](#slots). In Vue terms slots are used for [templating](#templating), but there is also a [slots](#opt-slots) option for the Eventcalendar and this section is dedicated it.
+Not to be confused with [named slots](#slots). In Vue terms slots are used for [templating](#templating), but there is also a [`slots`](#opt-slots) option for the Eventcalendar and this section is dedicated it.
 :::
 
-Besides the [resources](#opt-resources) which are grouping data for the whole date range, [slots](#opt-slots) introduce a horizontal daily grouping in case of the timeline view. Slots can be used alongside resources.
+Besides the [`resources`](#opt-resources) which are grouping data for the whole date range, [`slots`](#opt-slots) introduce a horizontal daily grouping in case of the timeline view. Slots can be used alongside resources.
 
-When slots are used the timeline view will display in daily listing mode and only the [dragToMove](#opt-dragToMove) event iteraction will be available. The [dragToCreate](#opt-dragToCreate) and [dragToResize](#opt-dragToResize) interactions will be truned off.
+When slots are used the timeline view will display in daily listing mode and only the [`dragToMove`](#opt-dragToMove) event iteraction will be available. The [`dragToCreate`](#opt-dragToCreate) and [`dragToResize`](#opt-dragToResize) interactions will be truned off.
 
 ```javascript title="Slots used for work shift management"
 slots: [
@@ -139,7 +139,7 @@ slots: [
 
 ## Event connections
 
-The timeline view can display connections between events. Events will be linked with lines and additionally arrows can be displayed to illustrate the direction of the connection. Events can have multiple connections simultaneously. Connections can be specified with the [connections option](#opt-connections).
+The timeline view can display connections between events. Events will be linked with lines and additionally arrows can be displayed to illustrate the direction of the connection. Events can have multiple connections simultaneously. Connections can be specified with the [`connections`](#opt-connections) option.
 
 ![Timeline event connections](https://mobiscroll.com/Content/img/docs/event-connections.png)
 
@@ -164,7 +164,7 @@ There are three CSS classes which can be used for changing the height of resourc
    ```
 
    :::info
-   There's minimum height of the rows which can only be decreased if the event creation is disabled on the relevant resource. You can prevent event creation by using the `eventCreation` property of the the [resources option](#opt-resources).
+   There's minimum height of the rows which can only be decreased if the event creation is disabled on the relevant resource. You can prevent event creation by using the `eventCreation` property of the the [`resources`](#opt-resources) option.
    :::
 
 3. For customizing the remaining empty space below the events, you can use the `.mbsc-timeline-row-gutter` class.

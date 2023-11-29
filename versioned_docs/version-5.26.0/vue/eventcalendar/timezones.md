@@ -8,7 +8,7 @@ displayed_sidebar: vueSidebar
 
 By default the Eventcalendar uses the local timezone of the browser to show event data. If you want to show the data or interpret it in a different timezone, you will need an external library to handle the timezone conversions. There are two libraries that Mobiscroll supports: **moment-timezone** and **luxon**.
 
-When using a timezone plugin with the Eventcalendar, the [exclusiveEndDates](api#opt-exclusiveEndDates) options defaults to `true`. Learn more about [exclusive end dates](#exclusive-end-dates)!
+When using a timezone plugin with the Eventcalendar, the [`exclusiveEndDates`](api#opt-exclusiveEndDates) option defaults to `true`. Learn more about [exclusive end dates](#exclusive-end-dates)!
 
 ## Library Install
 
@@ -118,7 +118,7 @@ Many of existing calendaring solutions (e.g. Google Calendar) and standards (e.g
 
 With the introduction of timezone support, this also became a necessity, e.g. if you have an event with start: `'2021-07-09T20:00Z'` and end: `'2021-07-09T21:00Z'`, defined in UTC, when displayed in Europe/Bucharest timezone, the end becomes '2021-07-10T00:00+03:00'. With inclusive end dates the event will show up on 10th of July as well, which is unexpected.
 
-The exclusive end dates mode can be enabled using the [exclusiveEndDates](api#opt-exclusiveEndDates) option. When timezones are used ([displayTimezone](api#opt-displayTimezone) and/or [dataTimezone](api#opt-dataTimezone) is set), exclusive end dates are automatically enabled.
+The exclusive end dates mode can be enabled using the [`exclusiveEndDates`](api#opt-exclusiveEndDates) option. When timezones are used ([`displayTimezone`](api#opt-displayTimezone) and/or [`dataTimezone`](api#opt-dataTimezone) is set), exclusive end dates are automatically enabled.
 
 
 :::caution

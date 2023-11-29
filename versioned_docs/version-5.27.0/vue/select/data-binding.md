@@ -10,7 +10,7 @@ The Mobiscroll Select component has a [`data`](./api#opt-data) option (or data p
 
 The `data` option receives an array of strings or an array of objects containing a `text`, a `value` and optionally a `group` property.
 
-The text must be a string, which will show up on the wheels. The value can be any kind of object (string, number, object, etc...), that will be the selected value when selecting it on the select.
+The text must be a string, which will show up on the wheels. The value can be any kind of object (string, number, object, etc.), that will be the selected value when selecting it on the select.
 
 The group property must be a string, that is used to group together a number of options. The options that have the same string specified by the group property will be grouped together. When groups are specified in the data, a header will be shown at the top of each group with the text specified in the group property. Additionally, when using the [`showGroupWheel`](./api#opt-showGroupWheel) option, an additional wheel will be shown, with the groups to help navigation. More on that in the [Grouping section](#grouping) below.
 

@@ -52,7 +52,7 @@ view: {
 
 ## Resource grouping
 
-The scheduler view can display multiple [resources](resources) inside a single instance. By default the displayed resources will be grouped by the given resources and the grouping can be changed with the [groupBy option](#opt-groupBy), which also supports grouping by date.
+The scheduler view can display multiple [resources](resources) inside a single instance. By default the displayed resources will be grouped by the given resources and the grouping can be changed with the [`groupBy`](#opt-groupBy) option, which also supports grouping by date.
 
 <div className="img-row">
     <div className="pdg-img">

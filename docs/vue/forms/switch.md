@@ -13,8 +13,8 @@ The Switch component is a two value control. It is like a physical toggle switch
 
 ## Usage
 
-Use the [label](#opt-label) option to provide a label to the switch.
-The switch can be positioned before or after the label using the [position](#opt-position) option.
+Use the [`label`](#opt-label) option to provide a label to the switch.
+The switch can be positioned before or after the label using the [`position`](#opt-position) option.
 
 ```html
 <script setup>

@@ -561,7 +561,7 @@ Specifies the selected date on the calendar. Setting this option will force the 
 and won&#039;t display anything else unless another selected date is set. This is called a controlled usage, and the
 [onSelectedDateChange](#event-onSelectedDateChange) event can be used to get notified and act on navigational changes.
 
-To set the initially displayed date without a controlled usage, use the [defaultSelectedDate option](#opt-defaultSelectedDate) instead.
+To set the initially displayed date without a controlled usage, use the [defaultSelectedDate](#opt-defaultSelectedDate) option instead.
 
 **Default value**: `undefined`
 ### selectedEvents {#opt-selectedEvents}

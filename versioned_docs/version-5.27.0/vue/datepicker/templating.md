@@ -8,7 +8,7 @@ displayed_sidebar: vueSidebar
 
 ## Calendar header template
 
-The header of the calendar can be fully customized to one's needs with the use of the [calendarHeader](api#slot-calendarHeader) slot.
+The header of the calendar can be fully customized to one's needs with the use of the [`calendarHeader`](api#slot-calendarHeader) slot.
 
 ```html
 <MbscDatepicker>

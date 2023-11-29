@@ -17,7 +17,7 @@ which only displays the selected option and the others are only visible on selec
 
 ## Usage
 
-Use the [label](#opt-label) option to provide a label to the radio button.
+Use the [`label`](#opt-label) option to provide a label to the radio button.
 
 ```html
 <script setup>

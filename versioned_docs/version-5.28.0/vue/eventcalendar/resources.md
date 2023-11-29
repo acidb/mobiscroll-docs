@@ -16,11 +16,11 @@ The resource object supports the following properties:
 - `name` _String_ - The name of the resource that will be displayed at the top of the resource column.
 - `color` _String_ - The color controls the default event color of the resource. Event colors can be specified further on the event object itself. If the color is omitted the events of the resource will inherit the default calendar color.
 - `eventCreation` _Boolean_ - Disables event creation on specific resources by setting it to false. It's true by default.
-- `eventDragBetweenResources` _Boolean_ - Specifies whether the events in the specified resource are movable across resources. It applies for scheduler and timeline views and has precedence over [`dragBetweenResources` option](api#opt-dragBetweenResources).
-- `eventDragInTime` _Boolean_ - Specifies whether the events in the specified resource are movable in time. Has precedence over the [`dragInTime` option](api#opt-dragInTime).
-- `eventResize` _Boolean_ - Specifies whether the events in the specified resource are resizable. Has precedence over [`dragToResize` option](api#opt-dragToResize).
+- `eventDragBetweenResources` _Boolean_ - Specifies whether the events in the specified resource are movable across resources. It applies for scheduler and timeline views and has precedence over [`dragBetweenResources`](api#opt-dragBetweenResources) option.
+- `eventDragInTime` _Boolean_ - Specifies whether the events in the specified resource are movable in time. Has precedence over the [`dragInTime`](api#opt-dragInTime) option.
+- `eventResize` _Boolean_ - Specifies whether the events in the specified resource are resizable. Has precedence over [`dragToResize`](api#opt-dragToResize) option.
 
-Besides the base properties you can add any custom property, like title, job etc...
+Besides the base properties you can add any custom property, like title, job, etc.
 
 ```javascript title="Defining resources"
 resources: [

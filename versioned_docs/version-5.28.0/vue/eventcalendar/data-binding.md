@@ -6,7 +6,7 @@ displayed_sidebar: vueSidebar
 
 # Data binding
 
-The Eventcalendar accepts an array of event objects through the [data option](api#opt-data) of the component. The event array can be either a local static array, or populated on demand with remote requests.
+The Eventcalendar accepts an array of event objects through the [`data`](api#opt-data) option of the component. The event array can be either a local static array, or populated on demand with remote requests.
 
 ## Event data structure
 
@@ -19,11 +19,11 @@ The events of the Eventcalendar are specified as an array of event objects. The 
 - `color` _String_ - The color of the event.
 - `allDay` _Boolean_ - Specifies if the event is all day or not.
 - `editable` _Boolean_ - specify if an event is editable or not. Setting it to false disables drag & drop, resize and delete, and the event will have the `.mbsc-readonly-event` css class. With this class, the fixed events will be easily customizable, for example: add opacity or disable the cursor on the fixed events.
-- `dragBetweenResources` _Boolean_ - specifies whether the event is movable across resources. It applies for [scheduler](scheduler) and [timeline](timeline) views. Has precedence over the `eventDragBetweenResources` property of the [resource](resources) and the [`dragBetweenResources` option](api#opt-dragBetweenResources).
-- `dragInTime` _Boolean_ - specifies whether the event is movable in time. Has precedence over the `eventDragInTime` property of the [resource](resources) and the [`dragInTime` option](api#opt-dragInTime).
-- `resize` _Boolean_ - specifies whether the event is resizable. Has precedence over the `eventResize` property of the [resource](resources) and the [`dragToResize` option](api#opt-dragToResize).
+- `dragBetweenResources` _Boolean_ - specifies whether the event is movable across resources. It applies for [scheduler](scheduler) and [timeline](timeline) views. Has precedence over the `eventDragBetweenResources` property of the [resource](resources) and the [`dragBetweenResources`](api#opt-dragBetweenResources) option.
+- `dragInTime` _Boolean_ - specifies whether the event is movable in time. Has precedence over the `eventDragInTime` property of the [resource](resources) and the [`dragInTime`](api#opt-dragInTime) option.
+- `resize` _Boolean_ - specifies whether the event is resizable. Has precedence over the `eventResize` property of the [resource](resources) and the [`dragToResize`](api#opt-dragToResize) option.
 - `resource` _String, Number, Array_ - specify resource ids for the events. The event will display only in the specified [resource](resources) group. If there is no resource id defined the event will be displayed at every resource group.
-- `slot` _String, Number_ - specify slot ids for the events. The event will display only in the specified [slot](api#opt-slots) group. If there is no slot id defined the event will be displayed at every slot group.
+- `slot` _String, Number_ - specify slot ids for the events. The event will display only in the specified [`slot`](api#opt-slots) group. If there is no slot id defined the event will be displayed at every slot group.
 - `recurring` _String, Object_ - Recurrence rule for the event.
 - `recurringException` _String, Object, Array_ - Represents the exceptions of a recurring event. Useful when specific dates need to be skipped from the rule.
 - `recurringExceptionRule` _String, Object_ - Represents the exception rule of a recurring event. Useful when recurring dates need to be skipped from the rule.
@@ -55,7 +55,7 @@ const myBirthday = {
 };
 ```
 
-The event objects may have additional custom properties as well. The custom properties are not used by the eventcalendar, but they are kept and will be available anywhere the event objects are used. E.g. the [`onEventClick` event](api#event-onEventClick) will receive the event object as argument, containing the custom properties as well.
+The event objects may have additional custom properties as well. The custom properties are not used by the eventcalendar, but they are kept and will be available anywhere the event objects are used. E.g. the [`onEventClick`](api#event-onEventClick) event will receive the event object as argument, containing the custom properties as well.
 
 ```javascript title="Event object with custom properties"
 const weeklyMeeting = {
@@ -76,7 +76,7 @@ The `recurring`, `recurringException` and `recurringExceptionRule` properties of
 
 ## Local data
 
-To bind local data to the event calendar, you can simply assign a JavaScript array of objects to the [data option](api#opt-data) of the component.
+To bind local data to the event calendar, you can simply assign a JavaScript array of objects to the [`data`](api#opt-data) option of the component.
 
 ```html
 <script setup>
@@ -143,7 +143,7 @@ You can load the data through an external request and assign it to the data opti
 
 ## On demand loading
 
-Use the [`onPageLoading` event](api#event-onPageLoading) to load the data relevant to the currently active view. The event fires every time the date range of the view changes, for example when someone navigates the event calendar. Getting the events in real time as the user interacts with the UI improves load performance and always serves the most recent data.
+Use the [`onPageLoading`](api#event-onPageLoading) event to load the data relevant to the currently active view. The event fires every time the date range of the view changes, for example when someone navigates the event calendar. Getting the events in real time as the user interacts with the UI improves load performance and always serves the most recent data.
 
 :::tip
 You can pass the view variables - like month and year - in the URL and handle the filtering inside the API implementation.

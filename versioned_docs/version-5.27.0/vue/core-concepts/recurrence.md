@@ -5,7 +5,7 @@ displayed_sidebar: vueSidebar
 
 # Recurrence
 
-Some of the Eventcalendar and Datepicker options support recurrence rules. Recurrence rules regulate if the particular option (event, label, mark, etc...) reoccures periodically.
+Some of the Eventcalendar and Datepicker options support recurrence rules. Recurrence rules regulate if the particular option (event, label, mark, etc.) reoccures periodically.
 
 For example the [data](../eventcalendar/api#opt-data), [colors](../eventcalendar/api#opt-colors), [labels](../eventcalendar/api#opt-labels), [marked](../eventcalendar/api#opt-labels), and [invalid](../eventcalendar/api#opt-invalid) options of the Eventcalendar or the [colors](../datepicker/api#opt-colors), [marked](../datepicker/api#opt-marked), [labels](../datepicker/api#opt-labels) and [invalid](../datepicker/api#opt-invalid) options of the Datepicker support recurrence rules through their `recurring` property. The rule can be an object or a string in `RRULE` format.
 

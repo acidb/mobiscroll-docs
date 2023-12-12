@@ -63,7 +63,7 @@ In case of full event templating, whenever there is an event (in the agenda, sch
 
 ## Resource templating
 
-To customize the display of the resources, the [resource](api#slot-resource) slot can be used.
+To customize the display of the resources, the [`resource`](api#slot-resource) slot can be used.
 
 ```html
 <MbscEventcalendar>
@@ -79,7 +79,7 @@ In case of the timeline view there are other parts of the Eventcalendar that can
 
 ## Header templating
 
-The header of the calendar can be fully customized to one's needs with the use of the [header](api#slot-header) slot.
+The header of the calendar can be fully customized to one's needs with the use of the [`header`](api#slot-header) slot.
 
 ```html
 <MbscEventcalendar>

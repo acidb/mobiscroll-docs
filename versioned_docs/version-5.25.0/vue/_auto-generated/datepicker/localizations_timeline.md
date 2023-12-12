@@ -288,9 +288,9 @@ The format for parsed and displayed times:
 string
 
 Display order and formating of the time wheels on the Datepicker. Characters have the same meaning as in the
-[timeFormat option](#localization-timeFormat).
+[timeFormat](#localization-timeFormat) option.
 
-If not specified, the order of the wheels will be taken from the [timeFormat option](#localization-timeFormat),
+If not specified, the order of the wheels will be taken from the [timeFormat](#localization-timeFormat) option,
 and the formating will be defined by the theme.
 
 Starting for 3.0.0-beta5 an experimental feature was introduced to display the whole time on one wheel. To activate this mode,

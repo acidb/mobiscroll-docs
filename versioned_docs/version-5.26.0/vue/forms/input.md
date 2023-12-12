@@ -13,7 +13,7 @@ The Input component can be used for collecting information from the user.
 
 ## Usage
 
-Use the [label](#opt-label) option to provide a label to the input field.
+Use the [`label`](#opt-label) option to provide a label to the input field.
 
 ```html
 <script setup>

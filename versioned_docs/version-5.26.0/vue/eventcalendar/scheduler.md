@@ -23,9 +23,9 @@ With these properties both hours and minutes can be specified.
 
 The scheduler displays a time grid with its related events. It can be configured as a daily or weekly schedule. Work hours and work days along with disabled time-spans and breaks can be added. Use it for advanced scheduling tasks with built-in drag & drop.
 
-The displayed week days can be modified with the `startDay` and `endDay` properties of the schedule [view option](#opt-view).
+The displayed week days can be modified with the `startDay` and `endDay` properties of the schedule [`view`](#opt-view) option.
 
-The displayed hours and minutes can be modified with the `startTime` and `endTime` properties of the schedule [view option](#opt-view).
+The displayed hours and minutes can be modified with the `startTime` and `endTime` properties of the schedule [`view`](#opt-view) option.
 
 ```javascript title="Work-week configuration example"
 view: {
@@ -46,7 +46,7 @@ view: {
 
 ## Resource grouping
 
-The scheduler view can display multiple [resources](resources) inside a single instance. By default the displayed resources will be grouped by the given resources and the grouping can be changed with the [groupBy option](#opt-groupBy), which also supports grouping by date.
+The scheduler view can display multiple [resources](resources) inside a single instance. By default the displayed resources will be grouped by the given resources and the grouping can be changed with the [`groupBy`](#opt-groupBy) option, which also supports grouping by date.
 
 <div className="img-row">
     <div className="pdg-img">

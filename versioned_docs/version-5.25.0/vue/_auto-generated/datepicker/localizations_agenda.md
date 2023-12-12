@@ -69,10 +69,10 @@ Characters have the same meaning as in the [dateFormat](#localization-dateFormat
 string
 
 Display order and formating for month/day/year wheels. Characters have the same meaning as in the
-[dateFormat option](#localization-dateFormat). The options also controls if a specific wheel should appear or not,
+[dateFormat](#localization-dateFormat) option. The options also controls if a specific wheel should appear or not,
 e.g. use &#039;mmyy&#039; to display month and year wheels only, &#039;mmD ddy&#039; to display both day of week and date on the day wheel.
 
-If not specified, the order of the wheels will be taken from the [dateFormat option](#localization-dateFormat), and the
+If not specified, the order of the wheels will be taken from the [dateFormat](#localization-dateFormat) option, and the
 formating will be defined by the theme.
 
 Starting for 3.0.0-beta5 an experimental feature was introduced to display the whole date on one wheel. To activate this mode,
@@ -303,9 +303,9 @@ The format for parsed and displayed times:
 string
 
 Display order and formating of the time wheels on the Datepicker. Characters have the same meaning as in the
-[timeFormat option](#localization-timeFormat).
+[timeFormat](#localization-timeFormat) option.
 
-If not specified, the order of the wheels will be taken from the [timeFormat option](#localization-timeFormat),
+If not specified, the order of the wheels will be taken from the [timeFormat](#localization-timeFormat) option,
 and the formating will be defined by the theme.
 
 Starting for 3.0.0-beta5 an experimental feature was introduced to display the whole time on one wheel. To activate this mode,

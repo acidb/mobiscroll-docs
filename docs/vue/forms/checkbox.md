@@ -13,8 +13,8 @@ Checkboxes allow the selection of multiple options from a set. They appear as ch
 
 ## Usage
 
-Use the [label](#opt-label) option to provide a label to the checkbox.
-The checkbox can be positioned before or after the label using the [position](#opt-position) option.
+Use the [`label`](#opt-label) option to provide a label to the checkbox.
+The checkbox can be positioned before or after the label using the [`position`](#opt-position) option.
 
 ```html
 <script setup>

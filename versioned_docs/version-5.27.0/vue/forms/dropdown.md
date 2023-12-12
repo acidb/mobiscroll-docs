@@ -13,7 +13,7 @@ The Dropdown component can be used for collecting user provided information from
 
 ## Usage
 
-Use the [label](#opt-label) option to provide a label to the dropdown.
+Use the [`label`](#opt-label) option to provide a label to the dropdown.
 
 ```html
 <script setup>

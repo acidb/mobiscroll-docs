@@ -40,13 +40,8 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
-          includeCurrentVersion: true,
-          lastVersion: 'current',
-          versions: {
-            current: {
-              banner: 'none',
-            },
-          },
+          includeCurrentVersion: false,
+          lastVersion: '5.28.0',
         },
         blog: false,
         theme: {
@@ -71,6 +66,33 @@ const config = {
         items: [
           {
             type: 'docsVersionDropdown',
+          },
+          {
+            type: 'dropdown',
+            label: 'Framework',
+            items: [
+              {
+                type: 'doc',
+                label: 'Vue',
+                docId: 'vue/getting-started/overview',
+              },
+              {
+                label: 'Angular',
+                href: 'https://docs.mobiscroll.com/angular',
+              },
+              {
+                label: 'React',
+                href: 'https://docs.mobiscroll.com/react',
+              },
+              {
+                label: 'jQuery',
+                href: 'https://docs.mobiscroll.com/jquery',
+              },
+              {
+                label: 'JavaScript',
+                href: 'https://docs.mobiscroll.com/javascript',
+              },
+            ],
           },
           {
             href: 'https://docs.mobiscroll.com/cli',
@@ -120,6 +142,11 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+      },
+      algolia: {
+        appId: '3NDU900UQH',
+        apiKey: '63af4c8805116c77b6f64c291d3953c3',
+        indexName: 'docs_mobiscroll',
       },
     }),
 };

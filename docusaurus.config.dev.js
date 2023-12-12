@@ -96,8 +96,8 @@ const config = {
               {
                 label: 'JavaScript',
                 href: 'https://docs.mobiscrollprod.com/javascript',
-              }
-            ]
+              },
+            ],
           },
           {
             href: 'https://docs.mobiscrollprod.com/cli',
@@ -147,6 +147,11 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+      },
+      algolia: {
+        appId: '3NDU900UQH',
+        apiKey: '63af4c8805116c77b6f64c291d3953c3',
+        indexName: 'docs_mobiscroll',
       },
     }),
 };

@@ -78,8 +78,8 @@ Supplied themes:
 - `'material'` - Material theme
 - `'windows'` - Windows theme
 
-It&#039;s possible to [modify theme colors](../../theming/sass-variables) or
-[create custom themes](../../theming/sass-themes).
+It&#039;s possible to [modify theme colors](../theming/sass-variables) or
+[create custom themes](../theming/sass-themes).
 
 :::info
 Make sure that the theme you set is included in the downloaded package.

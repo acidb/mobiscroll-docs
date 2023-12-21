@@ -397,7 +397,7 @@ as end date.
 any
 
 The input component to render if the picker is modal
-If not specified, it will render a [Mobiscroll Input](../../forms/input) component.
+If not specified, it will render a [Mobiscroll Input](../forms/input) component.
 
 Props can be specified using the [inputProps](#opt-inputProps) option.
 
@@ -1004,8 +1004,8 @@ Supplied themes:
 - `'material'` - Material theme
 - `'windows'` - Windows theme
 
-It&#039;s possible to [modify theme colors](../../theming/sass-variables) or
-[create custom themes](../../theming/sass-themes).
+It&#039;s possible to [modify theme colors](../theming/sass-variables) or
+[create custom themes](../theming/sass-themes).
 
 :::info
 Make sure that the theme you set is included in the downloaded package.

@@ -47,11 +47,11 @@ Triggered when the mouse pointer hovers a day on the calendar view (does not app
 
 Parameters:
  - args - The event argument with the following properties:
-   - `date`: *Date* - The selected date as a Date object.
+   - `date`: *Date* - The date of the hovered day.
    - `events`: *Array&lt;MbscCalendarEvent&gt;* - The events for the hovered day.
    - `labels`: *Array&lt;MbscCalendarLabel&gt;* - If the day has labels, contains the label objects for the hovered day.
-   - `marked`: *Array&lt;MbscCalendarMarked&gt;*  If the day is marked, contains the marked objects for the hovered day.
-   - `selected`: *boolean* - -  Specifies if the day is currently selected or not.
+   - `marked`: *Array&lt;MbscCalendarMarked&gt;* - If the day is marked, contains the marked objects for the hovered day.
+   - `selected`: *boolean* - Specifies if the day is currently selected or not.
    - `target`: *HTMLElement* - The DOM element of the cell.
 
  - inst - The component instance.
@@ -66,10 +66,10 @@ Triggered when the mouse pointer leaves a day on the calendar view (does not app
 
 Parameters:
  - args - The event argument with the following properties:
-   - `date`: *Date* - The selected date as a Date object.
+   - `date`: *Date* - The date of the hovered day.
    - `events`: *Array&lt;MbscCalendarEvent&gt;* - The events for the hovered day.
    - `labels`: *Array&lt;MbscCalendarLabel&gt;* - If the day has labels, contains the label objects for the hovered day.
-   - `marked`: *Array&lt;MbscCalendarMarked&gt;*  If the day is marked, contains the marked objects for the hovered day.
+   - `marked`: *Array&lt;MbscCalendarMarked&gt;* - If the day is marked, contains the marked objects for the hovered day.
    - `selected`: *boolean* - Specifies if the day is currently selected or not.
    - `target`: *HTMLElement* - The DOM element of the cell.
 
@@ -214,9 +214,9 @@ Triggered when an event is deleted and it is removed from the view.
 
 Parameters:
  - args - The event argument with the following properties:
-   - event: *MbscCalendarEvent* - The deleted event.
-   - events: *Array&lt;MbscCalendarEvent&gt;* - The deleted events in case of multiple event selection.
-   - source: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;timeline&#039; | &#039;schedule&#039;* - The view where the event was deleted.
+   - `event`: *MbscCalendarEvent* - The deleted event.
+   - `events`: *Array&lt;MbscCalendarEvent&gt;* - The deleted events in case of multiple event selection.
+   - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;timeline&#039; | &#039;schedule&#039;* - The view where the event was deleted.
 
  - inst - The component instance.
 

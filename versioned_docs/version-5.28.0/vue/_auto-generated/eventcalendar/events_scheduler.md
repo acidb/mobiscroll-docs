@@ -176,9 +176,9 @@ Triggered when an event is deleted and it is removed from the view.
 
 Parameters:
  - args - The event argument with the following properties:
-   - event: *MbscCalendarEvent* - The deleted event.
-   - events: *Array&lt;MbscCalendarEvent&gt;* - The deleted events in case of multiple event selection.
-   - source: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;timeline&#039; | &#039;schedule&#039;* - The view where the event was deleted.
+   - `event`: *MbscCalendarEvent* - The deleted event.
+   - `events`: *Array&lt;MbscCalendarEvent&gt;* - The deleted events in case of multiple event selection.
+   - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;timeline&#039; | &#039;schedule&#039;* - The view where the event was deleted.
 
  - inst - The component instance.
 

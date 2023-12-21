@@ -44,6 +44,42 @@ Parameters:
  - inst - The component instance.
 
 
+### @cell-hover-in {#event-onCellHoverIn}
+
+(args: MbscDatepickerCellHoverEvent, inst: DatepickerBase) => void
+
+
+Triggered when the mouse pointer hovers a day on the calendar.
+
+Parameters:
+ - args - The event argument with the following properties:
+   - `date`: *Date* - The date of the hovered day.
+   - `labels`: *Array&lt;MbscCalendarLabel&gt;* - If the day has labels, contains the label objects for the hovered day.
+   - `marked`: *Array&lt;MbscCalendarMarked&gt;* - If the day is marked, contains the marked objects for the hovered day.
+   - `selected`: *boolean* - Specifies if the day is currently selected or not.
+   - `target`: *HTMLElement* - The DOM element of the cell.
+
+ - inst - The component instance.
+
+
+### @cell-hover-out {#event-onCellHoverOut}
+
+(args: MbscDatepickerCellHoverEvent, inst: DatepickerBase) => void
+
+
+Triggered when the mouse pointer leaves a day on the calendar view (does not apply for agenda, schedule and timeline views).
+
+Parameters:
+ - args - The event argument with the following properties:
+   - `date`: *Date* - The date of the hovered day.
+   - `labels`: *Array&lt;MbscCalendarLabel&gt;* - If the day has labels, contains the label objects for the hovered day.
+   - `marked`: *Array&lt;MbscCalendarMarked&gt;* - If the day is marked, contains the marked objects for the hovered day.
+   - `selected`: *boolean* - Specifies if the day is currently selected or not.
+   - `target`: *HTMLElement* - The DOM element of the cell.
+
+ - inst - The component instance.
+
+
 ### @change {#event-onChange}
 
 (args: MbscDatepickerChangeEvent, inst: DatepickerBase) => void

@@ -186,7 +186,7 @@ colors: [
 **Default value**: `undefined`
 ### controls {#opt-controls}
 
-Array&lt;TDatepickerControl&gt;
+Array&lt;MbscDatepickerControl&gt;
 
 List of controls to display on the picker. Possible values:
 - `['calendar']`
@@ -392,6 +392,23 @@ on dates that already have a check-in. In this case, those dates would be disabl
 as end date.
 
 **Default value**: `false`
+### inputComponent {#opt-inputComponent}
+
+any
+
+The input component to render if the picker is modal
+If not specified, it will render a [Mobiscroll Input](../../forms/input) component.
+
+Props can be specified using the [inputProps](#opt-inputProps) option.
+
+**Default value**: `undefined`
+### inputProps {#opt-inputProps}
+
+any
+
+Props for the rendered input, specified by the [inputComponent](#opt-inputComponent) option.
+
+**Default value**: `undefined`
 ### inputStyle {#opt-inputStyle}
 
 "outline" &#124; "box" &#124; "underline"
@@ -905,7 +922,8 @@ Supplied themes:
 - `'material'` - Material theme
 - `'windows'` - Windows theme
 
-It&#039;s possible to [modify theme colors or create custom themes](https://docs.mobiscroll.com/theming).
+It&#039;s possible to [modify theme colors](../../theming/sass-variables) or
+[create custom themes](../../theming/sass-themes).
 
 :::info
 Make sure that the theme you set is included in the downloaded package.
@@ -929,7 +947,7 @@ suffixed with `'-dark'`, e.g.: `'my-theme'` and `'my-theme-dark'`.
 **Default value**: `undefined`
 ### timezonePlugin {#opt-timezonePlugin}
 
-ITimezonePlugin
+MbscTimezonePlugin
 
 Specifies the timezone plugin, which can handle the timezone conversions.
 

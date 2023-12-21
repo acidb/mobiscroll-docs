@@ -47,6 +47,6 @@ string
 If specified, the event dates will be returned in this timezone.
 ### timezonePlugin {#opt-google-timezonePlugin}
 
-ITimezonePlugin
+MbscTimezonePlugin
 
 The timezone plugin, needed if timezone is specified.

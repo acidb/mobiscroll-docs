@@ -229,6 +229,23 @@ Specifies a custom string which appears in the picker header.
 If it contains the `'{value}'` string, it will be replaced with the selected value of the picker.
 
 **Default value**: `undefined`
+### inputComponent {#opt-inputComponent}
+
+any
+
+The input component to render if the picker is modal
+If not specified, it will render a [Mobiscroll Input](../../forms/input) component.
+
+Props can be specified using the [inputProps](#opt-inputProps) option.
+
+**Default value**: `undefined`
+### inputProps {#opt-inputProps}
+
+any
+
+Props for the rendered input, specified by the [inputComponent](#opt-inputComponent) option.
+
+**Default value**: `undefined`
 ### inputStyle {#opt-inputStyle}
 
 "outline" &#124; "box" &#124; "underline"
@@ -433,7 +450,8 @@ Supplied themes:
 - `'material'` - Material theme
 - `'windows'` - Windows theme
 
-It&#039;s possible to [modify theme colors or create custom themes](https://docs.mobiscroll.com/theming).
+It&#039;s possible to [modify theme colors](../../theming/sass-variables) or
+[create custom themes](../../theming/sass-themes).
 
 :::info
 Make sure that the theme you set is included in the downloaded package.

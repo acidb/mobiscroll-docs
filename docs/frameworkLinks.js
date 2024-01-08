@@ -15,7 +15,8 @@ const config = {
     {
       type: 'link',
       label: 'Mobiscroll for React',
-      href: 'https://docs.mobiscroll.com/react/getting-started',
+      // href: 'https://docs.mobiscroll.com/react/getting-started',
+      href: 'react',
       icon: '/img/react-logo.svg',
     },
     {

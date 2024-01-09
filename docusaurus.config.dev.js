@@ -52,6 +52,9 @@ const config = {
         theme: {
           customCss: [require.resolve('./src/css/custom.css'), require.resolve('./src/css/footer.css')],
         },
+        googleTagManager: {
+          containerId: 'GTM-12345',
+        },
       }),
     ],
   ],
@@ -154,6 +157,13 @@ const config = {
         indexName: 'docs_mobiscroll',
       },
     }),
+
+  scripts: [
+    {
+      src: 'https://www.google.com/recaptcha/api.js?render=6Leu6BgpAAAAALbw6w2g5wS6qQDPMWGJ7kQXNXAx',
+      async: true,
+    }
+  ]
 };
 
 module.exports = config;

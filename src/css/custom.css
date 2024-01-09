@@ -126,3 +126,7 @@
   height: 1.2em;
   vertical-align: text-bottom;
 }
+
+.grecaptcha-badge {
+  display: none !important;
+}

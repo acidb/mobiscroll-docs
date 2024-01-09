@@ -22,7 +22,8 @@ const config = {
     {
       type: 'link',
       label: 'Mobiscroll for Angular',
-      href: 'https://docs.mobiscroll.com/angular/getting-started',
+      // href: 'https://docs.mobiscroll.com/angular/getting-started',
+      href: 'angular',
       icon: '/img/angular-logo.svg',
     },
     {

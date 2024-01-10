@@ -1,6 +1,6 @@
 ---
 sidebar_label: Update version
-displayed_sidebar: vueSidebar
+displayed_sidebar: angularSidebar
 ---
 
 import UpdateVersionMain from '../../_shared/_update_version.mdx';
@@ -14,12 +14,12 @@ import UpdateVersionDownload from '../../_shared/_update_version_download.mdx';
 
 ## Updating from our NPM repository {#npm-update}
 
-<UpdateVersionNpm framework="vue" />
+<UpdateVersionNpm framework="angular" />
 
 ## Updating with the CLI {#cli-update}
 
-<UpdateVersionCli framework="vue" />
+<UpdateVersionCli framework="angular" />
 
 ## Updating from a downloaded package {#download-update}
 
-<UpdateVersionDownload framework="vue" />
+<UpdateVersionDownload framework="angular" />

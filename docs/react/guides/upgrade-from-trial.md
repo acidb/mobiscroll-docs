@@ -1,6 +1,6 @@
 ---
 sidebar_label: Upgrade from trial
-displayed_sidebar: vueSidebar
+displayed_sidebar: reactSidebar
 title: How to upgrade from the trial version
 ---
 
@@ -9,4 +9,4 @@ import { toc as ContentTOC } from '../../_shared/_upgrade_trial.mdx';
 
 export const toc = [...ContentTOC];
 
-<Content framework="vue" />
+<Content framework="react" />

@@ -5,7 +5,7 @@ displayed_sidebar: vueSidebar
 slug: /vue
 ---
 
-import SupportedPlatforms from '../../\_shared/supportedplatforms.mdx';
+import SupportedPlatforms from '../../\_shared/getting-started/supported_platforms.mdx';
 
 # Getting started with Mobiscroll for Vue
 

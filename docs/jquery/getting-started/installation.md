@@ -4,11 +4,11 @@ sidebar_label: Installation
 displayed_sidebar: jquerySidebar
 ---
 
-import CliInstall from '../../\_shared/cliinstall.mdx';
-import TrialStart from '../../\_shared/\_starting_trial.mdx';
-import InstallNpm from '../../\_shared/\_install_npm.mdx';
-import InstallDownload from '../../\_shared/\_install_download.mdx';
-import ImportStyles from '../../\_shared/\_import_styles.mdx';
+import CliInstall from '../../\_shared/getting-started/cliinstall.mdx';
+import TrialStart from '../../\_shared/getting-started/starting_trial.mdx';
+import InstallNpm from '../../\_shared/getting-started/install_npm.mdx';
+import InstallDownload from '../../\_shared/getting-started/install_download.mdx';
+import ImportStyles from '../../\_shared/getting-started/import_styles.mdx';
 
 # Getting started with Mobiscroll for jQuery
 
@@ -108,9 +108,9 @@ $(function() {
 });
 ```
 
-## ES6 Modules
+## ESM Bundle
 
-Starting from Mobiscroll v5.0.2 we provide an ESM bundle with all packages, so they can be used as ES6 Modules. This way many bundlers (ex. Rollup, Webpack, etc...) can take advantage of the tree-shaking technique and eliminate dead code. This reduces the bundle size to only what is actually used in the application.
+With every Mobiscroll package we provide an ESM bundle, so it can be used as a JavaScript Module. This way many bundlers (for example Rollup, Webpack, etc...) can take advantage of the tree-shaking technique and eliminate dead code. This reduces the bundle size to only what is actually used in the application.
 
 The ESM bundles are under the `esm5` folder of the package.
 
@@ -132,5 +132,5 @@ Some Mobiscroll components can also be initialized using a html attribute that a
 ```
 
 :::caution
-When using an ESM bundles the auto-initialization will work only after registering the components.
+When using an ESM bundles the auto-initialization will work only after [registering the components](#registering-components).
 :::

@@ -7,11 +7,11 @@ displayed_sidebar: angularSidebar
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-import CliInstall from '../../\_shared/cliinstall.mdx';
-import TrialStart from '../../\_shared/\_starting_trial.mdx';
-import InstallNpm from '../../\_shared/\_install_npm.mdx';
-import InstallDownload from '../../\_shared/\_install_download.mdx';
-import ImportStyles from '../../\_shared/\_import_styles.mdx';
+import CliInstall from '../../\_shared/getting-started/cliinstall.mdx';
+import TrialStart from '../../\_shared/getting-started/starting_trial.mdx';
+import InstallNpm from '../../\_shared/getting-started/install_npm.mdx';
+import InstallDownload from '../../\_shared/getting-started/install_download.mdx';
+import ImportStyles from '../../\_shared/getting-started/import_styles.mdx';
 
 # Getting started with Mobiscroll for Angular
 

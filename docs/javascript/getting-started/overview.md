@@ -5,7 +5,7 @@ displayed_sidebar: javascriptSidebar
 slug: /javascript
 ---
 
-import SupportedPlatforms from '../../\_shared/supportedplatforms.mdx';
+import SupportedPlatforms from '../../\_shared/getting-started/supported_platforms.mdx';
 
 # Getting started with Mobiscroll for JavaScript
 

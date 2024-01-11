@@ -3,10 +3,10 @@ sidebar_label: Update version
 displayed_sidebar: javascriptSidebar
 ---
 
-import UpdateVersionMain from '../../_shared/_update_version.mdx';
-import UpdateVersionNpm from '../../_shared/_update_version_npm.mdx';
-import UpdateVersionCli from '../../_shared/_update_version_cli.mdx';
-import UpdateVersionDownload from '../../_shared/_update_version_download.mdx';
+import UpdateVersionMain from '../../_shared/guides/update_version.mdx';
+import UpdateVersionNpm from '../../_shared/guides/update_version_npm.mdx';
+import UpdateVersionCli from '../../_shared/guides/update_version_cli.mdx';
+import UpdateVersionDownload from '../../_shared/guides/update_version_download.mdx';
 
 # Updating to the latest Mobiscroll
 

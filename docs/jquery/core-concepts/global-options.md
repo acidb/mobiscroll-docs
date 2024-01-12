@@ -1,6 +1,6 @@
 ---
 sidebar_label: Global options
-displayed_sidebar: vueSidebar
+displayed_sidebar: jquerySidebar
 ---
 
 import SetOptionsDescription from '../../_shared/core-concepts/global_setoptions.mdx';
@@ -9,15 +9,19 @@ import SetOptionsDescription from '../../_shared/core-concepts/global_setoptions
 
 <SetOptionsDescription />
 
-```html
-<script setup>
-  import { setOptions, localeDe } from '@mobiscroll/vue';
-
+```javascript
+$(function() {
   // Specify options globally for all components
-  setOptions({
+  mobiscroll.setOptions({
     locale: localeDe,
     theme: 'ios',
     themeVariant: 'dark',
   });
-</script>
+
+  $('#my-input').mobiscroll().datepicker({
+    select: 'range',
+  });
+});
 ```
+
+In the above example the datepicker will use the global options for the theme, locale and themeVariant.

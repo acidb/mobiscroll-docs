@@ -1,6 +1,6 @@
 ---
 sidebar_label: Recurrence
-displayed_sidebar: vueSidebar
+displayed_sidebar: jquerySidebar
 title: Recurrence
 ---
 
@@ -13,13 +13,13 @@ export const toc = [...recTOC, { value: 'Full example', level: 2, id: 'full-exam
 
 <h2 id="full-example">Full example</h2>
 
-```html title="Recurring events on the eventcalendar"
-<script setup>
-  import { ref } from 'vue';
-  import { MbscEventcalendar } from '@mobiscroll/vue';
-  import type { MbscCalendarEvent } from '@mobiscroll/vue';
+```html
+<div id="my-div"></div>
+```
 
-  const myEvents = ref<MbscCalendarEvent[]>([{
+```javascript title="Recurring events on the eventcalendar"
+$('#my-div').mobiscroll().eventcalendar({
+  data: [{
     start: new Date(2020, 2, 18, 9, 0),
     end: new Date(2020, 2, 18, 17, 0),
     title: 'Repeat every 2 days 5 times',
@@ -40,10 +40,6 @@ export const toc = [...recTOC, { value: 'Full example', level: 2, id: 'full-exam
         pos: 1,
         weekDays: 'FR',
     }
-  }]);
-</script>
-
-<template>
-  <MbscEventcalendar :data="myEvents" />
-</template>
+  }],
+});
 ```

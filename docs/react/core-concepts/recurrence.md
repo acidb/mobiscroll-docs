@@ -1,6 +1,6 @@
 ---
 sidebar_label: Recurrence
-displayed_sidebar: vueSidebar
+displayed_sidebar: reactSidebar
 title: Recurrence
 ---
 
@@ -13,13 +13,12 @@ export const toc = [...recTOC, { value: 'Full example', level: 2, id: 'full-exam
 
 <h2 id="full-example">Full example</h2>
 
-```html title="Recurring events on the eventcalendar"
-<script setup>
-  import { ref } from 'vue';
-  import { MbscEventcalendar } from '@mobiscroll/vue';
-  import type { MbscCalendarEvent } from '@mobiscroll/vue';
+```jsx title="Recurring events on the eventcalendar"
+import { useState } from 'react';
+import { Eventcalendar } from '@mobiscroll/react';
 
-  const myEvents = ref<MbscCalendarEvent[]>([{
+function App() {
+  const [myEvents] = useState([{
     start: new Date(2020, 2, 18, 9, 0),
     end: new Date(2020, 2, 18, 17, 0),
     title: 'Repeat every 2 days 5 times',
@@ -39,11 +38,8 @@ export const toc = [...recTOC, { value: 'Full example', level: 2, id: 'full-exam
         repeat: 'monthly',
         pos: 1,
         weekDays: 'FR',
-    }
-  }]);
-</script>
+  }}]);
 
-<template>
-  <MbscEventcalendar :data="myEvents" />
-</template>
+  return <Eventcalendar data={myEvents} />
+}
 ```

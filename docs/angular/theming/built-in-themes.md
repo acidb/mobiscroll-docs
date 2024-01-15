@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 sidebar_label: Built-in themes
-displayed_sidebar: vueSidebar
+displayed_sidebar: angularSidebar
 title: Theming
 ---
 

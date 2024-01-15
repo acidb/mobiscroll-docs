@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 sidebar_label: Sass variables
-displayed_sidebar: vueSidebar
+displayed_sidebar: angularSidebar
 title: Sass variables
 ---
 
@@ -10,4 +10,4 @@ import { toc as ContentTOC } from '../../_shared/theming/sass_variables.mdx';
 
 export const toc = [...ContentTOC];
 
-<Content framework="vue" />
+<Content framework="angular" />

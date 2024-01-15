@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 sidebar_label: Custom themes
-displayed_sidebar: vueSidebar
+displayed_sidebar: reactSidebar
 ---
 
 import Methods from '../../_shared/theming/theming_methods.mdx';
@@ -16,7 +16,7 @@ To create a custom theme using Sass, you can use the provided [`mbsc-custom-them
 
 ```scss
 // import the library
-@import "~@mobiscroll/vue/dist/css/mobiscroll.scss"
+@import "~@mobiscroll/react/dist/css/mobiscroll.scss"
 
 // specify the custom input colors:
 $colors-ios-my-happy: (
@@ -32,17 +32,17 @@ $colors-ios-my-happy: (
 
 Before you can use the custom theme, you will also need to register it in your javascript code. This can be done after the mobiscroll resources has been loaded, but before using any of the components. Use the [`createCustomTheme`](#method-createCustomTheme) function. Make sure to use the same name which was specified to the Sass function, and specify the same base theme as second parameter.
 
-```html
-<script setup>
-  import { createCustomTheme } from '@mobiscroll/vue';
+```jsx
+import { createCustomTheme, Datepicker, Eventcalendar } from '@mobiscroll/react';
 
-  createCustomTheme('my-happy-brand', 'ios'); // register the custom theme
-</script>
+createCustomTheme('my-happy-brand', 'ios'); // register the custom theme
 
-<template>
-  <MbscDatepicker theme="my-happy-brand" />
-  <MbscEventcalendar theme="my-happy-brand" />
-</template>
+function App() {
+  return <>
+    <Datepicker theme="my-happy-brand" />
+    <Eventcalendar theme="my-happy-brand" />
+  </>
+}
 ```
 
 ## Light and Dark variants

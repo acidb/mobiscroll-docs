@@ -1,8 +1,11 @@
 ---
 sidebar_position: 2
 sidebar_label: Custom themes
-displayed_sidebar: vueSidebar
+displayed_sidebar: angularSidebar
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 import Methods from '../../_shared/theming/theming_methods.mdx';
 
@@ -16,7 +19,7 @@ To create a custom theme using Sass, you can use the provided [`mbsc-custom-them
 
 ```scss
 // import the library
-@import "~@mobiscroll/vue/dist/css/mobiscroll.scss"
+@import "~@mobiscroll/angular/dist/css/mobiscroll.scss"
 
 // specify the custom input colors:
 $colors-ios-my-happy: (
@@ -32,18 +35,29 @@ $colors-ios-my-happy: (
 
 Before you can use the custom theme, you will also need to register it in your javascript code. This can be done after the mobiscroll resources has been loaded, but before using any of the components. Use the [`createCustomTheme`](#method-createCustomTheme) function. Make sure to use the same name which was specified to the Sass function, and specify the same base theme as second parameter.
 
-```html
-<script setup>
-  import { createCustomTheme } from '@mobiscroll/vue';
 
-  createCustomTheme('my-happy-brand', 'ios'); // register the custom theme
-</script>
+<Tabs>
+<TabItems value="module" label="app.module.ts">
 
-<template>
-  <MbscDatepicker theme="my-happy-brand" />
-  <MbscEventcalendar theme="my-happy-brand" />
-</template>
+```js
+import { createCustomTheme } from '@mobiscroll/angular';
+
+// register the custom theme
+createCustomTheme('my-happy-brand', 'ios');
 ```
+
+</TabItems>
+<TabItems value="html" label="app.component.html">
+
+```html
+<mbsc-datepicker theme="my-happy-brand"></mbsc-datepicker>
+<mbsc-eventcalendar theme="my-happy-brand"></mbsc-eventcalendar>
+```
+
+</TabItems>
+</Tabs>
+
+
 
 ## Light and Dark variants
 

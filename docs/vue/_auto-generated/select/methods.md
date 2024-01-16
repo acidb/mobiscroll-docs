@@ -1,9 +1,3 @@
-### close {#method-close}
-
-() => void
-
-
-Closes the component.
 
 ### getTempVal {#method-getTempVal}
 
@@ -13,12 +7,6 @@ Closes the component.
 Returns the temporary value selected on the picker.
 
 
-### open {#method-open}
-
-() => void
-
-
-Opens the component.
 
 
 ### setTempVal {#method-setTempVal}

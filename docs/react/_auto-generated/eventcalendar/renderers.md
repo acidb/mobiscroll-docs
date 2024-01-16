@@ -26,14 +26,6 @@ and scrolling the list updates the selected date on the calendar.
 
 **Default value**: `undefined`
 
-Parameters:
- - events - 
-
- - options - 
-
- - dayRefs - 
-
-
 ### renderAgendaEmpty {#renderer-renderAgendaEmpty}
 
 () => any
@@ -63,10 +55,6 @@ when the events are grouped by resources.
 
 **Default value**: `undefined`
 
-Parameters:
- - args - 
-
-
 ### renderDayContent {#renderer-renderDayContent}
 
 (args: MbscCalendarDayData) => any
@@ -87,10 +75,6 @@ when the events are grouped by resources.
 
 **Default value**: `undefined`
 
-Parameters:
- - args - 
-
-
 ### renderDayFooter {#renderer-renderDayFooter}
 
 (args: MbscCalendarDayData) => any
@@ -103,10 +87,6 @@ The following day specific details are available:
 - `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the day.
 
 **Default value**: `undefined`
-
-Parameters:
- - args - 
-
 
 ### renderEvent {#renderer-renderEvent}
 
@@ -130,10 +110,6 @@ The following event specific properties are available:
 - `title`: _string_ - The title of the event.
 
 **Default value**: `undefined`
-
-Parameters:
- - data - 
-
 
 ### renderEventContent {#renderer-renderEventContent}
 
@@ -159,10 +135,6 @@ The following event specific properties are available:
 
 **Default value**: `undefined`
 
-Parameters:
- - data - 
-
-
 ### renderHeader {#renderer-renderHeader}
 
 () => any
@@ -187,10 +159,6 @@ The following properties are available:
 
 **Default value**: `undefined`
 
-Parameters:
- - args - 
-
-
 ### renderHourFooter {#renderer-renderHourFooter}
 
 (args: MbscCalendarDayData) => any
@@ -203,10 +171,6 @@ The following properties are available:
 - `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the hour.
 
 **Default value**: `undefined`
-
-Parameters:
- - args - 
-
 
 ### renderLabel {#renderer-renderLabel}
 
@@ -228,10 +192,6 @@ The following event specific properties are available:
 - `start`: _string_ - The formatted start time, if the event is not all day.
 
 **Default value**: `undefined`
-
-Parameters:
- - event - 
-
 
 ### renderLabelContent {#renderer-renderLabelContent}
 
@@ -255,10 +215,6 @@ The following event specific properties are available:
 
 **Default value**: `undefined`
 
-Parameters:
- - event - 
-
-
 ### renderMonth {#renderer-renderMonth}
 
 (args: MbscCalendarDayData) => any
@@ -272,10 +228,6 @@ The following properties are available:
  - `isActive`: _boolean_ - True for the current month.
 
 **Default value**: `undefined`
-
-Parameters:
- - args - 
-
 
 ### renderMonthFooter {#renderer-renderMonthFooter}
 
@@ -291,10 +243,6 @@ The following properties are available:
 
 **Default value**: `undefined`
 
-Parameters:
- - args - 
-
-
 ### renderQuarter {#renderer-renderQuarter}
 
 (args: MbscCalendarDayData) => any
@@ -308,10 +256,6 @@ The following properties are available:
 - `isActive`: _boolean_ - True for the current quarter.
 
 **Default value**: `undefined`
-
-Parameters:
- - args - 
-
 
 ### renderQuarterFooter {#renderer-renderQuarterFooter}
 
@@ -327,10 +271,6 @@ The following properties are available:
 
 **Default value**: `undefined`
 
-Parameters:
- - args - 
-
-
 ### renderResource {#renderer-renderResource}
 
 (resource: MbscResource) => any
@@ -340,10 +280,6 @@ Customize how the resources are rendered on the scheduler and timeline views.
 The object of the rendered resource is available for use.
 
 **Default value**: `undefined`
-
-Parameters:
- - resource - 
-
 
 ### renderResourceFooter {#renderer-renderResourceFooter}
 
@@ -390,10 +326,6 @@ The following event specific properties are available:
 
 **Default value**: `undefined`
 
-Parameters:
- - event - 
-
-
 ### renderScheduleEventContent {#renderer-renderScheduleEventContent}
 
 (event: MbscCalendarEventData) => any
@@ -420,10 +352,6 @@ The following event specific properties are available:
 
 **Default value**: `undefined`
 
-Parameters:
- - event - 
-
-
 ### renderSidebar {#renderer-renderSidebar}
 
 (resource: MbscResource) => any
@@ -433,10 +361,6 @@ Add a custom sidebar on the right side of the timeline.
 The object of the rendered resource is available for use.
 
 **Default value**: `undefined`
-
-Parameters:
- - resource - 
-
 
 ### renderSidebarFooter {#renderer-renderSidebarFooter}
 
@@ -471,10 +395,6 @@ The following properties are available:
 
 **Default value**: `undefined`
 
-Parameters:
- - args - 
-
-
 ### renderWeek {#renderer-renderWeek}
 
 (args: MbscCalendarDayData) => any
@@ -491,10 +411,6 @@ The following properties are available:
  - `weekNr`: _number_ - The week number. Enumeration starts with the first week of the year.
 
 **Default value**: `undefined`
-
-Parameters:
- - args - 
-
 
 ### renderWeekFooter {#renderer-renderWeekFooter}
 
@@ -513,10 +429,6 @@ The following properties are available:
 
 **Default value**: `undefined`
 
-Parameters:
- - args - 
-
-
 ### renderYear {#renderer-renderYear}
 
 (args: MbscCalendarDayData) => any
@@ -531,10 +443,6 @@ The following properties are available:
 
 **Default value**: `undefined`
 
-Parameters:
- - args - 
-
-
 ### renderYearFooter {#renderer-renderYearFooter}
 
 (args: MbscCalendarDayData) => any
@@ -548,7 +456,3 @@ The following properties are available:
  - `isActive`: _boolean_ - True for the current year.
 
 **Default value**: `undefined`
-
-Parameters:
- - args - 
-

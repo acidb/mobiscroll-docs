@@ -4,9 +4,11 @@
 
 
 
+
 ### _groupOptions {#method-_groupOptions}
 
 (__namedParameters: MbscRadioGroupOptions) => void
+
 
 
 
@@ -16,9 +18,11 @@
 
 
 
+
 ### _onValueChange {#method-_onValueChange}
 
 (value: any) => void
+
 
 
 
@@ -28,9 +32,11 @@
 
 
 
+
 ### _setEl {#method-_setEl}
 
 (el: any) => void
+
 
 
 
@@ -40,9 +46,11 @@
 
 
 
+
 ### componentDidCatch {#method-componentDidCatch}
 
 (error: any, errorInfo: any) => void
+
 
 
 
@@ -52,9 +60,11 @@
 
 
 
+
 ### componentDidUpdate {#method-componentDidUpdate}
 
 () => void
+
 
 
 
@@ -64,9 +74,11 @@
 
 
 
+
 ### componentWillReceiveProps {#method-componentWillReceiveProps}
 
 (nextProps: Readonly, nextContext: any) => void
+
 
 
 
@@ -76,9 +88,11 @@
 
 
 
+
 ### componentWillUpdate {#method-componentWillUpdate}
 
 (nextProps: Readonly, nextState: Readonly, nextContext: any) => void
+
 
 
 
@@ -89,9 +103,11 @@
 
 
 
+
 ### getChildContext {#method-getChildContext}
 
 () => object
+
 
 
 
@@ -101,9 +117,11 @@
 
 
 
+
 ### getSnapshotBeforeUpdate {#method-getSnapshotBeforeUpdate}
 
 (oldProps: Readonly, oldState: Readonly) => any
+
 
 
 
@@ -113,9 +131,11 @@
 
 
 
+
 ### setOptions {#method-setOptions}
 
 (opt: MbscRadioOptions) => void
+
 
 
 
@@ -127,9 +147,11 @@
 
 
 
+
 ### shouldComponentUpdate {#method-shouldComponentUpdate}
 
 (props: any, state: any) => boolean
+
 
 
 
@@ -139,8 +161,10 @@
 
 
 
+
 ### getDerivedStateFromProps {#method-getDerivedStateFromProps}
 
 (props: object, state: object) => object
+
 
 

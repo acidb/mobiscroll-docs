@@ -26,14 +26,6 @@ and scrolling the list updates the selected date on the calendar.
 
 **Default value**: `undefined`
 
-Parameters:
- - events - 
-
- - options - 
-
- - dayRefs - 
-
-
 ### renderAgendaEmpty {#renderer-renderAgendaEmpty}
 
 () => any
@@ -66,10 +58,6 @@ The following event specific properties are available:
 
 **Default value**: `undefined`
 
-Parameters:
- - data - 
-
-
 ### renderEventContent {#renderer-renderEventContent}
 
 (data: MbscCalendarEventData) => any
@@ -93,10 +81,6 @@ The following event specific properties are available:
 - `title`: _string_ - The title of the event.
 
 **Default value**: `undefined`
-
-Parameters:
- - data - 
-
 
 ### renderHeader {#renderer-renderHeader}
 

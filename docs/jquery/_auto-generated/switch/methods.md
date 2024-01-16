@@ -4,9 +4,11 @@
 
 
 
+
 ### _onChange {#method-_onChange}
 
 (ev: any) => void
+
 
 
 
@@ -21,9 +23,11 @@ We need to disable this behavior because we trigger the change events manually t
 The main reason for this is that on touch devices when there is a drag, there is no click triggered,
 but when there&#039;s only a tap, there&#039;s also a click, so that would result in multiple change events
 that would cancel out each other.
+
 ### _safeHtml {#method-_safeHtml}
 
 (html: string) => any
+
 
 
 
@@ -33,9 +37,11 @@ that would cancel out each other.
 
 
 
+
 ### _setHandle {#method-_setHandle}
 
 (span: any) => void
+
 
 
 
@@ -45,9 +51,11 @@ that would cancel out each other.
 
 
 
+
 ### _setInput {#method-_setInput}
 
 (input: any) => void
+
 
 
 
@@ -57,9 +65,11 @@ that would cancel out each other.
 
 
 
+
 ### componentDidMount {#method-componentDidMount}
 
 () => void
+
 
 
 
@@ -69,9 +79,11 @@ that would cancel out each other.
 
 
 
+
 ### componentWillMount {#method-componentWillMount}
 
 () => void
+
 
 
 
@@ -81,15 +93,18 @@ that would cancel out each other.
 
 
 
+
 ### componentWillUnmount {#method-componentWillUnmount}
 
 () => void
 
 
 
+
 ### componentWillUpdate {#method-componentWillUpdate}
 
 (nextProps: Readonly, nextState: Readonly, nextContext: any) => void
+
 
 
 
@@ -100,9 +115,11 @@ that would cancel out each other.
 
 
 
+
 ### getChildContext {#method-getChildContext}
 
 () => object
+
 
 
 
@@ -112,9 +129,11 @@ that would cancel out each other.
 
 
 
+
 ### getSnapshotBeforeUpdate {#method-getSnapshotBeforeUpdate}
 
 (oldProps: Readonly, oldState: Readonly) => any
+
 
 
 
@@ -124,9 +143,11 @@ that would cancel out each other.
 
 
 
+
 ### setOptions {#method-setOptions}
 
 (opt: MbscSwitchOptions) => void
+
 
 
 
@@ -138,9 +159,11 @@ that would cancel out each other.
 
 
 
+
 ### shouldComponentUpdate {#method-shouldComponentUpdate}
 
 (props: any, state: any) => boolean
+
 
 
 
@@ -150,8 +173,10 @@ that would cancel out each other.
 
 
 
+
 ### getDerivedStateFromProps {#method-getDerivedStateFromProps}
 
 (props: object, state: object) => object
+
 
 

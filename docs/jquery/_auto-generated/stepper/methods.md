@@ -4,9 +4,11 @@
 
 
 
+
 ### _onChange {#method-_onChange}
 
 (ev: any) => void
+
 
 
 
@@ -16,9 +18,11 @@
 
 
 
+
 ### _onMinusClick {#method-_onMinusClick}
 
 () => void
+
 
 
 
@@ -28,9 +32,11 @@
 
 
 
+
 ### _safeHtml {#method-_safeHtml}
 
 (html: string) => any
+
 
 
 
@@ -40,9 +46,11 @@
 
 
 
+
 ### _setInput {#method-_setInput}
 
 (input: HTMLInputElement) => void
+
 
 
 
@@ -52,9 +60,11 @@
 
 
 
+
 ### componentDidMount {#method-componentDidMount}
 
 () => void
+
 
 
 
@@ -64,9 +74,11 @@
 
 
 
+
 ### componentWillMount {#method-componentWillMount}
 
 () => void
+
 
 
 
@@ -76,15 +88,18 @@
 
 
 
+
 ### componentWillUnmount {#method-componentWillUnmount}
 
 () => void
 
 
 
+
 ### componentWillUpdate {#method-componentWillUpdate}
 
 (nextProps: Readonly, nextState: Readonly, nextContext: any) => void
+
 
 
 
@@ -95,9 +110,11 @@
 
 
 
+
 ### getChildContext {#method-getChildContext}
 
 () => object
+
 
 
 
@@ -107,9 +124,11 @@
 
 
 
+
 ### getSnapshotBeforeUpdate {#method-getSnapshotBeforeUpdate}
 
 (oldProps: Readonly, oldState: Readonly) => any
+
 
 
 
@@ -119,9 +138,11 @@
 
 
 
+
 ### setOptions {#method-setOptions}
 
 (opt: MbscStepperOptions) => void
+
 
 
 
@@ -133,9 +154,11 @@
 
 
 
+
 ### shouldComponentUpdate {#method-shouldComponentUpdate}
 
 (props: any, state: any) => boolean
+
 
 
 
@@ -145,8 +168,10 @@
 
 
 
+
 ### getDerivedStateFromProps {#method-getDerivedStateFromProps}
 
 (props: object, state: object) => object
+
 
 

@@ -4,9 +4,11 @@
 
 
 
+
 ### _setEl {#method-_setEl}
 
 (el: any) => void
+
 
 
 
@@ -16,9 +18,11 @@
 
 
 
+
 ### componentDidMount {#method-componentDidMount}
 
 () => void
+
 
 
 
@@ -28,9 +32,11 @@
 
 
 
+
 ### componentWillMount {#method-componentWillMount}
 
 () => void
+
 
 
 
@@ -40,15 +46,18 @@
 
 
 
+
 ### componentWillUnmount {#method-componentWillUnmount}
 
 () => void
 
 
 
+
 ### componentWillUpdate {#method-componentWillUpdate}
 
 (nextProps: Readonly, nextState: Readonly, nextContext: any) => void
+
 
 
 
@@ -59,9 +68,11 @@
 
 
 
+
 ### getChildContext {#method-getChildContext}
 
 () => object
+
 
 
 
@@ -71,9 +82,11 @@
 
 
 
+
 ### getSnapshotBeforeUpdate {#method-getSnapshotBeforeUpdate}
 
 (oldProps: Readonly, oldState: Readonly) => any
+
 
 
 
@@ -83,9 +96,11 @@
 
 
 
+
 ### setOptions {#method-setOptions}
 
 (opt: MbscDraggableOptions) => void
+
 
 
 
@@ -97,9 +112,11 @@
 
 
 
+
 ### shouldComponentUpdate {#method-shouldComponentUpdate}
 
 (props: any, state: any) => boolean
+
 
 
 
@@ -109,8 +126,10 @@
 
 
 
+
 ### getDerivedStateFromProps {#method-getDerivedStateFromProps}
 
 (props: object, state: object) => object
+
 
 

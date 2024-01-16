@@ -13,26 +13,6 @@ Returns a new Date object initialized with the same values.
 
 
 
-Parameters:
- - value - 
-
-
-
-Parameters:
- - year - 
-
- - month - 
-
- - date - 
-
- - h - 
-
- - min - 
-
- - sec - 
-
- - ms - 
-
 
 ### setTimezone {#method-setTimezone}
 

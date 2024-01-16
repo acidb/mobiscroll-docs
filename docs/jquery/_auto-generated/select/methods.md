@@ -4,9 +4,11 @@
 
 
 
+
 ### _filterRenderer {#method-_filterRenderer}
 
 () => any
+
 
 
 
@@ -16,9 +18,11 @@
 
 
 
+
 ### _setEl {#method-_setEl}
 
 (el: any) => void
+
 
 
 
@@ -28,9 +32,11 @@
 
 
 
+
 ### componentDidMount {#method-componentDidMount}
 
 () => void
+
 
 
 
@@ -40,9 +46,11 @@
 
 
 
+
 ### componentWillMount {#method-componentWillMount}
 
 () => void
+
 
 
 
@@ -52,15 +60,18 @@
 
 
 
+
 ### componentWillUnmount {#method-componentWillUnmount}
 
 () => void
 
 
 
+
 ### componentWillUpdate {#method-componentWillUpdate}
 
 (nextProps: Readonly, nextState: Readonly, nextContext: any) => void
+
 
 
 
@@ -71,9 +82,11 @@
 
 
 
+
 ### getChildContext {#method-getChildContext}
 
 () => object
+
 
 
 
@@ -83,9 +96,11 @@
 
 
 
+
 ### getSnapshotBeforeUpdate {#method-getSnapshotBeforeUpdate}
 
 (oldProps: Readonly, oldState: Readonly) => any
+
 
 
 
@@ -95,15 +110,18 @@
 
 
 Returns the temporary value selected on the picker.
+
 ### render {#method-render}
 
 () => any
 
 
 
+
 ### setOptions {#method-setOptions}
 
 (opt: MbscSelectOptions) => void
+
 
 
 
@@ -115,6 +133,7 @@ Returns the temporary value selected on the picker.
 
 
 
+
 ### setTempVal {#method-setTempVal}
 
 (value: any) => void
@@ -122,9 +141,15 @@ Returns the temporary value selected on the picker.
 
 Sets the temporary value to be selected on the picker.
 The value will be committed when the user hits the set button.
+
+Parameters:
+ - value - The value to set.
+
+
 ### shouldComponentUpdate {#method-shouldComponentUpdate}
 
 (props: any, state: any) => boolean
+
 
 
 
@@ -134,8 +159,10 @@ The value will be committed when the user hits the set button.
 
 
 
+
 ### getDerivedStateFromProps {#method-getDerivedStateFromProps}
 
 (props: object, state: object) => object
+
 
 

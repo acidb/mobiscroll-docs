@@ -18,10 +18,6 @@ when the events are grouped by resources.
 
 **Default value**: `undefined`
 
-Parameters:
- - args - 
-
-
 ### renderDayContent {#renderer-renderDayContent}
 
 (args: MbscCalendarDayData) => any
@@ -41,10 +37,6 @@ The following properties are available:
 when the events are grouped by resources.
 
 **Default value**: `undefined`
-
-Parameters:
- - args - 
-
 
 ### renderEvent {#renderer-renderEvent}
 
@@ -68,10 +60,6 @@ The following event specific properties are available:
 - `title`: _string_ - The title of the event.
 
 **Default value**: `undefined`
-
-Parameters:
- - data - 
-
 
 ### renderEventContent {#renderer-renderEventContent}
 
@@ -97,10 +85,6 @@ The following event specific properties are available:
 
 **Default value**: `undefined`
 
-Parameters:
- - data - 
-
-
 ### renderHeader {#renderer-renderHeader}
 
 () => any
@@ -124,10 +108,6 @@ The following properties are available:
 
 **Default value**: `undefined`
 
-Parameters:
- - args - 
-
-
 ### renderLabel {#renderer-renderLabel}
 
 (event: MbscCalendarEventData) => any
@@ -148,10 +128,6 @@ The following event specific properties are available:
 - `start`: _string_ - The formatted start time, if the event is not all day.
 
 **Default value**: `undefined`
-
-Parameters:
- - event - 
-
 
 ### renderLabelContent {#renderer-renderLabelContent}
 
@@ -174,7 +150,3 @@ The following event specific properties are available:
 - `start`: _string_ - The formatted start time, if the event is not all day.
 
 **Default value**: `undefined`
-
-Parameters:
- - event - 
-

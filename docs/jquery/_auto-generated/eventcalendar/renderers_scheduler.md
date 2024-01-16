@@ -18,10 +18,6 @@ when the events are grouped by resources.
 
 **Default value**: `undefined`
 
-Parameters:
- - args - 
-
-
 ### renderDayContent {#renderer-renderDayContent}
 
 (args: MbscCalendarDayData) => any
@@ -41,10 +37,6 @@ The following properties are available:
 when the events are grouped by resources.
 
 **Default value**: `undefined`
-
-Parameters:
- - args - 
-
 
 ### renderHeader {#renderer-renderHeader}
 
@@ -69,10 +61,6 @@ The following properties are available:
 
 **Default value**: `undefined`
 
-Parameters:
- - args - 
-
-
 ### renderResource {#renderer-renderResource}
 
 (resource: MbscResource) => any
@@ -82,10 +70,6 @@ Customize how the resources are rendered on the scheduler and timeline views.
 The object of the rendered resource is available for use.
 
 **Default value**: `undefined`
-
-Parameters:
- - resource - 
-
 
 ### renderScheduleEvent {#renderer-renderScheduleEvent}
 
@@ -113,10 +97,6 @@ The following event specific properties are available:
 
 **Default value**: `undefined`
 
-Parameters:
- - event - 
-
-
 ### renderScheduleEventContent {#renderer-renderScheduleEventContent}
 
 (event: MbscCalendarEventData) => any
@@ -142,7 +122,3 @@ The following event specific properties are available:
 - `currentResource`: _string | number_ - The resource of the row or column where the event is being rendered.
 
 **Default value**: `undefined`
-
-Parameters:
- - event - 
-

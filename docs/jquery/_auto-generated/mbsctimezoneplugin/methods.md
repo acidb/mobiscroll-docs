@@ -5,33 +5,9 @@
 
 
 
-Parameters:
- - s - 
-
- - year - 
-
- - month - 
-
- - date - 
-
- - h - 
-
- - min - 
-
- - sec - 
-
- - ms - 
-
-
 ### parse {#method-parse}
 
 (date: string &#124; number, s: any) => MbscTimezonedDate
 
 
-
-
-Parameters:
- - date - 
-
- - s - 
 

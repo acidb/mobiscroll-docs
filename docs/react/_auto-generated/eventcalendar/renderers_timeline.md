@@ -18,10 +18,6 @@ when the events are grouped by resources.
 
 **Default value**: `undefined`
 
-Parameters:
- - args - 
-
-
 ### renderDayContent {#renderer-renderDayContent}
 
 (args: MbscCalendarDayData) => any
@@ -42,10 +38,6 @@ when the events are grouped by resources.
 
 **Default value**: `undefined`
 
-Parameters:
- - args - 
-
-
 ### renderDayFooter {#renderer-renderDayFooter}
 
 (args: MbscCalendarDayData) => any
@@ -58,10 +50,6 @@ The following day specific details are available:
 - `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the day.
 
 **Default value**: `undefined`
-
-Parameters:
- - args - 
-
 
 ### renderHeader {#renderer-renderHeader}
 
@@ -87,10 +75,6 @@ The following properties are available:
 
 **Default value**: `undefined`
 
-Parameters:
- - args - 
-
-
 ### renderHourFooter {#renderer-renderHourFooter}
 
 (args: MbscCalendarDayData) => any
@@ -103,10 +87,6 @@ The following properties are available:
 - `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the hour.
 
 **Default value**: `undefined`
-
-Parameters:
- - args - 
-
 
 ### renderMonth {#renderer-renderMonth}
 
@@ -122,10 +102,6 @@ The following properties are available:
 
 **Default value**: `undefined`
 
-Parameters:
- - args - 
-
-
 ### renderMonthFooter {#renderer-renderMonthFooter}
 
 (args: MbscCalendarDayData) => any
@@ -139,10 +115,6 @@ The following properties are available:
  - `isActive`: _boolean_ - True for the current month.
 
 **Default value**: `undefined`
-
-Parameters:
- - args - 
-
 
 ### renderQuarter {#renderer-renderQuarter}
 
@@ -158,10 +130,6 @@ The following properties are available:
 
 **Default value**: `undefined`
 
-Parameters:
- - args - 
-
-
 ### renderQuarterFooter {#renderer-renderQuarterFooter}
 
 (args: MbscCalendarDayData) => any
@@ -176,10 +144,6 @@ The following properties are available:
 
 **Default value**: `undefined`
 
-Parameters:
- - args - 
-
-
 ### renderResource {#renderer-renderResource}
 
 (resource: MbscResource) => any
@@ -189,10 +153,6 @@ Customize how the resources are rendered on the scheduler and timeline views.
 The object of the rendered resource is available for use.
 
 **Default value**: `undefined`
-
-Parameters:
- - resource - 
-
 
 ### renderResourceFooter {#renderer-renderResourceFooter}
 
@@ -239,10 +199,6 @@ The following event specific properties are available:
 
 **Default value**: `undefined`
 
-Parameters:
- - event - 
-
-
 ### renderScheduleEventContent {#renderer-renderScheduleEventContent}
 
 (event: MbscCalendarEventData) => any
@@ -269,10 +225,6 @@ The following event specific properties are available:
 
 **Default value**: `undefined`
 
-Parameters:
- - event - 
-
-
 ### renderSidebar {#renderer-renderSidebar}
 
 (resource: MbscResource) => any
@@ -282,10 +234,6 @@ Add a custom sidebar on the right side of the timeline.
 The object of the rendered resource is available for use.
 
 **Default value**: `undefined`
-
-Parameters:
- - resource - 
-
 
 ### renderSidebarFooter {#renderer-renderSidebarFooter}
 
@@ -320,10 +268,6 @@ The following properties are available:
 
 **Default value**: `undefined`
 
-Parameters:
- - args - 
-
-
 ### renderWeek {#renderer-renderWeek}
 
 (args: MbscCalendarDayData) => any
@@ -340,10 +284,6 @@ The following properties are available:
  - `weekNr`: _number_ - The week number. Enumeration starts with the first week of the year.
 
 **Default value**: `undefined`
-
-Parameters:
- - args - 
-
 
 ### renderWeekFooter {#renderer-renderWeekFooter}
 
@@ -362,10 +302,6 @@ The following properties are available:
 
 **Default value**: `undefined`
 
-Parameters:
- - args - 
-
-
 ### renderYear {#renderer-renderYear}
 
 (args: MbscCalendarDayData) => any
@@ -380,10 +316,6 @@ The following properties are available:
 
 **Default value**: `undefined`
 
-Parameters:
- - args - 
-
-
 ### renderYearFooter {#renderer-renderYearFooter}
 
 (args: MbscCalendarDayData) => any
@@ -397,7 +329,3 @@ The following properties are available:
  - `isActive`: _boolean_ - True for the current year.
 
 **Default value**: `undefined`
-
-Parameters:
- - args - 
-

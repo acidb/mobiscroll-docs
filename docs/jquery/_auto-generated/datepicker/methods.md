@@ -4,9 +4,11 @@
 
 
 
+
 ### _setEl {#method-_setEl}
 
 (el: any) => void
+
 
 
 
@@ -16,9 +18,11 @@
 
 
 Closes the component.
+
 ### componentDidCatch {#method-componentDidCatch}
 
 (error: any, errorInfo: any) => void
+
 
 
 
@@ -28,9 +32,11 @@ Closes the component.
 
 
 
+
 ### componentDidUpdate {#method-componentDidUpdate}
 
 () => void
+
 
 
 
@@ -40,9 +46,11 @@ Closes the component.
 
 
 
+
 ### componentWillReceiveProps {#method-componentWillReceiveProps}
 
 (nextProps: Readonly, nextContext: any) => void
+
 
 
 
@@ -52,9 +60,11 @@ Closes the component.
 
 
 
+
 ### componentWillUpdate {#method-componentWillUpdate}
 
 (nextProps: Readonly, nextState: Readonly, nextContext: any) => void
+
 
 
 
@@ -65,9 +75,11 @@ Closes the component.
 
 
 
+
 ### getChildContext {#method-getChildContext}
 
 () => object
+
 
 
 
@@ -77,9 +89,11 @@ Closes the component.
 
 
 
+
 ### getSnapshotBeforeUpdate {#method-getSnapshotBeforeUpdate}
 
 (oldProps: Readonly, oldState: Readonly) => any
+
 
 
 
@@ -89,33 +103,43 @@ Closes the component.
 
 
 Returns the temporary value selected on the datepicker.
+
 ### isVisible {#method-isVisible}
 
 () => boolean
 
 
 Returns a boolean indicating whether the component is visible or not.
+
 ### navigate {#method-navigate}
 
 (date: MbscDateType) => void
 
 
 Display a specific month on the calendar without setting the date.
+
+Parameters:
+ - date - Date to navigate to. Can be a Date object, ISO8601 date string, or moment object.
+
+
 ### open {#method-open}
 
 () => void
 
 
 Opens the component.
+
 ### position {#method-position}
 
 () => void
 
 
 Recalculates the position of the component (if not inline).
+
 ### render {#method-render}
 
 () => any
+
 
 
 
@@ -125,9 +149,15 @@ Recalculates the position of the component (if not inline).
 
 
 Sets which date or time is currently selected (start or end).
+
+Parameters:
+ - active - Specifies which one should be active start or end selection.
+
+
 ### setOptions {#method-setOptions}
 
 (opt: MbscDatepickerOptions) => void
+
 
 
 
@@ -139,6 +169,7 @@ Sets which date or time is currently selected (start or end).
 
 
 
+
 ### setTempVal {#method-setTempVal}
 
 (value: MbscDatepickerValue) => void
@@ -147,9 +178,15 @@ Sets which date or time is currently selected (start or end).
 Sets the Datepicker temporary value. This temp value is shown on the picker until the selection.
 In the case of inline mode or when the touchUi setting is false the value will be set to the Model as well,
 since in these cases there&#039;s no temporary value.
+
+Parameters:
+ - value - The value to set to the Datepicker as temporary value
+
+
 ### shouldComponentUpdate {#method-shouldComponentUpdate}
 
 (props: any, state: any) => boolean
+
 
 
 
@@ -159,8 +196,10 @@ since in these cases there&#039;s no temporary value.
 
 
 
+
 ### getDerivedStateFromProps {#method-getDerivedStateFromProps}
 
 (props: object, state: object) => object
+
 
 

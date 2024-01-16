@@ -12,6 +12,13 @@
 
 
 
+### close {#method-close}
+
+() => void
+
+
+Closes the component.
+
 ### componentDidCatch {#method-componentDidCatch}
 
 (error: any, errorInfo: any) => void
@@ -89,6 +96,20 @@
 
 
 
+
+### isVisible {#method-isVisible}
+
+() => boolean
+
+
+Returns if the component is opened or not.
+
+### open {#method-open}
+
+() => void
+
+
+Opens the component.
 
 ### position {#method-position}
 

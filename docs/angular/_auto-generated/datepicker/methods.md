@@ -1,9 +1,3 @@
-### close {#method-close}
-
-() => void
-
-
-Closes the component.
 
 
 ### isVisible {#method-isVisible}
@@ -14,12 +8,6 @@ Closes the component.
 Returns a boolean indicating whether the component is visible or not.
 
 
-### open {#method-open}
-
-() => void
-
-
-Opens the component.
 
 ### position {#method-position}
 
@@ -33,9 +21,9 @@ Recalculates the position of the component (if not inline).
 (active: "end" &#124; "start") => void
 
 
-Sets which date or time is currently selected (start or end).
+Sets which date or time is currently selected
 
 Parameters:
- - active - Specifies which one should be active start or end selection.
+ - active - Specifies the active selection: start or end.
 
 

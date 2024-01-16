@@ -1,10 +1,3 @@
-### _safeHtml {#method-_safeHtml}
-
-(html: string) => any
-
-
-
-
 ### addEvent {#method-addEvent}
 
 (events: MbscCalendarEvent &#124; Array&lt;MbscCalendarEvent&gt;) => Array&lt;string&gt;
@@ -14,70 +7,6 @@ Adds one or more events to the calendar
 
 Parameters:
  - events - Object or Array containing the events.
-
-
-### componentDidCatch {#method-componentDidCatch}
-
-(error: any, errorInfo: any) => void
-
-
-
-
-### componentDidMount {#method-componentDidMount}
-
-() => void
-
-
-
-
-### componentDidUpdate {#method-componentDidUpdate}
-
-() => void
-
-
-
-
-### componentWillMount {#method-componentWillMount}
-
-() => void
-
-
-
-
-### componentWillReceiveProps {#method-componentWillReceiveProps}
-
-(nextProps: Readonly, nextContext: any) => void
-
-
-
-
-### componentWillUnmount {#method-componentWillUnmount}
-
-() => void
-
-
-
-
-### componentWillUpdate {#method-componentWillUpdate}
-
-(nextProps: Readonly, nextState: Readonly, nextContext: any) => void
-
-
-
-
-### forceUpdate {#method-forceUpdate}
-
-(callback: () => void
-) => void
-
-
-
-
-### getChildContext {#method-getChildContext}
-
-() => object
-
-
 
 
 ### getEvents {#method-getEvents}
@@ -93,13 +22,6 @@ Parameters:
  - start - Start date of the specified interval.
 
  - end - End date of the specified interval.
-
-
-### getInst {#method-getInst}
-
-() => Eventcalendar
-
-
 
 
 ### getInvalids {#method-getInvalids}
@@ -123,13 +45,6 @@ Parameters:
 
 
 Returns the selected events.
-
-### getSnapshotBeforeUpdate {#method-getSnapshotBeforeUpdate}
-
-(oldProps: Readonly, oldState: Readonly) => any
-
-
-
 
 ### navigate {#method-navigate}
 
@@ -166,13 +81,6 @@ Parameters:
  - events - An array containing IDs or the event objects to be deleted.
 
 
-### render {#method-render}
-
-() => any
-
-
-
-
 ### setEvents {#method-setEvents}
 
 (events: Array&lt;MbscCalendarEvent&gt;) => Array&lt;string&gt;
@@ -190,7 +98,7 @@ Parameters:
 (opt: MbscEventcalendarOptions) => void
 
 
-
+Sets or updates options of the component
 
 ### setSelectedEvents {#method-setSelectedEvents}
 
@@ -206,22 +114,6 @@ Parameters:
  - selectedEvents - An array containing the selected event objects.
 
 
-### setState {#method-setState}
-
-(state: Partial &#124; Pick &#124; (prevState: Readonly, props: Readonly) => Partial &#124; Pick
-, callback: () => void
-) => void
-
-
-
-
-### shouldComponentUpdate {#method-shouldComponentUpdate}
-
-(props: any, state: any) => boolean
-
-
-
-
 ### updateEvent {#method-updateEvent}
 
 (events: MbscCalendarEvent &#124; Array&lt;MbscCalendarEvent&gt;) => void
@@ -231,18 +123,4 @@ Updates one or more events in the event calendar.
 
 Parameters:
  - events - The event or events to update.
-
-
-### getDerivedStateFromError {#method-getDerivedStateFromError}
-
-(error: any) => object
-
-
-
-
-### getDerivedStateFromProps {#method-getDerivedStateFromProps}
-
-(props: object, state: object) => object
-
-
 

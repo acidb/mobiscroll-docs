@@ -4,12 +4,7 @@
 
 
 Closes the component.
-### getTempVal {#method-getTempVal}
 
-() => MbscDatepickerValue
-
-
-Returns the temporary value selected on the datepicker.
 ### isVisible {#method-isVisible}
 
 () => boolean

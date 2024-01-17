@@ -1,7 +1,7 @@
 ---
 sidebar_position: 6
 sidebar_label: Display modes
-displayed_sidebar: vueSidebar
+displayed_sidebar: angularSidebar
 ---
 
 import Content from '../../_shared/display_modes.mdx';
@@ -11,5 +11,5 @@ import Content from '../../_shared/display_modes.mdx';
 <Content />
 
 ```html title="Setting a display option"
-<MbscDatepicker display="anchored" />
+<mbsc-select display="anchored"></mbsc-select>
 ```

@@ -1,7 +1,7 @@
 ---
 sidebar_position: 6
 sidebar_label: Display modes
-displayed_sidebar: vueSidebar
+displayed_sidebar: jquerySidebar
 ---
 
 import Content from '../../_shared/display_modes.mdx';
@@ -10,6 +10,8 @@ import Content from '../../_shared/display_modes.mdx';
 
 <Content />
 
-```html title="Setting a display option"
-<MbscDatepicker display="anchored" />
+```js title="Setting a display option"
+$('#myInput').mobiscroll().select({
+  display: 'anchored',
+});
 ```

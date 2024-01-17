@@ -95,19 +95,6 @@ You can use custom markup and the built in header components of the calendar.
 
 **Default value**: `undefined`
 
-### renderHourFooter {#renderer-renderHourFooter}
-
-(args: MbscCalendarDayData) => any
-
-
-Customize the footer of the hour columns on the timeline view.
-
-The following properties are available:
-- `date`: _Date_ - The date and time of the rendered hour.
-- `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the hour.
-
-**Default value**: `undefined`
-
 ### renderLabel {#renderer-renderLabel}
 
 (event: MbscCalendarEventData) => any
@@ -135,7 +122,7 @@ The following event specific properties are available:
 
 
 Customize the label contents, that appears on the calendar.
-The Eventcalendar will take care of styling and you can focus on what you show inside of the label a.k.a the content.
+The Eventcalendar will take care of styling and you can focus on what you show inside of the label.
 
 If you are looking to fully customize the label (ex. add custom hover effects) you will need to use the
 [renderLabel](#renderer-renderLabel) option.

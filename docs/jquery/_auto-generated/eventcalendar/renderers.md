@@ -169,6 +169,7 @@ Customize the footer of the hour columns on the timeline view.
 The following properties are available:
 - `date`: _Date_ - The date and time of the rendered hour.
 - `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the hour.
+- `isActive`: _boolean_ - True for the current hour.
 
 **Default value**: `undefined`
 
@@ -199,7 +200,7 @@ The following event specific properties are available:
 
 
 Customize the label contents, that appears on the calendar.
-The Eventcalendar will take care of styling and you can focus on what you show inside of the label a.k.a the content.
+The Eventcalendar will take care of styling and you can focus on what you show inside of the label.
 
 If you are looking to fully customize the label (ex. add custom hover effects) you will need to use the
 [renderLabel](#renderer-renderLabel) option.

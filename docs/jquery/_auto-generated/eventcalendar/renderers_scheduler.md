@@ -48,19 +48,6 @@ You can use custom markup and the built in header components of the calendar.
 
 **Default value**: `undefined`
 
-### renderHourFooter {#renderer-renderHourFooter}
-
-(args: MbscCalendarDayData) => any
-
-
-Customize the footer of the hour columns on the timeline view.
-
-The following properties are available:
-- `date`: _Date_ - The date and time of the rendered hour.
-- `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the hour.
-
-**Default value**: `undefined`
-
 ### renderResource {#renderer-renderResource}
 
 (resource: MbscResource) => any

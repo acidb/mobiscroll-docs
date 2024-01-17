@@ -68,6 +68,7 @@ Both the start and end value of the returned array will respect the [`returnForm
 
 ```ts
 import { MbscDatepickerControl } from '@mobiscroll/angular';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

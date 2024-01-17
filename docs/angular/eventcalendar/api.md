@@ -32,8 +32,12 @@ Here is a comprehensive list of all the options, events and method the Eventcale
 
 <Methods />
 
+
+<div className="option-list-templates">
+
 ## Templates
 
 <Slots />
 
+</div>
 </div>

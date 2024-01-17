@@ -1,9 +1,6 @@
-### renderItem {#renderer-renderItem}
+### itemTemplate {#template-itemTemplate}
 
-(args: MbscSelectItemData) => any
-
-
-Customize each selectable item on the wheel.
+Template to customize each selectable item on the wheel.
 
 When the group wheel is also shown using the [`showGroupWheel`](#opt-showGroupWheel) option,
 the `data` property and the `isGroup` property of the item will be `undefined` in the case of the group wheel items.

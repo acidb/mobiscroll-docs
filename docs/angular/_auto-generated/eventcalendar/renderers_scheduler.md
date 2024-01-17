@@ -1,87 +1,68 @@
-### renderDay {#renderer-renderDay}
-
-(args: MbscCalendarDayData) => any
-
-
-Customize the day cells of the calendar view and the date header in case of scheduler and timeline views.
-
-If you are looking to customize only the day cells content and don&#039;t want to bother with the styling of the event,
-in case of calendar and scheduler views you can use the [renderDayContent](#renderer-renderDayContent) option.
-
-The following day specific details are available:
-- `date`: _Date_ - The date of the rendered day.
-- `selected`: _boolean_ - True if the date is selected (in case of the calendar view).
-- `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the day.
-- `resource`: _string | number_ - The id of the resource in case of the scheduler (week and month views)
-when the events are grouped by resources.
-- `isActive`: _boolean_ - True for the current day (in case of the timeline view).
-
-**Default value**: `undefined`
-
-### renderDayContent {#renderer-renderDayContent}
-
-(args: MbscCalendarDayData) => any
-
+### dayContentTemplate {#template-dayContentTemplate}
 
 Customize the day cells content of the event calendar. The Eventcalendar will take care of the styling and you can focus on
 what you show beside the day number.
 
 If you are looking to fully customize the day (e.g. add custom hover effects) you will need to use the
-[renderDay](#renderer-renderDay) option.
+[dayTemplate](#template-dayTemplate) option.
 
-The following properties are available:
- - `date`: _Date_ - The date of the rendered day.
- - `selected`: _boolean_ - True if the date is selected (in case of the calendar view).
- - `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the day.
- - `resource`: _string | number_ - The id of the resource in case of the scheduler (week and month views)
+The template will receive an object as data. This data can be used to show day specific things on the Eventcalendar.
+The object passed to the template has the following properties:
+- `date`: Date object - The specific date as a Date object.
+- `selected`: Boolean - True if the date is selected. (In case of calendar view)
+- `events`: Array - The list of events of the day.
+- `resource`: String, Number - The id of the resource in case of scheduler(week and month views)
 when the events are grouped by resources.
 
 **Default value**: `undefined`
+### dayTemplate {#template-dayTemplate}
 
-### renderHeader {#renderer-renderHeader}
+Customize the day cells of the calendar view and the date header in case of scheduler and timeline views.
 
-() => any
+If you are looking to customize only the day cells content and don&#039;t want to bother with the styling of the event,
+in case of calendar and scheduler views you can use the [dayContentTemplate](#template-dayContentTemplate) option.
 
-
-Customize the header of the event calendar.
-You can use custom markup and the built in header components of the calendar.
-
-**Default value**: `undefined`
-
-### renderHourFooter {#renderer-renderHourFooter}
-
-(args: MbscCalendarDayData) => any
-
-
-Customize the footer of the hour columns on the timeline view.
-
-The following properties are available:
-- `date`: _Date_ - The date and time of the rendered hour.
-- `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the hour.
+The template will receive an object as data. This data can be used to show day specific things on the Eventcalendar.
+The object passed to the template has the following properties:
+- `date`: Date object - The specific date as a Date object.
+- `selected`: Boolean - True if the date is selected. (In case of calendar view)
+- `events`: Array - The list of events of the day.
+- `resource`: String, Number - The id of the resource in case of scheduler(week and month views)
+when the events are grouped by resources.
+- `isActive`: Boolean - On the timeline view, this parameter will be true when rendering the current day/week/month/year
 
 **Default value**: `undefined`
+### headerTemplate {#template-headerTemplate}
 
-### renderResource {#renderer-renderResource}
-
-(resource: MbscResource) => any
-
-
-Customize how the resources are rendered on the scheduler and timeline views.
-The object of the rendered resource is available for use.
+Template to customize the header of the event calendar.
+You can use custom markup or components as well as the built in header
+components of the calendar.
 
 **Default value**: `undefined`
+### resourceTemplate {#template-resourceTemplate}
 
-### renderScheduleEvent {#renderer-renderScheduleEvent}
+Template to customize the resource template of the scheduler and timeline views.
+The object of the rendered resource is available for use in the template.
 
-(event: MbscCalendarEventData) => any
+```html
+<mbsc-eventcalendar [resourceTemplate]="myTemplate">
+  <ng-template #myTemplate let-resource>
+    <div>{{resource.name}}</div>
+    <p>{{resource.description}}</p>
+    <img [src]="resource.img" />
+  </ng-template>
+</mbsc-eventcalendar>
+```
 
+**Default value**: `undefined`
+### scheduleEventContentTemplate {#template-scheduleEventContentTemplate}
 
-Customize the events that appear on the scheduler and timeline.
-The Eventcalendar will take care of the positioning,
-but everything else (like background color, hover effect, etc.) is left to you.
+Template to customize the event content that appears on the scheduler and timeline.
+The Eventcalendar will take care of styling and you can focus on what you show inside of the event.
 
-If you are looking to customize only the content (e.g. add custom elements) and don&#039;t want to bother with the styling of the event,
-you can use the [renderScheduleEventContent](#renderer-renderScheduleEventContent) option.
+If you are looking to fully customize the event (e.g. add custom hover effects) you will need to use
+the [scheduleEventTemplate](#template-scheduleEventTemplate) option. In that case you will only get
+the positioning done by the Eventcalendar and everything else is up to you.
 
 Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
 The following event specific properties are available:
@@ -96,18 +77,14 @@ The following event specific properties are available:
 - `currentResource`: _string | number_ - The resource of the row or column where the event is being rendered.
 
 **Default value**: `undefined`
+### scheduleEventTemplate {#template-scheduleEventTemplate}
 
-### renderScheduleEventContent {#renderer-renderScheduleEventContent}
+Template to customize the events that appear on the scheduler and timeline.
+The Eventcalendar will take care of the positioning,
+but everything else (like background color, hover effect, etc.) is left to you.
 
-(event: MbscCalendarEventData) => any
-
-
-Customize the event content that appears on the scheduler and timeline.
-The Eventcalendar will take care of styling and you can focus on what you show inside of the event.
-
-If you are looking to fully customize the event (e.g. add custom hover effects) you will need to use
-the [renderScheduleEvent](#renderer-renderScheduleEvent) option. In that case you will only get
-the positioning done by the Eventcalendar and everything else is up to you.
+If you are looking to customize only the content (e.g. add custom elements) and don&#039;t want to bother with the styling of the event,
+you can use the [scheduleEventContentTemplate](#template-scheduleEventContentTemplate) option.
 
 Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
 The following event specific properties are available:

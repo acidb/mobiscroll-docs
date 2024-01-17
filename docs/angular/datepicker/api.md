@@ -31,8 +31,11 @@ Here is a comprehensive list of all the options, events and methods of the Datep
 
 <Methods />
 
+<div className="option-list-templates">
+
 ## Templates
 
 <Slots />
 
+</div>
 </div>

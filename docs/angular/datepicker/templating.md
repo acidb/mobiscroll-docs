@@ -58,7 +58,7 @@ The difference between the two is that the Datepicker will style the cells by de
 In the case of the `dayTemplate` option however, both the styling and the content (the dates too) will come from the custom template.
 
 ```html title="Example of custom cells"
-<mbsc-datepicker>
+<mbsc-datepicker [dayTemplate]="myTemplate">
   <ng-template #myTemplate #let-day>
     **{{day.date.getDate()}}**
   </ng-template>

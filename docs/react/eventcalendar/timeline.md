@@ -1,7 +1,7 @@
 ---
 sidebar_position: 5
 sidebar_label: Timeline
-displayed_sidebar: vueSidebar
+displayed_sidebar: reactSidebar
 ---
 
 import Options from '../\_auto-generated/eventcalendar/options_timeline.md';
@@ -25,132 +25,133 @@ With these properties both hours and minutes can be specified.
 
 The timeline view supports resource hierarchy. Hierarchy groups can be defined with the `children` property of the resource object. Child objects are also resources and have the same properties, thus they can also have children.
 
-```javascript title="Multi-level hierarchy groups"
-const myResources = [{
-  name: 'Site 1',
-  children: [{
-    name: 'Building 1'
+```jsx title="Multi-level hierarchy groups"
+function App() {
+  const myResources = [{
+    name: 'Site 1',
     children: [{
-      name: 'Room 1'
+      name: 'Building 1'
+      children: [{
+        name: 'Room 1'
+      }, {
+        name: 'Room 2'
+      }]
     }, {
-      name: 'Room 2'
+        name: 'Building 2'
     }]
   }, {
-      name: 'Building 2'
-  }]
-}, {
-  name: 'Site 2',
-  children: [{
-    name: 'Building A'
-  }]
-}];
-```
-```html
-<MbscEventcalendar :resources="myResources" />
+    name: 'Site 2',
+    children: [{
+      name: 'Building A'
+    }]
+  }];
+
+  return <Eventcalendar resources={myResources} />
+}
 ```
 
 By default every resource group will be displayed and this can be modified with the `collapsed` attribute of the parent objects.
 
-```javascript title="Collapsed groups"
-const myResources = [{
-  name: 'Main Building',
-  id: 'main',
-  description: 'Used the most for scheduling'
-  collapsed: true,
-  children: [{
-    name: 'Big conf. room'
-    id: 'bfg',
+```jsx title="Collapsed groups"
+function App() {
+  const myResources = [{
+    name: 'Main Building',
+    id: 'main',
+    description: 'Used the most for scheduling'
+    collapsed: true,
+    children: [{
+      name: 'Big conf. room'
+      id: 'bfg',
+    }, {
+      name: 'Smaller conf. room'
+      id: 'sfg',
+    }]
   }, {
-    name: 'Smaller conf. room'
-    id: 'sfg',
-  }]
-}, {
-  name: 'Secondary Building',
-  id: 'sec',
-  description: 'For smaller, less important meetings'
-  collapsed: false,
-  children: [...]
-}, {
-  name: 'Long forgotten Cave',
-  id: 'cave',
-  description: 'Where developers used to work'
-  collapsed: false,
-}];
-```
-```html
-<MbscEventcalendar :resources="myResources" />
+    name: 'Secondary Building',
+    id: 'sec',
+    description: 'For smaller, less important meetings'
+    collapsed: false,
+    children: [...]
+  }, {
+    name: 'Long forgotten Cave',
+    id: 'cave',
+    description: 'Where developers used to work'
+    collapsed: false,
+  }];
+
+  return <Eventcalendar resources={myResources} />
+}
 ```
 
 Both parent and child rows can contain events and events can be moved between any rows.
 
-```javascript title="Resources & events"
-const myResources = [{
-  name: 'Main Building',
-  id: 'main',
-  children: [{
-    name: 'Big conf. room'
-    id: 'bfg',
-  }]
-}, {
-  name: 'Secondary Building',
-  id: 'sec',
-}];
-const myEvents: [
-  { title: 'Open day celebration', resource: 'main', date: '2023-08-24'},
-  { title: 'Monthly staff meeting', resource: 'bfg', start: '2023-08-01T11:00', end: '2023-08-01T11:00' },
-  { title: 'Weekly chit-chat', resource: 'sec', start: '2023-08-02T09:00', end: '2023-08-02T09:40' },
-  ...
-];
-```
-```html
-<MbscEventcalendar :resources="myResources" :data="myEvents"/>
+```jsx title="Resources & events"
+function App() {
+  const myResources = [{
+    name: 'Main Building',
+    id: 'main',
+    children: [{
+      name: 'Big conf. room'
+      id: 'bfg',
+    }]
+  }, {
+    name: 'Secondary Building',
+    id: 'sec',
+  }];
+  const myEvents: [
+    { title: 'Open day celebration', resource: 'main', date: '2023-08-24'},
+    { title: 'Monthly staff meeting', resource: 'bfg', start: '2023-08-01T11:00', end: '2023-08-01T11:00' },
+    { title: 'Weekly chit-chat', resource: 'sec', start: '2023-08-02T09:00', end: '2023-08-02T09:40' },
+    ...
+  ];
+
+  return <Eventcalendar resources={myResources} data={myEvents} />
+}
 ```
 
 Child or parent rows can be disabled by creating an [invalid rule](#opt-invalid) which repeats daily and it is tied to the specific resources. Example:
 
-```javascript title="Disable parent and/or child resources"
-const myInvalid = [
-  {
-    recurring: { repeat: "daily" },
-    resource: [
-      /* resource id(s) */
-    ],
-  },
-];
-```
-```html
-<MbscEventcalendar :invalid="myInvalid" />
+```jsx title="Disable parent and/or child resources"
+function App() {
+  const myInvalid = [
+    {
+      recurring: { repeat: "daily" },
+      resource: [
+        /* resource id(s) */
+      ],
+    },
+  ];
+
+  return <Eventcalendar invalid={myInvalid} />
+}
 ```
 
 ## Event slots
-
-:::info
-Not to be confused with [named slots](#slots). In Vue terms slots are used for [templating](#templating), but there is also a [`slots`](#opt-slots) option for the Eventcalendar and this section is dedicated to it.
-:::
 
 Besides the [`resources`](#opt-resources) which are grouping data for the whole date range, [`slots`](#opt-slots) introduce a horizontal daily grouping in case of the timeline view. Slots can be used alongside resources.
 
 When slots are used the timeline view will display in daily listing mode and only the [`dragToMove`](#opt-dragToMove) event iteraction will be available. The [`dragToCreate`](#opt-dragToCreate) and [`dragToResize`](#opt-dragToResize) interactions will be truned off.
 
 ```javascript title="Slots used for work shift management"
-const myShifts: [
-  {
-    id: 1,
-    name: "Morning shift",
-  },
-  {
-    id: 2,
-    name: "Afternoon shift",
-  },
-];
-```
-```html
-<MbscEventcalendar :slots="myShifts" />
+function App() {
+  const myShifts: [
+    {
+      id: 1,
+      name: "Morning shift",
+    },
+    {
+      id: 2,
+      name: "Afternoon shift",
+    },
+  ];
+
+  return <Eventcalendar slots={myShifts} />
+}
 ```
 
 ![Timeline slots](https://mobiscroll.com/Content/img/docs/timeline-slots.png)
 
-The [slot template](#slot-slot) can be used to customize the slot template of the timeline view.
+The [renderSlot](#renderer-renderSlot) function can be used to customize the slot template of the timeline view.
 
 ## Event connections
 
@@ -229,27 +230,27 @@ The width of the resources column on the timeline view is fixed. It can be overw
 ## Templating
 
 ### Resources, Sidebar, Footer
-The display of timeline resources can be customized with named slots. The [resource](#slot-resource)
-and [resourceHeader](#slot-resourceHeader) slot can be used to customize the resources.
+The display of timeline resources can be customized with renderer functions. The [renderResource](#renderer-renderResource)
+and [renderResourceHeader](#renderer-renderResourceHeader) function can be used to customize the resources.
 
-Besides the resources, an additional sidebar can be rendered on the opposite end of the row through the [sidebar](#slot-sidebar) slot, and a header for it, using the [sidebarHeader](#slot-sidebarHeader) slot.
+Besides the resources, an additional sidebar can be rendered on the opposite end of the row through the [renderSidebar](#renderer-renderSidebar) function, and a header for it, using the [renderSidebarHeader](#renderer-renderSidebarHeader) function.
 
-A footer can be rendered as well for each day using the [dayFooter](#slot-dayFooter) slot. When a footer is used the [resourceFooter](#slot-resourceFooter) and [sidebarFooter](#slot-sidebarFooter) can be defined as well.
+A footer can be rendered as well for each day using the [renderDayFooter](#renderer-renderDayFooter) function. When a footer is used, the [renderResourceFooter](#renderer-renderResourceFooter) and [renderSidebarFooter](#renderer-renderSidebarFooter) can be defined as well.
 
 ![Timeline resource, sidebar and footer templating](https://mobiscroll.com/Content/img/docs/resource-sidebar-footer.png)
 
 ### Header
 
-The header of the timeline can also be customized with named slots. Depending on the resolution the first timeline row under the navigation header can show a line for each of the following:
+The header of the timeline can also be customized with functional components. Depending on the resolution, the first timeline row under the navigation header can show a line for each of the following:
 
- * [hour](./api.md#slot-hour)
- * [day](./api.md#slot-day)
- * [week](./api.md#slot-week)
- * [month](./api.md#slot-month)
- * [quarter](./api.md#slot-quarter)
- * [year](./api.md#slot-year)
+ * [hour](#renderer-renderHour)
+ * [day](#renderer-renderDay)
+ * [week](#renderer-renderWeek)
+ * [month](#renderer-renderMonth)
+ * [quarter](#renderer-renderQuarter)
+ * [year](#renderer-renderYear)
 
-Each of these resolution has its own named slot for the header and the footer. For example there is the  [`hour`](./api.md#slot-hour) slot for the header and [`hourFooter`](./api.md#slot-hourFooter) slot for the footer. In similar fashion, each item in the list above has a footer pair as well.
+Each of these resolution has its own function for the header and the footer. For example there is the  [`renderHour`](#renderer-renderHour) function for the header and [`renderHourFooter`](#renderer-renderHourFooter) function for the footer. In similar fashion, each item in the list above has a footer pair as well.
 
 <div className="option-list">
 
@@ -267,7 +268,7 @@ Each of these resolution has its own named slot for the header and the footer. F
 
 <Localizations />
 
-### Slots
+### Renderers
 
 <Slots />
 

@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3
 sidebar_label: Agenda
-displayed_sidebar: reactSidebar
+displayed_sidebar: javascriptSidebar
 ---
 
 import Options from '../\_auto-generated/eventcalendar/options_agenda.md';

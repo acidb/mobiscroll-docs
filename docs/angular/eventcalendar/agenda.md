@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3
 sidebar_label: Agenda
-displayed_sidebar: reactSidebar
+displayed_sidebar: angularSidebar
 ---
 
 import Options from '../\_auto-generated/eventcalendar/options_agenda.md';
@@ -31,7 +31,7 @@ The agenda calendar displays a list of events for a given period of time (year, 
 
 <Localizations />
 
-### Renderers
+### Templates
 
 <Slots />
 

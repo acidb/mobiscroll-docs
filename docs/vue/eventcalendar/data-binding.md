@@ -30,6 +30,8 @@ The events of the Eventcalendar are specified as an array of event objects. The 
 - `timezone` _String_ - The timezone of the event. When specified, it takes precedence over [`dataTimezone`](api#opt-dataTimezone). A timezone plugin must be also passed to the component.
 - `tooltip` _String_ - Specifies the tooltip text of the event.
 - `cssClass` _String_ - Can be used to pass custom CSS classes on an event to event basis. Useful when customization is needed on the event level. For example: setting the width for specific events.
+- `bufferBefore` - Defines a buffer time in minutes that will be displayed before the start of the event. This buffer area can help you visualise delays or added minutes for tasks. For example travel time for meetings/appointments, briefing before flight, check in time on duty card.
+- `bufferAfter` - Defines a buffer time in minutes that will be displayed after the end of the event. This buffer area can help you visualise delays or added minutes for tasks. For example travel time after meetings/appointments, debriefing after flight, check out time on duty card.
 
 ```javascript title="Simple event object"
 const myMeeting = {

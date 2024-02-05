@@ -31,8 +31,11 @@ The agenda calendar displays a list of events for a given period of time (year, 
 
 <Localizations />
 
+<div className="option-list-templates">
+
 ### Templates
 
 <Slots />
 
+</div>
 </div>

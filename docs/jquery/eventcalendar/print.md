@@ -1,7 +1,7 @@
 ---
 sidebar_position: 14
 sidebar_label: Print
-displayed_sidebar: vueSidebar
+displayed_sidebar: jquerySidebar
 title: Print
 ---
 
@@ -13,18 +13,25 @@ export const toc = [...instTOC,
 
 <InstallImport />
 
-```html
-<script setup>
-  import { MbscEventcalendar } from "@mobiscroll/vue";
-  import { print } from '@mobiscroll/print';
+```js
+import $ from 'jquery';
+import { print } from '@mobiscroll/print';
 
-  const myModules = [print];
-</script>
-
-<template>
-  <MbscEventcalendar :modules="myModules" />
-</template>
+$('#myDiv').mobiscroll().eventcalendar({
+  modules: [print]
+});
 ```
+
+<h4>Web page imports</h4>
+
+For projects whithout a script bundler and/or where the library is installed from a downloaded package instead of NPM, the print module can be references from the mobiscroll namespace. For mobiscroll packages built with the [download builder](https://download.mobiscroll.com), the print module will be bundled into the same package, so you don't have to include an additional package to your web page.
+
+```js
+$('#myDiv').mobscroll().eventcalendar({
+  modules: [mobiscroll.print],
+});
+```
+
 
 <h2 id="printing">Printing</h2>
 
@@ -41,23 +48,22 @@ Popup blockers might block the created window, so you need to disable the blocke
 :::
 
 ```html
-<script setup>
-  import { ref } from 'vue';
-  import { MbscEventcalendar } from "@mobiscroll/vue";
-  import { print } from '@mobiscroll/print';
+<button id="btn">Print it!</button>
+<div id="myDiv"></div>
+```
+```js
+import $ from 'jquery';
+import { print } from '@mobiscroll/print';
 
-  const myModules = [print];
-  const calInstance = ref(null);
+const MY_MODULES = [print];
 
-  function myPrint() {
-    calInstance.value.instance.print();
-  }
-</script>
+const inst = $('#myDiv').mobiscroll().eventcalendar({
+  modules: MY_MODULES
+}).mobiscroll('getInst');
 
-<template>
-  <button @click="myPrint">Print it!</button>
-  <MbscEventcalendar ref="calInstance" :modules="myModules" />
-</template>
+$('#btn').click(function() {
+  inst.print();
+});
 ```
 
 :::info

@@ -1,7 +1,7 @@
 ---
 sidebar_position: 14
 sidebar_label: Print
-displayed_sidebar: vueSidebar
+displayed_sidebar: angularSidebar
 title: Print
 ---
 
@@ -13,17 +13,16 @@ export const toc = [...instTOC,
 
 <InstallImport />
 
+```ts
+import { print } from '@mobiscroll/print';
+
+@Component({...})
+export class MyComponent {
+  myModules = [print];
+}
+```
 ```html
-<script setup>
-  import { MbscEventcalendar } from "@mobiscroll/vue";
-  import { print } from '@mobiscroll/print';
-
-  const myModules = [print];
-</script>
-
-<template>
-  <MbscEventcalendar :modules="myModules" />
-</template>
+<mbsc-eventcalendar [modules]="myModules"></mbsc-eventcalendar>
 ```
 
 <h2 id="printing">Printing</h2>
@@ -40,24 +39,17 @@ The new window created by the print method will include all the styles and links
 Popup blockers might block the created window, so you need to disable the blocker for this method to work.
 :::
 
+```ts
+import { print } from '@mobiscroll/print';
+
+@Component({...})
+export class MyComponent {
+  myModules = [print];
+}
+```
 ```html
-<script setup>
-  import { ref } from 'vue';
-  import { MbscEventcalendar } from "@mobiscroll/vue";
-  import { print } from '@mobiscroll/print';
-
-  const myModules = [print];
-  const calInstance = ref(null);
-
-  function myPrint() {
-    calInstance.value.instance.print();
-  }
-</script>
-
-<template>
-  <button @click="myPrint">Print it!</button>
-  <MbscEventcalendar ref="calInstance" :modules="myModules" />
-</template>
+<mbsc-button (click)="cal.print()">Print it!</mbsc-button>
+<mbsc-eventcalendar [modules]="myModules" #cal></mbsc-eventcalendar>
 ```
 
 :::info

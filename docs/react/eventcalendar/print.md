@@ -13,17 +13,15 @@ export const toc = [...instTOC,
 
 <InstallImport />
 
-```html
-<script setup>
-  import { MbscEventcalendar } from "@mobiscroll/vue";
-  import { print } from '@mobiscroll/print';
+```jsx
+import { Eventcalendar } from "@mobiscroll/react";
+import { print } from '@mobiscroll/print';
 
-  const myModules = [print];
-</script>
+const MY_MODULES = [print];
 
-<template>
-  <MbscEventcalendar :modules="myModules" />
-</template>
+function App() {
+  return <Eventcalendar modules={MY_MODULES} />
+}
 ```
 
 <h2 id="printing">Printing</h2>
@@ -40,24 +38,22 @@ The new window created by the print method will include all the styles and links
 Popup blockers might block the created window, so you need to disable the blocker for this method to work.
 :::
 
-```html
-<script setup>
-  import { ref } from 'vue';
-  import { MbscEventcalendar } from "@mobiscroll/vue";
-  import { print } from '@mobiscroll/print';
+```jsx
+import { useRef } from 'react';
+import { Eventcalendar } from "@mobiscroll/react";
+import { print } from '@mobiscroll/print';
 
-  const myModules = [print];
-  const calInstance = ref(null);
+const MY_MODULES = [print];
 
-  function myPrint() {
-    calInstance.value.instance.print();
-  }
-</script>
+function App() {
+  const myCalInstance = useRef(null);
+  const printIt = () => myCalInstance.current.print()
 
-<template>
-  <button @click="myPrint">Print it!</button>
-  <MbscEventcalendar ref="calInstance" :modules="myModules" />
-</template>
+  return <>
+    <button onClick={printIt}>Print it!</button>
+    <Eventcalendar ref={myCalInstance} modules={MY_MODULES} />
+  </>
+}
 ```
 
 :::info

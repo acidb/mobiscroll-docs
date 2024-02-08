@@ -1,7 +1,7 @@
 ---
 sidebar_position: 12
 sidebar_label: Timezones
-displayed_sidebar: vueSidebar
+displayed_sidebar: javascriptSidebar
 ---
 
 import LibraryInstall from '../../_shared/timezones/library_install.mdx';
@@ -21,49 +21,74 @@ When using a timezone plugin with the Eventcalendar, the [`exclusiveEndDates`](a
 
 ### The Moment-Timezone library
 
-<MomentInstall framework="vue" />
+<MomentInstall framework="javascript" />
 
 **4.** After that, you can pass the `momentTimezone` object to the Eventcalendar's [`timezonePlugin`](./api#opt-timezonePlugin) option.
 
-```html
-<script setup>
-  import { MbscEventcalendar, momentTimezone } from '@mobiscroll/vue';
-  import moment from 'moment-timezone';
+```js
+import { momentTimezone, eventcalendar } from '@mobiscroll/javascript';
+import moment from 'moment-timezone';
 
-  momentTimezone.moment = moment;
-</script>
+momentTimezone.moment = moment;
 
-<template>
-  <MbscEventcalendar
+eventcalendar('#myDiv', {
     // highlight-next-line
-    :timezonePlugin="momentTimezone"
-    dataTimezone="utc"
-    displayTimezone="Europe/Berlin"
-  />
-</template>
+    timezonePlugin: momentTimezone,
+    dataTimezone: "utc",
+    displayTimezone: "Europe/Berlin",
+});
+```
+
+#### Moment in web pages
+
+If you are not using any script bundler and you have the mobiscroll and moment library scripts included on your web page, you can access the `momentTimezone` from the mobiscroll global namespace.
+
+```js
+// highlight-next-line
+mobiscroll.momentTimezone = moment;
+
+mobiscroll.eventcalendar('#myDiv', {
+  // highlight-next-line
+  timezonePlugin: mobiscroll.momentTimezone,
+  dataTimezone: "utc",
+  displayTimezone: "Europe/Berlin",
+});
 ```
 
 ### The Luxon library
 
-<LuxonInstall framework="vue" />
+<LuxonInstall framework="javascript" />
 
 **4.** After that, you can pass the `luxonTimezone` object to the Eventcalendar's `timezonePlugin` option.
 
-```html
-<script setup>
-  import { MbscEventcalendar, luxonTimezone } from '@mobiscroll/vue';
-  import * as luxon from 'luxon';
-  luxonTimezone.luxon = luxon;
-</script>
+```js
+import { luxonTimezone, eventcalendar } from '@mobiscroll/javascript';
+import * as luxon from 'luxon';
 
-<template>
-  <MbscEventcalendar
+luxonTimezone.luxon = luxon;
+
+eventcalendar('#myDiv', {
     // highlight-next-line
-    :timezonePlugin="luxonTimezone"
-    dataTimezone="utc"
-    displayTimezone="Europe/Berlin"
-  />
-</template>
+    timezonePlugin: luxonTimezone,
+    dataTimezone: "utc",
+    displayTimezone: "Europe/Berlin",
+});
+```
+
+#### Luxon in web pages
+
+If you are not using any script bundler and you have the mobiscroll and luxon library scripts included on your web page, you can access the `luxonTimezone` from the mobiscroll global namespace.
+
+```js
+// highlight-next-line
+mobiscroll.luxonTimezone = luxon;
+
+mobiscroll.eventcalendar('#myDiv', {
+  // highlight-next-line
+  timezonePlugin: mobiscroll.luxonTimezone,
+  dataTimezone: "utc",
+  displayTimezone: "Europe/Berlin",
+});
 ```
 
 
@@ -73,34 +98,23 @@ When working with timezones, you usually have your data stored in one timezone, 
 
 You can also store the timezone inside the event data, using the `timezone` property. If an event has the timezone specified, this will take precedence over the timezone set by `dataTimezone`. This is particularly useful for recurring events. Storing recurring events in UTC is not useful in most of the cases, since the occurrences will be generated in UTC time, which does not have daylight saving times. When converted to a displayTimezone which uses DST, the event times will be shifted with an hour when DST changes. Storing the timezone on the event makes it unambiguous, and will be correctly converted to `displayTimezone`.
 
-```html title="Example"
-<script setup>
-  import { ref } from "vue";
-  import { MbscEventcalendar, momentTimezone } from "@mobiscroll/vue";
-  // highlight-next-line
-  import moment from 'moment-timezone';
+```js title="Example"
+import { momentTimezone, eventcalendar } from "@mobiscroll/javascript";
+// highlight-next-line
+import moment from 'moment-timezone';
 
-  // setup the reference to moment
-  // highlight-next-line
-  momentTimezone.moment = moment;
+// setup the reference to moment
+// highlight-next-line
+momentTimezone.moment = moment;
 
-  const myEvents = ref([]);
-
-  const myView = {
-    schedule: { type: "week" },
-  };
-</script>
-
-<template>
-  <MbscEventcalendar
-    :data="myEvents"
+eventcalendar('#myDiv', {
+    data: [],
     // highlight-start
-    :timezonePlugin="momentTimezone"
-    dataTimezone="utc"
-    displayTimezone="Europe/Berlin"
+    timezonePlugin: momentTimezone,
+    dataTimezone: "utc",
+    displayTimezone: "Europe/Berlin",
     // highlight-end
-  />
-</template>
+});
 ```
 
 ## Exclusive end dates

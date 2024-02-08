@@ -1,7 +1,7 @@
 ---
 sidebar_position: 12
 sidebar_label: Timezones
-displayed_sidebar: vueSidebar
+displayed_sidebar: angularSidebar
 ---
 
 import LibraryInstall from '../../_shared/timezones/library_install.mdx';
@@ -21,49 +21,48 @@ When using a timezone plugin with the Eventcalendar, the [`exclusiveEndDates`](a
 
 ### The Moment-Timezone library
 
-<MomentInstall framework="vue" />
+<MomentInstall framework="angular" />
 
 **4.** After that, you can pass the `momentTimezone` object to the Eventcalendar's [`timezonePlugin`](./api#opt-timezonePlugin) option.
 
+```ts
+import { momentTimezone } from '@mobiscroll/angular';
+import moment from 'moment-timezone';
+
+momentTimezone.moment = moment;
+
+@Component({...})
+export class MyComponent {
+  myMomentTimezone = momentTimezone;
+}
+```
 ```html
-<script setup>
-  import { MbscEventcalendar, momentTimezone } from '@mobiscroll/vue';
-  import moment from 'moment-timezone';
-
-  momentTimezone.moment = moment;
-</script>
-
-<template>
-  <MbscEventcalendar
-    // highlight-next-line
-    :timezonePlugin="momentTimezone"
-    dataTimezone="utc"
-    displayTimezone="Europe/Berlin"
-  />
-</template>
+<mbsc-eventcalendar [timezonePlugin]="myMomentTimezone"
+  dataTimezone="utc" displayTimezone="Europe/Berlin">
+</mbsc-eventcalendar>
 ```
 
 ### The Luxon library
 
-<LuxonInstall framework="vue" />
+<LuxonInstall framework="angular" />
 
 **4.** After that, you can pass the `luxonTimezone` object to the Eventcalendar's `timezonePlugin` option.
 
-```html
-<script setup>
-  import { MbscEventcalendar, luxonTimezone } from '@mobiscroll/vue';
-  import * as luxon from 'luxon';
-  luxonTimezone.luxon = luxon;
-</script>
+```jsx
+import { luxonTimezone } from '@mobiscroll/angular';
+import * as luxon from 'luxon';
 
-<template>
-  <MbscEventcalendar
-    // highlight-next-line
-    :timezonePlugin="luxonTimezone"
-    dataTimezone="utc"
-    displayTimezone="Europe/Berlin"
-  />
-</template>
+luxonTimezone.luxon = luxon;
+
+@Component({...})
+export class MyComponent {
+  myLuxonTimezone = luxonTimezone;
+}
+```
+```html
+<mbsc-eventcalendar [timezonePlugin]="myLuxonTimezone"
+  dataTimezone="utc" displayTimezone="Europe/Berlin">
+</mbsc-eventcalendar>
 ```
 
 
@@ -73,34 +72,28 @@ When working with timezones, you usually have your data stored in one timezone, 
 
 You can also store the timezone inside the event data, using the `timezone` property. If an event has the timezone specified, this will take precedence over the timezone set by `dataTimezone`. This is particularly useful for recurring events. Storing recurring events in UTC is not useful in most of the cases, since the occurrences will be generated in UTC time, which does not have daylight saving times. When converted to a displayTimezone which uses DST, the event times will be shifted with an hour when DST changes. Storing the timezone on the event makes it unambiguous, and will be correctly converted to `displayTimezone`.
 
-```html title="Example"
-<script setup>
-  import { ref } from "vue";
-  import { MbscEventcalendar, momentTimezone } from "@mobiscroll/vue";
-  // highlight-next-line
-  import moment from 'moment-timezone';
+```ts title="Example"
+import { momentTimezone } from "@mobiscroll/angular";
+// highlight-next-line
+import moment from 'moment-timezone';
 
-  // setup the reference to moment
-  // highlight-next-line
-  momentTimezone.moment = moment;
+// setup the reference to moment
+// highlight-next-line
+momentTimezone.moment = moment;
 
-  const myEvents = ref([]);
-
-  const myView = {
-    schedule: { type: "week" },
-  };
-</script>
-
-<template>
-  <MbscEventcalendar
-    :data="myEvents"
-    // highlight-start
-    :timezonePlugin="momentTimezone"
-    dataTimezone="utc"
-    displayTimezone="Europe/Berlin"
-    // highlight-end
-  />
-</template>
+@Component({...})
+export class MyComponent {
+  myMomentTimezone = momentTimezone;
+}
+```
+```html
+<mbsc-eventcalendar
+  // highlight-start
+  [timezonePlugin]="myMomentTimezone"
+  dataTimezone="utc"
+  displayTimezone="Europe/Berlin">
+  // highlight-end
+</mbsc-eventcalendar>
 ```
 
 ## Exclusive end dates

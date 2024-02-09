@@ -1,7 +1,7 @@
 ---
 sidebar_position: 15
 sidebar_label: Accessibility
-displayed_sidebar: vueSidebar
+displayed_sidebar: javascriptSidebar
 title: Accessibility
 ---
 

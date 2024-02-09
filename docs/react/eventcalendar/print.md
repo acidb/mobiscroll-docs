@@ -1,7 +1,7 @@
 ---
 sidebar_position: 14
 sidebar_label: Print
-displayed_sidebar: vueSidebar
+displayed_sidebar: reactSidebar
 title: Print
 ---
 

@@ -76,29 +76,37 @@ const config = {
             items: [
               {
                 type: 'doc',
+                label: 'Angular',
+                // href: 'https://docs.mobiscrollprod.com/angular',
+                docId: 'angular/getting-started/overview',
+              },
+              {
+                type: 'doc',
+                label: 'JavaScript',
+                // href: 'https://docs.mobiscrollprod.com/javascript',
+                docId: 'javascript/getting-started/overview',
+              },
+              {
+                type: 'doc',
+                label: 'jQuery',
+                // href: 'https://docs.mobiscrollprod.com/jquery',
+                docId: 'jquery/getting-started/overview',
+              },
+              {
+                type: 'doc',
+                label: 'React',
+                // href: 'https://docs.mobiscrollprod.com/react',
+                docId: 'react/getting-started/overview',
+              },
+              {
+                type: 'doc',
                 label: 'Vue',
                 docId: 'vue/getting-started/overview',
-              },
-              {
-                label: 'Angular',
-                href: 'https://docs.mobiscroll.com/angular',
-              },
-              {
-                label: 'React',
-                href: 'https://docs.mobiscroll.com/react',
-              },
-              {
-                label: 'jQuery',
-                href: 'https://docs.mobiscroll.com/jquery',
-              },
-              {
-                label: 'JavaScript',
-                href: 'https://docs.mobiscroll.com/javascript',
               },
             ],
           },
           {
-            href: 'https://docs.mobiscroll.com/cli',
+            href: 'https://docs.mobiscrollprod.com/cli',
             label: 'CLI',
             position: 'right',
           },
@@ -112,7 +120,7 @@ const config = {
               },
               {
                 label: 'Blog',
-                href: 'https://blog.mobiscroll.com/',
+                href: ' https://blog.mobiscroll.com/',
               },
               {
                 href: 'https://github.com/acidb/mobiscroll/issues',

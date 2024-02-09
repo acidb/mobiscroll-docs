@@ -3,13 +3,15 @@ const config = {
     {
       type: 'link',
       label: 'Mobiscroll for Javascript',
-      href: 'https://docs.mobiscroll.com/javascript/getting-started',
+      // href: 'https://docs.mobiscroll.com/javascript/getting-started',
+      href: 'javascript',
       icon: '/img/javascript-logo.svg',
     },
     {
       type: 'link',
       label: 'Mobiscroll for jQuery',
-      href: 'https://docs.mobiscroll.com/jquery/getting-started',
+      // href: 'https://docs.mobiscroll.com/jquery/getting-started',
+      href: 'jquery',
       icon: '/img/jquery-logo.svg',
     },
     {

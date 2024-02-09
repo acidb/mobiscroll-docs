@@ -15,13 +15,15 @@ const config = {
     {
       type: 'link',
       label: 'Mobiscroll for React',
-      href: 'https://docs.mobiscroll.com/react/getting-started',
+      // href: 'https://docs.mobiscroll.com/react/getting-started',
+      href: 'react',
       icon: '/img/react-logo.svg',
     },
     {
       type: 'link',
       label: 'Mobiscroll for Angular',
-      href: 'https://docs.mobiscroll.com/angular/getting-started',
+      // href: 'https://docs.mobiscroll.com/angular/getting-started',
+      href: 'angular',
       icon: '/img/angular-logo.svg',
     },
     {

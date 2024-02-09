@@ -13,7 +13,7 @@ You can customize many parts of the Eventcalendar by writing custom templates. I
 When you want to customize how the events look, depending on what your goal is, you have two options:
 
 1. [Customize the event content](#event-content-templating) - Mobiscroll takes care of rendering the events in the correct order and also prints basic fields, like `start`/`end`, whether it is an `allDay` event or not and also takes care of coloring the event appropriately. Everything else comes from the custom template.
-2. [Customize the full event](#full-event-templating) - Mobiscroll takes care of rendering the events in the correct order, but everything else comes form the template you write.
+2. [Customize the full event](#full-event-templating) - Mobiscroll takes care of rendering the events in the correct order, but everything else comes from the template you write.
 
 To define a template, create a `<template>` tag with the `v-slot` directive or the dedicated shorthand `#` and the name of the template:
 

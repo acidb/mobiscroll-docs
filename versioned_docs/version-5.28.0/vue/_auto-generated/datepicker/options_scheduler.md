@@ -50,7 +50,7 @@ If a string, it must be one of the predefined button handlers:
 Can be a single value or multiple value passed as an array. Predefined string values are: `'enter'`, `'esc'`, `'space'`.
 
 ```js title="Example for using predefined and custom buttons"
-buttons: [
+[
   'set',
   {
     text: 'Custom',
@@ -64,7 +64,7 @@ buttons: [
 ]
 ```
 ```js title="Example for using a predefined button handler"
-buttons: [
+[
   'set',
   {
     text: 'Hide',
@@ -175,7 +175,7 @@ The colors can be combined with the [labels](#opt-labels) or [marked](#opt-marke
 :::
 
 ```js
-colors: [
+[
   { date: new Date(2020, 2, 23), background: 'pink' },
   { date: new Date(2020, 2, 24), background: 'green' },
   { background: '#ff0000', recurring: { repeat: 'weekly', weekDays: 'SU' } },
@@ -458,7 +458,7 @@ The dates can be specified as JavaScript Date objects, ISO 8601 strings, or mome
 :::
 
 ```js
-invalid: [
+[
   // Passing exact dates and times
   new Date(2021, 1, 7), // Date object
   '2021-10-15T12:00', // ISO 8601 string
@@ -492,7 +492,7 @@ invalid: [
       weekDays: 'SA,SU'
     }
   }
-];
+]
 ```
 
 **Default value**: `undefined`
@@ -985,7 +985,7 @@ The dates can be specified as JavaScript Date objects, ISO 8601 strings, or mome
 :::
 
 ```js
-valid: [
+[
   // Passing exact dates and times
   new Date(2021, 1, 7), // Date object
   '2021-10-15T12:00', // ISO 8601 string
@@ -1019,7 +1019,7 @@ valid: [
       weekDays: 'SA,SU'
     }
   }
-];
+]
 ```
 
 **Default value**: `undefined`

@@ -26,7 +26,7 @@ With these properties both hours and minutes can be specified.
 The timeline view supports resource hierarchy. Hierarchy groups can be defined with the `children` property of the resource object. Child objects are also resources and have the same properties, thus they can also have children.
 
 ```javascript title="Multi-level hierarchy groups"
-resources: [{
+const myResources = [{
   name: 'Site 1',
   children: [{
     name: 'Building 1'
@@ -43,13 +43,16 @@ resources: [{
   children: [{
     name: 'Building A'
   }]
-}]
+}];
+```
+```html
+<MbscEventcalendar :resources="myResources" />
 ```
 
 By default every resource group will be displayed and this can be modified with the `collapsed` attribute of the parent objects.
 
 ```javascript title="Collapsed groups"
-resources: [{
+const myResources = [{
   name: 'Main Building',
   id: 'main',
   description: 'Used the most for scheduling'
@@ -72,13 +75,16 @@ resources: [{
   id: 'cave',
   description: 'Where developers used to work'
   collapsed: false,
-}],
+}];
+```
+```html
+<MbscEventcalendar :resources="myResources" />
 ```
 
 Both parent and child rows can contain events and events can be moved between any rows.
 
 ```javascript title="Resources & events"
-resources: [{
+const myResources = [{
   name: 'Main Building',
   id: 'main',
   children: [{
@@ -88,19 +94,22 @@ resources: [{
 }, {
   name: 'Secondary Building',
   id: 'sec',
-}],
-data: [
+}];
+const myEvents: [
   { title: 'Open day celebration', resource: 'main', date: '2023-08-24'},
   { title: 'Monthly staff meeting', resource: 'bfg', start: '2023-08-01T11:00', end: '2023-08-01T11:00' },
   { title: 'Weekly chit-chat', resource: 'sec', start: '2023-08-02T09:00', end: '2023-08-02T09:40' },
   ...
-]
+];
+```
+```html
+<MbscEventcalendar :resources="myResources" :data="myEvents"/>
 ```
 
 Child or parent rows can be disabled by creating an [invalid rule](#opt-invalid) which repeats daily and it is tied to the specific resources. Example:
 
 ```javascript title="Disable parent and/or child resources"
-invalid: [
+const myInvalid = [
   {
     recurring: { repeat: "daily" },
     resource: [
@@ -109,11 +118,14 @@ invalid: [
   },
 ];
 ```
+```html
+<MbscEventcalendar :invalid="myInvalid" />
+```
 
 ## Event slots
 
 :::info
-Not to be confused with [named slots](#slots). In Vue terms slots are used for [templating](#templating), but there is also a [`slots`](#opt-slots) option for the Eventcalendar and this section is dedicated it.
+Not to be confused with [named slots](#slots). In Vue terms slots are used for [templating](#templating), but there is also a [`slots`](#opt-slots) option for the Eventcalendar and this section is dedicated to it.
 :::
 
 Besides the [`resources`](#opt-resources) which are grouping data for the whole date range, [`slots`](#opt-slots) introduce a horizontal daily grouping in case of the timeline view. Slots can be used alongside resources.
@@ -121,7 +133,7 @@ Besides the [`resources`](#opt-resources) which are grouping data for the whole 
 When slots are used the timeline view will display in daily listing mode and only the [`dragToMove`](#opt-dragToMove) event iteraction will be available. The [`dragToCreate`](#opt-dragToCreate) and [`dragToResize`](#opt-dragToResize) interactions will be truned off.
 
 ```javascript title="Slots used for work shift management"
-slots: [
+const myShifts: [
   {
     id: 1,
     name: "Morning shift",
@@ -132,10 +144,13 @@ slots: [
   },
 ];
 ```
+```html
+<MbscEventcalendar :slots="myShifts" />
+```
 
 ![Timeline slots](https://mobiscroll.com/Content/img/docs/timeline-slots.png)
 
-<!-- The [slot template](#renderer-renderSlot) can be used to customize the slot template of the timeline view. -->
+The [slot template](#slot-slot) can be used to customize the slot template of the timeline view.
 
 ## Event connections
 

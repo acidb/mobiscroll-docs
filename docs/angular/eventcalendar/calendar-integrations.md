@@ -1,7 +1,7 @@
 ---
 sidebar_position: 13
 sidebar_label: Calendar integrations
-displayed_sidebar: vueSidebar
+displayed_sidebar: angularSidebar
 ---
 
 import GoogleMethods from '../_auto-generated/googlecalendar/methods.md';
@@ -30,64 +30,64 @@ The Google Calendar Integration is a part of the third party calendar integratio
 
 Calling the `init` function will do the necessary initializations for the third party. After the init, you can list the events from the public calendar.
 
-```html
-<script>
-  import { ref } from "vue";
-  import { googleCalendarSync} from "@mobiscroll/calendar-integration";
+```ts
+import { googleCalendarSync } from "@mobiscroll/calendar-integration";
+import { MbscCalendarEvent } from '@mobiscroll/angular';
 
-  const myEvents = ref([]);
+@Component({...})
+export class MyComponent implements OnInit {
+  myEvents: MbscCalendarEvent[] = [];
 
-  // init google client
-  googleCalendarSync.init({
-    apiKey: 'YOUR_APY_KEY',
-    onInit: () => {
-      googleCalendarSync.getEvents(
-        'PUBLIC_CALENDAR_ID',
-        new Date(2022, 1, 1),
-        new Date(2022, 3, 0)
-      ).then((events) => {
-          myEvents.value = events;
-      });
-    },
-  });
-</script>
-<template>
-  <MbscEventcalendar :data="myEvents" />
-</template>
+  ngOnInit() {
+    // init google client
+    googleCalendarSync.init({
+      apiKey: 'YOUR_APY_KEY',
+      onInit: () => {
+        googleCalendarSync.getEvents(
+          'PUBLIC_CALENDAR_ID',
+          new Date(2022, 1, 1),
+          new Date(2022, 3, 0)
+        ).then((events) => {
+            this.myEvents = events;
+        });
+      },
+    });
+  }
+}
 ```
 
 ### Private google calendars
 
 Calling the `init` function will do the necessary initializations for the third party. For this step you need to use an API key and a client ID. After the `init`, you can sign in, list your calendars and events and create, update or delete the events on the calendars you have permission to.
 
-```html
-<script>
-  import { ref } from "vue";
-  import { googleCalendarSync} from "@mobiscroll/calendar-integration";
+```js
+import { googleCalendarSync } from "@mobiscroll/calendar-integration";
+import { MbscCalendarEvent } from '@mobiscroll/angular';
 
-  const myEvents = ref([]);
+@Component({...})
+export class MyComponent implements OnInit {
+  myEvents: MbscCalendarEvent[] = [];
 
-  // init google client
-  googleCalendarSync.init({
-  apiKey: 'YOUR_APY_KEY',
-    clientId: 'YOUR_CLIENT_ID',
-    onSignedIn: () => {
-      googleCalendarSync.getEvents(
-        ['MY_FIRST_CALENDAR_ID', 'MY_SECOND_CALENDAR_ID'],
-          new Date(2022, 1, 1),
-          new Date(2022, 3, 0)
-      ).then((events) => {
-        myEvents.value = events;
-      });
-    },
-    onSignedOut: () => {
-      myEvents.value = [];
-    },
-});
-</script>
-<template>
-  <MbscEventcalendar :data="myEvents" />
-</template>
+  ngOnInit() {
+    // init google client
+    googleCalendarSync.init({
+      apiKey: 'YOUR_APY_KEY',
+      clientId: 'YOUR_CLIENT_ID',
+      onSignedIn: () => {
+        googleCalendarSync.getEvents(
+          ['MY_FIRST_CALENDAR_ID', 'MY_SECOND_CALENDAR_ID'],
+            new Date(2022, 1, 1),
+            new Date(2022, 3, 0)
+        ).then((events) => {
+          this.myEvents = events;
+        });
+      },
+      onSignedOut: () => {
+        this.myEvents = [];
+      },
+    });
+  }
+}
 ```
 
 ### Server side tokens
@@ -117,33 +117,33 @@ The Outlook Calendar Integration is a part of the third party calendar integrati
 
 Calling the `init` function will do the necessary initializations for the third party. For this step you need to use a [client ID](https://docs.microsoft.com/en-us/graph/auth-v2-user). After the init, you can sign in, list your calendars and events and create, update or delete the events on the calendars you have permission to.
 
-```html
-<script>
-  import { ref } from "vue";
-  import { outlookCalendarSync} from "@mobiscroll/calendar-integration";
+```js
+import { outlookCalendarSync} from "@mobiscroll/calendar-integration";
+import { MbscCalendarEvent } from '@mobiscroll/angular';
 
-  const myEvents = ref([]);
+@Component({...})
+export class MyComponent implements OnInit {
+  myEvents: MbscCalendarEvent[] = [];
 
-  // init outlook client
-  outlookCalendarSync.init({
-    clientId: 'YOUR_CLIENT_ID',
-    onSignedIn: () => {
-      outlookCalendarSync.getEvents(
-        ['MY_FIRST_CALENDAR_ID', 'MY_SECOND_CALENDAR_ID'],
-        new Date(2022, 1, 1),
-        new Date(2022, 3, 0)
-      ).then((events) => {
-        myEvents.value = events;
-      });
-    },
-    onSignedOut: () => {
-      myEvents.value = [];
-    },
-  });
-</script>
-<template>
-  <MbscEventcalendar :data="myEvents" />
-</template>
+  ngOnInit() {
+    // init outlook client
+    outlookCalendarSync.init({
+      clientId: 'YOUR_CLIENT_ID',
+      onSignedIn: () => {
+        outlookCalendarSync.getEvents(
+          ['MY_FIRST_CALENDAR_ID', 'MY_SECOND_CALENDAR_ID'],
+          new Date(2022, 1, 1),
+          new Date(2022, 3, 0)
+        ).then((events) => {
+          this.myEvents = events;
+        });
+      },
+      onSignedOut: () => {
+        this.myEvents = [];
+      },
+    });
+  }
+}
 ```
 
 ### API {#outlook-api}

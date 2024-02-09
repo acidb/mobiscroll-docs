@@ -140,6 +140,7 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Acid Media LLC. Built with Docusaurus.`,
       },
       prism: {
+        additionalLanguages: ['csharp', 'php'],
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },

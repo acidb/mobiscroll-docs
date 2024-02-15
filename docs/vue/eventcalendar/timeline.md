@@ -242,14 +242,14 @@ A footer can be rendered as well for each day using the [dayFooter](#slot-dayFoo
 
 The header of the timeline can also be customized with named slots. Depending on the resolution the first timeline row under the navigation header can show a line for each of the following:
 
- * [hour](./api.md#slot-hour)
- * [day](./api.md#slot-day)
- * [week](./api.md#slot-week)
- * [month](./api.md#slot-month)
- * [quarter](./api.md#slot-quarter)
- * [year](./api.md#slot-year)
+ * [hour](./api#slot-hour)
+ * [day](./api#slot-day)
+ * [week](./api#slot-week)
+ * [month](./api#slot-month)
+ * [quarter](./api#slot-quarter)
+ * [year](./api#slot-year)
 
-Each of these resolution has its own named slot for the header and the footer. For example there is the  [`hour`](./api.md#slot-hour) slot for the header and [`hourFooter`](./api.md#slot-hourFooter) slot for the footer. In similar fashion, each item in the list above has a footer pair as well.
+Each of these resolution has its own named slot for the header and the footer. For example there is the  [`hour`](./api#slot-hour) slot for the header and [`hourFooter`](./api#slot-hourFooter) slot for the footer. In similar fashion, each item in the list above has a footer pair as well.
 
 <div className="option-list">
 

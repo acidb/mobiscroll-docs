@@ -26,7 +26,7 @@ function App() {
 
 ## Value binding
 
-Use the value and the onChange props to set a value just as you would with a native input element.
+Use the `value` and the `onChange` props to set a value just as you would with a native input element.
 
 ```jsx
 import { useState } from 'react';

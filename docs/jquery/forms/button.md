@@ -16,6 +16,8 @@ Once activated, it performs an action, such as submitting a form or opening a di
 
 Buttons can display text, icons, or both. They can be colored and styled with various options.
 
+All the options can be passed to the button via `data-` attributes with exceptions of the native button supported ones. The attributes that the native html button supports can be passed directly without the data- prefix. For example the `disabled` attribute.
+
 #### Button styles
 
 ```html title="Button variations"

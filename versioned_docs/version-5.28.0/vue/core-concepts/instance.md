@@ -89,7 +89,7 @@ const invalidsArray = [
 ]
 ```
 
-To get the actual invalid days for the month of November, you can call the [`getInvalids`](../eventcalendar/api.md#method-getInvalids) method of the Eventcalendar instance.
+To get the actual invalid days for the month of November, you can call the [`getInvalids`](../eventcalendar/api#method-getInvalids) method of the Eventcalendar instance.
 
 ```html title="The invalids array needs to be passed to the eventcalendar"
 <MbscEventcalendar ref="instRef" :invalid="invalidsArray" />

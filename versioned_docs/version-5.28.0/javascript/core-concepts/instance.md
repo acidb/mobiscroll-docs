@@ -56,7 +56,7 @@ const invalidsArray = [
 ];
 ```
 
-To get the actual invalid days for the month of November, you can call the [`getInvalids`](../eventcalendar/api.md#method-getInvalids) method of the Eventcalendar instance.
+To get the actual invalid days for the month of November, you can call the [`getInvalids`](../eventcalendar/api#method-getInvalids) method of the Eventcalendar instance.
 
 ```javascript
 // initialize the eventcalendar with the invalid rule

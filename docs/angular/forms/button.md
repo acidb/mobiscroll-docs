@@ -1,6 +1,6 @@
 ---
 sidebar_label: Button
-displayed_sidebar: javascriptSidebar
+displayed_sidebar: angularSidebar
 ---
 
 import Options from '../\_auto-generated/button/options.md';

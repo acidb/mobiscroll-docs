@@ -30,7 +30,7 @@ function App() {
 
 ## Value binding
 
-Use the value and the onChange props to bind the selected value to dropdown.
+Use the `value` and the `onChange` props to bind the selected value to dropdown.
 
 ```jsx
 import { useState } from 'react';

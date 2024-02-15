@@ -33,7 +33,7 @@ function App() {
 
 ## Value binding
 
-Use the checked and the onChange props to set a value to the radio component.
+Use the `checked` and the `onChange` props to set a value to the radio component.
 
 ```jsx
 import { useState } from 'react';

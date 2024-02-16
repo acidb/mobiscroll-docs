@@ -4,6 +4,11 @@ sidebar_label: Timezones
 displayed_sidebar: vueSidebar
 ---
 
+import LibraryInstall from '../../_shared/timezones/library_install.mdx';
+import MomentInstall from '../../_shared/timezones/moment_install.mdx';
+import LuxonInstall from '../../_shared/timezones/luxon_install.mdx';
+import ExclusiveEndDatesContent from '../../_shared/eventcalendar/exclusive-ends.mdx';
+
 # Timezones
 
 By default the Eventcalendar uses the local timezone of the browser to show event data. If you want to show the data or interpret it in a different timezone, you will need an external library to handle the timezone conversions. There are two libraries that Mobiscroll supports: **moment-timezone** and **luxon**.
@@ -12,67 +17,55 @@ When using a timezone plugin with the Eventcalendar, the [`exclusiveEndDates`](a
 
 ## Library Install
 
-To setup the library, first you have to install it on your page. In this guide we'll assume you are using npm to install packages, but you can consult the installation guide on the libraries official pages ([moment-timezone install page](https://momentjs.com/timezone), [luxon install page](https://moment.github.io/luxon)) for more options on how to install them.
+<LibraryInstall />
 
 ### The Moment-Timezone library
 
-To install the moment-timezone library with npm you will need to run the following commands:
+<MomentInstall framework="vue" />
 
-```bash
-npm install moment-timezone
-```
-
-After the library is installed, you will have to import it with the `momentTimezone` object from mobiscroll:
-
-```ts
-import moment from 'moment-timezone';
-import { momentTimezone } from '@mobiscroll/vue';
-```
-
-Then set the mobiscroll's reference to the imported library:
-
-```ts
-momentTimezone.moment = moment;
-```
-
-After that, you can pass the momentTimezone object to the Eventcalendar's timezonePlugin option.
+**4.** After that, you can pass the `momentTimezone` object to the Eventcalendar's [`timezonePlugin`](./api#opt-timezonePlugin) option.
 
 ```html
-<MbscEventcalendar :timezonePlugin="momentTimezone" />
+<script setup>
+  import { MbscEventcalendar, momentTimezone } from '@mobiscroll/vue';
+  import moment from 'moment-timezone';
+
+  momentTimezone.moment = moment;
+</script>
+
+<template>
+  <MbscEventcalendar
+    // highlight-next-line
+    :timezonePlugin="momentTimezone"
+    dataTimezone="utc"
+    displayTimezone="Europe/Berlin"
+  />
+</template>
 ```
 
 ### The Luxon library
 
-To install the luxon library with npm you will need to run the following commands:
+<LuxonInstall framework="vue" />
 
-```bash
-npm install luxon
-```
-
-In case you are using typescript you can also consider installing the types, because they come separately:
-
-```bash
-npm install --save-dev @types/luxon
-```
-
-After the library is installed, you will have to import it with the `luxonTimezone` object from mobiscroll:
-
-```ts
-import * as luxon from 'luxon';
-import { luxonTimezone } from '@mobiscroll/react';
-```
-
-Then set the mobiscroll's reference to the imported library:
-
-```ts
-luxonTimezone.luxon = luxon;
-```
-
-After that, you can pass the luxonTimezone object to the Eventcalendar's timezonePlugin option.
+**4.** After that, you can pass the `luxonTimezone` object to the Eventcalendar's `timezonePlugin` option.
 
 ```html
-<MbscEventcalendar :timezonePlugin="luxonTimezone" />
+<script setup>
+  import { MbscEventcalendar, luxonTimezone } from '@mobiscroll/vue';
+  import * as luxon from 'luxon';
+  luxonTimezone.luxon = luxon;
+</script>
+
+<template>
+  <MbscEventcalendar
+    // highlight-next-line
+    :timezonePlugin="luxonTimezone"
+    dataTimezone="utc"
+    displayTimezone="Europe/Berlin"
+  />
+</template>
 ```
+
 
 ## Using timezones
 
@@ -112,17 +105,4 @@ You can also store the timezone inside the event data, using the `timezone` prop
 
 ## Exclusive end dates
 
-In version 5.7.0 we introduced support for exclusive end dates. This means that the last moment of a given range is not actually part of the range.
-
-Many of existing calendaring solutions (e.g. Google Calendar) and standards (e.g. [iCalendar](https://icalendar.org/)) are working with exclusive end dates, so this makes interoperabiliy with our Eventcalendar UI simpler.
-
-With the introduction of timezone support, this also became a necessity, e.g. if you have an event with start: `'2021-07-09T20:00Z'` and end: `'2021-07-09T21:00Z'`, defined in UTC, when displayed in Europe/Bucharest timezone, the end becomes '2021-07-10T00:00+03:00'. With inclusive end dates the event will show up on 10th of July as well, which is unexpected.
-
-The exclusive end dates mode can be enabled using the [`exclusiveEndDates`](api#opt-exclusiveEndDates) option. When timezones are used ([`displayTimezone`](api#opt-displayTimezone) and/or [`dataTimezone`](api#opt-dataTimezone) is set), exclusive end dates are automatically enabled.
-
-
-:::caution
-Enabling exclusive end dates can cause breaking changes, especially with all-day events with no time specified.
-
-With inclusive end dates an event with start: `'2021-07-09'` and end: `'2021-07-10'` will show as a two day event on the calendar view, expanded over 9th and 10th of July. With exclusive end dates the event will be a single day event, showing up only on 9th of July.
-:::
+<ExclusiveEndDatesContent />

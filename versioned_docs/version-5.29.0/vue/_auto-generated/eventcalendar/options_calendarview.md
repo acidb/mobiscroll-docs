@@ -518,7 +518,7 @@ For week, month and year views the reference point will be the start of the week
 
 Changing the reference date will not navigate the calendar to the specified date,
 it only recalculates the pages from the new reference date.
-To navigate the view to a specified date and time, use the [#opt-selectedDate](selectedDate) option.
+To navigate the view to a specified date and time, use the [selectedDate](#opt-selectedDate) option.
 
 **Default value**: `undefined`
 ### responsive {#opt-responsive}

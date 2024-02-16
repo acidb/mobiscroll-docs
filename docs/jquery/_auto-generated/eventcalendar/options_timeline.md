@@ -103,6 +103,8 @@ Array&lt;MbscCalendarEvent&gt;
 
 The events for the calendar, as an array of event objects. The event object supports the following properties:
 - `allDay`: *boolean* - Specifies if the event is all day or not.
+- `bufferBefore`: *number* - Specifies a buffer time in minutes that will be displayed before the start of the event.
+- `bufferAfter`: *number* - Specifies a buffer time in minutes that will be displayed after the end of the event.
 - `color`: *string* - The color of the event.
 - `cssClass` *string* - Custom CSS class for the event.
 Useful when customization is needed on the event level.
@@ -204,6 +206,9 @@ If not specified, it defaults to the [displayTimezone](#opt-displayTimezone).
 MbscDateType
 
 Specifies the initial selected date on the calendar.
+
+For views, where time is also displayed, the view will be scrolled to the specified time.
+If the time part is not explicitly specified, it defaults to the start of the day.
 
 **Default value**: `undefined`
 ### displayTimezone {#opt-displayTimezone}
@@ -458,12 +463,20 @@ use the [invalid](#opt-invalid) option with daily recurrence until the specific 
 
 MbscDateType
 
-Specifies the reference date of the component, which represents when to start to calculate the view you want to display.
-For example, if you want to display 14 days from today, you can specify today as the reference date.
+Specifies the reference date for the view calculation, when multiple days, weeks, months or years are displayed.
+If not specified, for the scheduler and timeline views will be today&#039;s date, for the calendar and agenda views will be 1970/01/01.
 
-:::info
-If not defined, in case of scheduler and timeline views it will default to today, in other views it will default to `'1970/01/01'`.
-:::
+It denotes the reference point when calculating the pages going in the future and in the past.
+For example if the view type is day, the view size is 3, and the current date is `01/16/2024`,
+the pages are calculated from this date, so the initial page will contain `[01/16/2024, 01/16/2024, 01/17/2024]`,
+the next page `[01/18/2024, 01/19/2024, 01/20/2024]` and so on.
+
+In case of day view, the reference point will be exactly the specified date.
+For week, month and year views the reference point will be the start of the week, month or year of the specified day.
+
+Changing the reference date will not navigate the calendar to the specified date,
+it only recalculates the pages from the new reference date.
+To navigate the view to a specified date and time, use the [selectedDate](#opt-selectedDate) option.
 
 **Default value**: `undefined`
 ### resources {#opt-resources}
@@ -479,8 +492,10 @@ If set to an empty array, only those events will be displayed which are not tied
 The timeline view can render multiple levels of hierarchy groups. Levels can be added with the help of the `children` property.
 
 The resource object supports the following properties:
+- `background`: *string* - Background color of the resource row or column.
 - `children`: *Array&lt;MbscResource&gt;* - Children resources.
 - `collapsed`: *boolean* - The displayed state of the children resources.
+- `cssClass`: *string* - Css class for the resource row or column.
 - `id`: Number, *string* - The id of the resource.
 - `name`: *string* - The name of the resource.
 - `color`: *string* - The color sets the default color for the events of the resource.
@@ -570,11 +585,18 @@ When `true`, enables multiple event selection on the calendar.
 
 MbscDateType
 
-Specifies the selected date on the calendar. Setting this option will force the calendar to display the passed date
-and won&#039;t display anything else unless another selected date is set. This is called a controlled usage, and the
-[onSelectedDateChange](#event-onSelectedDateChange) event can be used to get notified and act on navigational changes.
+Specifies the selected date on the calendar.
+This can be changed programmatically and when changed the calendar will automatically navigate to the specified date.
 
-To set the initially displayed date without a controlled usage, use the [defaultSelectedDate](#opt-defaultSelectedDate) option instead.
+For views, where time is also displayed, the view will be scrolled to the specified time.
+If the time part is not explicitly specified, it defaults to the start of the day.
+
+This does not change the reference date that defines the reference point of the navigation pages.
+To change the reference point for the navigation (e.g. start the paging from the newly selected date)
+use the [refDate](#opt-refDate) option.
+
+You also need to pass a handler for the [onSelectedDateChange](#event-onSelectedDateChange) event
+to update the selected date when the date is changed from the calendar.
 
 **Default value**: `undefined`
 ### selectedEvents {#opt-selectedEvents}
@@ -598,6 +620,13 @@ boolean
 
 Show or hide the calendar header controls: the previous and next buttons,
 and the current view button together with the year and month picker.
+
+**Default value**: `true`
+### showEventBuffer {#opt-showEventBuffer}
+
+boolean
+
+If `true`, it will display the event buffers defined in the [event data](#opt-data).
 
 **Default value**: `true`
 ### showEventTooltip {#opt-showEventTooltip}

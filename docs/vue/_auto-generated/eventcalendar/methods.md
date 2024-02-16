@@ -31,10 +31,6 @@ Parameters:
 
 
 
-For views, where time is also displayed, the view will be scrolled to the specified time.
-If the time part is not explicitly specified, it defaults to the start of the day.
-
-To change the initial date of the calendar, use the [selectedDate](#opt-selectedDate) option instead.
 ### navigateToEvent {#method-navigateToEvent}
 
 (event: MbscCalendarEvent) => void

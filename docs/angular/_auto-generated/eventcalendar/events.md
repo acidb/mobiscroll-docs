@@ -384,6 +384,10 @@ Will be set only if the dragged event was a recurring event occurrence.
 It is set on recurring event delete, when [multiple event selection](#opt-selectMultipleEvents) is enabled.
    - `oldEventOccurrence`: *MbscCalendarEvent* - The occurrence of the event which was dragged.
 Will be set only if the dragged event was a recurring event occurrence.
+   - `oldResource`: number | string - The id of the resource from which the event was dragged.
+   - `oldSlot`: number | string - The id of the slot from which the event was dragged.
+   - `resource`: number | string - The id of the resource where the event was dropped.
+   - `slot`: number | string - The id of the slot where the event was dropped.
    - `source`: *&#039;calendar&#039; | &#039;timeline&#039; | &#039;schedule&#039;* - The view where the event is being updated.
 
  - inst - The component instance.
@@ -547,8 +551,9 @@ Parameters:
 (args: MbscSelectedDateChangeEvent, inst: EventcalendarBase) => void
 
 
-Triggered when the selected date is changed from the UI. You can use this event in conjunction with the
-[selectedDate](#opt-selectedDate) option to customize where the Eventcalendar should navigate.
+Triggered when the selected date is changed, e.g. by clicking on a day on a calendar view, or by using the navigation arrows.
+You can use this event in conjunction with the [selectedDate](#opt-selectedDate) option
+to customize where the Eventcalendar should navigate.
 
 Parameters:
  - args - The event argument with the following properties:

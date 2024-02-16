@@ -33,6 +33,50 @@ and scrolling the list updates the selected date on the calendar.
 
 Customize the agenda listing when the list is empty.
 
+### bufferAfter {#slot-bufferAfter}
+
+```html
+<template #bufferAfter="event">...</template>
+```
+
+Customize the buffer area that is displayed at the end of the scheduler and timeline events.
+The buffer can be defined with the help of the `bufferAfter` property of the [event data](#opt-data).
+
+The template will receive an event object as data.
+Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
+The following event specific properties are available:
+- `allDay`: _string_ - The localized all-day text in case of all day events.
+- `end`: _string_ - The formatted end time, if the event is not all day.
+- `id`: _string_ - The id of the event.
+- `isMultiDay`: _boolean_ - True if the event spans across multiple days.
+- `lastDay`: _boolean_ - True if it&#039;s rendered on the last day of a multiple event.
+- `original`: _MbscCalendarEvent_ - The original event object.
+- `start`: _string_ - The formatted start time, if the event is not all day.
+- `title`: _string_ - The title of the event.
+- `currentResource`: _string | number_ - The resource of the row or column where the event is being rendered.
+
+### bufferBefore {#slot-bufferBefore}
+
+```html
+<template #bufferBefore="event">...</template>
+```
+
+Customize the buffer area that is displayed at the start of the scheduler and timeline events.
+The buffer can be defined with the help of the `bufferBefore` property of the [event data](#opt-data).
+
+The template will receive an event object as data.
+Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
+The following event specific properties are available:
+- `allDay`: _string_ - The localized all-day text in case of all day events.
+- `end`: _string_ - The formatted end time, if the event is not all day.
+- `id`: _string_ - The id of the event.
+- `isMultiDay`: _boolean_ - True if the event spans across multiple days.
+- `lastDay`: _boolean_ - True if it&#039;s rendered on the last day of a multiple event.
+- `original`: _MbscCalendarEvent_ - The original event object.
+- `start`: _string_ - The formatted start time, if the event is not all day.
+- `title`: _string_ - The title of the event.
+- `currentResource`: _string | number_ - The resource of the row or column where the event is being rendered.
+
 ### day {#slot-day}
 
 ```html

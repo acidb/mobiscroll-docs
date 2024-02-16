@@ -11,10 +11,10 @@ const config = {
   favicon: 'img/favicon-light-32x32.png',
 
   // Set the production url of your site here
-  url: 'https://dev.mobiscroll.com',
+  url: 'https://localhost',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/docs',
+  baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -40,12 +40,20 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
-          includeCurrentVersion: false,
-          lastVersion: '5.29.0',
+          includeCurrentVersion: true,
+          lastVersion: 'current',
+          versions: {
+            current: {
+              banner: 'none',
+            },
+          },
         },
         blog: false,
         theme: {
           customCss: [require.resolve('./src/css/custom.css'), require.resolve('./src/css/footer.css')],
+        },
+        googleTagManager: {
+          containerId: 'GTM-12345',
         },
       }),
     ],
@@ -103,7 +111,7 @@ const config = {
             ],
           },
           {
-            href: 'https://docs.mobiscroll.com/cli',
+            href: 'https://docs.mobiscrollprod.com/cli',
             label: 'CLI',
             position: 'right',
           },
@@ -117,7 +125,7 @@ const config = {
               },
               {
                 label: 'Blog',
-                href: 'https://blog.mobiscroll.com/',
+                href: ' https://blog.mobiscroll.com/',
               },
               {
                 href: 'https://github.com/acidb/mobiscroll/issues',
@@ -158,6 +166,13 @@ const config = {
         indexName: 'docs_mobiscroll',
       },
     }),
+
+  scripts: [
+    {
+      src: 'https://www.google.com/recaptcha/api.js?render=6Leu6BgpAAAAALbw6w2g5wS6qQDPMWGJ7kQXNXAx',
+      async: true,
+    }
+  ]
 };
 
 module.exports = config;

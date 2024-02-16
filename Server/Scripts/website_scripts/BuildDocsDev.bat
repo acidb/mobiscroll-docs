@@ -12,6 +12,6 @@ if not [%branch%] == [main] pause
 
 
 @echo Build
-call npm run build-staging
+call npm run build-dev
 @echo build finished
 pause

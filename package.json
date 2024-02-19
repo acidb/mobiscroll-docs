@@ -8,6 +8,7 @@
     "build": "docusaurus build",
     "build-staging": "docusaurus build --config docusaurus.config.staging.js",
     "build-dev": "docusaurus build --config docusaurus.config.dev.js",
+    "build-localdev": "docusaurus build --config docusaurus.config.localdev.js",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",

@@ -68,7 +68,7 @@ The colors can be combined with the [labels](#opt-labels) or [marked](#opt-marke
 :::
 
 ```js
-colors: [
+[
   { date: new Date(2020, 2, 23), background: 'pink' },
   { date: new Date(2020, 2, 24), background: 'green' },
   { background: '#ff0000', recurring: { repeat: 'weekly', weekDays: 'SU' } },
@@ -354,7 +354,7 @@ The dates can be specified as JavaScript Date objects, ISO 8601 strings, or mome
 :::
 
 ```js
-invalid: [
+[
   // Passing exact dates and times
   new Date(2021, 1, 7), // Date object
   '2021-10-15T12:00', // ISO 8601 string
@@ -388,7 +388,7 @@ invalid: [
       weekDays: 'SA,SU'
     }
   }
-];
+]
 ```
 
 **Default value**: `undefined`
@@ -427,7 +427,7 @@ The labels can be combined with the [colors](#opt-colors) option.
 :::
 
 ```js
-labels: [
+[
   {
     start: new Date(2020, 2, 23),
     end: new Date(2020, 2, 24),
@@ -467,7 +467,7 @@ The marked days can be combined with the [colors](#opt-colors) option.
 :::
 
 ```js
-marked: [
+[
   new Date(2020, 2, 15),
   new Date(2020, 2, 22),
   {

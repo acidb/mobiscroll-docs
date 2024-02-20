@@ -4,45 +4,8 @@ sidebar_label: Exclusive end dates
 displayed_sidebar: vueSidebar
 ---
 
+import Content from '../../_shared/exclusive_end_dates.mdx';
+
 # Exclusive end dates
 
-## The problem
-
-To understand why we need exclusive end dates support, we need to look at what dates and date ranges represent.
-
-Javascript date objects (and ISO8601 date strings - no matter the format) technically represent a point in time. A date range on the other hand is a duration between two points in time (the start of the range and the end of the range).
-
-The problem comes when we want to translate between the daily language to the technical world. For example, when we say "I'm on holiday from the 21st until the 27th of July" we refer to this range as
-
-```
-2022-07-21 - 2022-07-27
-```
-
-Technically this range ends at the first moment on the 27th of July, because `2022-07-27` is the same as `2022-07-27T00:00:00.000`. But we think of it as the whole day, meaning I'm still on holiday on the 27th (and expect my colleages not to bother me with work).
-
-The correct and precise timestamps for the above range, which I actually mean is the following:
-
-```
-2022-07-21T00:00:00.000 - 2022-07-27T23:59:59.999
-```
-
-To work with this end date is a bit awkward and because of that also error prone. It's not easily readable and also causes calculation headaches. For example if we try to calculate how long is this vacation (duration = end - start) we get 7 days minus 1 millisecond.
-
-## The solution
-
-The solution to this problem is the [`exclusiveEndDates`](./api#opt-exclusiveEndDates) option. When this options is `true` and we select dates only, without time part, we always exclude the end date from the range.
-
-To keep going with the above example, the selected range will be:
-
-```
-2022-07-21 - 2022-07-28
-```
-
-In terms of UX, the user should not have to think about all that, so the Datepicker will show the correct range for them.
-On the calendar for example, the highlighted range will still be 21st-27th, but the returned dates will be 21st and 28th.
-
-:::caution
-Enabling exclusive end dates can cause breaking changes. The [`invalid`](./api#opt-invalid), [`labels`](./api#opt-labels), [`marked`](./api#opt-marked) and [`colors`](./api#opt-colors) options all can be specified with date ranges, and these ranges will be interpreted according to the `exclusiveEndDate` option.
-
-With inclusive end dates an invalid with start: '2021-07-09' and end: '2021-07-10' will disable two days on the calendar, the 9th and 10th of July. With exclusive end dates only a single day will be disabled, the 9th of July.
-:::
+<Content />

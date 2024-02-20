@@ -1,0 +1,51 @@
+---
+sidebar_label: Stepper
+displayed_sidebar: angularSidebar
+---
+
+import Options from '../\_auto-generated/stepper/options.md';
+import Events from '../\_auto-generated/stepper/events.md';
+import Localizations from '../\_auto-generated/stepper/localizations.md';
+
+# Stepper
+
+The Stepper component lets the user adjust a value by increasing and decreasing it in small steps.
+Steppers are used in situations where a user needs to adjust a value by a small amount.
+
+## Usage
+
+Use the [`label`](#opt-label) option to provide a label to the stepper.
+
+```html
+<mbsc-stepper label="Label"></mbsc-stepper>
+```
+
+## Value binding
+
+The stepper can be bound to a number value using either the `[(ngModel)]` or the `formControlName` directives. In this case the stepper will update it's state according to the bound the value.
+
+```html
+<mbsc-stepper label="My Age" [(ngModel)]="myAge"></mbsc-stepper>
+```
+```ts
+@Component({...})
+export class MyComponent {
+  myAge = 24;
+}
+```
+
+<div className="option-list">
+
+## Options
+
+<Options />
+
+## Events
+
+<Events />
+
+## Localization
+
+<Localizations />
+
+</div>

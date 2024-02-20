@@ -125,6 +125,7 @@ Customize the footer of the hour columns on the timeline view.
 The following properties are available:
 - `date`: _Date_ - The date and time of the rendered hour.
 - `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the hour.
+- `isActive`: _boolean_ - True for the current hour.
 
 ### month {#slot-month}
 

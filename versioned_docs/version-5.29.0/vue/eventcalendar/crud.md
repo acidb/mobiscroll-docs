@@ -13,7 +13,7 @@ The Eventcalendar is bound to an array of event objects as described in the [dat
 ```html title="Updating an event title"
 <script setup>
   import { ref } from "vue";
-  import { MbscEventcalendar, getJson } from "@mobiscroll/vue";
+  import { MbscEventcalendar, MbscButton } from "@mobiscroll/vue";
 
   const myEvents = ref([
     { id: 'id1' start: '2023-09-24', end: '2023-09-30', title: 'Short trip!'},
@@ -89,7 +89,7 @@ When an event is about to be created using click or drag on the Eventcalendar UI
 
 ### Event update
 
-Similar to [event creation](#event-creation) above, to enable event editing you can use the [`dragToResize`](api#opt-dragToResize) and [`dragToMove`](api#opt-dragToMove) options.
+Similar to [event creation](#event-create) above, to enable event editing you can use the [`dragToResize`](api#opt-dragToResize) and [`dragToMove`](api#opt-dragToMove) options.
 
 When an event is about to be updated by dragging on the Eventcalendar UI, the [`@event-update`](api#event-onEventUpdate) event is fired. If not canceled by returning `false` the calendar event is updated on the calendar. This update is followed by the [`@event-updated`](api#event-onEventUpdated). Any of these two events are passed the calendar event previous and new properties that can be used to save the event to a persistent storage or to send it through an API.
 

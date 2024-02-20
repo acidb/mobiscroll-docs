@@ -89,18 +89,6 @@ when the events are grouped by resources.
 Customize the header of the event calendar.
 You can use custom markup and the built in header components of the calendar.
 
-### hourFooter {#slot-hourFooter}
-
-```html
-<template #hourFooter="args">...</template>
-```
-
-Customize the footer of the hour columns on the timeline view.
-
-The following properties are available:
-- `date`: _Date_ - The date and time of the rendered hour.
-- `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the hour.
-
 ### resource {#slot-resource}
 
 ```html

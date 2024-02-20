@@ -50,7 +50,7 @@ If a string, it must be one of the predefined button handlers:
 Can be a single value or multiple value passed as an array. Predefined string values are: `'enter'`, `'esc'`, `'space'`.
 
 ```js title="Example for using predefined and custom buttons"
-buttons: [
+[
   'set',
   {
     text: 'Custom',
@@ -64,7 +64,7 @@ buttons: [
 ]
 ```
 ```js title="Example for using a predefined button handler"
-buttons: [
+[
   'set',
   {
     text: 'Hide',

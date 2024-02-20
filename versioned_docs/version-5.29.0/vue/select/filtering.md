@@ -19,7 +19,7 @@ By defaut filtering is done client side on the dataset passed to the Select with
 
 ```html
 <script setup>
-  import { MbscSelect } from '@mobiscroll/select';
+  import { MbscSelect } from '@mobiscroll/vue';
 
   const countries = ref([
     { text: 'US - United States', value: 3 },

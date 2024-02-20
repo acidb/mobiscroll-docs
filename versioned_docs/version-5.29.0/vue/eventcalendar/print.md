@@ -2,45 +2,16 @@
 sidebar_position: 14
 sidebar_label: Print
 displayed_sidebar: vueSidebar
+title: Print
 ---
 
-# Print
+import InstallImport from '../../_shared/eventcalendar/print-install-import.mdx';
+import { toc as instTOC } from '../../_shared/eventcalendar/print-install-import.mdx';
 
-The Print Module is an optional module, that includes styles and functions for printing. It can be installed and used with the Mobiscroll Eventcalendar.
+export const toc = [...instTOC,
+{ value: 'Printing', level: 2, id: 'printing'}];
 
-## Installing the Print Module
-
-When your Mobiscroll package is created with the [Download Builder](https://download.mobiscroll.com) and you have access to the Print Module, you can choose to include it in the built package. In this case you will need make sure you checked the print module before downloading the package from the download page. After installing your downloaded package, the Print Module will be available for import. In case it was downloaded with the download builder, the Print Module needs to be imported from the generated package.
-
-When you're using the full Mobiscroll package from NPM, then you have the possibility to install the Print Module as an additional package (also from NPM). In this case, after successfully using the Mobiscroll CLI to configure the project, you will have to install the `@mobiscroll/print` package from npm. Use the following command:
-
-```bash
-npm install @mobiscroll/print
-```
-
-## Importing the Print Module
-
-The Print Module consists of print specific styles, that need to be loaded into the document. Also, there's a JavaScript part, that needs to be imported and passed to the component via the [`modules`](./api.md#opt-modules) option.
-
-#### Stylesheets
-
-:::info
-In the case of the package built by the download builder, there's no additional stylesheet. It is already bundled into the same file all the other component files are.
-:::
-
-For the NPM package, styles can be found at the `dist/css/` folder inside the package.
-
-```javascript
-// importing the css
-import '@mobiscroll/print/dist/css/mobiscroll.min.css';
-
-// importing the SASS - if you are using SASS
-import '@mobiscroll/print/dist/css/mobiscroll.scss';
-```
-
-#### JavaScript
-
-The print module can be imported from the installed package and passed to the component using the [modules](./api.md#opt-modules) option. Here's an example:
+<InstallImport />
 
 ```html
 <script setup>
@@ -55,7 +26,7 @@ The print module can be imported from the installed package and passed to the co
 </template>
 ```
 
-## Printing
+<h2 id="printing">Printing</h2>
 
 Printing the Eventcalendar contents can be done using the print method of the Eventcalendar [instance](../core-concepts/instance). Calling this method will create a new window containing only the Eventcalendar and will invoke the print function of the browser. After the printing is done, the window should close automatically.
 

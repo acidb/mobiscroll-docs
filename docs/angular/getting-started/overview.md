@@ -34,3 +34,7 @@ The following sections help you get started and learn more on the Mobiscroll lib
 Delve right into how the individual components work and learn about their API by following the links below.
 
 <DocCardList items={componentLinks} />
+
+## Legacy docs
+
+If you are looking for the documentation for a specific version that you don't find in the dropdown at the top of the page, you can check our legacy documentation under [this link](https://docs.mobiscroll.com/5-29-0/).

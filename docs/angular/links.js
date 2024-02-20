@@ -24,7 +24,7 @@ const config = {
     {
       type: 'link',
       label: 'Styling & theming',
-      href: '/angular/theming/build-in-themes',
+      href: '/angular/theming/built-in-themes',
       description: 'How to customize the look'
       // icon: '/img/javascript-logo.svg',
     },

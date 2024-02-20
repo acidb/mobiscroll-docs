@@ -88,7 +88,7 @@ Use the [@page-loading](./api#event-onPageLoading) event to load the data for th
 The event fires every time the view changes, for example when someone navigates the event calendar.
 Getting the events in real time as the user interacts with the UI improves load performance and always serves the most recent data.
 
-You can pass the view variables - like month and year - in the URL and handle the filtering inside the API implmentation.
+You can pass the view variables - like month and year - in the URL and handle the filtering inside the API implementation.
 
 ```html
 <script setup>

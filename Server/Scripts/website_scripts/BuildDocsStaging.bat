@@ -1,7 +1,9 @@
 @echo off
 set "branch=main"
 @echo Default branch is %branch%
-@echo Getting Latest changes
+set /p branch="Enter Branch (leave empty to default):" %=%
+
+@echo Getting Latest changes from %branch%
 
 cd "C:\dailybuild\mobiscroll-docs-staging"
 call git fetch
@@ -12,6 +14,6 @@ if not [%branch%] == [main] pause
 
 
 @echo Build
-call npm run build-dev
+call npm run build-staging
 @echo build finished
 pause

@@ -4,6 +4,8 @@ sidebar_label: Custom themes
 displayed_sidebar: vueSidebar
 ---
 
+import Methods from '../../_shared/theming/theming_methods.mdx';
+
 # Custom themes
 
 If you'd like to use multiple color variations for the Mobiscroll components, the solution is to create one or more custom themes. A custom theme is a variation of one of the [built-in themes](./built-in-themes), referred as the base theme.
@@ -51,25 +53,6 @@ To use custom themes together with the `themeVariant` option (which controls whe
 
 ## Methods
 
-### createCustomTheme {#method-createCustomTheme}
-
-(theme: string, baseTheme: string) => void
-
-Registers a custom theme for use.
-* `theme` - _String_ - The name of the custom theme. Make sure to use the same name you used with the SCSS function when creating the theme.
-* `baseTheme` - _String_ - One of the [supported base themes](./built-in-themes).
-
-### mbsc-custom-theme {#method-mbsc-custom-theme}
-
-($theme-name, $base-theme-name, $colors) => void
-
-An SCSS function which creates the styling for a custom theme, with the specified colors
-* `$theme-name` - _String_ - Name of the custom theme
-* `$base-theme-name` - _String_ - Name of the [base theme](./built-in-themes.md) name
-* `$colors` - _Map_ - A key-value map containing the input colors. Possible keys:
-  - `accent`
-  - `background`
-  - `text`
-  - `button` - for the `ios` base theme only
+<Methods />
 
 </div>

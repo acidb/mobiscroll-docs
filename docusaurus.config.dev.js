@@ -11,10 +11,10 @@ const config = {
   favicon: 'img/favicon-light-32x32.png',
 
   // Set the production url of your site here
-  url: 'https://localhost',
+  url: 'https://dev.mobiscroll.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/docs',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -40,13 +40,8 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
-          includeCurrentVersion: true,
-          lastVersion: 'current',
-          versions: {
-            current: {
-              banner: 'none',
-            },
-          },
+          includeCurrentVersion: false,
+          lastVersion: '5.29.0',
         },
         blog: false,
         theme: {
@@ -78,29 +73,37 @@ const config = {
             items: [
               {
                 type: 'doc',
+                label: 'Angular',
+                // href: 'https://docs.mobiscrollprod.com/angular',
+                docId: 'angular/getting-started/overview',
+              },
+              {
+                type: 'doc',
+                label: 'JavaScript',
+                // href: 'https://docs.mobiscrollprod.com/javascript',
+                docId: 'javascript/getting-started/overview',
+              },
+              {
+                type: 'doc',
+                label: 'jQuery',
+                // href: 'https://docs.mobiscrollprod.com/jquery',
+                docId: 'jquery/getting-started/overview',
+              },
+              {
+                type: 'doc',
+                label: 'React',
+                // href: 'https://docs.mobiscrollprod.com/react',
+                docId: 'react/getting-started/overview',
+              },
+              {
+                type: 'doc',
                 label: 'Vue',
                 docId: 'vue/getting-started/overview',
-              },
-              {
-                label: 'Angular',
-                href: 'https://docs.mobiscrollprod.com/angular',
-              },
-              {
-                label: 'React',
-                href: 'https://docs.mobiscrollprod.com/react',
-              },
-              {
-                label: 'jQuery',
-                href: 'https://docs.mobiscrollprod.com/jquery',
-              },
-              {
-                label: 'JavaScript',
-                href: 'https://docs.mobiscrollprod.com/javascript',
               },
             ],
           },
           {
-            href: 'https://docs.mobiscrollprod.com/cli',
+            href: 'https://docs.mobiscroll.com/cli',
             label: 'CLI',
             position: 'right',
           },
@@ -114,7 +117,7 @@ const config = {
               },
               {
                 label: 'Blog',
-                href: ' https://blog.mobiscroll.com/',
+                href: 'https://blog.mobiscroll.com/',
               },
               {
                 href: 'https://github.com/acidb/mobiscroll/issues',
@@ -145,6 +148,7 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Acid Media LLC. Built with Docusaurus.`,
       },
       prism: {
+        additionalLanguages: ['csharp', 'php'],
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },

@@ -95,6 +95,16 @@
   margin-bottom: 10px;
 }
 
+/*
+ * exception rule for the above - templates don't have a type so
+ * the first p should bot be styled differently
+ */
+.option-list-templates h3 + p {
+  color: var(--ifm-font-color-base);
+  font-style: normal;
+  margin-bottom: var(--ifm-paragraph-margin-bottom);
+}
+
 .img-row {
   display: flex;
   align-items: center;
@@ -125,4 +135,8 @@
 .doc-card-icon {
   height: 1.2em;
   vertical-align: text-bottom;
+}
+
+.grecaptcha-badge {
+  display: none !important;
 }

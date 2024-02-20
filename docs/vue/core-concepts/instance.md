@@ -13,6 +13,28 @@ and accessing the component instances are only needed in a few specific cases.
 
 ## Getting the instance
 
+### Inside events
+
+A reference to the component instance is available in every Mobiscroll event as the second argument of the event handler.
+
+```html
+<script setup>
+  import { MbscEventcalendar } from "@mobiscroll/vue";
+
+  function myHandler(args, inst) {
+    // highlight-next-line
+    console.log('The Eventcalendar instance:', inst);
+  }
+</script>
+
+<template>
+  // highlight-next-line
+  <MbscEventcalendar @event-create="myHandler" />
+</template>
+```
+
+### Using refs
+
 To get the instance of a component there is a special attribute called `ref`. The `ref` attribute is used to obtain a direct reference
 to the DOM element it is placed on. In the case of [components](https://vuejs.org/guide/essentials/template-refs.html#ref-on-component), the `ref` attribute will return the Vue component.
 
@@ -67,7 +89,7 @@ const invalidsArray = [
 ]
 ```
 
-To get the actual invalid days for the month of November, you can call the the [`getInvalids`](../eventcalendar/api.md#getinvalids) method of the Eventcalendar instance.
+To get the actual invalid days for the month of November, you can call the [`getInvalids`](../eventcalendar/api#method-getInvalids) method of the Eventcalendar instance.
 
 ```html title="The invalids array needs to be passed to the eventcalendar"
 <MbscEventcalendar ref="instRef" :invalid="invalidsArray" />

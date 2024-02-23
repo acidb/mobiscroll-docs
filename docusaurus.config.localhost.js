@@ -116,11 +116,11 @@ const config = {
             items: [
               {
                 label: 'Version 4.10.10',
-                href: 'https://docs.mobiscrollprod.com/4-10-10'
+                href: 'https://docs.mobiscrollprod.com/4-10-10/getting-started'
               },
               {
                 label: 'Version 3.2.6',
-                href: 'https://docs.mobiscrollprod.com/3-2-6'
+                href: 'https://docs.mobiscrollprod.com/3-2-6/getting-started'
               },
             ]
           },

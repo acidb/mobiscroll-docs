@@ -106,6 +106,20 @@ const config = {
             ],
           },
           {
+            type: 'dropdown',
+            label: 'Legacy docs',
+            items: [
+              {
+                label: 'Version 4.10.10',
+                href: 'https://docs.mobiscroll.com/4-10-10'
+              },
+              {
+                label: 'Version 3.2.6',
+                href: 'https://docs.mobiscroll.com/3-2-6'
+              },
+            ]
+          },
+          {
             href: 'https://docs.mobiscroll.com/cli',
             label: 'CLI',
             position: 'right',

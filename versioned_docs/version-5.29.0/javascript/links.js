@@ -9,7 +9,7 @@ const config = {
     },
     {
       type: 'link',
-      label: 'Guides & How to\'',
+      label: 'Guides & How tos',
       href: '/javascript/guides/update-version',
       description: 'How to update to the latest version'
       // icon: '/img/javascript-logo.svg',

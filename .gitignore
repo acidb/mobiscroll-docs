@@ -19,11 +19,11 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-docs/*/_auto-generated/datepicker/localizations_agenda.md
-docs/*/_auto-generated/datepicker/localizations_calendarview.md
-docs/*/_auto-generated/datepicker/localizations_scheduler.md
-docs/*/_auto-generated/datepicker/localizations_timeline.md
-docs/*/_auto-generated/datepicker/options_calendarview.md
-docs/*/_auto-generated/datepicker/options_scheduler.md
-docs/*/_auto-generated/datepicker/options_timeline.md
-docs/*/_auto-generated/eventcalendar/_none.md
+**/_auto-generated/datepicker/localizations_agenda.md
+**/_auto-generated/datepicker/localizations_calendarview.md
+**/_auto-generated/datepicker/localizations_scheduler.md
+**/_auto-generated/datepicker/localizations_timeline.md
+**/_auto-generated/datepicker/options_calendarview.md
+**/_auto-generated/datepicker/options_scheduler.md
+**/_auto-generated/datepicker/options_timeline.md
+**/_auto-generated/eventcalendar/_none.md

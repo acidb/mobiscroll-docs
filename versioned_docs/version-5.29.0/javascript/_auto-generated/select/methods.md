@@ -42,7 +42,7 @@ so the Select is updated properly with the new data.
 (opt: MbscSelectOptions) => void
 
 
-Sets or updates options of the component
+Sets or updates options of the component.
 
 ### setTempVal {#method-setTempVal}
 

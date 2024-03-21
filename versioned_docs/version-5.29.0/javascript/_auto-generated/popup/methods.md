@@ -31,4 +31,4 @@ Recalculates the position of the component.
 (opt: MbscPopupOptions) => void
 
 
-Sets or updates options of the component
+Sets or updates options of the component.

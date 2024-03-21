@@ -306,12 +306,26 @@ The default value depends on the [theme](#opt-theme):
 - Windows: `'stacked'`
 
 **Default value**: `undefined`
+### maxHeight {#opt-maxHeight}
+
+string &#124; number
+
+Sets the maximum height of the component. If not specified, on larger screens (>=768px width) it defaults to 600px.
+
+**Default value**: `undefined`
 ### maxWheelWidth {#opt-maxWheelWidth}
 
 number &#124; Array&lt;number&gt;
 
 Maximum width of the scroller wheels in pixels.
 If a number, it is applied to all wheels, if an array, it is applied to each wheel separately.
+
+**Default value**: `undefined`
+### maxWidth {#opt-maxWidth}
+
+string &#124; number
+
+Sets the maximum width of the component.
 
 **Default value**: `undefined`
 ### minWheelWidth {#opt-minWheelWidth}

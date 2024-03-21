@@ -21,7 +21,7 @@ Recalculates the position of the component (if not inline).
 (active: "end" &#124; "start") => void
 
 
-Sets which date or time is currently selected
+Sets which date or time is currently selected.
 
 Parameters:
  - active - Specifies the active selection: start or end.

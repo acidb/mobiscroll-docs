@@ -102,7 +102,7 @@ Parameters:
 (opt: MbscEventcalendarOptions) => void
 
 
-Sets or updates options of the component
+Sets or updates options of the component.
 
 ### setSelectedEvents {#method-setSelectedEvents}
 

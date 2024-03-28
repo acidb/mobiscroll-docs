@@ -1,5 +1,5 @@
 {
-  "index_name": "docs_mobiscroll",
+  "index_name": "dev_docs_mobiscroll",
   "start_urls": [
     {
       "url": "https://mobiscroll.com/docs/(?P<framework>.*?)/(?P<component>.*?)/",
@@ -28,8 +28,8 @@
   "sitemap_urls": ["https://mobiscroll.com/docs/sitemap.xml"],
   "sitemap_alternate_links": true,
   "stop_urls": [
-    "https://mobiscroll.com/docs/(?P<version>\\d+[\\-\\.]\\d+[\\-\\.]\\d+)",
-    "/tests"
+     "https://mobiscroll.com/docs/(?P<version>\\d+[\\-\\.]\\d+[\\-\\.]\\d+)",
+     "/tests"
   ],
   "selectors": {
     "lvl0": {

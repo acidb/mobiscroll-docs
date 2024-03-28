@@ -175,9 +175,14 @@ const config = {
         darkTheme: darkCodeTheme,
       },
       algolia: {
-        appId: '3NDU900UQH',
-        apiKey: '63af4c8805116c77b6f64c291d3953c3',
-        indexName: 'docs_mobiscroll',
+        appId: 'K01Y8I3I2D',
+        apiKey: '587e2708d07f2d26787dff9093a4ef83',
+        indexName: 'dev_docs_mobiscroll',
+        contextualSearch: false, // false required to work in localhost. https://discourse.algolia.com/t/algolia-searchbar-is-not-working-with-docusaurus-v2/14659/2
+        replaceSearchResultPathname: {
+          from: '/docs/',
+          to: '/'
+        }
       },
     }),
 

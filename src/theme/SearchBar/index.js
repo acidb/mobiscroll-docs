@@ -2,7 +2,7 @@ import React, {useCallback, useMemo, useRef, useState} from 'react';
 import {DocSearchButton, useDocSearchKeyboardEvents} from '@docsearch/react';
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
-import {useHistory} from '@docusaurus/router';
+import {useHistory, useLocation} from '@docusaurus/router';
 import {
   isRegexpStringMatch,
   useSearchLinkCreator,
@@ -15,6 +15,7 @@ import Translate from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {createPortal} from 'react-dom';
 import translations from '@theme/SearchTranslations';
+import { getLocationInfo, getFacetsFromLocationInfo } from '@site/src/components/Search/util';
 let DocSearchModal = null;
 function Hit({hit, children}) {
   return <Link to={hit.url}>{children}</Link>;
@@ -40,11 +41,14 @@ function DocSearch({contextualSearch, externalUrlRegex, ...props}) {
   const processSearchResultUrl = useSearchResultUrlProcessor();
   const contextualSearchFacetFilters = useAlgoliaContextualFacetFilters();
   const configFacetFilters = props.searchParameters?.facetFilters ?? [];
+  const location = useLocation();
+  const locationInfo = getLocationInfo(location);
+  const dynamicConfigFacetFilters = mergeFacetFilters(configFacetFilters, getFacetsFromLocationInfo(locationInfo));
   const facetFilters = contextualSearch
     ? // Merge contextual search filters with config filters
-      mergeFacetFilters(contextualSearchFacetFilters, configFacetFilters)
+      mergeFacetFilters(contextualSearchFacetFilters, dynamicConfigFacetFilters)
     : // ... or use config facetFilters
-      configFacetFilters;
+    dynamicConfigFacetFilters;
   // We let user override default searchParameters if she wants to
   const searchParameters = {
     ...props.searchParameters,

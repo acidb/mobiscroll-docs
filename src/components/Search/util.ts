@@ -30,13 +30,24 @@ export function getLocationInfo(location) {
  */
 export function getFacetsFromLocationInfo(locInfo) {
     const facets = [];
-    if (locInfo.component) {
-        facets.push('component:' + locInfo.component);
-    }
+    // if (locInfo.component) {
+    //     facets.push('component:' + locInfo.component);
+    // }
     if (locInfo.framework) {
         facets.push('framework:' + locInfo.framework);
     }
     return facets;
+}
+
+/**
+ * Returns a custom facets array to include in every search
+ * @param locInfo the object returned from the getLocationInfo
+ * @returns
+ */
+export function getCustomFacets(locInfo) {
+    const locationFacets = getFacetsFromLocationInfo(locInfo);
+    locationFacets.push('type:content');
+    return locationFacets;
 }
 
 // /**

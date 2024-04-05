@@ -39,18 +39,19 @@ export function captureTOCPositions() {
  * @param scrollY The scroll position based on which the active item is calculated
  */
 export function highlightTOC(scrollY) {
+  const topNavHeight = 62;
   for (let i = 0; i < tocPositions.length; i++) {
     tocPositions[i].element.classList.remove("table-of-contents__link--active");
   }
   let activeIndex = -1;
   if (
     tocPositions.length > 0 &&
-    tocPositions[tocPositions.length - 1].targetPosition < scrollY
+    tocPositions[tocPositions.length - 1].targetPosition - topNavHeight < scrollY
   ) {
     activeIndex = tocPositions.length - 1;
   } else {
     for (let i = 0; i < tocPositions.length; i++) {
-      if (tocPositions[i].targetPosition > scrollY) {
+      if (tocPositions[i].targetPosition - topNavHeight > scrollY) {
         activeIndex = i - 1;
         break;
       }

@@ -20,7 +20,7 @@ export default function DocPageWrapper(props) {
 
   React.useEffect(() => {
     // reload TOC's on every page navigation
-    captureTOCPositions();
+    setTimeout(() => captureTOCPositions(), 50);
   }, [pathname]);
 
   // Scroll listener

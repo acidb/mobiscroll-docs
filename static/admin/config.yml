@@ -6,3 +6,16 @@ backend:
 # These lines should *not* be indented
 media_folder: "static/img" # Media files will be stored in the repo under static/images/uploads
 public_folder: "/img/" # The src attribute for uploaded media will begin with /images/uploads
+
+collections:
+  - name: 'docs'
+    label: 'Docs'
+    label_singular: 'Doc'
+    folder: 'docs'
+    create: true
+    extension: md
+    nested: { depth: 100 }
+    fields:
+      - { name: 'sidebar_label', label: 'Sidebar Label', widget: 'string' }
+      - { name: 'displayedSidebar', label: 'Sidebar', widget: 'select', options: ['angularSidebar', 'javascriptSidebar', 'jquerySidebar', 'reactSidebar', 'vueSidebar']}
+      - { name: 'sidebar_position', label: 'Sidebar Position', widget: 'number', required: false}

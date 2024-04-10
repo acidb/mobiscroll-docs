@@ -2,6 +2,9 @@ backend:
   name: github
   branch: cms
   repo: acidb/mobiscroll-docs
+  base_url: http://localhost:3005
+  site_id: mobiscrollprod.com
+
 
 # These lines should *not* be indented
 media_folder: "static/img" # Media files will be stored in the repo under static/images/uploads

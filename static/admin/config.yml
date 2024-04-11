@@ -19,6 +19,9 @@ collections:
     extension: md
     nested: { depth: 100 }
     fields:
-      - { name: 'sidebar_label', label: 'Sidebar Label', widget: 'string' }
-      - { name: 'displayedSidebar', label: 'Sidebar', widget: 'select', options: ['angularSidebar', 'javascriptSidebar', 'jquerySidebar', 'reactSidebar', 'vueSidebar']}
+      - { name: 'sidebar_label', label: 'Sidebar Label', widget: 'string', required: false }
+      - { name: 'displayedSidebar', label: 'Sidebar', widget: 'select', options: ['angularSidebar', 'javascriptSidebar', 'jquerySidebar', 'reactSidebar', 'vueSidebar'], required: false}
       - { name: 'sidebar_position', label: 'Sidebar Position', widget: 'number', required: false}
+      - { name: 'body', label: 'Content', widget: 'markdown' }
+    meta: { path: { widget: string, label: 'Path', index_file: 'index' } }
+

@@ -4,17 +4,31 @@ import { useHistory, useLocation } from '@docusaurus/router';
 
 // Default implementation, that you can customize
 export default function Root({children}) {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   const hist = useHistory();
 
   useEffect(() => {
-    if (pathname && pathname.length > 1 && !/\/(react|angular|vue|javascript|jquery)/.test(pathname)) {
-        const framework = getCookie('mbsc-framework') || 'javascript';
-        hist.push( '/' + framework + pathname);
+    if (pathname && pathname.length > 1 && !skipUrls(pathname) && !/\/(react|angular|vue|javascript|jquery)/.test(pathname)) {
+        const rest = /\/docs\/(.*)/.exec(pathname);
+        const red = rest != null;
+        if (red) {
+          const framework = getCookie('mbsc-framework') || 'javascript';
+          hist.push( '/docs/' + framework + '/' + rest[1] + hash);
+        }
     }
   }, [pathname, hist])
 
   return <>{children}</>
+}
+
+function skipUrls(pathname) {
+  const patterns = [
+    '/docs/?$',
+    '/search/?$'
+  ];
+  const reg = patterns.map((pattern) => `(${pattern})`).join('|');
+  const skip = new RegExp(reg).test(pathname);
+  return skip;
 }
 
 function getCookie(cname) {

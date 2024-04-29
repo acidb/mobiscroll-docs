@@ -1,6 +1,6 @@
 backend:
   name: github
-  branch: cms
+  branch: decap-config
   repo: acidb/mobiscroll-docs
   base_url: https://mobiscrollprod.com
   auth_endpoint: /docsadmin/auth
@@ -12,17 +12,98 @@ media_folder: "static/img" # Media files will be stored in the repo under static
 public_folder: "/img/" # The src attribute for uploaded media will begin with /images/uploads
 
 collections:
-  - name: 'docs'
-    label: 'Docs'
-    label_singular: 'Doc'
-    folder: 'docs'
-    create: true
-    extension: md
-    nested: { depth: 100 }
-    fields:
-      - { name: 'sidebar_label', label: 'Sidebar Label', widget: 'string', required: false }
-      - { name: 'displayedSidebar', label: 'Sidebar', widget: 'select', options: ['angularSidebar', 'javascriptSidebar', 'jquerySidebar', 'reactSidebar', 'vueSidebar'], required: false}
-      - { name: 'sidebar_position', label: 'Sidebar Position', widget: 'number', required: false}
-      - { name: 'body', label: 'Content', widget: 'markdown' }
-    meta: { path: { widget: string, label: 'Path', index_file: 'index' } }
+  # - name: 'docs'
+  #   label: 'Docs'
+  #   label_singular: 'Doc'
+  #   folder: 'docs'
+  #   create: true
+  #   identifier_field: name
+  #   nested: { depth: 100 }
+  #   summary: "{{meta.path}} >> {{meta.name}} :: {{title}}"
+  #   fields:
+  #   #   - { name: 'sidebar_label', label: 'Sidebar Label', widget: 'string', required: false }
+  #   #   - { name: 'displayedSidebar', label: 'Sidebar', widget: 'select', options: ['angularSidebar', 'javascriptSidebar', 'jquerySidebar', 'reactSidebar', 'vueSidebar'], required: false}
+  #   #   - { name: 'sidebar_position', label: 'Sidebar Position', widget: 'number', required: false}
+  #     - { name: 'title', label: 'Title', widget: 'string' }
+  #     - { name: 'body', label: 'Content', widget: 'markdown' }
+  #   meta: { path: { widget: string, label: 'Path', index_file: 'index' } }
 
+  - name: 'docs_md_files'
+    label: 'MD Files'
+    folder: 'docs'
+    identifier_field: filename
+    nested: {
+      depth: 100,
+      summary: "{{dirname}}"
+    }
+    create: true
+    summary: "{{dirname}}/{{filename}}.{{extension}}"
+    meta: {
+      path: { widget: 'string', label: 'Path', index_file: 'index' },
+    }
+    fields:
+      - name: 'body'
+        label: 'Content'
+        widget: 'markdown'
+      - name: 'title'
+        label: 'Title'
+        widget: 'string'
+        required: false
+
+  - name: 'folder_jsons'
+    label: 'Folders'
+    label_singular: 'Folder'
+    folder: 'docs'
+    # identifier_field: name
+    slug: '{{title}}'
+    nested: {
+      depth: 100,
+      summary: "{{dirname}}"
+    }
+    create: true
+    summary: "{{dirname}}/{{filename}}.{{extension}}"
+    meta: {
+      path: { widget: 'string', label: 'Path', index_file: 'index' },
+    }
+    extension: json
+    fields:
+      - name: 'title'
+        label: 'Title'
+        widget: 'string'
+        default: '_category_'
+        required: false
+      - name: 'label'
+        label: 'Sidebar Label'
+        widget: 'string'
+        required: false
+      - name: 'position'
+        label: 'Position'
+        widget: number
+        required: false
+      - name: 'collapsible'
+        label: 'Collapsible'
+        widget: boolean
+        required: false
+      - name: 'collapsed'
+        label: 'Collapsible'
+        widget: boolean
+        required: false
+
+
+
+  # - name: 'react-docs'
+  #   label: 'React Docs'
+  #   folder: 'docssrc/react'
+  #   identifier_field: name
+  #   nested: { depth: 100 }
+  #   create: true
+  #   summary: "{{dirname}}/{{filename}}.{{extension}}"
+  #   meta: { path: { widget: 'string', label: 'Path', index_file: 'index' } }
+  #   fields:
+  #     - name: 'title'
+  #       label: 'Title'
+  #       widget: 'string'
+  #       required: false
+  #     - name: 'body'
+  #       label: 'Content'
+  #       widget: 'markdown'

@@ -9,10 +9,26 @@ export default function Root({children}) {
 
   useEffect(() => {
     if (pathname && pathname.length > 1 && !/\/(react|angular|vue|javascript|jquery)/.test(pathname)) {
-        const framework = 'javascript';
+        const framework = getCookie('mbsc-framework') || 'javascript';
         hist.push( '/' + framework + pathname);
     }
   }, [pathname, hist])
 
   return <>{children}</>
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
 }

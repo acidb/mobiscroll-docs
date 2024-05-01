@@ -27,9 +27,16 @@ string
 Placeholder text for the filter input, when [filtering](#opt-filter) is turned on.
 
 **Default value**: `'Search'`
+### groupText {#localization-groupText}
+
+string
+
+Specifies the accessibility label for the group wheel, when present.
+
+**Default value**: `'Group'`
 ### locale {#localization-locale}
 
-string &#124; MbscLocale
+string &#124; [MbscLocale](#type-MbscLocale)
 
 Sets the language of the component. The locale object contains all the translations for a given language.
 The built in language modules are listed below. If a language is not listed, it can be provided as a

@@ -27,7 +27,7 @@ Specifies the accessible name of the picker input.
 **Default value**: `undefined`
 ### buttons {#opt-buttons}
 
-Array&lt;string &#124; MbscPopupButton&gt;
+Array&lt;string &#124; [MbscPopupButton](#type-MbscPopupButton)&gt;
 
 Buttons to display. Each item of the array will be a button. A button can be specified as a string, or as a button object.
 
@@ -116,7 +116,7 @@ Specifies a custom CSS class for the component.
 **Default value**: `undefined`
 ### data {#opt-data}
 
-Array&lt;string &#124; number &#124; MbscSelectData&gt;
+Array&lt;string &#124; number &#124; [MbscSelectData](#type-MbscSelectData)&gt;
 
 Specifies the selectable options for the component.
 
@@ -146,7 +146,7 @@ Specifies the disabled state of the input.
 **Default value**: `false`
 ### display {#opt-display}
 
-MbscPopupDisplay
+[MbscPopupDisplay](#type-MbscPopupDisplay)
 
 Controls the positioning of the component. Possible options:
 - `'center'` - The component appears as a popup at the center of the viewport.

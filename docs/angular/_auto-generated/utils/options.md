@@ -1,6 +1,6 @@
 ### updateRecurringEvent {#updateRecurringEvent}
 
-(originalRecurringEvent: MbscCalendarEvent, oldEventOccurrence: MbscCalendarEvent, newEvent: MbscCalendarEvent, updatedEvent: MbscCalendarEvent, updateMode: "all" &#124; "current" &#124; "following", timezone: string, timezonePlugin: any) => {newEvent: MbscCalendarEvent &#124; null, updatedEvent: MbscCalendarEvent}
+(originalRecurringEvent: [MbscCalendarEvent](#type-MbscCalendarEvent), oldEventOccurrence: [MbscCalendarEvent](#type-MbscCalendarEvent), newEvent: [MbscCalendarEvent](#type-MbscCalendarEvent), updatedEvent: [MbscCalendarEvent](#type-MbscCalendarEvent), updateMode: "all" &#124; "current" &#124; "following", timezone: string, timezonePlugin: any) => {newEvent: [MbscCalendarEvent](#type-MbscCalendarEvent) &#124; null, updatedEvent: [MbscCalendarEvent](#type-MbscCalendarEvent)}
 
 
 Updates a recurring event, returns the updated and the new event.

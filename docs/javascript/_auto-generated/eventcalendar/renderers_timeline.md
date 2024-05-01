@@ -193,7 +193,7 @@ The following properties are available:
 
 ### renderResource {#renderer-renderResource}
 
-(resource: MbscResource) => any
+(resource: [MbscResource](#type-MbscResource)) => any
 
 
 Customize how the resources are rendered on the scheduler and timeline views.
@@ -274,7 +274,7 @@ The following event specific properties are available:
 
 ### renderSidebar {#renderer-renderSidebar}
 
-(resource: MbscResource) => any
+(resource: [MbscResource](#type-MbscResource)) => any
 
 
 Add a custom sidebar on the right side of the timeline.

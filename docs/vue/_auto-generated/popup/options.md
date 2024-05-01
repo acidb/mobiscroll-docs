@@ -20,7 +20,7 @@ If `false`, the animation is turned off.
 **Default value**: `undefined`
 ### buttons {#opt-buttons}
 
-Array&lt;string &#124; MbscPopupButton&gt;
+Array&lt;string &#124; [MbscPopupButton](#type-MbscPopupButton)&gt;
 
 Buttons to display. Each item of the array will be a button. A button can be specified as a string, or as a button object.
 
@@ -102,7 +102,7 @@ The `mbsc-no-padding` class removes the built in padding of the popup content.
 :::
 ### display {#opt-display}
 
-MbscPopupDisplay
+[MbscPopupDisplay](#type-MbscPopupDisplay)
 
 Controls the positioning of the component. Possible options:
 - `'center'` - The component appears as a popup at the center of the viewport.

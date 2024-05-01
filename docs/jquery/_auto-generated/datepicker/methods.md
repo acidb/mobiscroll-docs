@@ -21,7 +21,7 @@ Returns a boolean indicating whether the component is visible or not.
 
 ### navigate {#method-navigate}
 
-(date: MbscDateType) => void
+(date: [MbscDateType](#type-MbscDateType)) => void
 
 
 Display a specific month on the calendar without setting the date.

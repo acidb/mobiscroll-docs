@@ -1,7 +1,7 @@
 
 ### getEvents {#method-getEvents}
 
-(start: MbscDateType, end: MbscDateType) => Array&lt;MbscCalendarEvent&gt;
+(start: [MbscDateType](#type-MbscDateType), end: [MbscDateType](#type-MbscDateType)) => Array&lt;[MbscCalendarEvent](#type-MbscCalendarEvent)&gt;
 
 
 Returns the [events](#opt-data) between two dates. If `start` and `end` are not specified,
@@ -16,7 +16,7 @@ Parameters:
 
 ### getInvalids {#method-getInvalids}
 
-(start: MbscDateType, end: MbscDateType) => Array&lt;MbscCalendarEvent&gt;
+(start: [MbscDateType](#type-MbscDateType), end: [MbscDateType](#type-MbscDateType)) => Array&lt;[MbscCalendarEvent](#type-MbscCalendarEvent)&gt;
 
 
 Returns the [invalids](#opt-invalid) between two dates. If `start` and `end` are not specified,
@@ -33,7 +33,7 @@ Parameters:
 
 ### navigateToEvent {#method-navigateToEvent}
 
-(event: MbscCalendarEvent) => void
+(event: [MbscCalendarEvent](#type-MbscCalendarEvent)) => void
 
 
 Navigates to the specified event on the calendar.

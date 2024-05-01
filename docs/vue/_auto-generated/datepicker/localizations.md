@@ -57,6 +57,13 @@ Human readable date format, used by screen readers to read out full dates.
 Characters have the same meaning as in the [dateFormat](#localization-dateFormat) option.
 
 **Default value**: `'DDDD, MMMM D, YYYY'`
+### dateText {#localization-dateText}
+
+string
+
+Specifies the accessibility label for the date wheel.
+
+**Default value**: `'Date'`
 ### dateWheels {#localization-dateWheels}
 
 string
@@ -103,6 +110,13 @@ string
 Additional string to display after the day on the wheel.
 
 **Default value**: `undefined`
+### dayText {#localization-dayText}
+
+string
+
+Specifies the accessibility label for the day wheel.
+
+**Default value**: `'Day'`
 ### firstDay {#localization-firstDay}
 
 number
@@ -110,9 +124,16 @@ number
 Set the first day of the week: Sunday is 0, Monday is 1, etc.
 
 **Default value**: `0`
+### hourText {#localization-hourText}
+
+string
+
+Specifies the accessibility label for the hour wheel.
+
+**Default value**: `'Hour'`
 ### locale {#localization-locale}
 
-string &#124; MbscLocale
+string &#124; [MbscLocale](#type-MbscLocale)
 
 Sets the language of the component. The locale object contains all the translations for a given language.
 The built in language modules are listed below. If a language is not listed, it can be provided as a
@@ -157,6 +178,13 @@ Supported values:
 - Ukrainian: `localeUa`, `'ua'`
 
 **Default value**: `undefined`
+### minuteText {#localization-minuteText}
+
+string
+
+Specifies the accessibility label for the minute wheel.
+
+**Default value**: `'Minute'`
 ### monthNames {#localization-monthNames}
 
 Array&lt;string&gt;
@@ -178,6 +206,13 @@ string
 Additional string to display after the month on the wheel.
 
 **Default value**: `undefined`
+### monthText {#localization-monthText}
+
+string
+
+Specifies the accessibility label for the month wheel.
+
+**Default value**: `'Month'`
 ### moreEventsPluralText {#localization-moreEventsPluralText}
 
 string
@@ -267,6 +302,13 @@ boolean
 Enables right-to-left display.
 
 **Default value**: `false`
+### secondText {#localization-secondText}
+
+string
+
+Specifies the accessibility label for the second wheel.
+
+**Default value**: `'Second'`
 ### selectedPluralText {#localization-selectedPluralText}
 
 string
@@ -310,6 +352,13 @@ The format for parsed and displayed times:
 - anything else - literal text
 
 **Default value**: `'hh:mm A'`
+### timeText {#localization-timeText}
+
+string
+
+Specifies the accessibility label for the time wheel.
+
+**Default value**: `'Time'`
 ### timeWheels {#localization-timeWheels}
 
 string
@@ -341,3 +390,10 @@ string
 Additional string to display after the year on the wheel.
 
 **Default value**: `undefined`
+### yearText {#localization-yearText}
+
+string
+
+Specifies the accessibility label for the year wheel.
+
+**Default value**: `'Year'`

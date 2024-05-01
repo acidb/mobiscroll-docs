@@ -27,7 +27,7 @@ The event deletion functionality can be overwritten using the [eventDelete](#opt
 **Default value**: `undefined`
 ### colors {#opt-colors}
 
-Array&lt;MbscCalendarColor&gt;
+Array&lt;[MbscCalendarColor](#type-MbscCalendarColor)&gt;
 
 Specifies the color for certain dates or date ranges on the calendar.
 The color object has the following properties:
@@ -79,7 +79,7 @@ The colors can be combined with the [labels](#opt-labels) or [marked](#opt-marke
 **Default value**: `undefined`
 ### connections {#opt-connections}
 
-Array&lt;MbscEventConnection&gt;
+Array&lt;[MbscEventConnection](#type-MbscEventConnection)&gt;
 
 Specifies connections between events. On the UI events will be linked with lines
 and additionally arrows can be displayed to illustrate the direction of the connection.
@@ -108,7 +108,7 @@ Specifies a custom CSS class for the component.
 **Default value**: `undefined`
 ### data {#opt-data}
 
-Array&lt;MbscCalendarEvent&gt;
+Array&lt;[MbscCalendarEvent](#type-MbscCalendarEvent)&gt;
 
 The events for the calendar, as an array of event objects. The event object supports the following properties:
 - `allDay`: *boolean* - Specifies if the event is all day or not.
@@ -212,7 +212,7 @@ If not specified, it defaults to the [displayTimezone](#opt-displayTimezone).
 **Default value**: `undefined`
 ### defaultSelectedDate {#opt-defaultSelectedDate}
 
-MbscDateType
+[MbscDateType](#type-MbscDateType)
 
 Specifies the initial selected date on the calendar.
 
@@ -320,7 +320,7 @@ If either of those are `true`, and no `eventDelete` option is set, then event de
 **Default value**: `undefined`
 ### eventOrder {#opt-eventOrder}
 
-(event1: MbscCalendarEvent, event2: MbscCalendarEvent) => number
+(event1: [MbscCalendarEvent](#type-MbscCalendarEvent), event2: [MbscCalendarEvent](#type-MbscCalendarEvent)) => number
 
 
 Determines the ordering of the events within the same day.
@@ -354,7 +354,7 @@ When using timezones, the `exclusiveEndDates` option will default to `true`.
 :::
 ### extendDefaultEvent {#opt-extendDefaultEvent}
 
-(args: MbscNewEventData) => MbscCalendarEvent
+(args: MbscNewEventData) => [MbscCalendarEvent](#type-MbscCalendarEvent)
 
 
 Use this option to set properties to the new event created with click or drag.
@@ -417,7 +417,7 @@ only fire the necessary lifecycle events, where the original data can be updated
 **Default value**: `undefined`
 ### invalid {#opt-invalid}
 
-Array&lt;MbscDateType&gt; &#124; Array&lt;IValidateProps&gt;
+Array&lt;[MbscDateType](#type-MbscDateType)&gt; &#124; Array&lt;IValidateProps&gt;
 
 An array containing the invalid values. Can contain dates,
 or objects with the following properties:
@@ -491,7 +491,7 @@ Specifies how to validate events against [invalid](#opt-invalid) ranges on creat
 **Default value**: `'strict'`
 ### labels {#opt-labels}
 
-Array&lt;MbscCalendarLabel&gt;
+Array&lt;[MbscCalendarLabel](#type-MbscCalendarLabel)&gt;
 
 Specifies labels for calendar days.
 A label object can have the following properties:
@@ -532,7 +532,7 @@ The labels can be combined with the [colors](#opt-colors) option.
 **Default value**: undefined
 ### marked {#opt-marked}
 
-Array&lt;MbscCalendarMarked&gt;
+Array&lt;[MbscCalendarMarked](#type-MbscCalendarMarked)&gt;
 
 Mark certain dates on the calendar. An array containing dates, or objects with the following properties:
 - `cellCssClass`: *string* - CSS class for the day cell. Only applicable for the calendar view.
@@ -573,7 +573,7 @@ The marked days can be combined with the [colors](#opt-colors) option.
 **Default value**: `undefined`
 ### max {#opt-max}
 
-MbscDateType
+[MbscDateType](#type-MbscDateType)
 
 Maximum date and time. The calendar cannot be navigated beyond the specified maximum date.
 If navigation is needed, but event creation should not be allowed after a specific date,
@@ -582,7 +582,7 @@ use the [invalid](#opt-invalid) option with daily recurrence starting from the s
 **Default value**: `undefined`
 ### min {#opt-min}
 
-MbscDateType
+[MbscDateType](#type-MbscDateType)
 
 Minimum date and time. The calendar cannot be navigated beyond the specified minimum date.
 If navigation is needed, but event creation should not be allowed before a specific date,
@@ -591,7 +591,7 @@ use the [invalid](#opt-invalid) option with daily recurrence until the specific 
 **Default value**: `undefined`
 ### refDate {#opt-refDate}
 
-MbscDateType
+[MbscDateType](#type-MbscDateType)
 
 Specifies the reference date for the view calculation, when multiple days, weeks, months or years are displayed.
 If not specified, for the scheduler and timeline views will be today&#039;s date, for the calendar and agenda views will be 1970/01/01.
@@ -611,7 +611,7 @@ To navigate the view to a specified date and time, use the [selectedDate](#opt-s
 **Default value**: `undefined`
 ### resources {#opt-resources}
 
-null &#124; Array&lt;MbscResource&gt;
+null &#124; Array&lt;[MbscResource](#type-MbscResource)&gt;
 
 The scheduler and timeline views can handle multiple resources.
 Resource grouping can be modified with the help of the [groupBy](#opt-groupBy) option.
@@ -713,7 +713,7 @@ When `true`, enables multiple event selection on the calendar.
 **Default value**: `false`
 ### selectedDate {#opt-selectedDate}
 
-MbscDateType
+[MbscDateType](#type-MbscDateType)
 
 Specifies the selected date on the calendar.
 This can be changed programmatically and when changed the calendar will automatically navigate to the specified date.
@@ -731,7 +731,7 @@ to update the selected date when the date is changed from the calendar.
 **Default value**: `undefined`
 ### selectedEvents {#opt-selectedEvents}
 
-Array&lt;MbscCalendarEvent&gt;
+Array&lt;[MbscCalendarEvent](#type-MbscCalendarEvent)&gt;
 
 Specifies the selected events on the calendar. The [onSelectedEventsChange](#event-onSelectedEventsChange) event will be
 fired when the selected events change from the calendar.
@@ -768,7 +768,7 @@ If `false`, it will hide the native tooltip that shows up when hovering over an 
 **Default value**: `true`
 ### slots {#opt-slots}
 
-null &#124; Array&lt;MbscSlot&gt;
+null &#124; Array&lt;[MbscSlot](#type-MbscSlot)&gt;
 
 The slots besides the [resources](#opt-resources) introduce a horizontal level of data grouping to the timeline view.
 
@@ -834,7 +834,7 @@ suffixed with `'-dark'`, e.g.: `'my-theme'` and `'my-theme-dark'`.
 **Default value**: `undefined`
 ### timezonePlugin {#opt-timezonePlugin}
 
-MbscTimezonePlugin
+[MbscTimezonePlugin](#type-MbscTimezonePlugin)
 
 Specifies the timezone plugin, which can handle the timezone conversions.
 
@@ -852,7 +852,7 @@ objects. These objects can be imported from the mobiscroll bundle.
 **Default value**: `undefined`
 ### view {#opt-view}
 
-MbscEventcalendarView
+[MbscEventcalendarView](#type-MbscEventcalendarView)
 
 Configures the Eventcalendar view. Possible views:
 

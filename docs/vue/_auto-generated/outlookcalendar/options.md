@@ -31,6 +31,6 @@ string
 If specified, the event dates will be returned in this timezone.
 ### timezonePlugin {#opt-outlook-timezonePlugin}
 
-MbscTimezonePlugin
+[MbscTimezonePlugin](#type-MbscTimezonePlugin)
 
 The timezone plugin, needed if timezone is specified.

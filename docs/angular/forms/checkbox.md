@@ -6,6 +6,7 @@ displayed_sidebar: angularSidebar
 import Options from '../\_auto-generated/checkbox/options.md';
 import Events from '../\_auto-generated/checkbox/events.md';
 import Localizations from '../\_auto-generated/checkbox/localizations.md';
+import Types from '../\_auto-generated/checkbox/types.md';
 
 # Checkbox
 
@@ -47,5 +48,9 @@ export class MyComponent {
 ## Localization
 
 <Localizations />
+
+## Types
+
+<Types />
 
 </div>

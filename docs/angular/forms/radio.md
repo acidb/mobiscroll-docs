@@ -6,6 +6,7 @@ displayed_sidebar: angularSidebar
 import Options from '../\_auto-generated/radio/options.md';
 import Events from '../\_auto-generated/radio/events.md';
 import Localizations from '../\_auto-generated/radio/localizations.md';
+import Types from '../\_auto-generated/radio/types.md';
 
 # Radio button
 
@@ -73,5 +74,9 @@ export class MyComponent {
 ## Localization
 
 <Localizations />
+
+## Types
+
+<Types />
 
 </div>

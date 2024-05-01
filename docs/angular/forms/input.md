@@ -6,6 +6,7 @@ displayed_sidebar: angularSidebar
 import Options from '../\_auto-generated/input/options.md';
 import Events from '../\_auto-generated/input/events.md';
 import Localizations from '../\_auto-generated/input/localizations.md';
+import Types from '../\_auto-generated/input/types.md';
 
 # Input
 
@@ -74,5 +75,9 @@ The input can be bound to a string value using either the `[(ngModel)]` or the `
 ## Localization
 
 <Localizations />
+
+## Types
+
+<Types />
 
 </div>

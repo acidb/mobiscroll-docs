@@ -8,6 +8,7 @@ import Options from '../\_auto-generated/eventcalendar/options_calendarview.md';
 import Events from '../\_auto-generated/eventcalendar/events_calendarview.md';
 import Localizations from '../\_auto-generated/eventcalendar/localizations_calendarview.md';
 import Slots from '../_auto-generated/eventcalendar/renderers_calendarview.md';
+import { ImgComparisonSlider } from '@img-comparison-slider/react';
 
 # Calendar
 
@@ -17,6 +18,11 @@ The events can be rendered as labels or in a popover that is shown on day click.
 ![Desktop calendar with labels and popover](https://docs.mobiscroll.com/Content/img/docs/desktop-calendar.png)
 
 ![Mobile month view with agenda](https://docs.mobiscroll.com//Content/img/docs/mobile-calendar.png)
+
+<ImgComparisonSlider>
+      <img slot="first" src={require('@site/static/img/resource-header-templating.png').default} />
+      <img slot="second" src={require('@site/static/img/scheduler-header-template.png').default} />
+</ImgComparisonSlider>
 
 <div className="option-list">
 

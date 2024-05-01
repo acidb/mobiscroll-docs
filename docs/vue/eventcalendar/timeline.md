@@ -8,6 +8,7 @@ import Options from '../\_auto-generated/eventcalendar/options_timeline.md';
 import Events from '../\_auto-generated/eventcalendar/events_timeline.md';
 import Localizations from '../\_auto-generated/eventcalendar/localizations_timeline.md';
 import Slots from '../_auto-generated/eventcalendar/renderers_timeline.md';
+import Types from '../_auto-generated/eventcalendar/types_timeline.md';
 
 # Timeline
 
@@ -270,5 +271,9 @@ Each of these resolution has its own named slot for the header and the footer. F
 ### Slots
 
 <Slots />
+
+### Types
+
+<Types />
 
 </div>

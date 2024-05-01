@@ -8,6 +8,7 @@ import Options from '../\_auto-generated/eventcalendar/options_scheduler.md';
 import Events from '../\_auto-generated/eventcalendar/events_scheduler.md';
 import Localizations from '../\_auto-generated/eventcalendar/localizations_scheduler.md';
 import Slots from '../_auto-generated/eventcalendar/renderers_scheduler.md';
+import Types from '../_auto-generated/eventcalendar/types_scheduler.md';
 
 # Scheduler
 
@@ -179,5 +180,9 @@ You can use the following CSS classes for changing column widths of the schedule
 ### Slots
 
 <Slots />
+
+### Types
+
+<Types />
 
 </div>

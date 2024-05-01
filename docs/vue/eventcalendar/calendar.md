@@ -8,6 +8,7 @@ import Options from '../\_auto-generated/eventcalendar/options_calendarview.md';
 import Events from '../\_auto-generated/eventcalendar/events_calendarview.md';
 import Localizations from '../\_auto-generated/eventcalendar/localizations_calendarview.md';
 import Slots from '../_auto-generated/eventcalendar/renderers_calendarview.md';
+import Types from '../_auto-generated/eventcalendar/types_calendarview.md';
 
 # Calendar
 
@@ -37,5 +38,9 @@ The events can be rendered as labels or in a popover that is shown on day click.
 ### Slots
 
 <Slots />
+
+### Types
+
+<Types />
 
 </div>

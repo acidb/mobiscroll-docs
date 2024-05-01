@@ -6,6 +6,7 @@ displayed_sidebar: jquerySidebar
 import Options from '../\_auto-generated/radio/options.md';
 import Events from '../\_auto-generated/radio/events.md';
 import Localizations from '../\_auto-generated/radio/localizations.md';
+import Types from '../\_auto-generated/radio/types.md';
 
 # Radio button
 
@@ -53,5 +54,9 @@ $.get('/myform', function (responseHtml) {
 ## Localization
 
 <Localizations />
+
+## Types
+
+<Types />
 
 </div>

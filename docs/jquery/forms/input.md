@@ -6,6 +6,7 @@ displayed_sidebar: jquerySidebar
 import Options from '../\_auto-generated/input/options.md';
 import Events from '../\_auto-generated/input/events.md';
 import Localizations from '../\_auto-generated/input/localizations.md';
+import Types from '../\_auto-generated/input/types.md';
 
 # Input
 
@@ -94,5 +95,9 @@ $.get('/myform', function (responseHtml) {
 ## Localization
 
 <Localizations />
+
+## Types
+
+<Types />
 
 </div>

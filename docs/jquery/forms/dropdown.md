@@ -6,6 +6,7 @@ displayed_sidebar: jquerySidebar
 import Options from '../\_auto-generated/dropdown/options.md';
 import Events from '../\_auto-generated/dropdown/events.md';
 import Localizations from '../\_auto-generated/dropdown/localizations.md';
+import Types from '../\_auto-generated/dropdown/types.md';
 
 # Dropdown
 
@@ -53,5 +54,9 @@ $.get('/myform', function (responseHtml) {
 ## Localization
 
 <Localizations />
+
+## Types
+
+<Types />
 
 </div>

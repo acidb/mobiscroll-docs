@@ -6,6 +6,7 @@ displayed_sidebar: jquerySidebar
 import Options from '../\_auto-generated/button/options.md';
 import Events from '../\_auto-generated/button/events.md';
 import Localizations from '../\_auto-generated/button/localizations.md';
+import Types from '../\_auto-generated/button/types.md';
 
 # Button
 
@@ -95,5 +96,9 @@ $.get('/myform', function (responseHtml) {
 ## Events
 
 <Events />
+
+## Types
+
+<Types />
 
 </div>

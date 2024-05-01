@@ -6,6 +6,7 @@ displayed_sidebar: jquerySidebar
 import Options from '../\_auto-generated/switch/options.md';
 import Events from '../\_auto-generated/switch/events.md';
 import Localizations from '../\_auto-generated/switch/localizations.md';
+import Types from '../\_auto-generated/switch/types.md';
 
 # Switch
 
@@ -75,5 +76,9 @@ $.get('/myform', function (responseHtml) {
 ## Localization
 
 <Localizations />
+
+## Types
+
+<Types />
 
 </div>

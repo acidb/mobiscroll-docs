@@ -1,23 +1,3 @@
-### MbscPopupButton {#type-MbscPopupButton}
-
-Interface
-
-Properties:
- - `color`: *"success" &#124; "dark" &#124; "light" &#124; "primary" &#124; "secondary" &#124; "danger" &#124; "warning" &#124; "info"* 
- - `cssClass`: *string* 
- - `disabled`: *boolean* 
- - `handler`: *[MbscPopupPredefinedButton](#type-MbscPopupPredefinedButton) &#124; (event: any) => void*  - The handler of the button, which will run when the button is pressed.
- - `icon`: *string* 
- - `keyCode`: *number &#124; "enter" &#124; "space" &#124; "esc" &#124; Array&lt;number &#124; "enter" &#124; "space" &#124; "esc"&gt;* 
- - `name`: *[MbscPopupPredefinedButton](#type-MbscPopupPredefinedButton)* 
- - `text`: *string* 
- - `variant`: *"outline" &#124; "standard" &#124; "flat"* 
-
-### MbscPopupPredefinedButton {#type-MbscPopupPredefinedButton}
-
-"set" &#124; "cancel" &#124; "ok" &#124; "close"
-
-
 ### MbscCalendarColor {#type-MbscCalendarColor}
 
 Interface
@@ -36,37 +16,6 @@ Properties:
  - `recurringException`: *string &#124; object &#124; Date &#124; Array&lt;string &#124; object &#124; Date&gt;*  - Specifies recurring exceptions.
  - `recurringExceptionRule`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)*  - Specifies a recurrence exception rule.
  - `start`: *string &#124; object &#124; Date*  - Specifies the start date/time of the calendar days/cells.
-
-### MbscRecurrenceRule {#type-MbscRecurrenceRule}
-
-Interface
-
-Properties:
- - `count`: *number* 
- - `day`: *number &#124; Array&lt;number&gt;* 
- - `from`: *[MbscDateType](#type-MbscDateType)* 
- - `interval`: *number* 
- - `month`: *number &#124; Array&lt;number&gt;* 
- - `pos`: *number* 
- - `repeat`: *"daily" &#124; "weekly" &#124; "monthly" &#124; "yearly"* 
- - `until`: *[MbscDateType](#type-MbscDateType)* 
- - `weekDays`: *string* 
- - `weekStart`: *string* 
-
-### MbscDateType {#type-MbscDateType}
-
-string &#124; Date &#124; object
-
-
-### MbscDatepickerControl {#type-MbscDatepickerControl}
-
-"calendar" &#124; "date" &#124; "time" &#124; "datetime" &#124; "timegrid"
-
-
-### MbscPopupDisplay {#type-MbscPopupDisplay}
-
-"center" &#124; "bottom" &#124; "top" &#124; "anchored" &#124; "inline" &#124; "bubble"
-
 
 ### MbscCalendarLabel {#type-MbscCalendarLabel}
 
@@ -115,13 +64,15 @@ Properties:
  - `recurringExceptionRule`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)*  - Specifies a recurrence exception rule.
  - `start`: *string &#124; object &#124; Date*  - Specifies the start date/time of the calendar days/cells.
 
-### MbscTimezonePlugin {#type-MbscTimezonePlugin}
+### MbscDateType {#type-MbscDateType}
 
-Interface
+string &#124; Date &#124; object
 
-Properties:
- - `createDate`: *(s: any, year: string &#124; number &#124; Date &#124; MbscTimezonedDate, month: number, date: number, h: number, min: number, sec: number, ms: number) => MbscTimezonedDate* 
- - `parse`: *(date: string &#124; number, s: any) => MbscTimezonedDate* 
+
+### MbscDatepickerControl {#type-MbscDatepickerControl}
+
+"calendar" &#124; "date" &#124; "time" &#124; "datetime" &#124; "timegrid"
+
 
 ### MbscLocale {#type-MbscLocale}
 
@@ -182,4 +133,53 @@ Properties:
  - `weekText`: *string* 
  - `yearSuffix`: *string* 
  - `yearText`: *string* 
+
+### MbscPopupButton {#type-MbscPopupButton}
+
+Interface
+
+Properties:
+ - `color`: *"success" &#124; "dark" &#124; "light" &#124; "primary" &#124; "secondary" &#124; "danger" &#124; "warning" &#124; "info"* 
+ - `cssClass`: *string* 
+ - `disabled`: *boolean* 
+ - `handler`: *[MbscPopupPredefinedButton](#type-MbscPopupPredefinedButton) &#124; (event: any) => void*  - The handler of the button, which will run when the button is pressed.
+ - `icon`: *string* 
+ - `keyCode`: *number &#124; "enter" &#124; "space" &#124; "esc" &#124; Array&lt;number &#124; "enter" &#124; "space" &#124; "esc"&gt;* 
+ - `name`: *[MbscPopupPredefinedButton](#type-MbscPopupPredefinedButton)* 
+ - `text`: *string* 
+ - `variant`: *"outline" &#124; "standard" &#124; "flat"* 
+
+### MbscPopupDisplay {#type-MbscPopupDisplay}
+
+"center" &#124; "bottom" &#124; "top" &#124; "anchored" &#124; "inline" &#124; "bubble"
+
+
+### MbscPopupPredefinedButton {#type-MbscPopupPredefinedButton}
+
+"set" &#124; "cancel" &#124; "ok" &#124; "close"
+
+
+### MbscRecurrenceRule {#type-MbscRecurrenceRule}
+
+Interface
+
+Properties:
+ - `count`: *number* 
+ - `day`: *number &#124; Array&lt;number&gt;* 
+ - `from`: *[MbscDateType](#type-MbscDateType)* 
+ - `interval`: *number* 
+ - `month`: *number &#124; Array&lt;number&gt;* 
+ - `pos`: *number* 
+ - `repeat`: *"daily" &#124; "weekly" &#124; "monthly" &#124; "yearly"* 
+ - `until`: *[MbscDateType](#type-MbscDateType)* 
+ - `weekDays`: *string* 
+ - `weekStart`: *string* 
+
+### MbscTimezonePlugin {#type-MbscTimezonePlugin}
+
+Interface
+
+Properties:
+ - `createDate`: *(s: any, year: string &#124; number &#124; Date &#124; MbscTimezonedDate, month: number, date: number, h: number, min: number, sec: number, ms: number) => MbscTimezonedDate* 
+ - `parse`: *(date: string &#124; number, s: any) => MbscTimezonedDate* 
 

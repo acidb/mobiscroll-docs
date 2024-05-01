@@ -1,28 +1,3 @@
-### MbscPopupButton {#type-MbscPopupButton}
-
-Interface
-
-Properties:
- - `color`: *"success" &#124; "dark" &#124; "light" &#124; "primary" &#124; "secondary" &#124; "danger" &#124; "warning" &#124; "info"* 
- - `cssClass`: *string* 
- - `disabled`: *boolean* 
- - `handler`: *[MbscPopupPredefinedButton](#type-MbscPopupPredefinedButton) &#124; (event: any) => void*  - The handler of the button, which will run when the button is pressed.
- - `icon`: *string* 
- - `keyCode`: *number &#124; "enter" &#124; "space" &#124; "esc" &#124; Array&lt;number &#124; "enter" &#124; "space" &#124; "esc"&gt;* 
- - `name`: *[MbscPopupPredefinedButton](#type-MbscPopupPredefinedButton)* 
- - `text`: *string* 
- - `variant`: *"outline" &#124; "standard" &#124; "flat"* 
-
-### MbscPopupPredefinedButton {#type-MbscPopupPredefinedButton}
-
-"set" &#124; "cancel" &#124; "ok" &#124; "close"
-
-
-### MbscPopupDisplay {#type-MbscPopupDisplay}
-
-"center" &#124; "bottom" &#124; "top" &#124; "anchored" &#124; "inline" &#124; "bubble"
-
-
 ### MbscLocale {#type-MbscLocale}
 
 Interface
@@ -82,4 +57,29 @@ Properties:
  - `weekText`: *string* 
  - `yearSuffix`: *string* 
  - `yearText`: *string* 
+
+### MbscPopupButton {#type-MbscPopupButton}
+
+Interface
+
+Properties:
+ - `color`: *"success" &#124; "dark" &#124; "light" &#124; "primary" &#124; "secondary" &#124; "danger" &#124; "warning" &#124; "info"* 
+ - `cssClass`: *string* 
+ - `disabled`: *boolean* 
+ - `handler`: *[MbscPopupPredefinedButton](#type-MbscPopupPredefinedButton) &#124; (event: any) => void*  - The handler of the button, which will run when the button is pressed.
+ - `icon`: *string* 
+ - `keyCode`: *number &#124; "enter" &#124; "space" &#124; "esc" &#124; Array&lt;number &#124; "enter" &#124; "space" &#124; "esc"&gt;* 
+ - `name`: *[MbscPopupPredefinedButton](#type-MbscPopupPredefinedButton)* 
+ - `text`: *string* 
+ - `variant`: *"outline" &#124; "standard" &#124; "flat"* 
+
+### MbscPopupDisplay {#type-MbscPopupDisplay}
+
+"center" &#124; "bottom" &#124; "top" &#124; "anchored" &#124; "inline" &#124; "bubble"
+
+
+### MbscPopupPredefinedButton {#type-MbscPopupPredefinedButton}
+
+"set" &#124; "cancel" &#124; "ok" &#124; "close"
+
 

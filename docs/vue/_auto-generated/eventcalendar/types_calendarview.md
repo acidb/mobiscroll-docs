@@ -1,63 +1,3 @@
-### MbscLocale {#type-MbscLocale}
-
-Interface
-
-Properties:
- - `allDayText`: *string* 
- - `amText`: *string* 
- - `calendarSystem`: *MbscCalendarSystem* 
- - `cancelText`: *string* 
- - `clearText`: *string* 
- - `closeText`: *string* 
- - `dateFormat`: *string* 
- - `dateFormatFull`: *string* 
- - `dateFormatLong`: *string* 
- - `dateText`: *string* 
- - `dateWheelFormat`: *string* 
- - `dayNames`: *Array&lt;string&gt;* 
- - `dayNamesMin`: *Array&lt;string&gt;* 
- - `dayNamesShort`: *Array&lt;string&gt;* 
- - `daySuffix`: *string* 
- - `dayText`: *string* 
- - `eventText`: *string* 
- - `eventsText`: *string* 
- - `filterEmptyText`: *string* 
- - `filterPlaceholderText`: *string* 
- - `firstDay`: *number* 
- - `fromText`: *string* 
- - `hourText`: *string* 
- - `minuteText`: *string* 
- - `monthNames`: *Array&lt;string&gt;* 
- - `monthNamesShort`: *Array&lt;string&gt;* 
- - `monthSuffix`: *string* 
- - `monthText`: *string* 
- - `moreEventsPluralText`: *string* 
- - `moreEventsText`: *string* 
- - `nextMonthText`: *string* 
- - `nextYearText`: *string* 
- - `noEventsText`: *string* 
- - `nowText`: *string* 
- - `pmText`: *string* 
- - `prevMonthText`: *string* 
- - `prevYearText`: *string* 
- - `rangeEndHelp`: *string* 
- - `rangeEndLabel`: *string* 
- - `rangeStartHelp`: *string* 
- - `rangeStartLabel`: *string* 
- - `rtl`: *boolean* 
- - `secondText`: *string* 
- - `selectedPluralText`: *string* 
- - `selectedText`: *string* 
- - `setText`: *string* 
- - `timeFormat`: *string* 
- - `timeText`: *string* 
- - `timeWheels`: *string* 
- - `toText`: *string* 
- - `todayText`: *string* 
- - `weekText`: *string* 
- - `yearSuffix`: *string* 
- - `yearText`: *string* 
-
 ### MbscCalendarColor {#type-MbscCalendarColor}
 
 Interface
@@ -76,27 +16,6 @@ Properties:
  - `recurringException`: *string &#124; object &#124; Date &#124; Array&lt;string &#124; object &#124; Date&gt;*  - Specifies recurring exceptions.
  - `recurringExceptionRule`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)*  - Specifies a recurrence exception rule.
  - `start`: *string &#124; object &#124; Date*  - Specifies the start date/time of the calendar days/cells.
-
-### MbscRecurrenceRule {#type-MbscRecurrenceRule}
-
-Interface
-
-Properties:
- - `count`: *number* 
- - `day`: *number &#124; Array&lt;number&gt;* 
- - `from`: *[MbscDateType](#type-MbscDateType)* 
- - `interval`: *number* 
- - `month`: *number &#124; Array&lt;number&gt;* 
- - `pos`: *number* 
- - `repeat`: *"daily" &#124; "weekly" &#124; "monthly" &#124; "yearly"* 
- - `until`: *[MbscDateType](#type-MbscDateType)* 
- - `weekDays`: *string* 
- - `weekStart`: *string* 
-
-### MbscDateType {#type-MbscDateType}
-
-string &#124; Date &#124; object
-
 
 ### MbscCalendarEvent {#type-MbscCalendarEvent}
 
@@ -179,6 +98,87 @@ Properties:
  - `recurringException`: *string &#124; object &#124; Date &#124; Array&lt;string &#124; object &#124; Date&gt;*  - Specifies recurring exceptions.
  - `recurringExceptionRule`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)*  - Specifies a recurrence exception rule.
  - `start`: *string &#124; object &#124; Date*  - Specifies the start date/time of the calendar days/cells.
+
+### MbscDateType {#type-MbscDateType}
+
+string &#124; Date &#124; object
+
+
+### MbscLocale {#type-MbscLocale}
+
+Interface
+
+Properties:
+ - `allDayText`: *string* 
+ - `amText`: *string* 
+ - `calendarSystem`: *MbscCalendarSystem* 
+ - `cancelText`: *string* 
+ - `clearText`: *string* 
+ - `closeText`: *string* 
+ - `dateFormat`: *string* 
+ - `dateFormatFull`: *string* 
+ - `dateFormatLong`: *string* 
+ - `dateText`: *string* 
+ - `dateWheelFormat`: *string* 
+ - `dayNames`: *Array&lt;string&gt;* 
+ - `dayNamesMin`: *Array&lt;string&gt;* 
+ - `dayNamesShort`: *Array&lt;string&gt;* 
+ - `daySuffix`: *string* 
+ - `dayText`: *string* 
+ - `eventText`: *string* 
+ - `eventsText`: *string* 
+ - `filterEmptyText`: *string* 
+ - `filterPlaceholderText`: *string* 
+ - `firstDay`: *number* 
+ - `fromText`: *string* 
+ - `hourText`: *string* 
+ - `minuteText`: *string* 
+ - `monthNames`: *Array&lt;string&gt;* 
+ - `monthNamesShort`: *Array&lt;string&gt;* 
+ - `monthSuffix`: *string* 
+ - `monthText`: *string* 
+ - `moreEventsPluralText`: *string* 
+ - `moreEventsText`: *string* 
+ - `nextMonthText`: *string* 
+ - `nextYearText`: *string* 
+ - `noEventsText`: *string* 
+ - `nowText`: *string* 
+ - `pmText`: *string* 
+ - `prevMonthText`: *string* 
+ - `prevYearText`: *string* 
+ - `rangeEndHelp`: *string* 
+ - `rangeEndLabel`: *string* 
+ - `rangeStartHelp`: *string* 
+ - `rangeStartLabel`: *string* 
+ - `rtl`: *boolean* 
+ - `secondText`: *string* 
+ - `selectedPluralText`: *string* 
+ - `selectedText`: *string* 
+ - `setText`: *string* 
+ - `timeFormat`: *string* 
+ - `timeText`: *string* 
+ - `timeWheels`: *string* 
+ - `toText`: *string* 
+ - `todayText`: *string* 
+ - `weekText`: *string* 
+ - `yearSuffix`: *string* 
+ - `yearText`: *string* 
+
+### MbscRecurrenceRule {#type-MbscRecurrenceRule}
+
+Interface
+
+Properties:
+ - `count`: *number* 
+ - `day`: *number &#124; Array&lt;number&gt;* 
+ - `from`: *[MbscDateType](#type-MbscDateType)* 
+ - `interval`: *number* 
+ - `month`: *number &#124; Array&lt;number&gt;* 
+ - `pos`: *number* 
+ - `repeat`: *"daily" &#124; "weekly" &#124; "monthly" &#124; "yearly"* 
+ - `until`: *[MbscDateType](#type-MbscDateType)* 
+ - `weekDays`: *string* 
+ - `weekStart`: *string* 
 
 ### MbscTimezonePlugin {#type-MbscTimezonePlugin}
 

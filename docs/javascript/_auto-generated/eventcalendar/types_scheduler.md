@@ -1,3 +1,62 @@
+### MbscCalendarColor {#type-MbscCalendarColor}
+
+Interface
+
+Properties:
+ - `background`: *string*  - Background of the cell.
+ - `cellCssClass`: *string*  - CSS class for the cell.
+ - `cssClass`: *string*  - CSS class for custom CSS.
+ - `date`: *string &#124; object &#124; Date*  - Specifies the date of the calendar day.
+ - `end`: *string &#124; object &#124; Date*  - Specifies the end date/time of the calendar days/cells.
+ - `highlight`: *string*  - Background of the circle.
+ - `nr`: *number*  - Occurrence number in case of recurrence.
+ - `occurrenceId`: *string*  - Occurrence id in case of recurrence.
+ - `original`: *ICalendarData*  - Origin of the occurrence.
+ - `recurring`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)*  - Specifies a recurrence rule for handling recurring days.
+ - `recurringException`: *string &#124; object &#124; Date &#124; Array&lt;string &#124; object &#124; Date&gt;*  - Specifies recurring exceptions.
+ - `recurringExceptionRule`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)*  - Specifies a recurrence exception rule.
+ - `start`: *string &#124; object &#124; Date*  - Specifies the start date/time of the calendar days/cells.
+
+### MbscCalendarEvent {#type-MbscCalendarEvent}
+
+Interface
+
+Properties:
+ - `allDay`: *boolean*  - Specifies if the event is all day or not.
+ - `bufferAfter`: *number*  - Defines a buffer time in minutes that will be displayed after the end of the event.
+ - `bufferBefore`: *number*  - Defines a buffer time in minutes that will be displayed before the start of the event.
+ - `cellCssClass`: *string*  - CSS class for the cell.
+ - `color`: *string*  - Background color of the label.
+ - `cssClass`: *string*  - CSS class for custom CSS.
+ - `date`: *string &#124; object &#124; Date*  - Specifies the date of the calendar day.
+ - `dragBetweenResources`: *boolean*  - Specifies whether the event is movable across resources.
+ - `dragBetweenSlots`: *boolean*  - Specifies whether the event is movable across across slots.
+ - `dragInTime`: *boolean*  - Specifies whether the event is movable in time.
+ - `editable`: *boolean*  - Specifies if an event is editable or not. If false, drag &amp; drop and resize is not allowed.
+ - `end`: *string &#124; object &#124; Date*  - Specifies the end date/time of the calendar days/cells.
+ - `id`: *string &#124; number*  - A unique id for the event. If not specified, the event will get a generated id.
+ - `nr`: *number*  - Occurrence number in case of recurrence.
+ - `occurrenceId`: *string*  - Occurrence id in case of recurrence.
+ - `original`: *ICalendarData*  - Origin of the occurrence.
+ - `overlap`: *boolean*  - Specifies whether the event can be overlapped
+ - `recurring`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)*  - Specifies a recurrence rule for handling recurring days.
+ - `recurringException`: *string &#124; object &#124; Date &#124; Array&lt;string &#124; object &#124; Date&gt;*  - Specifies recurring exceptions.
+ - `recurringExceptionRule`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)*  - Specifies a recurrence exception rule.
+ - `resize`: *boolean*  - Specifies whether the event is resizable.
+ - `resource`: *string &#124; number &#124; Array&lt;string &#124; number&gt;*  - Resource or resources of the event.
+ - `slot`: *string &#124; number*  - Slot of the event
+ - `start`: *string &#124; object &#124; Date*  - Specifies the start date/time of the calendar days/cells.
+ - `text`: *string*  - Text of the label
+ - `textColor`: *string*  - Color of the label text.
+ - `timezone`: *string*  - Timezone of the event
+ - `title`: *string*  - The title of the event.
+ - `tooltip`: *string*  - Tooltip for the event
+
+### MbscDateType {#type-MbscDateType}
+
+string &#124; Date &#124; object
+
+
 ### MbscLocale {#type-MbscLocale}
 
 Interface
@@ -58,25 +117,6 @@ Properties:
  - `yearSuffix`: *string* 
  - `yearText`: *string* 
 
-### MbscCalendarColor {#type-MbscCalendarColor}
-
-Interface
-
-Properties:
- - `background`: *string*  - Background of the cell.
- - `cellCssClass`: *string*  - CSS class for the cell.
- - `cssClass`: *string*  - CSS class for custom CSS.
- - `date`: *string &#124; object &#124; Date*  - Specifies the date of the calendar day.
- - `end`: *string &#124; object &#124; Date*  - Specifies the end date/time of the calendar days/cells.
- - `highlight`: *string*  - Background of the circle.
- - `nr`: *number*  - Occurrence number in case of recurrence.
- - `occurrenceId`: *string*  - Occurrence id in case of recurrence.
- - `original`: *ICalendarData*  - Origin of the occurrence.
- - `recurring`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)*  - Specifies a recurrence rule for handling recurring days.
- - `recurringException`: *string &#124; object &#124; Date &#124; Array&lt;string &#124; object &#124; Date&gt;*  - Specifies recurring exceptions.
- - `recurringExceptionRule`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)*  - Specifies a recurrence exception rule.
- - `start`: *string &#124; object &#124; Date*  - Specifies the start date/time of the calendar days/cells.
-
 ### MbscRecurrenceRule {#type-MbscRecurrenceRule}
 
 Interface
@@ -92,46 +132,6 @@ Properties:
  - `until`: *[MbscDateType](#type-MbscDateType)* 
  - `weekDays`: *string* 
  - `weekStart`: *string* 
-
-### MbscDateType {#type-MbscDateType}
-
-string &#124; Date &#124; object
-
-
-### MbscCalendarEvent {#type-MbscCalendarEvent}
-
-Interface
-
-Properties:
- - `allDay`: *boolean*  - Specifies if the event is all day or not.
- - `bufferAfter`: *number*  - Defines a buffer time in minutes that will be displayed after the end of the event.
- - `bufferBefore`: *number*  - Defines a buffer time in minutes that will be displayed before the start of the event.
- - `cellCssClass`: *string*  - CSS class for the cell.
- - `color`: *string*  - Background color of the label.
- - `cssClass`: *string*  - CSS class for custom CSS.
- - `date`: *string &#124; object &#124; Date*  - Specifies the date of the calendar day.
- - `dragBetweenResources`: *boolean*  - Specifies whether the event is movable across resources.
- - `dragBetweenSlots`: *boolean*  - Specifies whether the event is movable across across slots.
- - `dragInTime`: *boolean*  - Specifies whether the event is movable in time.
- - `editable`: *boolean*  - Specifies if an event is editable or not. If false, drag &amp; drop and resize is not allowed.
- - `end`: *string &#124; object &#124; Date*  - Specifies the end date/time of the calendar days/cells.
- - `id`: *string &#124; number*  - A unique id for the event. If not specified, the event will get a generated id.
- - `nr`: *number*  - Occurrence number in case of recurrence.
- - `occurrenceId`: *string*  - Occurrence id in case of recurrence.
- - `original`: *ICalendarData*  - Origin of the occurrence.
- - `overlap`: *boolean*  - Specifies whether the event can be overlapped
- - `recurring`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)*  - Specifies a recurrence rule for handling recurring days.
- - `recurringException`: *string &#124; object &#124; Date &#124; Array&lt;string &#124; object &#124; Date&gt;*  - Specifies recurring exceptions.
- - `recurringExceptionRule`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)*  - Specifies a recurrence exception rule.
- - `resize`: *boolean*  - Specifies whether the event is resizable.
- - `resource`: *string &#124; number &#124; Array&lt;string &#124; number&gt;*  - Resource or resources of the event.
- - `slot`: *string &#124; number*  - Slot of the event
- - `start`: *string &#124; object &#124; Date*  - Specifies the start date/time of the calendar days/cells.
- - `text`: *string*  - Text of the label
- - `textColor`: *string*  - Color of the label text.
- - `timezone`: *string*  - Timezone of the event
- - `title`: *string*  - The title of the event.
- - `tooltip`: *string*  - Tooltip for the event
 
 ### MbscResource {#type-MbscResource}
 

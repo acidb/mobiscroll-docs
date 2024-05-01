@@ -17,40 +17,6 @@ Properties:
  - `recurringExceptionRule`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)*  - Specifies a recurrence exception rule.
  - `start`: *string &#124; object &#124; Date*  - Specifies the start date/time of the calendar days/cells.
 
-### MbscRecurrenceRule {#type-MbscRecurrenceRule}
-
-Interface
-
-Properties:
- - `count`: *number* 
- - `day`: *number &#124; Array&lt;number&gt;* 
- - `from`: *[MbscDateType](#type-MbscDateType)* 
- - `interval`: *number* 
- - `month`: *number &#124; Array&lt;number&gt;* 
- - `pos`: *number* 
- - `repeat`: *"daily" &#124; "weekly" &#124; "monthly" &#124; "yearly"* 
- - `until`: *[MbscDateType](#type-MbscDateType)* 
- - `weekDays`: *string* 
- - `weekStart`: *string* 
-
-### MbscDateType {#type-MbscDateType}
-
-string &#124; Date &#124; object
-
-
-### MbscEventConnection {#type-MbscEventConnection}
-
-Interface
-
-Properties:
- - `arrow`: *boolean &#124; "from" &#124; "to" &#124; "bidirectional"*  - Specifies where to display arrows
- - `color`: *string*  - Specifies the color of the connection.
- - `cssClass`: *string*  - Add a specific css class to the connection for further customization
- - `from`: *string &#124; number*  - The id of the event where the connection will begin
- - `to`: *string &#124; number*  - The id of the event where the connection will end.
- - `type`: *"fs" &#124; "sf" &#124; "ss" &#124; "ff"*  - The type of the connection.
-Possible values: &#039;fs&#039; - finish-to-start, &#039;sf&#039; - start-to-finish, &#039;ss&#039; - start-to-start, &#039;ff&#039; - finish-to-finish.
-
 ### MbscCalendarEvent {#type-MbscCalendarEvent}
 
 Interface
@@ -133,46 +99,23 @@ Properties:
  - `recurringExceptionRule`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)*  - Specifies a recurrence exception rule.
  - `start`: *string &#124; object &#124; Date*  - Specifies the start date/time of the calendar days/cells.
 
-### MbscResource {#type-MbscResource}
+### MbscDateType {#type-MbscDateType}
+
+string &#124; Date &#124; object
+
+
+### MbscEventConnection {#type-MbscEventConnection}
 
 Interface
 
 Properties:
- - `background`: *string*  - Specifies the background color of the resource row or column.
- - `children`: *Array&lt;[MbscResource](#type-MbscResource)&gt;*  - Child resources.
- - `collapsed`: *boolean*  - Specifies the displayed state of the child resource group.
- - `color`: *string*  - Specifies the default event color of the resource.
- - `cssClass`: *string*  - Specifies a css class for the resource row or column.
- - `depth`: *number*  - Depth of the resource in the resource tree.
- - `eventCreation`: *boolean*  - Disables event creation on specific resources by setting it to false. Defaults to true, if not specified.
- - `eventDragBetweenResources`: *boolean*  - Specifies whether the events in this resource are movable across resources.
- - `eventDragBetweenSlots`: *boolean*  - Specifies whether the events in this slots are movable across slots.
- - `eventDragInTime`: *boolean*  - Specifies whether the events in this resource are movable in time.
- - `eventOverlap`: *boolean*  - Specifies whether the events in this resource can be overlapped
- - `eventResize`: *boolean*  - Specifies whether the events in this resource are resizable.
- - `fixed`: *boolean*  - Specifies whether the resource is fixed to the top.
- - `id`: *string &#124; number* 
- - `isParent`: *boolean*  - Will be true for resources with children.
- - `name`: *string*  - Specifies the name of the resource.
- - `original`: *[MbscResource](#type-MbscResource)*  - The original resource object.
-
-### MbscSlot {#type-MbscSlot}
-
-Interface
-
-Properties:
- - `color`: *string* 
- - `eventDragBetweenSlots`: *boolean*  - Specifies whether the event is movable across slots.
- - `id`: *string &#124; number*  - This is an id that can be referenced in the events/invalids/colors data.
- - `name`: *string*  - The name of the slot that will be displayed at the top of the slot column.
-
-### MbscTimezonePlugin {#type-MbscTimezonePlugin}
-
-Interface
-
-Properties:
- - `createDate`: *(s: any, year: string &#124; number &#124; Date &#124; MbscTimezonedDate, month: number, date: number, h: number, min: number, sec: number, ms: number) => MbscTimezonedDate* 
- - `parse`: *(date: string &#124; number, s: any) => MbscTimezonedDate* 
+ - `arrow`: *boolean &#124; "from" &#124; "to" &#124; "bidirectional"*  - Specifies where to display arrows
+ - `color`: *string*  - Specifies the color of the connection.
+ - `cssClass`: *string*  - Add a specific css class to the connection for further customization
+ - `from`: *string &#124; number*  - The id of the event where the connection will begin
+ - `to`: *string &#124; number*  - The id of the event where the connection will end.
+ - `type`: *"fs" &#124; "sf" &#124; "ss" &#124; "ff"*  - The type of the connection.
+Possible values: &#039;fs&#039; - finish-to-start, &#039;sf&#039; - start-to-finish, &#039;ss&#039; - start-to-start, &#039;ff&#039; - finish-to-finish.
 
 ### MbscEventcalendarView {#type-MbscEventcalendarView}
 
@@ -243,4 +186,61 @@ Properties:
  - `weekText`: *string* 
  - `yearSuffix`: *string* 
  - `yearText`: *string* 
+
+### MbscRecurrenceRule {#type-MbscRecurrenceRule}
+
+Interface
+
+Properties:
+ - `count`: *number* 
+ - `day`: *number &#124; Array&lt;number&gt;* 
+ - `from`: *[MbscDateType](#type-MbscDateType)* 
+ - `interval`: *number* 
+ - `month`: *number &#124; Array&lt;number&gt;* 
+ - `pos`: *number* 
+ - `repeat`: *"daily" &#124; "weekly" &#124; "monthly" &#124; "yearly"* 
+ - `until`: *[MbscDateType](#type-MbscDateType)* 
+ - `weekDays`: *string* 
+ - `weekStart`: *string* 
+
+### MbscResource {#type-MbscResource}
+
+Interface
+
+Properties:
+ - `background`: *string*  - Specifies the background color of the resource row or column.
+ - `children`: *Array&lt;[MbscResource](#type-MbscResource)&gt;*  - Child resources.
+ - `collapsed`: *boolean*  - Specifies the displayed state of the child resource group.
+ - `color`: *string*  - Specifies the default event color of the resource.
+ - `cssClass`: *string*  - Specifies a css class for the resource row or column.
+ - `depth`: *number*  - Depth of the resource in the resource tree.
+ - `eventCreation`: *boolean*  - Disables event creation on specific resources by setting it to false. Defaults to true, if not specified.
+ - `eventDragBetweenResources`: *boolean*  - Specifies whether the events in this resource are movable across resources.
+ - `eventDragBetweenSlots`: *boolean*  - Specifies whether the events in this slots are movable across slots.
+ - `eventDragInTime`: *boolean*  - Specifies whether the events in this resource are movable in time.
+ - `eventOverlap`: *boolean*  - Specifies whether the events in this resource can be overlapped
+ - `eventResize`: *boolean*  - Specifies whether the events in this resource are resizable.
+ - `fixed`: *boolean*  - Specifies whether the resource is fixed to the top.
+ - `id`: *string &#124; number* 
+ - `isParent`: *boolean*  - Will be true for resources with children.
+ - `name`: *string*  - Specifies the name of the resource.
+ - `original`: *[MbscResource](#type-MbscResource)*  - The original resource object.
+
+### MbscSlot {#type-MbscSlot}
+
+Interface
+
+Properties:
+ - `color`: *string* 
+ - `eventDragBetweenSlots`: *boolean*  - Specifies whether the event is movable across slots.
+ - `id`: *string &#124; number*  - This is an id that can be referenced in the events/invalids/colors data.
+ - `name`: *string*  - The name of the slot that will be displayed at the top of the slot column.
+
+### MbscTimezonePlugin {#type-MbscTimezonePlugin}
+
+Interface
+
+Properties:
+ - `createDate`: *(s: any, year: string &#124; number &#124; Date &#124; MbscTimezonedDate, month: number, date: number, h: number, min: number, sec: number, ms: number) => MbscTimezonedDate* 
+ - `parse`: *(date: string &#124; number, s: any) => MbscTimezonedDate* 
 

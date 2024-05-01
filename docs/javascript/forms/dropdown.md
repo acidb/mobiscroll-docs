@@ -6,6 +6,7 @@ displayed_sidebar: javascriptSidebar
 import Options from '../\_auto-generated/dropdown/options.md';
 import Events from '../\_auto-generated/dropdown/events.md';
 import Localizations from '../\_auto-generated/dropdown/localizations.md';
+import Types from '../\_auto-generated/dropdown/types.md';
 
 # Dropdown
 
@@ -58,5 +59,9 @@ xhr.send();
 ## Localization
 
 <Localizations />
+
+## Types
+
+<Types />
 
 </div>

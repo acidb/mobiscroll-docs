@@ -8,6 +8,7 @@ import Events from '../\_auto-generated/datepicker/events.md';
 import Localizations from '../\_auto-generated/datepicker/localizations.md';
 import Methods from '../\_auto-generated/datepicker/methods.md';
 import Slots from '../_auto-generated/datepicker/renderers.md';
+import Types from '../_auto-generated/datepicker/types.md';
 
 # Datepicker API
 
@@ -34,5 +35,9 @@ Here is a comprehensive list of all the options, events and methods of the Datep
 ## Templates
 
 <Slots />
+
+## Types
+
+<Types />
 
 </div>

@@ -6,6 +6,7 @@ displayed_sidebar: javascriptSidebar
 import Options from '../\_auto-generated/button/options.md';
 import Events from '../\_auto-generated/button/events.md';
 import Localizations from '../\_auto-generated/button/localizations.md';
+import Types from '../\_auto-generated/button/types.md';
 
 # Button
 
@@ -98,5 +99,9 @@ xhr.send();
 ## Events
 
 <Events />
+
+## Types
+
+<Types />
 
 </div>

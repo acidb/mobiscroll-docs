@@ -6,6 +6,7 @@ displayed_sidebar: javascriptSidebar
 import Options from '../\_auto-generated/segmented/options.md';
 import Events from '../\_auto-generated/segmented/events.md';
 import Localizations from '../\_auto-generated/segmented/localizations.md';
+import Types from '../\_auto-generated/segmented/types.md';
 
 # Segmented
 
@@ -139,5 +140,9 @@ xhr.send();
 ## Localization
 
 <Localizations />
+
+## Types
+
+<Types />
 
 </div>

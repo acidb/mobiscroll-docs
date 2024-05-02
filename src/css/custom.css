@@ -144,3 +144,47 @@
 .grecaptcha-badge {
   display: none !important;
 }
+
+
+
+
+.custom-animated-handle {
+  transition: transform 0.2s;
+}
+
+.slider-with-animated-handle:hover .custom-animated-handle {
+  transform: scale(1.2);
+}
+
+.slider-example-split-line {
+  --divider-width: 4px;
+  --divider-color: #011742;
+  --default-handle-opacity: 0;
+}
+
+.before,
+.after {
+  margin: 0;
+}
+
+.before figcaption,
+.after figcaption {
+  background: #fff;
+  border: 1px solid #011742;
+  border-radius: 12px;
+  color: #2e3452;
+  opacity: 0.8;
+  padding: 12px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  line-height: 100%;
+}
+
+.before figcaption {
+  left: 12px;
+}
+
+.after figcaption {
+  right: 12px;
+}

@@ -41,6 +41,7 @@ mobiscroll.datepicker('#myInput', {
   }
 });
 ```
+![Calendar header template](/img/calendar-header-template.png)
 
 ## Calendar cell template
 
@@ -57,3 +58,4 @@ mobiscroll.datepicker('#myInput', {
   }
 });
 ```
+![Calendar cell template](/img/calendar-cell-template.png)

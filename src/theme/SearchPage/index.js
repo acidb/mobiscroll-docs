@@ -80,7 +80,7 @@ function FrameworkSelectDropdown({ defaultValue, onChage }) {
       className={styles.searchVersionInput}
       onChange={onChage}
       >
-      <option value="">All</option>
+      <option value="">All Frameworks</option>
       <option value="angular">Angular</option>
       <option value="react">React</option>
       <option value="javascript">Javascript</option>

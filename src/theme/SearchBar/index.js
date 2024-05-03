@@ -5,8 +5,9 @@ import Link from '@docusaurus/Link';
 import {useHistory, useLocation} from '@docusaurus/router';
 import {
   isRegexpStringMatch,
-  useSearchLinkCreator,
+  // useSearchLinkCreator,
 } from '@docusaurus/theme-common';
+import { useSearchLinkCreator } from '@site/src/components/Search/searchLink';
 import {
   useAlgoliaContextualFacetFilters,
   useSearchResultUrlProcessor,

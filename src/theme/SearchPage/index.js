@@ -304,8 +304,8 @@ function SearchPageContent() {
         <form className="row" onSubmit={(e) => e.preventDefault()}>
           <div
             className={clsx('col', styles.searchQueryColumn, {
-              'col--9': false,
-              'col--12': true,
+              'col--9': docsSearchVersionsHelpers.versioningEnabled,
+              'col--12': !docsSearchVersionsHelpers.versioningEnabled,
             })}>
             <input
               type="search"
@@ -328,11 +328,11 @@ function SearchPageContent() {
             />
           </div>
 
-          {/* {docsSearchVersionsHelpers.versioningEnabled && (
+          {docsSearchVersionsHelpers.versioningEnabled && (
             <SearchVersionSelectList
               docsSearchVersionsHelpers={docsSearchVersionsHelpers}
             />
-          )} */}
+          )}
         </form>
 
         <div className="row">

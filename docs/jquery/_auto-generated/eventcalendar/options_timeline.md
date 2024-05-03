@@ -333,6 +333,23 @@ When using timezones, the `exclusiveEndDates` option will default to `true`.
 (args: MbscNewEventData) => MbscCalendarEvent
 
 
+Use this option to set properties to the new event created with click or drag.
+The event creation is handled by the [clickToCreate](#opt-clickToCreate) and [dragToCreate](#opt-dragToCreate) options.
+It takes a function that should return the properties for the new event.
+The argument object passed to this function has the following properties:
+- `start`: *Date* - The date when the newly created event will start.
+- `resource`: *string | number* - The id of the resource where the event creation started.
+
+```js
+extendDefaultEvent: (args) => {
+  return {
+    color: args.resource === 'admin' ? 'green' : 'red',
+    title: 'My event',
+  };
+}
+```
+
+**Default value**: `undefined`
 
 ### externalDrag {#opt-externalDrag}
 

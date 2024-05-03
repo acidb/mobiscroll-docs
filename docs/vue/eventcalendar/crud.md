@@ -4,6 +4,8 @@ sidebar_label: CRUD
 displayed_sidebar: vueSidebar
 ---
 
+import HelperOptions from '../_auto-generated/utils/options.md';
+
 # CRUD
 
 ## Updating event properties
@@ -132,6 +134,14 @@ When updating a recurring event from the UI (by dragging for example), the updat
 
 Adding this exception to the rule is an update to the event, so the [`@event-update`](./api#event-onEventUpdate) and [`@event-updated`](./api#event-onEventUpdated) will be fired as expected. There will also be an [`@event-create`](./api#event-onEventCreate) and [`@event-created](./api#event-onEventCreated) event fired for the changed occurence, that is not be part of the recurring set anymore.
 :::
+
+In case you would like to edit a recurring event, you can use the `updateRecurringEvent` helper function:
+
+<div className="option-list no-padding">
+
+<HelperOptions />
+
+</div>
 
 ### Event delete
 

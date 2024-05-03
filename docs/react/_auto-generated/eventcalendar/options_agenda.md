@@ -154,6 +154,15 @@ Possible values:
 (event1: MbscCalendarEvent, event2: MbscCalendarEvent) => number
 
 
+Determines the ordering of the events within the same day.
+Can be a function that accepts two event objects as arguments and should return -1 or 1.
+
+If not specified, the default order is:
+- all day events
+- rest of events, sorted by start time; events with identical start times,
+will be ordered alphabetically based on their title
+
+**Default value**: `undefined`
 
 ### exclusiveEndDates {#opt-exclusiveEndDates}
 

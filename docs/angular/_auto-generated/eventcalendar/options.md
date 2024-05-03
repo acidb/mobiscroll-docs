@@ -323,6 +323,15 @@ If either of those are `true`, and no `eventDelete` option is set, then event de
 (event1: MbscCalendarEvent, event2: MbscCalendarEvent) => number
 
 
+Determines the ordering of the events within the same day.
+Can be a function that accepts two event objects as arguments and should return -1 or 1.
+
+If not specified, the default order is:
+- all day events
+- rest of events, sorted by start time; events with identical start times,
+will be ordered alphabetically based on their title
+
+**Default value**: `undefined`
 
 ### eventOverlap {#opt-eventOverlap}
 
@@ -348,6 +357,23 @@ When using timezones, the `exclusiveEndDates` option will default to `true`.
 (args: MbscNewEventData) => MbscCalendarEvent
 
 
+Use this option to set properties to the new event created with click or drag.
+The event creation is handled by the [clickToCreate](#opt-clickToCreate) and [dragToCreate](#opt-dragToCreate) options.
+It takes a function that should return the properties for the new event.
+The argument object passed to this function has the following properties:
+- `start`: *Date* - The date when the newly created event will start.
+- `resource`: *string | number* - The id of the resource where the event creation started.
+
+```js
+extendDefaultEvent: (args) => {
+  return {
+    color: args.resource === 'admin' ? 'green' : 'red',
+    title: 'My event',
+  };
+}
+```
+
+**Default value**: `undefined`
 
 ### externalDrag {#opt-externalDrag}
 
@@ -891,6 +917,13 @@ Configures the Eventcalendar view. Possible views:
   Hours and minutes can be specified in the same string, example: `'09:30'`.
 - `endTime`: *string* (default `'24:00'`) - Set the end time of scheduler column.
   Hours and minutes can be specified in the same string, example: `'18:30'`.
+- `maxEventStack`: *&#039;all&#039; | &#039;auto&#039; | number* - Limit the number of displayed events. When the number of overlapping events reaches the
+  specified value, a &quot;more&quot; button will be displayed which opens a popover showing the rest of the events.
+    - If it is a `number`, it specifies how many events will be displayed before the &quot;more&quot; button appears.
+    - If set to `'all'`, all events will be displayed.
+    - If set to `'auto'`, the component will decide how many events can be placed inside the column,
+  based on the `minEventWidth` view option and the actual column width.
+- `minEventWidth`: *number* - Specifies the minimum event width. Will be used when `maxEventStack: 'auto'` is used.
 - `timeCellStep`: *number* (default `60`) - Set the step of the grid cells in minutes.
   Supported values: 1, 5, 10, 15, 20, 30, 60, 120, 180, 240, 360, 480, 720, 1440.
 - `timeLabelStep`: *number* (default `60`) - Set the step of the time labels in minutes.
@@ -924,6 +957,10 @@ Configures the Eventcalendar view. Possible views:
   Should not be mistaken for the [firstDay](#localization-firstDay) option,
   which sets the first day of the week, and, if not set, is defined by the [localization](#localization-locale).
 - `endDay`: *number* (default `6`) - Specifies the last visible weekday of the view. Sunday is 0, Monday is 1, etc.
+- `maxEventStack`: *&#039;all&#039; | number* - Limit the number of displayed events. When the number of overlapping events reaches
+  the specified value, a &quot;more&quot; button will be displayed which opens a popover showing the rest of the events.
+    - If it is a `number`, it specifies how many events will be displayed before the &quot;more&quot; button appears.
+    - If set to `'all'`, all events will be displayed.
 - `startTime`: *string* (default `'00:00'`) - Set the start time of the timeline days.
   Hours and minutes can be specified in the same string, example: `'09:30'`.
 - `endTime`: *string* (default `'24:00'`) - Set the end time of the timeline days.

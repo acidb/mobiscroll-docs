@@ -99,7 +99,7 @@ function App() {
 
 The color property controls the default event color of the resource. If an event doesn't have a specified color it will inherit from the resource. The [agenda](agenda) and [calendar view](calendar) events and labels will also inherit the resource color.
 
-[Events](#opt-data), [colors](#opt-colors), [invalids](#opt-invalids) can be tied to a single or multiple resources. This can be done with the `resource` property of the objects, where the id of the resource should be passed. It can be a single value where the element would be linked to a single resource or in case of an array the element will show up at all of the specified resources. If no resource property is specified to the color/event/invalid object then the element will show up in every resource group.
+[Events](#opt-data), [colors](#opt-colors), [invalids](#opt-invalid) can be tied to a single or multiple resources. This can be done with the `resource` property of the objects, where the id of the resource should be passed. It can be a single value where the element would be linked to a single resource or in case of an array the element will show up at all of the specified resources. If no resource property is specified to the color/event/invalid object then the element will show up in every resource group.
 
 ```jsx title="Invalid rule tied to a single resource"
 function App() {

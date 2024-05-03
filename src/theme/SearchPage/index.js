@@ -22,6 +22,7 @@ import {
 } from '@docusaurus/theme-search-algolia/client';
 import Layout from '@theme/Layout';
 import styles from './styles.module.css';
+import { getDefaultFramework } from '@site/src/components/Search/searchLink';
 // Very simple pluralization: probably good enough for now
 function useDocumentsFoundPlural() {
   const {selectMessage} = usePluralForm();
@@ -65,6 +66,30 @@ function useDocsSearchVersionsHelpers() {
     setSearchVersion,
   };
 }
+
+function FrameworkSelectDropdown({ defaultValue, onChage }) {
+  return <div
+  className={clsx(
+    'col',
+    'col--3',
+    'padding-left--none',
+    styles.searchVersionColumn,
+  )}>
+    <select
+      defaultValue={defaultValue}
+      className={styles.searchVersionInput}
+      onChange={onChage}
+      >
+      <option value="">All</option>
+      <option value="angular">Angular</option>
+      <option value="react">React</option>
+      <option value="javascript">Javascript</option>
+      <option value="jquery">jQuery</option>
+      <option value="vue">Vue</option>
+    </select>
+  </div>
+}
+
 // We want to display one select per versioned docs plugin instance
 function SearchVersionSelectList({docsSearchVersionsHelpers}) {
   const versionedPluginEntries = Object.entries(
@@ -166,7 +191,10 @@ function SearchPageContent() {
   const algoliaHelper = algoliaSearchHelper(algoliaClient, indexName, {
     hitsPerPage: 15,
     advancedSyntax: true,
-    disjunctiveFacets: ['language', 'docusaurus_tag'],
+    disjunctiveFacets: [
+      // 'language', 'docusaurus_tag',
+      'type', 'framework'
+    ],
   });
   algoliaHelper.on(
     'result',
@@ -248,17 +276,13 @@ function SearchPageContent() {
           message: 'Search the documentation',
           description: 'The search page title for empty query',
         });
+  const defaultFramework = getDefaultFramework();
+  const [framework, setFramework] = useState(defaultFramework);
   const makeSearch = useEvent((page = 0) => {
-    algoliaHelper.addDisjunctiveFacetRefinement('docusaurus_tag', 'default');
-    algoliaHelper.addDisjunctiveFacetRefinement('language', currentLocale);
-    Object.entries(docsSearchVersionsHelpers.searchVersions).forEach(
-      ([pluginId, searchVersion]) => {
-        algoliaHelper.addDisjunctiveFacetRefinement(
-          'docusaurus_tag',
-          `docs-${pluginId}-${searchVersion}`,
-        );
-      },
-    );
+    algoliaHelper.addDisjunctiveFacetRefinement('type', 'content');
+    if (framework) {
+      algoliaHelper.addDisjunctiveFacetRefinement('framework', framework);
+    }
     algoliaHelper.setQuery(searchQuery).setPage(page).search();
   });
   useEffect(() => {
@@ -280,7 +304,7 @@ function SearchPageContent() {
         makeSearch();
       }, 300);
     }
-  }, [searchQuery, docsSearchVersionsHelpers.searchVersions, makeSearch]);
+  }, [searchQuery, docsSearchVersionsHelpers.searchVersions, makeSearch, framework]);
   useEffect(() => {
     if (!searchResultState.lastPage || searchResultState.lastPage === 0) {
       return;
@@ -304,8 +328,8 @@ function SearchPageContent() {
         <form className="row" onSubmit={(e) => e.preventDefault()}>
           <div
             className={clsx('col', styles.searchQueryColumn, {
-              'col--9': docsSearchVersionsHelpers.versioningEnabled,
-              'col--12': !docsSearchVersionsHelpers.versioningEnabled,
+              'col--9': true,
+              'col--12': false,
             })}>
             <input
               type="search"
@@ -327,12 +351,12 @@ function SearchPageContent() {
               autoFocus
             />
           </div>
-
-          {docsSearchVersionsHelpers.versioningEnabled && (
+          <FrameworkSelectDropdown defaultValue={defaultFramework} onChage={(ev) => { setFramework(ev.target.value); }} />
+          {/* {docsSearchVersionsHelpers.versioningEnabled && (
             <SearchVersionSelectList
               docsSearchVersionsHelpers={docsSearchVersionsHelpers}
             />
-          )}
+          )} */}
         </form>
 
         <div className="row">

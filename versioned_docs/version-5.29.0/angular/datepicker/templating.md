@@ -48,6 +48,7 @@ export class YourComponent {
   myTitle = 'My Custom Title';
 }
 ```
+![Calendar header template](/img/calendar-header-template.png)
 
 ## Calendar cell template
 
@@ -64,3 +65,4 @@ In the case of the `dayTemplate` option however, both the styling and the conten
   </ng-template>
 </mbsc-datepicker>
 ```
+![Calendar cell template](/img/calendar-cell-template.png)

@@ -41,6 +41,7 @@ The above components can be used inside of the custom header. The following exam
   </template>
 </MbscDatepicker>
 ```
+![Calendar header template](/img/calendar-header-template.png)
 
 ## Calendar cell template
 
@@ -57,3 +58,4 @@ In the case of the `day` slot however, both the styling and the content (the dat
   </template>
 </MbscDatepicker>
 ```
+![Calendar cell template](/img/calendar-cell-template.png)

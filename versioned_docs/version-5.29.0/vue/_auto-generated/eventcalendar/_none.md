@@ -1,6 +1,6 @@
 ### view {#view}
 
-MbscEventcalendarView
+[MbscEventcalendarView](#type-MbscEventcalendarView)
 
 Configures the Eventcalendar view. Possible views:
 

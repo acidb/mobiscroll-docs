@@ -16,6 +16,38 @@ The agenda calendar displays a list of events for a given period of time (year, 
 
 ![Desktop agenda](https://docs.mobiscroll.com/Content/img/docs/desktop-agenda.png)
 
+## Configuring the view option
+Below are listed the Agenda view option's properties.
+
+<div className="option-list no-padding">
+
+### view {#opt-view}
+MbscEventcalendarView
+
+</div>
+
+`agenda`: Configures the agenda view. Properties:
+- `type`: *&#039;day&#039; | &#039;week&#039; | &#039;month&#039; | &#039;year&#039;* (default `'month'`) - Sets the agenda type.
+  If calendar is also displayed, only `'month'`, `'week'` and `'day'` values are supported.
+  In case of month and week, the type and size should match the calendar type and size.
+  In case of day type events on the selected calendar day will be displayed, so size will always be `1`.
+- `size`: *number* (default `1`) - Specifies the number of displayed years, months, weeks or days.
+- `scrollable`: *boolean* (default `true`) - Setting this to `true` makes the agenda independently scrollable.
+  :::info
+  There are two prerequisites for making this work:
+
+  1 - The calendar needs to be to placed inside a container which has a height. This can be either a fixed height,
+  a height in percentage, or a flex height. When the calendar is placed directly in a container with a fixed height,
+  it will work out of the box. If the height of the container is specified in percentage,
+  e.g. you&#039;d like to fill the full page height, you need to make sure that all parent elements also have `'height: 100%'` specified,
+  up until the `body` and `html` elements, or until the closest parent which has a fixed height.
+  If the container is inside a parent with flex layout, it will also work out of the box.
+
+  2 - The agenda needs a minimum height of 200px - the result of the container height
+  minus the height of the calendar header minus the height of the displayed calendar rows.
+  If the calculated height is less then 200px, the agenda will not be scrollable.
+  :::
+
 ## Templating
 The display of Agenda can be customized with different [templating](#templates) functions.
 

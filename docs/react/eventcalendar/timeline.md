@@ -22,6 +22,63 @@ With these properties both hours and minutes can be specified.
 
 ![Desktop monthly timeline](https://mobiscroll.com/Content/img/docs/desktop-timeline.png)
 
+## Configuring the view option
+Below are listed the Timeline view option's properties.
+
+<div className="option-list no-padding">
+
+### view {#opt-view}
+MbscEventcalendarView
+
+</div>
+
+`timeline`: Configures the timeline view. Properties:
+- `type`: *&#039;day&#039; | &#039;week&#039; | &#039;month&#039; | &#039;year&#039;* (default `'week'`) - Sets the timeline type.
+- `size`: *number* (default: `1`)- Specifies the number of displayed years, months, weeks or days.
+- `resolutionHorizontal`: *&#039;hour&#039;, &#039;day&#039;, &#039;week&#039;, &#039;month&#039;, &#039;quarter&#039;, &#039;year&#039;* (default &#039;hour&#039;) -
+  Sets the horizontal resolution of the timeline.
+  In case of hourly resolution, the columns can be split to minutes (1, 5, 15, 20, 30) or merge to multiple
+  hours (2, 3, 4, 6, 8, 12) using the `timeCellStep` and `timeLabelStep` properties.
+- `currentTimeIndicator`: *boolean* - Show or hide the current time indicator.
+  Defaults to `true`, when the horizontal resolution is less than a day.
+- `startDay`: *number* (default `0`) - Specifies the first visible weekday of the view. Sunday is 0, Monday is 1, etc.
+  Days outside of the `startDay` and `endDay` range will not be visible.
+  Should not be mistaken for the [firstDay](#localization-firstDay) option,
+  which sets the first day of the week, and, if not set, is defined by the [localization](#localization-locale).
+- `endDay`: *number* (default `6`) - Specifies the last visible weekday of the view. Sunday is 0, Monday is 1, etc.
+- `maxEventStack`: *&#039;all&#039; | number* - Limit the number of displayed events. When the number of overlapping events reaches
+  the specified value, a &quot;more&quot; button will be displayed which opens a popover showing the rest of the events.
+    - If it is a `number`, it specifies how many events will be displayed before the &quot;more&quot; button appears.
+    - If set to `'all'`, all events will be displayed.
+- `startTime`: *string* (default `'00:00'`) - Set the start time of the timeline days.
+  Hours and minutes can be specified in the same string, example: `'09:30'`.
+- `endTime`: *string* (default `'24:00'`) - Set the end time of the timeline days.
+  Hours and minutes can be specified in the same string, example: `'18:30'`.
+- `timeCellStep`: *number* (default `60`) - Set the step of the grid cells in minutes.
+  Supported values: 1, 5, 10, 15, 20, 30, 60, 120, 180, 240, 360, 480, 720, 1440.
+- `timeLabelStep`: *number* (default `60`) - Set the step of the time labels in minutes.
+  Supported values: 1, 5, 10, 15, 20, 30, 60, 120, 180, 240, 360, 480, 720, 1440.
+- `eventList`: *boolean* (default `false`) - If `true`, transforms the layout into a summary view.
+  The events are listed in the appropriate cell one after the other.
+- `rowHeight`: *&#039;variable&#039; | &#039;equal&#039;* (default &#039;variable&#039;) - Controls the height of the timeline rows.
+  By default rows will have variable height and will expand to accommodate the displayed events.
+  If it is set to `'equal'`, the rows will have equal heights.
+- `virtualScroll`: *boolean* (default `true`) - Enable or disable virtual scroll.
+- `weekNumbers`: *boolean* (default `false`) - Show or hide week numbers.
+
+```js
+view: {
+  calendar: {
+    type: 'week',
+    size: 2
+  },
+  agenda: {
+    type: 'week',
+    size: 2
+  }
+}
+```
+
 ## Resource grouping and hierarchy
 
 The timeline view supports resource hierarchy. Hierarchy groups can be defined with the `children` property of the resource object. Child objects are also resources and have the same properties, thus they can also have children.

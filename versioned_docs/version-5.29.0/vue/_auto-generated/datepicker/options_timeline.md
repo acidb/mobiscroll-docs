@@ -27,7 +27,7 @@ Specifies the accessible name of the picker input.
 **Default value**: `undefined`
 ### buttons {#opt-buttons}
 
-Array&lt;string &#124; MbscPopupButton&gt;
+Array&lt;string &#124; [MbscPopupButton](#type-MbscPopupButton)&gt;
 
 Buttons to display. Each item of the array will be a button. A button can be specified as a string, or as a button object.
 
@@ -134,7 +134,7 @@ If `true`, the popup is closed on overlay click or tap.
 **Default value**: `true`
 ### colors {#opt-colors}
 
-Array&lt;MbscCalendarColor&gt;
+Array&lt;[MbscCalendarColor](#type-MbscCalendarColor)&gt;
 
 Specifies the color for certain dates or date ranges on the calendar.
 The color object has the following properties:
@@ -186,7 +186,7 @@ The colors can be combined with the [labels](#opt-labels) or [marked](#opt-marke
 **Default value**: `undefined`
 ### controls {#opt-controls}
 
-Array&lt;MbscDatepickerControl&gt;
+Array&lt;[MbscDatepickerControl](#type-MbscDatepickerControl)&gt;
 
 List of controls to display on the picker. Possible values:
 - `['calendar']`
@@ -251,7 +251,7 @@ Specifies the disabled state of the input.
 **Default value**: `false`
 ### display {#opt-display}
 
-MbscPopupDisplay
+[MbscPopupDisplay](#type-MbscPopupDisplay)
 
 Controls the positioning of the component. Possible options:
 - `'center'` - The component appears as a popup at the center of the viewport.
@@ -433,7 +433,7 @@ Allow the typing into the input field in desktop mode.
 **Default value**: `true`
 ### invalid {#opt-invalid}
 
-Array&lt;MbscDateType&gt; &#124; Array&lt;IValidateProps&gt;
+Array&lt;[MbscDateType](#type-MbscDateType)&gt; &#124; Array&lt;IValidateProps&gt;
 
 An array containing the invalid values. Can contain dates,
 or objects with the following properties:
@@ -536,7 +536,7 @@ The default value depends on the [theme](#opt-theme):
 **Default value**: `undefined`
 ### max {#opt-max}
 
-MbscDateType
+[MbscDateType](#type-MbscDateType)
 
 Maximum value that can be selected.
 
@@ -558,7 +558,7 @@ the selected range can contain. When there is a time part in the selection, it s
 **Default value**: `undefined`
 ### maxTime {#opt-maxTime}
 
-MbscDateType
+[MbscDateType](#type-MbscDateType)
 
 It sets the maximum time that is selectable on the time or the timegrid [control](#opt-controls).
 
@@ -590,7 +590,7 @@ Sets the maximum width of the component.
 **Default value**: `undefined`
 ### min {#opt-min}
 
-MbscDateType
+[MbscDateType](#type-MbscDateType)
 
 Minimum value that can be selected.
 
@@ -605,7 +605,7 @@ the selected range can contain. When there is a time part in the selection, it s
 **Default value**: `undefined`
 ### minTime {#opt-minTime}
 
-MbscDateType
+[MbscDateType](#type-MbscDateType)
 
 It sets the minimum time that is selectable on the time or the timegrid [control](#opt-controls).
 
@@ -675,7 +675,7 @@ The hover styling is also turned off, when the range is not highlighted.
 **Default value**: `true`
 ### refDate {#opt-refDate}
 
-MbscDateType
+[MbscDateType](#type-MbscDateType)
 
 Specifies the reference date of the component, which represents when to start to calculate the view you want to display.
 
@@ -961,7 +961,7 @@ suffixed with `'-dark'`, e.g.: `'my-theme'` and `'my-theme-dark'`.
 **Default value**: `undefined`
 ### timezonePlugin {#opt-timezonePlugin}
 
-MbscTimezonePlugin
+[MbscTimezonePlugin](#type-MbscTimezonePlugin)
 
 Specifies the timezone plugin, which can handle the timezone conversions.
 
@@ -979,7 +979,7 @@ objects. These objects can be imported from the mobiscroll bundle.
 **Default value**: `undefined`
 ### valid {#opt-valid}
 
-Array&lt;MbscDateType&gt; &#124; Array&lt;IValidateProps&gt;
+Array&lt;[MbscDateType](#type-MbscDateType)&gt; &#124; Array&lt;IValidateProps&gt;
 
 An array containing the valid values. Use it when it&#039;s more convenient to specify valid values instead of the invalid ones.
 If specified, everything else is considered to be invalid, and the [invalid](#opt-invalid) option will be ignored.

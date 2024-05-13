@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 sidebar_label: Overview
-displayed_sidebar: javascriptSidebar
+displayed_sidebar: angularSidebar
 ---
 
 # Eventcalendar

@@ -27,6 +27,13 @@ string
 Placeholder text for the filter input, when [filtering](#opt-filter) is turned on.
 
 **Default value**: `'Search'`
+### groupText {#localization-groupText}
+
+string
+
+Specifies the accessibility label for the group wheel, when present.
+
+**Default value**: `'Group'`
 ### locale {#localization-locale}
 
 string &#124; MbscLocale

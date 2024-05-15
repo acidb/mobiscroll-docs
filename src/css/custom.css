@@ -92,6 +92,12 @@
   color: #011742;
 }
 
+.calendar-api-header h3 {
+  --ifm-link-color: #338ed9;
+  --ifm-link-hover-color: #338ed9;
+  color: #011742;
+}
+
 /* individual options type */
 .option-list h3 + p {
   color: #777;

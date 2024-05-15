@@ -6,6 +6,8 @@ displayed_sidebar: vueSidebar
 
 # Templating
 
+The display of the Date & time picker component can be customized with different [slots](api#slots) functions.
+
 ## Calendar header template
 
 The header of the calendar can be fully customized to one's needs with the use of the [`calendarHeader`](api#slot-calendarHeader) slot.

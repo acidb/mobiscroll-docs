@@ -326,24 +326,38 @@ Check out how you can style the header in [this example](https://demo.mobiscroll
 <div className="option-list">
 
 ## API
+Here is a comprehensive list of all the specific options, events and methods of the Scheduler view.
+
+<div className="calendar-api-header">
 
 ### Options
+</div>
+Explore the following API options that help you easily configure the Scheduler.
 
 <Options />
 
+<div className="calendar-api-header">
+
 ### Events
+</div>
+The Scheduler ships with different event hooks for deep customization. Events are triggered through the lifecycle of the component where you can tie in custom functionality and code.
 
 <Events />
 
+<div className="calendar-api-header">
+
 ### Localization
+</div>
+The Scheduler is fully localized. This covers date and time format, button copy, rtl and more.
 
 <Localizations />
 
-<div className="option-list-templates">
+<div className="calendar-api-header">
 
 ### Templates
+</div>
+The display of Scheduler can be customized with different templating functions.
 
 <Slots />
 
-</div>
 </div>

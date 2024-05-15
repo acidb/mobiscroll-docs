@@ -63,14 +63,17 @@ export class MyComponent {
 <div className="option-list">
 
 ## Options
+Explore the following API options that help you easily configure the Radio buttons.
 
 <Options />
 
 ## Events
+The Radio buttons ships with different event hooks for deep customization. Events are triggered through the lifecycle of the component where you can tie in custom functionality and code.
 
 <Events />
 
 ## Localization
+The Radio buttons is fully localized. This covers date and time format, button copy, rtl and more.
 
 <Localizations />
 

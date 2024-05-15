@@ -16,22 +16,27 @@ Here is a comprehensive list of all the options, events and methods of the Datep
 <div className="option-list">
 
 ## Options
+Explore the following API options that help you easily configure the Datepicker.
 
 <Options />
 
 ## Events
+The Datepicker ships with different event hooks for deep customization. Events are triggered through the lifecycle of the component where you can tie in custom functionality and code.
 
 <Events />
 
 ## Localization
+The Datepicker is fully localized. This covers date and time format, button copy, rtl and more.
 
 <Localizations />
 
 ## Methods
+These methods are actions that can be performed on mobiscroll instance.
 
 <Methods />
 
-## Templates
+## Renderers
+The display of Datepicker component can be customized with different renderer functions.
 
 <Slots />
 

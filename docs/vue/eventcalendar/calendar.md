@@ -120,20 +120,37 @@ Check out how you can style the header in [this example](https://demo.mobiscroll
 <div className="option-list">
 
 ## API
+Here is a comprehensive list of all the specific options, events and methods of the Event Calendar view.
+
+<div className="calendar-api-header">
 
 ### Options
+</div>
+Explore the following API options that help you easily configure the Event Calendar.
 
 <Options />
 
+<div className="calendar-api-header">
+
 ### Events
+</div>
+The Event Calendar ships with different event hooks for deep customization. Events are triggered through the lifecycle of the component where you can tie in custom functionality and code.
 
 <Events />
 
+<div className="calendar-api-header">
+
 ### Localization
+</div>
+The Event Calendar is fully localized. This covers date and time format, button copy, rtl and more.
 
 <Localizations />
 
+<div className="calendar-api-header">
+
 ### Slots
+</div>
+The display of Event Calendar can be customized with different slots functions.
 
 <Slots />
 

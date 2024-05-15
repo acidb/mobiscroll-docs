@@ -66,19 +66,6 @@ MbscEventcalendarView
 - `virtualScroll`: *boolean* (default `true`) - Enable or disable virtual scroll.
 - `weekNumbers`: *boolean* (default `false`) - Show or hide week numbers.
 
-```js
-view: {
-  calendar: {
-    type: 'week',
-    size: 2
-  },
-  agenda: {
-    type: 'week',
-    size: 2
-  }
-}
-```
-
 ## Resource grouping and hierarchy
 
 The timeline view supports resource hierarchy. Hierarchy groups can be defined with the `children` property of the resource object. Child objects are also resources and have the same properties, thus they can also have children.
@@ -472,20 +459,37 @@ Check out how you can style the slots in [this example](https://demo.mobiscroll.
 <div className="option-list">
 
 ## API
+Here is a comprehensive list of all the specific options, events and methods of the Timeline view.
+
+<div className="calendar-api-header">
 
 ### Options
+</div>
+Explore the following API options that help you easily configure the Timeline.
 
 <Options />
 
+<div className="calendar-api-header">
+
 ### Events
+</div>
+The Timeline ships with different event hooks for deep customization. Events are triggered through the lifecycle of the component where you can tie in custom functionality and code.
 
 <Events />
 
+<div className="calendar-api-header">
+
 ### Localization
+</div>
+The Timeline is fully localized. This covers date and time format, button copy, rtl and more.
 
 <Localizations />
 
+<div className="calendar-api-header">
+
 ### Renderers
+</div>
+The display of Timeline can be customized with different renderer functions.
 
 <Slots />
 

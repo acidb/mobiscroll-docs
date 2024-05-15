@@ -5,6 +5,7 @@ displayed_sidebar: javascriptSidebar
 ---
 
 # Templating
+The display of the Date & time picker component can be customized with different [renderer](api#renderers) functions.
 
 ## Calendar header template
 

@@ -22,6 +22,22 @@ The events can be rendered as labels or in a popover that is shown on day click.
 ## Configuring the view option
 Below are listed the Calendar view option's properties.
 
+```html title='Example'
+<script setup>
+const myView = {
+  calendar: {
+    labels: true,
+    type: 'week',
+    size: 2
+  }
+}
+</script>
+
+<template>
+  <MbscEventcalendar :view="myView" />
+</template>
+```
+
 <div className="option-list no-padding">
 
 ### view {#opt-view}

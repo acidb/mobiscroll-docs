@@ -19,6 +19,12 @@ The agenda calendar displays a list of events for a given period of time (year, 
 ## Configuring the view option
 Below are listed the Agenda view option's properties.
 
+```html title='Example'
+<mbsc-eventcalendar
+    [view]="{ agenda: { type: 'day', size: 2 } }">
+</mbsc-eventcalendar>
+```
+
 <div className="option-list no-padding">
 
 ### view {#opt-view}

@@ -25,6 +25,23 @@ With these properties both hours and minutes can be specified.
 ## Configuring the view option
 Below are listed the Timeline view option's properties.
 
+```html title='Example'
+<script setup>
+const myView = {
+  timeline: {
+    maxEventStack: 2,
+    eventList: true,
+    resolutionHorizontal: 'day',
+    type: 'week'
+  }
+}
+</script>
+
+<template>
+  <MbscEventcalendar :view="myView" />
+</template>
+```
+
 <div className="option-list no-padding">
 
 ### view {#opt-view}

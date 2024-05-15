@@ -22,6 +22,18 @@ The events can be rendered as labels or in a popover that is shown on day click.
 ## Configuring the view option
 Below are listed the Calendar view option's properties.
 
+```jsx title='Example'
+<Eventcalendar
+    view={{
+        calendar: {
+            labels: true,
+            type: 'week',
+            size: 2
+        }
+    }}
+/>
+```
+
 <div className="option-list no-padding">
 
 ### view {#opt-view}

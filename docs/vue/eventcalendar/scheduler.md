@@ -42,6 +42,27 @@ const myViewOption = {
 ## Configuring the view option
 Below are listed the Scheduler view option's properties.
 
+```html title='Example'
+<script setup>
+const myView = {
+  schedule: {
+    type: 'week',
+    startDay: 1,
+    endDay: 5,
+    startTime: '09:00',
+    endTime: '17:00',
+    timeCellStep: 60,
+    timeLabelStep: 60
+    currentTimeIndicator: true,
+  }
+}
+</script>
+
+<template>
+  <MbscEventcalendar :view="myView" />
+</template>
+```
+
 <div className="option-list no-padding">
 
 ### view {#opt-view}

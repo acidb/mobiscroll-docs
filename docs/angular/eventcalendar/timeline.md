@@ -322,18 +322,18 @@ A footer can be rendered as well for each day using the [dayFooterTemplate](#tem
 
 Check out how you can style these parts in [this example](https://demo.mobiscroll.com/angular/timeline/timeline-resource-details-side-panel-footer#) or just play with the slider below to see the differences.
 
- <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
-    <figure slot="first" className="before">
-        <img width="100%" src={require('@site/static/img/normal-resource-sidebar-footer-timeline.png').default} />
-        <figcaption>Default</figcaption>
-    </figure>
-    <figure slot="second" className="after">
-        <img width="100%" src={require('@site/static/img/resource-sidebar-footer-timeline.png').default} />
-        <figcaption>Custom</figcaption>
-    </figure>
-    <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
-    </svg>
+<ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
+  <figure slot="first" className="before">
+    <img width="100%" src={require('@site/static/img/normal-resource-sidebar-footer-timeline.png').default} />
+    <figcaption>Default</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="100%" src={require('@site/static/img/resource-sidebar-footer-timeline.png').default} />
+    <figcaption>Custom</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+  </svg>
 </ImgComparisonSlider>
 
 ### Header
@@ -341,93 +341,93 @@ Check out how you can style these parts in [this example](https://demo.mobiscrol
 The header of the timeline can also be customized with templates. Depending on the resolution, the first timeline row under the navigation header can show a line for each of the following:
 
  * [hour](#template-hourTemplate)
-  <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
-    <figure slot="first" className="before">
-        <img width="100%" src={require('@site/static/img/normal-hourly-header-timeline.png').default} />
-        <figcaption>Default</figcaption>
-    </figure>
-    <figure slot="second" className="after">
-        <img width="100%" src={require('@site/static/img/hourly-header-timeline.png').default} />
-        <figcaption>Custom</figcaption>
-    </figure>
-    <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
-    </svg>
+<ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
+  <figure slot="first" className="before">
+    <img width="100%" src={require('@site/static/img/normal-hourly-header-timeline.png').default} />
+    <figcaption>Default</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="100%" src={require('@site/static/img/hourly-header-timeline.png').default} />
+    <figcaption>Custom</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+  </svg>
 </ImgComparisonSlider>
 
  * [day](#template-dayTemplate)
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
-    <figure slot="first" className="before">
-        <img width="100%" src={require('@site/static/img/normal-daily-header-timeline.png').default} />
-        <figcaption>Default</figcaption>
-    </figure>
-    <figure slot="second" className="after">
-        <img width="100%" src={require('@site/static/img/daily-header-timeline.png').default} />
-        <figcaption>Custom</figcaption>
-    </figure>
-    <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
-    </svg>
+  <figure slot="first" className="before">
+    <img width="100%" src={require('@site/static/img/normal-daily-header-timeline.png').default} />
+    <figcaption>Default</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="100%" src={require('@site/static/img/daily-header-timeline.png').default} />
+    <figcaption>Custom</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+  </svg>
 </ImgComparisonSlider>
 
  * [week](#template-weekTemplate)
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
-    <figure slot="first" className="before">
-        <img width="100%" src={require('@site/static/img/normal-weekly-header-timeline.png').default} />
-        <figcaption>Default</figcaption>
-    </figure>
-    <figure slot="second" className="after">
-        <img width="100%" src={require('@site/static/img/weekly-header-timeline.png').default} />
-        <figcaption>Custom</figcaption>
-    </figure>
-    <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
-    </svg>
+  <figure slot="first" className="before">
+    <img width="100%" src={require('@site/static/img/normal-weekly-header-timeline.png').default} />
+    <figcaption>Default</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="100%" src={require('@site/static/img/weekly-header-timeline.png').default} />
+    <figcaption>Custom</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+  </svg>
 </ImgComparisonSlider>
 
  * [month](#template-monthTemplate)
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
-    <figure slot="first" className="before">
-        <img width="100%" src={require('@site/static/img/normal-monthly-header-template.png').default} />
-        <figcaption>Default</figcaption>
-    </figure>
-    <figure slot="second" className="after">
-        <img width="100%" src={require('@site/static/img/monthly-header-template.png').default} />
-        <figcaption>Custom</figcaption>
-    </figure>
-    <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
-    </svg>
+  <figure slot="first" className="before">
+    <img width="100%" src={require('@site/static/img/normal-monthly-header-template.png').default} />
+    <figcaption>Default</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="100%" src={require('@site/static/img/monthly-header-template.png').default} />
+    <figcaption>Custom</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+  </svg>
 </ImgComparisonSlider>
 
  * [quarter](#template-quarterTemplate)
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
-    <figure slot="first" className="before">
-        <img width="100%" src={require('@site/static/img/normal-quarter-header-timeline.png').default} />
-        <figcaption>Default</figcaption>
-    </figure>
-    <figure slot="second" className="after">
-        <img width="100%" src={require('@site/static/img/quarter-header-timeline.png').default} />
-        <figcaption>Custom</figcaption>
-    </figure>
-    <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
-    </svg>
+  <figure slot="first" className="before">
+    <img width="100%" src={require('@site/static/img/normal-quarter-header-timeline.png').default} />
+    <figcaption>Default</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="100%" src={require('@site/static/img/quarter-header-timeline.png').default} />
+    <figcaption>Custom</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+  </svg>
 </ImgComparisonSlider>
 
  * [year](#template-yearTemplate)
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
-    <figure slot="first" className="before">
-        <img width="100%" src={require('@site/static/img/normal-yearly-header-timeline.png').default} />
-        <figcaption>Default</figcaption>
-    </figure>
-    <figure slot="second" className="after">
-        <img width="100%" src={require('@site/static/img/yearly-header-timeline.png').default} />
-        <figcaption>Custom</figcaption>
-    </figure>
-    <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
-    </svg>
+  <figure slot="first" className="before">
+    <img width="100%" src={require('@site/static/img/normal-yearly-header-timeline.png').default} />
+    <figcaption>Default</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="100%" src={require('@site/static/img/yearly-header-timeline.png').default} />
+    <figcaption>Custom</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+  </svg>
 </ImgComparisonSlider>
 
 Check out how you can style the header in [this example](https://demo.mobiscroll.com/angular/timeline/hour-day-week-month-quarter-year-header-footer-template#) or just play with the sliders above to see the differences.
@@ -442,17 +442,17 @@ The buffers can be customized through the [bufferBeforeTemplate](#template-buffe
 Check out how you can style the events and the buffer areas in [this example](https://demo.mobiscroll.com/angular/timeline/timeline-custom-event-rendering#) or just play with the slider below to see the differences.
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
-    <figure slot="first" className="before">
-        <img width="100%" src={require('@site/static/img/normal-event-buffer-templating-timeline.png').default} />
-        <figcaption>Default</figcaption>
-    </figure>
-    <figure slot="second" className="after">
-        <img width="100%" src={require('@site/static/img/event-buffer-templating-timeline.png').default} />
-        <figcaption>Custom</figcaption>
-    </figure>
-    <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
-    </svg>
+  <figure slot="first" className="before">
+    <img width="100%" src={require('@site/static/img/normal-event-buffer-templating-timeline.png').default} />
+    <figcaption>Default</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="100%" src={require('@site/static/img/event-buffer-templating-timeline.png').default} />
+    <figcaption>Custom</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+  </svg>
 </ImgComparisonSlider>
 
 ### Event content
@@ -461,17 +461,17 @@ Customize the event content with the [scheduleEventContentTemplate](#template-sc
 Check out how you can style the event content in [this example](https://demo.mobiscroll.com/angular/timeline/meal-planner#) or just play with the slider below to see the differences.
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
-    <figure slot="first" className="before">
-        <img width="100%" src={require('@site/static/img/normal-event-content-timeline.png').default} />
-        <figcaption>Default</figcaption>
-    </figure>
-    <figure slot="second" className="after">
-        <img width="100%" src={require('@site/static/img/event-content-timeline.png').default} />
-        <figcaption>Custom</figcaption>
-    </figure>
-    <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
-    </svg>
+  <figure slot="first" className="before">
+    <img width="100%" src={require('@site/static/img/normal-event-content-timeline.png').default} />
+    <figcaption>Default</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="100%" src={require('@site/static/img/event-content-timeline.png').default} />
+    <figcaption>Custom</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+  </svg>
 </ImgComparisonSlider>
 
 ### Slots
@@ -480,17 +480,17 @@ Use the [slotTemplate](#template-slotTemplate) option for rendering a custom tim
 Check out how you can style the slots in [this example](https://demo.mobiscroll.com/angular/timeline/shift-template#) or just play with the slider below to see the differences.
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
-    <figure slot="first" className="before">
-        <img width="100%" src={require('@site/static/img/normal-slot-template-timeline.png').default} />
-        <figcaption>Default</figcaption>
-    </figure>
-    <figure slot="second" className="after">
-        <img width="100%" src={require('@site/static/img/slot-template-timeline.png').default} />
-        <figcaption>Custom</figcaption>
-    </figure>
-    <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
-    </svg>
+  <figure slot="first" className="before">
+    <img width="100%" src={require('@site/static/img/normal-slot-template-timeline.png').default} />
+    <figcaption>Default</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="100%" src={require('@site/static/img/slot-template-timeline.png').default} />
+    <figcaption>Custom</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+  </svg>
 </ImgComparisonSlider>
 
 <div className="option-list">
@@ -528,6 +528,10 @@ The Timeline is fully localized. This covers date and time format, button copy, 
 </div>
 The display of Timeline can be customized with different renderer functions.
 
+<div className="option-list-templates">
+
 <Templates />
+
+</div>
 
 </div>

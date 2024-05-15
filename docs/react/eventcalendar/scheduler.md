@@ -242,17 +242,17 @@ The buffers can be customized through the [renderBufferBefore](#renderer-renderB
 Check out how you can style event content and buffer areas in [this example](https://demo.mobiscroll.com/scheduler/customizing-events#) or just play with the slider below to see the differences.
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
-    <figure slot="first" className="before">
-        <img width="100%" src={require('@site/static/img/normal-event-buffer-templating-scheduler.png').default} />
-        <figcaption>Default</figcaption>
-    </figure>
-    <figure slot="second" className="after">
-        <img width="100%" src={require('@site/static/img/event-buffer-templating-scheduler.png').default} />
-        <figcaption>Custom</figcaption>
-    </figure>
-    <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
-    </svg>
+  <figure slot="first" className="before">
+    <img width="100%" src={require('@site/static/img/normal-event-buffer-templating-scheduler.png').default} />
+    <figcaption>Default</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="100%" src={require('@site/static/img/event-buffer-templating-scheduler.png').default} />
+    <figcaption>Custom</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+  </svg>
 </ImgComparisonSlider>
 
 ### Date header
@@ -261,17 +261,17 @@ Use the [renderDay](#renderer-renderDay) option for rendering a custom date head
 Check out how you can style the date header in [this example](https://demo.mobiscroll.com/scheduler/date-header-template#) or just play with the slider below to see the differences.
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
-    <figure slot="first" className="before">
-        <img width="100%" src={require('@site/static/img/normal-date-header-template-scheduler.png').default} />
-        <figcaption>Default</figcaption>
-    </figure>
-    <figure slot="second" className="after">
-        <img width="100%" src={require('@site/static/img/date-header-template-scheduler.png').default} />
-        <figcaption>Custom</figcaption>
-    </figure>
-    <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
-    </svg>
+  <figure slot="first" className="before">
+    <img width="100%" src={require('@site/static/img/normal-date-header-template-scheduler.png').default} />
+    <figcaption>Default</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="100%" src={require('@site/static/img/date-header-template-scheduler.png').default} />
+    <figcaption>Custom</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+  </svg>
 </ImgComparisonSlider>
 
 ### Resource
@@ -280,17 +280,17 @@ Use the [renderResource](#renderer-renderResource) option for rendering a custom
 Check out how you can style the resources in [this example](https://demo.mobiscroll.com/scheduler/custom-resource-header-template#) or just play with the slider below to see the differences.
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
-    <figure slot="first" className="before">
-        <img width="100%" src={require('@site/static/img/normal-resource-template-scheduler.png').default} />
-        <figcaption>Default</figcaption>
-    </figure>
-    <figure slot="second" className="after">
-        <img width="100%" src={require('@site/static/img/resource-template-scheduler.png').default} />
-        <figcaption>Custom</figcaption>
-    </figure>
-    <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
-    </svg>
+  <figure slot="first" className="before">
+    <img width="100%" src={require('@site/static/img/normal-resource-template-scheduler.png').default} />
+    <figcaption>Default</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="100%" src={require('@site/static/img/resource-template-scheduler.png').default} />
+    <figcaption>Custom</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+  </svg>
 </ImgComparisonSlider>
 
 ### Header
@@ -299,17 +299,17 @@ Use the [renderHeader](#renderer-renderHeader) option for passing a custom heade
 Check out how you can style the header in [this example](https://demo.mobiscroll.com/scheduler/customizing-header#) or just play with the slider below to see the differences.
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
-    <figure slot="first" className="before">
-        <img width="100%" src={require('@site/static/img/normal-header-template-scheduler.png').default} />
-        <figcaption>Default</figcaption>
-    </figure>
-    <figure slot="second" className="after">
-        <img width="100%" src={require('@site/static/img/header-template-scheduler.png').default} />
-        <figcaption>Custom</figcaption>
-    </figure>
-    <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
-    </svg>
+  <figure slot="first" className="before">
+    <img width="100%" src={require('@site/static/img/normal-header-template-scheduler.png').default} />
+    <figcaption>Default</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="100%" src={require('@site/static/img/header-template-scheduler.png').default} />
+    <figcaption>Custom</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+  </svg>
 </ImgComparisonSlider>
 
 <div className="option-list">

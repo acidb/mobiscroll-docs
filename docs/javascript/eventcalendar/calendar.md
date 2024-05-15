@@ -24,13 +24,13 @@ Below are listed the Calendar view option's properties.
 
 ```javascript title='Example'
 mobiscroll.eventcalendar('#calendar', {
-    view: {
-        calendar: {
-            labels: true,
-            type: 'week',
-            size: 2
-        }
+  view: {
+    calendar: {
+      labels: true,
+      type: 'week',
+      size: 2
     }
+  }
 });
 ```
 
@@ -76,17 +76,17 @@ There are two approaches you can take:
 Check out how you can style labels and their content in [this example](https://demo.mobiscroll.com/eventcalendar/customize-label-look-and-feel#) or just play with the slider below to see the differences.
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
-    <figure slot="first" className="before">
-        <img width="100%" src={require('@site/static/img/normal-label-content-calendar.png').default} />
-        <figcaption>Default</figcaption>
-    </figure>
-    <figure slot="second" className="after">
-        <img width="100%" src={require('@site/static/img/label-content-calendar.png').default} />
-        <figcaption>Custom</figcaption>
-    </figure>
-    <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
-    </svg>
+  <figure slot="first" className="before">
+    <img width="100%" src={require('@site/static/img/normal-label-content-calendar.png').default} />
+    <figcaption>Default</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="100%" src={require('@site/static/img/label-content-calendar.png').default} />
+    <figcaption>Custom</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+  </svg>
 </ImgComparisonSlider>
 
 ### Event and content
@@ -97,17 +97,17 @@ The events can be customized in two ways:
 Check out how you can style events and their content in [this example](https://demo.mobiscroll.com/eventcalendar/customize-event-popover#) or just play with the slider below to see the differences.
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
-    <figure slot="first" className="before">
-        <img width="100%" src={require('@site/static/img/normal-event-content-calendar.png').default} />
-        <figcaption>Default</figcaption>
-    </figure>
-    <figure slot="second" className="after">
-        <img width="100%" src={require('@site/static/img/event-content-calendar.png').default} />
-        <figcaption>Custom</figcaption>
-    </figure>
-    <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
-    </svg>
+  <figure slot="first" className="before">
+    <img width="100%" src={require('@site/static/img/normal-event-content-calendar.png').default} />
+    <figcaption>Default</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="100%" src={require('@site/static/img/event-content-calendar.png').default} />
+    <figcaption>Custom</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+  </svg>
 </ImgComparisonSlider>
 
 ### Header
@@ -116,17 +116,17 @@ Use the [renderHeader](#renderer-renderHeader) option for passing a custom heade
 Check out how you can style the header in [this example](https://demo.mobiscroll.com/eventcalendar/customizing-header#) or just play with the slider below to see the differences.
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
-    <figure slot="first" className="before">
-        <img width="100%" src={require('@site/static/img/normal-header-calendar.png').default} />
-        <figcaption>Default</figcaption>
-    </figure>
-    <figure slot="second" className="after">
-        <img width="100%" src={require('@site/static/img/header-calendar.png').default} />
-        <figcaption>Custom</figcaption>
-    </figure>
-    <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
-    </svg>
+  <figure slot="first" className="before">
+    <img width="100%" src={require('@site/static/img/normal-header-calendar.png').default} />
+    <figcaption>Default</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="100%" src={require('@site/static/img/header-calendar.png').default} />
+    <figcaption>Custom</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+  </svg>
 </ImgComparisonSlider>
 
 <div className="option-list">

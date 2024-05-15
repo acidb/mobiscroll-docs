@@ -35,9 +35,12 @@ These methods are actions that can be performed on mobiscroll instance.
 
 <Methods />
 
+<div className="option-list-templates">
+
 ## Templates
 The display of Datepicker component can be customized with different templating functions.
 
 <Slots />
 
+</div>
 </div>

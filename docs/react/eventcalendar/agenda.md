@@ -19,6 +19,17 @@ The agenda calendar displays a list of events for a given period of time (year, 
 ## Configuring the view option
 Below are listed the Agenda view option's properties.
 
+```jsx title='Example'
+<Eventcalendar
+    view={{
+        agenda: {
+            type: 'day',
+            size: 2
+        }
+    }}
+/>
+```
+
 <div className="option-list no-padding">
 
 ### view {#opt-view}

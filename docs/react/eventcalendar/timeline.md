@@ -25,6 +25,19 @@ With these properties both hours and minutes can be specified.
 ## Configuring the view option
 Below are listed the Timeline view option's properties.
 
+```jsx title='Example'
+<Eventcalendar
+  view={{
+    timeline: {
+      maxEventStack: 2,
+      eventList: true,
+      resolutionHorizontal: 'day',
+      type: 'month'
+    }
+  }}
+/>
+```
+
 <div className="option-list no-padding">
 
 ### view {#opt-view}

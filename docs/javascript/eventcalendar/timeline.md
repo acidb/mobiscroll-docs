@@ -25,6 +25,19 @@ With these properties both hours and minutes can be specified.
 ## Configuring the view option
 Below are listed the Timeline view option's properties.
 
+```javascript title='Example'
+mobiscroll.eventcalendar('#my-calendar', {
+  view: {
+    timeline: {
+      maxEventStack: 2,
+      eventList: true,
+      resolutionHorizontal: 'day',
+      type: 'week'
+    }
+  }
+});
+```
+
 <div className="option-list no-padding">
 
 ### view {#opt-view}

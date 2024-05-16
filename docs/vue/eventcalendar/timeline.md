@@ -4,6 +4,7 @@ sidebar_label: Timeline
 displayed_sidebar: vueSidebar
 ---
 
+import VariableEventHeight from '../../\_shared/eventcalendar/variable-event-height.mdx';
 import Options from '../\_auto-generated/eventcalendar/options_timeline.md';
 import Events from '../\_auto-generated/eventcalendar/events_timeline.md';
 import Localizations from '../\_auto-generated/eventcalendar/localizations_timeline.md';
@@ -250,6 +251,10 @@ The header of the timeline can also be customized with named slots. Depending on
  * [year](./api#slot-year)
 
 Each of these resolution has its own named slot for the header and the footer. For example there is the  [`hour`](./api#slot-hour) slot for the header and [`hourFooter`](./api#slot-hourFooter) slot for the footer. In similar fashion, each item in the list above has a footer pair as well.
+
+### Variable event height
+
+<VariableEventHeight />
 
 <div className="option-list">
 

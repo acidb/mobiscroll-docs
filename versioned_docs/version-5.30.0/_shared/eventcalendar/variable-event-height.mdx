@@ -1,0 +1,14 @@
+When using [event templating](./templating#event-templating), you might end up with various event heights, depending on the displayed content, e.g. larger description, list of tasks, etc.
+By default this might not show up correctly, resulting in events overlapping each other.
+
+You can enable support for variable event heights by setting the `eventHeight: 'variable'` property for the timeline inside the [`view`](#opt-view) option.
+This will enable a new rendering mode. In this mode, in case of large views, where virtual scrolling is used, initially the height of the rows which are not visible, is only estimated,
+and will be updated during scroll, as new rows, columns and events are rendered in the view. This will result in visible size changes of the scrollbar during vertical scroll,
+or changes in the row heights during horizontal scroll, as new events are rendered in the view.
+
+:::caution
+Using variable event heights is currently experimental.
+
+While we tested a lot of configurations and use cases, there might be specific view configurations or event layouts causing problems,
+like events appearing over each other, rows not expanding correctly to fit the events, jumps during scroll or during drag & drop.
+:::

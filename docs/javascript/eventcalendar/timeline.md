@@ -243,7 +243,7 @@ The header of the timeline can also be customized with functional components. De
 
 Each of these resolution has its own function for the header and the footer. For example there is the  [`renderHour`](#renderer-renderHour) function for the header and [`renderHourFooter`](#renderer-renderHourFooter) function for the footer. In similar fashion, each item in the list above has a footer pair as well.
 
-### Variable event height
+### Variable event height (experimental)
 
 <VariableEventHeight />
 

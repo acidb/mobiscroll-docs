@@ -252,7 +252,7 @@ The header of the timeline can also be customized with named slots. Depending on
 
 Each of these resolution has its own named slot for the header and the footer. For example there is the  [`hour`](./api#slot-hour) slot for the header and [`hourFooter`](./api#slot-hourFooter) slot for the footer. In similar fashion, each item in the list above has a footer pair as well.
 
-### Variable event height
+### Variable event height (experimental)
 
 <VariableEventHeight />
 

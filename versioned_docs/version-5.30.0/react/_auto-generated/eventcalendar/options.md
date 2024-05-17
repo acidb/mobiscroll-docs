@@ -970,8 +970,8 @@ Configures the Eventcalendar view. Possible views:
 - `timeLabelStep`: *number* (default `60`) - Set the step of the time labels in minutes.
   Supported values: 1, 5, 10, 15, 20, 30, 60, 120, 180, 240, 360, 480, 720, 1440.
 - `eventHeight`: *&#039;variable&#039; | &#039;equal&#039;* (default &#039;equal&#039;) - Specifies wether the height of the events is equal or variable.
-  :::caution
-  Using variable event heights is currently experimental.
+  :::info
+  Experimental feature: [learn more about variable event heights](./timeline#variable-event-height).
   :::
 - `eventList`: *boolean* (default `false`) - If `true`, transforms the layout into a summary view.
   The events are listed in the appropriate cell one after the other.

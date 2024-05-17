@@ -277,7 +277,7 @@ The header of the timeline can also be customized with templates. Depending on t
 
 Each of these resolution has its own template for the header and the footer. For example there is the  [`hourTemplate`](#template-hourTemplate) for the header and [`hourFooterTemplate`](#template-hourFooterTemplate) for the footer. In similar fashion, each item in the list above has a footer pair as well.
 
-### Variable event height (experimental)
+### Variable event height (experimental) {#variable-event-height}
 
 <VariableEventHeight />
 

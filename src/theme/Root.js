@@ -9,11 +9,13 @@ export default function Root({children}) {
 
   useEffect(() => {
     if (pathname && pathname.length > 1 && !skipUrls(pathname) && !/\/(react|angular|vue|javascript|jquery)/.test(pathname)) {
-        const rest = /\/docs\/(.*)/.exec(pathname);
-        const red = rest != null;
-        if (red) {
+        const rest = /(\/docs)?(\/[0-9]+\.[0-9]+\.[0-9]+)\/(.*)/.exec(pathname);
+        const redir = rest != null;
+        if (redir) {
+          const version = rest[2] ? rest[2] : '';
           const framework = getCookie('mbsc-framework') || 'javascript';
-          hist.push( '/docs/' + framework + '/' + rest[1] + hash);
+          const lead = rest[1] ? '/docs' : '';
+          hist.push(lead + version + '/' + framework + '/' + rest[3] + hash);
         }
     }
   }, [pathname, hist])
@@ -24,7 +26,8 @@ export default function Root({children}) {
 function skipUrls(pathname) {
   const patterns = [
     '/docs/?$',
-    '/search/?$'
+    '/search/?$',
+    '(/[0-9]+\.[0-9]+\.[0-9]+)/?$'
   ];
   const reg = patterns.map((pattern) => `(${pattern})`).join('|');
   const skip = new RegExp(reg).test(pathname);

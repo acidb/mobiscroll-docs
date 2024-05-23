@@ -26,7 +26,8 @@ The capabilities like [recurring events](/javascript/core-concepts/recurrence), 
 ## Showing the Calendar
 
 ### View combination
-The four views - scheduler, calendar, timeline, agenda - can be combined to create the perfect user experience on mobile, desktop and on everything in-between.
+
+The four views - [scheduler](./scheduler), [calendar](./calendar), [timeline](./timeline), [agenda](./agenda) - can be used alone or combined with each-other to create the perfect user experience on mobile, desktop and on everything in-between.
 
 For example, you can choose to [render an agenda below the calendar](https://demo.mobiscroll.com/agenda/daily-agenda-with-week-calendar#) broken up into days ordered chronologically. The view option will look like the following:
 
@@ -40,7 +41,8 @@ For example, you can choose to [render an agenda below the calendar](https://dem
 ```
 
 ### Configuring the view
-The Calendar view can be configured through the `view` option. Below are listed the Calendar object properties which can help you fine-tune this view.
+
+The Calendar view can be configured through the `view` option. Below are listed the `calendar` object properties which can help you fine-tune this view.
 
 ```jsx title='Example'
 <Eventcalendar
@@ -87,6 +89,7 @@ MbscEventcalendarView
 - `weekNumbers`: *boolean* (default `false`) - Show or hide week numbers.
 
 ## Responsiveness
+
 The event calendar is [fully responsive](https://demo.mobiscroll.com/eventcalendar/responsive-month-view). It adapts to the available space and fills the screen to look good everywhere. While you don't have to worry about the width the height can be manually adjusted with the [height](#opt-height) option. This specifies different options for different container widths, in a form of an object, where the keys are the name of the breakpoints, and the values are objects containing the options for the given breakpoint.
 
 Use the [responsive](#opt-responsive) option to configure how the calendar behaves on different sized screens. 
@@ -152,8 +155,8 @@ Check out how you can style labels and their content in [this example](https://d
 
 ### Customizing the event in popover and their content
 The events can be customized in two ways:
-- Customize the event content that appears on the agenda and the popover - by using the [renderEventContent](#renderer-renderEventContent) option. The event calendar will take care of styling and you can focus on what you show inside of the event a.k.a the content.
-- Customize the events that appear on the agenda and the popover - with the [renderEvent](#renderer-renderEvent) option. It should return the markup of the event. The event calendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
+- Customize the event content that appears on the popover - by using the [renderEventContent](#renderer-renderEventContent) option. The event calendar will take care of styling and you can focus on what you show inside of the event a.k.a the content.
+- Customize the events that appear on the popover - with the [renderEvent](#renderer-renderEvent) option. It should return the markup of the event. The event calendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
 
 Check out how you can style events and their content in [this example](https://demo.mobiscroll.com/eventcalendar/customize-event-popover#) or just play with the slider below to see the differences.
 
@@ -173,6 +176,8 @@ Check out how you can style events and their content in [this example](https://d
 
 ### Event calendar header
 Customize how the header of the event calendar looks and how the components are arranged with the [renderHeader](#renderer-renderHeader) option. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well as the built in header components of the calendar.
+
+While fully customizing the header is very usefull, sometimes it's desireable to customize only parts of it. In this case you can take advantage of the default header's building blocks. These components let you put toghether the header you want, while you don't have to worry about the functionality behind them.
 
 Check out how you can style the header in [this example](https://demo.mobiscroll.com/eventcalendar/customizing-header#) or just play with the slider below to see the differences.
 

@@ -12,25 +12,46 @@ import { ImgComparisonSlider } from '@img-comparison-slider/react';
 
 # Calendar
 
-Use the Eventcalendar as a traditional month view or combine it with an agenda as a week view.
-The events can be rendered as labels or in a popover that is shown on day click.
+Use the [event calendar](https://demo.mobiscroll.com/eventcalendar) as a traditional [month view](https://demo.mobiscroll.com/eventcalendar/desktop-month-view#) or combine it with an agenda as a [week view](https://demo.mobiscroll.com/agenda/daily-agenda-with-week-calendar#).
+The events can be rendered as [labels](https://demo.mobiscroll.com/eventcalendar/event-labels#) or in a [popover](https://demo.mobiscroll.com/eventcalendar/event-popover#) that is shown on day click.
 
-![Desktop calendar with labels and popover](https://docs.mobiscroll.com/Content/img/docs/desktop-calendar.png)
+## Overview
 
-![Mobile month view with agenda](https://docs.mobiscroll.com//Content/img/docs/mobile-calendar.png)
+The calendar view supports everything from [single to multiple week views](https://demo.mobiscroll.com/eventcalendar/month-week-view#) all the way to [month grids](https://demo.mobiscroll.com/eventcalendar/quarter-year-view#) with various ways to render events.
 
-## Configuring the view option
-Below are listed the Calendar view option's properties.
+The capabilities like [recurring events](/javascript/core-concepts/recurrence), [all-day, multi-day events](#opt-data), [responsiveness](#responsiveness) are supported by event calendar.
+
+![Event Calendar overview](/img/event-calendar-overview.png)
+
+## Showing the Calendar
+
+### View combination
+The four views - scheduler, calendar, timeline, agenda - can be combined to create the perfect user experience on mobile, desktop and on everything in-between.
+
+For example, you can choose to [render an agenda below the calendar](https://demo.mobiscroll.com/agenda/daily-agenda-with-week-calendar#) broken up into days ordered chronologically. The view option will look like the following:
+
+```html title='Weekly Calendar combined with Daily Agenda'
+<mbsc-eventcalendar
+  [view]="{ 
+    calendar: { type: 'week' }, 
+    agenda: { type: 'day' } 
+  }">
+</mbsc-eventcalendar>
+```
+
+### Configuring the view
+The Calendar view can be configured through the `view` option. Below are listed the Calendar object properties which can help you fine-tune this view.
 
 ```html title='Example'
 <mbsc-eventcalendar
-  [view]="{ calendar: { labels: true, type: 'week', size: 1 } }">
+  [view]="{ calendar: { labels: true, type: 'week', size: 2 } }">
 </mbsc-eventcalendar>
 ```
 
 <div className="option-list no-padding">
 
-### view {#opt-view}
+<h3 id="#opt-view">view</h3>
+
 MbscEventcalendarView
 
 </div>
@@ -59,64 +80,108 @@ MbscEventcalendarView
 - `scroll`: *&#039;horizontal&#039; | &#039;vertical&#039;* (default `'horizontal'`) - Specifies the direction of the calendar scroll.
 - `weekNumbers`: *boolean* (default `false`) - Show or hide week numbers.
 
-## Templating
-The display of Calendar can be customized with different [templating](#templates) functions.
+## Responsiveness
+The event calendar is [fully responsive](https://demo.mobiscroll.com/eventcalendar/responsive-month-view). It adapts to the available space and fills the screen to look good everywhere. While you don't have to worry about the width the height can be manually adjusted with the [height](#opt-height) option. This specifies different options for different container widths, in a form of an object, where the keys are the name of the breakpoints, and the values are objects containing the options for the given breakpoint.
 
-### Label and content
+Use the [responsive](#opt-responsive) option to configure how the calendar behaves on different sized screens. 
+The responsive option is equipped with five breakpoints:
+- xsmall (up to 575px), 
+- small (up to 767px), 
+- medium (up to 991px), 
+- large (up to 1199px), 
+- xlarge (from 1200px). 
+
+Also, custom breakpoints can be added if necessary: 
+- my-custom-breakpoint: { breakpoint: 600 } (from 600px up to the next breakpoint).
+
+:::info
+The available width is queried from the container element of the component and not the browsers viewport like in css media queries.
+:::
+
+```html title='Responsive configuration with the view option'
+<mbsc-eventcalendar [responsive]="responsiveSettings"></mbsc-eventcalendar>
+```
+
+```ts
+import { MbscEventcalendarOptions } from '@mobiscroll/angular';
+
+@Component({...})
+export class MyComponent {
+  responsiveSettings: MbscEventcalendarOptions = {
+    xsmall: {
+      view: {
+        calendar: { type: 'week' },
+        agenda: { type: 'day' }
+      }
+    },
+    custom: { // Custom breakpoint
+      breakpoint: 600,
+      view: { calendar: { labels: true }}
+    }
+  }
+}
+```
+
+![Event Calendar responsive behavior](/img/event-calendar-responsive.gif)
+
+## Templating
+The display of Calendar can be customized with different [templating functions](#templates).
+
+### Customizing the event label and their content
 There are two approaches you can take:
-- Only customize the content of the labels - for this you will want to use the [labelContentTemplate](#template-labelContentTemplate) option. 
-- Fully customize how the labels look - use the [labelTemplate](#template-labelTemplate) option.
+- Customize the label contents, that appears on the calendar - for this you will want to use the [labelContentTemplate](#template-labelContentTemplate) option. The event calendar will take care of styling and you can focus on what you show inside of the label a.k.a the content.
+- Customize the labels that appear on the calendar view - use the [labelTemplate](#template-labelTemplate) option. The event calendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
 
 Check out how you can style labels and their content in [this example](https://demo.mobiscroll.com/angular/eventcalendar/customize-label-look-and-feel#) or just play with the slider below to see the differences.
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="100%" src={require('@site/static/img/normal-label-content-calendar.png').default} />
-    <figcaption>Default</figcaption>
+    <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
     <img width="100%" src={require('@site/static/img/label-content-calendar.png').default} />
-    <figcaption>Custom</figcaption>
+    <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
 
-### Event and content
+### Customizing the event in popover and their content
 The events can be customized in two ways:
-- Full event customization - by using the [eventContentTemplate](#template-eventContentTemplate) option
-- Content customization - with the [eventTemplate](#template-eventTemplate) option
+- Customize the event content that appears on the agenda and the popover - by using the [eventContentTemplate](#template-eventContentTemplate) option. The event calendar will take care of styling and you can focus on what you show inside of the event a.k.a the content.
+- Customize the events that appear on the agenda and the popover - with the [eventTemplate](#template-eventTemplate) option. It should return the markup of the event. The event calendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
 
 Check out how you can style events and their content in [this example](https://demo.mobiscroll.com/angular/eventcalendar/customize-event-popover#) or just play with the slider below to see the differences.
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="100%" src={require('@site/static/img/normal-event-content-calendar.png').default} />
-    <figcaption>Default</figcaption>
+    <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
     <img width="100%" src={require('@site/static/img/event-content-calendar.png').default} />
-    <figcaption>Custom</figcaption>
+    <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
 
-### Header
-Use the [headerTemplate](#template-headerTemplate) option for passing a custom header layout.
+### Event calendar header
+Customize how the header of the event calendar looks and how the components are arranged with the [headerTemplate](#template-headerTemplate) option. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well as the built in header components of the calendar.
 
 Check out how you can style the header in [this example](https://demo.mobiscroll.com/angular/eventcalendar/customizing-header#) or just play with the slider below to see the differences.
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="100%" src={require('@site/static/img/normal-header-calendar.png').default} />
-    <figcaption>Default</figcaption>
+    <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
     <img width="100%" src={require('@site/static/img/header-calendar.png').default} />
-    <figcaption>Custom</figcaption>
+    <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>

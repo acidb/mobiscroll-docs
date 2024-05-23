@@ -194,3 +194,11 @@
 .after figcaption {
   right: 12px;
 }
+
+.table-of-contents::before {
+  content: 'Contents';
+  display: block;
+  text-transform: UPPERCASE;
+  padding: 0 7px;
+  font-size: 1.1em;
+}

@@ -6,7 +6,7 @@ displayed_sidebar: reactSidebar
 
 # Eventcalendar
 
-The Eventcalendar component supports four highly configurable views: a calendar view, a scheduler with time grid, a timeline and an agenda view.
+The Eventcalendar component supports four highly configurable views: a [calendar view](/react/eventcalendar/calendar), a [scheduler with time grid](/react/eventcalendar/scheduler), a [timeline](/react/eventcalendar/timeline) and an [agenda view](/react/eventcalendar/agenda).
 
 ## Usage
 
@@ -21,3 +21,5 @@ function App() {
   </>
 }
 ```
+
+For many more examples - simple and complex use-cases - check out the [event calendar demos](https://demo.mobiscroll.com/eventcalendar).

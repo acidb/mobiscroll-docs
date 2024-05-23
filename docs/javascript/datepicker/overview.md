@@ -6,7 +6,7 @@ displayed_sidebar: javascriptSidebar
 
 # Date & Time picker
 
-The Datepicker component is the ultimate tool for selecting a single date and/or time, multiple dates or a date range.
+The Datepicker component is the ultimate tool for selecting a [single date](https://demo.mobiscroll.com/calendar) and/[or time](https://demo.mobiscroll.com/datetime), [multiple dates](https://demo.mobiscroll.com/calendar/multiple-select#) or a [date range](https://demo.mobiscroll.com/range).
 
 ## Usage
 
@@ -19,3 +19,5 @@ The following example will create a Datepicker with default options.
 ```js
 mobiscroll.datepicker('#myInput', {});
 ```
+
+For many more examples - simple and complex use-cases - check out the [date & time picker demos](https://demo.mobiscroll.com/calendar).

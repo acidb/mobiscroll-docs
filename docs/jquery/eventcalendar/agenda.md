@@ -12,15 +12,43 @@ import { ImgComparisonSlider } from '@img-comparison-slider/react';
 
 # Agenda
 
-The agenda calendar displays a list of events for a given period of time (year, month, week or day). It can be used as a standalone component or in combination with the calendar.
+The [agenda calendar](https://demo.mobiscroll.com/agenda) displays a [list of events for a given period of time](https://demo.mobiscroll.com/agenda/daily-weekly-monthly-annual-agenda#) (year, month, week or day). It can be used as a [standalone component](https://demo.mobiscroll.com/agenda/full-event-customization#) or in [combination with the calendar](https://demo.mobiscroll.com/agenda/navigate-from-external-calendar#).
 
-![Desktop agenda](https://docs.mobiscroll.com/Content/img/docs/desktop-agenda.png)
+## Overview
 
-## Configuring the view option
-Below are listed the Agenda view option's properties.
+The agenda supports a [configurable range listing](https://demo.mobiscroll.com/agenda/daily-weekly-monthly-annual-agenda#) along with daily, monthly and yearly presets.
+
+The capabilities like [recurring events](/jquery/core-concepts/recurrence), [all-day, multi-day events](#opt-data), [responsiveness](#responsiveness) are supported by event calendar.
+
+![Agenda overview](/img/agenda-overview.png)
+
+## Showing the Agenda
+
+### View combination
+
+The four views - [scheduler](./scheduler), [calendar](./calendar), [timeline](./timeline), [agenda](./agenda) - can be used alone or combined with each-other to create the perfect user experience on mobile, desktop and on everything in-between.
+
+For example, you can combine [a daily agenda with a weekly calendar](https://demo.mobiscroll.com/agenda/daily-agenda-with-week-calendar#) for listing the events for the selected day. The view option will look like the following:
+
+```javascript title='Daily Agenda combined with Weekly Calendar'
+$('#agenda').mobiscroll().eventcalendar({
+  view: {
+    calendar: {
+      type: 'week'
+    },
+    agenda: {
+      type: 'day'
+    }
+  }
+});
+```
+
+### Configuring the view
+
+The Agenda view can be configured through the `view` option. Below are listed the `agenda` object properties which can help you fine-tune this view.
 
 ```javascript title='Example'
-$('#calendar').mobiscroll().eventcalendar({
+$('#agenda').mobiscroll().eventcalendar({
   view: {
     agenda: {
       type: 'day',
@@ -32,7 +60,8 @@ $('#calendar').mobiscroll().eventcalendar({
 
 <div className="option-list no-padding">
 
-### view {#opt-view}
+<h3 id="#opt-view">view</h3>
+
 MbscEventcalendarView
 
 </div>
@@ -59,79 +88,127 @@ MbscEventcalendarView
   If the calculated height is less then 200px, the agenda will not be scrollable.
   :::
 
-## Templating
-The display of Agenda can be customized with different [renderer](#renderers) functions.
+## Responsiveness
 
-### Event
-The events can be customized by using the [renderEvent](#renderer-renderEvent) option.
+The agenda is [fully responsive](https://demo.mobiscroll.com/eventcalendar/responsive-month-view). It adapts to the available space and fills the screen to look good everywhere. While you don't have to worry about the width the height can be manually adjusted with the [height](#opt-height) option. This specifies different options for different container widths, in a form of an object, where the keys are the name of the breakpoints, and the values are objects containing the options for the given breakpoint.
+
+Use the [responsive](#opt-responsive) option to configure how the calendar behaves on different sized screens. 
+The responsive option is equipped with five breakpoints:
+- xsmall (up to 575px), 
+- small (up to 767px), 
+- medium (up to 991px), 
+- large (up to 1199px), 
+- xlarge (from 1200px). 
+
+Also, custom breakpoints can be added if necessary: 
+- my-custom-breakpoint: { breakpoint: 600 } (from 600px up to the next breakpoint).
+
+:::info
+The available width is queried from the container element of the component and not the browsers viewport like in css media queries.
+:::
+
+```javascript title='Responsive configuration with the view option'
+$('#agenda').mobiscroll().eventcalendar({
+  responsive: {
+    xsmall: {
+      view: {
+        agenda: { type: 'week' }
+      }
+    },
+    medium: {
+      view: {
+        calendar: { type: 'week' },
+        agenda: { type: 'day' }
+      }
+    },
+    custom: { // Custom breakpoint
+      breakpoint: 1000,
+      view: { 
+        calendar: { type: 'month' },
+        agenda: { type: 'month' }
+      }
+    }
+  }
+});
+```
+
+![Agenda responsive behavior](/img/agenda-responsive.gif)
+
+## Templating
+The display of Agenda can be customized with different [render functions](#renderers).
+
+### Customizing the event
+Customize the events that appear on the agenda with the [renderEvent](#renderer-renderEvent) option. It should return the markup of the event. The event calendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
 
 Check out how you can style events in [this example](https://demo.mobiscroll.com/agenda/full-event-customization#) or just play with the slider below to see the differences.
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="100%" src={require('@site/static/img/normal-event-templating-agenda.png').default} />
-    <figcaption>Default</figcaption>
+    <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
     <img width="100%" src={require('@site/static/img/event-templating-agenda.png').default} />
-    <figcaption>Custom</figcaption>
+    <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
 
-### Event content
-For content-only customization you can use the [renderEventContent](#renderer-renderEventContent) option.  
+### Customizing the event content
+Customize the event content that appears on the agenda by using the [renderEventContent](#renderer-renderEventContent) option. The event calendar will take care of styling and you can focus on what you show inside of the event a.k.a the content.
 
 Check out how you can style event content in [this example](https://demo.mobiscroll.com/agenda/event-content-customization#) or just play with the slider below to see the differences.
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="100%" src={require('@site/static/img/normal-event-content-template-agenda.png').default} />
-    <figcaption>Default</figcaption>
+    <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
     <img width="100%" src={require('@site/static/img/event-content-templating-agenda.png').default} />
-    <figcaption>Custom</figcaption>
+    <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
 
-### Header
-Use the [renderHeader](#renderer-renderHeader) option for passing a custom header layout. 
+### Agenda header
+Customize how the header of the event calendar looks and how the components are arranged with the [renderHeader](#renderer-renderHeader) option. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well as the built in header components of the calendar. 
+
+While fully customizing the header is very usefull, sometimes it's desireable to customize only parts of it. In this case you can take advantage of the default header's building blocks. These components let you put toghether the header you want, while you don't have to worry about the functionality behind them.
 
 Check out how you can style the header in [this example](https://demo.mobiscroll.com/agenda/customizing-header#) or just play with the slider below to see the differences.
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="100%" src={require('@site/static/img/normal-header-templating-agenda.png').default} />
-    <figcaption>Default</figcaption>
+    <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
     <img width="100%" src={require('@site/static/img/header-templating-agenda.png').default} />
-    <figcaption>Custom</figcaption>
+    <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
 
-### Empty state
-Use the [renderAgendaEmpty](#renderer-renderAgendaEmpty) function for putting your custom content together. 
+### Agenda empty state
+Customize the look of the empty state through [renderAgendaEmpty](#renderer-renderAgendaEmpty) function. Give a more purposeful feedback to the user and optionally add further actions to it. The template can be totally custom or dynamic based on any criteria.
 
 Check out how you can style the empty state in [this example](https://demo.mobiscroll.com/agenda/empty-state#) or just play with the slider below to see the differences.
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="100%" src={require('@site/static/img/normal-empty-state-agenda.png').default} />
-    <figcaption>Default</figcaption>
+    <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
     <img width="100%" src={require('@site/static/img/empty-state-agenda.png').default} />
-    <figcaption>Custom</figcaption>
+    <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>

@@ -124,7 +124,6 @@ const responsiveSettings = {
 };
 
 return <Eventcalendar responsive={responsiveSettings} />
-}
 ```
 
 ![Event Calendar responsive behavior](/img/event-calendar-responsive.gif)

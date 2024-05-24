@@ -112,7 +112,7 @@ The available width is queried from the container element of the component and n
 :::
 
 ```javascript title='Responsive configuration with the view option'
-mobiscroll.eventcalendar('#calendar', {
+$('#calendar').mobiscroll().eventcalendar({
   responsive: {
     xsmall: {
       view: {

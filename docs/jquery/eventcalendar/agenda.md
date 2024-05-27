@@ -18,7 +18,7 @@ The [agenda calendar](https://demo.mobiscroll.com/agenda) displays a [list of ev
 
 The agenda supports a [configurable range listing](https://demo.mobiscroll.com/agenda/daily-weekly-monthly-annual-agenda#) along with daily, monthly and yearly presets.
 
-The capabilities like [recurring events](/jquery/core-concepts/recurrence), [all-day, multi-day events](#opt-data), [responsiveness](#responsiveness) are supported by event calendar.
+The capabilities like [recurring events](/jquery/core-concepts/recurrence), [all-day, multi-day events](#opt-data), [responsiveness](#responsiveness) are supported by agenda.
 
 ![Agenda overview](/img/agenda-overview.png)
 
@@ -248,7 +248,7 @@ The Agenda is fully localized. This covers date and time format, button copy, rt
 
 ### Renderers
 </div>
-The display of Event Calendar can be customized with different renderer functions.
+The display of Agenda can be customized with different render functions.
 
 <Slots />
 

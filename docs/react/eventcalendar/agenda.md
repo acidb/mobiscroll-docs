@@ -18,7 +18,7 @@ The [agenda calendar](https://demo.mobiscroll.com/agenda) displays a [list of ev
 
 The agenda supports a [configurable range listing](https://demo.mobiscroll.com/agenda/daily-weekly-monthly-annual-agenda#) along with daily, monthly and yearly presets.
 
-The capabilities like [recurring events](/react/core-concepts/recurrence), [all-day, multi-day events](#opt-data), [responsiveness](#responsiveness) are supported by event calendar.
+The capabilities like [recurring events](/react/core-concepts/recurrence), [all-day, multi-day events](#opt-data), [responsiveness](#responsiveness) are supported by agenda.
 
 ![Agenda overview](/img/agenda-overview.png)
 
@@ -31,12 +31,14 @@ The four views - [scheduler](./scheduler), [calendar](./calendar), [timeline](./
 For example, you can combine [a daily agenda with a weekly calendar](https://demo.mobiscroll.com/agenda/daily-agenda-with-week-calendar#) for listing the events for the selected day. The view option will look like the following:
 
 ```jsx title='Daily Agenda combined with Weekly Calendar'
-<Eventcalendar
-  view={
+function App() {
+  const myViewOption = {
     calendar: { type: 'week' },
     agenda: { type: 'day' }
-  }
-/>
+  };
+
+  return <Eventcalendar view={myViewOptions} />
+}
 ```
 
 ### Configuring the view
@@ -44,14 +46,16 @@ For example, you can combine [a daily agenda with a weekly calendar](https://dem
 The Agenda view can be configured through the `view` option. Below are listed the `agenda` object properties which can help you fine-tune this view.
 
 ```jsx title='Example'
-<Eventcalendar
-  view={{
+function App() {
+  const myViewOption = {
     agenda: {
       type: 'day',
       size: 2
     }
-  }}
-/>
+  };
+
+  return <Eventcalendar view={myViewOptions} />
+}
 ```
 
 <div className="option-list no-padding">
@@ -104,30 +108,30 @@ The available width is queried from the container element of the component and n
 :::
 
 ```jsx title='Responsive configuration with the view option'
-import { Eventcalendar } from "@mobiscroll/react";
+function App() {
+  const myResponsive = {
+    xsmall: {
+      view: {
+        agenda: { type: 'week' }
+      }
+    },
+    medium: {
+      view: {
+        calendar: { type: 'week' },
+        agenda: { type: 'day' }
+      }
+    },
+    custom: { // Custom breakpoint
+      breakpoint: 1000,
+      view: { 
+        calendar: { type: 'month' },
+        agenda: { type: 'month' }
+      }
+    }
+  };
 
-const responsiveSettings = {
-  xsmall: {
-    view: {
-      agenda: { type: 'week' }
-    }
-  },
-  medium: {
-    view: {
-      calendar: { type: 'week' },
-      agenda: { type: 'day' }
-    }
-  },
-  custom: { // Custom breakpoint
-    breakpoint: 1000,
-    view: { 
-      calendar: { type: 'month' },
-      agenda: { type: 'month' }
-    }
-  }
-};
-
-return <Eventcalendar responsive={responsiveSettings} />
+  return <Eventcalendar responsive={myResponsive} />
+}
 ```
 
 ![Agenda responsive behavior](/img/agenda-responsive.gif)
@@ -246,7 +250,7 @@ The Agenda is fully localized. This covers date and time format, button copy, rt
 
 ### Renderers
 </div>
-The display of Event Calendar can be customized with different renderer functions.
+The display of Agenda can be customized with different render functions.
 
 <Slots />
 

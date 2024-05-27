@@ -32,12 +32,18 @@ The four views - [scheduler](./scheduler), [calendar](./calendar), [timeline](./
 For example, you can choose to [render an agenda below the calendar](https://demo.mobiscroll.com/agenda/daily-agenda-with-week-calendar#) broken up into days ordered chronologically. The view option will look like the following:
 
 ```jsx title='Weekly Calendar combined with Daily Agenda'
-<Eventcalendar
-  view={
-    calendar: { type: 'week' },
-    agenda: { type: 'day' }
-  }
-/>
+function App() {
+  const myViewOption = {
+    calendar: {
+      type: 'week'
+    },
+    agenda: {
+      type: 'day'
+    }
+  };
+
+  return <Eventcalendar view={myViewOptions} />
+}
 ```
 
 ### Configuring the view
@@ -45,15 +51,17 @@ For example, you can choose to [render an agenda below the calendar](https://dem
 The Calendar view can be configured through the `view` option. Below are listed the `calendar` object properties which can help you fine-tune this view.
 
 ```jsx title='Example'
-<Eventcalendar
-  view={{
+function App() {
+  const myViewOption = {
     calendar: {
       labels: true,
       type: 'week',
       size: 2
     }
-  }}
-/>
+  };
+
+  return <Eventcalendar view={myViewOptions} />
+}
 ```
 
 <div className="option-list no-padding">
@@ -108,22 +116,20 @@ The available width is queried from the container element of the component and n
 :::
 
 ```jsx title='Responsive configuration with the view option'
-import { Eventcalendar } from "@mobiscroll/react";
-
-const responsiveSettings = {
-  xsmall: {
-    view: {
+function App() {
+  const myResponsive = {
+    xsmall: {
       calendar: { type: 'week' },
       agenda: { type: 'day' }
+    },
+    custom: { // Custom breakpoint
+      breakpoint: 600,
+      view: { calendar: { labels: true }}
     }
-  },
-  custom: { // Custom breakpoint
-    breakpoint: 600,
-    view: { calendar: { labels: true }}
-  }
-};
+  };
 
-return <Eventcalendar responsive={responsiveSettings} />
+  return <Eventcalendar responsive={myResponsive} />
+}
 ```
 
 ![Event Calendar responsive behavior](/img/event-calendar-responsive.gif)
@@ -227,7 +233,7 @@ The Event Calendar is fully localized. This covers date and time format, button 
 
 ### Renderers
 </div>
-The display of Event Calendar can be customized with different renderer functions.
+The display of Event Calendar can be customized with different render functions.
 
 <Slots />
 

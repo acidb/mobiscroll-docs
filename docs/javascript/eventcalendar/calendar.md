@@ -229,7 +229,7 @@ The Event Calendar is fully localized. This covers date and time format, button 
 
 ### Renderers
 </div>
-The display of Event Calendar can be customized with different render functions.
+The display of Event Calendar can be customized with different render functions.
 
 <Slots />
 

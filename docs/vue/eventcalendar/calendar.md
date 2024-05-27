@@ -245,7 +245,7 @@ The Event Calendar is fully localized. This covers date and time format, button 
 
 ### Slots
 </div>
-The display of Event Calendar can be customized with different slots functions.
+The display of Event Calendar can be customized with different slot functions.
 
 <Slots />
 

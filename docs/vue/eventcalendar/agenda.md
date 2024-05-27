@@ -18,7 +18,7 @@ The [agenda calendar](https://demo.mobiscroll.com/agenda) displays a [list of ev
 
 The agenda supports a [configurable range listing](https://demo.mobiscroll.com/agenda/daily-weekly-monthly-annual-agenda#) along with daily, monthly and yearly presets.
 
-The capabilities like [recurring events](/vue/core-concepts/recurrence), [all-day, multi-day events](#opt-data), [responsiveness](#responsiveness) are supported by event calendar.
+The capabilities like [recurring events](/vue/core-concepts/recurrence), [all-day, multi-day events](#opt-data), [responsiveness](#responsiveness) are supported by agenda.
 
 ![Agenda overview](/img/agenda-overview.png)
 
@@ -262,7 +262,7 @@ The Agenda is fully localized. This covers date and time format, button copy, rt
 
 ### Slots
 </div>
-The display of Event Calendar can be customized with different slots functions.
+The display of Agenda can be customized with different slot functions.
 
 <Slots />
 

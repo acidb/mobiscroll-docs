@@ -219,15 +219,15 @@ $('#scheduler').mboiscroll().eventcalendar({
 
 The scheduler is [fully responsive](https://demo.mobiscroll.com/scheduler/responsive-day-week-schedule#). It adapts to the available space and fills the screen to look good everywhere. While you don't have to worry about the width the height can be manually adjusted with the [height](#opt-height) option. This specifies different options for different container widths, in a form of an object, where the keys are the name of the breakpoints, and the values are objects containing the options for the given breakpoint.
 
-Use the [responsive](#opt-responsive) option to configure how the calendar behaves on different sized screens. 
+Use the [responsive](#opt-responsive) option to configure how the calendar behaves on different sized screens.
 The responsive option is equipped with five breakpoints:
-- xsmall (up to 575px), 
-- small (up to 767px), 
-- medium (up to 991px), 
-- large (up to 1199px), 
-- xlarge (from 1200px). 
+- xsmall (up to 575px),
+- small (up to 767px),
+- medium (up to 991px),
+- large (up to 1199px),
+- xlarge (from 1200px).
 
-Also, custom breakpoints can be added if necessary: 
+Also, custom breakpoints can be added if necessary:
 - my-custom-breakpoint: { breakpoint: 600 } (from 600px up to the next breakpoint).
 
 :::info
@@ -272,7 +272,7 @@ Check out how you can style event, their content and buffer areas in [this examp
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
 
@@ -293,7 +293,7 @@ Check out how you can style the date header in [this example](https://demo.mobis
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
 
@@ -312,7 +312,7 @@ Check out how you can style the resources in [this example](https://demo.mobiscr
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
 
@@ -333,7 +333,7 @@ Check out how you can style the scheduler header in [this example](https://demo.
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
 

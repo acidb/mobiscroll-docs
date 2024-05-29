@@ -34,12 +34,12 @@ Check out how you can style events in [this example](https://demo.mobiscroll.com
         <figcaption>Custom</figcaption>
     </figure>
     <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
     </svg>
 </ImgComparisonSlider>
 
 ### Event content
-For content-only customization you can use the [eventContentTemplate](#template-eventContentTemplate) option.  
+For content-only customization you can use the [eventContentTemplate](#template-eventContentTemplate) option.
 
 Check out how you can style event content in [this example](https://demo.mobiscroll.com/angular/agenda/event-content-customization#) or just play with the slider below to see the differences.
 
@@ -53,12 +53,12 @@ Check out how you can style event content in [this example](https://demo.mobiscr
         <figcaption>Custom</figcaption>
     </figure>
     <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
     </svg>
 </ImgComparisonSlider>
 
 ### Header
-Use the [headerTemplate](#template-headerTemplate) option for passing a custom header layout. 
+Use the [headerTemplate](#template-headerTemplate) option for passing a custom header layout.
 
 Check out how you can style the header in [this example](https://demo.mobiscroll.com/angular/agenda/customizing-header#) or just play with the slider below to see the differences.
 
@@ -72,12 +72,12 @@ Check out how you can style the header in [this example](https://demo.mobiscroll
         <figcaption>Custom</figcaption>
     </figure>
     <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
     </svg>
 </ImgComparisonSlider>
 
 ### Empty state
-Use the [agendaEmptyTemplate](#template-agendaEmptyTemplate) function for putting your custom content together. 
+Use the [agendaEmptyTemplate](#template-agendaEmptyTemplate) function for putting your custom content together.
 
 Check out how you can style the empty state in [this example](https://demo.mobiscroll.com/angular/agenda/empty-state#) or just play with the slider below to see the differences.
 
@@ -91,7 +91,7 @@ Check out how you can style the empty state in [this example](https://demo.mobis
         <figcaption>Custom</figcaption>
     </figure>
     <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
     </svg>
 </ImgComparisonSlider>
 

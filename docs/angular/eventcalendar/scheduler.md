@@ -33,7 +33,7 @@ For example, the daily scheduler can also be combined with the calendar week vie
 ```html title="Daily Scheduler combined with Weekly Calendar"
 <mbsc-eventcalendar [view]="myView"></mbsc-eventcalendar>
 ```
-```ts 
+```ts
 import { MbscEventcalendarView } from '@mobiscroll/angular';
 
 @Component({...})
@@ -52,7 +52,7 @@ The Scheduler view can be configured through the `view` option. Below are listed
 ```html title="Example"
 <mbsc-eventcalendar [view]="myView"></mbsc-eventcalendar>
 ```
-```ts 
+```ts
 import { MbscEventcalendarView } from '@mobiscroll/angular';
 
 @Component({...})
@@ -164,7 +164,7 @@ The scheduler view can display multiple [resources](resources) inside a single i
 ```html title="Grouping resources by date"
 <mbsc-eventcalendar [resources]="myResources" groupBy="date"></mbsc-eventcalendar>
 ```
-```ts 
+```ts
 import { MbscResource } from '@mobiscroll/angular';
 
 @Component({...})
@@ -192,7 +192,7 @@ The color property controls the default event color of the resource. If an event
 ```html title="Invalid rule tied to a single resource"
 <mbsc-eventcalendar [invalid]="myInvalid"></mbsc-eventcalendar>
 ```
-```ts 
+```ts
 import { MbscDateType } from '@mobiscroll/angular';
 
 @Component({...})
@@ -211,7 +211,7 @@ export class MyComponent {
 ```html title="Event tied to multiple resources"
 <mbsc-eventcalendar [data]="myData"></mbsc-eventcalendar>
 ```
-```ts 
+```ts
 import { MbscCalendarEvent } from '@mobiscroll/angular';
 
 @Component({...})
@@ -230,7 +230,7 @@ export class MyComponent {
 ```html title="Color rule for all the resources (resource not specified)"
 <mbsc-eventcalendar [colors]="myColors"></mbsc-eventcalendar>
 ```
-```ts 
+```ts
 import { MbscCalendarColor } from '@mobiscroll/angular';
 
 @Component({...})
@@ -249,15 +249,15 @@ export class MyComponent {
 
 The scheduler is [fully responsive](https://demo.mobiscroll.com/scheduler/responsive-day-week-schedule#). It adapts to the available space and fills the screen to look good everywhere. While you don't have to worry about the width the height can be manually adjusted with the [height](#opt-height) option. This specifies different options for different container widths, in a form of an object, where the keys are the name of the breakpoints, and the values are objects containing the options for the given breakpoint.
 
-Use the [responsive](#opt-responsive) option to configure how the calendar behaves on different sized screens. 
+Use the [responsive](#opt-responsive) option to configure how the calendar behaves on different sized screens.
 The responsive option is equipped with five breakpoints:
-- xsmall (up to 575px), 
-- small (up to 767px), 
-- medium (up to 991px), 
-- large (up to 1199px), 
-- xlarge (from 1200px). 
+- xsmall (up to 575px),
+- small (up to 767px),
+- medium (up to 991px),
+- large (up to 1199px),
+- xlarge (from 1200px).
 
-Also, custom breakpoints can be added if necessary: 
+Also, custom breakpoints can be added if necessary:
 - my-custom-breakpoint: { breakpoint: 600 } (from 600px up to the next breakpoint).
 
 :::info
@@ -268,7 +268,7 @@ The available width is queried from the container element of the component and n
 <mbsc-eventcalendar [responsive]="responsiveSettings"></mbsc-eventcalendar>
 ```
 
-```ts 
+```ts
 import { MbscEventcalendarView } from '@mobiscroll/angular';
 
 @Component({...})
@@ -309,13 +309,13 @@ Check out how you can style event, their content and buffer areas in [this examp
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
 
 ### Customizing the date header
 There are two approaches you can take:
-- Customize the date headers of the scheduler with the [dayTemplate](#template-dayTemplate) option by adding relevant content, labels or completely change how they look. It takes a function that should return the desired markup. The Eventcalendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you. The render function will receive an object as parameter. This data can be used to show day specific things on the scheduler. 
+- Customize the date headers of the scheduler with the [dayTemplate](#template-dayTemplate) option by adding relevant content, labels or completely change how they look. It takes a function that should return the desired markup. The Eventcalendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you. The render function will receive an object as parameter. This data can be used to show day specific things on the scheduler.
 - If you are looking to customize only the content and don't want to bother with the styling of the event, you can use the [dayContentTemplate](#template-dayContentTemplate) option. You will get the styling taken care of by the Eventcalendar, and you can focus on what you show besides the day number a.k.a. the content. The template will receive an object as data. This data can be used to show day specific things on the scheduler.
 
 Check out how you can style the date header in [this example](https://demo.mobiscroll.com/angular/scheduler/date-header-template#) or just play with the slider below to see the differences.
@@ -330,7 +330,7 @@ Check out how you can style the date header in [this example](https://demo.mobis
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
 
@@ -349,7 +349,7 @@ Check out how you can style the resources in [this example](https://demo.mobiscr
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
 
@@ -370,7 +370,7 @@ Check out how you can style the scheduler header in [this example](https://demo.
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" stroke-width="1" fill="#011742" vector-effect="non-scaling-stroke"></path>
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
 

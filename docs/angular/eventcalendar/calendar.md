@@ -32,22 +32,40 @@ The four views - [scheduler](./scheduler), [calendar](./calendar), [timeline](./
 For example, you can choose to [render an agenda below the calendar](https://demo.mobiscroll.com/agenda/daily-agenda-with-week-calendar#) broken up into days ordered chronologically. The view option will look like the following:
 
 ```html title='Weekly Calendar combined with Daily Agenda'
-<mbsc-eventcalendar
-  [view]="{ 
+<mbsc-eventcalendar [view]="myView"></mbsc-eventcalendar>
+```
+```ts 
+import { MbscEventcalendarView } from '@mobiscroll/angular';
+
+@Component({...})
+export class MyComponent {
+  myView: MbscEventcalendarView = {
     calendar: { type: 'week' }, 
     agenda: { type: 'day' } 
-  }">
-</mbsc-eventcalendar>
+  };
+}
 ```
 
 ### Configuring the view
 
 The Calendar view can be configured through the `view` option. Below are listed the `calendar` object properties which can help you fine-tune this view.
 
-```html title='Example'
-<mbsc-eventcalendar
-  [view]="{ calendar: { labels: true, type: 'week', size: 2 } }">
-</mbsc-eventcalendar>
+```html title="Example"
+<mbsc-eventcalendar [view]="myView"></mbsc-eventcalendar>
+```
+```ts 
+import { MbscEventcalendarView } from '@mobiscroll/angular';
+
+@Component({...})
+export class MyComponent {
+  myView: MbscEventcalendarView = {
+    calendar: { 
+      labels: true, 
+      type: 'week', 
+      size: 2 
+    }
+  };
+}
 ```
 
 <div className="option-list no-padding">

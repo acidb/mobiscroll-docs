@@ -33,7 +33,7 @@ For example, you can choose to [render an agenda below the calendar](https://dem
 
 ```jsx title='Weekly Calendar combined with Daily Agenda'
 function App() {
-  const myViewOption = {
+  const myViewOptions = {
     calendar: {
       type: 'week'
     },
@@ -52,7 +52,7 @@ The Calendar view can be configured through the `view` option. Below are listed 
 
 ```jsx title='Example'
 function App() {
-  const myViewOption = {
+  const myViewOptions = {
     calendar: {
       labels: true,
       type: 'week',

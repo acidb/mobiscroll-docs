@@ -39,12 +39,8 @@ import { MbscEventcalendarView } from '@mobiscroll/angular';
 @Component({...})
 export class MyComponent {
   myView: MbscEventcalendarView = {
-    calendar: {
-      type: 'week'
-    },
-    schedule: {
-      type: 'day'
-    }
+    calendar: { type: 'week' },
+    schedule: { type: 'day' }
   };
 }
 ```

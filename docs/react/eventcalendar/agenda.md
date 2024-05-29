@@ -32,7 +32,7 @@ For example, you can combine [a daily agenda with a weekly calendar](https://dem
 
 ```jsx title='Daily Agenda combined with Weekly Calendar'
 function App() {
-  const myViewOption = {
+  const myViewOptions = {
     calendar: { type: 'week' },
     agenda: { type: 'day' }
   };
@@ -47,7 +47,7 @@ The Agenda view can be configured through the `view` option. Below are listed th
 
 ```jsx title='Example'
 function App() {
-  const myViewOption = {
+  const myViewOptions = {
     agenda: {
       type: 'day',
       size: 2

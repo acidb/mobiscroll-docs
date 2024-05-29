@@ -51,7 +51,7 @@ The Scheduler view can be configured through the `view` option. Below are listed
 
 ```jsx title='Example'
 function App() {
-  const myViewOption = {
+  const myViewOptions = {
     schedule: {
       type: 'week',
       startDay: 1,

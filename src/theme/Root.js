@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 // import { useLocation, Switch, Route } from 'react-router-dom';
 import { useHistory, useLocation } from '@docusaurus/router';
+import { captureTOCPositions } from "@site/src/util/menuscroll";
+
 
 // Default implementation, that you can customize
 export default function Root({children}) {
@@ -27,18 +29,21 @@ export default function Root({children}) {
   }, [pathname, hist])
 
   useEffect(() => {
-    // the function is called whenever there is a layout shift on the page
-    const observer = new PerformanceObserver((list) => {
-      for (const entry of list.getEntries()) {
-        if (!entry.hadRecentInput || targeting) {
-          reachTarget(hash);
+    if (PerformanceObserver !== undefined) {
+      // the function is called whenever there is a layout shift on the page
+      const observer = new PerformanceObserver((list) => {
+        for (const entry of list.getEntries()) {
+          if (!entry.hadRecentInput || targeting) {
+            reachTarget(hash);
+            captureTOCPositions();
+          }
         }
-      }
-    });
-    observer.observe({ type: "layout-shift", buffered: true });
+      });
+      observer.observe({ type: "layout-shift", buffered: true });
 
-    return () => {
-      observer.disconnect();
+      return () => {
+        observer.disconnect();
+      }
     }
   }, [pathname, hist, hash])
 

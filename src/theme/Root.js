@@ -36,6 +36,10 @@ export default function Root({children}) {
       }
     });
     observer.observe({ type: "layout-shift", buffered: true });
+
+    return () => {
+      observer.disconnect();
+    }
   }, [pathname, hist, hash])
 
   return <>{children}</>

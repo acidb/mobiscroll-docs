@@ -46,14 +46,17 @@ Use the [v-model](https://vuejs.org/api/built-in-directives.html#v-model) direct
 <div className="option-list">
 
 ## Options
+Explore the following API options that help you easily configure the Input component.
 
 <Options />
 
 ## Events
+The Input component ships with different event hooks for deep customization. Events are triggered through the lifecycle of the component where you can tie in custom functionality and code.
 
 <Events />
 
 ## Localization
+The Input component is fully localized. This covers date and time format, button copy, rtl and more.
 
 <Localizations />
 

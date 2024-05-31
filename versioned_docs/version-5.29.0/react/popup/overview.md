@@ -12,7 +12,7 @@ Use it for contextual pop-ups, data-entry or to inform users in a consistent way
 
 ## Usage
 
-The following example will create a popup with static content. When clicked or tapped the overlay, the popup will close:
+The following example will create a popup with static content. When clicked or tapped the overlay, the Popup will close:
 
 ```jsx
 import { useState } from 'react';

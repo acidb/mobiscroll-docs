@@ -2,6 +2,7 @@
 sidebar_position: 12
 sidebar_label: Timezones
 displayed_sidebar: javascriptSidebar
+title: Timezones
 ---
 
 import LibraryInstall from '../../_shared/timezones/library_install.mdx';
@@ -9,7 +10,7 @@ import MomentInstall from '../../_shared/timezones/moment_install.mdx';
 import LuxonInstall from '../../_shared/timezones/luxon_install.mdx';
 import ExclusiveEndDatesContent from '../../_shared/eventcalendar/exclusive-ends.mdx';
 
-# Timezones
+## Overview
 
 By default the Eventcalendar uses the local timezone of the browser to show event data. If you want to show the data or interpret it in a different timezone, you will need an external library to handle the timezone conversions. There are two libraries that Mobiscroll supports: **moment-timezone** and **luxon**.
 

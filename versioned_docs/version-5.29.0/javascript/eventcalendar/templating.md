@@ -2,11 +2,12 @@
 sidebar_position: 11
 sidebar_label: Templating
 displayed_sidebar: javascriptSidebar
+title: Templating
 ---
 
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
 
-# Templating
+## Overview
 
 You can customize many parts of the Eventcalendar by writing custom templates. In the context of plain javascript these templates are functions that return a string containing the html markup. You will find a comprehensive list of all the available render functions for the Eventcalendar in the [API templates](api#renderers) section.
 
@@ -47,17 +48,17 @@ mobiscroll.eventcalendar('#myDiv', {
 ```
 Play with the slider below to see the differences.
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
-    <figure slot="first" className="before">
-        <img width="100%" src={require('@site/static/img/normal-event-content-template-agenda.png').default} />
-        <figcaption>Default</figcaption>
-    </figure>
-    <figure slot="second" className="after">
-        <img width="100%" src={require('@site/static/img/event-content-templating-agenda.png').default} />
-        <figcaption>Custom</figcaption>
-    </figure>
-    <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
-    </svg>
+  <figure slot="first" className="before">
+    <img width="100%" src={require('@site/static/img/normal-event-content-template-agenda.png').default} />
+    <figcaption>Default template</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="100%" src={require('@site/static/img/event-content-templating-agenda.png').default} />
+    <figcaption>Custom template</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
+  </svg>
 </ImgComparisonSlider>
 
 ### Full event templating
@@ -70,17 +71,17 @@ In case of full event templating, whenever there is an event (in the agenda, sch
 
 Play with the slider below to see the differences.
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
-    <figure slot="first" className="before">
-        <img width="100%" src={require('@site/static/img/normal-event-templating-scheduler.png').default} />
-        <figcaption>Default</figcaption>
-    </figure>
-    <figure slot="second" className="after">
-        <img width="100%" src={require('@site/static/img/event-templating-scheduler.png').default} />
-        <figcaption>Custom</figcaption>
-    </figure>
-    <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
-    </svg>
+  <figure slot="first" className="before">
+    <img width="100%" src={require('@site/static/img/normal-event-templating-scheduler.png').default} />
+    <figcaption>Default template</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="100%" src={require('@site/static/img/event-templating-scheduler.png').default} />
+    <figcaption>Custom template</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
+  </svg>
 </ImgComparisonSlider>
 
 ## Resource templating
@@ -102,17 +103,17 @@ In case of the timeline view there are other parts of the Eventcalendar that can
 Play with the slider below to see the differences.
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
-    <figure slot="first" className="before">
-        <img width="100%" src={require('@site/static/img/normal-resource-template-scheduler.png').default} />
-        <figcaption>Default</figcaption>
-    </figure>
-    <figure slot="second" className="after">
-        <img width="100%" src={require('@site/static/img/resource-template-scheduler.png').default} />
-        <figcaption>Custom</figcaption>
-    </figure>
-    <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
-    </svg>
+  <figure slot="first" className="before">
+    <img width="100%" src={require('@site/static/img/normal-resource-template-scheduler.png').default} />
+    <figcaption>Default template</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="100%" src={require('@site/static/img/resource-template-scheduler.png').default} />
+    <figcaption>Custom template</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
+  </svg>
 </ImgComparisonSlider>
 
 ## Header templating
@@ -153,15 +154,15 @@ mobiscroll.eventcalendar('#myDiv', {
 ```
 Play with the slider below to see the differences.
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
-    <figure slot="first" className="before">
-        <img width="100%" src={require('@site/static/img/normal-header-calendar.png').default} />
-        <figcaption>Default</figcaption>
-    </figure>
-    <figure slot="second" className="after">
-        <img width="100%" src={require('@site/static/img/header-calendar.png').default} />
-        <figcaption>Custom</figcaption>
-    </figure>
-    <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
-        <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
-    </svg>
+  <figure slot="first" className="before">
+    <img width="100%" src={require('@site/static/img/normal-header-calendar.png').default} />
+    <figcaption>Default template</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="100%" src={require('@site/static/img/header-calendar.png').default} />
+    <figcaption>Custom template</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
+  </svg>
 </ImgComparisonSlider>

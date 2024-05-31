@@ -5,6 +5,7 @@ displayed_sidebar: jquerySidebar
 ---
 
 # Templating
+The display of the Datepicker picker component can be customized with different [render functions](api#renderers).
 
 ## Calendar header template
 

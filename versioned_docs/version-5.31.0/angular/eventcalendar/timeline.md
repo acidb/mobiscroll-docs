@@ -189,14 +189,13 @@ The timeline view can display connections between events. Events will be linked 
 The rendered event order is determined by two key concepts:
 
  1. Event data order
-
  2. Event layout
 
 The combination of these concepts results in the final rendered event order.
 
 ### Event data order
 
-the sequence in which events are processed before being passed to the layout algorithm. The default ordering rules are as follows:
+The sequence in which events are processed before being passed to the layout algorithm. The default ordering rules are as follows:
 
  1. All-day events are placed at the top.
  2. Non-all-day events follow, sorted by their start times.

@@ -17,13 +17,25 @@ These features include:
 
 These localization capabilities ensure that Mobiscroll components provide a user-friendly and culturally appropriate experience for users across different regions and languages.
 
-## Localization options per components
+## Localization options for components
 
 - [Date & time picker](/javascript/datepicker/api#localization)
 - [Event Calendar](/javascript/eventcalendar/api#localization)
 - [Select](/javascript/select/api#localization)
 - [Popup](/javascript/popup/api#localization)
 - Forms - check out the localization options under the different Form components - Localization section
+  - [Alert](/javascript/notifications/alert#localization)
+  - [Confirm](/javascript/notifications/confirm#localization)
+  - [Prompt](/javascript/notifications/prompt#localization)
+  - [Button](/javascript/forms/button#localization)
+  - [Checkbox](/javascript/forms/checkbox#localization)
+  - [Dropdown](/javascript/forms/dropdown#localization)
+  - [Input](/javascript/forms/input#localization)
+  - [Radio button](/javascript/forms/radio#localization)
+  - [Segmented](/javascript/forms/segmented#localization)
+  - [Stepper](/javascript/forms/stepper#localization)
+  - [Switch](/javascript/forms/switch#localization)
+  - [Textarea](/javascript/forms/textarea#localization)
 
 ## Localization options
 
@@ -490,7 +502,7 @@ Additional string to display after the year on the wheel.
 
 We offer and support a number of translations for the Mobiscroll library. If you don't find the language you're looking for, no problem. It's easy to create a language module that you can use.
 
-The `locale` [option](https://demo.mobiscroll.com/eventcalendar/localization) can be used to set the language of a component. It takes an object, that should contain the translations of the texts used in the component. The supported languages can be set directly from the mobiscroll bundle.
+The `locale` option can be used to set the language of a component. It takes an object, that should contain the translations of the texts used in the component. The supported languages can be set directly from the mobiscroll bundle.
 
 ```javascript title='Locale option usage'
 mobiscroll.eventcalendar('#myexample', {
@@ -504,18 +516,22 @@ Creating your own locale object is simple as creating an object in JavaScript. F
 var myLocale = {
     cancelText: 'Mégse'
 }
+
+mobiscroll.eventcalendar('#myexample', {
+  locale: myLocale
+});
 ```
 
-The exact properties for each component can be found in the localization section on the component's documentation.
+The exact properties for each component can be found [above](#localization-options-for-components).
 
 For typescript environments, the `MbscLocale` type can also be used as the base type for the locale object.
 
-```javascript title='Example with types'
+```ts title='Example with types'
 import { MbscLocale } from 'path/to/mobiscroll';
 
 const myLocale: MbscLocale = {
     setText: 'Ok',
-    cancelText: 'Mégse',
+    cancelText: 'Mégse'
 };
 ```
 

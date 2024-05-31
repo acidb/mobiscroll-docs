@@ -2,11 +2,12 @@
 sidebar_position: 11
 sidebar_label: Templating
 displayed_sidebar: jquerySidebar
+title: Templating
 ---
 
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
 
-# Templating
+## Overview
 
 You can customize many parts of the Eventcalendar by writing custom templates. In the context of jQuery these templates are functions that return a string containing the html markup. You will find a comprehensive list of all the available render functions for the Eventcalendar in the [API templates](api#renderers) section.
 

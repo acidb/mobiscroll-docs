@@ -8,9 +8,9 @@ import Events from '../\_auto-generated/toast/events.md';
 
 # Toast
 
-Toasts are simple text only notifications informing the user.
+The Toast component is a simple text only notification informing the user.
 They should be primarly used to display messages not necessarily related to a user action, such as background synchronization or similar.
-Toasts don't lock the app's main interface and are automatically dismissed after a while.
+The Toast component don't lock the app's main interface and are automatically dismissed after a while.
 
 ## Usage
 
@@ -34,12 +34,12 @@ export class MyComponent {
 <div className="option-list">
 
 ## Options
-Explore the following API options that help you easily configure the Toasts.
+Explore the following API options that help you easily configure the Toast component.
 
 <Options />
 
 ## Events
-The Toasts ships with different event hooks for deep customization. Events are triggered through the lifecycle of the component where you can tie in custom functionality and code.
+The Toast component ships with different event hooks for deep customization. Events are triggered through the lifecycle of the component where you can tie in custom functionality and code.
 
 <Events />
 

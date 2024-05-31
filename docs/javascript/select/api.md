@@ -21,22 +21,22 @@ Explore the following API options that help you easily configure the Select.
 <Options />
 
 ## Events
-The Select ships with different event hooks for deep customization. Events are triggered through the lifecycle of the component where you can tie in custom functionality and code.
+The Select component ships with different event hooks for deep customization. Events are triggered through the lifecycle of the component where you can tie in custom functionality and code.
 
 <Events />
 
 ## Localization
-The Select is fully localized. This covers date and time format, button copy, rtl and more.
+The Select component is fully localized. This covers date and time format, button copy, rtl and more.
 
 <Localizations />
 
 ## Methods
-These methods are actions that can be performed on mobiscroll instance.
+These methods are actions that can be performed on a component instance.
 
 <Methods />
 
 ## Renderers
-The display of Select component can be customized with different renderer functions.
+The display of the Select component can be customized with different render functions.
 
 <Slots />
 

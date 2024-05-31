@@ -8,13 +8,13 @@ import Events from '../\_auto-generated/snackbar/events.md';
 
 # Snackbar
 
-Snackbars provide brief feedback after an action through a message at the bottom of the screen.
-A snackbar may contain an action, such as "Undo" or "Retry".
+Tge Snackbar component provide brief feedback after an action through a message at the bottom of the screen.
+A Snackbar may contain an action, such as "Undo" or "Retry".
 Snackbars don't lock the app's main interface and are automatically dismissed after a while.
 
 ## Usage
 
-The following example displays a snackbar message on button click.
+The following example displays a Snackbar message on button click.
 
 ```html
 <script setup>
@@ -45,12 +45,12 @@ The following example displays a snackbar message on button click.
 <div className="option-list">
 
 ## Options
-Explore the following API options that help you easily configure the Snackbars.
+Explore the following API options that help you easily configure the Snackbar component.
 
 <Options />
 
 ## Events
-The Snackbars ships with different event hooks for deep customization. Events are triggered through the lifecycle of the component where you can tie in custom functionality and code.
+The Snackbar component ships with different event hooks for deep customization. Events are triggered through the lifecycle of the component where you can tie in custom functionality and code.
 
 <Events />
 

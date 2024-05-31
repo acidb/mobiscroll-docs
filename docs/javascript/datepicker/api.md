@@ -31,12 +31,12 @@ The Datepicker is fully localized. This covers date and time format, button copy
 <Localizations />
 
 ## Methods
-These methods are actions that can be performed on mobiscroll instance.
+These methods are actions that can be performed on a component instance.
 
 <Methods />
 
 ## Renderers
-The display of Datepicker component can be customized with different renderer functions.
+The display of the Datepicker component can be customized with different render functions.
 
 <Slots />
 

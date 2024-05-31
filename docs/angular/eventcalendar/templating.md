@@ -2,11 +2,12 @@
 sidebar_position: 11
 sidebar_label: Templating
 displayed_sidebar: angularSidebar
+title: Templating
 ---
 
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
 
-# Templating
+## Overview
 
 You can customize many parts of the Eventcalendar by writing custom templates. In Angular these templates are defined using the `<ng-template>` component and then passed to the eventcalendar as references. You will find a comprehensive list of all the templates available for the Eventcalendar in the [API templates](api#templates) section.
 

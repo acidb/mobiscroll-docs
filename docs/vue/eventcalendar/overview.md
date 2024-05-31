@@ -6,7 +6,7 @@ displayed_sidebar: vueSidebar
 
 # Eventcalendar
 
-The Eventcalendar component supports four highly configurable views: a [calendar view](/vue/eventcalendar/calendar), a [scheduler with time grid](/vue/eventcalendar/scheduler), a [timeline](/vue/eventcalendar/timeline) and an [agenda view](/vue/eventcalendar/agenda).
+The Eventcalendar component supports four highly configurable views: a [Calendar view](/vue/eventcalendar/calendar), a [Sheduler with time grid](/vue/eventcalendar/scheduler), a [Timeline](/vue/eventcalendar/timeline) and an [Agenda view](/vue/eventcalendar/agenda).
 
 ## Usage
 
@@ -22,4 +22,4 @@ The following example will create an Eventcalendar with the default options.
 </template>
 ```
 
-For many more examples - simple and complex use-cases - check out the [event calendar demos](https://demo.mobiscroll.com/eventcalendar).
+For many more examples - simple and complex use-cases - check out the [Eventcalendar demos](https://demo.mobiscroll.com/eventcalendar).

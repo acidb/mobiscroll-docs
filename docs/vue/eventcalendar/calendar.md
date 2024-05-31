@@ -12,14 +12,14 @@ import { ImgComparisonSlider } from '@img-comparison-slider/react';
 
 # Calendar
 
-Use the [event calendar](https://demo.mobiscroll.com/eventcalendar) as a traditional [month view](https://demo.mobiscroll.com/eventcalendar/desktop-month-view#) or combine it with an agenda as a [week view](https://demo.mobiscroll.com/agenda/daily-agenda-with-week-calendar#).
+Use the [Event Calendar](https://demo.mobiscroll.com/eventcalendar) as a traditional [month view](https://demo.mobiscroll.com/eventcalendar/desktop-month-view#) or combine it with an agenda as a [week view](https://demo.mobiscroll.com/agenda/daily-agenda-with-week-calendar#).
 The events can be rendered as [labels](https://demo.mobiscroll.com/eventcalendar/event-labels#) or in a [popover](https://demo.mobiscroll.com/eventcalendar/event-popover#) that is shown on day click.
 
 ## Overview
 
-The calendar view supports everything from [single to multiple week views](https://demo.mobiscroll.com/eventcalendar/month-week-view#) all the way to [month grids](https://demo.mobiscroll.com/eventcalendar/quarter-year-view#) with various ways to render events.
+The Calendar view supports everything from [single to multiple week views](https://demo.mobiscroll.com/eventcalendar/month-week-view#) all the way to [month grids](https://demo.mobiscroll.com/eventcalendar/quarter-year-view#) with various ways to render events.
 
-The capabilities like [recurring events](/javascript/core-concepts/recurrence), [all-day, multi-day events](#opt-data), [responsiveness](#responsiveness) are supported by event calendar.
+The capabilities like [recurring events](/javascript/core-concepts/recurrence), [all-day, multi-day events](#opt-data), [responsiveness](#responsiveness) are supported by the Event Calendar.
 
 ![Event Calendar overview](/img/event-calendar-overview.png)
 
@@ -103,18 +103,18 @@ MbscEventcalendarView
 
 ## Responsiveness
 
-The event calendar is [fully responsive](https://demo.mobiscroll.com/eventcalendar/responsive-month-view). It adapts to the available space and fills the screen to look good everywhere. While you don't have to worry about the width the height can be manually adjusted with the [height](#opt-height) option. This specifies different options for different container widths, in a form of an object, where the keys are the name of the breakpoints, and the values are objects containing the options for the given breakpoint.
+The Event Calendar is [fully responsive](https://demo.mobiscroll.com/eventcalendar/responsive-month-view). It adapts to the available space and fills the screen to look good everywhere. While you don't have to worry about the width the height can be manually adjusted with the [height](#opt-height) option. This specifies different options for different container widths, in a form of an object, where the keys are the name of the breakpoints, and the values are objects containing the options for the given breakpoint.
 
 Use the [responsive](#opt-responsive) option to configure how the calendar behaves on different sized screens.
 The responsive option is equipped with five breakpoints:
-- xsmall (up to 575px),
-- small (up to 767px),
-- medium (up to 991px),
-- large (up to 1199px),
-- xlarge (from 1200px).
+- `xsmall` (up to 575px),
+- `small` (up to 767px),
+- `medium` (up to 991px),
+- `large` (up to 1199px),
+- `xlarge` (from 1200px).
 
 Also, custom breakpoints can be added if necessary:
-- my-custom-breakpoint: { breakpoint: 600 } (from 600px up to the next breakpoint).
+- `my-custom-breakpoint: { breakpoint: 600 }` (from 600px up to the next breakpoint).
 
 :::info
 The available width is queried from the container element of the component and not the browsers viewport like in css media queries.
@@ -149,10 +149,10 @@ const myResponsive = {
 ## Templating
 The display of Calendar can be customized with different [solt functions](#slots).
 
-### Customizing the event label and their content
+### The event label and their content
 There are two approaches you can take:
-- Customize the label contents, that appears on the calendar - for this you will want to use the [labelContent](#slot-labelContent) option. The event calendar will take care of styling and you can focus on what you show inside of the label a.k.a the content.
-- Customize the labels that appear on the calendar view - use the [label](#slot-label) option. The event calendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
+- Customize the label contents, that appears on the calendar - for this you will want to use the [labelContent](#slot-labelContent) option. The Event Calendar will take care of styling and you can focus on what you show inside of the label.
+- Customize the labels that appear on the calendar view - use the [label](#slot-label) option. The Event Calendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
 
 Check out how you can style labels and their content in [this example](https://demo.mobiscroll.com/vue/eventcalendar/customize-label-look-and-feel#) or just play with the slider below to see the differences.
 
@@ -170,10 +170,10 @@ Check out how you can style labels and their content in [this example](https://d
   </svg>
 </ImgComparisonSlider>
 
-### Customizing the event in popover and their content
+### The event in popover and their content
 The events can be customized in two ways:
-- Customize the event content that appears on the popover - by using the [eventContent](#slot-eventContent) option. The event calendar will take care of styling and you can focus on what you show inside of the event a.k.a the content.
-- Customize the events that appear on the popover - with the [event](#slot-event) option. It should return the markup of the event. The event calendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
+- Customize the event content that appears on the popover - by using the [eventContent](#slot-eventContent) option. The Event Calendar will take care of styling and you can focus on what you show inside of the event.
+- Customize the events that appear on the popover - with the [event](#slot-event) option. It should return the markup of the event. The Event Calendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
 
 Check out how you can style events and their content in [this example](https://demo.mobiscroll.com/vue/eventcalendar/customize-event-popover#) or just play with the slider below to see the differences.
 
@@ -191,10 +191,10 @@ Check out how you can style events and their content in [this example](https://d
   </svg>
 </ImgComparisonSlider>
 
-### Event calendar header
-Customize how the header of the event calendar looks and how the components are arranged with the [header](#slot-header) option. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well as the built in header components of the calendar.
+### The event calendar header
+Customize how the header of the Event Calendar looks and how the components are arranged with the [header](#slot-header) option. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well as the built in header components of the calendar.
 
-While fully customizing the header is very usefull, sometimes it's desireable to customize only parts of it. In this case you can take advantage of the default header's building blocks. These components let you put toghether the header you want, while you don't have to worry about the functionality behind them.
+While fully customizing the header is very usefull, sometimes it's desireable to customize only parts of it. In this case you can take advantage of the default header's [building blocks](/vue/eventcalendar/templating#header-templating). These components let you put toghether the header you want, while you don't have to worry about the functionality behind them.
 
 Check out how you can style the header in [this example](https://demo.mobiscroll.com/vue/eventcalendar/customizing-header#) or just play with the slider below to see the differences.
 
@@ -245,7 +245,7 @@ The Event Calendar is fully localized. This covers date and time format, button 
 
 ### Slots
 </div>
-The display of Event Calendar can be customized with different slot functions.
+The display of the Event Calendar can be customized with different slot functions.
 
 <Slots />
 

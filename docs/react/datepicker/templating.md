@@ -6,7 +6,7 @@ displayed_sidebar: reactSidebar
 
 # Templating
 
-The display of the Date & time picker component can be customized with different [renderer](api#renderers) functions.
+The display of the Datepicker component can be customized with different [render functions](api#renderers).
 
 ## Calendar header template
 

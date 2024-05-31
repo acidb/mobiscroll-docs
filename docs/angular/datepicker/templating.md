@@ -6,7 +6,7 @@ displayed_sidebar: angularSidebar
 
 # Templating
 
-The display of the Date & time picker component can be customized with different [templating](api#templates) functions.
+The display of the Datepicker component can be customized with different [templating functions](api#templates).
 
 ## Calendar header template
 

@@ -12,13 +12,13 @@ import { ImgComparisonSlider } from '@img-comparison-slider/react';
 
 # Scheduler
 
-Use the [scheduler view](https://demo.mobiscroll.com/scheduler) which features a time grid - vertically scrollable [daily, weekly and monthly views](https://demo.mobiscroll.com/scheduler/show-hide-hours-days) with built in [resource support](https://demo.mobiscroll.com/scheduler/resource-view), [templating](#templating) and more.
+Use the [Scheduler view](https://demo.mobiscroll.com/scheduler) which features a time grid - vertically scrollable [daily, weekly and monthly views](https://demo.mobiscroll.com/scheduler/show-hide-hours-days) with built in [resource support](https://demo.mobiscroll.com/scheduler/resource-view), [templating](#templating) and more.
 
 ## Overview
 
-The scheduler displays a time grid with its related events. It can be configured as a [daily, weekly or monthly schedule]((https://demo.mobiscroll.com/scheduler/show-hide-hours-days)). [Work hours and work days](https://demo.mobiscroll.com/scheduler/work-week-hours) along with [disabled time-spans, breaks](https://demo.mobiscroll.com/scheduler/time-off-blocked-ranges) can be added. Use it for [advanced scheduling tasks](https://demo.mobiscroll.com/scheduler/doctors-appointment) with built-in drag & drop.
+The Scheduler displays a time grid with its related events. It can be configured as a [daily, weekly or monthly schedule]((https://demo.mobiscroll.com/scheduler/show-hide-hours-days)). [Work hours and work days](https://demo.mobiscroll.com/scheduler/work-week-hours) along with [disabled time-spans, breaks](https://demo.mobiscroll.com/scheduler/time-off-blocked-ranges) can be added. Use it for [advanced scheduling tasks](https://demo.mobiscroll.com/scheduler/doctors-appointment) with built-in drag & drop.
 
-The capabilities like [recurring events](/javascript/core-concepts/recurrence), [all-day, multi-day events](#opt-data), [responsiveness](#responsiveness) are supported by the scheduler.
+The capabilities like [recurring events](/javascript/core-concepts/recurrence), [all-day, multi-day events](#opt-data), [responsiveness](#responsiveness) are supported by the Scheduler.
 
 ![Scheduler overview](/img/scheduler-overview.png)
 
@@ -28,7 +28,7 @@ The capabilities like [recurring events](/javascript/core-concepts/recurrence), 
 
 The four views - [scheduler](./scheduler), [calendar](./calendar), [timeline](./timeline), [agenda](./agenda) - can be used alone or combined with each-other to create the perfect user experience on mobile, desktop and on everything in-between.
 
-For example, the daily scheduler can also be combined with the calendar week view. The view option will look like the following:
+For example, the daily Scheduler can also be combined with the Calendar week view. The view option will look like the following:
 
 ```javascript title="Daily Scheduler combined with Weekly Calendar"
 mobiscroll.eventcalendar('#scheduler', {
@@ -126,7 +126,7 @@ There might be cases when you would like to change the height of the schedule ce
 
 ### Column width
 
-You can use the following CSS classes for changing column widths of the scheduler:
+You can use the following CSS classes for changing column widths of the Scheduler:
 
 ```css
 .mbsc-schedule-col-width {
@@ -136,7 +136,7 @@ You can use the following CSS classes for changing column widths of the schedule
 
 ## Resource grouping
 
-The scheduler view can display multiple [resources](resources) inside a single instance. By default the displayed resources will be grouped by the given resources and the grouping can be changed with the [`groupBy`](#opt-groupBy) option, which also supports grouping by date.
+The Scheduler view can display multiple [resources](resources) inside a single instance. By default the displayed resources will be grouped by the given resources and the grouping can be changed with the [`groupBy`](#opt-groupBy) option, which also supports grouping by date.
 
 <div className="img-row">
     <div className="pdg-img">
@@ -217,18 +217,18 @@ mobiscroll.eventcalendar('#scheduler', {
 
 ## Responsiveness
 
-The scheduler is [fully responsive](https://demo.mobiscroll.com/scheduler/responsive-day-week-schedule#). It adapts to the available space and fills the screen to look good everywhere. While you don't have to worry about the width the height can be manually adjusted with the [height](#opt-height) option. This specifies different options for different container widths, in a form of an object, where the keys are the name of the breakpoints, and the values are objects containing the options for the given breakpoint.
+The Scheduler is [fully responsive](https://demo.mobiscroll.com/scheduler/responsive-day-week-schedule#). It adapts to the available space and fills the screen to look good everywhere. While you don't have to worry about the width the height can be manually adjusted with the [height](#opt-height) option. This specifies different options for different container widths, in a form of an object, where the keys are the name of the breakpoints, and the values are objects containing the options for the given breakpoint.
 
 Use the [responsive](#opt-responsive) option to configure how the calendar behaves on different sized screens.
 The responsive option is equipped with five breakpoints:
-- xsmall (up to 575px),
-- small (up to 767px),
-- medium (up to 991px),
-- large (up to 1199px),
-- xlarge (from 1200px).
+- `xsmall` (up to 575px),
+- `small` (up to 767px),
+- `medium` (up to 991px),
+- `large` (up to 1199px),
+- `xlarge` (from 1200px).
 
 Also, custom breakpoints can be added if necessary:
-- my-custom-breakpoint: { breakpoint: 600 } (from 600px up to the next breakpoint).
+- `my-custom-breakpoint: { breakpoint: 600 }` (from 600px up to the next breakpoint).
 
 :::info
 The available width is queried from the container element of the component and not the browsers viewport like in css media queries.
@@ -253,9 +253,9 @@ mobiscroll.eventcalendar('#scheduler', {
 ## Templating
 The display of Scheduler can be customized with different [render functions](#renderers).
 
-### Customizing the event, their content and buffer areas
+### The event, their content and buffer areas
 The events can be customized in two ways:
-- You can use the [renderScheduleEvent](#renderer-renderScheduleEvent) option to customize the events that appear on the scheduler. It should return the markup of the event. The Eventcalendar will take care of the positioning, but anything else you want to show is up to you - like a title, description, color the background or show any content.
+- You can use the [renderScheduleEvent](#renderer-renderScheduleEvent) option to customize the events that appear on the Scheduler. It should return the markup of the event. The Eventcalendar will take care of the positioning, but anything else you want to show is up to you - like a title, description, color the background or show any content.
 - If you are looking to customize only the content and don't want to bother with the styling of the event, you can use the [renderScheduleEventContent](#renderer-renderScheduleEventContent) option. Mobiscroll will position the event to the right place and will render essential information like the color of the event, the time and if it's an all day event or not. The title, description and any other fields you want to show (like participants or an avatar) will be coming from your custom function.
 
 The buffers can be customized through the [renderBufferBefore](#renderer-renderBufferBefore) and [renderBufferAfter](#renderer-renderBufferAfter) options. These can help you visualise delays or added minutes for tasks. For example travel time for meetings/appointments, check in/check out for flights.
@@ -276,10 +276,10 @@ Check out how you can style event, their content and buffer areas in [this examp
   </svg>
 </ImgComparisonSlider>
 
-### Customizing the date header
+### The date header
 There are two approaches you can take:
-- Customize the date headers of the scheduler with the [renderDay](#renderer-renderDay) option by adding relevant content, labels or completely change how they look. It takes a function that should return the desired markup. The Eventcalendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you. The render function will receive an object as parameter. This data can be used to show day specific things on the scheduler.
-- If you are looking to customize only the content and don't want to bother with the styling of the event, you can use the [renderDayContent](#renderer-renderDayContent) option. You will get the styling taken care of by the Eventcalendar, and you can focus on what you show besides the day number a.k.a. the content. The template will receive an object as data. This data can be used to show day specific things on the scheduler.
+- Customize the date headers of the Scheduler with the [renderDay](#renderer-renderDay) option by adding relevant content, labels or completely change how they look. It takes a function that should return the desired markup. The Eventcalendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you. The render function will receive an object as parameter. This data can be used to show day specific things on the Scheduler.
+- If you are looking to customize only the content and don't want to bother with the styling of the event, you can use the [renderDayContent](#renderer-renderDayContent) option. You will get the styling taken care of by the Eventcalendar, and you can focus on what you show besides the day number. The template will receive an object as data. This data can be used to show day specific things on the Scheduler.
 
 Check out how you can style the date header in [this example](https://demo.mobiscroll.com/scheduler/date-header-template#) or just play with the slider below to see the differences.
 
@@ -297,7 +297,7 @@ Check out how you can style the date header in [this example](https://demo.mobis
   </svg>
 </ImgComparisonSlider>
 
-### Customizing the resource header
+### The resource header
 Use the [renderResource](#renderer-renderResource) option to customize the resource template of the Scheduler. Customize how the resource headers look and what they show. Utilize properties passed in the [resources](#opt-resources) array. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well.
 
 Check out how you can style the resources in [this example](https://demo.mobiscroll.com/scheduler/custom-resource-header-template#) or just play with the slider below to see the differences.
@@ -316,12 +316,12 @@ Check out how you can style the resources in [this example](https://demo.mobiscr
   </svg>
 </ImgComparisonSlider>
 
-### Scheduler header
-Customize how the header of the scheduler looks and how the components are arranged with the [renderHeader](#renderer-renderHeader) option. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well as the built in header components of the calendar.
+### The scheduler header
+Customize how the header of the Scheduler looks and how the components are arranged with the [renderHeader](#renderer-renderHeader) option. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well as the built in header components of the calendar.
 
-While fully customizing the header is very usefull, sometimes it's desireable to customize only parts of it. In this case you can take advantage of the default header's building blocks. These components let you put toghether the header you want, while you don't have to worry about the functionality behind them.
+While fully customizing the header is very usefull, sometimes it's desireable to customize only parts of it. In this case you can take advantage of the default header's [building blocks](/javascript/eventcalendar/templating#header-templating). These components let you put toghether the header you want, while you don't have to worry about the functionality behind them.
 
-Check out how you can style the scheduler header in [this example](https://demo.mobiscroll.com/scheduler/customizing-header#) or just play with the slider below to see the differences.
+Check out how you can style the Scheduler header in [this example](https://demo.mobiscroll.com/scheduler/customizing-header#) or just play with the slider below to see the differences.
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
@@ -370,7 +370,7 @@ The Scheduler is fully localized. This covers date and time format, button copy,
 
 ### Renderers
 </div>
-The display of Scheduler can be customized with different render functions.
+The display of the Scheduler can be customized with different render functions.
 
 <Slots />
 

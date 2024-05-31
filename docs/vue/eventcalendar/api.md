@@ -31,12 +31,12 @@ The Eventcalendar is fully localized. This covers date and time format, button c
 <Localizations />
 
 ## Methods
-These methods are actions that can be performed on mobiscroll instance.
+These methods are actions that can be performed on a component instance.
 
 <Methods />
 
 ## Slots
-The display of Eventcalendar can be customized with different slots functions.
+The display of the Eventcalendar can be customized with different slot functions.
 
 <Slots />
 

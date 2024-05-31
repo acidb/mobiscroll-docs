@@ -15,22 +15,22 @@ Here is a comprehensive list of all the options, events and method the Popup com
 <div className="option-list">
 
 ## Options
-Explore the following API options that help you easily configure the Popup.
+Explore the following API options that help you easily configure the Popup component.
 
 <Options />
 
 ## Events
-The Popup ships with different event hooks for deep customization. Events are triggered through the lifecycle of the component where you can tie in custom functionality and code.
+The Popup component ships with different event hooks for deep customization. Events are triggered through the lifecycle of the component where you can tie in custom functionality and code.
 
 <Events />
 
 ## Localization
-The Popup is fully localized. This covers date and time format, button copy, rtl and more.
+The Popup component is fully localized. This covers date and time format, button copy, rtl and more.
 
 <Localizations />
 
 ## Methods
-These methods are actions that can be performed on mobiscroll instance.
+These methods are actions that can be performed on a component instance.
 
 <Methods />
 

@@ -12,17 +12,17 @@ import { ImgComparisonSlider } from '@img-comparison-slider/react';
 
 # Timeline
 
-Use the [timeline view](https://demo.mobiscroll.com/timeline) which features a horizontally scrollable view with multiple resource support for [day, week, work-week, month and year view](https://demo.mobiscroll.com/timeline/multiple-days-weeks-months-quarters-years-variable-resolution) with built in [templating](#templating), [drag & drop](https://demo.mobiscroll.com/timeline/move-resize-drag-drop-to-create-events) and more.
+Use the [Timeline view](https://demo.mobiscroll.com/timeline) which features a horizontally scrollable view with multiple resource support for [day, week, work-week, month and year view](https://demo.mobiscroll.com/timeline/multiple-days-weeks-months-quarters-years-variable-resolution) with built in [templating](#templating), [drag & drop](https://demo.mobiscroll.com/timeline/move-resize-drag-drop-to-create-events) and more.
 
 ## Overview
 
-This timeline view displays a timeline with its related events. You can render the [times/days horizontally and the resources vertically](https://demo.mobiscroll.com/timeline/timeline-time-grid). The timeline can easily accommodate a [large number of resources](https://demo.mobiscroll.com/timeline/loading-big-data-sets) thanks to the vertical scroll that is easy to understand for users. This plays well on larger screens and in landscape containers. [Work hours and work days](https://demo.mobiscroll.com/timeline/switching-day-week-work-week-timeline) along with [disabled time-spans, breaks](https://demo.mobiscroll.com/timeline/colors-invalids-css-class) can be added. Use it to for [advanced tasks](https://demo.mobiscroll.com/timeline/restaurant-shift-management) with built-in drag & drop.
+This Timeline view displays a timeline with its related events. You can render the [times/days horizontally and the resources vertically](https://demo.mobiscroll.com/timeline/timeline-time-grid). The Timeline can easily accommodate a [large number of resources](https://demo.mobiscroll.com/timeline/loading-big-data-sets) thanks to the vertical scroll that is easy to understand for users. This plays well on larger screens and in landscape containers. [Work hours and work days](https://demo.mobiscroll.com/timeline/switching-day-week-work-week-timeline) along with [disabled time-spans, breaks](https://demo.mobiscroll.com/timeline/colors-invalids-css-class) can be added. Use it to for [advanced tasks](https://demo.mobiscroll.com/timeline/restaurant-shift-management) with built-in drag & drop.
 
-By default timeline rows will have variable height and will expand to accommodate the displayed events. But, this can be changed by the `rowHeight` property of the [timeline view](##opt-view) option. [If it is set to equal](https://demo.mobiscroll.com/timeline/timeline-resource-height), the rows will have equal heights, and overlapping events will be distributed evenly to fit in the row.
+By default the Timeline rows will have variable height and will expand to accommodate the displayed events. But, this can be changed by the `rowHeight` property of the [Timeline view](##opt-view) option. [If it is set to equal](https://demo.mobiscroll.com/timeline/timeline-resource-height), the rows will have equal heights, and overlapping events will be distributed evenly to fit in the row.
 
 Also, the `eventList` [property](##opt-view) transforms the event display into a [daily listing mode](https://demo.mobiscroll.com/timeline/event-listing). This view represents a daily summary rather than an hour-by-hour layout.
 
-The capabilities like [recurring events](/react/core-concepts/recurrence), [all-day, multi-day events](#opt-data), [responsiveness](#responsiveness) are supported by the timeline.
+The capabilities like [recurring events](/react/core-concepts/recurrence), [all-day, multi-day events](#opt-data), [responsiveness](#responsiveness) are supported by the Timeline.
 
 ![Timeline overview](/img/timeline-overview.png)
 
@@ -91,11 +91,11 @@ MbscEventcalendarView
 
 ### Event slots
 
-Besides the [`resources`](#opt-resources) which are grouping data for the whole date range, [`slots`](#opt-slots) introduce a horizontal daily grouping in case of the timeline view. Slots can be used alongside resources.
+Besides the [`resources`](#opt-resources) which are grouping data for the whole date range, [`slots`](#opt-slots) introduce a horizontal daily grouping in case of the Timeline view. Slots can be used alongside resources.
 
-The [renderSlot](#renderer-renderSlot) function can be used to customize the slot template of the timeline view.
+The [renderSlot](#renderer-renderSlot) function can be used to customize the slot template of the Timeline view.
 
-When [slots are used](https://demo.mobiscroll.com/timeline/employee-shifts) the timeline view will display in daily listing mode and only the [`dragToMove`](#opt-dragToMove) event iteraction will be available. The [`dragToCreate`](#opt-dragToCreate) and [`dragToResize`](#opt-dragToResize) interactions will be truned off.
+When [slots are used](https://demo.mobiscroll.com/timeline/employee-shifts) the Timeline view will display in daily listing mode and only the [`dragToMove`](#opt-dragToMove) event iteraction will be available. The [`dragToCreate`](#opt-dragToCreate) and [`dragToResize`](#opt-dragToResize) interactions will be truned off.
 
 ```javascript title="Slots used for work shift management"
 function App() {
@@ -118,7 +118,7 @@ function App() {
 
 ### Column width
 
-Setting the timeline grid column widths can be done with the following css rule:
+Setting the Timeline grid column widths can be done with the following css rule:
 
 ```css
 .mbsc-timeline-header-column,
@@ -135,7 +135,7 @@ You need to apply these rules after the mobiscroll default rules, otherwise the 
 
 ### Resource grouping and hierarchy
 
-The timeline view supports resource hierarchy. [Hierarchy groups](https://demo.mobiscroll.com/timeline/resource-grouping-hierarchy) can be defined with the `children` property of the `resource` [object](#opt-resources). Child objects are also resources and have the same properties, thus they can also have children.
+The Timeline view supports resource hierarchy. [Hierarchy groups](https://demo.mobiscroll.com/timeline/resource-grouping-hierarchy) can be defined with the `children` property of the `resource` [object](#opt-resources). Child objects are also resources and have the same properties, thus they can also have children.
 
 ```jsx title="Multi-level hierarchy groups"
 function App() {
@@ -240,7 +240,7 @@ function App() {
 
 ### Resource column width
 
-The width of the resources column on the timeline view is fixed. It can be overwritten from CSS using the following rules:
+The width of the resources column on the Timeline view is fixed. It can be overwritten from CSS using the following rules:
 
 ```css title="Custom resource column width"
 .mbsc-timeline-resource-col {
@@ -293,24 +293,24 @@ There are three CSS classes which can be used for [changing the height of resour
 
 ## Event connections
 
-The timeline view can [display connections between events](https://demo.mobiscroll.com/timeline/connecting-linking-events-arrows). Events will be linked with lines and additionally arrows can be displayed to illustrate the direction of the connection. Events can have multiple connections simultaneously. Connections can be specified with the [`connections`](#opt-connections) option.
+The Timeline view can [display connections between events](https://demo.mobiscroll.com/timeline/connecting-linking-events-arrows). Events will be linked with lines and additionally arrows can be displayed to illustrate the direction of the connection. Events can have multiple connections simultaneously. Connections can be specified with the [`connections`](#opt-connections) option.
 
 ![Timeline event connections](https://mobiscroll.com/Content/img/docs/event-connections.png)
 
 ## Responsiveness
 
-The timeline is fully responsive. It adapts to the available space and fills the screen to look good everywhere. While you don't have to worry about the width the height can be manually adjusted with the [height](#opt-height) option. This specifies different options for different container widths, in a form of an object, where the keys are the name of the breakpoints, and the values are objects containing the options for the given breakpoint.
+The Timeline is fully responsive. It adapts to the available space and fills the screen to look good everywhere. While you don't have to worry about the width the height can be manually adjusted with the [height](#opt-height) option. This specifies different options for different container widths, in a form of an object, where the keys are the name of the breakpoints, and the values are objects containing the options for the given breakpoint.
 
 Use the [responsive](#opt-responsive) option to configure how the calendar behaves on different sized screens.
 The responsive option is equipped with five breakpoints:
-- xsmall (up to 575px),
-- small (up to 767px),
-- medium (up to 991px),
-- large (up to 1199px),
-- xlarge (from 1200px).
+- `xsmall` (up to 575px),
+- `small` (up to 767px),
+- `medium` (up to 991px),
+- `large` (up to 1199px),
+- `xlarge` (from 1200px).
 
 Also, custom breakpoints can be added if necessary:
-- my-custom-breakpoint: { breakpoint: 600 } (from 600px up to the next breakpoint).
+- `my-custom-breakpoint: { breakpoint: 600 }` (from 600px up to the next breakpoint).
 
 :::info
 The available width is queried from the container element of the component and not the browsers viewport like in css media queries.
@@ -344,9 +344,9 @@ The display of Timeline can be customized with different [render functions](#ren
 
 ### The resource, their header and footer
 There are three approaches you can take:
-- Use the [renderResource](#renderer-renderResource) option to customize the resource template of the timeline. Customize how the resource headers look and what they show. Utilize properties passed in the [resources](#opt-resources) array. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well.
+- Use the [renderResource](#renderer-renderResource) option to customize the resource template of the Timeline. Customize how the resource headers look and what they show. Utilize properties passed in the [resources](#opt-resources) array. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well.
 - Customize the empty cell content above the resource column with the [renderResourceHeader](#renderer-renderResourceHeader) option. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well.
-- Or if you want to customize the empty cell content below the resource column you can achieve this with the [renderResourceFooter](#renderer-renderResourceFooter) option. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well. This element only renders for the timeline view, if the [renderDayFooter](#renderer-renderDayFooter) option is present.
+- Or if you want to customize the empty cell content below the resource column you can achieve this with the [renderResourceFooter](#renderer-renderResourceFooter) option. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well. This element only renders for the Timeline view, if the [renderDayFooter](#renderer-renderDayFooter) option is present.
 
 Check out how you can style these resource parts in [this example](https://demo.mobiscroll.com/timeline/timeline-resource-details-side-panel-footer#) or just play with the slider below to see the differences.
 
@@ -366,9 +366,9 @@ Check out how you can style these resource parts in [this example](https://demo.
 
 ### The sidebar, their header and footer
 Besides the resource template, an additional sidebar can be rendered on the opposite end of the row and there are three approaches you can take:
-- Use the [renderSidebar](#renderer-renderSidebar) option to render a custom sidebar on the right side of the timeline. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well. The template will receive the resource object as data. This data can be used to show resource specific things on the sidebar.
-- Customize the empty cell content above the sidebar column with the [renderSidebarHeader](#renderer-renderSidebarHeader) option. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well. This element only renders for the timeline view, if the [renderSidebar](#renderer-renderSidebar) option is present.
-- Or if you want to customize the empty cell content below the sidebar column you can achieve this with the [renderSidebarFooter](#renderer-renderSidebarFooter) option. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well. This element only renders for the timeline view, if the [renderSidebar](#renderer-renderSidebar) option is present.
+- Use the [renderSidebar](#renderer-renderSidebar) option to render a custom sidebar on the right side of the Timeline. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well. The template will receive the resource object as data. This data can be used to show resource specific things on the sidebar.
+- Customize the empty cell content above the sidebar column with the [renderSidebarHeader](#renderer-renderSidebarHeader) option. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well. This element only renders for the Timeline view, if the [renderSidebar](#renderer-renderSidebar) option is present.
+- Or if you want to customize the empty cell content below the sidebar column you can achieve this with the [renderSidebarFooter](#renderer-renderSidebarFooter) option. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well. This element only renders for the Timeline view, if the [renderSidebar](#renderer-renderSidebar) option is present.
 
 Check out how you can style the sidebar parts in [this example](https://demo.mobiscroll.com/timeline/timeline-resource-details-side-panel-footer#) or just play with the slider below to see the differences.
 
@@ -386,11 +386,11 @@ Check out how you can style the sidebar parts in [this example](https://demo.mob
   </svg>
 </ImgComparisonSlider>
 
-### Customizing the date header and footer
+### The date header and footer
 
 The headers hold key information like the date, day of the week and in some cases it also holds the full date. Whenever you need to show extra information, or if you would like to change the styling or date format, time format you can use the various header templates, depending on the view configuration. You can also show a footer element, for displaying more information.
 
-Depending on the resolution, the first timeline row under the navigation header can show a line for each of the following:
+Depending on the resolution, the first Timeline row under the navigation header can show a line for each of the following:
 
 #### Hourly header/footer template
 With an hourly (or sub-hourly) resolution the [renderHour](#renderer-renderHour) and [renderHourFooter](#renderer-renderHourFooter) options can be used for customizing the header and footer.
@@ -496,7 +496,7 @@ With a yearly resolution, the [renderYear](#renderer-renderYear) and [renderYear
 
 Check out how you can style the date header and footer in [this example](https://demo.mobiscroll.com/timeline/hour-day-week-month-quarter-year-header-footer-template#) or just play with the sliders above to see the differences.
 
-### Customizing the event and buffer areas
+### The event and buffer areas
 You can use the [renderScheduleEvent](#renderer-renderScheduleEvent) option to customize the events that appear on the scheduler. It should return the markup of the event. The Eventcalendar will take care of the positioning, but anything else you want to show is up to you - like a title, description, color the background or show any content.
 
 The buffers can be customized through the [renderBufferBefore](#renderer-renderBufferBefore) and [renderBufferAfter](#renderer-renderBufferAfter) options. These can help you visualise delays or added minutes for tasks. For example travel time for meetings/appointments, check in/check out for flights.
@@ -517,7 +517,7 @@ Check out how you can style the events and the buffer areas in [this example](ht
   </svg>
 </ImgComparisonSlider>
 
-### Customizing the event content
+### The event content
 If you are looking to customize only the content and don't want to bother with the styling of the event, you can use the [renderScheduleEventContent](#renderer-renderScheduleEventContent) option. Mobiscroll will position the event to the right place and will render essential information like the color of the event, the time and if it's an all day event or not. The title, description and any other fields you want to show (like participants or an avatar) will be coming from your custom function.
 
 Check out how you can style the event content in [this example](https://demo.mobiscroll.com/timeline/meal-planner#) or just play with the slider below to see the differences.
@@ -536,7 +536,7 @@ Check out how you can style the event content in [this example](https://demo.mob
   </svg>
 </ImgComparisonSlider>
 
-### Customizing the event slots
+### The event slots
 Use the [renderSlot](#renderer-renderSlot) option to customize the slot template of the Timeline view. Customize how the time slots look and what they show. Utilize properties passed in the [slots](#opt-slots) array. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well.
 
 Check out how you can style the slots in [this example](https://demo.mobiscroll.com/timeline/shift-template#) or just play with the slider below to see the differences.
@@ -555,12 +555,12 @@ Check out how you can style the slots in [this example](https://demo.mobiscroll.
   </svg>
 </ImgComparisonSlider>
 
-### Timeline header
-Customize how the header of the timeline looks and how the components are arranged with the [renderHeader](#renderer-renderHeader) option. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well as the built in header components of the calendar.
+### The timeline header
+Customize how the header of the Timeline looks and how the components are arranged with the [renderHeader](#renderer-renderHeader) option. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well as the built in header components of the calendar.
 
-While fully customizing the header is very usefull, sometimes it's desireable to customize only parts of it. In this case you can take advantage of the default header's building blocks. These components let you put toghether the header you want, while you don't have to worry about the functionality behind them.
+While fully customizing the header is very usefull, sometimes it's desireable to customize only parts of it. In this case you can take advantage of the default header's [building blocks](/react/eventcalendar/templating#header-templating). These components let you put toghether the header you want, while you don't have to worry about the functionality behind them.
 
-Check out how you can style the timeline header in [this example](https://demo.mobiscroll.com/timeline/switching-day-week-work-week-timeline) or just play with the slider below to see the differences.
+Check out how you can style the Timeline header in [this example](https://demo.mobiscroll.com/timeline/switching-day-week-work-week-timeline) or just play with the slider below to see the differences.
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
@@ -609,7 +609,7 @@ The Timeline is fully localized. This covers date and time format, button copy, 
 
 ### Renderers
 </div>
-The display of Timeline can be customized with different render functions.
+The display of the Timeline can be customized with different render functions.
 
 <Slots />
 

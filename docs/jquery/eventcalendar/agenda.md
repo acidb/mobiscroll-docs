@@ -12,7 +12,7 @@ import { ImgComparisonSlider } from '@img-comparison-slider/react';
 
 # Agenda
 
-The [agenda calendar](https://demo.mobiscroll.com/agenda) displays a [list of events for a given period of time](https://demo.mobiscroll.com/agenda/daily-weekly-monthly-annual-agenda#) (year, month, week or day). It can be used as a [standalone component](https://demo.mobiscroll.com/agenda/full-event-customization#) or in [combination with the calendar](https://demo.mobiscroll.com/agenda/navigate-from-external-calendar#).
+The [Agenda](https://demo.mobiscroll.com/agenda) displays a [list of events for a given period of time](https://demo.mobiscroll.com/agenda/daily-weekly-monthly-annual-agenda#) (year, month, week or day). It can be used as a [standalone component](https://demo.mobiscroll.com/agenda/full-event-customization#) or in [combination with the calendar](https://demo.mobiscroll.com/agenda/navigate-from-external-calendar#).
 
 ## Overview
 
@@ -94,14 +94,14 @@ The agenda is [fully responsive](https://demo.mobiscroll.com/eventcalendar/respo
 
 Use the [responsive](#opt-responsive) option to configure how the calendar behaves on different sized screens.
 The responsive option is equipped with five breakpoints:
-- xsmall (up to 575px),
-- small (up to 767px),
-- medium (up to 991px),
-- large (up to 1199px),
-- xlarge (from 1200px).
+- `xsmall` (up to 575px),
+- `small` (up to 767px),
+- `medium` (up to 991px),
+- `large` (up to 1199px),
+- `xlarge` (from 1200px).
 
 Also, custom breakpoints can be added if necessary:
-- my-custom-breakpoint: { breakpoint: 600 } (from 600px up to the next breakpoint).
+- `my-custom-breakpoint: { breakpoint: 600 }` (from 600px up to the next breakpoint).
 
 :::info
 The available width is queried from the container element of the component and not the browsers viewport like in css media queries.
@@ -137,7 +137,7 @@ $('#agenda').mobiscroll().eventcalendar({
 ## Templating
 The display of Agenda can be customized with different [render functions](#renderers).
 
-### Customizing the event
+### The event
 Customize the events that appear on the agenda with the [renderEvent](#renderer-renderEvent) option. It should return the markup of the event. The event calendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
 
 Check out how you can style events in [this example](https://demo.mobiscroll.com/agenda/full-event-customization#) or just play with the slider below to see the differences.
@@ -156,8 +156,8 @@ Check out how you can style events in [this example](https://demo.mobiscroll.com
   </svg>
 </ImgComparisonSlider>
 
-### Customizing the event content
-Customize the event content that appears on the agenda by using the [renderEventContent](#renderer-renderEventContent) option. The event calendar will take care of styling and you can focus on what you show inside of the event a.k.a the content.
+### The event content
+Customize the event content that appears on the agenda by using the [renderEventContent](#renderer-renderEventContent) option. The event calendar will take care of styling and you can focus on what you show inside of the event.
 
 Check out how you can style event content in [this example](https://demo.mobiscroll.com/agenda/event-content-customization#) or just play with the slider below to see the differences.
 
@@ -175,10 +175,10 @@ Check out how you can style event content in [this example](https://demo.mobiscr
   </svg>
 </ImgComparisonSlider>
 
-### Agenda header
+### The agenda header
 Customize how the header of the event calendar looks and how the components are arranged with the [renderHeader](#renderer-renderHeader) option. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well as the built in header components of the calendar.
 
-While fully customizing the header is very usefull, sometimes it's desireable to customize only parts of it. In this case you can take advantage of the default header's building blocks. These components let you put toghether the header you want, while you don't have to worry about the functionality behind them.
+While fully customizing the header is very usefull, sometimes it's desireable to customize only parts of it. In this case you can take advantage of the default header's [building blocks](/jquery/eventcalendar/templating#header-templating). These components let you put toghether the header you want, while you don't have to worry about the functionality behind them.
 
 Check out how you can style the header in [this example](https://demo.mobiscroll.com/agenda/customizing-header#) or just play with the slider below to see the differences.
 
@@ -196,7 +196,7 @@ Check out how you can style the header in [this example](https://demo.mobiscroll
   </svg>
 </ImgComparisonSlider>
 
-### Agenda empty state
+### The agenda empty state
 Customize the look of the empty state through [renderAgendaEmpty](#renderer-renderAgendaEmpty) function. Give a more purposeful feedback to the user and optionally add further actions to it. The template can be totally custom or dynamic based on any criteria.
 
 Check out how you can style the empty state in [this example](https://demo.mobiscroll.com/agenda/empty-state#) or just play with the slider below to see the differences.
@@ -248,7 +248,7 @@ The Agenda is fully localized. This covers date and time format, button copy, rt
 
 ### Renderers
 </div>
-The display of Agenda can be customized with different render functions.
+The display of the Agenda can be customized with different render functions.
 
 <Slots />
 

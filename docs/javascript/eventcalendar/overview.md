@@ -6,7 +6,7 @@ displayed_sidebar: javascriptSidebar
 
 # Eventcalendar
 
-The Eventcalendar component supports four highly configurable views: a [calendar view](/javascript/eventcalendar/calendar), a [scheduler with time grid](/javascript/eventcalendar/scheduler), a [timeline](/javascript/eventcalendar/timeline) and an [agenda view](/javascript/eventcalendar/agenda).
+The Eventcalendar component supports four highly configurable views: a [Calendar view](/javascript/eventcalendar/calendar), a [Scheduler with time grid](/javascript/eventcalendar/scheduler), a [Timeline](/javascript/eventcalendar/timeline) and an [Agenda view](/javascript/eventcalendar/agenda).
 
 ## Usage
 
@@ -16,4 +16,4 @@ The following example will create an Eventcalendar with the default options.
 mobiscroll.eventcalendar('#myDiv', {});
 ```
 
-For many more examples - simple and complex use-cases - check out the [event calendar demos](https://demo.mobiscroll.com/eventcalendar).
+For many more examples - simple and complex use-cases - check out the [Eventcalendar demos](https://demo.mobiscroll.com/eventcalendar).

@@ -2,11 +2,12 @@
 sidebar_position: 11
 sidebar_label: Templating
 displayed_sidebar: reactSidebar
+title: Templating
 ---
 
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
 
-# Templating
+## Overview
 
 You can customize many parts of the Eventcalendar by writing custom templates. In React terms these templates are render functions or functional components. You will find a comprehensive list of all the available render functions for the Eventcalendar in the [API renderers](api#renderers) section.
 

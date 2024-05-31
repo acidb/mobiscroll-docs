@@ -2,11 +2,12 @@
 sidebar_position: 11
 sidebar_label: Templating
 displayed_sidebar: vueSidebar
+title: Templating
 ---
 
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
 
-# Templating
+## Overview
 
 You can customize many parts of the Eventcalendar by writing custom templates. In Vue terms these templates are called named slots. You will find a comprehensive list of all the named slots available for the Eventcalendar in the [API slots](api#slots) section.
 

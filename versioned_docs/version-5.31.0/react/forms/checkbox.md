@@ -1,0 +1,64 @@
+---
+sidebar_label: Checkbox
+displayed_sidebar: reactSidebar
+---
+
+import Options from '../\_auto-generated/checkbox/options.md';
+import Events from '../\_auto-generated/checkbox/events.md';
+import Localizations from '../\_auto-generated/checkbox/localizations.md';
+
+# Checkbox
+
+Checkboxes allow the selection of multiple options from a set. They appear as checked when activated.
+
+## Usage
+
+Use the [`label`](#opt-label) option to provide a label to the checkbox.
+The checkbox can be positioned before or after the label using the [`position`](#opt-position) option.
+
+```jsx
+import { Checkbox } from '@mobiscroll/react';
+
+function App() {
+  return <>
+    <Checkbox label="Checkbox" />
+    <Checkbox label="Checkbox at the start" position="start" />
+    <Checkbox label="Checkbox at the end" position="end" />
+  </>
+}
+```
+
+## Value binding
+
+Use the [`checked`](#opt-checked) and the [`onChange`](#events-onChange) props to work with the checkbox in a controlled way or the [`defaultChecked`](#opt-defaultChecked) prop in an uncontrolled way.
+
+```jsx
+import { useState } from 'react';
+import { Checkbox } from '@mobiscroll/react';
+
+function App() {
+  const [myIsChecked, setChecked] = useState(false);
+  const myChange = (ev) => {
+    setChecked(ev.target.checked);
+  }
+  return <>
+    <Checkbox label="Checkbox" checked={myIsChecked} onChange={myChange} />
+  </>
+}
+```
+
+<div className="option-list">
+
+## Options
+
+<Options />
+
+## Events
+
+<Events />
+
+## Localization
+
+<Localizations />
+
+</div>

@@ -37,7 +37,7 @@ Before you can use the custom theme, you will also need to register it in your j
 
 
 <Tabs>
-<TabItems value="module" label="app.module.ts">
+<TabItem value="module" label="app.module.ts">
 
 ```js
 import { createCustomTheme } from '@mobiscroll/angular';
@@ -46,15 +46,15 @@ import { createCustomTheme } from '@mobiscroll/angular';
 createCustomTheme('my-happy-brand', 'ios');
 ```
 
-</TabItems>
-<TabItems value="html" label="app.component.html">
+</TabItem>
+<TabItem value="html" label="app.component.html">
 
 ```html
 <mbsc-datepicker theme="my-happy-brand"></mbsc-datepicker>
 <mbsc-eventcalendar theme="my-happy-brand"></mbsc-eventcalendar>
 ```
 
-</TabItems>
+</TabItem>
 </Tabs>
 
 

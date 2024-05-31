@@ -1,0 +1,15 @@
+import CodeBlock from '@theme/CodeBlock';
+
+To install the Mobiscroll library from NPM, you will need to open a terminal window in the root folder of you project and run the following command:
+
+<CodeBlock language="bash">
+mobiscroll config {props.framework}
+</CodeBlock>
+
+:::info
+If you're working behind a proxy, additional configuration might be needed. Please check the [proxy configuration options](https://docs.mobiscroll.com/cli#proxy) of the CLI.
+:::
+
+:::info
+The package will be installed from a private npm registry, which requires authentication. If your project uses a CI/CD workflow, [read this guide](http://help.mobiscroll.com/en/articles/1195431-installing-mobiscroll-with-npm#setting-up-for-cicd) on how to make it work.
+:::

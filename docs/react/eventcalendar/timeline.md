@@ -4,6 +4,7 @@ sidebar_label: Timeline
 displayed_sidebar: reactSidebar
 ---
 
+import VariableEventHeight from '../../\_shared/eventcalendar/variable-event-height.mdx';
 import Options from '../\_auto-generated/eventcalendar/options_timeline.md';
 import Events from '../\_auto-generated/eventcalendar/events_timeline.md';
 import Localizations from '../\_auto-generated/eventcalendar/localizations_timeline.md';
@@ -575,6 +576,10 @@ Check out how you can style the Timeline header in [this example](https://demo.m
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+
+### Variable event height (experimental) {#variable-event-height}
+
+<VariableEventHeight />
 
 <div className="option-list">
 

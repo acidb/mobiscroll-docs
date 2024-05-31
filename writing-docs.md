@@ -10,6 +10,7 @@ Prefixes for hash links:
 * #method- for methods
 * #renderer- for render functions
 * #template- for template references in angular
+* #slot- for vue slots
 
 When writing **option references** include the option name __only__ to the link text. Always put the option name in code tags.
 For example:

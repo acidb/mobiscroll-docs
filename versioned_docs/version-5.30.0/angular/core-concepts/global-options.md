@@ -1,4 +1,5 @@
 ---
+sidebar_position: 2
 sidebar_label: Global options
 displayed_sidebar: angularSidebar
 ---
@@ -10,7 +11,7 @@ import SetOptionsDescription from '../../_shared/core-concepts/global_setoptions
 
 # Global options
 
-## The setOptions function
+## The `setOptions` function
 
 <SetOptionsDescription />
 

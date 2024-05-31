@@ -124,14 +124,17 @@ $.get('/myform', function (responseHtml) {
 <div className="option-list">
 
 ## Options
+Explore the following API options that help you easily configure the Segmented component.
 
 <Options />
 
 ## Events
+The Segmented component ships with different event hooks for deep customization. Events are triggered through the lifecycle of the component where you can tie in custom functionality and code.
 
 <Events />
 
 ## Localization
+The Segmented component is fully localized. This covers date and time format, button copy, rtl and more.
 
 <Localizations />
 

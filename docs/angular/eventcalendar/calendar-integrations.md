@@ -2,6 +2,7 @@
 sidebar_position: 13
 sidebar_label: Calendar integrations
 displayed_sidebar: angularSidebar
+title: Third party calendar integration
 ---
 
 import GoogleMethods from '../_auto-generated/googlecalendar/methods.md';
@@ -14,9 +15,13 @@ import OutlookOptions from '../_auto-generated/outlookcalendar/options.md';
 import CalIntInstall from '../../_shared/eventcalendar/cal-int-install.mdx';
 import CalIntServer from '../../_shared/eventcalendar/cal-int-server.mdx';
 
-# Third party calendar integration
+## Overview
 
 The Calendar Integration is an optional plugin, that includes synchronization with your Google and Outlook calendar services. It can be installed and used with the Mobiscroll Event Calendar as described below.
+
+:::info
+Currently, the calendar integration plugins cannot be used in Chrome extensions, because the CSP rules do not allow loading scripts from 3rd party domains. 
+:::
 
 ## Installing the Calendar Integration Plugin
 

@@ -9,11 +9,11 @@ import Localizations from '../\_auto-generated/alert/localizations.md';
 
 # Alert
 
-An alert dialog notifies or warns the user about something. It displays a single button which closes the alert.
+An Alert dialog notifies or warns the user about something. It displays a single button which closes the Alert component.
 
 ## Usage
 
-The following example displays an alert message:
+The following example displays an Alert message:
 
 ```js
 mobiscroll.alert({
@@ -25,14 +25,17 @@ mobiscroll.alert({
 <div className="option-list">
 
 ## Options
+Explore the following API options that help you easily configure the Alert component.
 
 <Options />
 
 ## Localization
+The Alert component is fully localized. This covers date and time format, button copy, rtl and more.
 
 <Localizations />
 
 ## Events
+The Alert component ships with different event hooks for deep customization. Events are triggered through the lifecycle of the component where you can tie in custom functionality and code.
 
 <Events />
 

@@ -1,9 +1,11 @@
 ---
+sidebar_position: 3
 sidebar_label: Instance
 displayed_sidebar: jquerySidebar
+title: Instance
 ---
 
-# Instance
+## Overview
 
 In object-oriented programming (OOP), an instance is a specific realization of a class. Similarly, in the scope
 of the Mobiscroll library, a component instance is a realization of the component class.
@@ -11,7 +13,6 @@ of the Mobiscroll library, a component instance is a realization of the componen
 The instantiation (the creation of objects from a class) in case of the Mobiscroll components is done when the intialization function is called.
 
 ## Getting the instance
-
 
 ### Inside events
 
@@ -25,7 +26,7 @@ $('#my-div').mobiscroll().eventcalendar({
 });
 ```
 
-### The getInst method
+### The `getInst` method
 
 A reference to the component instance is returned by the `getInst` function:
 

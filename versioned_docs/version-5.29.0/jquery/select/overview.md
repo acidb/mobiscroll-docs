@@ -6,7 +6,7 @@ displayed_sidebar: jquerySidebar
 
 # Select
 
-The Select component lets you pick a single value or multiple values from a list of options.
+The Select component lets you pick a [single value](https://demo.mobiscroll.com/select/single-select#) or [multiple values](https://demo.mobiscroll.com/select/multiple-select#) from a list of options.
 
 ## Usage
 
@@ -26,3 +26,5 @@ $('#myInp').mobiscroll().select({
   ]
 });
 ```
+
+For many more examples - simple and complex use-cases - check out the [select demos](https://demo.mobiscroll.com/select).

@@ -16,7 +16,7 @@ Use the [Scheduler view](https://demo.mobiscroll.com/scheduler) which features a
 
 ## Overview
 
-The Scheduler displays a time grid with its related events. It can be configured as a [daily, weekly or monthly schedule]((https://demo.mobiscroll.com/scheduler/show-hide-hours-days)). [Work hours and work days](https://demo.mobiscroll.com/scheduler/work-week-hours) along with [disabled time-spans, breaks](https://demo.mobiscroll.com/scheduler/time-off-blocked-ranges) can be added. Use it for [advanced scheduling tasks](https://demo.mobiscroll.com/scheduler/doctors-appointment) with built-in drag & drop.
+The Scheduler displays a time grid with its related events. It can be configured as a [daily, weekly or monthly schedule](https://demo.mobiscroll.com/scheduler/show-hide-hours-days). [Work hours and work days](https://demo.mobiscroll.com/scheduler/work-week-hours) along with [disabled time-spans, breaks](https://demo.mobiscroll.com/scheduler/time-off-blocked-ranges) can be added. Use it for [advanced scheduling tasks](https://demo.mobiscroll.com/scheduler/doctors-appointment) with built-in drag & drop.
 
 The capabilities like [recurring events](/jquery/core-concepts/recurrence), [all-day, multi-day events](#opt-data), [responsiveness](#responsiveness) are supported by the Scheduler.
 

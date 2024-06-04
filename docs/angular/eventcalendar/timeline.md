@@ -186,7 +186,7 @@ The timeline view can display connections between events. Events will be linked 
 
 ## Event order
 
-The rendered event order is determined by two key concepts:
+The rendered event order is determined by the following two concepts:
 
  1. Event data order
  2. Event layout

@@ -158,7 +158,7 @@ You can use the following CSS classes for changing column widths of the schedule
 
 ## Event order
 
-The rendered event order is determined by two key concepts:
+The rendered event order is determined by the following two concepts:
 
  1. Event data order
  2. Event layout

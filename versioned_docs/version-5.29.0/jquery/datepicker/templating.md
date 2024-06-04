@@ -5,6 +5,7 @@ displayed_sidebar: jquerySidebar
 ---
 
 # Templating
+The display of the Datepicker picker component can be customized with different [render functions](api#renderers).
 
 ## Calendar header template
 
@@ -41,6 +42,7 @@ $('#myInput').mobiscroll().datepicker({
   }
 });
 ```
+![Calendar header template](/img/calendar-header-template.png)
 
 ## Calendar cell template
 
@@ -57,3 +59,4 @@ $('#myInput').mobiscroll().datepicker({
   }
 });
 ```
+![Calendar cell template](/img/calendar-cell-template.png)

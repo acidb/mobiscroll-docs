@@ -6,6 +6,8 @@ displayed_sidebar: vueSidebar
 
 # Templating
 
+The display of the Datepicker component can be customized with different [slot functions](api#slots).
+
 ## Calendar header template
 
 The header of the calendar can be fully customized to one's needs with the use of the [`calendarHeader`](api#slot-calendarHeader) slot.
@@ -41,6 +43,7 @@ The above components can be used inside of the custom header. The following exam
   </template>
 </MbscDatepicker>
 ```
+![Calendar header template](/img/calendar-header-template.png)
 
 ## Calendar cell template
 
@@ -57,3 +60,4 @@ In the case of the `day` slot however, both the styling and the content (the dat
   </template>
 </MbscDatepicker>
 ```
+![Calendar cell template](/img/calendar-cell-template.png)

@@ -44,14 +44,17 @@ function App() {
 <div className="option-list">
 
 ## Options
+Explore the following API options that help you easily configure the Prompt component.
 
 <Options />
 
 ## Localization
+The Prompt component is fully localized. This covers date and time format, button copy, rtl and more.
 
 <Localizations />
 
 ## Events
+The Prompt component ships with different event hooks for deep customization. Events are triggered through the lifecycle of the component where you can tie in custom functionality and code.
 
 <Events />
 

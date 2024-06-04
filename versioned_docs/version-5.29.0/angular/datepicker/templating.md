@@ -6,6 +6,8 @@ displayed_sidebar: angularSidebar
 
 # Templating
 
+The display of the Datepicker component can be customized with different [templating functions](api#templates).
+
 ## Calendar header template
 
 The header of the calendar can be fully customized to one's needs with the use of the [`calendarHeaderTemplate`](api#template-calendarHeaderTemplate) option.
@@ -48,6 +50,7 @@ export class YourComponent {
   myTitle = 'My Custom Title';
 }
 ```
+![Calendar header template](/img/calendar-header-template.png)
 
 ## Calendar cell template
 
@@ -64,3 +67,4 @@ In the case of the `dayTemplate` option however, both the styling and the conten
   </ng-template>
 </mbsc-datepicker>
 ```
+![Calendar cell template](/img/calendar-cell-template.png)

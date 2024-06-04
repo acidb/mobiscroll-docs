@@ -6,6 +6,8 @@ displayed_sidebar: reactSidebar
 
 # Templating
 
+The display of the Datepicker component can be customized with different [render functions](api#renderers).
+
 ## Calendar header template
 
 The header of the calendar can be fully customized to one's needs with the use of the [`renderCalendarHeader`](api#renderer-renderCalendarHeader) option.
@@ -48,6 +50,7 @@ function App(props) {
   return <Datepicker renderCalendarHeader={myHeader} />
 }
 ```
+![Calendar header template](/img/calendar-header-template.png)
 
 ## Calendar cell template
 
@@ -65,3 +68,4 @@ function App() {
   return <Datepicker renderDay={day} />
 }
 ```
+![Calendar cell template](/img/calendar-cell-template.png)

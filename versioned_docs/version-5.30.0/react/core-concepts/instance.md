@@ -1,9 +1,11 @@
 ---
+sidebar_position: 3
 sidebar_label: Instance
 displayed_sidebar: reactSidebar
+title: Instance
 ---
 
-# Instance
+## Overview
 
 In object-oriented programming (OOP), an instance is a specific realization of a class. Similarly, in the scope
 of the Mobiscroll library, a component instance is a realization of the component class.

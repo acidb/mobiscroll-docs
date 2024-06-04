@@ -9,7 +9,7 @@ import Localizations from '../\_auto-generated/radio/localizations.md';
 
 # Radio button
 
-Radio buttons are used when the user needs to select one option from a set.
+Radio button component is used when the user needs to select one option from a set.
 
 This UI component is best used when there is enough space, since all the options are visible at once.
 If you need to save space, a better UI choice would be the [Dropdown](./dropdown) component,
@@ -17,7 +17,7 @@ which only displays the selected option and the others are only visible on selec
 
 ## Usage
 
-Radio buttons can be used individually or can be grouped logically inside a Radio Group component. The Radio Group component, also helps to specify the group name only once, otherwise it needs to be added to every radio button.
+Radio button component can be used individually or can be grouped logically inside a Radio Group component. The Radio Group component, also helps to specify the group name only once, otherwise it needs to be added to every Radio button.
 
 ```html
 <mbsc-radio value="1" name="myRadio" label="One"></mbsc-radio>
@@ -33,7 +33,7 @@ Radio buttons can be used individually or can be grouped logically inside a Radi
 
 ## Value binding
 
-Radio buttons can be bound to a string value using either the `[(ngModel)]` or the `formControlName` directives. These directives can be used individually on every radio button component or can be applied to the radio group.
+Radio button component can be bound to a string value using either the `[(ngModel)]` or the `formControlName` directives. These directives can be used individually on every Radio button component or can be applied to the radio group.
 
 ```html
 <div>
@@ -63,14 +63,17 @@ export class MyComponent {
 <div className="option-list">
 
 ## Options
+Explore the following API options that help you easily configure the Radio button component.
 
 <Options />
 
 ## Events
+The Radio button component ships with different event hooks for deep customization. Events are triggered through the lifecycle of the component where you can tie in custom functionality and code.
 
 <Events />
 
 ## Localization
+The Radio button component is fully localized. This covers date and time format, button copy, rtl and more.
 
 <Localizations />
 

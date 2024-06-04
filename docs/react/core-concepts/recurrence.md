@@ -1,4 +1,5 @@
 ---
+sidebar_position: 4
 sidebar_label: Recurrence
 displayed_sidebar: reactSidebar
 title: Recurrence

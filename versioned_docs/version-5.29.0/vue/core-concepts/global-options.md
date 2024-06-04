@@ -1,4 +1,5 @@
 ---
+sidebar_position: 2
 sidebar_label: Global options
 displayed_sidebar: vueSidebar
 ---

@@ -140,15 +140,15 @@ The Scheduler view can display multiple [resources](resources) inside a single i
 
 <div className="img-row">
     <div className="pdg-img">
-        <img src="https://docs.mobiscroll.com/Content/img/docs/groupbydate.png" />
+        <img src="/img/groupbydate.png" />
         <label className="img-label">Resources grouped by date</label>
     </div>
     <div className="pdg-img">
-        <img src="https://docs.mobiscroll.com/Content/img/docs/groupbyresource.png" />
+        <img src="/img/groupbyresource.png" />
         <label className="img-label">Resources grouped by resource</label>
     </div>
     <div className="pdg-img">
-        <img src="https://docs.mobiscroll.com/Content/img/docs/groupbydayview.png" />
+        <img src="/img/groupbydayview.png" />
         <label className="img-label">Resources grouped by day view</label>
     </div>
 </div>
@@ -264,11 +264,11 @@ Check out how you can style event, their content and buffer areas in [this examp
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="100%" src={require('@site/static/img/normal-event-buffer-templating-scheduler.png').default} />
+    <img width="1480" height="975" src={require('@site/static/img/normal-event-buffer-templating-scheduler.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="100%" src={require('@site/static/img/event-buffer-templating-scheduler.png').default} />
+    <img width="1479" height="975" src={require('@site/static/img/event-buffer-templating-scheduler.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
@@ -285,11 +285,11 @@ Check out how you can style the date header in [this example](https://demo.mobis
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="100%" src={require('@site/static/img/normal-date-header-template-scheduler.png').default} />
+    <img width="1480" height="575" src={require('@site/static/img/normal-date-header-template-scheduler.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="100%" src={require('@site/static/img/date-header-template-scheduler.png').default} />
+    <img width="1480" height="575" src={require('@site/static/img/date-header-template-scheduler.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
@@ -304,11 +304,11 @@ Check out how you can style the resources in [this example](https://demo.mobiscr
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="100%" src={require('@site/static/img/normal-resource-template-scheduler.png').default} />
+    <img width="1480" height="753" src={require('@site/static/img/normal-resource-template-scheduler.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="100%" src={require('@site/static/img/resource-template-scheduler.png').default} />
+    <img width="1480" height="753" src={require('@site/static/img/resource-template-scheduler.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
@@ -325,11 +325,11 @@ Check out how you can style the Scheduler header in [this example](https://demo.
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="100%" src={require('@site/static/img/normal-header-template-scheduler.png').default} />
+    <img width="1480" height="625" src={require('@site/static/img/normal-header-template-scheduler.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="100%" src={require('@site/static/img/header-template-scheduler.png').default} />
+    <img width="1480" height="625" src={require('@site/static/img/header-template-scheduler.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">

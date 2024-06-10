@@ -19,6 +19,10 @@ Mobiscroll for React is a collection of React Components that take advantage of 
 Mobiscroll requires React v16.2.0 or newer
 :::
 
+:::info Bundled open source libraries
+Mobiscroll ships with the following open source libraries included in the package: [tslib](https://www.npmjs.com/package/tslib).
+:::
+
 <SupportedPlatforms />
 
 ## Introduction

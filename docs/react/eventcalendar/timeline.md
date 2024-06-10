@@ -300,7 +300,7 @@ There are three CSS classes which can be used for [changing the height of resour
 
 The Timeline view can [display connections between events](https://demo.mobiscroll.com/timeline/connecting-linking-events-arrows). Events will be linked with lines and additionally arrows can be displayed to illustrate the direction of the connection. Events can have multiple connections simultaneously. Connections can be specified with the [`connections`](#opt-connections) option.
 
-![Timeline event connections](/img/timeline-event-connections.png)
+![Timeline event connections](/img/event-connections.png)
 
 ## Responsiveness
 

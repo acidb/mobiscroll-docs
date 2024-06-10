@@ -14,6 +14,10 @@ import SupportedPlatforms from '../../\_shared/getting-started/supported_platfor
 Mobiscroll has official support for the Vue 3 library. Mobiscroll for Vue ships native Vue components.
 It shares a common core with the other supported frameworks and libraries, but uses Vue's rendering and reactivity model for a perfect fit in a Vue application.
 
+:::info Bundled open source libraries
+Mobiscroll ships with the following open source libraries included in the package: [tslib](https://www.npmjs.com/package/tslib).
+:::
+
 <SupportedPlatforms />
 
 ## Introduction

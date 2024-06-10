@@ -19,6 +19,10 @@ Mobiscroll for jQuery lets you use all Mobiscroll Controlls in a jQuery fashion.
 Mobiscroll requires jQuery v1.7 or newer
 :::
 
+:::info Bundled open source libraries
+Mobiscroll ships with the following open source libraries included in the package: [tslib](https://www.npmjs.com/package/tslib), [preact](https://www.npmjs.com/package/preact).
+:::
+
 <SupportedPlatforms />
 
 ## Introduction

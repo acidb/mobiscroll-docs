@@ -146,11 +146,11 @@ Check out how you can style events in [this example](https://demo.mobiscroll.com
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="100%" src={require('@site/static/img/normal-event-templating-agenda.png').default} />
+    <img width="1256" height="891" src={require('@site/static/img/normal-event-templating-agenda.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="100%" src={require('@site/static/img/event-templating-agenda.png').default} />
+    <img width="1256" height="891" src={require('@site/static/img/event-templating-agenda.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
@@ -165,11 +165,11 @@ Check out how you can style event content in [this example](https://demo.mobiscr
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="100%" src={require('@site/static/img/normal-event-content-template-agenda.png').default} />
+    <img width="1256" height="528" src={require('@site/static/img/normal-event-content-template-agenda.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="100%" src={require('@site/static/img/event-content-templating-agenda.png').default} />
+    <img width="1256" height="528" src={require('@site/static/img/event-content-templating-agenda.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
@@ -186,11 +186,11 @@ Check out how you can style the header in [this example](https://demo.mobiscroll
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="100%" src={require('@site/static/img/normal-header-templating-agenda.png').default} />
+    <img width="1241" height="622" src={require('@site/static/img/normal-header-templating-agenda.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="100%" src={require('@site/static/img/header-templating-agenda.png').default} />
+    <img width="1241" height="622" src={require('@site/static/img/header-templating-agenda.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
@@ -205,11 +205,11 @@ Check out how you can style the empty state in [this example](https://demo.mobis
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="100%" src={require('@site/static/img/normal-empty-state-agenda.png').default} />
+    <img width="1256" height="605" src={require('@site/static/img/normal-empty-state-agenda.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="100%" src={require('@site/static/img/empty-state-agenda.png').default} />
+    <img width="1256" height="605" src={require('@site/static/img/empty-state-agenda.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">

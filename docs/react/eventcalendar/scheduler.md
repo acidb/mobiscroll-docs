@@ -144,15 +144,15 @@ The Scheduler view can display multiple [resources](resources) inside a single i
 
 <div className="img-row">
     <div className="pdg-img">
-        <img src="/img/groupbydate.png" />
+        <img width="1000" height="595" src={require('@site/static/img/groupbydate.png').default} /> 
         <label className="img-label">Resources grouped by date</label>
     </div>
     <div className="pdg-img">
-        <img src="/img/groupbyresource.png" />
+        <img width="1000" height="616" src={require('@site/static/img/groupbyresource.png').default} />
         <label className="img-label">Resources grouped by resource</label>
     </div>
     <div className="pdg-img">
-        <img src="/img/groupbydayview.png" />
+        <img width="1000" height="577" src={require('@site/static/img/groupbydayview.png').default} />
         <label className="img-label">Resources grouped by day view</label>
     </div>
 </div>

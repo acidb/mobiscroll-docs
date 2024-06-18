@@ -95,6 +95,12 @@ function App() {
 }
 ```
 
+:::info Note
+The `allDay` events by definition are tied to a day, and they don't respect timezones intentionally. 
+
+For example: you can think of them as an event that happens on a specific day, like a birthday. If you have your birthday on the 5th of October, that means in every timezone on the 5th of October you can party! 
+:::
+
 ## Exclusive end dates
 
 <ExclusiveEndDatesContent />

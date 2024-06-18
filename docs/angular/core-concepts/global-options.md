@@ -11,7 +11,7 @@ import SetOptionsDescription from '../../_shared/core-concepts/global_setoptions
 
 # Global options
 
-## The `setOptions` function
+## The setOptions function
 
 <SetOptionsDescription />
 

@@ -5,18 +5,32 @@ displayed_sidebar: javascriptSidebar
 title: Localization
 ---
 
-import Localization from '../../_shared/core-concepts/localization.mdx';
-import { toc as dataTOC } from '../../_shared/core-concepts/localization.mdx';
+import LocalizationOverview from '../../_shared/core-concepts/localization_overview.mdx';
 
-export const toc = [...dataTOC, { value: 'Language modules', level: 2, id: 'language-modules'}];
+import LocalizationAlloptions from '../../_shared/core-concepts/localization_alloptions.mdx';
 
-<Localization />
+import LocalizationAllcomponentsList from '../../_shared/core-concepts/localization_allcomponents_list.mdx';
+
+import { toc as dataTOC } from '../../_shared/core-concepts/localization_overview.mdx';
+
+export const toc = [...dataTOC, 
+  { value: 'Language modules', level: 2, id: 'language-modules'},
+  { value: 'Using the locale option', level: 3, id: 'using-the-locale-option'},
+  { value: 'Creating custom locale option', level: 3, id: 'creating-custom-locale-option'},
+  { value: 'Creating custom language module', level: 3, id: 'creating-custom-language-module'},
+  { value: 'Localization options', level: 3, id: 'localization-options'},
+  { value: 'Localization options for components', level: 2, id: 'localization-options-for-components'}
+];
+
+<LocalizationOverview />
 
 <h2 id="language-modules">Language modules</h2>
 
-We offer and support a number of translations for the Mobiscroll library. If you don't find the language you're looking for, no problem. It's easy to create a language module that you can use.
+We offer and [support a number of translations](../core-concepts/localization#localization-locale) for the Mobiscroll library. If you don't find the language you're looking for, no problem. It's easy to [create a language module](../core-concepts/localization#creating-custom-language-module) that you can use.
 
-The `locale` option can be used to set the language of a component. It takes an object, that should contain the translations of the texts used in the component. The supported languages can be set directly from the mobiscroll bundle.
+<h3 id="using-the-locale-option">Using the locale option</h3>
+
+The `locale` [option](../core-concepts/localization#localization-locale) can be used to set the language of a component. It takes an object, that should contain the translations of the texts used in the component. The supported languages can be set directly from the mobiscroll bundle.
 
 ```javascript title='Locale option usage'
 mobiscroll.eventcalendar('#myexample', {
@@ -24,7 +38,9 @@ mobiscroll.eventcalendar('#myexample', {
 });
 ```
 
-Creating your own locale object is simple as creating an object in JavaScript. For example, the Cancel button on many Mobiscroll components uses the `cancelText` property. If you want to provide a translation for it, the locale object would look like this:
+<h3 id="creating-custom-locale-option">Creating custom locale option</h3>
+
+Creating your own locale object is simple as creating an object in JavaScript. For example, the Cancel button on many Mobiscroll components uses the `cancelText` [property](../core-concepts/localization#localization-cancelText). If you want to provide a translation for it, the locale object would look like this:
 
 ```javascript title='Creating a locale object'
 var myLocale = {
@@ -36,7 +52,7 @@ mobiscroll.eventcalendar('#myexample', {
 });
 ```
 
-The exact properties for each component can be found [above](#localization-options-for-components).
+The exact properties for each component can be found [below](#localization-options-for-components).
 
 For typescript environments, the `MbscLocale` type can also be used as the base type for the locale object.
 
@@ -48,6 +64,8 @@ const myLocale: MbscLocale = {
     cancelText: 'Mégse'
 };
 ```
+
+<h3 id="creating-custom-language-module">Creating custom language module</h3>
 
 Here's a template to use for the locale object:
 
@@ -94,3 +112,11 @@ var myLocale = {
     moreEventsText: '{count} további',
 }
 ```
+
+<h3 id="localization-options">Localization options</h3>
+
+<LocalizationAlloptions />
+
+<h2 id="localization-options-for-components">Localization options for components</h2>
+
+<LocalizationAllcomponentsList />

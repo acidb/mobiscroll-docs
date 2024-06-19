@@ -70,7 +70,7 @@ export class MyComponent {
 
 <div className="option-list no-padding">
 
-<h3 id="#opt-view">view</h3>
+<h3 id="opt-view">view</h3>
 
 MbscEventcalendarView
 
@@ -157,11 +157,11 @@ Check out how you can style labels and their content in [this example](https://d
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="100%" src={require('@site/static/img/normal-label-content-calendar.png').default} />
+    <img width="1256" height="547" src={require('@site/static/img/normal-label-content-calendar.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="100%" src={require('@site/static/img/label-content-calendar.png').default} />
+    <img width="1256" height="547" src={require('@site/static/img/label-content-calendar.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
@@ -178,11 +178,11 @@ Check out how you can style events and their content in [this example](https://d
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="100%" src={require('@site/static/img/normal-event-content-calendar.png').default} />
+    <img width="1256" height="373" src={require('@site/static/img/normal-event-content-calendar.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="100%" src={require('@site/static/img/event-content-calendar.png').default} />
+    <img width="1256" height="373" src={require('@site/static/img/event-content-calendar.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
@@ -199,11 +199,11 @@ Check out how you can style the header in [this example](https://demo.mobiscroll
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="100%" src={require('@site/static/img/normal-header-calendar.png').default} />
+    <img width="1256" height="547" src={require('@site/static/img/normal-header-calendar.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="100%" src={require('@site/static/img/header-calendar.png').default} />
+    <img width="1256" height="547" src={require('@site/static/img/header-calendar.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">

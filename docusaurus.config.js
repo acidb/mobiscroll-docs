@@ -107,7 +107,8 @@ const config = {
           },
           {
             type: 'dropdown',
-            label: 'Legacy docs',
+            label: 'Older versions',
+            position: 'right',
             items: [
               {
                 label: 'Version 4.10.10',
@@ -119,11 +120,11 @@ const config = {
               },
             ]
           },
-          {
-            href: 'https://docs.mobiscroll.com/cli',
-            label: 'CLI',
-            position: 'right',
-          },
+          // {
+          //   href: 'https://docs.mobiscroll.com/cli',
+          //   label: 'CLI',
+          //   position: 'right',
+          // },
           {
             type: 'dropdown',
             label: 'Community',

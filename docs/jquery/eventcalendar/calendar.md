@@ -62,7 +62,7 @@ $('#calendar').mobiscroll().eventcalendar({
 
 <div className="option-list no-padding">
 
-<h3 id="#opt-view">view</h3>
+<h3 id="opt-view">view</h3>
 
 MbscEventcalendarView
 

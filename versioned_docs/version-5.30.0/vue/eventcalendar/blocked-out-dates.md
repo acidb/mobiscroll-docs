@@ -50,7 +50,5 @@ const invalid = [
 ];
 ```
 
-<div className="pdg-img">
-    <img src="https://docs.mobiscroll.com/Content/img/docs/blocked-out-dates.gif" alt="Eventcalendar blocked out dates" />
-    <label className="img-label">Eventcalendar blocked out dates</label>
-</div>
+![Eventcalendar blocked out dates](/img/blocked-out-dates.gif)
+<label className="img-label">Eventcalendar blocked out dates</label>

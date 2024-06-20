@@ -9,6 +9,7 @@ import TrialStart from '../../\_shared/getting-started/starting_trial.mdx';
 import InstallNpm from '../../\_shared/getting-started/install_npm.mdx';
 import InstallDownload from '../../\_shared/getting-started/install_download.mdx';
 import ImportStyles from '../../\_shared/getting-started/import_styles.mdx';
+import CiCdUsage from '../../\_shared/getting-started/cicd_usage.mdx';
 
 # Getting started with Mobiscroll for jQuery
 
@@ -34,6 +35,10 @@ To install the Mobiscroll library to your web application, you will need the Mob
 <InstallNpm framework="jquery" />
 
 <ImportStyles framework="jquery" />
+
+## Setting up for CI/CD
+
+<CiCdUsage/>
 
 ### Registering components
 
@@ -73,7 +78,7 @@ $('#my-div').mobiscroll().eventcalendar({
 });
 ```
 
-## Installing a downloaded package
+## Installing manually
 
 A downloaded package can be installed into a webapp with module loaders as well as a simple web page by including the code into the html.
 

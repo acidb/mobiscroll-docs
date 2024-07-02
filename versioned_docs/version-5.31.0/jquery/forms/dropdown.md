@@ -1,0 +1,57 @@
+---
+sidebar_label: Dropdown
+displayed_sidebar: jquerySidebar
+---
+
+import Options from '../\_auto-generated/dropdown/options.md';
+import Events from '../\_auto-generated/dropdown/events.md';
+import Localizations from '../\_auto-generated/dropdown/localizations.md';
+
+# Dropdown
+
+The Dropdown component can be used for collecting user provided information from a set of options. It uses the HTML select element and adds custom styling and additional functionality.
+
+## Usage
+
+Use the [`label`](#opt-label) option to provide a label to the dropdown.
+
+All the options can be passed to the dropdown via `data-` attributes with one exception. The exception is the `disabled` attribute, that don't need the data- prefix, since the native select supports it.
+
+```html
+<label>
+    <select data-label="Choose one" mbsc-dropdown id="choose">
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option>Option 3</option>
+    </select>
+</label>
+```
+
+## Auto vs. manual initialization
+
+If the component is added later to the DOM, e.g. with an AJAX page load, a custom function named `enhance` needs to be called in order to initialize the dynamically added component. When the enhance function is called on a DOM element, all form elements will be initialized inside this element.
+
+```js
+$.get('/myform', function (responseHtml) {
+    var $page = $('#page');
+    $page.html(responseHtml);
+    // highlight-next-line
+    mobiscroll.enhance($page[0]);
+});
+```
+
+<div className="option-list">
+
+## Options
+
+<Options />
+
+## Events
+
+<Events />
+
+## Localization
+
+<Localizations />
+
+</div>

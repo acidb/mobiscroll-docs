@@ -212,6 +212,17 @@ Check out how you can style the header in [this example](https://demo.mobiscroll
   </svg>
 </ImgComparisonSlider>
 
+## Event order
+
+When rendering events, the following default order is applied:
+
+ - All-day events are placed at the top.
+ - Non-all-day events follow, sorted by their start times.
+ - Events with the same start time are ordered alphabetically by their titles.
+
+To modify the default event order, you can use the `order` property of the [event data](#opt-data). If the order property does not meet your requirements, the [eventOrder](#opt-eventOrder) option can be used to further customize the ordering, which expects a function that compares two events and returns an order (-1 or 1).
+
+
 <div className="option-list">
 
 ## API

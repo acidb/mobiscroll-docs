@@ -346,6 +346,34 @@ Check out how you can style the Scheduler header in [this example](https://demo.
   </svg>
 </ImgComparisonSlider>
 
+## Event order
+
+The rendered event order is determined by the following two concepts:
+
+ 1. Event data order
+ 2. Event layout
+
+The combination of these concepts results in the final rendered event order.
+
+### Event data order
+
+The sequence in which events are processed before being passed to the layout algorithm. The default ordering rules are as follows:
+
+ 1. All-day events are placed at the top.
+ 2. Non-all-day events follow, sorted by their start times.
+ 3. Events with the same start time are further ordered alphabetically by their titles.
+
+This default order can be modified using the  `order` property in the event [event data](#opt-data). The order property takes precedence over the default rules. If two events have the same order value, the default rules apply. For more complex ordering requirements, the [eventOrder](#opt-eventOrder) option can be used. This option accepts a function that compares two events and returns an order (-1 or 1).
+
+### Event layout
+
+The event layout process determines the visual positioning and dimensions of events. This is a built-in functionality and cannot be altered externally. The layout algorithm processes the sorted event list and calculates each event's position and size. The algorithm follows these steps:
+
+ 1. The first event is placed in the first position of the event track.
+ 2. If two or more events overlap in their start/end times, the later event is placed in the next event track, positioned below or next to the previous event.
+ 3. If a subsequent event does not overlap with any already added events, it is placed back in the first event track.
+ 4. This process continues until all events are positioned within their respective columns or rows.
+
 <div className="option-list">
 
 ## API

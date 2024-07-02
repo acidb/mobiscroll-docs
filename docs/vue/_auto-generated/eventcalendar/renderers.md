@@ -303,11 +303,24 @@ The following properties are available:
 ### resource {#slot-resource}
 
 ```html
-<template #resource="resource">...</template>
+<template #resource="{ resource, day }">...</template>
 ```
 
 Customize how the resources are rendered on the scheduler and timeline views.
-The object of the rendered resource is available for use.
+
+The following properties are available:
+ - `resource`: _MbscResource_ - The rendered resource.
+ - `day`: _Date_ - The date on which the resource is rendered.
+ Available when grouping by date in the scheduler view,
+ or when vertical day resolution is used in the timeline view.
+
+### resourceEmpty {#slot-resourceEmpty}
+
+```html
+<template #resourceEmpty>...</template>
+```
+
+Customize the content of the resource column in case of an empty resource array.
 
 ### resourceFooter {#slot-resourceFooter}
 

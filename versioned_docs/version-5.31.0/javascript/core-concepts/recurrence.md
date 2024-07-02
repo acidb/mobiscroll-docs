@@ -1,4 +1,5 @@
 ---
+sidebar_position: 4
 sidebar_label: Recurrence
 displayed_sidebar: javascriptSidebar
 title: Recurrence

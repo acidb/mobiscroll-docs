@@ -19,12 +19,26 @@ Returns the temporary value selected on the picker.
 
 Returns the selected value of the picker.
 
+### isVisible {#method-isVisible}
+
+() => boolean
+
+
+Returns a boolean indicating whether the component is visible or not.
+
 ### open {#method-open}
 
 () => void
 
 
 Opens the component.
+
+### position {#method-position}
+
+() => void
+
+
+Recalculates the position of the component (if not inline).
 
 ### reloadOptionElements {#method-reloadOptionElements}
 

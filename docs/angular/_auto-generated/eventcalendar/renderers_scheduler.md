@@ -80,7 +80,12 @@ components of the calendar.
 ### resourceTemplate {#template-resourceTemplate}
 
 Template to customize the resource template of the scheduler and timeline views.
-The object of the rendered resource is available for use in the template.
+
+The following properties are available:
+ - `resource`: _MbscResource_ - The rendered resource.
+ - `day`: _Date_ - The date on which the resource is rendered.
+ Available when grouping by date in the scheduler view,
+ or when vertical day resolution is used in the timeline view.
 
 ```html
 <mbsc-eventcalendar [resourceTemplate]="myTemplate">

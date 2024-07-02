@@ -146,6 +146,19 @@ The following properties are available:
 - `isActive`: _boolean_ - True for the current quarter.
 
 **Default value**: `undefined`
+### resourceEmptyTemplate {#template-resourceEmptyTemplate}
+
+Template to customize the content of the resource column in case of an empty resource array.
+
+```html
+<mbsc-eventcalendar [resourceEmptyTemplate]="myEmptyTemplate">
+  <ng-template #myEmptyTemplate>
+    <!-- content -->
+  </ng-template>
+</mbsc-eventcalendar>
+```
+
+**Default value**: `undefined`
 ### resourceFooterTemplate {#template-resourceFooterTemplate}
 
 Template to customize the cell content below the resource column on the timeline view.
@@ -159,7 +172,12 @@ Template to customize the cell content above the resource column on the timeline
 ### resourceTemplate {#template-resourceTemplate}
 
 Template to customize the resource template of the scheduler and timeline views.
-The object of the rendered resource is available for use in the template.
+
+The following properties are available:
+ - `resource`: _MbscResource_ - The rendered resource.
+ - `day`: _Date_ - The date on which the resource is rendered.
+ Available when grouping by date in the scheduler view,
+ or when vertical day resolution is used in the timeline view.
 
 ```html
 <mbsc-eventcalendar [resourceTemplate]="myTemplate">

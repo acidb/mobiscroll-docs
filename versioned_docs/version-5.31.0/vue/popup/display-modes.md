@@ -6,7 +6,7 @@ displayed_sidebar: vueSidebar
 
 # Display modes
 
-The popup supports five display modes that specify where on the screen is it going to render itself:
+The Popup component supports five display modes that specify where on the screen is it going to render itself:
 
 1. `'center'` - will render the popup on the center of the screen
 2. `'top'` - will render the popup on the top of the screen sliding down

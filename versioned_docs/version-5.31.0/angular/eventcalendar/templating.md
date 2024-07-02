@@ -2,9 +2,12 @@
 sidebar_position: 11
 sidebar_label: Templating
 displayed_sidebar: angularSidebar
+title: Templating
 ---
 
-# Templating
+import { ImgComparisonSlider } from '@img-comparison-slider/react';
+
+## Overview
 
 You can customize many parts of the Eventcalendar by writing custom templates. In Angular these templates are defined using the `<ng-template>` component and then passed to the eventcalendar as references. You will find a comprehensive list of all the templates available for the Eventcalendar in the [API templates](api#templates) section.
 
@@ -41,7 +44,20 @@ In most cases you only want to customize the content section of the event. In th
 </mbsc-eventcalendar>
 ```
 
-![Agenda content customization](https://docs.mobiscroll.com/Content/img/docs/customize-the-event-content.png)
+Play with the slider below to see the differences.
+<ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
+  <figure slot="first" className="before">
+    <img width="1256" height="528" src={require('@site/static/img/normal-event-content-template-agenda.png').default} />
+    <figcaption>Default template</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="1256" height="528" src={require('@site/static/img/event-content-templating-agenda.png').default} />
+    <figcaption>Custom template</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
+  </svg>
+</ImgComparisonSlider>
 
 ### Full event templating
 
@@ -51,7 +67,20 @@ In case of full event templating, whenever there is an event (in the agenda, sch
 - For event labels in the calendar and all-day events in the scheduler - use the [`labelTemplate`](api#template-labelTemplate) for the custom template
 - For the scheduler and timeline - use the [`scheduleEventTemplate`](api#template-scheduleEventTemplate) for the custom template
 
-![Event calendar event customization](https://docs.mobiscroll.com/Content/img/docs/customize-the-full-event.png)
+Play with the slider below to see the differences.
+<ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
+  <figure slot="first" className="before">
+    <img width="1920" height="950" src={require('@site/static/img/normal-event-templating-scheduler.png').default} />
+    <figcaption>Default template</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="1920" height="950" src={require('@site/static/img/event-templating-scheduler.png').default} />
+    <figcaption>Custom template</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
+  </svg>
+</ImgComparisonSlider>
 
 ## Resource templating
 
@@ -68,6 +97,22 @@ To customize the display of the resources, the [`resourceTemplate`](api#template
 :::info
 In case of the timeline view there are other parts of the Eventcalendar that can be customized through templates. Check out the [timeline templating](timeline#templating) section for more details.
 :::
+
+Play with the slider below to see the differences.
+
+<ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
+  <figure slot="first" className="before">
+    <img width="1480" height="753" src={require('@site/static/img/normal-resource-template-scheduler.png').default} />
+    <figcaption>Default template</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="1480" height="753" src={require('@site/static/img/resource-template-scheduler.png').default} />
+    <figcaption>Custom template</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
+  </svg>
+</ImgComparisonSlider>
 
 ## Header templating
 
@@ -104,3 +149,17 @@ The above components can be used inside of the custom header. The following exam
   </ng-template>
 </mbsc-eventcalendar>
 ```
+Play with the slider below to see the differences.
+<ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
+  <figure slot="first" className="before">
+    <img width="1256" height="547" src={require('@site/static/img/normal-header-calendar.png').default} />
+    <figcaption>Default template</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="1256" height="547" src={require('@site/static/img/header-calendar.png').default} />
+    <figcaption>Custom template</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
+  </svg>
+</ImgComparisonSlider>

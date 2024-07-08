@@ -15,10 +15,6 @@ Mobiscroll for JavaScript is a collection of UI components. It works as a standa
 
 It helps deliver great mobile apps, websites with a great user experience and in getting five-star app store reviews. The controls follow platform UX guidelines and can be styled with the Theme Builder for a perfect fit.
 
-:::info Bundled open source libraries
-Mobiscroll ships with the following open source libraries included in the package: [tslib](https://www.npmjs.com/package/tslib), [preact](https://www.npmjs.com/package/preact).
-:::
-
 <SupportedPlatforms />
 
 ## Introduction

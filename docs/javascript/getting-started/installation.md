@@ -66,5 +66,5 @@ mobiscroll.datepicker('#my-other-div', {
 ```
 
 :::info ESM Bundle
-Would you like to use Mobiscroll with ESM Bundle to reduce the bundle size? It's possible, [read this guide](../core-concepts/esm_bundle) on how to make it work.
+Would you like to use Mobiscroll as an ESM (ECMAScript Module) bundle to reduce the bundle size? It's possible, [read this guide](../core-concepts/esm_bundle) on how to make it work.
 :::

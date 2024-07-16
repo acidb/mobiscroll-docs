@@ -1,6 +1,9 @@
 import React, {useState, useRef, useEffect, useMemo} from 'react';
 import clsx from 'clsx';
 import {
+  useActiveDocContext,
+} from '@docusaurus/plugin-content-docs/client';
+import {
   isRegexpStringMatch,
   useCollapsible,
   Collapsible,
@@ -10,6 +13,7 @@ import { useLocation } from "@docusaurus/router";
 import NavbarNavLink from '@theme/NavbarItem/NavbarNavLink';
 import NavbarItem from '@theme/NavbarItem';
 import { getLocationInfo } from '../Search/util';
+import { getOtherFrameworkDocID } from '@site/src/util/navgation';
 function isItemActive(item, localPathname) {
   if (isSamePath(item.to, localPathname)) {
     return true;
@@ -26,6 +30,7 @@ function containsActiveItems(items, localPathname) {
   return items.some((item) => isItemActive(item, localPathname));
 }
 function DropdownNavbarItemDesktop({
+  docsPluginId,
   items,
   position,
   className,
@@ -33,7 +38,6 @@ function DropdownNavbarItemDesktop({
   label,
   ...props
 }) {
-
   const location = useLocation();
   const framework = useMemo(() => {
     const info = getLocationInfo(location);
@@ -47,6 +51,16 @@ function DropdownNavbarItemDesktop({
       return label;
     return frItem.label;
   }, [framework, label]);
+
+  const activeDocContext = useActiveDocContext(docsPluginId);
+  const itms = items.map(item => {
+    const newId = getOtherFrameworkDocID(activeDocContext, framework, item.framework);
+    const id = newId ? newId : item.docId;
+    return {
+      ...item,
+      docId: id
+    };
+  });
 
   const dropdownRef = useRef(null);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -91,7 +105,7 @@ function DropdownNavbarItemDesktop({
         {props.children ?? props.label}
       </NavbarNavLink>
       <ul className="dropdown__menu">
-        {items.map((childItemProps, i) => (
+        {itms.map((childItemProps, i) => (
           <NavbarItem
             isDropdownItem
             activeClassName="dropdown__link--active"

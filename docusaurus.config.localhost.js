@@ -76,7 +76,7 @@ const config = {
             type: 'docsVersionDropdown',
           },
           {
-            type: 'dropdown',
+            type: 'custom-frameworkDropdown',
             label: 'Framework',
             items: [
               {
@@ -84,35 +84,44 @@ const config = {
                 label: 'Angular',
                 // href: 'https://docs.mobiscrollprod.com/angular',
                 docId: 'angular/getting-started/overview',
+                framework: 'angular'
               },
               {
                 type: 'doc',
                 label: 'JavaScript',
                 // href: 'https://docs.mobiscrollprod.com/javascript',
                 docId: 'javascript/getting-started/overview',
+                framework: 'javascript'
               },
               {
                 type: 'doc',
                 label: 'jQuery',
                 // href: 'https://docs.mobiscrollprod.com/jquery',
                 docId: 'jquery/getting-started/overview',
+                framework: 'jquery'
               },
               {
                 type: 'doc',
                 label: 'React',
                 // href: 'https://docs.mobiscrollprod.com/react',
                 docId: 'react/getting-started/overview',
+                framework: 'react'
               },
               {
                 type: 'doc',
                 label: 'Vue',
                 docId: 'vue/getting-started/overview',
+                framework: 'vue'
               },
             ],
           },
+          // {
+          //   type: 'custom-frameworkDropdown',
+          // },
           {
             type: 'dropdown',
-            label: 'Legacy docs',
+            label: 'Older versions',
+            position: 'right',
             items: [
               {
                 label: 'Version 4.10.10',
@@ -124,11 +133,12 @@ const config = {
               },
             ]
           },
-          {
-            href: 'https://docs.mobiscrollprod.com/cli',
-            label: 'CLI',
-            position: 'right',
-          },
+          // {
+          //   type: 'doc',
+          //   docId: 'core-concepts/cli',
+          //   label: 'CLI',
+          //   position: 'right',
+          // },
           {
             type: 'dropdown',
             label: 'Community',

@@ -10,7 +10,7 @@ import Types from '../\_auto-generated/radio/types.md';
 
 # Radio button
 
-Radio buttons are used when the user needs to select one option from a set.
+Radio button component are used when the user needs to select one option from a set.
 
 This UI component is best used when there is enough space, since all the options are visible at once.
 If you need to save space, a better UI choice would be the [Dropdown](./dropdown) component,
@@ -18,7 +18,7 @@ which only displays the selected option and the others are only visible on selec
 
 ## Usage
 
-Use the [`label`](#opt-label) option to provide a label to the radio button.
+Use the [`label`](#opt-label) option to provide a label to the Radio button.
 
 ```html
 <script setup>
@@ -59,14 +59,17 @@ Use the [v-model](https://vuejs.org/api/built-in-directives.html#v-model) direct
 <div className="option-list">
 
 ## Options
+Explore the following API options that help you easily configure the Radio button component.
 
 <Options />
 
 ## Events
+The Radio button component ships with different event hooks for deep customization. Events are triggered through the lifecycle of the component where you can tie in custom functionality and code.
 
 <Events />
 
 ## Localization
+The Radio button component is fully localized. This covers date and time format, button copy, rtl and more.
 
 <Localizations />
 

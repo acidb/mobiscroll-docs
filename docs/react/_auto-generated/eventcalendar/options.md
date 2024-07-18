@@ -126,6 +126,8 @@ and the [dragBetweenResources](#opt-dragBetweenResources) option.
 Has precedence over the `eventDragInTime` property of the resource and the [dragInTime](#opt-dragInTime) option.
 - `editable`: *boolean* - Specifies if an event is editable or not. Setting it to `false` disables drag &amp; drop, resize and delete,
 - `end`: *Date | string | object* - The end of the event.
+- `order`: *number* - Specifies the order of the event in the event array.
+Has precedence over the default ordering rules.
 - `overlap`: *boolean* - Specifies whether any overlap is allowed for the event.
 Has precedence over the `eventOverlap` property of the resource and the [eventOverlap](#opt-eventOverlap) option.
 - `id`: *string | number*, Number - A unique id for the event. If not specified, the event will get a generated id.
@@ -617,7 +619,10 @@ The scheduler and timeline views can handle multiple resources.
 Resource grouping can be modified with the help of the [groupBy](#opt-groupBy) option.
 
 If set to `null` or `undefined`, all events will be displayed, regardless of their `resource` property.
+The timeline view will not display the resource column, if the resources option is not set.
+
 If set to an empty array, only those events will be displayed which are not tied to any resource.
+The timeline view will display an empty resource column when an empty array is passed.
 
 The timeline view can render multiple levels of hierarchy groups. Levels can be added with the help of the `children` property.
 
@@ -969,6 +974,10 @@ Configures the Eventcalendar view. Possible views:
   Supported values: 1, 5, 10, 15, 20, 30, 60, 120, 180, 240, 360, 480, 720, 1440.
 - `timeLabelStep`: *number* (default `60`) - Set the step of the time labels in minutes.
   Supported values: 1, 5, 10, 15, 20, 30, 60, 120, 180, 240, 360, 480, 720, 1440.
+- `eventHeight`: *&#039;variable&#039; | &#039;equal&#039;* (default &#039;equal&#039;) - Specifies wether the height of the events is equal or variable.
+  :::info
+  Experimental feature: [learn more about variable event heights](./timeline#variable-event-height).
+  :::
 - `eventList`: *boolean* (default `false`) - If `true`, transforms the layout into a summary view.
   The events are listed in the appropriate cell one after the other.
 - `rowHeight`: *&#039;variable&#039; | &#039;equal&#039;* (default &#039;variable&#039;) - Controls the height of the timeline rows.

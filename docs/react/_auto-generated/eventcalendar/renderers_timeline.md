@@ -193,11 +193,25 @@ The following properties are available:
 
 ### renderResource {#renderer-renderResource}
 
-(resource: [MbscResource](#type-MbscResource)) => any
+(resource: [MbscResource](#type-MbscResource), day: Date) => any
 
 
 Customize how the resources are rendered on the scheduler and timeline views.
-The object of the rendered resource is available for use.
+
+The following properties are available:
+ - `resource`: _MbscResource_ - The rendered resource.
+ - `day`: _Date_ - The date on which the resource is rendered.
+ Available when grouping by date in the scheduler view,
+ or when vertical day resolution is used in the timeline view.
+
+**Default value**: `undefined`
+
+### renderResourceEmpty {#renderer-renderResourceEmpty}
+
+() => any
+
+
+Customize the content of the resource column in case of an empty resource array.
 
 **Default value**: `undefined`
 

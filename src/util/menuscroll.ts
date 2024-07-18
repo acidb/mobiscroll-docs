@@ -3,11 +3,15 @@
  */
 export function showActiveMenu() {
   const activeItems = document.querySelectorAll("nav.menu .menu__link--active");
+  const navCont = document.querySelector("nav.menu") as HTMLElement;
   if (activeItems && activeItems.length) {
-    activeItems[activeItems.length - 1].scrollIntoView({
-      behavior: "smooth",
-      block: "center", // bring it to the center along the y axis
-      // inline: 'center' // bring it to the center along the x axis
+    const aItem = activeItems[activeItems.length - 1] as HTMLElement;
+    const itemTop = aItem.offsetTop;
+    const scrollY = itemTop - (navCont.clientHeight / 2);
+
+    navCont.scroll({
+      top: scrollY,
+      behavior: 'smooth',
     });
   }
 }

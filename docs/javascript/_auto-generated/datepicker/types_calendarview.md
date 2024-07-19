@@ -33,6 +33,7 @@ Properties:
  - `end`: *string &#124; object &#124; Date*  - Specifies the end date/time of the calendar days/cells.
  - `nr`: *number*  - Occurrence number in case of recurrence.
  - `occurrenceId`: *string*  - Occurrence id in case of recurrence.
+ - `order`: *number*  - Specifies the order of the event in the event array. Has precedence over the default ordering rules.
  - `original`: *ICalendarData*  - Origin of the occurrence.
  - `overlap`: *boolean*  - Specifies whether the event can be overlapped
  - `recurring`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)*  - Specifies a recurrence rule for handling recurring days.

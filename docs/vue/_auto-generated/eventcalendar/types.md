@@ -37,6 +37,7 @@ Properties:
  - `id`: *string &#124; number*  - A unique id for the event. If not specified, the event will get a generated id.
  - `nr`: *number*  - Occurrence number in case of recurrence.
  - `occurrenceId`: *string*  - Occurrence id in case of recurrence.
+ - `order`: *number*  - Specifies the order of the event in the event array. Has precedence over the default ordering rules.
  - `original`: *ICalendarData*  - Origin of the occurrence.
  - `overlap`: *boolean*  - Specifies whether the event can be overlapped
  - `recurring`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)*  - Specifies a recurrence rule for handling recurring days.
@@ -68,6 +69,7 @@ Properties:
  - `end`: *string &#124; object &#124; Date*  - Specifies the end date/time of the calendar days/cells.
  - `nr`: *number*  - Occurrence number in case of recurrence.
  - `occurrenceId`: *string*  - Occurrence id in case of recurrence.
+ - `order`: *number*  - Specifies the order of the event in the event array. Has precedence over the default ordering rules.
  - `original`: *ICalendarData*  - Origin of the occurrence.
  - `overlap`: *boolean*  - Specifies whether the event can be overlapped
  - `recurring`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)*  - Specifies a recurrence rule for handling recurring days.
@@ -125,7 +127,7 @@ Properties:
  - `agenda`: *{scrollable: boolean, size: number, type: "month" &#124; "day" &#124; "year" &#124; "week"}* 
  - `calendar`: *{count: boolean, labels: number &#124; boolean &#124; "all", outerDays: boolean, popover: boolean, popoverClass: string, scroll: "horizontal" &#124; "vertical", size: number, type: "month" &#124; "year" &#124; "week", weekNumbers: boolean}* 
  - `schedule`: *{allDay: boolean, currentTimeIndicator: boolean, days: boolean, endDay: number, endTime: string, maxEventStack: number &#124; "auto" &#124; "all", minEventWidth: number, size: number, startDay: number, startTime: string, timeCellStep: number, timeLabelStep: number, timezones: Array&lt;string &#124; MbscSchedulerTimezone&gt;, type: "month" &#124; "day" &#124; "week"}* 
- - `timeline`: *{allDay: boolean, currentTimeIndicator: boolean, days: boolean, endDay: number, endTime: string, eventList: boolean, maxEventStack: number &#124; "all", resolution: "month" &#124; "day" &#124; "year" &#124; "week" &#124; "hour" &#124; "quarter", resolutionHorizontal: "month" &#124; "day" &#124; "year" &#124; "week" &#124; "hour" &#124; "quarter", resolutionVertical: "day", rowHeight: "variable" &#124; "equal", size: number, startDay: number, startTime: string, timeCellStep: number, timeLabelStep: number, type: "month" &#124; "day" &#124; "year" &#124; "week", virtualScroll: boolean, weekNumbers: boolean}* 
+ - `timeline`: *{allDay: boolean, currentTimeIndicator: boolean, days: boolean, endDay: number, endTime: string, eventHeight: "variable" &#124; "equal", eventList: boolean, maxEventStack: number &#124; "all", resolution: "month" &#124; "day" &#124; "year" &#124; "week" &#124; "hour" &#124; "quarter", resolutionHorizontal: "month" &#124; "day" &#124; "year" &#124; "week" &#124; "hour" &#124; "quarter", resolutionVertical: "day", rowHeight: "variable" &#124; "equal", size: number, startDay: number, startTime: string, timeCellStep: number, timeLabelStep: number, type: "month" &#124; "day" &#124; "year" &#124; "week", virtualScroll: boolean, weekNumbers: boolean}* 
 
 ### MbscLocale {#type-MbscLocale}
 

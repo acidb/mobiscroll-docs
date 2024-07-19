@@ -273,7 +273,7 @@ If either of those are `true`, and no `eventDelete` option is set, then event de
 **Default value**: `undefined`
 ### eventOrder {#opt-eventOrder}
 
-(event1: MbscCalendarEvent, event2: MbscCalendarEvent) => number
+(event1: [MbscCalendarEvent](#type-MbscCalendarEvent), event2: [MbscCalendarEvent](#type-MbscCalendarEvent)) => number
 
 
 Determines the ordering of the events within the same day.

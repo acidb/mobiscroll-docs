@@ -37,6 +37,7 @@ Properties:
  - `id`: *string &#124; number*  - A unique id for the event. If not specified, the event will get a generated id.
  - `nr`: *number*  - Occurrence number in case of recurrence.
  - `occurrenceId`: *string*  - Occurrence id in case of recurrence.
+ - `order`: *number*  - Specifies the order of the event in the event array. Has precedence over the default ordering rules.
  - `original`: *ICalendarData*  - Origin of the occurrence.
  - `overlap`: *boolean*  - Specifies whether the event can be overlapped
  - `recurring`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)*  - Specifies a recurrence rule for handling recurring days.

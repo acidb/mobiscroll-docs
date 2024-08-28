@@ -9,6 +9,7 @@ import TrialStart from '../../\_shared/getting-started/starting_trial.mdx';
 import InstallNpm from '../../\_shared/getting-started/install_npm.mdx';
 import InstallDownload from '../../\_shared/getting-started/install_download.mdx';
 import ImportStyles from '../../\_shared/getting-started/import_styles.mdx';
+import CiCdUsage from '../../\_shared/getting-started/cicd_usage.mdx';
 
 # Getting started with Mobiscroll for JavaScript
 
@@ -35,9 +36,13 @@ To install the Mobiscroll library to your web application, you will need the Mob
 
 <ImportStyles framework="javascript" />
 
-## Installing a downloaded package
+## Setting up for CI/CD
 
-A downloaded package can be installed into a webapp with module loaders as well as a simple web page by including the code into the html.
+<CiCdUsage/>
+
+## Installing manually
+
+A downloaded package can be installed into a webapp with [module loaders](../core-concepts/esm_bundle) as well as a [simple web page](#web-pages) by including the code into the html.
 
 <InstallDownload framework="javascript" />
 
@@ -65,51 +70,6 @@ mobiscroll.datepicker('#my-other-div', {
 });
 ```
 
-## ESM Bundle
-
-With every Mobiscroll package we provide an ESM bundle, so it can be used as a JavaScript Module. This way many bundlers (for example Rollup, Webpack, etc...) can take advantage of the tree-shaking technique and eliminate dead code. This reduces the bundle size to only what is actually used in the application.
-
-The ESM bundles are under the `esm5` folder of the package.
-
-The Mobiscrol ESM bundle has all the components the regular bundle has, but it omits a few setup steps in order to be tree-shakeable. One of these steps is the [registering of components](#registering-components), that needs to be done manually for the auto-initialization to work.
-
-## Manual vs Auto initialization
-
-All of the Mobiscroll components can be initialized manually using their initialization functions:
-
-```javascript
-import { button } from '.\esm5\mobiscroll.javascript.min.js'; // import the button initialization function
-button('#my-element'); // initialize a button on the element with id 'my-element'
-```
-
-Some Mobiscroll components can also be initialized using a html attribute that automatically initializes the component:
-
-```html
-<button id="my-element" mbsc-button onclick="myOnClickFunction();"></button>
-<!-- the mbsc-button attribute is used to auto-initialize the button component -->
-```
-
-### Registering components
-
-In ESM bundles, for the auto-initialization to work, the components will need to be registered. This registration can be done using the registerComponent function.
-
-Manually initializing components will work the same way in both regular and esm bundles.
-
-```javascript
-import {
-  // highlight-start
-  registerComponent, // import the registerComponent function used to register the components for auto-initialization
-  Button, // import component classes that needed to be regitered
-  // highlight-end
-  Checkbox,
-  Segmented,
-  SegmentedGroup
-} from '.\esm5\mobiscroll.javascript.min.js';
-
-// register components for auto-initialization
-// highlight-next-line
-registerComponent(Button);
-registerComponent(Checkbox);
-registerComponent(Segmented);
-registerComponent(SegmentedGroup);
-```
+:::info ESM Bundle
+Would you like to use Mobiscroll as an ESM (ECMAScript Module) bundle to reduce the bundle size? It's possible, [read this guide](../core-concepts/esm_bundle) on how to make it work.
+:::

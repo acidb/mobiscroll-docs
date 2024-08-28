@@ -211,17 +211,17 @@ Check out how you can style the header in [this example](https://demo.mobiscroll
 </ImgComparisonSlider>
 
 ### The agenda day header
-Customize the date headers that appear on the agenda with the [day](#slot-day) option. It should return the markup of the header. 
+Customize the day headers that appear on the agenda with the [day](#slot-day) option. It should contain the markup for the day header. 
 
-Check out how you can style the header in [this example](https://demo.mobiscroll.com/vue/agenda/customizing-day-header#) or just play with the slider below to see the differences.
+Check out how you can style the day headers in [this example](https://demo.mobiscroll.com/vue/agenda/customizing-day-header#) or just play with the slider below to see the differences.
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="1241" height="622" src="https://i.ibb.co/t81Wbyk/Screenshot-2024-07-09-at-12-59-22.png" />
+    <img width="1241" height="622" src={require('@site/static/img/agenda-day-header-default.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="1241" height="622" src="https://i.ibb.co/zZmD5Sm/Screenshot-2024-07-09-at-12-59-34.png" />
+    <img width="1241" height="622" src={require('@site/static/img/agenda-day-header-custom.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">

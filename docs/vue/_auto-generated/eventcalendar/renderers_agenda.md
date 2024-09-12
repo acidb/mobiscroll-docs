@@ -33,6 +33,25 @@ and scrolling the list updates the selected date on the calendar.
 
 Customize the agenda listing when the list is empty.
 
+### day {#slot-day}
+
+```html
+<template #day="args">...</template>
+```
+
+Customize the day cells of the calendar view and the date header in case of scheduler and timeline views.
+
+If you are looking to customize only the day cells content and don&#039;t want to bother with the styling of the event,
+in case of calendar and scheduler views you can use the [dayContent](#slot-dayContent) option.
+
+The following day specific details are available:
+- `date`: _Date_ - The date of the rendered day.
+- `selected`: _boolean_ - True if the date is selected (in case of the calendar view).
+- `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the day.
+- `resource`: _string | number_ - The id of the resource in case of the scheduler (week and month views)
+when the events are grouped by resources.
+- `isActive`: _boolean_ - True for the current day (in case of the timeline view).
+
 ### event {#slot-event}
 
 ```html

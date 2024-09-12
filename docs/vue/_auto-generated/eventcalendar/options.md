@@ -356,7 +356,7 @@ When using timezones, the `exclusiveEndDates` option will default to `true`.
 :::
 ### extendDefaultEvent {#opt-extendDefaultEvent}
 
-(args: MbscNewEventData) => MbscCalendarEvent
+(args: MbscNewEventData) => void &#124; MbscCalendarEvent
 
 
 Use this option to set properties to the new event created with click or drag.
@@ -865,6 +865,9 @@ Configures the Eventcalendar view. Possible views:
 - `type`: *&#039;week&#039; | &#039;month&#039; | &#039;year&#039;* (default `'month'`) - Sets the calendar type.
 - `size`: *number* (default `1`) - Specifies the number of displayed weeks or months.
 - `count`: *boolean* (default `false`) - If `true`, it will display the number of events on the days with events.
+- `eventDisplay`: *&#039;fill&#039; | &#039;exact&#039;* (default &#039;fill&#039;) - Specifies how events are displayed.
+  - If set to `'exact'`, events are displayed according to their start and end times.
+  - If set to `'fill'`, events cover the entire day.
 - `outerDays`: *boolean* (default `false`) - Show or hide days from previous and next months. Does not apply to week view.
 - `labels`: *boolean | number | &#039;all&#039;* (default `true`) - Enable displaying events as labels on calendar days.
   - If set to `true`, events will be displayed in the available space.
@@ -906,6 +909,8 @@ Configures the Eventcalendar view. Possible views:
   minus the height of the calendar header minus the height of the displayed calendar rows.
   If the calculated height is less then 200px, the agenda will not be scrollable.
   :::
+- `showEmptyDays`: *boolean* (default `false`) - When set to `true`, it will display day headers for every day
+  in the list, even for those without events.
 
 `schedule`: Configures the scheduler view. Properties:
 - `type`: *&#039;day&#039; | &#039;week&#039; | &#039;month&#039;* (default `'week'`) - Sets the scheduler type.

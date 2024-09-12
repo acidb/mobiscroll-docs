@@ -58,7 +58,7 @@ Parameters:
 
 ### @filter {#event-onFilter}
 
-(args: MbscSelectFilterEvent, inst: SelectBase) => boolean
+(args: MbscSelectFilterEvent, inst: SelectBase) => boolean &#124; void
 
 
 Triggered when the value of the filter input changes.

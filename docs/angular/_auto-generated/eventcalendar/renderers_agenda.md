@@ -36,6 +36,23 @@ The template data is an array containing the events of the current view, grouped
    - `start`: String - The formatted start time, if the event is not all day.
    - `title`: String - The title of the event.
 - `timestamp`: Number - The timestamp of the day
+### dayTemplate {#template-dayTemplate}
+
+Customize the day cells of the calendar view and the date header in case of scheduler and timeline views.
+
+If you are looking to customize only the day cells content and don&#039;t want to bother with the styling of the event,
+in case of calendar and scheduler views you can use the [dayContentTemplate](#template-dayContentTemplate) option.
+
+The template will receive an object as data. This data can be used to show day specific things on the Eventcalendar.
+The object passed to the template has the following properties:
+- `date`: Date object - The specific date as a Date object.
+- `selected`: Boolean - True if the date is selected. (In case of calendar view)
+- `events`: Array - The list of events of the day.
+- `resource`: String, Number - The id of the resource in case of scheduler(week and month views)
+when the events are grouped by resources.
+- `isActive`: Boolean - On the timeline view, this parameter will be true when rendering the current day/week/month/year
+
+**Default value**: `undefined`
 ### eventContentTemplate {#template-eventContentTemplate}
 
 Template to customize the event content that appears on the agenda and the popover.

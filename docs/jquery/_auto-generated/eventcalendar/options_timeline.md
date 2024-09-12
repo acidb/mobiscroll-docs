@@ -347,7 +347,7 @@ When using timezones, the `exclusiveEndDates` option will default to `true`.
 :::
 ### extendDefaultEvent {#opt-extendDefaultEvent}
 
-(args: MbscNewEventData) => MbscCalendarEvent
+(args: MbscNewEventData) => void &#124; MbscCalendarEvent
 
 
 Use this option to set properties to the new event created with click or drag.

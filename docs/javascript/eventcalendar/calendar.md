@@ -198,14 +198,32 @@ Check out how you can style the header in [this example](https://demo.mobiscroll
 
 ## Event order
 
-When rendering events, the following default order is applied:
+The rendered event order is determined by the following two concepts:
 
- - All-day events are placed at the top.
- - Non-all-day events follow, sorted by their start times.
- - Events with the same start time are ordered alphabetically by their titles.
+ 1. Event data order
+ 2. Event layout
 
-To modify the default event order, you can use the `order` property of the [event data](#opt-data). If the order property does not meet your requirements, the [eventOrder](#opt-eventOrder) option can be used to further customize the ordering, which expects a function that compares two events and returns an order (-1 or 1).
+The combination of these concepts results in the final rendered event order.
 
+### Event data order
+
+The sequence in which events are processed before being passed to the layout algorithm. The default ordering rules are as follows:
+
+ 1. All-day events are placed at the top.
+ 2. Non-all-day events follow, sorted by their start times.
+ 3. Events with the same start time are further ordered alphabetically by their titles.
+
+This default order can be modified using the  `order` property in the event [event data](#opt-data). The order property takes precedence over the default rules. If two events have the same order value, the default rules apply. For more complex ordering requirements, the [eventOrder](#opt-eventOrder) option can be used. This option accepts a function that compares two events and returns an order (-1 or 1).
+
+### Event layout
+
+The event layout process determines the visual positioning and dimensions of events. This is a built-in functionality and cannot be altered externally. The layout algorithm processes the sorted event list and calculates each event's position and size. The algorithm follows these steps:
+
+ 1. The first event is placed in the first position of the event track.
+ 2. If two or more events overlap in their start/end times, the later event is placed in the next event track, positioned below to the previous event.
+ 3. If a subsequent event does not overlap with any already added events, it is placed back in the first event track.
+ 4. This process continues until all events are positioned within their respective rows.
+ 
 <div className="option-list">
 
 ## API

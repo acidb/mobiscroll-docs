@@ -198,6 +198,25 @@ Check out how you can style the header in [this example](https://demo.mobiscroll
   </svg>
 </ImgComparisonSlider>
 
+### The agenda day header
+Customize the day headers that appear on the agenda with the [renderDay](#renderer-renderDay) option. It should return the markup of the day header. 
+
+Check out how you can style the day headers in [this example](https://demo.mobiscroll.com/react/agenda/customizing-day-header#) or just play with the slider below to see the differences.
+
+<ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
+  <figure slot="first" className="before">
+    <img width="1241" height="622" src={require('@site/static/img/agenda-day-header-default.png').default} />
+    <figcaption>Default template</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="1241" height="622" src={require('@site/static/img/agenda-day-header-custom.png').default} />
+    <figcaption>Custom template</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
+  </svg>
+</ImgComparisonSlider>
+
 ### The agenda empty state
 Customize the look of the empty state through [renderAgendaEmpty](#renderer-renderAgendaEmpty) function. Give a more purposeful feedback to the user and optionally add further actions to it. The template can be totally custom or dynamic based on any criteria.
 

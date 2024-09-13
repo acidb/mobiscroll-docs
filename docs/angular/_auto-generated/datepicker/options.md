@@ -804,7 +804,7 @@ responsive: {
 **Default value**: `undefined`
 ### returnFormat {#opt-returnFormat}
 
-"locale" &#124; "moment" &#124; "jsdate" &#124; "iso8601"
+"locale" &#124; "jsdate" &#124; "iso8601" &#124; "moment"
 
 Specifies the format in which the selected dates are returned.
 - `'jsdate'` - JavaScript date object.

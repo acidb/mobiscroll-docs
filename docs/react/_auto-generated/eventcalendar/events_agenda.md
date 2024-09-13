@@ -24,8 +24,10 @@ Parameters:
    - `domEvent`: *Event* - The DOM event of the click.
    - `event`: *MbscCalendarEvent* - The clicked calendar event.
    - `resource`: *string | number* - The id of the resource where the event was clicked, if [resources](#opt-resources) are set.
+   - `resourceObj`: *MbscResource* - The resource where the event was clicked, if [resources](#opt-resources) are set.
    - `selected`: *boolean* - Specifies if the day is currently selected or not (before it was clicked).
-   - `slot`: *string | number* - The id of the slot where the event was clicker, if [slots](#opt-slots) are set.
+   - `slot`: *string | number* - The id of the slot where the event was clicked, if [slots](#opt-slots) are set.
+   - `slotObj`: *MbscSlot* - The slot where the event was clicked, if [slots](#opt-slots) are set.
    - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;schedule&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event was clicked.
 
  - inst - The component instance.
@@ -60,8 +62,10 @@ Parameters:
    - `domEvent`: *Event* - The DOM event of the click.
    - `event`: *MbscCalendarEvent* - The clicked calendar event.
    - `resource`: *string | number* - The id of the resource where the event was clicked, if [resources](#opt-resources) are set.
+   - `resourceObj`: *MbscResource* - The resource where the event was clicked, if [resources](#opt-resources) are set.
    - `selected`: *boolean* - Specifies if the day is currently selected or not (before it was clicked).
    - `slot`: *string | number* - The id of the slot where the event was clicker, if [slots](#opt-slots) are set.
+   - `slotObj`: *MbscResource* - The resource where the event was clicker, if [slots](#opt-slots) are set.
    - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;schedule&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event was clicked.
 
  - inst - The component instance.
@@ -80,7 +84,9 @@ Parameters:
    - `domEvent`: *Event* - The DOM event of the hover.
    - `event`: *MbscCalendarEvent* - The hovered calendar event.
    - `resource`: *string | number* - The id of the resource where the event is hovered, if [resources](#opt-resources) are set.
+   - `resourceObj`: *MbscResource* - The resource where the event is hovered, if [resources](#opt-resources) are set.
    - `slot`: *string | number* - The id of the slot where the event is hovered, if [slots](#opt-slots) are set.
+   - `slotObj`: *MbscSlot* - The slot where the event is hovered, if [slots](#opt-slots) are set.
    - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;schedule&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event is hovered.
 
  - inst - The component instance.
@@ -99,7 +105,9 @@ Parameters:
    - `domEvent`: *Event* - The DOM event of the hover.
    - `event`: *MbscCalendarEvent* - The hovered calendar event.
    - `resource`: *string | number* - The id of the resource where the event was hovered, if [resources](#opt-resources) are set.
+   - `resourceObj`: *MbscResource* - The resource where the event was hovered, if [resources](#opt-resources) are set.
    - `slot`: *string | number* - The id of the slot where the event was hovered, if [slots](#opt-slots) are set.
+   - `slotObj`: *MbscSlot* - The slot where the event was hovered, if [slots](#opt-slots) are set.
    - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;schedule&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event was hovered.
 
  - inst - The component instance.
@@ -118,8 +126,10 @@ Parameters:
    - `domEvent`: *Event* - The DOM event of the click.
    - `event`: *MbscCalendarEvent* - The clicked calendar event.
    - `resource`: *string | number* - The id of the resource where the event was clicked, if [resources](#opt-resources) are set.
+   - `resourceObj`: *MbscResource* - The resource where the event was clicked, if [resources](#opt-resources) are set.
    - `selected`: *boolean* - Specifies if the day is currently selected or not (before it was clicked).
-   - `slot`: *string | number* - The id of the slot where the event was clicker, if [slots](#opt-slots) are set.
+   - `slot`: *string | number* - The id of the slot where the event was clicked, if [slots](#opt-slots) are set.
+   - `slotObj`: *MbscSlot* - The slot where the event was clicked, if [slots](#opt-slots) are set.
    - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;schedule&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event was clicked.
 
  - inst - The component instance.

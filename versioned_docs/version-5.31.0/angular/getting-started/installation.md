@@ -12,6 +12,7 @@ import TrialStart from '../../\_shared/getting-started/starting_trial.mdx';
 import InstallNpm from '../../\_shared/getting-started/install_npm.mdx';
 import InstallDownload from '../../\_shared/getting-started/install_download.mdx';
 import ImportStyles from '../../\_shared/getting-started/import_styles.mdx';
+import CiCdUsage from '../../\_shared/getting-started/cicd_usage.mdx';
 
 # Getting started with Mobiscroll for Angular
 
@@ -29,7 +30,11 @@ The first step you need to install the Mobiscroll library into your app is to in
 
 <InstallNpm framework="angular" />
 
-## Installing a downloaded package
+## Setting up for CI/CD
+
+<CiCdUsage/>
+
+## Installing manually
 
 <InstallDownload framework="angular" />
 

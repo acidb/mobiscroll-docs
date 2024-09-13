@@ -122,8 +122,10 @@ Parameters:
    - `domEvent`: *Event* - The DOM event of the click.
    - `event`: *MbscCalendarEvent* - The clicked calendar event.
    - `resource`: *string | number* - The id of the resource where the event was clicked, if [resources](#opt-resources) are set.
+   - `resourceObj`: *MbscResource* - The resource where the event was clicked, if [resources](#opt-resources) are set.
    - `selected`: *boolean* - Specifies if the day is currently selected or not (before it was clicked).
-   - `slot`: *string | number* - The id of the slot where the event was clicker, if [slots](#opt-slots) are set.
+   - `slot`: *string | number* - The id of the slot where the event was clicked, if [slots](#opt-slots) are set.
+   - `slotObj`: *MbscSlot* - The slot where the event was clicked, if [slots](#opt-slots) are set.
    - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;schedule&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event was clicked.
 
  - inst - The component instance.
@@ -144,6 +146,8 @@ Parameters:
    - `event`: *MbscCalendarEvent* - The newly created event.
    - `originEvent`: *MbscCalendarEvent* - The occurrence of the event which was dragged.
 Will be set only if the event was created by dragging a recurring event occurrence.
+   - `resourceObj`: *MbscResource* - The resource where the event is being created, if [resources](#opt-resources) are set.
+   - `slotObj`: *MbscSlot* - The slot where the event is being created, if [slots](#opt-slots) are set.
    - `source`: *&#039;calendar&#039; | &#039;timeline&#039; | &#039;schedule&#039;* - The view where the event is being created.
 
  - inst - The component instance.
@@ -182,6 +186,8 @@ Parameters:
    - `event`: *MbscCalendarEvent* - The newly created event.
    - `source`: *&#039;calendar&#039; | &#039;timeline&#039; | &#039;schedule&#039;* - The view where the event was created.
    - `target`: *HTMLElement* - The DOM element of the created event.
+   - `resourceObj`: *MbscResource* - The resource where the event is being created, if [resources](#opt-resources) are set.
+   - `slotObj`: *MbscSlot* - The slot where the event is being created, if [slots](#opt-slots) are set.
 
  - inst - The component instance.
 
@@ -234,8 +240,10 @@ Parameters:
    - `domEvent`: *Event* - The DOM event of the click.
    - `event`: *MbscCalendarEvent* - The clicked calendar event.
    - `resource`: *string | number* - The id of the resource where the event was clicked, if [resources](#opt-resources) are set.
+   - `resourceObj`: *MbscResource* - The resource where the event was clicked, if [resources](#opt-resources) are set.
    - `selected`: *boolean* - Specifies if the day is currently selected or not (before it was clicked).
    - `slot`: *string | number* - The id of the slot where the event was clicker, if [slots](#opt-slots) are set.
+   - `slotObj`: *MbscResource* - The resource where the event was clicker, if [slots](#opt-slots) are set.
    - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;schedule&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event was clicked.
 
  - inst - The component instance.
@@ -253,7 +261,9 @@ Parameters:
    - `domEvent`: *Event* - The DOM event of the drag.
    - `event`: *MbscCalendarEvent* - The dragged calendar event.
    - `resource`: *string | number* - The id of the resource where the event was dragged, if [resources](#opt-resources) are set.
+   - `resourceObj`: *MbscResource* - The resource where the event was dragged, if [resources](#opt-resources) are set.
    - `slot`: *string | number* - The id of the slot where the event was dragged, if [slots](#opt-slots) are set.
+   - `slotObj`: *MbscSlot* - The slot where the event was dragged, if [slots](#opt-slots) are set.
    - `source`: *&#039;calendar&#039; | &#039;schedule&#039; | &#039;timeline&#039;* - The view where the event was dragged.
 
  - inst - The component instance.
@@ -300,7 +310,9 @@ Parameters:
    - `domEvent`: *Event* - The DOM event of the drag.
    - `event`: *MbscCalendarEvent* - The dragged calendar event.
    - `resource`: *string | number* - The id of the resource where the event is dragged, if [resources](#opt-resources) are set.
+   - `resourceObj`: *MbscResource* - The resource where the event is dragged, if [resources](#opt-resources) are set.
    - `slot`: *string | number* - The id of the slot where the event is dragged, if [slots](#opt-slots) are set.
+   - `slotObj`: *MbscSlot* - The slot where the event is dragged, if [slots](#opt-slots) are set.
    - `source`: *&#039;calendar&#039; | &#039;schedule&#039; | &#039;timeline&#039;* - The view where the event is dragged.
 
  - inst - The component instance.
@@ -319,7 +331,9 @@ Parameters:
    - `domEvent`: *Event* - The DOM event of the hover.
    - `event`: *MbscCalendarEvent* - The hovered calendar event.
    - `resource`: *string | number* - The id of the resource where the event is hovered, if [resources](#opt-resources) are set.
+   - `resourceObj`: *MbscResource* - The resource where the event is hovered, if [resources](#opt-resources) are set.
    - `slot`: *string | number* - The id of the slot where the event is hovered, if [slots](#opt-slots) are set.
+   - `slotObj`: *MbscSlot* - The slot where the event is hovered, if [slots](#opt-slots) are set.
    - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;schedule&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event is hovered.
 
  - inst - The component instance.
@@ -338,7 +352,9 @@ Parameters:
    - `domEvent`: *Event* - The DOM event of the hover.
    - `event`: *MbscCalendarEvent* - The hovered calendar event.
    - `resource`: *string | number* - The id of the resource where the event was hovered, if [resources](#opt-resources) are set.
+   - `resourceObj`: *MbscResource* - The resource where the event was hovered, if [resources](#opt-resources) are set.
    - `slot`: *string | number* - The id of the slot where the event was hovered, if [slots](#opt-slots) are set.
+   - `slotObj`: *MbscSlot* - The slot where the event was hovered, if [slots](#opt-slots) are set.
    - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;schedule&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event was hovered.
 
  - inst - The component instance.
@@ -357,8 +373,10 @@ Parameters:
    - `domEvent`: *Event* - The DOM event of the click.
    - `event`: *MbscCalendarEvent* - The clicked calendar event.
    - `resource`: *string | number* - The id of the resource where the event was clicked, if [resources](#opt-resources) are set.
+   - `resourceObj`: *MbscResource* - The resource where the event was clicked, if [resources](#opt-resources) are set.
    - `selected`: *boolean* - Specifies if the day is currently selected or not (before it was clicked).
-   - `slot`: *string | number* - The id of the slot where the event was clicker, if [slots](#opt-slots) are set.
+   - `slot`: *string | number* - The id of the slot where the event was clicked, if [slots](#opt-slots) are set.
+   - `slotObj`: *MbscSlot* - The slot where the event was clicked, if [slots](#opt-slots) are set.
    - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;schedule&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event was clicked.
 
  - inst - The component instance.
@@ -385,9 +403,13 @@ It is set on recurring event delete, when [multiple event selection](#opt-select
    - `oldEventOccurrence`: *MbscCalendarEvent* - The occurrence of the event which was dragged.
 Will be set only if the dragged event was a recurring event occurrence.
    - `oldResource`: number | string - The id of the resource from which the event was dragged.
+   - `oldResourceObj`: *MbscResource* - The resource from which the event was dragged.
    - `oldSlot`: number | string - The id of the slot from which the event was dragged.
+   - `oldSlotObj`: *MbscSlot* - The slot from which the event was dragged.
    - `resource`: number | string - The id of the resource where the event was dropped.
+   - `resourceObj`: *MbscResource* - The resource where the event was dropped.
    - `slot`: number | string - The id of the slot where the event was dropped.
+   - `slotObj`: *MbscSlot* - The slot where the event was dropped.
    - `source`: *&#039;calendar&#039; | &#039;timeline&#039; | &#039;schedule&#039;* - The view where the event is being updated.
 
  - inst - The component instance.
@@ -431,6 +453,8 @@ It is set on recurring event delete, when [multiple event selection](#opt-select
    - `oldEvent`: *MbscCalendarEvent* - The original event before the update.
    - `oldEvents`: *Array&lt;MbscCalendarEvent&gt;* - The original events before the update.
 It is set on recurring event delete, when [multiple event selection](#opt-selectMultipleEvents) is enabled.
+   - `resourceObj`: *MbscResource* - The resource where the event is updated, if [resources](#opt-resources) are set.
+   - `slotObj`: *MbscSlot* - The slot where the event is updated, if [slots](#opt-slots) are set.
    - `source`: *&#039;calendar&#039; | &#039;timeline&#039; | &#039;schedule&#039;* - The view where the event was updated.
    - `target`: *HTMLElement* - The DOM element of the updated event.
 

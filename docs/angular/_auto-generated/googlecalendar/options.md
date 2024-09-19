@@ -50,3 +50,9 @@ If specified, the event dates will be returned in this timezone.
 [MbscTimezonePlugin](#type-MbscTimezonePlugin)
 
 The timezone plugin, needed if timezone is specified.
+
+The [`MbscTimezonePlugin`](#type-MbscTimezonePlugin) type has the following properties:
+ - `createDate`: *(s: any, year: string &#124; number &#124; Date &#124; MbscTimezonedDate, month: number, date: number, h: number, min: number, sec: number, ms: number) => MbscTimezonedDate* - 
+ - `parse`: *(date: string &#124; number, s: any) => MbscTimezonedDate* - 
+
+

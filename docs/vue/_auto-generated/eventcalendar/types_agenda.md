@@ -6,33 +6,41 @@ Properties:
  - `allDay`: *boolean*  - Specifies if the event is all day or not.
  - `bufferAfter`: *number*  - Defines a buffer time in minutes that will be displayed after the end of the event.
  - `bufferBefore`: *number*  - Defines a buffer time in minutes that will be displayed before the start of the event.
- - `cellCssClass`: *string*  - CSS class for the cell.
- - `color`: *string*  - Background color of the label.
- - `cssClass`: *string*  - CSS class for custom CSS.
- - `date`: *string &#124; object &#124; Date*  - Specifies the date of the calendar day.
+ - `cellCssClass`: *string*  - CSS class for the day cell. Only applicable for the calendar view.
+ - `color`: *string*  - Background color of the event
+ - `cssClass`: *string*  - Specifies a custom CSS class that is applied to the event. Useful when customization is needed on the event level.
+For example: setting the width for specific events.
+ - `date`: *string &#124; object &#124; Date*  - Specifies a single date for the event
  - `dragBetweenResources`: *boolean*  - Specifies whether the event is movable across resources.
  - `dragBetweenSlots`: *boolean*  - Specifies whether the event is movable across across slots.
  - `dragInTime`: *boolean*  - Specifies whether the event is movable in time.
- - `editable`: *boolean*  - Specifies if an event is editable or not. If false, drag &amp; drop and resize is not allowed.
- - `end`: *string &#124; object &#124; Date*  - Specifies the end date/time of the calendar days/cells.
+ - `editable`: *boolean*  - Specifies if an event is editable or not. If false, drag & drop and resize is not allowed.
+ - `end`: *string &#124; object &#124; Date*  - Specifies the end date/time of a date/time range for the event
  - `id`: *string &#124; number*  - A unique id for the event. If not specified, the event will get a generated id.
- - `nr`: *number*  - Occurrence number in case of recurrence.
- - `occurrenceId`: *string*  - Occurrence id in case of recurrence.
- - `order`: *number*  - Specifies the order of the event in the event array. Has precedence over the default ordering rules.
- - `original`: *ICalendarData*  - Origin of the occurrence.
- - `overlap`: *boolean*  - Specifies whether the event can be overlapped
- - `recurring`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)*  - Specifies a recurrence rule for handling recurring days.
- - `recurringException`: *string &#124; object &#124; Date &#124; Array&lt;string &#124; object &#124; Date&gt;*  - Specifies recurring exceptions.
- - `recurringExceptionRule`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)*  - Specifies a recurrence exception rule.
+ - `order`: *number*  - Specifies the order of the event in the array. Has precedence over the default ordering rules.
+ - `overlap`: *boolean*  - Specifies whether the event can be overlapped. Has precedence over the `eventOverlap`
+property of the resource and the [eventOverlap](#opt-eventOverlap) option.
+ - `recurring`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)*  - Specifies a recurrence rule for handling recurring events.
+ - `recurringException`: *string &#124; object &#124; Date &#124; Array&lt;string &#124; object &#124; Date&gt;*  - Exception dates of the recurring rule.
+Useful when specific dates need to be skipped from the rule.
+ - `recurringExceptionRule`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)*  - Exception rule of the recurring rule.
+Useful when recurring dates need to be skipped from the rule.
  - `resize`: *boolean*  - Specifies whether the event is resizable.
- - `resource`: *string &#124; number &#124; Array&lt;string &#124; number&gt;*  - Resource or resources of the event.
- - `slot`: *string &#124; number*  - Slot of the event
- - `start`: *string &#124; object &#124; Date*  - Specifies the start date/time of the calendar days/cells.
- - `text`: *string*  - Text of the label
- - `textColor`: *string*  - Color of the label text.
+Has precedence over the `eventResize` property of the resource and
+the [dragToResize](#opt-dragToResize) option.
+ - `resource`: *string &#124; number &#124; Array&lt;string &#124; number&gt;*  - In case of the timeline and scheduler view of the Eventcalendar, specifies the [resource](#opt-resources) ids
+for the event.
+The event will be displayed only on the specified resource.
+If there is no resource defined, it will be displayed on every resource.
+ - `slot`: *string &#124; number*  - In case of the timeline view of the Eventcalendar, specifies the [slot](#opt-slot) id
+for the event.
+The event will be displayed only on the specified slot.
+If there is no slot defined, it will be displayed on every slot.
+ - `start`: *string &#124; object &#124; Date*  - Specifies the start date/time of a date/time range for the event
+ - `textColor`: *string*  - A color applied on the text.
  - `timezone`: *string*  - Timezone of the event
  - `title`: *string*  - The title of the event.
- - `tooltip`: *string*  - Tooltip for the event
+ - `tooltip`: *string*  - The tooltip text of the event.
 
 ### MbscDateType {#type-MbscDateType}
 
@@ -114,6 +122,30 @@ Properties:
  - `until`: *[MbscDateType](#type-MbscDateType)* 
  - `weekDays`: *string* 
  - `weekStart`: *string* 
+
+### MbscResponsiveOptions&lt;MbscEventcalendarOptions&gt; {#type-MbscResponsiveOptions}
+
+Interface
+
+
+The `MbscResponsiveOptions<MbscEventcalendarOptions>` supports custom properties in the form:
+```
+[key:string]: MbscEventcalendarOptions & {breakpoint?: number}
+```
+The keys are the names of the breakpoints, and the values are objects containing the options for the given breakpoint.
+The `breakpoint` property, when present, specifies the min-width in pixels. The options will take into effect from that width.
+
+:::info
+The available width is queried from the container element of the component and not the browsers viewport like in css media queries
+:::
+
+There are five predefined breakpoints:
+
+- `xsmall` - min-width: 0px
+- `small` - min-width: 576px
+- `medium` - min-width: 768px
+- `large` - min-width: 992px
+- `xlarge` - min-width: 1200px
 
 ### MbscTimezonePlugin {#type-MbscTimezonePlugin}
 

@@ -58,3 +58,27 @@ Properties:
  - `yearSuffix`: *string* 
  - `yearText`: *string* 
 
+### MbscResponsiveOptions&lt;any&gt; {#type-MbscResponsiveOptions}
+
+Interface
+
+
+The `MbscResponsiveOptions<any>` supports custom properties in the form:
+```
+[key:string]: any & {breakpoint?: number}
+```
+The keys are the names of the breakpoints, and the values are objects containing the options for the given breakpoint.
+The `breakpoint` property, when present, specifies the min-width in pixels. The options will take into effect from that width.
+
+:::info
+The available width is queried from the container element of the component and not the browsers viewport like in css media queries
+:::
+
+There are five predefined breakpoints:
+
+- `xsmall` - min-width: 0px
+- `small` - min-width: 576px
+- `medium` - min-width: 768px
+- `large` - min-width: 992px
+- `xlarge` - min-width: 1200px
+

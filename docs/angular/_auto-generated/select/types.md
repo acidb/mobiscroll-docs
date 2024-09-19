@@ -63,15 +63,16 @@ Properties:
 Interface
 
 Properties:
- - `color`: *"success" &#124; "primary" &#124; "secondary" &#124; "danger" &#124; "warning" &#124; "info" &#124; "dark" &#124; "light"* 
- - `cssClass`: *string* 
- - `disabled`: *boolean* 
- - `handler`: *[MbscPopupPredefinedButton](#type-MbscPopupPredefinedButton) &#124; (event: any) => void*  - The handler of the button, which will run when the button is pressed.
- - `icon`: *string* 
- - `keyCode`: *number &#124; "enter" &#124; "esc" &#124; "space" &#124; Array&lt;number &#124; "enter" &#124; "esc" &#124; "space"&gt;* 
- - `name`: *[MbscPopupPredefinedButton](#type-MbscPopupPredefinedButton)* 
- - `text`: *string* 
- - `variant`: *"outline" &#124; "standard" &#124; "flat"* 
+ - `color`: *"success" &#124; "primary" &#124; "secondary" &#124; "danger" &#124; "warning" &#124; "info" &#124; "dark" &#124; "light"*  - Specifies the predefined color of the button
+ - `cssClass`: *string*  - A custom CSS class that will be applied to the element
+ - `disabled`: *boolean*  - Disabled state of the button
+ - `handler`: *[MbscPopupPredefinedButton](#type-MbscPopupPredefinedButton) &#124; (event: any) => void*  - Specifies what happens when the button is pressed. It can be a predefined button handler
+like `'set'`, `'cancel'` or a custom function.
+ - `icon`: *string*  - When specified, it renders an icon on the button. It requires the name of the icon that should be displayed.
+ - `keyCode`: *number &#124; "enter" &#124; "esc" &#124; "space" &#124; Array&lt;number &#124; "enter" &#124; "esc" &#124; "space"&gt;*  - The key code associated with the button to activate it from keyboard. Can be a single value or
+multiple value passed as an array. Predefined string values are: `'enter'`, `'esc'`, `'space'`.
+ - `text`: *string*  - Sets the label of the button
+ - `variant`: *"outline" &#124; "standard" &#124; "flat"*  - The style of the button
 
 ### MbscPopupDisplay {#type-MbscPopupDisplay}
 
@@ -83,13 +84,57 @@ Properties:
 "set" &#124; "cancel" &#124; "ok" &#124; "close"
 
 
+### MbscResponsiveOptions&lt;MbscSelectOptions&gt; {#type-MbscResponsiveOptions}
+
+Interface
+
+
+The `MbscResponsiveOptions<MbscSelectOptions>` supports custom properties in the form:
+```
+[key:string]: MbscSelectOptions & {breakpoint?: number}
+```
+The keys are the names of the breakpoints, and the values are objects containing the options for the given breakpoint.
+The `breakpoint` property, when present, specifies the min-width in pixels. The options will take into effect from that width.
+
+:::info
+The available width is queried from the container element of the component and not the browsers viewport like in css media queries
+:::
+
+There are five predefined breakpoints:
+
+- `xsmall` - min-width: 0px
+- `small` - min-width: 576px
+- `medium` - min-width: 768px
+- `large` - min-width: 992px
+- `xlarge` - min-width: 1200px
+
 ### MbscSelectData {#type-MbscSelectData}
 
 Interface
 
 Properties:
- - `disabled`: *boolean* 
- - `group`: *string* 
- - `text`: *string* 
- - `value`: *any* 
+ - `disabled`: *boolean*  - The disabled state of the option. Disabled options cannot be selected.
+ - `group`: *string*  - The group name, in case of grouped options.
+ - `text`: *string*  - The label of the option
+ - `value`: *any*  - The value of the option
+
+The `MbscSelectData` supports custom properties in the form:
+```
+[key:string]: any
+```
+The data object is available in the [templates](./templating), so it is a convenient
+way for customizing the items on the select.
+
+Example:
+```js
+{
+  value: 'US',
+  text: 'United States of America',
+  flagUrl: '//urlto/usa-flag', // custom property
+}, {
+  value: 'DE',
+  text: 'Germany',
+  flagUrl: '//urlto/german-flag',
+}
+```
 

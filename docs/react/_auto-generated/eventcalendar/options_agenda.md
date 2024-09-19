@@ -18,45 +18,51 @@ Specifies a custom CSS class for the component.
 
 Array&lt;[MbscCalendarEvent](#type-MbscCalendarEvent)&gt;
 
-The events for the calendar, as an array of event objects. The event object supports the following properties:
-- `allDay`: *boolean* - Specifies if the event is all day or not.
-- `bufferBefore`: *number* - Specifies a buffer time in minutes that will be displayed before the start of the event.
-- `bufferAfter`: *number* - Specifies a buffer time in minutes that will be displayed after the end of the event.
-- `color`: *string* - The color of the event.
-- `cssClass` *string* - Custom CSS class for the event.
-Useful when customization is needed on the event level.
+The events for the eventcalendar.
+
+The [`MbscCalendarEvent`](#type-MbscCalendarEvent) type has the following properties:
+ - `allDay`: *boolean* - Specifies if the event is all day or not.
+ - `bufferAfter`: *number* - Defines a buffer time in minutes that will be displayed after the end of the event.
+ - `bufferBefore`: *number* - Defines a buffer time in minutes that will be displayed before the start of the event.
+ - `cellCssClass`: *string* - CSS class for the day cell. Only applicable for the calendar view.
+ - `color`: *string* - Background color of the event
+ - `cssClass`: *string* - Specifies a custom CSS class that is applied to the event. Useful when customization is needed on the event level.
 For example: setting the width for specific events.
-- `dragBetweenResources`: *boolean* - Specifies whether the event is movable across resources.
-It applies for scheduler and timeline views.
-Has precedence over the `eventDragBetweenResources` property of the resource
-and the [dragBetweenResources](#opt-dragBetweenResources) option.
-- `dragInTime`: *boolean* - Specifies whether the event is movable in time.
-Has precedence over the `eventDragInTime` property of the resource and the [dragInTime](#opt-dragInTime) option.
-- `editable`: *boolean* - Specifies if an event is editable or not. Setting it to `false` disables drag &amp; drop, resize and delete,
-- `end`: *Date | string | object* - The end of the event.
-- `order`: *number* - Specifies the order of the event in the event array.
-Has precedence over the default ordering rules.
-- `overlap`: *boolean* - Specifies whether any overlap is allowed for the event.
-Has precedence over the `eventOverlap` property of the resource and the [eventOverlap](#opt-eventOverlap) option.
-- `id`: *string | number*, Number - A unique id for the event. If not specified, the event will get a generated id.
-and the event will have the `mbsc-readonly-event` CSS class. With this class, the fixed events will be easily customizable,
-for example: add opacity or disable the cursor on the fixed events.
-- `recurring`: *string | object* - Recurrence rule for the event.
-- `recurringException`: *string | object | Array&lt;string | object&gt;* - Exception dates of the recurring rule.
+ - `date`: *string &#124; object &#124; Date* - Specifies a single date for the event
+ - `dragBetweenResources`: *boolean* - Specifies whether the event is movable across resources.
+ - `dragBetweenSlots`: *boolean* - Specifies whether the event is movable across across slots.
+ - `dragInTime`: *boolean* - Specifies whether the event is movable in time.
+ - `editable`: *boolean* - Specifies if an event is editable or not. If false, drag & drop and resize is not allowed.
+ - `end`: *string &#124; object &#124; Date* - Specifies the end date/time of a date/time range for the event
+ - `id`: *string &#124; number* - A unique id for the event. If not specified, the event will get a generated id.
+ - `order`: *number* - Specifies the order of the event in the array. Has precedence over the default ordering rules.
+ - `overlap`: *boolean* - Specifies whether the event can be overlapped. Has precedence over the `eventOverlap`
+property of the resource and the [eventOverlap](#opt-eventOverlap) option.
+ - `recurring`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)* - Specifies a recurrence rule for handling recurring events.
+ - `recurringException`: *string &#124; object &#124; Date &#124; Array&lt;string &#124; object &#124; Date&gt;* - Exception dates of the recurring rule.
 Useful when specific dates need to be skipped from the rule.
-- `recurringExceptionRule`: *string | object* - Exception rule of the recurring rule.
+ - `recurringExceptionRule`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)* - Exception rule of the recurring rule.
 Useful when recurring dates need to be skipped from the rule.
-- `resize`: *boolean* - Specifies whether the event is resizable.
-Has precedence over the `eventResize` property of the resource and the [dragToResize](#opt-dragToResize) option.
-- `resource`: *string | number | Array&lt;string | number&gt;* - Specifies the [resource](#opt-resources) ids for the event.
-The event will be displayed only in the specified resources.
-If there is no resource defined, the event will be displayed in every resource.
-- `slot`: *string | number* - Specifies the [slot](#opt-slots) id for the event.
-- `start`: *Date | string | object* - The start of the event.
-The event will be displayed only in the specified slot.
-If there is no slot defined, the event will be displayed in every slot.
-- `title`: *string* - The title of the event.
-- `tooltip`: *string* - The tooltip text of the event.
+ - `resize`: *boolean* - Specifies whether the event is resizable.
+Has precedence over the `eventResize` property of the resource and
+the [dragToResize](#opt-dragToResize) option.
+ - `resource`: *string &#124; number &#124; Array&lt;string &#124; number&gt;* - In case of the timeline and scheduler view of the Eventcalendar, specifies the [resource](#opt-resources) ids
+for the event.
+The event will be displayed only on the specified resource.
+If there is no resource defined, it will be displayed on every resource.
+ - `slot`: *string &#124; number* - In case of the timeline view of the Eventcalendar, specifies the [slot](#opt-slot) id
+for the event.
+The event will be displayed only on the specified slot.
+If there is no slot defined, it will be displayed on every slot.
+ - `start`: *string &#124; object &#124; Date* - Specifies the start date/time of a date/time range for the event
+ - `textColor`: *string* - A color applied on the text.
+ - `timezone`: *string* - Timezone of the event
+ - `title`: *string* - The title of the event.
+ - `tooltip`: *string* - The tooltip text of the event.
+
+
+
+
 
 :::info
 The dates can be specified as JavaScript Date objects, ISO 8601 strings, or moment objects.
@@ -165,7 +171,6 @@ If not specified, the default order is:
 will be ordered alphabetically based on their title
 
 **Default value**: `undefined`
-
 ### exclusiveEndDates {#opt-exclusiveEndDates}
 
 boolean
@@ -237,7 +242,7 @@ To navigate the view to a specified date and time, use the [selectedDate](#opt-s
 **Default value**: `undefined`
 ### responsive {#opt-responsive}
 
-missing
+[MbscResponsiveOptions&lt;MbscEventcalendarOptions&gt;](#type-MbscResponsiveOptions)
 
 Specifies different options for different container widths, in a form of an object,
 where the keys are the name of the breakpoints, and the values are objects containing the options for the given breakpoint.
@@ -303,6 +308,50 @@ Array&lt;[MbscCalendarEvent](#type-MbscCalendarEvent)&gt;
 
 Specifies the selected events on the calendar. The [onSelectedEventsChange](#event-onSelectedEventsChange) event will be
 fired when the selected events change from the calendar.
+
+The [`MbscCalendarEvent`](#type-MbscCalendarEvent) type has the following properties:
+ - `allDay`: *boolean* - Specifies if the event is all day or not.
+ - `bufferAfter`: *number* - Defines a buffer time in minutes that will be displayed after the end of the event.
+ - `bufferBefore`: *number* - Defines a buffer time in minutes that will be displayed before the start of the event.
+ - `cellCssClass`: *string* - CSS class for the day cell. Only applicable for the calendar view.
+ - `color`: *string* - Background color of the event
+ - `cssClass`: *string* - Specifies a custom CSS class that is applied to the event. Useful when customization is needed on the event level.
+For example: setting the width for specific events.
+ - `date`: *string &#124; object &#124; Date* - Specifies a single date for the event
+ - `dragBetweenResources`: *boolean* - Specifies whether the event is movable across resources.
+ - `dragBetweenSlots`: *boolean* - Specifies whether the event is movable across across slots.
+ - `dragInTime`: *boolean* - Specifies whether the event is movable in time.
+ - `editable`: *boolean* - Specifies if an event is editable or not. If false, drag & drop and resize is not allowed.
+ - `end`: *string &#124; object &#124; Date* - Specifies the end date/time of a date/time range for the event
+ - `id`: *string &#124; number* - A unique id for the event. If not specified, the event will get a generated id.
+ - `order`: *number* - Specifies the order of the event in the array. Has precedence over the default ordering rules.
+ - `overlap`: *boolean* - Specifies whether the event can be overlapped. Has precedence over the `eventOverlap`
+property of the resource and the [eventOverlap](#opt-eventOverlap) option.
+ - `recurring`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)* - Specifies a recurrence rule for handling recurring events.
+ - `recurringException`: *string &#124; object &#124; Date &#124; Array&lt;string &#124; object &#124; Date&gt;* - Exception dates of the recurring rule.
+Useful when specific dates need to be skipped from the rule.
+ - `recurringExceptionRule`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)* - Exception rule of the recurring rule.
+Useful when recurring dates need to be skipped from the rule.
+ - `resize`: *boolean* - Specifies whether the event is resizable.
+Has precedence over the `eventResize` property of the resource and
+the [dragToResize](#opt-dragToResize) option.
+ - `resource`: *string &#124; number &#124; Array&lt;string &#124; number&gt;* - In case of the timeline and scheduler view of the Eventcalendar, specifies the [resource](#opt-resources) ids
+for the event.
+The event will be displayed only on the specified resource.
+If there is no resource defined, it will be displayed on every resource.
+ - `slot`: *string &#124; number* - In case of the timeline view of the Eventcalendar, specifies the [slot](#opt-slot) id
+for the event.
+The event will be displayed only on the specified slot.
+If there is no slot defined, it will be displayed on every slot.
+ - `start`: *string &#124; object &#124; Date* - Specifies the start date/time of a date/time range for the event
+ - `textColor`: *string* - A color applied on the text.
+ - `timezone`: *string* - Timezone of the event
+ - `title`: *string* - The title of the event.
+ - `tooltip`: *string* - The tooltip text of the event.
+
+
+
+
 
 **Default value**: `undefined`
 ### separator {#opt-separator}
@@ -390,6 +439,13 @@ Depending on which external library you use you can pass either the `momentTimez
 objects. These objects can be imported from the mobiscroll bundle.
 
 **Default value**: `undefined`
+
+The [`MbscTimezonePlugin`](#type-MbscTimezonePlugin) type has the following properties:
+ - `createDate`: *(s: any, year: string &#124; number &#124; Date &#124; MbscTimezonedDate, month: number, date: number, h: number, min: number, sec: number, ms: number) => MbscTimezonedDate* - 
+ - `parse`: *(date: string &#124; number, s: any) => MbscTimezonedDate* - 
+
+
+
 ### width {#opt-width}
 
 string &#124; number

@@ -29,7 +29,8 @@ Specifies the accessible name of the picker input.
 
 Array&lt;string &#124; [MbscPopupButton](#type-MbscPopupButton)&gt;
 
-Buttons to display. Each item of the array will be a button. A button can be specified as a string, or as a button object.
+Buttons to display on the component. Each item of the array will be a button.
+A button can be specified as a string, or as a button object.
 
 If a string, it must be one of the predefined buttons:
 - `'ok'` - Approve action. Will display the caption specified by the [okText](#localization-okText) option.
@@ -37,17 +38,22 @@ If a string, it must be one of the predefined buttons:
 - `'close'` - Closes the popup. Will display the caption specified by the [closeText](#localization-closeText) option.
 - `'set'` - Approve action. Will display the caption specified by the [setText](#localization-setText) option.
 
-The button object can have the following properties:
-- `text`: *string* - Text of the button.
-- `handler`: *string | () => void* - The handler function which will run when the button is pressed.
-If a string, it must be one of the predefined button handlers:
-  - `'set'` - Approve action.
-  - `'cancel'` - Dismiss the popup.
-- `icon`: *string* - Icon for the button.
-- `cssClass`: *string* - CSS class for the button.
-- `disabled`: *boolean* - The disabled state of the button.
-- `keyCode`: *number | string | Array&lt;number | string&gt;* - The key code associated with the button to activate it from keyboard.
-Can be a single value or multiple value passed as an array. Predefined string values are: `'enter'`, `'esc'`, `'space'`.
+The [`MbscPopupButton`](#type-MbscPopupButton) type has the following properties:
+ - `color`: *"success" &#124; "dark" &#124; "light" &#124; "primary" &#124; "secondary" &#124; "danger" &#124; "warning" &#124; "info"* - Specifies the predefined color of the button
+ - `cssClass`: *string* - A custom CSS class that will be applied to the element
+ - `disabled`: *boolean* - Disabled state of the button
+ - `handler`: *[MbscPopupPredefinedButton](#type-MbscPopupPredefinedButton) &#124; (event: any) => void* - Specifies what happens when the button is pressed. It can be a predefined button handler
+like `'set'`, `'cancel'` or a custom function.
+ - `icon`: *string* - When specified, it renders an icon on the button. It requires the name of the icon that should be displayed.
+ - `keyCode`: *number &#124; "enter" &#124; "space" &#124; "esc" &#124; Array&lt;number &#124; "enter" &#124; "space" &#124; "esc"&gt;* - The key code associated with the button to activate it from keyboard. Can be a single value or
+multiple value passed as an array. Predefined string values are: `'enter'`, `'esc'`, `'space'`.
+ - `text`: *string* - Sets the label of the button
+ - `variant`: *"outline" &#124; "standard" &#124; "flat"* - The style of the button
+
+
+
+
+
 
 ```js title="Example for using predefined and custom buttons"
 [
@@ -123,11 +129,16 @@ Specifies the selectable options for the component.
 When it&#039;s an array of strings, the selectable options will be the items of the array.
 The strings will appear on the picker, and the selected values will be the strings themselves.
 
-When it&#039;s an array of objects, the objects can have the following properties:
-- `text`: *string* - The text of the option.
-- `value`: *any* - The value of the option.
-- `group`: *string* - The group name in case of grouped options.
-- `disabled`: *boolean* - The disabled state of the option. Disabled options cannot be selected.
+The [`MbscSelectData`](#type-MbscSelectData) type has the following properties:
+ - `disabled`: *boolean* - The disabled state of the option. Disabled options cannot be selected.
+ - `group`: *string* - The group name, in case of grouped options.
+ - `text`: *string* - The label of the option
+ - `value`: *any* - The value of the option
+
+
+
+
+
 
 **Default value**: `undefined`
 ### defaultSelection {#opt-defaultSelection}
@@ -148,7 +159,7 @@ Specifies the disabled state of the input.
 
 [MbscPopupDisplay](#type-MbscPopupDisplay)
 
-Controls the positioning of the component. Possible options:
+Controls the positioning of the component. Possible values are:
 - `'center'` - The component appears as a popup at the center of the viewport.
 - `'inline'` - The component is rendered inline.
 - `'anchored'` - The component appears positioned to the element defined by the [anchor](#opt-anchor) option.
@@ -338,7 +349,7 @@ If a number, it is applied to all wheels, if an array, it is applied to each whe
 **Default value**: `undefined`
 ### responsive {#opt-responsive}
 
-missing
+[MbscResponsiveOptions&lt;MbscSelectOptions&gt;](#type-MbscResponsiveOptions)
 
 Specifies different options for different container widths, in a form of an object,
 where the keys are the name of the breakpoints, and the values are objects containing the options for the given breakpoint.

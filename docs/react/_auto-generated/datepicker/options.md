@@ -29,7 +29,8 @@ Specifies the accessible name of the picker input.
 
 Array&lt;string &#124; [MbscPopupButton](#type-MbscPopupButton)&gt;
 
-Buttons to display. Each item of the array will be a button. A button can be specified as a string, or as a button object.
+Buttons to display on the component. Each item of the array will be a button.
+A button can be specified as a string, or as a button object.
 
 If a string, it must be one of the predefined buttons:
 - `'ok'` - Approve action. Will display the caption specified by the [okText](#localization-okText) option.
@@ -37,17 +38,22 @@ If a string, it must be one of the predefined buttons:
 - `'close'` - Closes the popup. Will display the caption specified by the [closeText](#localization-closeText) option.
 - `'set'` - Approve action. Will display the caption specified by the [setText](#localization-setText) option.
 
-The button object can have the following properties:
-- `text`: *string* - Text of the button.
-- `handler`: *string | () => void* - The handler function which will run when the button is pressed.
-If a string, it must be one of the predefined button handlers:
-  - `'set'` - Approve action.
-  - `'cancel'` - Dismiss the popup.
-- `icon`: *string* - Icon for the button.
-- `cssClass`: *string* - CSS class for the button.
-- `disabled`: *boolean* - The disabled state of the button.
-- `keyCode`: *number | string | Array&lt;number | string&gt;* - The key code associated with the button to activate it from keyboard.
-Can be a single value or multiple value passed as an array. Predefined string values are: `'enter'`, `'esc'`, `'space'`.
+The [`MbscPopupButton`](#type-MbscPopupButton) type has the following properties:
+ - `color`: *"success" &#124; "dark" &#124; "light" &#124; "primary" &#124; "secondary" &#124; "danger" &#124; "warning" &#124; "info"* - Specifies the predefined color of the button
+ - `cssClass`: *string* - A custom CSS class that will be applied to the element
+ - `disabled`: *boolean* - Disabled state of the button
+ - `handler`: *[MbscPopupPredefinedButton](#type-MbscPopupPredefinedButton) &#124; (event: any) => void* - Specifies what happens when the button is pressed. It can be a predefined button handler
+like `'set'`, `'cancel'` or a custom function.
+ - `icon`: *string* - When specified, it renders an icon on the button. It requires the name of the icon that should be displayed.
+ - `keyCode`: *number &#124; "enter" &#124; "space" &#124; "esc" &#124; Array&lt;number &#124; "enter" &#124; "space" &#124; "esc"&gt;* - The key code associated with the button to activate it from keyboard. Can be a single value or
+multiple value passed as an array. Predefined string values are: `'enter'`, `'esc'`, `'space'`.
+ - `text`: *string* - Sets the label of the button
+ - `variant`: *"outline" &#124; "standard" &#124; "flat"* - The style of the button
+
+
+
+
+
 
 ```js title="Example for using predefined and custom buttons"
 [
@@ -137,30 +143,37 @@ If `true`, the popup is closed on overlay click or tap.
 Array&lt;[MbscCalendarColor](#type-MbscCalendarColor)&gt;
 
 Specifies the color for certain dates or date ranges on the calendar.
-The color object has the following properties:
-- `allDay`: *boolean* - Specifies whether the date you want to color is all day or not.
-- `background`: *string* - Background color of the cell, can be any valid CSS color (`'red'`, `'#ff0000'`, `'rgb(255, 0, 0)'`, etc.).
-- `cellCssClass`: *string* - CSS class for the day cell. Only applicable for the calendar view.
-- `cssClass` *string* - Specifies a custom CSS class for the color.
+
+The [`MbscCalendarColor`](#type-MbscCalendarColor) type has the following properties:
+ - `allDay`: *boolean* - Specifies whether the date you want to color is all day or not.
+ - `background`: *string* - Background color of the cell. It can be any valid CSS color (`'red'`, `'#ff0000'`, `'rgb(255, 0, 0)'`, etc.).
+ - `cellCssClass`: *string* - CSS class for the day cell. Only applicable for the calendar view.
+ - `cssClass`: *string* - Specifies a custom CSS class for the color.
 Useful when customization is needed for the background of cells and time ranges.
 Only applicable for the timeline and scheduler views.
-- `date`: *Date | string | object* - Date of the calendar day which should be colored.
-- `start`: *Date | string | object* - Start of the colored range.
-- `end`: *Date, string | object* - End of the colored range.
-- `highlight`: *string* - Highlight color of the day, can be any valid CSS color (`'red'`, `'#ff0000'`, `'rgb(255, 0, 0)'`, etc.).
-- `recurring`: *string | object* - Recurrence rule for coloring recurring days.
-- `recurringException`: *string | object | Array&lt;string | object&gt;* - Exception dates of the recurring rule.
+ - `date`: *string &#124; object &#124; Date* - Specifies a single date for the color
+ - `end`: *string &#124; object &#124; Date* - Specifies the end date/time of a date/time range for the color
+ - `highlight`: *string* - Highlight color of the day, can be any valid CSS color (`'red'`, `'#ff0000'`, `'rgb(255, 0, 0)'`, etc.).
+ - `recurring`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)* - Specifies a recurrence rule for handling recurring days.
+ - `recurringException`: *string &#124; object &#124; Date &#124; Array&lt;string &#124; object &#124; Date&gt;* - Exception dates of the recurring rule.
 Useful when specific dates need to be skipped from the rule.
-- `recurringExceptionRule`: *string | object* - Exception rule of the recurring rule.
+ - `recurringExceptionRule`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)* - Exception rule of the recurring rule.
 Useful when recurring dates need to be skipped from the rule.
-- `resource`: *string | number | Array&lt;string | number&gt;* - Specifies the [resource](#opt-resources) ids for the color.
-The color will be displayed only in the specified resource.
-If there is no resource defined, the color will be displayed in every resource.
-- `slot`: *string | number* - Specifies the [slot](#opt-slots) id for the color.
-The color will be displayed only in the specified slot.
-If there is no slot defined, the color will be displayed in every slot.
-- `textColor`: *string* - Specifies the text color of the colored range title.
-- `title`: *string* - Text which will be displayed for the colored range. Only applicable for the timeline and scheduler views.
+ - `resource`: *string &#124; number &#124; Array&lt;string &#124; number&gt;* - In case of the timeline and scheduler view of the Eventcalendar, specifies the [resource](#opt-resources) ids
+for the color.
+The color will be displayed only on the specified resource.
+If there is no resource defined, it will be applied to every resource.
+ - `slot`: *string &#124; number* - In case of the timeline view of the Eventcalendar, specifies the [slot](#opt-slot) id
+for the color.
+The color will be displayed only on the specified slot.
+If there is no slot defined, it will be applied to every slot.
+ - `start`: *string &#124; object &#124; Date* - Specifies the start date/time of a date/time range for the color
+ - `textColor`: *string* - A color applied on the text.
+ - `title`: *string* - A title that will be displayed on the item.
+
+
+
+
 
 :::info
 The colored range will be considered all-day if:
@@ -253,7 +266,7 @@ Specifies the disabled state of the input.
 
 [MbscPopupDisplay](#type-MbscPopupDisplay)
 
-Controls the positioning of the component. Possible options:
+Controls the positioning of the component. Possible values are:
 - `'center'` - The component appears as a popup at the center of the viewport.
 - `'inline'` - The component is rendered inline.
 - `'anchored'` - The component appears positioned to the element defined by the [anchor](#opt-anchor) option.
@@ -539,18 +552,27 @@ The default value depends on the [theme](#opt-theme):
 Array&lt;[MbscCalendarLabel](#type-MbscCalendarLabel)&gt;
 
 Specifies labels for calendar days.
-A label object can have the following properties:
-- `cellCssClass`: *string* - CSS class for the day cell. Only applicable for the calendar view.
-- `color`: *string* - The color of the label, can be any valid CSS color (`'red'`, `'#ff0000'`, `'rgb(255, 0, 0)'`, etc.).
-- `date`: *Date | string | object* - Date of the calendar label for single day labels.
-- `start`: *Date | string | object* - Start of the calendar label.
-- `end`: *Date, string | object* - End of the calendar label.
-- `text`: *string* - The text of the label.
-- `recurring`: *string | object* - Recurrence rule for recurring labels.
-- `recurringException`: *string | object | Array&lt;string | object&gt;* - Exception dates of the recurring rule.
+
+The [`MbscCalendarLabel`](#type-MbscCalendarLabel) type has the following properties:
+ - `cellCssClass`: *string* - CSS class for the day cell. Only applicable for the calendar view.
+ - `color`: *string* - Background color of the label.
+ - `cssClass`: *string* - Specifies a custom CSS class that is applied to the label.
+ - `date`: *string &#124; object &#124; Date* - Specifies a single date for the label
+ - `end`: *string &#124; object &#124; Date* - Specifies the end date/time of a date/time range for the label
+ - `order`: *number* - Specifies the order of the label in the array. Has precedence over the default ordering rules.
+ - `recurring`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)* - Specifies a recurrence rule for handling recurring days.
+ - `recurringException`: *string &#124; object &#124; Date &#124; Array&lt;string &#124; object &#124; Date&gt;* - Exception dates of the recurring rule.
 Useful when specific dates need to be skipped from the rule.
-- `recurringExceptionRule`: *string | object* - Exception rule of the recurring rule.
+ - `recurringExceptionRule`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)* - Exception rule of the recurring rule.
 Useful when recurring dates need to be skipped from the rule.
+ - `start`: *string &#124; object &#124; Date* - Specifies the start date/time of a date/time range for the label
+ - `textColor`: *string* - A color applied on the text.
+ - `title`: *string* - The title of the label.
+ - `tooltip`: *string* - Tooltip for the label
+
+
+
+
 
 :::info
 The dates can be specified as JavaScript Date objects, ISO 8601 strings, or moment objects.
@@ -580,17 +602,25 @@ The labels can be combined with the [colors](#opt-colors) option.
 Array&lt;[MbscCalendarMarked](#type-MbscCalendarMarked)&gt;
 
 Mark certain dates on the calendar. An array containing dates, or objects with the following properties:
-- `cellCssClass`: *string* - CSS class for the day cell. Only applicable for the calendar view.
-- `color`: *string* - The color of the mark, can be any valid CSS color (`'red'`, `'#ff0000'`, `'rgb(255, 0, 0)'`, etc.).
-- `date`: *Date | string | object* - ate of the day to be marked.
-- `start`: *Date | string | object* - Start date of the days to be marked.
-- `end`: *Date, string | object* - End date of the days to be marked.
-- `markCssClass`: *string* - CSS class for the mark.
-- `recurring`: *string | object* - Recurrence rule for recurring marked days.
-- `recurringException`: *string | object | Array&lt;string | object&gt;* - Exception dates of the recurring rule.
+
+The [`MbscCalendarMarked`](#type-MbscCalendarMarked) type has the following properties:
+ - `cellCssClass`: *string* - CSS class for the day cell. Only applicable for the calendar view.
+ - `color`: *string* - Color of the mark.
+ - `date`: *string &#124; object &#124; Date* - Specifies a single date when this is applicable
+ - `end`: *string &#124; object &#124; Date* - Specifies the end date/time of a date/time range when this is applicable
+ - `markCssClass`: *string* - CSS class for the mark.
+ - `recurring`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)* - Specifies a recurrence rule for handling recurring days.
+ - `recurringException`: *string &#124; object &#124; Date &#124; Array&lt;string &#124; object &#124; Date&gt;* - Exception dates of the recurring rule.
 Useful when specific dates need to be skipped from the rule.
-- `recurringExceptionRule`: *string | object* - Exception rule of the recurring rule.
+ - `recurringExceptionRule`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)* - Exception rule of the recurring rule.
 Useful when recurring dates need to be skipped from the rule.
+ - `start`: *string &#124; object &#124; Date* - Specifies the start date/time of a date/time range when this is applicable
+ - `textColor`: *string* - A color applied on the text.
+ - `title`: *string* - A title that will be displayed on the item.
+
+
+
+
 
 :::info
 The dates can be specified as JavaScript Date objects, ISO 8601 strings, or moment objects.
@@ -767,7 +797,7 @@ the reference date. Then you can use the [calendarSize](#opt-calendarSize) optio
 **Default value**: `'1970/01/01'`
 ### responsive {#opt-responsive}
 
-missing
+[MbscResponsiveOptions&lt;MbscDatepickerOptions&gt;](#type-MbscResponsiveOptions)
 
 Specifies different options for different container widths, in a form of an object,
 where the keys are the name of the breakpoints, and the values are objects containing the options for the given breakpoint.
@@ -804,7 +834,7 @@ responsive: {
 **Default value**: `undefined`
 ### returnFormat {#opt-returnFormat}
 
-"locale" &#124; "moment" &#124; "jsdate" &#124; "iso8601"
+"locale" &#124; "jsdate" &#124; "iso8601" &#124; "moment"
 
 Specifies the format in which the selected dates are returned.
 - `'jsdate'` - JavaScript date object.
@@ -1059,6 +1089,13 @@ Depending on which external library you use you can pass either the `momentTimez
 objects. These objects can be imported from the mobiscroll bundle.
 
 **Default value**: `undefined`
+
+The [`MbscTimezonePlugin`](#type-MbscTimezonePlugin) type has the following properties:
+ - `createDate`: *(s: any, year: string &#124; number &#124; Date &#124; MbscTimezonedDate, month: number, date: number, h: number, min: number, sec: number, ms: number) => MbscTimezonedDate* - 
+ - `parse`: *(date: string &#124; number, s: any) => MbscTimezonedDate* - 
+
+
+
 ### valid {#opt-valid}
 
 Array&lt;[MbscDateType](#type-MbscDateType)&gt; &#124; Array&lt;IValidateProps&gt;

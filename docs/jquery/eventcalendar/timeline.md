@@ -239,18 +239,15 @@ The width of the resources column on the Timeline view is fixed. It can be overw
 .mbsc-timeline-resource-col {
   width: 200px;
 }
+```
 
-/* For sticky event labels */
-@supports (overflow: clip) {
-  .mbsc-timeline.mbsc-ltr .mbsc-schedule-event-inner {
-    left: 200px;
-  }
-
-  .mbsc-timeline.mbsc-rtl .mbsc-schedule-event-inner {
-    right: 200px;
-  }
+The width of the resource column adjusts as resources are expanded or collapsed. The default increment step can be modified with a custom CSS rule:
+```css title="Custom resource expand step"
+.mbsc-timeline-resource-depth-step {
+    width: 20px;
 }
 ```
+If the step adjustment is not needed, it can disabled by setting the value to `width: 0px;`.
 
 ### Resource row height
 

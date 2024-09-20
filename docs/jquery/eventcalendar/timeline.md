@@ -233,21 +233,21 @@ $('#timeline').mobiscroll().eventcalendar({
 
 ### Resource column width
 
-The width of the resources column on the Timeline view is fixed. It can be overwritten from CSS using the following rules:
+The width of the resources column on the Timeline view is fixed. It can be overwritten from CSS using the following rule:
 
-```css title="Custom resource column width"
+```css title="Resource column width"
 .mbsc-timeline-resource-col {
   width: 200px;
 }
 ```
 
-The width of the resource column adjusts as resources are expanded or collapsed. The default increment step can be modified with a custom CSS rule:
-```css title="Custom resource expand step"
+The width of the resource column adjusts as resources are expanded or collapsed. The default increment step can be modified with a CSS rule:
+```css title="Resource expand step"
 .mbsc-timeline-resource-depth-step {
-    width: 20px;
+  width: 20px;
 }
 ```
-If the step adjustment is not needed, it can disabled by setting the value to `width: 0px;`.
+If the step adjustment is not needed, it can disabled by setting the value to `width: 0;`.
 
 ### Resource row height
 

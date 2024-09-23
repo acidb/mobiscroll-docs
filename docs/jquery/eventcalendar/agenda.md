@@ -4,6 +4,7 @@ sidebar_label: Agenda
 displayed_sidebar: jquerySidebar
 ---
 
+import ViewOptions from '../_auto-generated/eventcalendar/view_agenda.md';
 import Options from '../\_auto-generated/eventcalendar/options_agenda.md';
 import Events from '../\_auto-generated/eventcalendar/events_agenda.md';
 import Localizations from '../\_auto-generated/eventcalendar/localizations_agenda.md';
@@ -59,35 +60,11 @@ $('#agenda').mobiscroll().eventcalendar({
 });
 ```
 
-<div className="option-list no-padding">
+<div className="option-list">
 
-<h3 id="opt-view">view</h3>
-
-MbscEventcalendarView
+<ViewOptions />
 
 </div>
-
-`agenda`: Configures the agenda view. Properties:
-- `type`: *&#039;day&#039; | &#039;week&#039; | &#039;month&#039; | &#039;year&#039;* (default `'month'`) - Sets the agenda type.
-  If calendar is also displayed, only `'month'`, `'week'` and `'day'` values are supported.
-  In case of month and week, the type and size should match the calendar type and size.
-  In case of day type events on the selected calendar day will be displayed, so size will always be `1`.
-- `size`: *number* (default `1`) - Specifies the number of displayed years, months, weeks or days.
-- `scrollable`: *boolean* (default `true`) - Setting this to `true` makes the agenda independently scrollable.
-  :::info
-  There are two prerequisites for making this work:
-
-  1 - The calendar needs to be to placed inside a container which has a height. This can be either a fixed height,
-  a height in percentage, or a flex height. When the calendar is placed directly in a container with a fixed height,
-  it will work out of the box. If the height of the container is specified in percentage,
-  e.g. you&#039;d like to fill the full page height, you need to make sure that all parent elements also have `'height: 100%'` specified,
-  up until the `body` and `html` elements, or until the closest parent which has a fixed height.
-  If the container is inside a parent with flex layout, it will also work out of the box.
-
-  2 - The agenda needs a minimum height of 200px - the result of the container height
-  minus the height of the calendar header minus the height of the displayed calendar rows.
-  If the calculated height is less then 200px, the agenda will not be scrollable.
-  :::
 
 ## Responsiveness
 
@@ -198,7 +175,7 @@ Check out how you can style the header in [this example](https://demo.mobiscroll
 </ImgComparisonSlider>
 
 ### The agenda day header
-Customize the day headers that appear on the agenda with the [renderDay](#renderer-renderDay) option. It should return the markup of the day header. 
+Customize the day headers that appear on the agenda with the [renderDay](#renderer-renderDay) option. It should return the markup of the day header.
 
 Check out how you can style the day headers in [this example](https://demo.mobiscroll.com/jquery/agenda/customizing-day-header#) or just play with the slider below to see the differences.
 

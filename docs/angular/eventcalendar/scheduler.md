@@ -142,7 +142,9 @@ You can use the following CSS classes for changing column widths of the Schedule
 }
 ```
 
-## Resource grouping
+## Resources
+
+### Resource grouping
 
 The Scheduler view can display multiple [resources](resources) inside a single instance. By default the displayed resources will be grouped by the given resources and the grouping can be changed with the [`groupBy`](#opt-groupBy) option, which also supports grouping by date.
 
@@ -244,6 +246,12 @@ export class MyComponent {
   }];
 }
 ```
+
+### Resource order
+
+The initial order in which the resources appear on the scheduler is based on the order of the array passed to the component. If the initial order needs to be changed, run a sort on the resource array before passing it to the event calendar.
+
+For dynamic sorting during runtime, sort the resource array and pass the updated array to the calendar.
 
 ## Responsiveness
 

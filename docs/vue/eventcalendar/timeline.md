@@ -244,6 +244,12 @@ const myInvalid = [
 ];
 ```
 
+### Resource order
+
+The initial order in which the resources appear on the timeline is based on the order of the array passed to the component. If the initial order needs to be changed, run a sort on the resource array before passing it to the event calendar.
+
+For dynamic sorting during runtime, sort the resource array and pass the updated array to the calendar.
+
 ### Resource column width
 
 The width of the resources column on the Timeline view is fixed. It can be overwritten from CSS using the following rules:

@@ -228,7 +228,7 @@ const myColors = [
 
 ### Resource order
 
-The initial order in which the resources appear on the scheduler is based on the order of the array passed to the component. If the initial order needs to be changed, run a sort on the resource array before passing it to the event calendar.
+The initial order in which the resources appear on the scheduler follows the order of the array passed to the component. If the initial order needs to be changed, sort the resource array before passing it to the event calendar.
 
 For dynamic sorting during runtime, sort the resource array and pass the updated array to the calendar.
 

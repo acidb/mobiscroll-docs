@@ -1,6 +1,6 @@
 ### addEvent {#method-outlook-addEvent}
 
-(calendarId: string, event: MbscCalendarEvent, callback: (addedEvent: MbscCalendarEvent) => void
+(calendarId: string, event: [MbscCalendarEvent](#type-MbscCalendarEvent), callback: (addedEvent: [MbscCalendarEvent](#type-MbscCalendarEvent)) => void
 ) => Promise
 
 
@@ -16,7 +16,7 @@ Parameters:
 
 ### deleteEvent {#method-outlook-deleteEvent}
 
-(calendarId: string, event: MbscCalendarEvent, callback: (deletedEvent: MbscCalendarEvent) => void
+(calendarId: string, event: [MbscCalendarEvent](#type-MbscCalendarEvent), callback: (deletedEvent: [MbscCalendarEvent](#type-MbscCalendarEvent)) => void
 ) => Promise
 
 
@@ -45,7 +45,7 @@ Parameters:
 
 ### getEvents {#method-outlook-getEvents}
 
-(calendarIds: string &#124; Array&lt;string&gt;, start: Date, end: Date, callback: (events: Array&lt;MbscCalendarEvent&gt;) => void
+(calendarIds: string &#124; Array&lt;string&gt;, start: Date, end: Date, callback: (events: Array&lt;[MbscCalendarEvent](#type-MbscCalendarEvent)&gt;) => void
 ) => Promise
 
 
@@ -96,7 +96,7 @@ If the user is signed in, signs out. On success triggers the `onSignedOut` event
 
 ### updateEvent {#method-outlook-updateEvent}
 
-(calendarId: string, event: MbscCalendarEvent, callback: (updatedEvent: MbscCalendarEvent) => void
+(calendarId: string, event: [MbscCalendarEvent](#type-MbscCalendarEvent), callback: (updatedEvent: [MbscCalendarEvent](#type-MbscCalendarEvent)) => void
 ) => Promise
 
 

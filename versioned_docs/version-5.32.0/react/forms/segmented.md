@@ -6,6 +6,7 @@ displayed_sidebar: reactSidebar
 import Options from '../\_auto-generated/segmented/options.md';
 import Events from '../\_auto-generated/segmented/events.md';
 import Localizations from '../\_auto-generated/segmented/localizations.md';
+import Types from '../\_auto-generated/segmented/types.md';
 
 # Segmented
 
@@ -121,5 +122,9 @@ The Segmented component ships with different event hooks for deep customization.
 The Segmented component is fully localized. This covers date and time format, button copy, rtl and more.
 
 <Localizations />
+
+## Types
+
+<Types />
 
 </div>

@@ -8,6 +8,8 @@ import Events from '../\_auto-generated/datepicker/events.md';
 import Localizations from '../\_auto-generated/datepicker/localizations.md';
 import Methods from '../\_auto-generated/datepicker/methods.md';
 import Slots from '../_auto-generated/datepicker/renderers.md';
+import Interfaces from '../_auto-generated/datepicker/types.md';
+
 
 # Datepicker API
 
@@ -39,5 +41,9 @@ These methods are actions that can be performed on a component instance.
 The display of the Datepicker component can be customized with different renderer functions.
 
 <Slots />
+
+## Types
+
+<Interfaces />
 
 </div>

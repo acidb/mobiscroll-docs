@@ -8,6 +8,7 @@ import Events from '../_auto-generated/eventcalendar/events.md';
 import Localizations from '../_auto-generated/eventcalendar/localizations.md';
 import Methods from '../_auto-generated/eventcalendar/methods.md';
 import Slots from '../_auto-generated/eventcalendar/renderers.md';
+import Types from '../_auto-generated/eventcalendar/types.md';
 
 # Eventcalendar API
 
@@ -39,5 +40,9 @@ These methods are actions that can be performed on a component instance.
 The display of the Eventcalendar can be customized with different render functions.
 
 <Slots />
+
+## Types
+
+<Types />
 
 </div>

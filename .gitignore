@@ -23,6 +23,9 @@ yarn-error.log*
 **/_auto-generated/datepicker/localizations_calendarview.md
 **/_auto-generated/datepicker/localizations_scheduler.md
 **/_auto-generated/datepicker/localizations_timeline.md
+**/_auto-generated/datepicker/types_calendarview.md
+**/_auto-generated/datepicker/types_scheduler.md
+**/_auto-generated/datepicker/types_timeline.md
 **/_auto-generated/datepicker/options_calendarview.md
 **/_auto-generated/datepicker/options_scheduler.md
 **/_auto-generated/datepicker/options_timeline.md

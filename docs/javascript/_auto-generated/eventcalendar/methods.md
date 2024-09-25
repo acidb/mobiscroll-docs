@@ -1,6 +1,6 @@
 ### addEvent {#method-addEvent}
 
-(events: MbscCalendarEvent &#124; Array&lt;MbscCalendarEvent&gt;) => Array&lt;string&gt;
+(events: [MbscCalendarEvent](#type-MbscCalendarEvent) &#124; Array&lt;[MbscCalendarEvent](#type-MbscCalendarEvent)&gt;) => Array&lt;string&gt;
 
 
 Adds one or more events to the calendar
@@ -11,7 +11,7 @@ Parameters:
 
 ### getEvents {#method-getEvents}
 
-(start: MbscDateType, end: MbscDateType) => Array&lt;MbscCalendarEvent&gt;
+(start: [MbscDateType](#type-MbscDateType), end: [MbscDateType](#type-MbscDateType)) => Array&lt;[MbscCalendarEvent](#type-MbscCalendarEvent)&gt;
 
 
 Returns the [events](#opt-data) between two dates. If `start` and `end` are not specified,
@@ -26,7 +26,7 @@ Parameters:
 
 ### getInvalids {#method-getInvalids}
 
-(start: MbscDateType, end: MbscDateType) => Array&lt;MbscCalendarEvent&gt;
+(start: [MbscDateType](#type-MbscDateType), end: [MbscDateType](#type-MbscDateType)) => Array&lt;[MbscCalendarEvent](#type-MbscCalendarEvent)&gt;
 
 
 Returns the [invalids](#opt-invalid) between two dates. If `start` and `end` are not specified,
@@ -41,14 +41,14 @@ Parameters:
 
 ### getSelectedEvents {#method-getSelectedEvents}
 
-() => Array&lt;MbscCalendarEvent&gt;
+() => Array&lt;[MbscCalendarEvent](#type-MbscCalendarEvent)&gt;
 
 
 Returns the selected events.
 
 ### navigate {#method-navigate}
 
-(date: MbscDateType, animate: boolean) => void
+(date: [MbscDateType](#type-MbscDateType), animate: boolean) => void
 
 
 Navigates to the specified date on the calendar.
@@ -63,7 +63,7 @@ Parameters:
 
 ### navigateToEvent {#method-navigateToEvent}
 
-(event: MbscCalendarEvent) => void
+(event: [MbscCalendarEvent](#type-MbscCalendarEvent)) => void
 
 
 Navigates to the specified event on the calendar.
@@ -75,7 +75,7 @@ are used in timeline or schedule views) must be present in the object.
 
 ### removeEvent {#method-removeEvent}
 
-(events: string &#124; number &#124; Array&lt;string&gt; &#124; Array&lt;number&gt; &#124; MbscCalendarEvent &#124; Array&lt;MbscCalendarEvent&gt;) => void
+(events: string &#124; number &#124; Array&lt;string&gt; &#124; Array&lt;number&gt; &#124; [MbscCalendarEvent](#type-MbscCalendarEvent) &#124; Array&lt;[MbscCalendarEvent](#type-MbscCalendarEvent)&gt;) => void
 
 
 Removes one or more events from the event list based on IDs. For events without IDs, the IDs are generated internally.
@@ -87,7 +87,7 @@ Parameters:
 
 ### setEvents {#method-setEvents}
 
-(events: Array&lt;MbscCalendarEvent&gt;) => Array&lt;string&gt;
+(events: Array&lt;[MbscCalendarEvent](#type-MbscCalendarEvent)&gt;) => Array&lt;string&gt;
 
 
 Set the events for the calendar. The previous events will be overwritten.
@@ -106,7 +106,7 @@ Sets or updates options of the component.
 
 ### setSelectedEvents {#method-setSelectedEvents}
 
-(selectedEvents: Array&lt;MbscCalendarEvent&gt;) => void
+(selectedEvents: Array&lt;[MbscCalendarEvent](#type-MbscCalendarEvent)&gt;) => void
 
 
 Sets the selected events.
@@ -120,7 +120,7 @@ Parameters:
 
 ### updateEvent {#method-updateEvent}
 
-(events: MbscCalendarEvent &#124; Array&lt;MbscCalendarEvent&gt;) => void
+(events: [MbscCalendarEvent](#type-MbscCalendarEvent) &#124; Array&lt;[MbscCalendarEvent](#type-MbscCalendarEvent)&gt;) => void
 
 
 Updates one or more events in the event calendar.

@@ -6,6 +6,7 @@ displayed_sidebar: vueSidebar
 import Options from '../\_auto-generated/stepper/options.md';
 import Events from '../\_auto-generated/stepper/events.md';
 import Localizations from '../\_auto-generated/stepper/localizations.md';
+import Types from '../\_auto-generated/stepper/types.md';
 
 # Stepper
 
@@ -60,5 +61,9 @@ The Stepper component ships with different event hooks for deep customization. E
 The Stepper component is fully localized. This covers date and time format, button copy, rtl and more.
 
 <Localizations />
+
+## Types
+
+<Types />
 
 </div>

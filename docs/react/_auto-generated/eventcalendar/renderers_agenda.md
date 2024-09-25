@@ -1,6 +1,6 @@
 ### renderAgenda {#renderer-renderAgenda}
 
-(events: Array&lt;MbscEventList&gt;, options: MbscEventcalendarOptions, dayRefs: missing) => any
+(events: Array&lt;MbscEventList&gt;, options: MbscEventcalendarOptions, dayRefs: { [key:number]: HTMLElement &#124; null }) => any
 
 
 Customize the agenda listing.

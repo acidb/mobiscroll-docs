@@ -6,6 +6,7 @@ displayed_sidebar: jquerySidebar
 import Options from '../\_auto-generated/radio/options.md';
 import Events from '../\_auto-generated/radio/events.md';
 import Localizations from '../\_auto-generated/radio/localizations.md';
+import Types from '../\_auto-generated/radio/types.md';
 
 # Radio button
 
@@ -56,5 +57,9 @@ The Radio button component ships with different event hooks for deep customizati
 The Radio button component is fully localized. This covers date and time format, button copy, rtl and more.
 
 <Localizations />
+
+## Types
+
+<Types />
 
 </div>

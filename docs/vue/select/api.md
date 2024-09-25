@@ -8,6 +8,7 @@ import Events from '../\_auto-generated/select/events.md';
 import Localizations from '../\_auto-generated/select/localizations.md';
 import Methods from '../\_auto-generated/select/methods.md';
 import Slots from '../\_auto-generated/select/renderers.md';
+import Types from '../\_auto-generated/select/types.md';
 
 # Select API
 
@@ -39,5 +40,9 @@ These methods are actions that can be performed on a component instance.
 The display of the Select component can be customized with different slot functions.
 
 <Slots />
+
+## Types
+
+<Types />
 
 </div>

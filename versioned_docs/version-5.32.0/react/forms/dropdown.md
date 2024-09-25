@@ -6,6 +6,7 @@ displayed_sidebar: reactSidebar
 import Options from '../\_auto-generated/dropdown/options.md';
 import Events from '../\_auto-generated/dropdown/events.md';
 import Localizations from '../\_auto-generated/dropdown/localizations.md';
+import Types from '../\_auto-generated/dropdown/types.md';
 
 # Dropdown
 
@@ -65,5 +66,9 @@ The Dropdown component ships with different event hooks for deep customization. 
 The Dropdown component is fully localized. This covers date and time format, button copy, rtl and more.
 
 <Localizations />
+
+## Types
+
+<Types />
 
 </div>

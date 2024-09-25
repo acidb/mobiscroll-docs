@@ -30,7 +30,7 @@ In right-to-left mode, `'start'` will render the radio button to the right, and 
 **Default value**: `'end'`
 ### responsive {#opt-responsive}
 
-missing
+[MbscResponsiveOptions&lt;any&gt;](#type-MbscResponsiveOptions)
 
 Specifies different options for different container widths, in a form of an object,
 where the keys are the name of the breakpoints, and the values are objects containing the options for the given breakpoint.

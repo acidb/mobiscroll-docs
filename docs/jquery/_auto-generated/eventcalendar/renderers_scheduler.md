@@ -96,7 +96,7 @@ You can use custom markup and the built in header components of the calendar.
 
 ### renderResource {#renderer-renderResource}
 
-(resource: MbscResource, day: Date) => any
+(resource: [MbscResource](#type-MbscResource), day: Date) => any
 
 
 Customize how the resources are rendered on the scheduler and timeline views.

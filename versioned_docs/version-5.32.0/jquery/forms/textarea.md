@@ -6,6 +6,7 @@ displayed_sidebar: jquerySidebar
 import Options from '../\_auto-generated/textarea/options.md';
 import Events from '../\_auto-generated/textarea/events.md';
 import Localizations from '../\_auto-generated/textarea/localizations.md';
+import Types from '../\_auto-generated/textarea/types.md';
 
 # Textarea
 
@@ -52,5 +53,9 @@ The Textarea component ships with different event hooks for deep customization. 
 The Textarea component is fully localized. This covers date and time format, button copy, rtl and more.
 
 <Localizations />
+
+## Types
+
+<Types />
 
 </div>

@@ -7,6 +7,7 @@ import Options from '../_auto-generated/popup/options.md';
 import Events from '../_auto-generated/popup/events.md';
 import Localizations from '../_auto-generated/popup/localizations.md';
 import Methods from '../_auto-generated/popup/methods.md';
+import Types from '../_auto-generated/popup/Types.md';
 
 # Popup API
 
@@ -33,5 +34,9 @@ The Popup component is fully localized. This covers date and time format, button
 These methods are actions that can be performed on a component instance.
 
 <Methods />
+
+## Types
+
+<Types />
 
 </div>

@@ -8,6 +8,7 @@ import Events from '../\_auto-generated/datepicker/events.md';
 import Localizations from '../\_auto-generated/datepicker/localizations.md';
 import Methods from '../\_auto-generated/datepicker/methods.md';
 import Slots from '../_auto-generated/datepicker/renderers.md';
+import Types from '../_auto-generated/datepicker/types.md';
 
 # Datepicker API
 
@@ -43,4 +44,9 @@ The display of the Datepicker component can be customized with different templa
 <Slots />
 
 </div>
+
+## Types
+
+<Types />
+
 </div>

@@ -6,6 +6,7 @@ displayed_sidebar: jquerySidebar
 import Options from '../\_auto-generated/switch/options.md';
 import Events from '../\_auto-generated/switch/events.md';
 import Localizations from '../\_auto-generated/switch/localizations.md';
+import Types from '../\_auto-generated/switch/types.md';
 
 # Switch
 
@@ -78,5 +79,9 @@ The Switch component ships with different event hooks for deep customization. Ev
 The Switch component is fully localized. This covers date and time format, button copy, rtl and more.
 
 <Localizations />
+
+## Types
+
+<Types />
 
 </div>

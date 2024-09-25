@@ -111,7 +111,7 @@ Specifies a custom CSS class for the component.
 
 Array&lt;[MbscCalendarEvent](#type-MbscCalendarEvent)&gt;
 
-The events for the eventcalendar.
+The events for the Eventcalendar.
 
 The [`MbscCalendarEvent`](#type-MbscCalendarEvent) type has the following properties:
  - `allDay`: *boolean* - Specifies if the event is all day or not.

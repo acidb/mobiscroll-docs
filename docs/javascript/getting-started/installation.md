@@ -30,11 +30,15 @@ To install the Mobiscroll library to your web application, you will need the Mob
 
 <TrialStart framework="javascript" />
 
+By default the CLI will install the [ESM Bundle](../core-concepts/esm_bundle) of the trial package. You might need to [register components for the auto-initialization](../core-concepts/esm_bundle.md#manual-vs-auto-initialization) feature to work.
+
 ## Installing from NPM
 
 <InstallNpm framework="javascript" />
 
 <ImportStyles framework="javascript" />
+
+By default the CLI will install the [ESM Bundle](../core-concepts/esm_bundle). You might need to [register components for the auto-initialization](../core-concepts/esm_bundle.md#manual-vs-auto-initialization) feature to work.
 
 ## Setting up for CI/CD
 

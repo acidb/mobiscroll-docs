@@ -5,7 +5,7 @@ displayed_sidebar: javascriptSidebar
 title: ESM Bundle
 ---
 
-## Overview 
+## Overview
 
 With every Mobiscroll package we provide an ESM bundle, so it can be used as a JavaScript Module. This way many bundlers (for example Rollup, Webpack, etc...) can take advantage of the tree-shaking technique and eliminate dead code. This reduces the bundle size to only what is actually used in the application.
 
@@ -30,6 +30,10 @@ Some Mobiscroll components can also be initialized using a html attribute that a
 <button id="my-element" mbsc-button onclick="myOnClickFunction();"></button>
 <!-- the mbsc-button attribute is used to auto-initialize the button component -->
 ```
+
+:::caution
+When using an ESM bundles the auto-initialization will work only after [registering the components](#registering-components).
+:::
 
 ### Registering components
 
@@ -231,7 +235,7 @@ The index html file will load only the `bundle.js` and will contain the markup f
     <script src="bundle.js"></script>
   </body>
 </html>
-``` 
+```
 
 Next step is to install the Mobiscroll package via the CLI. Depending on what kind of license you have, you can have a package from the [download page](https://download.mobiscroll.com/) or you can have access to the NPM repository. Either way, you will have to use the `mobiscroll config javascript` command only with different options. If you have a package from the download page, please follow the guide there on how to install the package. If you have access to the npm package or you're on trial the following command will install it:
 

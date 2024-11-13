@@ -204,6 +204,18 @@
   padding-top: 90px;
 }
 
+/* fix for docItemCol class not being applied to the top element */
+@media (min-width: 997px) {
+  .custom-doc-item-col {
+    max-width: 75% !important;
+  }
+
+  main {
+    max-width: calc(100% - var(--doc-sidebar-width)) !important;
+  }
+}
+
+
 /* Loading */
 .loader.mobi-blue {
   position: relative;

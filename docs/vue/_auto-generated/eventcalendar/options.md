@@ -911,7 +911,7 @@ Make sure that the theme you set is included in the downloaded package.
 **Default value**: `undefined`
 ### themeVariant {#opt-themeVariant}
 
-"dark" &#124; "light" &#124; "auto"
+"light" &#124; "dark" &#124; "auto"
 
 Controls which variant of the [theme](#opt-theme) will be used (light or dark).
 

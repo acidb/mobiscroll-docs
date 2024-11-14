@@ -23,6 +23,8 @@ If the calculated height is less then 200px, the agenda will not be scrollable.
 boolean
 
 Display the day headers for every day in the list, even for those without events.
+
+**Default value**: `false`
 ### size {#view-agenda-size}
 
 number

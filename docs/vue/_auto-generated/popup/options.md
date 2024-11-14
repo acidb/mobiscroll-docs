@@ -18,6 +18,13 @@ Possible values:
 If `false`, the animation is turned off.
 
 **Default value**: `undefined`
+### ariaLabel {#opt-ariaLabel}
+
+string
+
+Specifies the accessible name of the popup.
+
+**Default value**: `undefined`
 ### buttons {#opt-buttons}
 
 Array&lt;string &#124; [MbscPopupButton](#type-MbscPopupButton)&gt;
@@ -32,7 +39,7 @@ If a string, it must be one of the predefined buttons:
 - `'set'` - Approve action. Will display the caption specified by the [setText](#localization-setText) option.
 
 The [`MbscPopupButton`](#type-MbscPopupButton) type has the following properties:
- - `color`: *"primary" &#124; "secondary" &#124; "success" &#124; "danger" &#124; "warning" &#124; "info" &#124; "dark" &#124; "light"* - Specifies the predefined color of the button
+ - `color`: *"light" &#124; "dark" &#124; "primary" &#124; "secondary" &#124; "success" &#124; "danger" &#124; "warning" &#124; "info"* - Specifies the predefined color of the button
  - `cssClass`: *string* - A custom CSS class that will be applied to the element
  - `disabled`: *boolean* - Disabled state of the button
  - `handler`: *[MbscPopupPredefinedButton](#type-MbscPopupPredefinedButton) &#124; (event: any) => void* - Specifies what happens when the button is pressed. It can be a predefined button handler
@@ -41,7 +48,7 @@ like `'set'`, `'cancel'` or a custom function.
  - `keyCode`: *number &#124; "enter" &#124; "esc" &#124; "space" &#124; Array&lt;number &#124; "enter" &#124; "esc" &#124; "space"&gt;* - The key code associated with the button to activate it from keyboard. Can be a single value or
 multiple value passed as an array. Predefined string values are: `'enter'`, `'esc'`, `'space'`.
  - `text`: *string* - Sets the label of the button
- - `variant`: *"standard" &#124; "flat" &#124; "outline"* - The style of the button
+ - `variant`: *"flat" &#124; "standard" &#124; "outline"* - The style of the button
 
 
 
@@ -270,7 +277,7 @@ Make sure that the theme you set is included in the downloaded package.
 **Default value**: `undefined`
 ### themeVariant {#opt-themeVariant}
 
-"dark" &#124; "light" &#124; "auto"
+"light" &#124; "dark" &#124; "auto"
 
 Controls which variant of the [theme](#opt-theme) will be used (light or dark).
 

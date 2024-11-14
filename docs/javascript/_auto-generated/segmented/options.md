@@ -7,7 +7,7 @@ Specifies the accessible name of the segmented button. Recommended for icon-only
 **Default value**: `undefined`
 ### color {#opt-color}
 
-"success" &#124; "primary" &#124; "secondary" &#124; "danger" &#124; "warning" &#124; "info" &#124; "dark" &#124; "light"
+"success" &#124; "light" &#124; "dark" &#124; "primary" &#124; "secondary" &#124; "danger" &#124; "warning" &#124; "info"
 
 Specifies the predefined color of the segmented button.
 
@@ -102,7 +102,7 @@ Make sure that the theme you set is included in the downloaded package.
 **Default value**: `undefined`
 ### themeVariant {#opt-themeVariant}
 
-"auto" &#124; "dark" &#124; "light"
+"auto" &#124; "light" &#124; "dark"
 
 Controls which variant of the [theme](#opt-theme) will be used (light or dark).
 

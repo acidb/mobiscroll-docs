@@ -104,7 +104,7 @@ Properties:
 Interface
 
 Properties:
- - `color`: *"primary" &#124; "secondary" &#124; "success" &#124; "danger" &#124; "warning" &#124; "info" &#124; "dark" &#124; "light"*  - Specifies the predefined color of the button
+ - `color`: *"light" &#124; "dark" &#124; "primary" &#124; "secondary" &#124; "success" &#124; "danger" &#124; "warning" &#124; "info"*  - Specifies the predefined color of the button
  - `cssClass`: *string*  - A custom CSS class that will be applied to the element
  - `disabled`: *boolean*  - Disabled state of the button
  - `handler`: *[MbscPopupPredefinedButton](#type-MbscPopupPredefinedButton) &#124; (event: any) => void*  - Specifies what happens when the button is pressed. It can be a predefined button handler
@@ -113,7 +113,7 @@ like `'set'`, `'cancel'` or a custom function.
  - `keyCode`: *number &#124; "enter" &#124; "esc" &#124; "space" &#124; Array&lt;number &#124; "enter" &#124; "esc" &#124; "space"&gt;*  - The key code associated with the button to activate it from keyboard. Can be a single value or
 multiple value passed as an array. Predefined string values are: `'enter'`, `'esc'`, `'space'`.
  - `text`: *string*  - Sets the label of the button
- - `variant`: *"standard" &#124; "flat" &#124; "outline"*  - The style of the button
+ - `variant`: *"flat" &#124; "standard" &#124; "outline"*  - The style of the button
 
 ### MbscPopupDisplay {#type-MbscPopupDisplay}
 

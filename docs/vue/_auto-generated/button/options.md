@@ -7,7 +7,7 @@ Specifies the accessible name of the button. Recommended for icon-only buttons.
 **Default value**: `undefined`
 ### color {#opt-color}
 
-"primary" &#124; "secondary" &#124; "success" &#124; "danger" &#124; "warning" &#124; "info" &#124; "dark" &#124; "light"
+"light" &#124; "dark" &#124; "primary" &#124; "secondary" &#124; "success" &#124; "danger" &#124; "warning" &#124; "info"
 
 Specifies the predefined color of the button.
 
@@ -81,7 +81,7 @@ Make sure that the theme you set is included in the downloaded package.
 **Default value**: `undefined`
 ### themeVariant {#opt-themeVariant}
 
-"dark" &#124; "light" &#124; "auto"
+"light" &#124; "dark" &#124; "auto"
 
 Controls which variant of the [theme](#opt-theme) will be used (light or dark).
 
@@ -96,7 +96,7 @@ suffixed with `'-dark'`, e.g.: `'my-theme'` and `'my-theme-dark'`.
 **Default value**: `undefined`
 ### variant {#opt-variant}
 
-"standard" &#124; "flat" &#124; "outline"
+"flat" &#124; "standard" &#124; "outline"
 
 Specifies the style of the button.
 

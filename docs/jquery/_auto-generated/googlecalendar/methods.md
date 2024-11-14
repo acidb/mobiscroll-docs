@@ -5,13 +5,26 @@
 
 
 Adds an event to the specified calendar.
+```js title="Example usage"
+googleCalendarSync.addEvent(
+  'MY_CALENDAR_ID',
+  {
+    start: new Date(2022, 1, 15, 12),
+    end: new Date(2022, 1, 16, 14),
+    title: 'My new event',
+    googleEvent: {
+      description: 'My new event description'
+    }
+  });
+```
 
 Parameters:
  - calendarId - The ID of the calendar
 
- - event - The event to add
+ - event - The event to add. You can pass Google specific event properties through the `googleEvent` property.
+The rest of custom properties will be passed to the `extendedProperties` field.
 
- - callback - Callback function which is executed then the request is complete. Receives the added event.
+ - callback - Callback function which is executed when the request is complete. Receives the added event.
 
 
 ### deleteEvent {#method-google-deleteEvent}
@@ -101,11 +114,25 @@ If the user is signed in, signs out. On success triggers the `onSignedOut` event
 
 
 Updates an event in the specified calendar.
+```js title="Example usage"
+googleCalendarSync.updateEvent(
+  'MY_CALENDAR_ID',
+  {
+    start: new Date(2022, 1, 20, 10),
+    end: new Date(2022, 1, 11, 15),
+    title: 'My updated event',
+    id: 1,
+    googleEvent: {
+      description: 'My updated event description'
+    }
+  });
+```
 
 Parameters:
  - calendarId - The ID of the calendar
 
- - event - The event to update
+ - event - The event to update. You can pass Google specific event properties through the `googleEvent` property.
+The rest of custom properties will be passed to the `extendedProperties` field.
 
  - callback - Callback function which is executed then the request is complete. Receives the updated event.
 

@@ -7,6 +7,13 @@ If actionable, the event items will have hover and active states, and pointer cu
 Set to `false` when custom event rendering is used and the event list items contain other actionable elements, e.g. buttons.
 
 **Default value**: `true`
+### context {#opt-context}
+
+string &#124; HTMLElement
+
+The DOM element in which the popups (event popover, year and month picker) are rendered. Can be a selector string or a DOM element.
+
+**Default value**: `'body'`
 ### cssClass {#opt-cssClass}
 
 string
@@ -220,6 +227,20 @@ If navigation is needed, but event creation should not be allowed before a speci
 use the [invalid](#opt-invalid) option with daily recurrence until the specific date.
 
 **Default value**: `undefined`
+### modules {#opt-modules}
+
+Array&lt;IModule&gt;
+
+Additional modules can be added to the eventcalendar. The option receives an array of module objects.
+For example, the print module can be added through this option.
+
+```js
+// import the print module
+import { print } from '@mobiscroll/print';
+
+// later on, add it to the modules array:
+modules: [print]
+```
 ### refDate {#opt-refDate}
 
 [MbscDateType](#type-MbscDateType)
@@ -408,7 +429,7 @@ Make sure that the theme you set is included in the downloaded package.
 **Default value**: `undefined`
 ### themeVariant {#opt-themeVariant}
 
-"dark" &#124; "light" &#124; "auto"
+"light" &#124; "dark" &#124; "auto"
 
 Controls which variant of the [theme](#opt-theme) will be used (light or dark).
 

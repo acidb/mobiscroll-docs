@@ -39,7 +39,7 @@ If a string, it must be one of the predefined buttons:
 - `'set'` - Approve action. Will display the caption specified by the [setText](#localization-setText) option.
 
 The [`MbscPopupButton`](#type-MbscPopupButton) type has the following properties:
- - `color`: *"success" &#124; "primary" &#124; "secondary" &#124; "danger" &#124; "warning" &#124; "info" &#124; "dark" &#124; "light"* - Specifies the predefined color of the button
+ - `color`: *"success" &#124; "light" &#124; "dark" &#124; "primary" &#124; "secondary" &#124; "danger" &#124; "warning" &#124; "info"* - Specifies the predefined color of the button
  - `cssClass`: *string* - A custom CSS class that will be applied to the element
  - `disabled`: *boolean* - Disabled state of the button
  - `handler`: *[MbscPopupPredefinedButton](#type-MbscPopupPredefinedButton) &#124; (event: any) => void* - Specifies what happens when the button is pressed. It can be a predefined button handler
@@ -109,8 +109,7 @@ If `true`, the popup is closed on overlay click or tap.
 
 string &#124; HTMLElement
 
-Specify the DOM element in which the component is rendered and positioned, if [display](#opt-display) is not `'inline'`.
-Can be a selector string or a DOM element.
+The DOM element in which the component is appended and positioned (when not inline). Can be a selector string or a DOM element.
 
 **Default value**: `'body'`
 ### cssClass {#opt-cssClass}
@@ -485,7 +484,7 @@ Make sure that the theme you set is included in the downloaded package.
 **Default value**: `undefined`
 ### themeVariant {#opt-themeVariant}
 
-"auto" &#124; "dark" &#124; "light"
+"auto" &#124; "light" &#124; "dark"
 
 Controls which variant of the [theme](#opt-theme) will be used (light or dark).
 

@@ -5,13 +5,25 @@
 
 
 Adds an event to the specified calendar.
+```js title="Example usage"
+outlookCalendarSync.addEvent(
+  'MY_CALENDAR_ID',
+  {
+    start: new Date(2022, 1, 15, 12),
+    end: new Date(2022, 1, 16, 14),
+    title: 'My new event',
+    outlookEvent: {
+      isReminderOn: true,
+    }
+  });
+```
 
 Parameters:
  - calendarId - The ID of the calendar
 
- - event - The event to add
+ - event - The event to add. You can pass Outlook specific event properties through the `outlookEvent` property.
 
- - callback - Callback function which is executed then the request is complete. Receives the added event.
+ - callback - Callback function which is executed when the request is complete. Receives the added event.
 
 
 ### deleteEvent {#method-outlook-deleteEvent}
@@ -101,11 +113,24 @@ If the user is signed in, signs out. On success triggers the `onSignedOut` event
 
 
 Updates an event in the specified calendar.
+```js title="Example usage"
+outlookCalendarSync.updateEvent(
+  'MY_CALENDAR_ID',
+  {
+    start: new Date(2022, 1, 20, 10),
+    end: new Date(2022, 1, 11, 15),
+    title: 'My updated event',
+    id: 1,
+    outlookEvent: {
+      isReminderOn: false,
+    }
+  });
+```
 
 Parameters:
  - calendarId - The ID of the calendar
 
- - event - The event to update
+ - event - The event to update. You can pass Outlook specific event properties through the `outlookEvent` property.
 
- - callback - Callback function which is executed then the request is complete. Receives the updated event.
+ - callback - Callback function which is executed when the request is complete. Receives the updated event.
 

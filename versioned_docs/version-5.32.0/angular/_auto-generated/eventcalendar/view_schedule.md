@@ -116,3 +116,5 @@ timezones: [
 "day" &#124; "month" &#124; "week"
 
 Sets the scheduler type.
+
+**Default value**: `'week'`

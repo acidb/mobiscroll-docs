@@ -18,6 +18,13 @@ Possible values:
 If `false`, the animation is turned off.
 
 **Default value**: `undefined`
+### ariaLabel {#opt-ariaLabel}
+
+string
+
+Specifies the accessible name of the popup.
+
+**Default value**: `undefined`
 ### buttons {#opt-buttons}
 
 Array&lt;string &#124; [MbscPopupButton](#type-MbscPopupButton)&gt;
@@ -87,6 +94,13 @@ If `true`, the popup is closed when the ESC key is pressed.
 boolean
 
 If `true`, the popup is closed on overlay click or tap.
+
+**Default value**: `true`
+### contentPadding {#opt-contentPadding}
+
+boolean
+
+When set to false, it will remove the default padding from the content area.
 
 **Default value**: `true`
 ### context {#opt-context}

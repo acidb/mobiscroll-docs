@@ -17,7 +17,7 @@ The instance of the client application, if already loaded. If not specified, the
 
 number
 
-The maximum number of events to retreive with one request. Default value is `1000`.
+The maximum number of events to retrieve with one request. Default value is `1000`.
 ### redirectUri {#opt-outlook-redirectUri}
 
 string

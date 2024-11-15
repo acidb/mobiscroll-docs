@@ -109,8 +109,7 @@ If `true`, the popup is closed on overlay click or tap.
 
 string &#124; HTMLElement
 
-Specify the DOM element in which the component is rendered and positioned, if [display](#opt-display) is not `'inline'`.
-Can be a selector string or a DOM element.
+The DOM element in which the component is appended and positioned (when not inline). Can be a selector string or a DOM element.
 
 **Default value**: `'body'`
 ### cssClass {#opt-cssClass}

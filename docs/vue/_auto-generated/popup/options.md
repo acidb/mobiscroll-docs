@@ -96,6 +96,13 @@ boolean
 If `true`, the popup is closed on overlay click or tap.
 
 **Default value**: `true`
+### contentPadding {#opt-contentPadding}
+
+boolean
+
+When set to false, it will remove the default padding from the content area.
+
+**Default value**: `true`
 ### context {#opt-context}
 
 string &#124; HTMLElement

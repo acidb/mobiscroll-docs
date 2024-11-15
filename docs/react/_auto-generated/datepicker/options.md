@@ -197,6 +197,13 @@ The colors can be combined with the [labels](#opt-labels) or [marked](#opt-marke
 ```
 
 **Default value**: `undefined`
+### context {#opt-context}
+
+string &#124; HTMLElement
+
+The DOM element in which the component is appended and positioned (when not inline). Can be a selector string or a DOM element.
+
+**Default value**: `'body'`
 ### controls {#opt-controls}
 
 Array&lt;[MbscDatepickerControl](#type-MbscDatepickerControl)&gt;

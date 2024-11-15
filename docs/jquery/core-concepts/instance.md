@@ -38,6 +38,16 @@ const inst = $('#my-div').mobiscroll('getInst');
 console.log('The Eventcalendar instance:', inst);
 ```
 
+The `getInst` function also receives a parameter. When true is passed to the parameter the form control instance will be returned. This is usefull when two components are initialized on the same element, for example: a mobiscroll input and a datepicker.
+
+```js
+$('#my-inp').mobiscroll().input();
+$('#my-inp').mobiscroll().datepicker();
+
+const instDatepicker = $('#my-inp').mobiscroll('getInst'); // the main component instance
+const instInput = $('#my-inp').mobiscroll('getInst', true); // the form component instance
+```
+
 ## Calling methods
 
 All the component methods are documented on each components API section. The methods can be called on the component instances as described in the previous section.

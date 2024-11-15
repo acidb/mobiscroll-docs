@@ -36,6 +36,33 @@ mobiscroll.eventcalendar('#my-div', {
 });
 ```
 
+### The `getInst` method
+
+A reference to the component instance is also returned by the `getInst` function:
+
+```js
+mobiscroll.eventcalendar('#my-div', { theme: 'ios' });
+
+const inst = mobiscroll.getInst('#my-div');
+
+console.log('The Eventcalendar instance:', inst);
+```
+
+The `getInst` function also receives a second parameter. When `true` is passed to the parameter the form control instance will be returned. This is usefull when two components are initialized on the same element, for example: a mobiscroll input and a datepicker.
+
+```html
+<label>
+  Mobiscroll Input
+  <input id="my-inp" mbsc-input />
+</label>
+```
+```js
+mobiscroll.datepicker('#my-inp');
+
+const instDatepicker = mobiscroll.getInst('#my-inp'); // the main component instance
+const instInput = mobiscroll.getInst('#my-inp', true); // the form component instance
+```
+
 ## Calling methods
 
 All the component methods are documented on each components API section. The methods can be called on the component instances as described in the previous section.

@@ -8,7 +8,7 @@ import SetOptionsDescription from '../../_shared/core-concepts/global_setoptions
 
 # Global options
 
-## The `setOptions` method
+## The setOptions method
 
 <SetOptionsDescription />
 

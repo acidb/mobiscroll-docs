@@ -81,13 +81,28 @@ mobiscroll.eventcalendar('#timeline', {
 
 ### Column width
 
-Setting the Timeline grid column widths can be done with the following css rule:
+When the `columnWidth` (xsmall, small, medium, large, xlarge, xxlarge) is specified in the view, 
+the corresponding CSS class is applied. The applied classes, which you can customize, are:
 
 ```css
-.mbsc-timeline-header-column,
-.mbsc-timeline-column {
-  width: 3em;
-}
+ .mbsc-timeline-column-xs {
+    width: 1.5em;
+  }
+  .mbsc-timeline-column-s {
+    width: 3em;
+  }
+  .mbsc-timeline-column-m {
+    width: 4.5em;
+  }
+  .mbsc-timeline-column-l {
+    width: 6em;
+  }
+  .mbsc-timeline-column-xl {
+    width: 7.5em;
+  }
+  .mbsc-timeline-column-xxl {
+    width: 9em;
+  }
 ```
 
 :::caution

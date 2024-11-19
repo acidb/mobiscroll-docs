@@ -704,6 +704,7 @@ Consider that the fixed resources always have to be the first elements of the ar
 (no non-fixed resources inserted in between) so that the dra &amp; rop and event creation functionalities to work properly.
  - `id`: *string &#124; number* - The id of the resource.
  - `name`: *string* - Specifies the name of the resource.
+ - `reorder`: *boolean* - 
 
 
 
@@ -1122,5 +1123,12 @@ view: {
 string &#124; number
 
 Sets the width of the component.
+
+**Default value**: `undefined`
+### zoomLevel {#opt-zoomLevel}
+
+string &#124; number
+
+zomLevel desc
 
 **Default value**: `undefined`

@@ -817,3 +817,10 @@ string &#124; number
 Sets the width of the component.
 
 **Default value**: `undefined`
+### zoomLevel {#opt-zoomLevel}
+
+string &#124; number
+
+zomLevel desc
+
+**Default value**: `undefined`

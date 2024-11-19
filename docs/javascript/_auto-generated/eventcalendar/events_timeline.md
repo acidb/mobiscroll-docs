@@ -516,6 +516,24 @@ Parameters:
  - inst - The component instance.
 
 
+### onResourceOrderUpdate {#event-onResourceOrderUpdate}
+
+(args: MbscResourceOrderEvent, inst: EventcalendarBase) => void
+
+
+Triggered when a parent resource is expanded on the timeline.
+
+Parameters:
+ - args - The event argument with the following properties:
+   - `resource`: *Resource* - The updated resource object.
+   - `parent`: *Resource* - The parent resource object.
+   - `index`: *Resource* - The position of the resource within its siblings.
+   - `oldParent`: *Resource* - The old parent resource object.
+   - `oldIndex`: *Resource* - The old position of the resource within its siblings.
+
+ - inst - The component instance.
+
+
 ### onSelectedDateChange {#event-onSelectedDateChange}
 
 (args: MbscSelectedDateChangeEvent, inst: EventcalendarBase) => void
@@ -545,6 +563,28 @@ You can also select events programmatically using the [selectedEvents](#opt-sele
 Parameters:
  - args - The event argument with the following properties:
     - `events`: *Array&lt;MbscCalendarEvent&gt;* - The selected events.
+
+ - inst - The component instance.
+
+
+### onVirtualLoading {#event-onVirtualLoading}
+
+(args: MbscVirtualLoadEvent, inst: EventcalendarBase) => void
+
+
+Triggered when a new virtual page is loaded.
+You can use this event to load events and resources on demand while scrolling timeline grid.
+
+Parameters:
+ - args - The event argument with the following properties:
+   - `viewStart`: *Date* - The date where the virtual view starts.
+   - `viewEnd`: *Date* - The date where the virtual view end.
+   - `resourceStart`: *number|string* - The id of the resource where the virtual view starts.
+   - `resourceEnd`:  *number|string* - The id of the resource where the virtual view ends.
+   - `oldResourceStart`: *  The id of the resource where the previous virtual view starts.
+   - `oldResourceEnd`: * The id of the resource where the previous virtual view ends.
+   - `oldViewStart`: *Date* - The date where hte previous virtual view starts.
+   - `oldViewEnd`: *Date*- The date where the previous virtual view ends.
 
  - inst - The component instance.
 

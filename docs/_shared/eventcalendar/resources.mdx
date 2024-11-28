@@ -2,15 +2,20 @@ Resources can be many things, ranging from **people** through **conference rooms
 
 The resource object supports the following properties:
 
+- `background` _String_ - Specifies the background color of the resource row or column.
 - `children` _Array of object_ - Array of resource objects which will render as a child of the specified resource.
 - `collapsed` _Boolean_ - Defines the displayed state of the child resoruce group.
 - `id` _Number, String_ - This is an id that can be referenced in the events/invalids/colors data.
 - `name` _String_ - The name of the resource that will be displayed at the top of the resource column.
 - `color` _String_ - The color controls the default event color of the resource. Event colors can be specified further on the event object itself. If the color is omitted the events of the resource will inherit the default calendar color.
+- `fixed` _Boolean_ - Specifies whether the resource is fixed to the top. It applies for timeline view if `resolutionVertical` in [view](#opt-view) option is not given, or it's value is set to `none`.
 - `eventCreation` _Boolean_ - Disables event creation on specific resources by setting it to false. It's true by default.
 - `eventDragBetweenResources` _Boolean_ - Specifies whether the events in the specified resource are movable across resources. It applies for scheduler and timeline views and has precedence over [`dragBetweenResources`](api#opt-dragBetweenResources) option.
+- `eventDragBetweenSlots` _Boolean_  - Specifies whether the events in this resource are movable in time. Has precedence over the [dragInTime](#opt-dragInTime) option.
 - `eventDragInTime` _Boolean_ - Specifies whether the events in the specified resource are movable in time. Has precedence over the [`dragInTime`](api#opt-dragInTime) option.
+- `eventOverlap` _Boolean_ - Specifies whether the events in this resource can be overlapped. Has precedence over the [eventOverlap](#opt-eventOverlap) option.
 - `eventResize` _Boolean_ - Specifies whether the events in the specified resource are resizable. Has precedence over [`dragToResize`](api#opt-dragToResize) option.
+- `reorder` _Boolean_ - Specifies whether the resource can be dragged and reordered. It applies for timeline view if `resourceOrder` in [view](#opt-view) option is enabled. Has precedence over the `resourceOrder` property.
 
 Besides the base properties you can add any custom property, like title, job, etc.
 

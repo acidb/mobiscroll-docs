@@ -40,7 +40,8 @@ const myView = {
     maxEventStack: 2,
     eventList: true,
     resolutionHorizontal: 'day',
-    type: 'week'
+    type: 'week',
+    resourceReorder: true
   }
 }
 </script>
@@ -249,6 +250,9 @@ const myInvalid = [
 The initial order in which the resources appear on the timeline follows the order of the array passed to the component. If the initial order needs to be changed, sort the resource array before passing it to the event calendar.
 
 For dynamic sorting during runtime, sort the resource array and pass the updated array to the calendar.
+
+Resources can be [reordered directly through the UI](https://demo.mobiscroll.com//timeline/resource-drag-drop-reorder)  by enabling the `resourceOrder` option in the [view](#opt-view) configuration. When enabled, a [drag handler icon](#opt-dragHandlerIcon) will appear before each resource, serving as the anchor for dragging.
+After a resource is dragged and dropped to a new position, the [@resource-order-update](#event-onResourceOrderUpdate) lifecycle event is triggered. To make specific resources non-draggable, set the `reorder` property of the corresponding resource object to `false`;
 
 ### Resource column width
 

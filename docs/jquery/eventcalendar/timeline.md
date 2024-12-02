@@ -81,27 +81,27 @@ $('#timeline').mobiscroll().eventcalendar({
 
 ### Column width
 
-When the `columnWidth` (xsmall, small, medium, large, xlarge, xxlarge) is specified in the view, 
-the corresponding CSS class is applied. The applied classes, which you can customize, are:
+The [`columnWidth`](timeline#column-width) option in the timeline view allows you to control the width of the timeline columns. 
+It supports the following predefined sizes: xsmall, small, medium, large, xlarge, and xxlarge. 
+You can use this option to adjust column sizes to suit your application’s needs.
+
+To specify the columnWidth in your view configuration, include it as part of the timeline view options. 
+For example:
+
+```ts
+view: {
+  timeline: {
+    columnWidth: 'large'
+  }
+}
+```
+
+The predefined sizes correspond to specific default widths, but you can override them using CSS. 
+For example:
 
 ```css
- .mbsc-timeline-column-xs {
-    width: 1.5em;
-  }
-  .mbsc-timeline-column-s {
-    width: 3em;
-  }
-  .mbsc-timeline-column-m {
-    width: 4.5em;
-  }
   .mbsc-timeline-column-l {
-    width: 6em;
-  }
-  .mbsc-timeline-column-xl {
-    width: 7.5em;
-  }
-  .mbsc-timeline-column-xxl {
-    width: 9em;
+    width: 50px;
   }
 ```
 

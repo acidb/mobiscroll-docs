@@ -227,6 +227,11 @@
   background-color: var(--ifm-table-background);
 }
 
+.tabel-max-width {
+  display: table;
+  width: 100%;
+}
+
 /* Loading */
 .loader.mobi-blue {
   position: relative;

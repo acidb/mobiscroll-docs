@@ -20,6 +20,8 @@
   --ifm-menu-color: #011742;
 
   --ifm-font-size-base: 14px;
+
+  --ifm-table-background: white;
 }
 
 :root {
@@ -45,6 +47,8 @@
 
   --ifm-heading-color: #d3d3d3;
   --ifm-menu-color: #d3d3d3;
+
+  --ifm-table-background: #1b1b1b;
 }
 
 [data-theme="dark"] {
@@ -219,6 +223,9 @@
   }
 }
 
+.tabel-background-white {
+  background-color: var(--ifm-table-background);
+}
 
 /* Loading */
 .loader.mobi-blue {

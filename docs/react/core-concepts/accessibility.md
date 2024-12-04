@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 import Accessibility from '../../_shared/core-concepts/accessibility.mdx';
 import { toc as recTOC } from '../../_shared/core-concepts/accessibility.mdx';
 
-export const toc = [...recTOC, { level: 2 }];
+export const toc = [...recTOC];
 
 <Accessibility />
 

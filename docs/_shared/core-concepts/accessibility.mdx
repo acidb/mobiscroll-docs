@@ -24,7 +24,13 @@ Information and user interface components must be presentable to users in ways t
     <tr>
       <th colSpan="2">Guidelines</th>
       <th>Level</th>
-      <th>Compatibility</th>
+      <th>
+        Compatibility
+        <label className="table-hide-wrapper">
+          <input type="checkbox" className="table-hide-switch" defaultChecked />
+          Not applicable
+        </label>
+      </th>
     </tr>
     <tr>
       <th><a href='https://www.w3.org/TR/WCAG22/#text-alternatives'>1.1 Text Alternatives</a></th>
@@ -32,48 +38,48 @@ Information and user interface components must be presentable to users in ways t
       <td>A</td>
       <td>Applicable</td>
     </tr>
-    <tr>
+    <tr className="js-not-applicable">
       <th rowSpan="9"><a href='https://www.w3.org/TR/WCAG22/#time-based-media'>1.2 Time-based Media</a></th>
       <td><a href='https://www.w3.org/TR/WCAG22/#audio-only-and-video-only-prerecorded'>1.2.1 Audio-only and Video-only (Prerecorded)</a></td>
       <td>A</td>
       <td>Not Applicbale</td>
     </tr>
-    <tr>
+    <tr className="js-not-applicable">
       <td><a href='https://www.w3.org/TR/WCAG22/#captions-prerecorded'>1.2.2 Captions (Prerecorded)</a></td>
       <td>A</td>
       <td>Not Applicbale</td>
     </tr>
-    <tr>
+    <tr className="js-not-applicable">
       <td><a href='https://www.w3.org/TR/WCAG22/#audio-description-or-media-alternative-prerecorded'>1.2.3 Audio Description or Media Alternative (Prerecorded)</a></td>
       <td>A</td>
       <td>Not Applicbale</td>
     </tr>
-    <tr>
+    <tr className="js-not-applicable">
       <td><a href='https://www.w3.org/TR/WCAG22/#captions-live'>1.2.4 Captions (Live)</a></td>
       <td>AA</td>
       <td>Not Applicbale</td>
     </tr>
-    <tr>
+    <tr className="js-not-applicable">
       <td><a href='https://www.w3.org/TR/WCAG22/#audio-description-prerecorded'>1.2.5 Audio Description (Prerecorded)</a></td>
       <td>AA</td>
       <td>Not Applicbale</td>
     </tr>
-    <tr>
+    <tr className="js-not-applicable">
       <td><a href='https://www.w3.org/TR/WCAG22/#sign-language-prerecorded'>1.2.6 Sign Language (Prerecorded)</a></td>
       <td>AAA</td>
       <td>Not Applicbale</td>
     </tr>
-    <tr>
+    <tr className="js-not-applicable">
       <td><a href='https://www.w3.org/TR/WCAG22/#extended-audio-description-prerecorded'>1.2.7 Extended Audio Description (Prerecorded)</a></td>
       <td>AAA</td>
       <td>Not Applicbale</td>
     </tr>
-    <tr>
+    <tr className="js-not-applicable">
       <td><a href='https://www.w3.org/TR/WCAG22/#media-alternative-prerecorded'>1.2.8 Media Alternative (Prerecorded)</a></td>
       <td>AAA</td>
       <td>Not Applicbale</td>
     </tr>
-    <tr>
+    <tr className="js-not-applicable">
       <td><a href='https://www.w3.org/TR/WCAG22/#audio-only-live'>1.2.9 Audio-only (Live)</a></td>
       <td>AAA</td>
       <td>Not Applicbale</td>
@@ -115,7 +121,7 @@ Information and user interface components must be presentable to users in ways t
       <td>A</td>
       <td>Applicbale</td>
     </tr>
-    <tr>
+    <tr className="js-not-applicable">
       <td><a href='https://www.w3.org/TR/WCAG22/#audio-control'>1.4.2 Audio Control</a></td>
       <td>A</td>
       <td>Not Applicbale</td>
@@ -130,7 +136,7 @@ Information and user interface components must be presentable to users in ways t
       <td>AA</td>
       <td>Applicbale</td>
     </tr>
-    <tr>
+    <tr className="js-not-applicable">
       <td><a href='https://www.w3.org/TR/WCAG22/#images-of-text'>1.4.5 Images of Text</a></td>
       <td>AA</td>
       <td>Not Applicbale</td>
@@ -140,7 +146,7 @@ Information and user interface components must be presentable to users in ways t
       <td>AAA</td>
       <td>Applicbale</td>
     </tr>
-    <tr>
+    <tr className="js-not-applicable">
       <td><a href='https://www.w3.org/TR/WCAG22/#low-or-no-background-audio'>1.4.7 Low or No Background Audio</a></td>
       <td>AAA</td>
       <td>Not Applicbale</td>
@@ -150,7 +156,7 @@ Information and user interface components must be presentable to users in ways t
       <td>AAA</td>
       <td>Applicbale</td>
     </tr>
-    <tr>
+    <tr className="js-not-applicable">
       <td><a href='https://www.w3.org/TR/WCAG22/#images-of-text-no-exception'>1.4.9 Images of Text (No Exception)</a></td>
       <td>AAA</td>
       <td>Not Applicbale</td>

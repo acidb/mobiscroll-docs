@@ -232,6 +232,16 @@
   width: 100%;
 }
 
+.table-hide-wrapper {
+  border: 1px solid red;
+  text-align: left;
+  display: inline-block;
+}
+
+.table-row-hidden {
+  display: none;
+}
+
 /* Loading */
 .loader.mobi-blue {
   position: relative;

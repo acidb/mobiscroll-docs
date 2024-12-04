@@ -13,9 +13,9 @@ export function initializeHideSwitch() {
         if (table) {
           table.querySelectorAll('.js-not-applicable').forEach((tr) => {
             if (isOn) {
-              tr.classList.remove('table-row-hidden');
-            } else {
               tr.classList.add('table-row-hidden');
+            } else {
+              tr.classList.remove('table-row-hidden');
             }
           });
         }

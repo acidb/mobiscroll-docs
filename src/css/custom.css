@@ -233,9 +233,8 @@
 }
 
 .table-hide-wrapper {
-  border: 1px solid red;
-  text-align: left;
-  display: inline-block;
+  text-align: center;
+  display: block;
 }
 
 .table-row-hidden {

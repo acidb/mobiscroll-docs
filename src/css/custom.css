@@ -252,6 +252,19 @@
   width: 114px;
 }
 
+.wcag-table td:nth-child(2),
+.wcag-table td:nth-child(4),
+.wcag-table td:nth-child(3) {
+  text-align: center;
+}
+
+.wcag-table .four-column-tr td:nth-child(1),
+.wcag-table .four-column-tr th:nth-child(1),
+.wcag-table .four-column-tr th:nth-child(2),
+.wcag-table .four-column-tr td:nth-child(2) {
+  text-align: left;
+}
+
 /* Loading */
 .loader.mobi-blue {
   position: relative;

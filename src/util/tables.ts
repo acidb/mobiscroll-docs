@@ -10,12 +10,15 @@ export function initializeHideSwitch() {
         const sw = target as HTMLInputElement;
         const isOn = sw.checked;
         const table = sw.closest('table');
+        table.classList.add('wcag-table-interacted');
         if (table) {
           const colNr = cellNr(table.querySelector('tr'));
+          let odd = true;
           table.querySelectorAll('.js-table-temp-cell').forEach(c => { c.remove() });
           if (isOn)
           {
-            table.querySelectorAll('tr').forEach(tr => {
+            table.classList.add('not-appl-hidden');
+            table.querySelectorAll('tr').forEach((tr, key) => {
               const rLength = cellNr(tr);
               if (hasClass(tr, 'js-not-applicable') && rLength > colNr) {
                 const nextAvailTr = getNextAvailableTr(tr, colNr);
@@ -29,6 +32,7 @@ export function initializeHideSwitch() {
                   }
                   // nextAvailTr.appendChild(clone);
                   nextAvailTr.prepend(clone);
+                  nextAvailTr.classList.add('four-column-tr', 'js-remove-four-column-tr');
                 }
               } else if (rLength > colNr) {
                 const cell = tr.querySelector('th, td');
@@ -37,15 +41,22 @@ export function initializeHideSwitch() {
                   cell.setAttribute('rowspan', c.toString());
                 }
               }
+              tr.classList.remove('js-tr-odd', 'js-tr-even');
               if (hasClass(tr, 'js-not-applicable')) {
                 tr.classList.add('table-row-hidden');
+              } else {
+                tr.classList.add(odd ? 'js-tr-odd' : 'js-tr-even');
+                odd = !odd;
               }
             });
           }
           else
           {
-            debugger;
+            table.classList.remove('not-appl-hidden');
             table.querySelectorAll('tr').forEach((tr) => {
+              if (hasClass(tr, 'js-remove-four-column-tr')) {
+                tr.classList.remove('four-column-tr', 'js-remove-four-column-tr');
+              }
               if (hasClass(tr, 'js-not-applicable')) {
                 tr.classList.remove('table-row-hidden');
               }
@@ -53,6 +64,9 @@ export function initializeHideSwitch() {
               if (cell.getAttribute('rowspan')) {
                 cell.setAttribute('rowspan', countGroupRows(tr, colNr, true).toString());
               }
+              tr.classList.remove('js-tr-odd', 'js-tr-even');
+              tr.classList.add(odd ? 'js-tr-odd' : 'js-tr-even');
+              odd = !odd;
             });
           }
         }

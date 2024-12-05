@@ -265,6 +265,16 @@
   text-align: left;
 }
 
+.wcag-table-interacted .js-tr-odd {
+  background-color: var(--ifm-table-background);
+}
+.wcag-table-interacted .js-tr-even {
+  background-color: var(--ifm-table-stripe-background);
+}
+.wcag-table-interacted.not-appl-hidden .hidden-bg-striped {
+  background-color: var(--ifm-table-stripe-background);
+}
+
 /* Loading */
 .loader.mobi-blue {
   position: relative;

@@ -227,7 +227,8 @@ The initial order in which the resources appear on the timeline follows the orde
 
 For dynamic sorting during runtime, sort the resource array and pass the updated array to the calendar.
 
-Resources can be [reordered directly through the UI](https://demo.mobiscroll.com/timeline/resource-drag-drop-reorder)  by enabling the `resourceReorder` option in the [view](#opt-view) configuration. When enabled, a [drag handler icon](#opt-dragHandlerIcon) will appear before each resource, serving as the anchor for dragging.
+Resources can be [reordered directly through the UI](https://demo.mobiscroll.com/timeline/resource-drag-drop-reorder)  by enabling the `resourceReorder` option in the [view](#configuring-the-view) configuration. When enabled, a drag handler icon will appear before each resource, serving as the point of interaction to drag and reposition the resource.
+
 After a resource is dragged and dropped to a new position, the [onResourceOrderUpdate](#event-onResourceOrderUpdate) lifecycle event is triggered. To make specific resources non-draggable, set the `reorder` property of the corresponding resource object to `false`;
 
 ### Resource column width

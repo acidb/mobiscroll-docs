@@ -90,7 +90,7 @@ const myShifts: [
 
 ### Column width
 
-The [`columnWidth`](timeline#column-width) option in the timeline view allows you to control the width of the timeline columns. 
+The [`columnWidth`](timeline#view-timeline-columnWidth) option in the timeline view allows you to control the width of the timeline columns. 
 It supports the following predefined sizes: xsmall, small, medium, large, xlarge, and xxlarge. 
 You can use this option to adjust column sizes to suit your application’s needs.
 

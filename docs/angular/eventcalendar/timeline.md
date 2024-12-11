@@ -382,6 +382,63 @@ export class MyComponent {
 
 ![Timeline responsive behavior](/img/timeline-responsive.gif)
 
+## Zoom Levels
+
+The timeline view allows you to define and use multiple zoom levels, making it easy to switch between different time scales. You can select a specific zoom level to focus on the desired level of detail.
+
+### Configuring Zoom Levels
+
+Zoom levels are set up in the [zoomLevels](#view-timeline-zoomLevels) property of the timeline view. Each zoom level can have its own settings for customizing the timeline's layout and behavior. 
+You can specify a zoom level using number or string-based keys, and the corresponding view options will be applied.
+
+### Available Settings
+
+- [type](#view-timeline-type)  
+- [size](#view-timeline-size)  
+- [resolutionHorizontal](#view-timeline-resolutionHorizontal)  
+- [resolutionVertical](#view-timeline-resolutionVertical)  
+- [columnWidth](#view-timeline-columnWidth)  
+- [currentTimeIndicator](#view-timeline-currentTimeIndicator)  
+- [startDay](#view-timeline-startDay) - [endDay](#view-timeline-endDay)  
+- [startTime](#view-timeline-startTime) - [endTime](#view-timeline-endTime)  
+- [timeCellStep](#view-timeline-timeCellStep)  
+- [timeLabelStep](#view-timeline-timeLabelStep)  
+- [weekNumbers](#view-timeline-weekNumbers)  
+
+### Example Configuration
+
+```ts
+view: {
+  timeline: {
+    zoomLevels: {
+      -4: { type: 'year', size: 6, resolutionHorizontal: 'year' },
+      -3: { type: 'month', size: 6, resolutionHorizontal: 'month' },
+      -2: { type: 'week', size: 5, resolutionHorizontal: 'week' },
+      -1: { type: 'week', size: 5, resolutionHorizontal: 'day' },
+      0: { type: 'week', size: 5, resolutionHorizontal: 'day', columnWidth: 'large' },
+      1: { type: 'week', size: 5, resolutionHorizontal: 'day', columnWidth: 'xlarge' },
+      2: { type: 'day', size: 3, resolutionHorizontal: 'hour', timeCellStep: 360, timeLabelStep: 360 },
+      3: { type: 'day', size: 3, resolutionHorizontal: 'hour', timeCellStep: 180, timeLabelStep: 360 },
+      4: { type: 'day', size: 3, resolutionHorizontal: 'hour', timeCellStep: 30, timeLabelStep: 60 },
+    }
+  }
+},
+zoomLevel: 0
+```
+### Setting the Active Zoom Level
+
+The zoomLevel property determines which zoom level is currently active. When set, the timeline automatically applies the corresponding settings from zoomLevels.
+
+:::info
+To enable the scrollbar and allow scrolling to the center, the [refDate](#opt-refDate) must be adjusted to align the view appropriately, ensuring scrolling is possible.
+:::
+
+Explore [this example](https://demo.dev.mobiscroll.com/timeline/custom-zoom-levels#) to see how zoom levels can be customized, or watch the GIF below to see the zoom level changes in action.
+
+### !!! todo change the gif and the other timeline.md files, example configuration !?
+
+![Timeline responsive behavior](/img/timeline-responsive.gif)
+
 ## Templating
 The display of Timeline can be customized with different [templating functions](#templates).
 

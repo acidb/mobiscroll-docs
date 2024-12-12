@@ -1,5 +1,5 @@
 ---
-sidebar_position: 9
+sidebar_position: 10
 sidebar_label: Accessibility
 displayed_sidebar: jquerySidebar
 ---

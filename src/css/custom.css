@@ -290,7 +290,6 @@
   padding: 12px 18px; 
 }
 
-/* grid layout example */
 .docs-grid-example {
   margin-top: 10px; 
 }
@@ -911,6 +910,8 @@
     stroke: #011742;
   }
 }
+
+
 
 
 @media(min-width: 576px) {
@@ -2376,6 +2377,8 @@
 .mbsc-grid-xl .mbsc-pull-xl-12 {
   right: 100%
 }
+
+/* Grid Layout CSS */
 
 @media(min-width: 1200px) {
   .mbsc-grid.mbsc-grid-fixed {

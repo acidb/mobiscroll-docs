@@ -20,6 +20,8 @@
   --ifm-menu-color: #011742;
 
   --ifm-font-size-base: 14px;
+
+  --ifm-table-background: white;
 }
 
 :root {
@@ -45,6 +47,8 @@
 
   --ifm-heading-color: #d3d3d3;
   --ifm-menu-color: #d3d3d3;
+
+  --ifm-table-background: #1b1b1b;
 }
 
 [data-theme="dark"] {
@@ -219,6 +223,57 @@
   }
 }
 
+.tabel-background-white {
+  background-color: var(--ifm-table-background);
+}
+
+.tabel-max-width {
+  display: table;
+  width: 100%;
+}
+
+.table-hide-wrapper {
+  text-align: center;
+  display: block;
+  user-select: none;
+  font-weight: normal;
+  font-size: 0.9em;
+}
+
+.table-row-hidden {
+  display: none;
+}
+
+.compatibility-colum-width {
+  width: 225px;
+}
+
+.level-colum-width {
+  width: 114px;
+}
+
+.wcag-table td:nth-child(2),
+.wcag-table td:nth-child(4),
+.wcag-table td:nth-child(3) {
+  text-align: center;
+}
+
+.wcag-table .four-column-tr td:nth-child(1),
+.wcag-table .four-column-tr th:nth-child(1),
+.wcag-table .four-column-tr th:nth-child(2),
+.wcag-table .four-column-tr td:nth-child(2) {
+  text-align: left;
+}
+
+.wcag-table-interacted .js-tr-odd {
+  background-color: var(--ifm-table-background);
+}
+.wcag-table-interacted .js-tr-even {
+  background-color: var(--ifm-table-stripe-background);
+}
+.wcag-table-interacted.not-appl-hidden .hidden-bg-striped {
+  background-color: var(--ifm-table-stripe-background);
+}
 
 /* Loading */
 .loader.mobi-blue {

@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from '@docusaurus/router';
+import useIsBrowser from '@docusaurus/useIsBrowser';
+import { initializeHideSwitch } from '../util/tables';
 
 
 // Default implementation, that you can customize
 export default function Root({children}) {
   const { pathname, hash } = useLocation();
   const hist = useHistory();
+  const isBrowser = useIsBrowser();
 
   useEffect(() => {
     if (pathname && pathname.length > 1 && !skipUrls(pathname) && !/\/(react|angular|vue|javascript|jquery)/.test(pathname)) {
@@ -20,6 +23,18 @@ export default function Root({children}) {
         }
     }
   }, [pathname, hist])
+
+  useEffect(() => {
+    let cleanup = null;
+    if (isBrowser) {
+      cleanup = initializeHideSwitch();
+    }
+    return () => {
+      if (cleanup !== null) {
+        cleanup();
+      }
+    }
+  }, [pathname, isBrowser]);
 
   return <>{children}</>
 }

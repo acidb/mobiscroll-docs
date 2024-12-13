@@ -82,12 +82,45 @@ $('#timeline').mobiscroll().eventcalendar({
 
 ### Column width
 
-The [`columnWidth`](timeline#view-timeline-columnWidth) option in the timeline view allows you to control the width of the timeline columns. 
-It supports the following predefined sizes: xsmall, small, medium, large, xlarge, and xxlarge. 
-You can use this option to adjust column sizes to suit your application’s needs.
+The [`columnWidth`](timeline#view-timeline-columnWidth) option in the timeline view allows you to control the width of the timeline columns. It supports the following predefined sizes: <code>xxsmall</code>, <code>xsmall</code>, <code>small</code>, <code>medium</code>, <code>large</code>, <code>xlarge</code>, <code>xxlarge</code>, and <code>xxxlarge</code>. 
 
-To specify the columnWidth in your view configuration, include it as part of the timeline view options. 
-For example:
+Here are the default sizes and their corresponding widths:
+
+```css
+.mbsc-timeline-column-xxs {
+  width: 1.5em; // 24px
+}
+
+.mbsc-timeline-column-xs {
+  width: 3em; // 48px
+}
+
+.mbsc-timeline-column-s {
+  width: 4.5em; // 72px
+}
+
+.mbsc-timeline-column-m {
+  width: 6em; // 96px
+}
+
+.mbsc-timeline-column-l {
+  width: 7.5em; // 120px
+}
+
+.mbsc-timeline-column-xl {
+  width: 9em; // 144px
+}
+
+.mbsc-timeline-column-xxl {
+  width: 10.5em; // 168px
+}
+
+.mbsc-timeline-column-xxxl {
+  width: 12em; // 192px
+}
+```
+
+To specify the <code>columnWidth</code> in your view configuration, include it as part of the timeline view options: 
 
 ```ts
 view: {
@@ -97,13 +130,12 @@ view: {
 }
 ```
 
-The predefined sizes correspond to specific default widths, but you can override them using CSS. 
-For example:
+The predefined sizes correspond to specific default widths, but you can override them using CSS: 
 
 ```css
-  .mbsc-timeline-column-l {
-    width: 50px;
-  }
+.mbsc-timeline-column-l {
+  width: 50px;
+}
 ```
 
 :::caution
@@ -344,6 +376,59 @@ $('#timeline').mobiscroll().eventcalendar({
 ```
 
 ![Timeline responsive behavior](/img/timeline-responsive.gif)
+
+## Zoom Levels
+
+The timeline view allows you to define and use multiple zoom levels, making it easy to switch between different time scales. You can select a specific zoom level to focus on the desired level of detail.
+
+### Configuring Zoom Levels
+
+Zoom levels are set up in the [zoomLevels](#view-timeline-zoomLevels) property of the timeline view. Each zoom level can have its own options for customizing the timeline's layout and behavior. 
+You can specify a zoom level using number or string-based keys, and the corresponding view options will be applied.
+
+### Available options
+
+- [type](#view-timeline-type)  
+- [size](#view-timeline-size)  
+- [resolutionHorizontal](#view-timeline-resolutionHorizontal)  
+- [resolutionVertical](#view-timeline-resolutionVertical)  
+- [columnWidth](#view-timeline-columnWidth)  
+- [currentTimeIndicator](#view-timeline-currentTimeIndicator)  
+- [startDay](#view-timeline-startDay) - [endDay](#view-timeline-endDay)  
+- [startTime](#view-timeline-startTime) - [endTime](#view-timeline-endTime)  
+- [timeCellStep](#view-timeline-timeCellStep)  
+- [timeLabelStep](#view-timeline-timeLabelStep)  
+- [weekNumbers](#view-timeline-weekNumbers)  
+
+### Example Configuration
+
+```ts
+view: {
+  timeline: {
+    zoomLevels: {
+      -4: { type: 'year', size: 6, resolutionHorizontal: 'year' },
+      -3: { type: 'month', size: 6, resolutionHorizontal: 'month' },
+      -2: { type: 'week', size: 5, resolutionHorizontal: 'week' },
+      -1: { type: 'week', size: 5, resolutionHorizontal: 'day' },
+      0: { type: 'week', size: 5, resolutionHorizontal: 'day', columnWidth: 'large' },
+      1: { type: 'week', size: 5, resolutionHorizontal: 'day', columnWidth: 'xlarge' },
+      2: { type: 'day', size: 3, resolutionHorizontal: 'hour', timeCellStep: 360, timeLabelStep: 360 },
+      3: { type: 'day', size: 3, resolutionHorizontal: 'hour', timeCellStep: 180, timeLabelStep: 360 },
+      4: { type: 'day', size: 3, resolutionHorizontal: 'hour', timeCellStep: 30, timeLabelStep: 60 },
+    }
+  }
+},
+zoomLevel: 0
+```
+### Setting the Active Zoom Level
+
+The [zoomLevel](#opt-zoomLevel) option determines which zoom level is currently active. When set, the timeline automatically applies the corresponding settings from zoomLevels.
+
+:::info
+To ensure the calendar view is correctly aligned when zooming, the getViewDate() method is used to retrieve the current middle date of the visible calendar view. Based on the zoom level, the [refDate](#opt-refDate) is set to a corresponding date, ensuring that the view date can always be scrolled to the center.
+:::info
+
+Learn how to implement and adjust zoom levels by checking [this example](https://demo.mobiscroll.com/timeline/calendar-zoom#).
 
 ## Templating
 The display of Timeline can be customized with different [render functions](#renderers).

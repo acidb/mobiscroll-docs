@@ -94,12 +94,45 @@ export class MyComponent {
 
 ### Column width
 
-The [`columnWidth`](timeline#view-timeline-columnWidth) option in the timeline view allows you to control the width of the timeline columns. 
-It supports the following predefined sizes: xsmall, small, medium, large, xlarge, and xxlarge. 
-You can use this option to adjust column sizes to suit your application’s needs.
+The [`columnWidth`](timeline#view-timeline-columnWidth) option in the timeline view allows you to control the width of the timeline columns. It supports the following predefined sizes: <code>xxsmall</code>, <code>xsmall</code>, <code>small</code>, <code>medium</code>, <code>large</code>, <code>xlarge</code>, <code>xxlarge</code>, and <code>xxxlarge</code>. 
 
-To specify the columnWidth in your view configuration, include it as part of the timeline view options. 
-For example:
+Here are the default sizes and their corresponding widths:
+
+```css
+.mbsc-timeline-column-xxs {
+  width: 1.5em; // 24px
+}
+
+.mbsc-timeline-column-xs {
+  width: 3em; // 48px
+}
+
+.mbsc-timeline-column-s {
+  width: 4.5em; // 72px
+}
+
+.mbsc-timeline-column-m {
+  width: 6em; // 96px
+}
+
+.mbsc-timeline-column-l {
+  width: 7.5em; // 120px
+}
+
+.mbsc-timeline-column-xl {
+  width: 9em; // 144px
+}
+
+.mbsc-timeline-column-xxl {
+  width: 10.5em; // 168px
+}
+
+.mbsc-timeline-column-xxxl {
+  width: 12em; // 192px
+}
+```
+
+To specify the <code>columnWidth</code> in your view configuration, include it as part of the timeline view options: 
 
 ```ts
 view: {
@@ -109,13 +142,12 @@ view: {
 }
 ```
 
-The predefined sizes correspond to specific default widths, but you can override them using CSS. 
-For example:
+The predefined sizes correspond to specific default widths, but you can override them using CSS: 
 
 ```css
-  .mbsc-timeline-column-l {
-    width: 50px;
-  }
+.mbsc-timeline-column-l {
+  width: 50px;
+}
 ```
 
 :::caution
@@ -396,10 +428,10 @@ The timeline view allows you to define and use multiple zoom levels, making it e
 
 ### Configuring Zoom Levels
 
-Zoom levels are set up in the [zoomLevels](#view-timeline-zoomLevels) property of the timeline view. Each zoom level can have its own settings for customizing the timeline's layout and behavior. 
+Zoom levels are set up in the [zoomLevels](#view-timeline-zoomLevels) property of the timeline view. Each zoom level can have its own options for customizing the timeline's layout and behavior. 
 You can specify a zoom level using number or string-based keys, and the corresponding view options will be applied.
 
-### Available Settings
+### Available options
 
 - [type](#view-timeline-type)  
 - [size](#view-timeline-size)  
@@ -435,17 +467,13 @@ zoomLevel: 0
 ```
 ### Setting the Active Zoom Level
 
-The zoomLevel property determines which zoom level is currently active. When set, the timeline automatically applies the corresponding settings from zoomLevels.
+The [zoomLevel](#opt-zoomLevel) option determines which zoom level is currently active. When set, the timeline automatically applies the corresponding settings from zoomLevels.
 
 :::info
-To enable the scrollbar and allow scrolling to the center, the [refDate](#opt-refDate) must be adjusted to align the view appropriately, ensuring scrolling is possible.
-:::
+To ensure the calendar view is correctly aligned when zooming, the getViewDate() method is used to retrieve the current middle date of the visible calendar view. Based on the zoom level, the [refDate](#opt-refDate) is set to a corresponding date, ensuring that the view date can always be scrolled to the center.
+:::info
 
-Explore [this example](https://demo.dev.mobiscroll.com/timeline/custom-zoom-levels#) to see how zoom levels can be customized, or watch the GIF below to see the zoom level changes in action.
-
-### !!! todo change the gif and the other timeline.md files, example configuration !?
-
-![Timeline responsive behavior](/img/timeline-responsive.gif)
+Learn how to implement and adjust zoom levels by checking [this example](https://demo.mobiscroll.com/timeline/calendar-zoom#).
 
 ## Templating
 The display of Timeline can be customized with different [templating functions](#templates).

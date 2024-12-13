@@ -516,25 +516,3 @@ Parameters:
 
  - inst - The component instance.
 
-
-### @virtual-loading {#event-onVirtualLoading}
-
-(args: MbscVirtualLoadEvent, inst: EventcalendarBase) => void
-
-
-Triggered when a new virtual page is loaded.
-You can use this to load events and resources on demand while scrolling the timeline grid.
-
-Parameters:
- - args - The event argument with the following properties:
-   - `viewStart`: *Date* - The date where the virtual view starts.
-   - `viewEnd`: *Date* - The date where the virtual view end.
-   - `resourceStart`: *number|string* - The id of the resource where the virtual view starts.
-   - `resourceEnd`:  *number|string* - The id of the resource where the virtual view ends.
-   - `oldResourceStart`: *number|string* - The id of the resource where the previous virtual view started.
-   - `oldResourceEnd`: *number|string* - The id of the resource where the previous virtual view ended.
-   - `oldViewStart`: *Date* - The date where the previous virtual view started.
-   - `oldViewEnd`: *Date*- The date where the previous virtual view ended.
-
- - inst - The component instance.
-

@@ -30,7 +30,7 @@ To install the Mobiscroll library to your web application, you will need the Mob
 
 <TrialStart framework="jquery" />
 
-By default the CLI will install the [ESM Bundle](../core-concepts/esm_bundle) of the trial package. You might need to [register components for the auto-initialization](../core-concepts/esm_bundle.md#manual-vs-auto-initialization) feature to work.
+By default the CLI will install the [ESM Bundle](../core-concepts/esm-bundle) of the trial package. You might need to [register components for the auto-initialization](../core-concepts/esm-bundle.md#manual-vs-auto-initialization) feature to work.
 
 ## Installing from NPM
 
@@ -38,7 +38,7 @@ By default the CLI will install the [ESM Bundle](../core-concepts/esm_bundle) of
 
 <ImportStyles framework="jquery" />
 
-By default the CLI will install the [ESM Bundle](../core-concepts/esm_bundle). You might need to [register components for the auto-initialization](../core-concepts/esm_bundle.md#manual-vs-auto-initialization) feature to work.
+By default the CLI will install the [ESM Bundle](../core-concepts/esm-bundle). You might need to [register components for the auto-initialization](../core-concepts/esm-bundle.md#manual-vs-auto-initialization) feature to work.
 
 ## Setting up for CI/CD
 
@@ -80,5 +80,5 @@ $(function() {
 ```
 
 :::info ESM Bundle
-Would you like to use Mobiscroll as an ESM (ECMAScript Module) bundle to reduce the bundle size? It's possible, [read this guide](../core-concepts/esm_bundle) on how to make it work.
+Would you like to use Mobiscroll as an ESM (ECMAScript Module) bundle to reduce the bundle size? It's possible, [read this guide](../core-concepts/esm-bundle) on how to make it work.
 :::

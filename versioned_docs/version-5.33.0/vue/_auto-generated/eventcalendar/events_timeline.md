@@ -521,15 +521,18 @@ Parameters:
 (args: MbscResourceOrderEvent, inst: EventcalendarBase) => void
 
 
-Triggered when a parent resource is expanded on the timeline.
+Triggered after a resource is dragged and dropped into a new location.
+Resource reorder can be prevented by returning `false` from the handler function.
+It applies for timeline view if `resourceReorder` in [view](#opt-view) option is enabled.
 
 Parameters:
  - args - The event argument with the following properties:
-   - `resource`: *Resource* - The updated resource object.
-   - `parent`: *Resource* - The parent resource object.
-   - `index`: *Resource* - The position of the resource within its siblings.
-   - `oldParent`: *Resource* - The old parent resource object.
+   - `index`: *Resource* - The new position of the resource within its siblings.
    - `oldIndex`: *Resource* - The old position of the resource within its siblings.
+   - `oldParent`: *Resource* - The old parent resource object.
+   - `parent`: *Resource* - The parent resource object.
+   - `resource`: *Resource* - The updated resource object.
+   - `resources`: Array<*Resource*> - The entire resources array with the new order .
 
  - inst - The component instance.
 
@@ -573,7 +576,7 @@ Parameters:
 
 
 Triggered when a new virtual page is loaded.
-You can use this event to load events and resources on demand while scrolling timeline grid.
+You can use this to load events and resources on demand while scrolling the timeline grid.
 
 Parameters:
  - args - The event argument with the following properties:
@@ -581,10 +584,10 @@ Parameters:
    - `viewEnd`: *Date* - The date where the virtual view end.
    - `resourceStart`: *number|string* - The id of the resource where the virtual view starts.
    - `resourceEnd`:  *number|string* - The id of the resource where the virtual view ends.
-   - `oldResourceStart`: *  The id of the resource where the previous virtual view starts.
-   - `oldResourceEnd`: * The id of the resource where the previous virtual view ends.
-   - `oldViewStart`: *Date* - The date where hte previous virtual view starts.
-   - `oldViewEnd`: *Date*- The date where the previous virtual view ends.
+   - `oldResourceStart`: *number|string* - The id of the resource where the previous virtual view started.
+   - `oldResourceEnd`: *number|string* - The id of the resource where the previous virtual view ended.
+   - `oldViewStart`: *Date* - The date where the previous virtual view started.
+   - `oldViewEnd`: *Date*- The date where the previous virtual view ended.
 
  - inst - The component instance.
 

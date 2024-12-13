@@ -388,10 +388,10 @@ The timeline view allows you to define and use multiple zoom levels, making it e
 
 ### Configuring Zoom Levels
 
-Zoom levels are set up in the [zoomLevels](#view-timeline-zoomLevels) property of the timeline view. Each zoom level can have its own settings for customizing the timeline's layout and behavior. 
+Zoom levels are set up in the [zoomLevels](#view-timeline-zoomLevels) property of the timeline view. Each zoom level can have its own options for customizing the timeline's layout and behavior. 
 You can specify a zoom level using number or string-based keys, and the corresponding view options will be applied.
 
-### Available Settings
+### Available options
 
 - [type](#view-timeline-type)  
 - [size](#view-timeline-size)  
@@ -427,17 +427,13 @@ zoomLevel: 0
 ```
 ### Setting the Active Zoom Level
 
-The zoomLevel property determines which zoom level is currently active. When set, the timeline automatically applies the corresponding settings from zoomLevels.
+The [zoomLevel](#opt-zoomLevel) option determines which zoom level is currently active. When set, the timeline automatically applies the corresponding settings from zoomLevels.
 
 :::info
-To enable the scrollbar and allow scrolling to the center, the [refDate](#opt-refDate) must be adjusted to align the view appropriately, ensuring scrolling is possible.
-:::
+To ensure the calendar view is correctly aligned when zooming, the getViewDate() method is used to retrieve the current middle date of the visible calendar view. Based on the zoom level, the [refDate](#opt-refDate) is set to a corresponding date, ensuring that the view date can always be scrolled to the center.
+:::info
 
-Explore [this example](https://demo.dev.mobiscroll.com/timeline/custom-zoom-levels#) to see how zoom levels can be customized, or watch the GIF below to see the zoom level changes in action.
-
-### !!! todo change the gif and the other timeline.md files, example configuration !?
-
-![Timeline responsive behavior](/img/timeline-responsive.gif)
+Learn how to implement and adjust zoom levels by checking [this example](https://demo.mobiscroll.com/timeline/calendar-zoom#).
 
 ## Templating
 The display of Timeline can be customized with different [templating functions](#templates).

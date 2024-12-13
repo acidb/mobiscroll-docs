@@ -1,22 +1,25 @@
 ### columnWidth {#view-timeline-columnWidth}
 
-"small" &#124; "large" &#124; "medium" &#124; "xlarge" &#124; "xsmall" &#124; "xxlarge"
+MbscTimelineColumnWidth
 
-Sets the width of grid columns in the timeline.
-Use predefined classes for standard widths:
- - `xsmall`: 1.5em
- - `small`: 3em
- - `medium`: 4.5em
- - `large`: 6em
- - `xlarge`: 7.5em
- - `xxlarge`: 9em
+Sets the width of grid columns in the timeline to one of the predefined column widths.
+Possible values and their corresponding widths:
+  - `xxsmall`: 1.5em
+  - `xsmall`: 3em
+  - `small`: 4.5em
+  - `medium`: 6em
+  - `large`: 7.5em
+  - `xlarge`: 9em
+  - `xxlarge`: 10.5em
+  - `xxxlarge`: 12em;
+
+When not defined, the column width will be set automatically based on the view type and size.
 
 :::info
-Customize these predefined CSS classes to fit your layout needs:
-[explore column width customization options.](./timeline#column-width).
+You can [customize the predefined column widths using CSS](./timeline#column-width) to fit your layout needs.
 :::
 
-**Default value**: `''`
+**Default value**: `undefined`
 ### currentTimeIndicator {#view-timeline-currentTimeIndicator}
 
 boolean
@@ -94,11 +97,13 @@ When set to &#039;day&#039;, the days will be rendered on the vertical axis,
 while the hours of the day will be displayed on the horizontal axis.
 
 **Default value**: `undefined`
-### resourceOrder {#view-timeline-resourceOrder}
+### resourceReorder {#view-timeline-resourceReorder}
 
 boolean
 
-Enables resource ordering.
+Specifies whether the resource can be dragged and reordered.
+A drag handler icon will appear in front of the resource name,
+serving as the point of interaction to drag and reposition the resource.
 
 **Default value**: `false`
 ### rowHeight {#view-timeline-rowHeight}
@@ -174,12 +179,14 @@ Show or hide week numbers.
 **Default value**: `false`
 ### zoomLevels {#view-timeline-zoomLevels}
 
-{ [key:string]: MbscTimelineZoomLevel } &amp; { [key:number]: MbscTimelineZoomLevel }
+{ [key:string]: MbscTimelineZoomLevel }
 
-Defines configuration options for multiple zoom levels in the timeline view.
+Defines configuration options for multiple zoom levels for the timeline view.
 Each zoom level can specify its own properties for displaying a custom layout.
 
-Available options include:
+Use the [zoomLevel](#opt-zoomLevel) option to select the current zoom level.
+
+Available properties:
  - `size`
  - `resolutionHorizontal`
  - `resolutionVertical`

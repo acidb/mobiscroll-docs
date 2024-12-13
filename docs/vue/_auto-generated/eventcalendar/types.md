@@ -140,7 +140,7 @@ Properties:
  - `agenda`: *{scrollable?: boolean, showEmptyDays?: boolean, size?: number, type?: "month" &#124; "day" &#124; "year" &#124; "week"}*  - Configures the agenda view.
  - `calendar`: *{count?: boolean, eventDisplay?: "fill" &#124; "exact", labels?: number &#124; boolean &#124; "all", outerDays?: boolean, popover?: boolean, popoverClass?: string, scroll?: "horizontal" &#124; "vertical", size?: number, type?: "month" &#124; "year" &#124; "week", weekNumbers?: boolean}*  - Configures the calendar view.
  - `schedule`: *{allDay?: boolean, currentTimeIndicator?: boolean, days?: boolean, endDay?: number, endTime?: string, maxEventStack?: number &#124; "auto" &#124; "all", minEventWidth?: number, size?: number, startDay?: number, startTime?: string, timeCellStep?: number, timeLabelStep?: number, timezones?: Array&lt;string &#124; MbscSchedulerTimezone&gt;, type?: "month" &#124; "day" &#124; "week"}*  - Configures the scheduler view.
- - `timeline`: *{columnWidth?: "small" &#124; "large" &#124; "medium" &#124; "xlarge" &#124; "xsmall" &#124; "xxlarge", currentTimeIndicator?: boolean, endDay?: number, endTime?: string, eventHeight?: "variable" &#124; "equal", eventList?: boolean, maxEventStack?: number &#124; "all", resolution?: "month" &#124; "day" &#124; "year" &#124; "week" &#124; "hour" &#124; "quarter", resolutionHorizontal?: "month" &#124; "day" &#124; "year" &#124; "week" &#124; "hour" &#124; "quarter", resolutionVertical?: "day", resourceOrder?: boolean, rowHeight?: "variable" &#124; "equal", size?: number, startDay?: number, startTime?: string, timeCellStep?: number, timeLabelStep?: number, type?: "month" &#124; "day" &#124; "year" &#124; "week", virtualScroll?: boolean, weekNumbers?: boolean, zoomLevels?: { [key:string]: MbscTimelineZoomLevel } &amp; { [key:number]: MbscTimelineZoomLevel }}*  - Configures the timeline view.
+ - `timeline`: *{columnWidth?: MbscTimelineColumnWidth, currentTimeIndicator?: boolean, endDay?: number, endTime?: string, eventHeight?: "variable" &#124; "equal", eventList?: boolean, maxEventStack?: number &#124; "all", resolution?: "month" &#124; "day" &#124; "year" &#124; "week" &#124; "hour" &#124; "quarter", resolutionHorizontal?: "month" &#124; "day" &#124; "year" &#124; "week" &#124; "hour" &#124; "quarter", resolutionVertical?: "day", resourceReorder?: boolean, rowHeight?: "variable" &#124; "equal", size?: number, startDay?: number, startTime?: string, timeCellStep?: number, timeLabelStep?: number, type?: "month" &#124; "day" &#124; "year" &#124; "week", virtualScroll?: boolean, weekNumbers?: boolean, zoomLevels?: { [key:string]: MbscTimelineZoomLevel }}*  - Configures the timeline view.
 
 ### MbscLocale {#type-MbscLocale}
 
@@ -248,7 +248,8 @@ Consider that the fixed resources always have to be the first elements of the ar
 (no non-fixed resources inserted in between) so that the dra &amp; rop and event creation functionalities to work properly.
  - `id`: *string &#124; number*  - The id of the resource.
  - `name`: *string*  - Specifies the name of the resource.
- - `reorder`: *boolean* 
+ - `reorder`: *boolean*  - Specifies whether the resource can be dragged and reordered.
+It applies for timeline view if `resourceReorder` in [view](#opt-view) option is enabled.
 
 The `MbscResource` supports custom properties in the form:
 ```

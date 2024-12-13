@@ -90,12 +90,45 @@ const myShifts: [
 
 ### Column width
 
-The [`columnWidth`](timeline#view-timeline-columnWidth) option in the timeline view allows you to control the width of the timeline columns. 
-It supports the following predefined sizes: xsmall, small, medium, large, xlarge, and xxlarge. 
-You can use this option to adjust column sizes to suit your application’s needs.
+The [`columnWidth`](timeline#view-timeline-columnWidth) option in the timeline view allows you to control the width of the timeline columns. It supports the following predefined sizes: <code>xxsmall</code>, <code>xsmall</code>, <code>small</code>, <code>medium</code>, <code>large</code>, <code>xlarge</code>, <code>xxlarge</code>, and <code>xxxlarge</code>. 
 
-To specify the columnWidth in your view configuration, include it as part of the timeline view options. 
-For example:
+Here are the default sizes and their corresponding widths:
+
+```css
+.mbsc-timeline-column-xxs {
+  width: 1.5em; // 24px
+}
+
+.mbsc-timeline-column-xs {
+  width: 3em; // 48px
+}
+
+.mbsc-timeline-column-s {
+  width: 4.5em; // 72px
+}
+
+.mbsc-timeline-column-m {
+  width: 6em; // 96px
+}
+
+.mbsc-timeline-column-l {
+  width: 7.5em; // 120px
+}
+
+.mbsc-timeline-column-xl {
+  width: 9em; // 144px
+}
+
+.mbsc-timeline-column-xxl {
+  width: 10.5em; // 168px
+}
+
+.mbsc-timeline-column-xxxl {
+  width: 12em; // 192px
+}
+```
+
+To specify the <code>columnWidth</code> in your view configuration, include it as part of the timeline view options: 
 
 ```ts
 view: {
@@ -105,13 +138,12 @@ view: {
 }
 ```
 
-The predefined sizes correspond to specific default widths, but you can override them using CSS. 
-For example:
+The predefined sizes correspond to specific default widths, but you can override them using CSS: 
 
 ```css
-  .mbsc-timeline-column-l {
-    width: 50px;
-  }
+.mbsc-timeline-column-l {
+  width: 50px;
+}
 ```
 
 :::caution

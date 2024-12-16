@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 4
 sidebar_label: Custom themes
 displayed_sidebar: vueSidebar
 ---

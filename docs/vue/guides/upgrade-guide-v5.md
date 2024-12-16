@@ -1,4 +1,5 @@
 ---
+sidebar_position: 4
 sidebar_label: Upgrade guide v5
 displayed_sidebar: vueSidebar
 title: Mobiscroll 5 upgrade guide

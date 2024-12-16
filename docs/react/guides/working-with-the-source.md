@@ -1,4 +1,5 @@
 ---
+sidebar_position: 3
 sidebar_label: Using the source code
 displayed_sidebar: reactSidebar
 title: Using Mobiscroll with the source code

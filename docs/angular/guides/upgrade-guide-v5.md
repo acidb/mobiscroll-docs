@@ -1,4 +1,5 @@
 ---
+sidebar_position: 5
 sidebar_label: Upgrade guide v5
 displayed_sidebar: angularSidebar
 title: Mobiscroll 5 upgrade guide

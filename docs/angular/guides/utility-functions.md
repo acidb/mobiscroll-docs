@@ -1,4 +1,5 @@
 ---
+sidebar_position: 4
 sidebar_label: Utility functions
 displayed_sidebar: angularSidebar
 title: Utility functions

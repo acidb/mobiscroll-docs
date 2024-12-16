@@ -1,4 +1,5 @@
 ---
+sidebar_position: 5
 sidebar_label: Using Mobiscroll v4 alongside v5
 displayed_sidebar: vueSidebar
 title: Using Mobiscroll v4 alongside v5

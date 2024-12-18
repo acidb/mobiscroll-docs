@@ -112,3 +112,5 @@ function App() {
   return <Eventcalendar data={myEvents} onPageLoading={myLoadPage} view={MY_VIEW} />
 }
 ```
+
+In case of the timeline view, data can also be [loaded dynamically during scrolling](timeline#load-data-on-scroll). Scrolling vertically or horizontally triggers the [onVirtualLoading](#event-onVirtualLoading) lifecycle event, which can be used to [load data incrementally during scrolling](https://demo.mobiscroll.com/timeline/load-resources-on-scroll#).

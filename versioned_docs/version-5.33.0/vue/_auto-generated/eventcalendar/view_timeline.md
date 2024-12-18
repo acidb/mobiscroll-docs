@@ -102,7 +102,7 @@ while the hours of the day will be displayed on the horizontal axis.
 boolean
 
 Specifies whether the resource can be dragged and reordered.
-A drag handler icon will appear in front of the resource name,
+A drag handle icon will appear in front of the resource name,
 serving as the point of interaction to drag and reposition the resource.
 
 **Default value**: `false`

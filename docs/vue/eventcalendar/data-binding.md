@@ -127,3 +127,7 @@ You can pass the view variables - like month and year - in the URL and handle th
   />
 </template>
 ```
+
+
+In case of the timeline view, data can also be [loaded dynamically during scrolling](timeline#load-data-on-scroll). Scrolling vertically or horizontally triggers the [@virtual-loading](#event-onVirtualLoading) lifecycle event, which can be used to [load data incrementally during scrolling](https://demo.mobiscroll.com/timeline/load-resources-on-scroll).
+

@@ -287,7 +287,7 @@ The initial order in which the resources appear on the timeline follows the orde
 
 For dynamic sorting during runtime, sort the resource array and pass the updated array to the calendar.
 
-Resources can be [reordered directly through the UI](https://demo.mobiscroll.com/timeline/resource-drag-drop-reorder) by enabling the `resourceReorder` option in the [view](#configuring-the-view) configuration. When enabled, a drag handle icon will appear before each resource, serving as the anchor for dragging.
+Resources can be [reordered directly through the UI](https://demo.mobiscroll.com/timeline/resource-drag-drop-reorder) by enabling the `resourceReorder` option in the [view](#configuring-the-view) configuration. When enabled, a drag handle icon will appear before each resource, serving as the point of interaction to drag and reposition the resource.
 
 After a resource is dragged and dropped to a new position, the [onResourceOrderUpdate](#event-onResourceOrderUpdate) lifecycle event is triggered. To make specific resources non-draggable, set the `reorder` property of the corresponding resource object to `false`;
 
@@ -340,6 +340,11 @@ There are three CSS classes which can be used for [changing the height of resour
      height: 6px;
    }
    ```
+
+## Load data on scroll
+
+The timeline view is virtualized, meaning its markup is dynamically generated and managed as needed. Scrolling vertically or horizontally triggers the [onVirtualLoading](#event-onVirtualLoading) lifecycle event, which can be used to [load data incrementally during scrolling](https://demo.mobiscroll.com/timeline/load-resources-on-scroll#), rather than loading all data during the initial render. 
+This dramatically improves performance in case of a large event or resource count since not all data is loaded in memory from start. 
 
 ## Event connections
 

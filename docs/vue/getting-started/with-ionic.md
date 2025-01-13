@@ -1,14 +1,16 @@
 ---
 sidebar_position: 3
 sidebar_label: Using with Ionic
-displayed_sidebar: reactSidebar
+displayed_sidebar: vueSidebar
 ---
 
 import InstallNpm from '../../_shared/getting-started/install_npm.mdx';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Using Mobiscroll with Ionic
 
-Installing Mobiscroll in your Ionic app takes a couple of minutes. Let's see how you can start with the tabs starter app using react.
+Installing Mobiscroll in your Ionic app takes a couple of minutes. Let's see how you can start with the tabs starter app.
 
 
 ## Using the Mobiscroll CLI and NPM
@@ -23,7 +25,7 @@ Note that it could take a couple of minutes until the app is created (depending 
 :::
 
 ```bash
-ionic start myStarterApp tabs --type=react
+ionic start myStarterApp tabs --type=vue
 ```
 ```bash
 cd myStarterApp
@@ -49,61 +51,45 @@ If you already have a license, it is recommended to set up and use [team NPM acc
 
 ### Step 4: Importing Mobiscroll to your page
 
-You will need to import the component you want to use and the css from the mobiscroll package:
+You will need to import the component you want to use and the css from the mobiscroll package. For example, let's import the `Datepicker` to the `src/views/Tab1Page.vue` page.
 
-```tsx
-import { Datepicker } from '@mobiscroll/react'; /* or import any other component */
-import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+```html title="src/views/Tab1Page.vue"
+<script setup lang="ts">
+import {
+  IonPage,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+} from "@ionic/vue";
+
+// highlight-start
+import { MbscDatepicker } from "@mobiscroll/vue"; /* or import any other component */
+import "@mobiscroll/vue/dist/css/mobiscroll.min.css";
+// highlight-end
+</script>
+
+<template>
+  <ion-page>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Tab 1</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content :fullscreen="true">
+      <ion-header collapse="condense">
+        <ion-toolbar>
+          <ion-title size="large">Tab 1</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      // highlight-next-line
+      <MbscDatepicker theme="ios" />
+    </ion-content>
+  </ion-page>
+</template>
 ```
 
 ### Step 5: Let's see if Mobiscroll was installed correctly
-
-To test it let's add a Datepicker to the `src/pages/Tab1.tsx` page. We will use the `IonInput` component as the base component for the datepicker. When the input is focused, the picker will open.
-
-```tsx
-import {
-  IonContent,
-  IonHeader,
-  // highlight-start
-  IonInput,
-  IonItem,
-  // highlight-end
-  IonLabel,
-  IonPage,
-  IonTitle,
-  IonToolbar
-} from '@ionic/react';
-import './Tab1.css';
-
-// highlight-start
-import { Datepicker } from '@mobiscroll/react'; /* or import any other component */
-import '@mobiscroll/react/dist/css/mobiscroll.min.css';
-// highlight-end
-
-const Tab1: React.FC = () => {
-  return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Tab 1</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Tab 1</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        // highlight-start
-        <IonItem>
-          <Datepicker inputComponent={IonInput} inputProps={{ label: 'My Date'}} />
-        </IonItem>
-        // highlight-end
-      </IonContent>
-    </IonPage>
-  );
-};
-```
 
 To build the app just run the serve command in the CLI:
 

@@ -46,6 +46,13 @@ Parameters:
 
 Returns the selected events.
 
+### getViewDate {#method-getViewDate}
+
+() => Date
+
+
+Returns the view date which is representing the currently displayed date on the component.
+
 ### navigate {#method-navigate}
 
 (date: [MbscDateType](#type-MbscDateType), animate: boolean) => void

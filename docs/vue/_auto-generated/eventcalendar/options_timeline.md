@@ -589,6 +589,8 @@ Consider that the fixed resources always have to be the first elements of the ar
 (no non-fixed resources inserted in between) so that the dra &amp; rop and event creation functionalities to work properly.
  - `id`: *string &#124; number* - The id of the resource.
  - `name`: *string* - Specifies the name of the resource.
+ - `reorder`: *boolean* - Specifies whether the resource can be dragged and reordered.
+It applies for timeline view if `resourceReorder` in [view](#opt-view) option is enabled.
 
 
 
@@ -860,5 +862,13 @@ The [`MbscTimezonePlugin`](#type-MbscTimezonePlugin) type has the following prop
 string &#124; number
 
 Sets the width of the component.
+
+**Default value**: `undefined`
+### zoomLevel {#opt-zoomLevel}
+
+string &#124; number
+
+Specifies the current zoom level of the timeline view.
+The zoom levels can be listed using the `zoomLevels` property of the timeline inside the view option.
 
 **Default value**: `undefined`

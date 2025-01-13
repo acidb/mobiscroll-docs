@@ -30,6 +30,13 @@ Parameters:
 
 
 
+### getViewDate {#method-getViewDate}
+
+() => Date
+
+
+Returns the view date which is representing the currently displayed date on the component.
+
 
 ### navigateToEvent {#method-navigateToEvent}
 

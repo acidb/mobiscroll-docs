@@ -13,7 +13,7 @@ The datepicker, as explained below, can be used with one, two or no inputs.
 
 The first choice of input customization is to have no inputs at all. In this case rendering the component in [inline display](/vue/datepicker/display-modes) mode will leave out the use of inputs.
 
-```jsx title="Inline picker"
+```html title="Inline picker"
 <template>
   <MbscDatepicker
     display="inline"
@@ -31,7 +31,7 @@ Using a custom input can be done with the `inputComponent` [prop](/vue/datepicke
 
 To pass props to the custom component, you can use the `inputProps` [prop](/vue/datepicker/api#opt-inputProps).
 
-```jsx title="Using with one input"
+```html title="Using with one input"
 <script setup>
 const isPickerOpen = ref(false)
 function openPicker() {
@@ -59,19 +59,19 @@ function handleClose() {
 
 When selecting a range, you have basically two values to display: the start of the range and the end of the range. These can be shown in different inputs using the [`startInput`](/vue/datepicker/api#opt-startInput) and the [`endInput`](/vue/datepicker/api#opt-endInput) options.
 
-```jsx title="Two inputs for range selection"
+```html title="Two inputs for range selection"
 <script setup>
 const startInput = ref(null)
 const endInput = ref(null)
 </script>
 <template>
   <MbscInput
-    ref="startInput" 
-    label="Start" 
+    ref="startInput"
+    label="Start"
     placeholder="Please Select..." />
-  <MbscInput 
-    ref="endInput" 
-    label="End" 
+  <MbscInput
+    ref="endInput"
+    label="End"
     placeholder="Please Select..." />
   <MbscDatepicker
     select="range"

@@ -75,7 +75,7 @@ export default function Home() {
     ...
 ```
 
-### 5. Run the App
+### Step 5: Run the App
 
 Start the development server to see your Mobiscroll Datepicker in action.
 

@@ -54,13 +54,17 @@ import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 ```
 
 :::caution Enable client side rendering
-By default Next.js projects use SSR (Server Side Rendering) and Mobiscroll components need to be rendered client side. For this to work, the `'use client'` directive has to be set on the top of the file.
+By default Next.js projects use SSR (Server Side Rendering) and Mobiscroll components need to be rendered client side.
+
+For this to work, the `'use client'` directive has to be set on the top of the file.
 
 ```tsx title="src/page.js"
 'use client'
 import { Datepicker } from '@mobiscroll/react';
 // ...
 ```
+
+Read more on directives in the [React Documentation](https://react.dev/reference/rsc/directives).
 :::
 
 Add the datepicker to the page:

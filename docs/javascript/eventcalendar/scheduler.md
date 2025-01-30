@@ -85,13 +85,54 @@ There might be cases when you would like to change the height of the schedule ce
 
 ### Column width
 
-You can use the following CSS classes for changing column widths of the Scheduler:
+CSS classes offer the flexibility to adjust column widths, allowing you to fully customize the layout of both resource columns and day columns. You can choose to customize them together or separately, giving you the freedom to create a design that suits your specific needs. 
 
-```css
+```css title="Setting General Column Width"
 .mbsc-schedule-col-width {
   width: 100px;
 }
-```
+``` 
+
+Customizing Day Column Widths
+
+Each day column has a predefined CSS class that allows setting different widths for each day:
+
+- `.mbsc-schedule-column-mon` (Monday)
+- `.mbsc-schedule-column-tue` (Tuesday)
+- `.mbsc-schedule-column-wed` (Wednesday)
+- `.mbsc-schedule-column-thu` (Thursday)
+- `.mbsc-schedule-column-fri` (Friday)
+- `.mbsc-schedule-column-sat` (Saturday)
+- `.mbsc-schedule-column-sun` (Sunday)
+
+```css title="Adjusting Width for Specific Days"
+.mbsc-schedule-column-mon {
+  width: 150px;
+}
+``` 
+
+Resource Column widths can be adjusted by assigning a custom CSS class to resources using the <code>cssClass</code> property.
+
+```ts title="Assigning a class to a resource"
+resources: [
+  { id: 1, name: 'Resource 1', cssClass: 'resource-column-small' },
+  { id: 2, name: 'Resource 2', cssClass: 'resource-column-large' }
+]
+``` 
+
+```css title="Then, define the CSS for these classes"
+.resource-column-small {
+  width: 80px;
+}
+
+.resource-column-large {
+  width: 160px;
+}
+``` 
+
+:::info
+Learn how to configure column widths by checking out this [demo](https://demo.mobiscroll.com/eventcalendar/).
+:::
 
 ## Resources
 

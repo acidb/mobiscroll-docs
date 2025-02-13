@@ -7,15 +7,22 @@ while still using platform specific themes (e.g. `ios` on iOS devices, `material
 You can override the accent color for every theme:
 
 <CodeBlock language="scss">
+@use '@mobiscroll/{props.framework}/dist/css/mobiscroll.scss' with ({'\n'}
+{'  '}$mbsc-ios-accent: #e61d2a;{'\n'}
+{'  '}$mbsc-material-accent: #e61d2a;{'\n'}
+{'  '}$mbsc-windows-accent: #e61d2a;{'\n'}
+);
+</CodeBlock>
+
+For deprecated `Ruby Sass` or `LibSass` workflows, you should use the following syntax:
+
+<CodeBlock language="scss">
 $mbsc-ios-accent: #e61d2a;{'\n'}
 $mbsc-material-accent: #e61d2a;{'\n'}
 $mbsc-windows-accent: #e61d2a;{'\n'}
 {'\n'}
 @import '~@mobiscroll/{props.framework}/dist/css/mobiscroll.scss';
 </CodeBlock>
-
-
-
 
 :::info
 It's important that you override the variables BEFORE the scss file import, otherwise the variables won't take effect.

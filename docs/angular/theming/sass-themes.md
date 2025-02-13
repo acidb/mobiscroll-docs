@@ -19,6 +19,24 @@ To create a custom theme using Sass, you can use the provided [`mbsc-custom-them
 
 ```scss
 // import the library
+@use "@mobiscroll/angular/dist/css/mobiscroll.scss";
+
+// specify the custom input colors:
+$colors-ios-my-happy: (
+    button: #6D8764,
+    accent: #6D8764,
+    background: #F7F7F7,
+    text: #000000
+);
+
+// create a custom theme called 'my-happy-brand'
+@include mobiscroll.mbsc-custom-theme('my-happy-brand', 'ios', $colors-ios-my-happy);
+```
+
+For deprecated `Ruby Sass` or `LibSass` workflows, you should use the following syntax:
+
+```scss
+// import the library
 @import "~@mobiscroll/angular/dist/css/mobiscroll.scss"
 
 // specify the custom input colors:

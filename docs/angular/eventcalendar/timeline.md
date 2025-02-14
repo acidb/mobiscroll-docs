@@ -291,6 +291,31 @@ Resources can be [reordered directly through the UI](https://demo.mobiscroll.com
 
 After a resource is dragged and dropped to a new position, the [onResourceOrderUpdate](#event-onResourceOrderUpdate) lifecycle event is triggered. To make specific resources non-draggable, set the `reorder` property of the corresponding resource object to `false`;
 
+### Resource External Drag and Drop  
+
+You can drag and drop resources into or out of the timeline view, allowing for easy organization and adjustments.  
+
+#### Targeting the Timeline  
+
+To enable this functionality:  
+
+- **Allow External Drops:** Set the [`externalDrop`](#opt-externalDrop) option to `true` to allow the timeline to accept dropped resources.  
+- **Create a Draggable Element:** Define an external draggable resource and pass a skeleton resource definition using the `dragData` option. Ensure the `dragData` object includes `type: 'resource'` so that the timeline correctly recognizes the dragged element as a resource.  
+
+#### The Timeline as a Source  
+
+The [`externalDrag`](./api#opt-externalDrag) option allows resources to be dragged out of the timeline view and dropped onto another instance of the Timeline or any [Dropcontainer](drag-and-drop#dropcontainer).  
+
+- **Dragging a Resource Out:**  
+  - When a resource leaves the Timeline, the [`onResourceDragLeave`](./api#event-onResourceDragLeave) lifecycle event is triggered.  
+  - A clone of the resource is displayed to illustrate the movement.  
+  - If dropped into an external drop container or another timeline, the resource is removed from the original timeline.  
+  - The [`onResourceDelete`](./api#event-onResourceDelete) and [`onResourceDeleted`](./api#event-onResourceDeleted) lifecycle events are fired.  
+
+- **Dragging a Resource In:**  
+  - When a resource enters the Timeline, the [`onResourceDragEnter`](./api#event-onResourceDragEnter) lifecycle event is triggered.  
+  - If dropped, the [`onResourceCreate`](./api#event-onResourceCreate) and [`onResourceCreated`](./api#event-onResourceCreated) lifecycle events are fired.  
+
 ### Resource column width
 
 The width of the resources column on the Timeline view is fixed. It can be overwritten from CSS using the following rule:

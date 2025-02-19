@@ -272,12 +272,12 @@ You can drag and drop resources into or out of the timeline view, allowing for e
 
 To enable this functionality:  
 
-- **Allow External Drops:** Set the [`externalDrop`](#opt-externalDrop) option to `true` to allow the timeline to accept dropped resources.  
+- **Allow External Drops:** Set the [`externalResourceDrop`](./api#opt-externalResourceDrop) option to `true` to allow the timeline to accept dropped resources.  
 - **Create a Draggable Element:** Define an external draggable resource and pass a skeleton resource definition using the `dragData` option. Ensure the `dragData` object includes `type: 'resource'` so that the timeline correctly recognizes the dragged element as a resource.  
 
 #### The Timeline as a Source  
 
-The [`externalDrag`](./api#opt-externalDrag) option allows resources to be dragged out of the timeline view and dropped onto another instance of the Timeline or any [Dropcontainer](drag-and-drop#dropcontainer).  
+The [`externalResourceDrag`](./api#opt-externalResourceDrag) option allows resources to be dragged out of the timeline view and dropped onto another instance of the Timeline or any [Dropcontainer](drag-and-drop#dropcontainer).  
 
 - **Dragging a Resource Out:**  
   - When a resource leaves the Timeline, the [`@resource-drag-leave`](./api#event-onResourceDragLeave) lifecycle event is triggered.  

@@ -254,6 +254,7 @@
 
 .wcag-table td:nth-child(2),
 .wcag-table td:nth-child(4),
+.wcag-table td:nth-child(5),
 .wcag-table td:nth-child(3) {
   text-align: center;
 }

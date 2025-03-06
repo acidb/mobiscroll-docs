@@ -131,7 +131,12 @@ resources: [
 ``` 
 
 :::info
-Learn how to configure column widths by checking out this [demo](https://demo.mobiscroll.com/eventcalendar/).
+If you override both resource and day column widths, make sure the <code>groupBy</code> elements are wide enough to contain their child elements.
+Parent elements have a minimum width of <code>16em (256px)</code> due to the structure, so you must use a value larger than that in both cases.
+:::
+
+:::info
+Learn how to configure column widths by checking out this [demo](https://demo.mobiscroll.com/scheduler/content-dependent-resource-width).
 :::
 
 ## Resources

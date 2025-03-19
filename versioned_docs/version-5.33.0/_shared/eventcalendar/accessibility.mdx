@@ -310,10 +310,10 @@ User interface components and navigation must be operable.
       <td>Supported</td>
       <td>-</td>
     </tr>
-    <tr>
+    <tr className="js-not-applicable">
       <td><a href='https://www.w3.org/TR/WCAG22/#interruptions'>2.2.4 Interruptions</a></td>
       <td>AAA</td>
-      <td>Supported</td>
+      <td>Not Applicable</td>
       <td>-</td>
     </tr>
     <tr className="js-not-applicable">
@@ -614,9 +614,14 @@ Content must be robust enough that it can be interpreted reliably by a wide vari
     <tr>
       <th colSpan="2">Guidelines</th>
       <th className="level-colum-width">Level</th>
-      <th className="compatibility-colum-width">Compatibility</th>
+      <th className="compatibility-colum-width">Compatibility
+        <label className="table-hide-wrapper">
+          <input type="checkbox" className="table-hide-switch" />
+          Show only applicable items
+        </label>
+      </th>
     </tr>
-    <tr className="four-column-tr">
+    <tr className="js-not-applicable four-column-tr">
       <th rowSpan="3"><a href='https://www.w3.org/TR/WCAG22/#compatible'>4.1 Compatible</a></th>
       <td><a href='https://www.w3.org/TR/WCAG22/#parsing'>4.1.1 Parsing (Obsolete and removed)</a></td>
       <td>-</td>

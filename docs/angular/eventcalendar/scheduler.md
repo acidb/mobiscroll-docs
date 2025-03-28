@@ -212,6 +212,11 @@ The initial order in which the resources appear on the scheduler follows the ord
 
 For dynamic sorting during runtime, sort the resource array and pass the updated array to the calendar.
 
+## Load data on scroll
+
+The scheduler view is virtualized, meaning its markup is dynamically generated and managed as needed. Scrolling vertically or horizontally triggers the [onVirtualLoading](#event-onVirtualLoading) lifecycle event, which can be used to load data incrementally during scrolling, rather than loading all data during the initial render. 
+This dramatically improves performance in case of a large event or resource count since not all data is loaded in memory from start. 
+
 ## Responsiveness
 
 The Scheduler is [fully responsive](https://demo.mobiscroll.com/scheduler/responsive-day-week-schedule#). It adapts to the available space and fills the screen to look good everywhere. While you don't have to worry about the width the height can be manually adjusted with the [height](#opt-height) option. This specifies different options for different container widths, in a form of an object, where the keys are the name of the breakpoints, and the values are objects containing the options for the given breakpoint.

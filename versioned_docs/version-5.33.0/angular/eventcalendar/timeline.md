@@ -417,7 +417,7 @@ export class MyComponent {
         timeline: { type: 'week' }
       }
     },
-    custom: { // Custom breakpoint
+    custom: { // Custom breakpoint, you can use multiple if needed, but each must have a unique name.
       breakpoint: 1000,
       view: { timeline: { type: 'month' }}
     }

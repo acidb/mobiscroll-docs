@@ -80,7 +80,7 @@ Triggered when an event is clicked.
 
 Parameters:
  - args - The event argument with the following properties:
-   - `date`: *Date* - The date on which the event was clicked.
+   - `date`: *Date* - In the Timeline view, it will return the start date of the clicked event.
    - `domEvent`: *Event* - The DOM event of the click.
    - `event`: *MbscCalendarEvent* - The clicked calendar event.
    - `resource`: *string | number* - The id of the resource where the event was clicked, if [resources](#opt-resources) are set.
@@ -198,7 +198,7 @@ Triggered when an event is double-clicked.
 
 Parameters:
  - args - The event argument with the following properties:
-   - `date`: *Date* - The date on which the event was clicked.
+   - `date`: *Date* - In the Timeline view, it will return the start date of the clicked event.
    - `domEvent`: *Event* - The DOM event of the click.
    - `event`: *MbscCalendarEvent* - The clicked calendar event.
    - `resource`: *string | number* - The id of the resource where the event was clicked, if [resources](#opt-resources) are set.
@@ -289,7 +289,7 @@ Triggered when the mouse pointer hovers an event on the calendar.
 
 Parameters:
  - args - The event argument with the following properties:
-   - `date`: *Date* - The date on which the event is hovered.
+   - `date`: *Date* - In the Timeline view, it will return the start date of the hovered event.
    - `domEvent`: *Event* - The DOM event of the hover.
    - `event`: *MbscCalendarEvent* - The hovered calendar event.
    - `resource`: *string | number* - The id of the resource where the event is hovered, if [resources](#opt-resources) are set.
@@ -310,7 +310,7 @@ Triggered when the mouse pointer leaves an event on the calendar.
 
 Parameters:
  - args - The event argument with the following properties:
-   - `date`: *Date* - The date on which the event was hovered.
+   - `date`: *Date* - In the Timeline view, it will return the start date of the hovered event.
    - `domEvent`: *Event* - The DOM event of the hover.
    - `event`: *MbscCalendarEvent* - The hovered calendar event.
    - `resource`: *string | number* - The id of the resource where the event was hovered, if [resources](#opt-resources) are set.
@@ -331,7 +331,7 @@ Triggered when an event is right-clicked.
 
 Parameters:
  - args - The event argument with the following properties:
-   - `date`: *Date* - The date on which the event was clicked.
+   - `date`: *Date* - In the Timeline view, it will return the start date of the clicked event.
    - `domEvent`: *Event* - The DOM event of the click.
    - `event`: *MbscCalendarEvent* - The clicked calendar event.
    - `resource`: *string | number* - The id of the resource where the event was clicked, if [resources](#opt-resources) are set.

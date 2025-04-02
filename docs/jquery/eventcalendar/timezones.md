@@ -6,6 +6,7 @@ title: Timezones
 ---
 
 import LibraryInstall from '../../_shared/timezones/library_install.mdx';
+import DayjsInstall from '../../_shared/timezones/dayjs_install.mdx';
 import MomentInstall from '../../_shared/timezones/moment_install.mdx';
 import LuxonInstall from '../../_shared/timezones/luxon_install.mdx';
 import ExclusiveEndDatesContent from '../../_shared/eventcalendar/exclusive-ends.mdx';
@@ -84,19 +85,45 @@ $('#myDiv').mobiscroll().eventcalendar({
 
 If you are not using any script bundler and you have the mobiscroll and luxon library scripts included on your web page, you can access the `luxonTimezone` from the mobiscroll global namespace.
 
+### The Day.js library
+
+<DayjsInstall framework="jquery" />
+
+**4.** After that, you can pass the `dayjsTimezone` object to the Eventcalendar's `timezonePlugin` option.
+
 ```js
 $(function() {
   // highlight-next-line
-  mobiscroll.luxonTimezone = luxon;
+  mobiscroll.dayjsTimezone = dayjs;
 
   $('#myDiv').mobiscroll().eventcalendar({
     // highlight-next-line
-    timezonePlugin: mobiscroll.luxonTimezone,
-    dataTimezone: "utc",
-    displayTimezone: "Europe/Berlin",
+    timezonePlugin: dayjsTimezone,
+    dataTimezone: 'utc',
+    displayTimezone: 'Europe/Berlin',
   });
 });
 ```
+
+#### Day.js in web pages
+
+If you are not using any script bundler and you have the mobiscroll and Day.js library scripts included on your web page, you can access the `dayjsTimezone` from the mobiscroll global namespace.
+
+```js
+// highlight-next-line
+$(function() {
+  // highlight-next-line
+  mobiscroll.dayjsTimezone = dayjs;
+
+  $('#myDiv').mobiscroll().eventcalendar({
+    // highlight-next-line
+    timezonePlugin: dayjsTimezone,
+    dataTimezone: 'utc',
+    displayTimezone: 'Europe/Berlin',
+  });
+});
+```
+
 
 
 ## Using timezones

@@ -6,6 +6,7 @@ title: Timezones
 ---
 
 import LibraryInstall from '../../_shared/timezones/library_install.mdx';
+import DayjsInstall from '../../_shared/timezones/dayjs_install.mdx';
 import MomentInstall from '../../_shared/timezones/moment_install.mdx';
 import LuxonInstall from '../../_shared/timezones/luxon_install.mdx';
 import ExclusiveEndDatesContent from '../../_shared/eventcalendar/exclusive-ends.mdx';
@@ -64,6 +65,35 @@ export class MyComponent {
 <mbsc-eventcalendar [timezonePlugin]="myLuxonTimezone"
   dataTimezone="utc" displayTimezone="Europe/Berlin">
 </mbsc-eventcalendar>
+```
+
+### The Day.js library
+
+<DayjsInstall framework="angular" />
+
+**4.** After that, you can pass the `dayjsTimezone` object to the Eventcalendar's `timezonePlugin` option.
+
+```html
+<mbsc-eventcalendar [timezonePlugin]="myPlugin"
+  dataTimezone="utc" displayTimezone="Europe/Berlin">
+</mbsc-eventcalendar>
+```
+
+```js
+import { dayjsTimezone, MbscTimezonePlugin } from '@mobiscroll/javascript';
+import dayjs from 'dayjs';
+import timezone from 'dayjs/plugin/timezone';
+import utc from 'dayjs/plugin/utc';
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+dayjsTimezone.dayjs = dayjs;
+
+@Component({...})
+export class AppComponent {
+  // highlight-next-line
+  myPlugin: MbscTimezonePlugin = dayjsTimezone;
+}
 ```
 
 

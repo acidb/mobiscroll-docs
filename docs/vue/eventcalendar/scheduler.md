@@ -93,13 +93,60 @@ There might be cases when you would like to change the height of the schedule ce
 
 ### Column width
 
-You can use the following CSS classes for changing column widths of the Scheduler:
+CSS classes offer the flexibility to adjust column widths, allowing you to fully customize the layout of both resource columns and day columns.
+You can choose to customize them together or separately, giving you the freedom to create a design that suits your specific needs. 
 
-```css
+```css title="Setting general column width"
 .mbsc-schedule-col-width {
   width: 100px;
 }
-```
+``` 
+
+#### Customizing weekday column widths
+
+Each weekday column has a predefined CSS class that allows setting different widths for them:
+
+- `.mbsc-schedule-column-mon` (Monday)
+- `.mbsc-schedule-column-tue` (Tuesday)
+- `.mbsc-schedule-column-wed` (Wednesday)
+- `.mbsc-schedule-column-thu` (Thursday)
+- `.mbsc-schedule-column-fri` (Friday)
+- `.mbsc-schedule-column-sat` (Saturday)
+- `.mbsc-schedule-column-sun` (Sunday)
+
+```css title="Adjusting width for Monday"
+.mbsc-schedule-column-mon {
+  width: 150px;
+}
+``` 
+
+#### Customizing resource column widths
+
+Resource column widths can be adjusted by assigning a custom CSS class to resources using the <code>cssClass</code> property.
+
+Check out how to change resource column widths in [this example](https://demo.mobiscroll.com/scheduler/content-dependent-resource-width).
+
+```ts title="Assigning a class to a resource"
+resources: [
+  { id: 1, name: 'Resource 1', cssClass: 'resource-column-small' },
+  { id: 2, name: 'Resource 2', cssClass: 'resource-column-large' }
+]
+``` 
+
+```css title="Define styles for the resource classes"
+.resource-column-small {
+  width: 80px;
+}
+
+.resource-column-large {
+  width: 160px;
+}
+``` 
+
+:::info
+If you override both resource and day column widths, make sure column groups (day or resource, depending on the [`groupBy`](#opt-groupBy) option)
+are wide enough to contain their child elements, or specify a `min-width` for the group column instead of a fixed width.
+:::
 
 ## Resources
 

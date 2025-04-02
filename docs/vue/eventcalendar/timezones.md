@@ -6,6 +6,7 @@ title: Timezones
 ---
 
 import LibraryInstall from '../../_shared/timezones/library_install.mdx';
+import DayjsInstall from '../../_shared/timezones/dayjs_install.mdx';
 import MomentInstall from '../../_shared/timezones/moment_install.mdx';
 import LuxonInstall from '../../_shared/timezones/luxon_install.mdx';
 import ExclusiveEndDatesContent from '../../_shared/eventcalendar/exclusive-ends.mdx';
@@ -67,6 +68,33 @@ When using a timezone plugin with the Eventcalendar, the [`exclusiveEndDates`](a
 </template>
 ```
 
+### The Day.js library
+
+<DayjsInstall framework="vue" />
+
+**4.** After that, you can pass the `dayjsTimezone` object to the Eventcalendar's `timezonePlugin` option.
+
+```html
+<script setup>
+  import { dayjsTimezone, MbscEventcalendar } from '@mobiscroll/vue';
+  import dayjs from 'dayjs';
+  import timezone from 'dayjs/plugin/timezone';
+  import utc from 'dayjs/plugin/utc';
+
+  dayjs.extend(utc);
+  dayjs.extend(timezone);
+  dayjsTimezone.dayjs = dayjs;
+</script>
+
+<template>
+  <MbscEventcalendar
+    // highlight-next-line
+    :timezonePlugin="dayjsTimezone"
+    dataTimezone="utc"
+    displayTimezone="Europe/Berlin"
+  />
+</template>
+```
 
 ## Using timezones
 

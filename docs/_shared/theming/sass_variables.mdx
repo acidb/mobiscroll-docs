@@ -14,19 +14,16 @@ You can override the accent color for every theme:
 );
 </CodeBlock>
 
-For deprecated `Ruby Sass` or `LibSass` workflows, you should use the following syntax:
+When using the deprecated [Ruby Sass](https://sass-lang.com/ruby-sass/) or [LibSass](https://sass-lang.com/libsass/) implementations, use the following syntax:
 
 <CodeBlock language="scss">
+// Override the variables BEFORE the scss file import, otherwise they won't take effect{'\n'}
 $mbsc-ios-accent: #e61d2a;{'\n'}
 $mbsc-material-accent: #e61d2a;{'\n'}
 $mbsc-windows-accent: #e61d2a;{'\n'}
 {'\n'}
-@import '~@mobiscroll/{props.framework}/dist/css/mobiscroll.scss';
+@import '@mobiscroll/{props.framework}/dist/css/mobiscroll.scss';
 </CodeBlock>
-
-:::info
-It's important that you override the variables BEFORE the scss file import, otherwise the variables won't take effect.
-:::
 
 Here's the complete list of the Sass color variables available grouped by themes:
 

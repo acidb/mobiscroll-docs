@@ -15,37 +15,38 @@ If you'd like to use multiple color variations for the Mobiscroll components, th
 To create a custom theme using Sass, you can use the provided [`mbsc-custom-theme`](#method-mbsc-custom-theme) function, which can be called after the mobiscroll scss file has been imported:
 
 ```scss
-// import the library
+// Import the library
 @use "@mobiscroll/react/dist/css/mobiscroll.scss";
 
-// specify the custom input colors:
-$colors-ios-my-happy: (
-    button: #6D8764,
-    accent: #6D8764,
-    background: #F7F7F7,
-    text: #000000
+// Specify the custom colors
+$colors-my-happy-brand: (
+  button: #6D8764,
+  accent: #6D8764,
+  background: #F7F7F7,
+  text: #000000
 );
 
-// create a custom theme called 'my-happy-brand'
-@include mobiscroll.mbsc-custom-theme('my-happy-brand', 'ios', $colors-ios-my-happy);
+// Create a custom theme called 'my-happy-brand'
+@include mobiscroll.mbsc-custom-theme('my-happy-brand', 'ios', $colors-my-happy-brand);
 ```
 
-For deprecated `Ruby Sass` or `LibSass` workflows, you should use the following syntax:
+When using the deprecated [Ruby Sass](https://sass-lang.com/ruby-sass/) or [LibSass](https://sass-lang.com/libsass/) implementations, use the following syntax:
+
 
 ```scss
-// import the library
-@import "~@mobiscroll/react/dist/css/mobiscroll.scss"
+// Import the library
+@import "@mobiscroll/react/dist/css/mobiscroll.scss"
 
-// specify the custom input colors:
-$colors-ios-my-happy: (
-    button: #6D8764,
-    accent: #6D8764,
-    background: #F7F7F7,
-    text: #000000
+// Specify the custom colors:
+$colors-my-happy-brand: (
+  button: #6D8764,
+  accent: #6D8764,
+  background: #F7F7F7,
+  text: #000000
 );
 
-// create a custom theme called 'my-happy-brand'
-@include mbsc-custom-theme('my-happy-brand', 'ios', $colors-ios-my-happy);
+// Create a custom theme called 'my-happy-brand'
+@include mbsc-custom-theme('my-happy-brand', 'ios', $colors-my-happy-brand);
 ```
 
 Before you can use the custom theme, you will also need to register it in your javascript code. This can be done after the mobiscroll resources has been loaded, but before using any of the components. Use the [`createCustomTheme`](#method-createCustomTheme) function. Make sure to use the same name which was specified to the Sass function, and specify the same base theme as second parameter.

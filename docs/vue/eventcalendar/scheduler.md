@@ -93,17 +93,18 @@ There might be cases when you would like to change the height of the schedule ce
 
 ### Column width
 
-CSS classes offer the flexibility to adjust column widths, allowing you to fully customize the layout of both resource columns and day columns. You can choose to customize them together or separately, giving you the freedom to create a design that suits your specific needs. 
+CSS classes offer the flexibility to adjust column widths, allowing you to fully customize the layout of both resource columns and day columns.
+You can choose to customize them together or separately, giving you the freedom to create a design that suits your specific needs. 
 
-```css title="Setting General Column Width"
+```css title="Setting general column width"
 .mbsc-schedule-col-width {
   width: 100px;
 }
 ``` 
 
-Customizing Day Column Widths
+#### Customizing weekday column widths
 
-Each day column has a predefined CSS class that allows setting different widths for each day:
+Each weekday column has a predefined CSS class that allows setting different widths for them:
 
 - `.mbsc-schedule-column-mon` (Monday)
 - `.mbsc-schedule-column-tue` (Tuesday)
@@ -113,13 +114,17 @@ Each day column has a predefined CSS class that allows setting different widths 
 - `.mbsc-schedule-column-sat` (Saturday)
 - `.mbsc-schedule-column-sun` (Sunday)
 
-```css title="Adjusting Width for Specific Days"
+```css title="Adjusting width for Monday"
 .mbsc-schedule-column-mon {
   width: 150px;
 }
 ``` 
 
-Resource Column widths can be adjusted by assigning a custom CSS class to resources using the <code>cssClass</code> property.
+#### Customizing resource column widths
+
+Resource column widths can be adjusted by assigning a custom CSS class to resources using the <code>cssClass</code> property.
+
+Check out how to change resource column widths in [this example](https://demo.mobiscroll.com/scheduler/content-dependent-resource-width).
 
 ```ts title="Assigning a class to a resource"
 resources: [
@@ -128,7 +133,7 @@ resources: [
 ]
 ``` 
 
-```css title="Then, define the CSS for these classes"
+```css title="Define styles for the resource classes"
 .resource-column-small {
   width: 80px;
 }
@@ -139,12 +144,8 @@ resources: [
 ``` 
 
 :::info
-If you override both resource and day column widths, make sure the <code>groupBy</code> elements are wide enough to contain their child elements.
-Parent elements have a minimum width of <code>16em (256px)</code> due to the structure, so you must use a value larger than that in both cases.
-:::
-
-:::info
-Learn how to configure column widths by checking out this [demo](https://demo.mobiscroll.com/scheduler/content-dependent-resource-width).
+If you override both resource and day column widths, make sure column groups (day or resource, depending on the [`groupBy`](#opt-groupBy) option)
+are wide enough to contain their child elements, or specify a `min-width` for the group column instead of a fixed width.
 :::
 
 ## Resources

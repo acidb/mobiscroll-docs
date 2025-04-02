@@ -31,13 +31,12 @@ import moment from 'moment-timezone';
 momentTimezone.moment = moment;
 
 function App() {
-  return <>
-    <Datepicker
-      // highlight-next-line
-      timezonePlugin={momentTimezone}
-      dataTimezone="utc"
-      displayTimezone="Europe/Berlin" />
-  </>
+  return <Datepicker
+    // highlight-next-line
+    timezonePlugin={momentTimezone}
+    dataTimezone="utc"
+    displayTimezone="Europe/Berlin"
+  />
 }
 ```
 
@@ -53,13 +52,12 @@ import * as luxon from 'luxon';
 luxonTimezone.luxon = luxon;
 
 function App() {
-  return <>
-    <Datepicker
-      // highlight-next-line
-      timezonePlugin={luxonTimezone}
-      dataTimezone="utc"
-      displayTimezone="Europe/Berlin" />
-  </>
+  return <Datepicker
+    // highlight-next-line
+    timezonePlugin={luxonTimezone}
+    dataTimezone="utc"
+    displayTimezone="Europe/Berlin"
+  />
 }
 ```
 
@@ -69,8 +67,8 @@ function App() {
 
 **4.** After that, you can pass the `dayjsTimezone` object to the Datepicker's `timezonePlugin` option.
 
-```js
-import { Datepicker, dayjsTimezone } from '@mobiscroll/angular';
+```jsx
+import { Datepicker, dayjsTimezone } from '@mobiscroll/react';
 import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
@@ -80,13 +78,12 @@ dayjs.extend(timezone);
 dayjsTimezone.dayjs = dayjs;
 
 function App() {
-  return <>
-    <Datepicker
-      // highlight-next-line
-      timezonePlugin={dayjsTimezone}
-      dataTimezone="utc"
-      displayTimezone="Europe/Berlin" />
-  </>
+  return <Datepicker
+    // highlight-next-line
+    timezonePlugin={dayjsTimezone}
+    dataTimezone="utc"
+    displayTimezone="Europe/Berlin"
+  />
 }
 
 ```

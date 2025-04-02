@@ -74,9 +74,9 @@ When using a timezone plugin with the Eventcalendar, the [`exclusiveEndDates`](a
 
 **4.** After that, you can pass the `dayjsTimezone` object to the Eventcalendar's `timezonePlugin` option.
 
-```js
+```html
 <script setup>
-  import { dayjsTimezone, MbscEventcalendar } from '@mobiscroll/jquery';
+  import { dayjsTimezone, MbscEventcalendar } from '@mobiscroll/vue';
   import dayjs from 'dayjs';
   import timezone from 'dayjs/plugin/timezone';
   import utc from 'dayjs/plugin/utc';

@@ -100,7 +100,7 @@ mobiscroll.eventcalendar('#myDiv', {
 **4.** After that, you can pass the `dayjsTimezone` object to the Eventcalendar's `timezonePlugin` option.
 
 ```js
-import { eventcalendar, dayjsTimezone, MbscTimezonePlugin } from '@mobiscroll/javascript';
+import { eventcalendar, dayjsTimezone } from '@mobiscroll/javascript';
 import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
@@ -111,7 +111,7 @@ dayjsTimezone.dayjs = dayjs;
 
 eventcalendar('#myDiv', {
   // highlight-next-line
-  timezonePlugin: mobiscroll.dayjsTimezone,
+  timezonePlugin: dayjsTimezone,
   dataTimezone: "utc",
   displayTimezone: "Europe/Berlin",
 });

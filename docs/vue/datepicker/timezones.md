@@ -72,9 +72,9 @@ import General from '../../_shared/datepicker/timezones_general.mdx';
 
 **4.** After that, you can pass the `dayjsTimezone` object to the Datepicker's `timezonePlugin` option.
 
-```js
+```html
 <script setup>
-  import { dayjsTimezone, MbscDatepicker } from '@mobiscroll/jquery';
+  import { dayjsTimezone, MbscDatepicker } from '@mobiscroll/vue';
   import dayjs from 'dayjs';
   import timezone from 'dayjs/plugin/timezone';
   import utc from 'dayjs/plugin/utc';

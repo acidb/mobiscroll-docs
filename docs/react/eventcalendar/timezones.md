@@ -71,8 +71,8 @@ function App() {
 
 **4.** After that, you can pass the `dayjsTimezone` object to the Eventcalendar's `timezonePlugin` option.
 
-```js
-import { Eventcalendar, dayjsTimezone } from '@mobiscroll/angular';
+```jsx
+import { Eventcalendar, dayjsTimezone } from '@mobiscroll/react';
 import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
@@ -82,13 +82,12 @@ dayjs.extend(timezone);
 dayjsTimezone.dayjs = dayjs;
 
 function App() {
-  return <>
-    <Eventcalendar
-      // highlight-next-line
-      timezonePlugin={dayjsTimezone}
-      dataTimezone="utc"
-      displayTimezone="Europe/Berlin" />
-  </>
+  return <Eventcalendar
+    // highlight-next-line
+    timezonePlugin={dayjsTimezone}
+    dataTimezone="utc"
+    displayTimezone="Europe/Berlin"
+  />
 }
 ```
 

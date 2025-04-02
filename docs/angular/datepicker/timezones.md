@@ -54,7 +54,7 @@ export class AppComponent {
 <mbsc-datepicker [timezonePlugin]="myPlugin" [dataTimezone]="myDataTz" [displayTimezone]="myDisplayTz"></mbsc-datepicker>
 ```
 
-```js
+```ts
 import { luxonTimezone, MbscTimezonePlugin } from '@mobiscroll/angular';
 import * as luxon from 'luxon';
 luxonTimezone.luxon = luxon;
@@ -75,10 +75,10 @@ export class AppComponent {
 **4.** After that, you can pass the `dayjsTimezone` object to the Datepicker's `timezonePlugin` option.
 
 ```html
-<mbsc-datepicker [timezonePlugin]="myPlugin" [dataTimezone]="myDataTz" [displayTimezone]="myDisplayTz"></mbsc-datepicker>
+<mbsc-datepicker [timezonePlugin]="myDayjsTimezone" [dataTimezone]="myDataTz" [displayTimezone]="myDisplayTz"></mbsc-datepicker>
 ```
 
-```js
+```ts
 import { dayjsTimezone, MbscTimezonePlugin } from '@mobiscroll/javascript';
 import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
@@ -91,7 +91,7 @@ dayjsTimezone.dayjs = dayjs;
 @Component({...})
 export class AppComponent {
   // highlight-next-line
-  myPlugin: MbscTimezonePlugin = dayjsTimezone;
+  myDayjsTimezone: MbscTimezonePlugin = dayjsTimezone;
   myDataTz = 'utc';
   myDisplayTz = 'Europe/Berlin';
 }

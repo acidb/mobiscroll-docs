@@ -6,13 +6,13 @@ import CodeBlock from '@theme/CodeBlock';
 npm install dayjs
 ```
 
-**2.** After installing the library, for timezones to work properly with the Day.js library, the `utc` and `timezone` plugins need to be included. You'll also need to import them using the dayjsTimezone object from Mobiscroll:
+**2.** After installing the library, the `utc` and `timezone` plugins need to be included. You'll also need to import the `dayjsTimezone` plugin from mobiscroll:
 
 <CodeBlock language="javascript" title="Day.js library import">
 import dayjs from 'dayjs';{'\n'}
 import timezone from 'dayjs/plugin/timezone';{'\n'}
 import utc from 'dayjs/plugin/utc';{'\n'}
-import {'\{'} dayjsTimezone {'\}'}  from '@mobiscroll/{props.framework}';{'\n'}
+import {'\{'} dayjsTimezone {'\}'} from '@mobiscroll/{props.framework}';{'\n'}
 {'\n'}
 dayjs.extend(utc);{'\n'}
 dayjs.extend(timezone);
@@ -21,6 +21,5 @@ dayjs.extend(timezone);
 **3.** Then set the mobiscroll's reference to the imported library:
 
 <CodeBlock language="javascript" title="Day.js library setup">
-// highlight-next-line{'\n'}
 dayjsTimezone.dayjs = dayjs;
 </CodeBlock>

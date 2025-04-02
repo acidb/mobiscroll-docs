@@ -27,6 +27,12 @@ When using a timezone plugin with the Eventcalendar, the [`exclusiveEndDates`](a
 
 **4.** After that, you can pass the `momentTimezone` object to the Eventcalendar's [`timezonePlugin`](./api#opt-timezonePlugin) option.
 
+```html
+<mbsc-eventcalendar [timezonePlugin]="myMomentTimezone"
+  dataTimezone="utc" displayTimezone="Europe/Berlin">
+</mbsc-eventcalendar>
+```
+
 ```ts
 import { momentTimezone } from '@mobiscroll/angular';
 import moment from 'moment-timezone';
@@ -38,11 +44,6 @@ export class MyComponent {
   myMomentTimezone = momentTimezone;
 }
 ```
-```html
-<mbsc-eventcalendar [timezonePlugin]="myMomentTimezone"
-  dataTimezone="utc" displayTimezone="Europe/Berlin">
-</mbsc-eventcalendar>
-```
 
 ### The Luxon library
 
@@ -50,7 +51,13 @@ export class MyComponent {
 
 **4.** After that, you can pass the `luxonTimezone` object to the Eventcalendar's `timezonePlugin` option.
 
-```jsx
+```html
+<mbsc-eventcalendar [timezonePlugin]="myLuxonTimezone"
+  dataTimezone="utc" displayTimezone="Europe/Berlin">
+</mbsc-eventcalendar>
+```
+
+```ts
 import { luxonTimezone } from '@mobiscroll/angular';
 import * as luxon from 'luxon';
 
@@ -61,11 +68,6 @@ export class MyComponent {
   myLuxonTimezone = luxonTimezone;
 }
 ```
-```html
-<mbsc-eventcalendar [timezonePlugin]="myLuxonTimezone"
-  dataTimezone="utc" displayTimezone="Europe/Berlin">
-</mbsc-eventcalendar>
-```
 
 ### The Day.js library
 
@@ -74,13 +76,13 @@ export class MyComponent {
 **4.** After that, you can pass the `dayjsTimezone` object to the Eventcalendar's `timezonePlugin` option.
 
 ```html
-<mbsc-eventcalendar [timezonePlugin]="myPlugin"
+<mbsc-eventcalendar [timezonePlugin]="myDayjsTimezone"
   dataTimezone="utc" displayTimezone="Europe/Berlin">
 </mbsc-eventcalendar>
 ```
 
-```js
-import { dayjsTimezone, MbscTimezonePlugin } from '@mobiscroll/javascript';
+```ts
+import { dayjsTimezone, MbscTimezonePlugin } from '@mobiscroll/angular';
 import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
@@ -90,12 +92,11 @@ dayjs.extend(timezone);
 dayjsTimezone.dayjs = dayjs;
 
 @Component({...})
-export class AppComponent {
+export class MyComponent {
   // highlight-next-line
-  myPlugin: MbscTimezonePlugin = dayjsTimezone;
+  myDayjsTimezone: MbscTimezonePlugin = dayjsTimezone;
 }
 ```
-
 
 ## Using timezones
 

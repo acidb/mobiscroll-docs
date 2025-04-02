@@ -92,16 +92,21 @@ If you are not using any script bundler and you have the mobiscroll and luxon li
 **4.** After that, you can pass the `dayjsTimezone` object to the Eventcalendar's `timezonePlugin` option.
 
 ```js
-$(function() {
-  // highlight-next-line
-  mobiscroll.dayjsTimezone = dayjs;
+import { dayjsTimezone } from '@mobiscroll/javascript';
+import dayjs from 'dayjs';
+import timezone from 'dayjs/plugin/timezone';
+import utc from 'dayjs/plugin/utc';
+import $ from 'jquery';
 
-  $('#myDiv').mobiscroll().eventcalendar({
-    // highlight-next-line
-    timezonePlugin: dayjsTimezone,
-    dataTimezone: 'utc',
-    displayTimezone: 'Europe/Berlin',
-  });
+dayjs.extend(utc);
+dayjs.extend(timezone);
+dayjsTimezone.dayjs = dayjs;
+
+$('#myDiv').mobiscroll().eventcalendar({
+  // highlight-next-line
+  timezonePlugin: dayjsTimezone,
+  dataTimezone: 'utc',
+  displayTimezone: 'Europe/Berlin',
 });
 ```
 
@@ -110,7 +115,6 @@ $(function() {
 If you are not using any script bundler and you have the mobiscroll and Day.js library scripts included on your web page, you can access the `dayjsTimezone` from the mobiscroll global namespace.
 
 ```js
-// highlight-next-line
 $(function() {
   // highlight-next-line
   mobiscroll.dayjsTimezone = dayjs;

@@ -273,7 +273,7 @@ You can drag and drop resources into or out of the timeline view, allowing for e
 To enable this functionality:  
 
 - **Allow External Drops:** Set the [`externalResourceDrop`](./api#opt-externalResourceDrop) option to `true` to allow the timeline to accept dropped resources.  
-- **Create a Draggable Element:** Define an external draggable resource and pass a skeleton resource definition using the `dragData` option. Ensure the `dragData` object includes `type: 'resource'` so that the timeline correctly recognizes the dragged element as a resource.  
+- **Create a Draggable Element:** Define an external draggable resource and pass a skeleton resource definition using the `dragData` option.  Pass `type="resource"` option to the draggable element to ensure the timeline correctly identifies it as a resource.
 
 #### The Timeline as a Source  
 

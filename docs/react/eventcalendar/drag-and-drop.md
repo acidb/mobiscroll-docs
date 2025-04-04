@@ -18,6 +18,8 @@ export const toc = [...intTOC,
 
 <Content />
 
+<h3 id="draggable">Draggable</h3>
+
 You can initialize the draggable containers by using the `<Draggable />` component and reference the draggable container in the `element` option.
 
 ```jsx

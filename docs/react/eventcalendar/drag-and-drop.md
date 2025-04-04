@@ -6,6 +6,7 @@ title: Drag & drop
 ---
 
 import DropcontainerEvents from '../_auto-generated/dropcontainer/events.md';
+import DraggableOptions from '../_auto-generated/draggable/options.md';
 
 import Content from '../../_shared/eventcalendar/dnd-internal.mdx';
 import { toc as intTOC } from '../../_shared/eventcalendar/dnd-internal.mdx';
@@ -45,6 +46,10 @@ function App() {
   </>
 }
 ```
+
+<div className="option-list">
+  <DraggableOptions />
+</div>
 
 <h2 id="the-eventcalendar-as-source">The Eventcalendar as source</h2>
 

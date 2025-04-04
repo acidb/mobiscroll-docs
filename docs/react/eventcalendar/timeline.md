@@ -263,31 +263,21 @@ Resources can be [reordered directly through the UI](https://demo.mobiscroll.com
 
 After a resource is dragged and dropped to a new position, the [onResourceOrderUpdate](#event-onResourceOrderUpdate) lifecycle event is triggered. To make specific resources non-draggable, set the `reorder` property of the corresponding resource object to `false`;
 
-### Resource External Drag and Drop  
+### Resource external drag and drop  
 
 You can drag and drop resources into or out of the timeline view, allowing for easy organization and adjustments.  
 
-#### Targeting the Timeline  
+#### Targeting the timeline  
 
-To enable this functionality:  
+To allow external resources to be dragged into your timeline, first set the the [`externalResourceDrop`](./api#opt-externalResourceDrop) option to `true`. As a second step, you'll need to create your external [draggable](drag-and-drop#draggable) element and pass a skeleton resource definition through the `dragData` option. Make sure to also set `type="resource"` on the draggable element so the timeline correctly identifies it as a resource.
 
-- **Allow External Drops:** Set the [`externalResourceDrop`](./api#opt-externalResourceDrop) option to `true` to allow the timeline to accept dropped resources.  
-- **Create a Draggable Element:** Define an external draggable resource and pass a skeleton resource definition using the `dragData` option. Pass `type="resource"` option to the draggable element to ensure the timeline correctly identifies it as a resource
+#### The timeline as a source
 
-#### The Timeline as a Source  
+Resources can be dragged out of the timeline and dropped onto another instance of the Timeline or any [Dropcontainer](drag-and-drop#dropcontainer). To enable this behavior, you'll need to set the [`externalResourceDrag`](./api#opt-externalResourceDrag) option to `true`.
 
-The [`externalResourceDrag`](./api#opt-externalResourceDrag) option allows resources to be dragged out of the timeline view and dropped onto another instance of the Timeline or any [Dropcontainer](drag-and-drop#dropcontainer).  
+When a resource is dragged out of the timeline, the [`onResourceDragLeave`](./api#event-onResourceDragLeave) lifecycle event is triggered. A visual clone of the resource is shown to indicate the movement. If the resource is dropped into an external drop container or another timeline, it gets removed from the original timeline. This action also triggers the [`onResourceDelete`](./api#event-onResourceDelete) and [`onResourceDeleted`](./api#event-onResourceDeleted) lifecycle events.
 
-- **Dragging a Resource Out:**  
-  - When a resource leaves the Timeline, the [`onResourceDragLeave`](./api#event-onResourceDragLeave) lifecycle event is triggered.  
-  - A clone of the resource is displayed to illustrate the movement.  
-  - If dropped into an external drop container or another timeline, the resource is removed from the original timeline.  
-  - The [`onResourceDelete`](./api#event-onResourceDelete) and [`onResourceDeleted`](./api#event-onResourceDeleted) lifecycle events are fired.  
-
-- **Dragging a Resource In:**  
-  - When a resource enters the Timeline, the [`onResourceDragEnter`](./api#event-onResourceDragEnter) lifecycle event is triggered.  
-  - If dropped, the [`onResourceCreate`](./api#event-onResourceCreate) and [`onResourceCreated`](./api#event-onResourceCreated) lifecycle events are fired.  
-
+When a resource is dragged into the timeline, the [`onResourceDragEnter`](./api#event-onResourceDragEnter) lifecycle event is triggered. If the resource is dropped, the [`onResourceCreate`](./api#event-onResourceCreate) and [`onResourceCreated`](./api#event-onResourceCreated) events will be fired, finalizing the addition.
 
 ### Resource column width
 

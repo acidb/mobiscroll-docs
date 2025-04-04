@@ -180,7 +180,7 @@ Triggered when the calendar page is changed (with buttons or swipe).
 Parameters:
  - args - The event argument with the following properties:
    - `firstDay`: *Date* - The first day of the displayed page.
-   - `lastDay`: *Date* - The last day of the displayed page.
+   - `lastDay`: *Date* - The last day of the displayed page, as an exclusive end date, pointing to 00:00 of the next day.
    - `month`: *Date* - The first day of the visible month in case of month view.
 
  - inst - The component instance.
@@ -196,7 +196,7 @@ Triggered when the calendar page is changed (with buttons or swipe) and the view
 Parameters:
  - args - The event argument with the following properties:
    - `firstDay`: *Date* - The first day of the displayed page.
-   - `lastDay`: *Date* - The last day of the displayed page.
+   - `lastDay`: *Date* - The last day of the displayed page, as an exclusive end date, pointing to 00:00 of the next day.
    - `month`: *Date* - The first day of the visible month in case of month view.
 
  - inst - The component instance.
@@ -212,7 +212,7 @@ Triggered before the markup of a calendar page is starting to render.
 Parameters:
  - args - The event argument with the following properties:
    - `firstDay`: *Date* - The first day of the displayed page.
-   - `lastDay`: *Date* - The last day of the displayed page.
+   - `lastDay`: *Date* - The last day of the displayed page, as an exclusive end date, pointing to 00:00 of the next day.
    - `month`: *Date* - The first day of the visible month in case of month view.
 
  - inst - The component instance.

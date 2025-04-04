@@ -34,7 +34,8 @@ Triggered when an event is dragged into the calendar/timeline/schedule view.
 Parameters:
  - args - The event argument with the following properties:
    - `domEvent`: *Event* - The DOM event of the drag.
-   - `data`: *MbscCalendarEvent* - The dragged calendar event.
+   - `data`: *MbscCalendarEvent | MbscResource * - The dragged data.
+   - `dataType`: *&#039;event&#039; | &#039;resource&#039;* - The type of the dragged item.
 
 
 ### onItemDragLeave {#event-onItemDragLeave}
@@ -47,7 +48,8 @@ Triggered when an event is dragged into the calendar/timeline/schedule view.
 Parameters:
  - args - The event argument with the following properties:
    - `domEvent`: *Event* - The DOM event of the drag.
-   - `data`: *MbscCalendarEvent* - The dragged calendar event.
+   - `data`: *MbscCalendarEvent | MbscResource * - The dragged data.
+   - `dataType`: *&#039;event&#039; | &#039;resource&#039;* - The type of the dragged item.
 
 
 ### onItemDrop {#event-onItemDrop}
@@ -60,5 +62,6 @@ Triggered when an event is dropped inside the drop container.
 Parameters:
  - args - The event argument with the following properties:
    - `domEvent`: *Event* - The DOM event of the drag.
-   - `data`: *MbscCalendarEvent* - The dragged calendar event.
+   - `data`: *MbscCalendarEvent | MbscResource * - The dragged data.
+   - `dataType`: *&#039;event&#039; | &#039;resource&#039;* - The type of the dragged item.
 

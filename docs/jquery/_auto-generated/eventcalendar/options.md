@@ -412,6 +412,20 @@ boolean
 If `true`, external events can be  dragged into the view.
 
 **Default value**: `undefined`
+### externalResourceDrag {#opt-externalResourceDrag}
+
+boolean
+
+If `true`, external drag & drop is allowed and resource can be dragged outside of the component view.
+
+**Default value**: `undefined`
+### externalResourceDrop {#opt-externalResourceDrop}
+
+boolean
+
+If `true`, external resources can be  dragged into the view.
+
+**Default value**: `undefined`
 ### groupBy {#opt-groupBy}
 
 "resource" &#124; "date"
@@ -758,7 +772,7 @@ responsive: {
   small: {
     display: 'bottom'
   },
-  custom: { // Custom breakpoint, you can use multiple if needed, but each must have a unique name.
+  custom: { // Custom breakpoint, you can use multiple, but each must have a unique name
     breakpoint: 600,
     display: 'center'
   },
@@ -959,7 +973,7 @@ and [luxon](https://moment.github.io/luxon/#/).
 
 You can specify either the [dataTimezone](#opt-dataTimezone) or the [displayTimezone](#opt-displayTimezone) or both.
 
-Depending on which external library you use you can pass either the `momentTimezone` or `luxonTimezone`
+Depending on which external library you use you can pass either the `momentTimezone`, `dayjsTimezone` or `luxonTimezone`
 objects. These objects can be imported from the mobiscroll bundle.
 
 **Default value**: `undefined`

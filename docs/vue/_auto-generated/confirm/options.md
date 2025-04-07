@@ -14,7 +14,7 @@ Specifies a custom CSS class for the component.
 **Default value**: `undefined`
 ### display {#opt-display}
 
-"top" &#124; "bottom" &#124; "center"
+"center" &#124; "top" &#124; "bottom"
 
 Controls the positioning of the component.
 

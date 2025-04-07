@@ -119,14 +119,15 @@ Triggered when an event is clicked.
 Parameters:
  - args - The event argument with the following properties:
    - `date`: *Date* - The date on which the event was clicked.
+In case of the timeline view, this will be the first day of the event on the current view.
    - `domEvent`: *Event* - The DOM event of the click.
    - `event`: *MbscCalendarEvent* - The clicked calendar event.
    - `resource`: *string | number* - The id of the resource where the event was clicked, if [resources](#opt-resources) are set.
    - `resourceObj`: *MbscResource* - The resource where the event was clicked, if [resources](#opt-resources) are set.
-   - `selected`: *boolean* - Specifies if the day is currently selected or not (before it was clicked).
    - `slot`: *string | number* - The id of the slot where the event was clicked, if [slots](#opt-slots) are set.
    - `slotObj`: *MbscSlot* - The slot where the event was clicked, if [slots](#opt-slots) are set.
    - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;schedule&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event was clicked.
+   - `target`: *HTMLElement* - The DOM element of the event.
 
  - inst - The component instance.
 
@@ -237,14 +238,15 @@ Triggered when an event is double-clicked.
 Parameters:
  - args - The event argument with the following properties:
    - `date`: *Date* - The date on which the event was clicked.
+In case of the timeline view, this will be the first day of the event on the current view.
    - `domEvent`: *Event* - The DOM event of the click.
    - `event`: *MbscCalendarEvent* - The clicked calendar event.
    - `resource`: *string | number* - The id of the resource where the event was clicked, if [resources](#opt-resources) are set.
    - `resourceObj`: *MbscResource* - The resource where the event was clicked, if [resources](#opt-resources) are set.
-   - `selected`: *boolean* - Specifies if the day is currently selected or not (before it was clicked).
    - `slot`: *string | number* - The id of the slot where the event was clicker, if [slots](#opt-slots) are set.
    - `slotObj`: *MbscResource* - The resource where the event was clicker, if [slots](#opt-slots) are set.
    - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;schedule&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event was clicked.
+   - `target`: *HTMLElement* - The DOM element of the event.
 
  - inst - The component instance.
 
@@ -328,6 +330,7 @@ Triggered when the mouse pointer hovers an event on the calendar.
 Parameters:
  - args - The event argument with the following properties:
    - `date`: *Date* - The date on which the event is hovered.
+In case of the timeline view, this will be the first day of the event on the current view.
    - `domEvent`: *Event* - The DOM event of the hover.
    - `event`: *MbscCalendarEvent* - The hovered calendar event.
    - `resource`: *string | number* - The id of the resource where the event is hovered, if [resources](#opt-resources) are set.
@@ -335,6 +338,7 @@ Parameters:
    - `slot`: *string | number* - The id of the slot where the event is hovered, if [slots](#opt-slots) are set.
    - `slotObj`: *MbscSlot* - The slot where the event is hovered, if [slots](#opt-slots) are set.
    - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;schedule&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event is hovered.
+   - `target`: *HTMLElement* - The DOM element of the event.
 
  - inst - The component instance.
 
@@ -349,6 +353,7 @@ Triggered when the mouse pointer leaves an event on the calendar.
 Parameters:
  - args - The event argument with the following properties:
    - `date`: *Date* - The date on which the event was hovered.
+In case of the timeline view, this will be the first day of the event on the current view.
    - `domEvent`: *Event* - The DOM event of the hover.
    - `event`: *MbscCalendarEvent* - The hovered calendar event.
    - `resource`: *string | number* - The id of the resource where the event was hovered, if [resources](#opt-resources) are set.
@@ -356,6 +361,7 @@ Parameters:
    - `slot`: *string | number* - The id of the slot where the event was hovered, if [slots](#opt-slots) are set.
    - `slotObj`: *MbscSlot* - The slot where the event was hovered, if [slots](#opt-slots) are set.
    - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;schedule&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event was hovered.
+   - `target`: *HTMLElement* - The DOM element of the event.
 
  - inst - The component instance.
 
@@ -370,14 +376,15 @@ Triggered when an event is right-clicked.
 Parameters:
  - args - The event argument with the following properties:
    - `date`: *Date* - The date on which the event was clicked.
+In case of the timeline view, this will be the first day of the event on the current view.
    - `domEvent`: *Event* - The DOM event of the click.
    - `event`: *MbscCalendarEvent* - The clicked calendar event.
    - `resource`: *string | number* - The id of the resource where the event was clicked, if [resources](#opt-resources) are set.
    - `resourceObj`: *MbscResource* - The resource where the event was clicked, if [resources](#opt-resources) are set.
-   - `selected`: *boolean* - Specifies if the day is currently selected or not (before it was clicked).
    - `slot`: *string | number* - The id of the slot where the event was clicked, if [slots](#opt-slots) are set.
    - `slotObj`: *MbscSlot* - The slot where the event was clicked, if [slots](#opt-slots) are set.
    - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;schedule&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event was clicked.
+   - `target`: *HTMLElement* - The DOM element of the event.
 
  - inst - The component instance.
 
@@ -502,7 +509,7 @@ Triggered when the calendar page is changed (with buttons or swipe).
 Parameters:
  - args - The event argument with the following properties:
    - `firstDay`: *Date* - The first day of the displayed page.
-   - `lastDay`: *Date* - The last day of the displayed page.
+   - `lastDay`: *Date* - The last day of the displayed page, as an exclusive end date, pointing to 00:00 of the next day.
    - `month`: *Date* - The first day of the visible month in case of month view.
 
  - inst - The component instance.
@@ -518,7 +525,7 @@ Triggered when the calendar page is changed (with buttons or swipe) and the view
 Parameters:
  - args - The event argument with the following properties:
    - `firstDay`: *Date* - The first day of the displayed page.
-   - `lastDay`: *Date* - The last day of the displayed page.
+   - `lastDay`: *Date* - The last day of the displayed page, as an exclusive end date, pointing to 00:00 of the next day.
    - `month`: *Date* - The first day of the visible month in case of month view.
 
  - inst - The component instance.
@@ -534,7 +541,7 @@ Triggered before the markup of a calendar page is starting to render.
 Parameters:
  - args - The event argument with the following properties:
    - `firstDay`: *Date* - The first day of the displayed page.
-   - `lastDay`: *Date* - The last day of the displayed page.
+   - `lastDay`: *Date* - The last day of the displayed page, as an exclusive end date, pointing to 00:00 of the next day.
    - `month`: *Date* - The first day of the visible month in case of month view.
 
  - inst - The component instance.

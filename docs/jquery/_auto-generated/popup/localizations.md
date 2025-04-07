@@ -14,7 +14,7 @@ Text for the &quot;Close&quot; button.
 **Default value**: `'Close'`
 ### locale {#localization-locale}
 
-string &#124; [MbscLocale](#type-MbscLocale)
+[MbscLocale](#type-MbscLocale)
 
 Sets the language of the component. The locale object contains all the translations for a given language.
 The built in language modules are listed below. If a language is not listed, it can be provided as a

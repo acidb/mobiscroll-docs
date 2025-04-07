@@ -54,7 +54,7 @@ responsive: {
   small: {
     display: 'bottom'
   },
-  custom: { // Custom breakpoint, you can use multiple if needed, but each must have a unique name.
+  custom: { // Custom breakpoint, you can use multiple, but each must have a unique name
     breakpoint: 600,
     display: 'center'
   },

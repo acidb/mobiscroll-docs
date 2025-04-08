@@ -12,6 +12,7 @@ REM if not [%branch%] == [main] pause
 
 
 @echo Build
+set NODE_OPTIONS=--max-old-space-size=16384
 call npm run build
 @echo build finished
 pause

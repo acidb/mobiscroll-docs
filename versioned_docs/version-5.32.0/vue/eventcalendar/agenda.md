@@ -107,7 +107,7 @@ const myResponsive = {
       agenda: { type: 'day' }
     }
   },
-  custom: { // Custom breakpoint
+  custom: { // Custom breakpoint, you can use multiple if needed, but each must have a unique name.
     breakpoint: 1000,
     view: {
       calendar: { type: 'month' },

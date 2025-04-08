@@ -287,7 +287,7 @@ responsive: {
   small: {
     display: 'bottom'
   },
-  custom: { // Custom breakpoint
+  custom: { // Custom breakpoint, you can use multiple, but each must have a unique name
     breakpoint: 600,
     display: 'center'
   },
@@ -456,7 +456,7 @@ and [luxon](https://moment.github.io/luxon/#/).
 
 You can specify either the [dataTimezone](#opt-dataTimezone) or the [displayTimezone](#opt-displayTimezone) or both.
 
-Depending on which external library you use you can pass either the `momentTimezone` or `luxonTimezone`
+Depending on which external library you use you can pass either the `momentTimezone`, `dayjsTimezone` or `luxonTimezone`
 objects. These objects can be imported from the mobiscroll bundle.
 
 **Default value**: `undefined`

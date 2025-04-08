@@ -1,4 +1,5 @@
 ---
+sidebar_position: 9
 sidebar_label: Textarea
 displayed_sidebar: jquerySidebar
 ---

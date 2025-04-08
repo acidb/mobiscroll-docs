@@ -1,4 +1,5 @@
 ---
+sidebar_position: 6
 sidebar_label: Segmented
 displayed_sidebar: reactSidebar
 ---

@@ -1,4 +1,5 @@
 ---
+sidebar_position: 7
 sidebar_label: Stepper
 displayed_sidebar: angularSidebar
 ---

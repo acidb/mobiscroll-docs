@@ -1,4 +1,5 @@
 ---
+sidebar_position: 2
 sidebar_label: Confirm
 displayed_sidebar: vueSidebar
 ---

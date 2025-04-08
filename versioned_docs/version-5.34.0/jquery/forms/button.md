@@ -1,4 +1,5 @@
 ---
+sidebar_position: 1
 sidebar_label: Button
 displayed_sidebar: jquerySidebar
 ---

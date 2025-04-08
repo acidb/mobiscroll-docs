@@ -1,4 +1,5 @@
 ---
+sidebar_position: 5
 sidebar_label: Radio button
 displayed_sidebar: jquerySidebar
 ---

@@ -1,4 +1,5 @@
 ---
+sidebar_position: 2
 sidebar_label: Checkbox
 displayed_sidebar: angularSidebar
 ---

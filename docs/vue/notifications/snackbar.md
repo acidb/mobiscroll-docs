@@ -1,4 +1,5 @@
 ---
+sidebar_position: 4
 sidebar_label: Snackbar
 displayed_sidebar: vueSidebar
 ---

@@ -1,7 +1,8 @@
 ---
-sidebar_label: Usage
+sidebar_label: Overview
 displayed_sidebar: angularSidebar
 title: Grid Layout
+slug: /angular/grid-layout
 ---
 
 import GridLayout from '../../_shared/grid_layout.mdx';

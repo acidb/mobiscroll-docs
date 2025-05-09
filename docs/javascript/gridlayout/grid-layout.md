@@ -1,7 +1,8 @@
 ---
-sidebar_label: Usage
+sidebar_label: Overview
 displayed_sidebar: javascriptSidebar
 title: Grid Layout
+slug: /javascript/grid-layout
 ---
 
 import GridLayout from '../../_shared/grid_layout.mdx';

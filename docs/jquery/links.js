@@ -61,7 +61,7 @@ const config = {
     {
       type: 'link',
       label: 'Grid Layout',
-      href: '/angular/gridlayout/gridlayout',
+      href: '/jquery/grid-layout',
       description: 'A powerful flexbox system for building custom layouts of all shapes and sizes'
       // icon: '/img/javascript-logo.svg',
     },

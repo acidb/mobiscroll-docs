@@ -89,3 +89,39 @@ mobiscroll.select('#myInput', {
   ],
 });
 ```
+
+## Data through markup
+
+The Mobiscroll Select component can be initialized on a `<select>` element, in which case it does not require the data option to be passed. The data will be read from the `<option>` elements.
+
+```jsx title="Initializing on select element"
+<label>Gender
+    <select id="gender">
+        <option value="female">Female</option>
+        <option value="male">Male</option>
+    </select>
+</label>
+```
+
+```jsx
+mobiscroll.select('#gender');
+```
+
+```jsx title="Group select"
+<label>Country
+    <select id="countries">
+        <optgroup label="Europe">
+            <option value="fr">France</option>
+            <option value="hu">Hungary</option>
+        </optgroup>
+        <optgroup label="Asia">
+            <option value="ch">China</option>
+            <option value="ja">Japan</option>
+        </optgroup>
+    </select>
+</label>
+```
+
+```jsx
+mobiscroll.select('#countries');
+```

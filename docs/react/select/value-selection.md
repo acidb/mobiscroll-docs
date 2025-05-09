@@ -1,7 +1,7 @@
 ---
 sidebar_label: Value Selection
 displayed_sidebar: reactSidebar
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 # Value Selection

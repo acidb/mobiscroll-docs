@@ -276,6 +276,7 @@
   background-color: var(--ifm-table-stripe-background);
 }
 
+
 /* Loading */
 .loader.mobi-blue {
   position: relative;
@@ -466,3 +467,4 @@
     stroke: #011742;
   }
 }
+

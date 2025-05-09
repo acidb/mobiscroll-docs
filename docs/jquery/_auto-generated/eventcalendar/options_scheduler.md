@@ -561,6 +561,8 @@ Consider that the fixed resources always have to be the first elements of the ar
 (no non-fixed resources inserted in between) so that the dra &amp; rop and event creation functionalities to work properly.
  - `id`: *string &#124; number* - The id of the resource.
  - `name`: *string* - Specifies the name of the resource.
+ - `reorder`: *boolean* - Specifies whether the resource can be dragged and reordered.
+It applies for timeline view if `resourceReorder` in [view](#opt-view) option is enabled.
 
 
 
@@ -613,7 +615,7 @@ responsive: {
   small: {
     display: 'bottom'
   },
-  custom: { // Custom breakpoint
+  custom: { // Custom breakpoint, you can use multiple, but each must have a unique name
     breakpoint: 600,
     display: 'center'
   },
@@ -782,7 +784,7 @@ and [luxon](https://moment.github.io/luxon/#/).
 
 You can specify either the [dataTimezone](#opt-dataTimezone) or the [displayTimezone](#opt-displayTimezone) or both.
 
-Depending on which external library you use you can pass either the `momentTimezone` or `luxonTimezone`
+Depending on which external library you use you can pass either the `momentTimezone`, `dayjsTimezone` or `luxonTimezone`
 objects. These objects can be imported from the mobiscroll bundle.
 
 **Default value**: `undefined`

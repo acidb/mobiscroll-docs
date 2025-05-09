@@ -36,7 +36,7 @@ export default function FooterWrapper(props) {
 
           <div className="foot-link-c"><a className="foot-link" href="//mobiscroll.com/learning-support" target="_blank">support & learning</a></div>
           <div className="foot-link-c"><a className="foot-link" href="http://help.mobiscroll.com" target="_blank">knowledge base</a></div>
-          <div className="foot-link-c"><a className="foot-link" href="//docs.mobiscroll.com" target="_blank">docs</a></div>
+          <div className="foot-link-c"><a className="foot-link" href="//mobiscroll.com/docs" target="_blank">docs</a></div>
           <div className="foot-link-c"><a className="foot-link" href="//mobiscroll.com/releases" target="_blank">releases</a></div>
           <div className="foot-link-c"><a className="foot-link" href="http://status.mobiscroll.com" target="_blank">status</a></div>
           <div className="foot-link-c"><a className="foot-link" href="//mobiscroll.com/faq" target="_blank">faq</a></div>

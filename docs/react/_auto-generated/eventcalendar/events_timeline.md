@@ -81,14 +81,15 @@ Triggered when an event is clicked.
 Parameters:
  - args - The event argument with the following properties:
    - `date`: *Date* - The date on which the event was clicked.
+In case of the timeline view, this will be the first day of the event on the current view.
    - `domEvent`: *Event* - The DOM event of the click.
    - `event`: *MbscCalendarEvent* - The clicked calendar event.
    - `resource`: *string | number* - The id of the resource where the event was clicked, if [resources](#opt-resources) are set.
    - `resourceObj`: *MbscResource* - The resource where the event was clicked, if [resources](#opt-resources) are set.
-   - `selected`: *boolean* - Specifies if the day is currently selected or not (before it was clicked).
    - `slot`: *string | number* - The id of the slot where the event was clicked, if [slots](#opt-slots) are set.
    - `slotObj`: *MbscSlot* - The slot where the event was clicked, if [slots](#opt-slots) are set.
    - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;schedule&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event was clicked.
+   - `target`: *HTMLElement* - The DOM element of the event.
 
  - inst - The component instance.
 
@@ -199,14 +200,15 @@ Triggered when an event is double-clicked.
 Parameters:
  - args - The event argument with the following properties:
    - `date`: *Date* - The date on which the event was clicked.
+In case of the timeline view, this will be the first day of the event on the current view.
    - `domEvent`: *Event* - The DOM event of the click.
    - `event`: *MbscCalendarEvent* - The clicked calendar event.
    - `resource`: *string | number* - The id of the resource where the event was clicked, if [resources](#opt-resources) are set.
    - `resourceObj`: *MbscResource* - The resource where the event was clicked, if [resources](#opt-resources) are set.
-   - `selected`: *boolean* - Specifies if the day is currently selected or not (before it was clicked).
    - `slot`: *string | number* - The id of the slot where the event was clicker, if [slots](#opt-slots) are set.
    - `slotObj`: *MbscResource* - The resource where the event was clicker, if [slots](#opt-slots) are set.
    - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;schedule&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event was clicked.
+   - `target`: *HTMLElement* - The DOM element of the event.
 
  - inst - The component instance.
 
@@ -290,6 +292,7 @@ Triggered when the mouse pointer hovers an event on the calendar.
 Parameters:
  - args - The event argument with the following properties:
    - `date`: *Date* - The date on which the event is hovered.
+In case of the timeline view, this will be the first day of the event on the current view.
    - `domEvent`: *Event* - The DOM event of the hover.
    - `event`: *MbscCalendarEvent* - The hovered calendar event.
    - `resource`: *string | number* - The id of the resource where the event is hovered, if [resources](#opt-resources) are set.
@@ -297,6 +300,7 @@ Parameters:
    - `slot`: *string | number* - The id of the slot where the event is hovered, if [slots](#opt-slots) are set.
    - `slotObj`: *MbscSlot* - The slot where the event is hovered, if [slots](#opt-slots) are set.
    - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;schedule&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event is hovered.
+   - `target`: *HTMLElement* - The DOM element of the event.
 
  - inst - The component instance.
 
@@ -311,6 +315,7 @@ Triggered when the mouse pointer leaves an event on the calendar.
 Parameters:
  - args - The event argument with the following properties:
    - `date`: *Date* - The date on which the event was hovered.
+In case of the timeline view, this will be the first day of the event on the current view.
    - `domEvent`: *Event* - The DOM event of the hover.
    - `event`: *MbscCalendarEvent* - The hovered calendar event.
    - `resource`: *string | number* - The id of the resource where the event was hovered, if [resources](#opt-resources) are set.
@@ -318,6 +323,7 @@ Parameters:
    - `slot`: *string | number* - The id of the slot where the event was hovered, if [slots](#opt-slots) are set.
    - `slotObj`: *MbscSlot* - The slot where the event was hovered, if [slots](#opt-slots) are set.
    - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;schedule&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event was hovered.
+   - `target`: *HTMLElement* - The DOM element of the event.
 
  - inst - The component instance.
 
@@ -332,14 +338,15 @@ Triggered when an event is right-clicked.
 Parameters:
  - args - The event argument with the following properties:
    - `date`: *Date* - The date on which the event was clicked.
+In case of the timeline view, this will be the first day of the event on the current view.
    - `domEvent`: *Event* - The DOM event of the click.
    - `event`: *MbscCalendarEvent* - The clicked calendar event.
    - `resource`: *string | number* - The id of the resource where the event was clicked, if [resources](#opt-resources) are set.
    - `resourceObj`: *MbscResource* - The resource where the event was clicked, if [resources](#opt-resources) are set.
-   - `selected`: *boolean* - Specifies if the day is currently selected or not (before it was clicked).
    - `slot`: *string | number* - The id of the slot where the event was clicked, if [slots](#opt-slots) are set.
    - `slotObj`: *MbscSlot* - The slot where the event was clicked, if [slots](#opt-slots) are set.
    - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;schedule&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event was clicked.
+   - `target`: *HTMLElement* - The DOM element of the event.
 
  - inst - The component instance.
 
@@ -446,7 +453,7 @@ Triggered when the calendar page is changed (with buttons or swipe).
 Parameters:
  - args - The event argument with the following properties:
    - `firstDay`: *Date* - The first day of the displayed page.
-   - `lastDay`: *Date* - The last day of the displayed page.
+   - `lastDay`: *Date* - The last day of the displayed page, as an exclusive end date, pointing to 00:00 of the next day.
    - `month`: *Date* - The first day of the visible month in case of month view.
 
  - inst - The component instance.
@@ -462,7 +469,7 @@ Triggered when the calendar page is changed (with buttons or swipe) and the view
 Parameters:
  - args - The event argument with the following properties:
    - `firstDay`: *Date* - The first day of the displayed page.
-   - `lastDay`: *Date* - The last day of the displayed page.
+   - `lastDay`: *Date* - The last day of the displayed page, as an exclusive end date, pointing to 00:00 of the next day.
    - `month`: *Date* - The first day of the visible month in case of month view.
 
  - inst - The component instance.
@@ -478,8 +485,26 @@ Triggered before the markup of a calendar page is starting to render.
 Parameters:
  - args - The event argument with the following properties:
    - `firstDay`: *Date* - The first day of the displayed page.
-   - `lastDay`: *Date* - The last day of the displayed page.
+   - `lastDay`: *Date* - The last day of the displayed page, as an exclusive end date, pointing to 00:00 of the next day.
    - `month`: *Date* - The first day of the visible month in case of month view.
+
+ - inst - The component instance.
+
+
+### onResourceClick {#event-onResourceClick}
+
+(args: MbscResourceClickEvent, inst: EventcalendarBase) => void
+
+
+Triggered when a resource cell is clicked on the scheduler or timeline.
+
+Parameters:
+ - args - The event argument with the following properties:
+   - `date`: *Date* - The date of the day on which the resource was clicked, when resources are grouped by day.
+   - `domEvent`: *Event* - The DOM event of the click.
+   - `resource`: *MbscResource* - The resource associated with the clicked cell.
+   - `source`: *&#039;schedule&#039; | &#039;timeline&#039;* - The view where the cell was clicked.
+   - `target`: *HTMLElement* - The DOM element of the clicked cell.
 
  - inst - The component instance.
 
@@ -500,6 +525,124 @@ Parameters:
  - inst - The component instance.
 
 
+### onResourceCreate {#event-onResourceCreate}
+
+(args: MbscResourceCreateEvent, inst: EventcalendarBase) => void
+
+
+Triggered when an resource is about to create and it is not yet rendered on its final position.
+Resource creation can be prevented by returning `false` from the handler function.
+
+Parameters:
+ - args - The event argument with the following properties:
+   - `domEvent`: *Event* - The DOM event from the end of the gesture (mouseup or touchend).
+   - `index`: *number* - The position of the resource within its siblings.
+   - `parent`: *MbscResource* - The parent resource.
+   - `resource`: *MbscResource* - The newly created resource.
+
+ - inst - The component instance.
+
+
+### onResourceCreated {#event-onResourceCreated}
+
+(args: MbscResourceCreatedEvent, inst: EventcalendarBase) => void
+
+
+Triggered when a resource is created and it is rendered in its position.
+
+Parameters:
+ - args - The event argument with the following properties:
+   - `domEvent`: *Event* - The DOM event from the end of the gesture (mouseup or touchend).
+   - `index`: *number* - The position of the resource within its siblings.
+   - `parent`: *MbscResource* - The parent resource.
+   - `resource`: *MbscResource* - The newly created resource.
+
+ - inst - The component instance.
+
+
+### onResourceDelete {#event-onResourceDelete}
+
+(args: MbscResourceDeleteEvent, inst: EventcalendarBase) => void
+
+
+Triggered when an resource is about to be deleted and it is not yet removed from the view.
+Resource deletion can be prevented by returning `false` from the handler function.
+
+Parameters:
+ - args - The event argument with the following properties:
+   - `domEvent`: *Event* - The DOM event from the end of the gesture (mouseup or touchend).
+   - `index`: *number* - The former position of the resource within its siblings.
+   - `parent`: *MbscResource* - The parent resource.
+   - `resource`: *MbscResource* - The resource being deleted.
+
+ - inst - The component instance.
+
+
+### onResourceDeleted {#event-onResourceDeleted}
+
+(args: MbscResourceDeletedEvent, inst: EventcalendarBase) => void
+
+
+Triggered when a resource is deleted and it is removed from the view.
+
+Parameters:
+ - args - The event argument with the following properties:
+   - `domEvent`: *Event* - The DOM event from the end of the gesture (mouseup or touchend).
+   - `index`: *number* - The former position of the resource within its siblings.
+   - `parent`: *MbscResource* - The parent resource.
+   - `resource`: *MbscResource* - The deleted resource.
+
+ - inst - The component instance.
+
+
+### onResourceDoubleClick {#event-onResourceDoubleClick}
+
+(args: MbscResourceClickEvent, inst: EventcalendarBase) => void
+
+
+Triggered when a resource cell is double-clicked on the scheduler or timeline.
+
+Parameters:
+ - args - The event argument with the following properties:
+   - `date`: *Date* - The date of the day on which the resource was clicked, when resources are grouped by day.
+   - `domEvent`: *Event* - The DOM event of the click.
+   - `resource`: *MbscResource* - The resource associated with the clicked cell.
+   - `source`: *&#039;schedule&#039; | &#039;timeline&#039;* - The view where the cell was clicked.
+   - `target`: *HTMLElement* - The DOM element of the clicked cell.
+
+ - inst - The component instance.
+
+
+### onResourceDragEnter {#event-onResourceDragEnter}
+
+(args: MbscResourceDragEvent, inst: EventcalendarBase) => void
+
+
+Triggered when a resource is dragged into the timeline view.
+
+Parameters:
+ - args - The event argument with the following properties:
+   - `domEvent`: *Event* - The DOM event of the drag.
+   - `resource`: *MbscResource* - The dragged resource.
+
+ - inst - The component instance.
+
+
+### onResourceDragLeave {#event-onResourceDragLeave}
+
+(args: MbscResourceDragEvent, inst: EventcalendarBase) => void
+
+
+Triggered when a resource is dragged out from the timeline view.
+
+Parameters:
+ - args - The event argument with the following properties:
+   - `domEvent`: *Event* - The DOM event of the drag.
+   - `resource`: *MbscResource* - The dragged resource.
+
+ - inst - The component instance.
+
+
 ### onResourceExpand {#event-onResourceExpand}
 
 (args: MbscResourceExpandEvent, inst: EventcalendarBase) => void
@@ -512,6 +655,45 @@ Parameters:
    - `domEvent`: *Event* - The DOM event of the click.
    - `resource`: *string | number* - The id of the expanded [resource](#opt-resources).
    - `resourceObj`: *MbscResource* - The expanded [resource](#opt-resources).
+
+ - inst - The component instance.
+
+
+### onResourceOrderUpdate {#event-onResourceOrderUpdate}
+
+(args: MbscResourceOrderEvent, inst: EventcalendarBase) => void
+
+
+Triggered after a resource is dragged and dropped into a new location.
+Resource reorder can be prevented by returning `false` from the handler function.
+It applies for timeline view if `resourceReorder` in [view](#opt-view) option is enabled.
+
+Parameters:
+ - args - The event argument with the following properties:
+   - `index`: *Resource* - The new position of the resource within its siblings.
+   - `oldIndex`: *Resource* - The old position of the resource within its siblings.
+   - `oldParent`: *Resource* - The old parent resource.
+   - `parent`: *Resource* - The parent resource.
+   - `resource`: *Resource* - The updated resource.
+   - `resources`: Array<*Resource*> - The entire resources array with the new order.
+
+ - inst - The component instance.
+
+
+### onResourceRightClick {#event-onResourceRightClick}
+
+(args: MbscResourceClickEvent, inst: EventcalendarBase) => void
+
+
+Triggered when a resource cell is right-clicked on the scheduler or timeline.
+
+Parameters:
+ - args - The event argument with the following properties:
+   - `date`: *Date* - The date of the day on which the resource was clicked, when resources are grouped by day.
+   - `domEvent`: *Event* - The DOM event of the click.
+   - `resource`: *MbscResource* - The resource associated with the clicked cell.
+   - `source`: *&#039;schedule&#039; | &#039;timeline&#039;* - The view where the cell was clicked.
+   - `target`: *HTMLElement* - The DOM element of the clicked cell.
 
  - inst - The component instance.
 
@@ -545,6 +727,28 @@ You can also select events programmatically using the [selectedEvents](#opt-sele
 Parameters:
  - args - The event argument with the following properties:
     - `events`: *Array&lt;MbscCalendarEvent&gt;* - The selected events.
+
+ - inst - The component instance.
+
+
+### onVirtualLoading {#event-onVirtualLoading}
+
+(args: MbscVirtualLoadEvent, inst: EventcalendarBase) => void
+
+
+Triggered when a new virtual page is loaded.
+You can use this to load events and resources on demand while scrolling the timeline grid.
+
+Parameters:
+ - args - The event argument with the following properties:
+   - `viewStart`: *Date* - The date where the virtual view starts.
+   - `viewEnd`: *Date* - The date where the virtual view end.
+   - `resourceStart`: *number|string* - The id of the resource where the virtual view starts.
+   - `resourceEnd`:  *number|string* - The id of the resource where the virtual view ends.
+   - `oldResourceStart`: *number|string* - The id of the resource where the previous virtual view started.
+   - `oldResourceEnd`: *number|string* - The id of the resource where the previous virtual view ended.
+   - `oldViewStart`: *Date* - The date where the previous virtual view started.
+   - `oldViewEnd`: *Date*- The date where the previous virtual view ended.
 
  - inst - The component instance.
 

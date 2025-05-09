@@ -1,3 +1,25 @@
+### columnWidth {#view-timeline-columnWidth}
+
+MbscTimelineColumnWidth
+
+Sets the width of grid columns in the timeline to one of the predefined column widths.
+Possible values and their corresponding widths:
+  - `xxsmall`: 1.5em
+  - `xsmall`: 3em
+  - `small`: 4.5em
+  - `medium`: 6em
+  - `large`: 7.5em
+  - `xlarge`: 9em
+  - `xxlarge`: 10.5em
+  - `xxxlarge`: 12em;
+
+When not defined, the column width will be set automatically based on the view type and size.
+
+:::info
+You can [customize the predefined column widths using CSS](./timeline#column-width) to fit your layout needs.
+:::
+
+**Default value**: `undefined`
 ### currentTimeIndicator {#view-timeline-currentTimeIndicator}
 
 boolean
@@ -75,6 +97,15 @@ When set to &#039;day&#039;, the days will be rendered on the vertical axis,
 while the hours of the day will be displayed on the horizontal axis.
 
 **Default value**: `undefined`
+### resourceReorder {#view-timeline-resourceReorder}
+
+boolean
+
+Specifies whether the resource can be dragged and reordered.
+A drag handle icon will appear in front of the resource name,
+serving as the point of interaction to drag and reposition the resource.
+
+**Default value**: `false`
 ### rowHeight {#view-timeline-rowHeight}
 
 "variable" &#124; "equal"
@@ -146,3 +177,29 @@ boolean
 Show or hide week numbers.
 
 **Default value**: `false`
+### zoomLevels {#view-timeline-zoomLevels}
+
+{ [key:string]: MbscTimelineZoomLevel }
+
+Defines configuration options for multiple zoom levels for the timeline view.
+Each zoom level can specify its own properties for displaying a custom layout.
+
+Use the [zoomLevel](#opt-zoomLevel) option to select the current zoom level.
+
+Available properties:
+ - `size`
+ - `resolutionHorizontal`
+ - `resolutionVertical`
+ - `columnWidth`
+ - `currentTimeIndicator`
+ - `endDay`
+ - `endTime`
+ - `eventList`
+ - `startDay`
+ - `startTime`
+ - `timeCellStep`
+ - `timeLabelStep`
+ - `weekNumbers`
+ - `type`
+
+**Default value**: `undefined`

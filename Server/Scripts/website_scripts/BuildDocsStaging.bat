@@ -14,6 +14,7 @@ if not [%branch%] == [main] pause
 
 
 @echo Build
+set NODE_OPTIONS=--max-old-space-size=16384
 call npm run build-staging
 @echo build finished
 pause

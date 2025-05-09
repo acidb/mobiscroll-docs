@@ -403,6 +403,20 @@ boolean
 If `true`, external events can be  dragged into the view.
 
 **Default value**: `undefined`
+### externalResourceDrag {#opt-externalResourceDrag}
+
+boolean
+
+If `true`, external drag & drop is allowed and resource can be dragged outside of the component view.
+
+**Default value**: `undefined`
+### externalResourceDrop {#opt-externalResourceDrop}
+
+boolean
+
+If `true`, external resources can be  dragged into the view.
+
+**Default value**: `undefined`
 ### height {#opt-height}
 
 string &#124; number
@@ -589,6 +603,8 @@ Consider that the fixed resources always have to be the first elements of the ar
 (no non-fixed resources inserted in between) so that the dra &amp; rop and event creation functionalities to work properly.
  - `id`: *string &#124; number* - The id of the resource.
  - `name`: *string* - Specifies the name of the resource.
+ - `reorder`: *boolean* - Specifies whether the resource can be dragged and reordered.
+It applies for timeline view if `resourceReorder` in [view](#opt-view) option is enabled.
 
 
 
@@ -641,7 +657,7 @@ responsive: {
   small: {
     display: 'bottom'
   },
-  custom: { // Custom breakpoint
+  custom: { // Custom breakpoint, you can use multiple, but each must have a unique name
     breakpoint: 600,
     display: 'center'
   },
@@ -842,7 +858,7 @@ and [luxon](https://moment.github.io/luxon/#/).
 
 You can specify either the [dataTimezone](#opt-dataTimezone) or the [displayTimezone](#opt-displayTimezone) or both.
 
-Depending on which external library you use you can pass either the `momentTimezone` or `luxonTimezone`
+Depending on which external library you use you can pass either the `momentTimezone`, `dayjsTimezone` or `luxonTimezone`
 objects. These objects can be imported from the mobiscroll bundle.
 
 **Default value**: `undefined`
@@ -858,5 +874,13 @@ The [`MbscTimezonePlugin`](#type-MbscTimezonePlugin) type has the following prop
 string &#124; number
 
 Sets the width of the component.
+
+**Default value**: `undefined`
+### zoomLevel {#opt-zoomLevel}
+
+string &#124; number
+
+Specifies the current zoom level of the timeline view.
+The zoom levels can be listed using the `zoomLevels` property of the timeline inside the view option.
 
 **Default value**: `undefined`

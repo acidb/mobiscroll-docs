@@ -45,7 +45,12 @@ const config = {
         },
         blog: false,
         theme: {
-          customCss: [require.resolve('./src/css/custom.css'), require.resolve('./src/css/footer.css')],
+          customCss: [
+            require.resolve('./src/css/custom.css'),
+            require.resolve('./src/css/footer.css'),
+            require.resolve('./src/css/mbsc-grid.css'),
+            require.resolve('./src/css/mbsc-icons.css'),
+          ],
         },
         googleTagManager: {
           containerId: 'GTM-NDRKTM9',

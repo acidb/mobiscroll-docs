@@ -30,14 +30,14 @@ For javascript projects that don't use TypeScript, the compiled bundle is recomm
 
 When you want to use the actual source code in your project, you will need to copy over the contents of the `src` folder to your project. There is a `src/javascript/bundle-esm.ts` barrel file that imports and exports everything relevant from the source. You can use this file to import components and types or you can import each component from their respective file under `src/javascript/components/{component}.ts`.
 
-```jsx
+```js
 import { datepicker, MbscDatepickerOptions, select, MbscSelectOptions } from './my-mobiscroll-dir/javascript/bundle-esm';
 // OR
 import { datepicker, MbscDatepickerOptions } from './my-mobiscroll-dir/javascript/components/datepicker';
 import { select, MbscSelectOptions } from './my-mobiscroll-dir/javascript/components/select';
 ```
 
-```jsx
+```js
 const options: MbscDatepickerOptions = {
     theme: 'ios',
     select: 'range',
@@ -52,26 +52,25 @@ select('#my-select', { theme: 'ios' } as MbscSelectOptions);
 
 Components can be auto-initialized with HTML element attributes. There is an `enhance` function that can be called on an element that goes through the children and initializes the mobiscroll components based on the attributes. These attributes to work, the components need to be registerd for the enhance function.
 
-```jsx title="Registering the Input component for auto-initialization"
-Registering the Input component for auto-initialization
+```js title="Registering the Input component for auto-initialization"
 import { Input } from './my-mobiscroll-dir/javascript/components/forms';
 import { registerComponent } from './my-mobiscroll-dir/javascript/base';
 
 registerComponent(Input); // this will make the mbsc-input attribute awailable for the enhance function
 ```
 
-```jsx
+```js
 import { enhance } from './my-mobiscroll-dir/preact/renderer';
 import { datepicker } from './my-mobiscroll-dir/javascript/components/datepicker';
 
-// anhance the input element to have Mobiscroll Input styles
+// enhance the input element to have Mobiscroll Input styles
 enhance(document.getElementById('my-div'));
 
 // initialize a datepicker on the enhanced input
 datepicker('#my-input', { select: 'range' });
 ```
 
-```jsx
+```html
 <div id="my-div">
     <label>
         My Range Picker

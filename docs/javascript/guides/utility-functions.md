@@ -16,7 +16,7 @@ A collection of general purpose utility functions which can be used independentl
 
 If you are using ES6 modules in your project, the `platform` object can be imported from the mobiscroll package directly:
 
-```jsx
+```ts
 import { platform } from '@mobiscroll/javascript';
 ```
 

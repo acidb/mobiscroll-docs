@@ -60,6 +60,13 @@ const config = {
     },
     {
       type: 'link',
+      label: 'Grid Layout',
+      href: '/angular/gridlayout/gridlayout',
+      description: 'A powerful flexbox system for building custom layouts of all shapes and sizes'
+      // icon: '/img/javascript-logo.svg',
+    },
+    {
+      type: 'link',
       label: 'Alerts & Notifications',
       href: '/vue/notifications/alert',
       description: 'Inform users in a consistent way'

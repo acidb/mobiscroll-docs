@@ -1,4 +1,5 @@
 ---
+sidebar_position: 1
 sidebar_label: Upgrade from trial
 displayed_sidebar: reactSidebar
 title: How to upgrade from the trial version

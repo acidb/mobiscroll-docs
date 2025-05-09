@@ -27,8 +27,8 @@ For instructions on how to install the testing library please check the official
 
 The only requirement for the Mobiscroll Components to be testable is to install the [jest-canvas-mock](https://www.npmjs.com/package/jest-canvas-mock) package. The following command should install it:
 
-```jsx
-$ npm install jest-canvas-mock --save
+```bash
+npm install jest-canvas-mock --save
 ```
 
 After the package is installed, it has to be imported in the setupTests.js file located at the src folder:
@@ -40,8 +40,8 @@ import 'jest-canvas-mock'; // required for Mobiscroll Components
 
 After the import above, the components can be tested without any errors using:
 
-```jsx
-$ npm test
+```bash
+npm test
 ```
 
 ## Targeting elements
@@ -54,7 +54,7 @@ Querying a particular DOM element with the @testing-library is not encouraged, b
 
 #### Eventcalendar
 
-```js title="App.test.js"
+```tsx title="App.test.js"
 import { Eventcalendar } from '@mobiscroll/react';
 import { render } from '@testing-library/react';
 
@@ -66,6 +66,7 @@ test('The Mobiscroll Eventcalendar renders', () => {
     expect(div).toBeInTheDocument();
 });
 ```
+
 :::info
 
 ESLint needs to be disabled on the line above, because avoiding direct Node access is encouraged and expressed in linting rules as well.
@@ -76,7 +77,7 @@ ESLint needs to be disabled on the line above, because avoiding direct Node acce
 
 In the case of the Datepicker, we might not need a workaround like this. By default the Datepicker renders an input element with a label. The `@testing-library` gives us tools that can be used to query elements the User can perceive on the screen.
 
-```js title="App.test.js"
+```jsx title="App.test.js"
 import { Datepicker } from '@mobiscroll/react';
 import { render, screen } from '@testing-library/react';
 
@@ -92,7 +93,7 @@ test('The Mobiscroll Datepicker renders', () => {
 
 Here is an example, how to test if an event is rendered on the Eventcalendar timeline view for today.
 
-```js title="Eventcalendar rendering an event"
+```jsx title="Eventcalendar rendering an event"
 import { Eventcalendar } from '@mobiscroll/react';
 import { render } from '@testing-library/react';
 
@@ -121,7 +122,7 @@ A few notes worth mentioning here:
 
 The following is a more complex example, where the event passed to the Eventcalendar is not rendered due to the Eventcalendar's virtual scrolling feature. The event is only expected to be in the DOM when selected date is "close" to the event date. How close it should be is an implementation detail and can't be set currently from the outside. We use approximately 2 days in this test to feature this:
 
-```js title="Eventcalendar navigation and rendering event"
+```jsx title="Eventcalendar navigation and rendering event"
 import { Eventcalendar } from '@mobiscroll/react';
 import { render } from '@testing-library/react';
 
@@ -159,7 +160,7 @@ Re-rendering a component with different props can be done using the returned `re
 
 The `@testing-library` provides easy to use functions to simulate events. In the following example we use a click event to open a Datepicker and check whether the picker elements are in the DOM.
 
-```js title="Opening a Datepicker by clicking the input label"
+```jsx title="Opening a Datepicker by clicking the input label"
 import { Datepicker } from '@mobiscroll/react';
 import { fireEvent, render } from '@testing-library/react';
 
@@ -188,7 +189,7 @@ While the @testing-library can be used with other testing frameworks, they also 
 
 :::
 
-```js title="Testing event handlers/function calls"
+```jsx title="Testing event handlers/function calls"
 import { Datepicker } from '@mobiscroll/react';
 import { fireEvent, render } from '@testing-library/react';
 

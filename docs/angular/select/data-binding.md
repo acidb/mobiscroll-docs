@@ -54,6 +54,10 @@ export class MyComponent {
 }
 ```
 
+### Dynamic or async data
+
+The select component supports dynamic data binding. For cases when the data is not immediately available or when the data changes with time (new options are added, or others removed) this feature is the most usefull.
+
 ## Group options {#grouping}
 
 <GroupOptionContent />

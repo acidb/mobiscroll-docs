@@ -21,10 +21,12 @@ const myData = [
   { text: 'New York', value: 'ny' },
   { text: 'Paris', value: 'par' },
   { text: 'San Francisco', value: 'sf' }
-]
+];
+
+const myInvalid = ['par', 'ny'];
 </script>
 
 <template>
-  <MbscSelect :data="myData" />
+  <MbscSelect :data="myData" :invalid="myInvalid" />
 </template>
 ```

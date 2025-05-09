@@ -244,7 +244,7 @@ We removed the `onBeforeShow` event.
 
 We removed the `tap` method, which was a utility function used to attach the tap event to arbitrary elements, handling the 300ms click delay on older devices. On today's devices this is no longer needed, simply use the native `click` event.
 
-### Changed 
+### Changed
 
 We renamed the `animate` option to [animation](/angular/datepicker/api#opt-animation) to specify the show / hide animation of the picker.
 
@@ -308,9 +308,9 @@ We updated the format of the [dateFormat](/angular/eventcalendar/api#localizatio
 
 As part of the the lifecycle event cleanup, we renamed the `onEventSelect` event to [onEventClick](/angular/eventcalendar/api#event-onEventClick), the `onDayChange` event to [onCellClick](/angular/eventcalendar/api#event-onCellClick) and the `onSetDate` event to [onSelectedDateChange](/angular/eventcalendar/api#event-onSelectedDateChange).
 
-We renamed the `calendarHeight` option to [height](/eventcalendar/calendar#opt-height) and changed its scope to the full calendar with header and everything.
+We renamed the `calendarHeight` option to [height](/angular/eventcalendar/calendar#opt-height) and changed its scope to the full calendar with header and everything.
 
-We renamed the `calendarWidth` option to [width](/eventcalendar/calendar#opt-width).
+We renamed the `calendarWidth` option to [width](/angular/eventcalendar/calendar#opt-width).
 
 We moved the `calendarScroll` option into the [view](/angular/eventcalendar/api#opt-view) option under `view.calendar.scroll`.
 

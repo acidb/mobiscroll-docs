@@ -71,7 +71,7 @@ export class AppComponent {
 
 // highlight-start
   calView: MbscEventcalendarView = {
-    schedule: {
+    scheduler: {
       type: 'day'
     }
   };

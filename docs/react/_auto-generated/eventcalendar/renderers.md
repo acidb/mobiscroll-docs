@@ -26,12 +26,72 @@ and scrolling the list updates the selected date on the calendar.
 
 **Default value**: `undefined`
 
+### renderAgendaDay {#renderer-renderAgendaDay}
+
+(args: MbscCalendarDayData) => any
+
+
+Customize the day cells of the agenda view.
+
+The following day specific details are available:
+- `date`: _Date_ - The date of the rendered day.
+- `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the day.
+
+**Default value**: `undefined`
+
 ### renderAgendaEmpty {#renderer-renderAgendaEmpty}
 
 () => any
 
 
 Customize the agenda listing when the list is empty.
+
+**Default value**: `undefined`
+
+### renderAgendaEvent {#renderer-renderAgendaEvent}
+
+(data: MbscCalendarEventData) => any
+
+
+Customize the events that appear on the agenda.
+
+If you are looking to customize only the content (e.g. add custom elements) and don&#039;t want to bother with the styling of the event,
+you can use the [renderAgendaEventContent](#renderer-renderAgendaEventContent) option.
+
+Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
+The following event specific properties are available:
+- `allDay`: _string_ - The localized all-day text in case of all day events.
+- `end`: _string_ - The formatted end time, if the event is not all day.
+- `id`: _string_ - The id of the event.
+- `isMultiDay`: _boolean_ - True if the event spans across multiple days.
+- `lastDay`: _boolean_ - True if it&#039;s rendered on the last day of a multiple event.
+- `original`: _MbscCalendarEvent_ - The original event object.
+- `start`: _string_ - The formatted start time, if the event is not all day.
+- `title`: _string_ - The title of the event.
+
+**Default value**: `undefined`
+
+### renderAgendaEventContent {#renderer-renderAgendaEventContent}
+
+(data: MbscCalendarEventData) => any
+
+
+Customize the event content that appears on the agenda.
+The Eventcalendar will take care of styling and you can focus on what you show inside of the event.
+
+If you are looking to fully customize the event (e.g. add custom hover effects) you will need to use the
+[renderAgendaEvent](#renderer-renderAgendaEvent) option.
+
+Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
+The following event specific properties are available:
+- `allDay`: _string_ - The localized all-day text in case of all day events.
+- `end`: _string_ - The formatted end time, if the event is not all day.
+- `id`: _string_ - The id of the event.
+- `isMultiDay`: _boolean_ - True if the event spans across multiple days.
+- `lastDay`: _boolean_ - True if it&#039;s rendered on the last day of a multiple event.
+- `original`: _MbscCalendarEvent_ - The original event object. Any custom property on the event can be accessed through this property.
+- `start`: _string_ - The formatted start time, if the event is not all day.
+- `title`: _string_ - The title of the event.
 
 **Default value**: `undefined`
 
@@ -81,43 +141,82 @@ The following event specific properties are available:
 
 **Default value**: `undefined`
 
-### renderDay {#renderer-renderDay}
+### renderCalendarDay {#renderer-renderCalendarDay}
 
 (args: MbscCalendarDayData) => any
 
 
-Customize the day cells of the calendar view and the date header in case of scheduler and timeline views.
+Customize the day cells of the calendar view.
 
-If you are looking to customize only the day cells content and don&#039;t want to bother with the styling of the event,
-in case of calendar and scheduler views you can use the [renderDayContent](#renderer-renderDayContent) option.
+If you are looking to customize only the day cells content and don&#039;t want to bother with the styling of the cells,
+use the [renderCalendarDayContent](#renderer-renderCalendarDayContent) option.
 
 The following day specific details are available:
 - `date`: _Date_ - The date of the rendered day.
-- `selected`: _boolean_ - True if the date is selected (in case of the calendar view).
+- `selected`: _boolean_ - True if the date is selected.
 - `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the day.
-- `resource`: _string | number_ - The id of the resource in case of the scheduler (week and month views)
-when the events are grouped by resources.
-- `isActive`: _boolean_ - True for the current day (in case of the timeline view).
 
 **Default value**: `undefined`
 
-### renderDayContent {#renderer-renderDayContent}
+### renderCalendarDayContent {#renderer-renderCalendarDayContent}
 
 (args: MbscCalendarDayData) => any
 
 
-Customize the day cells content of the event calendar. The Eventcalendar will take care of the styling and you can focus on
+Customize the day cells content of the calendar view. The Eventcalendar will take care of the styling and you can focus on
 what you show beside the day number.
 
 If you are looking to fully customize the day (e.g. add custom hover effects) you will need to use the
-[renderDay](#renderer-renderDay) option.
+[renderCalendarDay](#renderer-renderCalendarDay) option.
 
 The following properties are available:
  - `date`: _Date_ - The date of the rendered day.
- - `selected`: _boolean_ - True if the date is selected (in case of the calendar view).
+ - `selected`: _boolean_ - True if the date is selected.
  - `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the day.
- - `resource`: _string | number_ - The id of the resource in case of the scheduler (week and month views)
-when the events are grouped by resources.
+
+**Default value**: `undefined`
+
+### renderCalendarEvent {#renderer-renderCalendarEvent}
+
+(event: MbscCalendarEventData) => any
+
+
+Customize the events that appear on the calendar view.
+The Eventcalendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
+
+If you are looking to customize only the content (e.g. add custom elements) and
+don&#039;t want to bother with the styling of the event, you can use the [renderCalendarEventContent](#renderer-renderCalendarEventContent)
+option.
+
+Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
+The following event specific properties are available:
+- `end`: _string_ - The formatted end time, if the event is not all day.
+- `id`: _string_ -  The id of the event.
+- `isMultiDay`: _boolean_ - True if the event spans across multiple days.
+- `original`: _MbscCalendarEvent_ - The original event object. Any custom property on the event can be accessed through this property.
+- `start`: _string_ - The formatted start time, if the event is not all day.
+
+**Default value**: `undefined`
+
+### renderCalendarEventContent {#renderer-renderCalendarEventContent}
+
+(event: MbscCalendarEventData) => any
+
+
+Customize the event contents, that appears on the calendar.
+The Eventcalendar will take care of styling and you can focus on what you show inside of the event.
+
+If you are looking to fully customize the label (ex. add custom hover effects) you will need to use the
+[renderCalendarEvent](#renderer-renderCalendarEvent) option.
+In that case you will only get the positioning done by the Eventcalendar and everything else is up to you.
+
+Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
+The following event specific properties are available:
+- `end`: _string_ - The formatted end time, if the event is not all day.
+- `id`: _string_ -  The id of the event.
+- `isMultiDay`: _boolean_ - True if the event spans across multiple days.
+- `original`: _MbscCalendarEvent_ - The original event object. Any custom property on the event can be accessed through this property.
+- `start`: _string_ - The formatted start time, if the event is not all day.
 
 **Default value**: `undefined`
 
@@ -131,53 +230,6 @@ Customize the footer of each day for the timeline.
 The following day specific details are available:
 - `date`: _Date_ - The date of the day.
 - `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the day.
-
-**Default value**: `undefined`
-
-### renderEvent {#renderer-renderEvent}
-
-(data: MbscCalendarEventData) => any
-
-
-Customize the events that appear on the agenda and the popover.
-
-If you are looking to customize only the content (e.g. add custom elements) and don&#039;t want to bother with the styling of the event,
-you can use the [renderEventContent](#renderer-renderEventContent) option.
-
-Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
-The following event specific properties are available:
-- `allDay`: _string_ - The localized all-day text in case of all day events.
-- `end`: _string_ - The formatted end time, if the event is not all day.
-- `id`: _string_ - The id of the event.
-- `isMultiDay`: _boolean_ - True if the event spans across multiple days.
-- `lastDay`: _boolean_ - True if it&#039;s rendered on the last day of a multiple event.
-- `original`: _MbscCalendarEvent_ - The original event object.
-- `start`: _string_ - The formatted start time, if the event is not all day.
-- `title`: _string_ - The title of the event.
-
-**Default value**: `undefined`
-
-### renderEventContent {#renderer-renderEventContent}
-
-(data: MbscCalendarEventData) => any
-
-
-Customize the event content that appears on the agenda and the popover.
-The Eventcalendar will take care of styling and you can focus on what you show inside of the event.
-
-If you are looking to fully customize the event (e.g. add custom hover effects) you will need to use the
-[renderEvent](#renderer-renderEvent) option.
-
-Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
-The following event specific properties are available:
-- `allDay`: _string_ - The localized all-day text in case of all day events.
-- `end`: _string_ - The formatted end time, if the event is not all day.
-- `id`: _string_ - The id of the event.
-- `isMultiDay`: _boolean_ - True if the event spans across multiple days.
-- `lastDay`: _boolean_ - True if it&#039;s rendered on the last day of a multiple event.
-- `original`: _MbscCalendarEvent_ - The original event object. Any custom property on the event can be accessed through this property.
-- `start`: _string_ - The formatted start time, if the event is not all day.
-- `title`: _string_ - The title of the event.
 
 **Default value**: `undefined`
 
@@ -219,49 +271,6 @@ The following properties are available:
 
 **Default value**: `undefined`
 
-### renderLabel {#renderer-renderLabel}
-
-(event: MbscCalendarEventData) => any
-
-
-Customize the labels that appear on the calendar view.
-The Eventcalendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
-
-If you are looking to customize only the content (e.g. add custom elements) and
-don&#039;t want to bother with the styling of the label, you can use the [renderLabelContent](#renderer-renderLabelContent) option.
-
-Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
-The following event specific properties are available:
-- `end`: _string_ - The formatted end time, if the event is not all day.
-- `id`: _string_ -  The id of the event.
-- `isMultiDay`: _boolean_ - True if the event spans across multiple days.
-- `original`: _MbscCalendarEvent_ - The original event object. Any custom property on the event can be accessed through this property.
-- `start`: _string_ - The formatted start time, if the event is not all day.
-
-**Default value**: `undefined`
-
-### renderLabelContent {#renderer-renderLabelContent}
-
-(event: MbscCalendarEventData) => any
-
-
-Customize the label contents, that appears on the calendar.
-The Eventcalendar will take care of styling and you can focus on what you show inside of the label.
-
-If you are looking to fully customize the label (ex. add custom hover effects) you will need to use the
-[renderLabel](#renderer-renderLabel) option.
-In that case you will only get the positioning done by the Eventcalendar and everything else is up to you.
-
-Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
-The following event specific properties are available:
-- `end`: _string_ - The formatted end time, if the event is not all day.
-- `id`: _string_ -  The id of the event.
-- `isMultiDay`: _boolean_ - True if the event spans across multiple days.
-- `original`: _MbscCalendarEvent_ - The original event object. Any custom property on the event can be accessed through this property.
-- `start`: _string_ - The formatted start time, if the event is not all day.
-
-**Default value**: `undefined`
-
 ### renderMonth {#renderer-renderMonth}
 
 (args: MbscCalendarDayData) => any
@@ -287,6 +296,53 @@ The following properties are available:
  - `date`: _Date_ - First day of the rendered month.
  - `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the month.
  - `isActive`: _boolean_ - True for the current month.
+
+**Default value**: `undefined`
+
+### renderPopoverEvent {#renderer-renderPopoverEvent}
+
+(data: MbscCalendarEventData) => any
+
+
+Customize the events that appear on the popover.
+
+If you are looking to customize only the content (e.g. add custom elements) and don&#039;t want to bother with the styling of the event,
+you can use the [renderPopoverEventContent](#renderer-renderPopoverEventContent) option.
+
+Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
+The following event specific properties are available:
+- `allDay`: _string_ - The localized all-day text in case of all day events.
+- `end`: _string_ - The formatted end time, if the event is not all day.
+- `id`: _string_ - The id of the event.
+- `isMultiDay`: _boolean_ - True if the event spans across multiple days.
+- `lastDay`: _boolean_ - True if it&#039;s rendered on the last day of a multiple event.
+- `original`: _MbscCalendarEvent_ - The original event object.
+- `start`: _string_ - The formatted start time, if the event is not all day.
+- `title`: _string_ - The title of the event.
+
+**Default value**: `undefined`
+
+### renderPopoverEventContent {#renderer-renderPopoverEventContent}
+
+(data: MbscCalendarEventData) => any
+
+
+Customize the event content that appears on the popover.
+The Eventcalendar will take care of styling and you can focus on what you show inside of the event.
+
+If you are looking to fully customize the event (e.g. add custom hover effects) you will need to use the
+[renderPopoverEvent](#renderer-renderPopoverEvent) option.
+
+Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
+The following event specific properties are available:
+- `allDay`: _string_ - The localized all-day text in case of all day events.
+- `end`: _string_ - The formatted end time, if the event is not all day.
+- `id`: _string_ - The id of the event.
+- `isMultiDay`: _boolean_ - True if the event spans across multiple days.
+- `lastDay`: _boolean_ - True if it&#039;s rendered on the last day of a multiple event.
+- `original`: _MbscCalendarEvent_ - The original event object. Any custom property on the event can be accessed through this property.
+- `start`: _string_ - The formatted start time, if the event is not all day.
+- `title`: _string_ - The title of the event.
 
 **Default value**: `undefined`
 
@@ -361,17 +417,54 @@ Customize the cell content above the resource column on the timeline view.
 
 **Default value**: `undefined`
 
-### renderScheduleEvent {#renderer-renderScheduleEvent}
+### renderSchedulerDay {#renderer-renderSchedulerDay}
+
+(args: MbscCalendarDayData) => any
+
+
+Customize the date header of the scheduler view.
+
+If you are looking to customize only the day cells content and don&#039;t want to bother with the styling of the cells,
+use the [renderSchedulerDayContent](#renderer-renderSchedulerDayContent) option.
+
+The following day specific details are available:
+- `date`: _Date_ - The date of the rendered day.
+- `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the day.
+- `resource`: _string | number_ - The id of the resource in case of the scheduler (week and month views)
+when the events are grouped by resources.
+
+**Default value**: `undefined`
+
+### renderSchedulerDayContent {#renderer-renderSchedulerDayContent}
+
+(args: MbscCalendarDayData) => any
+
+
+Customize the day cells content of the scheduler view. The Eventcalendar will take care of the styling and you can focus on
+what you show beside the day number.
+
+If you are looking to fully customize the day (e.g. add custom hover effects) you will need to use the
+[renderSchedulerDay](#renderer-renderSchedulerDay) option.
+
+The following properties are available:
+ - `date`: _Date_ - The date of the rendered day.
+ - `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the day.
+ - `resource`: _string | number_ - The id of the resource in case of the scheduler (week and month views)
+when the events are grouped by resources.
+
+**Default value**: `undefined`
+
+### renderSchedulerEvent {#renderer-renderSchedulerEvent}
 
 (event: MbscCalendarEventData) => any
 
 
-Customize the events that appear on the scheduler and timeline.
+Customize the events that appear on the scheduler.
 The Eventcalendar will take care of the positioning,
 but everything else (like background color, hover effect, etc.) is left to you.
 
 If you are looking to customize only the content (e.g. add custom elements) and don&#039;t want to bother with the styling of the event,
-you can use the [renderScheduleEventContent](#renderer-renderScheduleEventContent) option.
+you can use the [renderSchedulerEventContent](#renderer-renderSchedulerEventContent) option.
 
 Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
 The following event specific properties are available:
@@ -387,16 +480,16 @@ The following event specific properties are available:
 
 **Default value**: `undefined`
 
-### renderScheduleEventContent {#renderer-renderScheduleEventContent}
+### renderSchedulerEventContent {#renderer-renderSchedulerEventContent}
 
 (event: MbscCalendarEventData) => any
 
 
-Customize the event content that appears on the scheduler and timeline.
+Customize the event content that appears on the scheduler.
 The Eventcalendar will take care of styling and you can focus on what you show inside of the event.
 
 If you are looking to fully customize the event (e.g. add custom hover effects) you will need to use
-the [renderScheduleEvent](#renderer-renderScheduleEvent) option. In that case you will only get
+the [renderSchedulerEvent](#renderer-renderSchedulerEvent) option. In that case you will only get
 the positioning done by the Eventcalendar and everything else is up to you.
 
 Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
@@ -453,6 +546,72 @@ Customize the [slots](#opt-slots) template of the timeline view.
 The following properties are available:
 - `date`: _Date_ - The specific date where the slot is rendered.
 - `slot`: _MbscSlot_ - The object of the rendered slot.
+
+**Default value**: `undefined`
+
+### renderTimelineDay {#renderer-renderTimelineDay}
+
+(args: MbscCalendarDayData) => any
+
+
+Customize the date header of the timeline view.
+
+The following day specific details are available:
+- `date`: _Date_ - The date of the rendered day.
+- `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the day.
+- `isActive`: _boolean_ - True for the current day.
+
+**Default value**: `undefined`
+
+### renderTimelineEvent {#renderer-renderTimelineEvent}
+
+(event: MbscCalendarEventData) => any
+
+
+Customize the events that appear on the timeline.
+The Eventcalendar will take care of the positioning,
+but everything else (like background color, hover effect, etc.) is left to you.
+
+If you are looking to customize only the content (e.g. add custom elements) and don&#039;t want to bother with the styling of the event,
+you can use the [renderTimelineEventContent](#renderer-renderTimelineEventContent) option.
+
+Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
+The following event specific properties are available:
+- `allDay`: _string_ - The localized all-day text in case of all day events.
+- `end`: _string_ - The formatted end time, if the event is not all day.
+- `id`: _string_ - The id of the event.
+- `isMultiDay`: _boolean_ - True if the event spans across multiple days.
+- `lastDay`: _boolean_ - True if it&#039;s rendered on the last day of a multiple event.
+- `original`: _MbscCalendarEvent_ - The original event object.
+- `start`: _string_ - The formatted start time, if the event is not all day.
+- `title`: _string_ - The title of the event.
+- `currentResource`: _string | number_ - The resource of the row or column where the event is being rendered.
+
+**Default value**: `undefined`
+
+### renderTimelineEventContent {#renderer-renderTimelineEventContent}
+
+(event: MbscCalendarEventData) => any
+
+
+Customize the event content that appears on the timeline.
+The Eventcalendar will take care of styling and you can focus on what you show inside of the event.
+
+If you are looking to fully customize the event (e.g. add custom hover effects) you will need to use
+the [renderTimelineEvent](#renderer-renderTimelineEvent) option. In that case you will only get
+the positioning done by the Eventcalendar and everything else is up to you.
+
+Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
+The following event specific properties are available:
+- `allDay`: _string_ - The localized all-day text in case of all day events.
+- `end`: _string_ - The formatted end time, if the event is not all day.
+- `id`: _string_ - The id of the event.
+- `isMultiDay`: _boolean_ - True if the event spans across multiple days.
+- `lastDay`: _boolean_ - True if it&#039;s rendered on the last day of a multiple event.
+- `original`: _MbscCalendarEvent_ - The original event object.
+- `start`: _string_ - The formatted start time, if the event is not all day.
+- `title`: _string_ - The title of the event.
+- `currentResource`: _string | number_ - The resource of the row or column where the event is being rendered.
 
 **Default value**: `undefined`
 

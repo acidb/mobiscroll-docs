@@ -130,7 +130,7 @@ const myResponsive = {
 The display of Agenda can be customized with different [solt functions](#slots).
 
 ### The event
-Customize the events that appear on the agenda with the [event](#slot-event) option. It should return the markup of the event. The event calendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
+Customize the events that appear on the agenda with the [agendaEvent](#slot-agendaEvent) option. It should return the markup of the event. The event calendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
 
 Check out how you can style events in [this example](https://demo.mobiscroll.com/vue/agenda/full-event-customization#) or just play with the slider below to see the differences.
 
@@ -149,7 +149,7 @@ Check out how you can style events in [this example](https://demo.mobiscroll.com
 </ImgComparisonSlider>
 
 ### The event content
-Customize the event content that appears on the agenda by using the [eventContent](#slot-eventContent) option. The event calendar will take care of styling and you can focus on what you show inside of the event.
+Customize the event content that appears on the agenda by using the [agendaEventContent](#slot-agendaEventContent) option. The event calendar will take care of styling and you can focus on what you show inside of the event.
 
 Check out how you can style event content in [this example](https://demo.mobiscroll.com/vue/agenda/event-content-customization#) or just play with the slider below to see the differences.
 
@@ -189,7 +189,7 @@ Check out how you can style the header in [this example](https://demo.mobiscroll
 </ImgComparisonSlider>
 
 ### The agenda day header
-Customize the day headers that appear on the agenda with the [day](#slot-day) option. It should contain the markup for the day header.
+Customize the day headers that appear on the agenda with the [agendaDay](#slot-agendaDay) option. It should contain the markup for the day header.
 
 Check out how you can style the day headers in [this example](https://demo.mobiscroll.com/vue/agenda/customizing-day-header#) or just play with the slider below to see the differences.
 

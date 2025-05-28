@@ -116,7 +116,7 @@ mobiscroll.eventcalendar('#agenda', {
 The display of Agenda can be customized with different [render functions](#renderers).
 
 ### The event
-Customize the events that appear on the agenda with the [renderEvent](#renderer-renderEvent) option. It should return the markup of the event. The event calendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
+Customize the events that appear on the agenda with the [renderAgendaEvent](#renderer-renderAgendaEvent) option. It should return the markup of the event. The event calendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
 
 Check out how you can style events in [this example](https://demo.mobiscroll.com/agenda/full-event-customization#) or just play with the slider below to see the differences.
 
@@ -135,7 +135,7 @@ Check out how you can style events in [this example](https://demo.mobiscroll.com
 </ImgComparisonSlider>
 
 ### The event content
-Customize the event content that appears on the agenda by using the [renderEventContent](#renderer-renderEventContent) option. The event calendar will take care of styling and you can focus on what you show inside of the event.
+Customize the event content that appears on the agenda by using the [renderAgendaEventContent](#renderer-renderAgendaEventContent) option. The event calendar will take care of styling and you can focus on what you show inside of the event.
 
 Check out how you can style event content in [this example](https://demo.mobiscroll.com/agenda/event-content-customization#) or just play with the slider below to see the differences.
 
@@ -175,7 +175,7 @@ Check out how you can style the header in [this example](https://demo.mobiscroll
 </ImgComparisonSlider>
 
 ### The agenda day header
-Customize the day headers that appear on the agenda with the [renderDay](#renderer-renderDay) option. It should return the markup of the day header.
+Customize the day headers that appear on the agenda with the [renderAgendaDay](#renderer-renderAgendaDay) option. It should return the markup of the day header.
 
 Check out how you can style the day headers in [this example](https://demo.mobiscroll.com/javascript/agenda/customizing-day-header#) or just play with the slider below to see the differences.
 

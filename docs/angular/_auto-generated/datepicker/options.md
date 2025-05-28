@@ -797,11 +797,12 @@ The hover styling is also turned off, when the range is not highlighted.
 [MbscDateType](#type-MbscDateType)
 
 Specifies the reference date of the component, which represents when to start to calculate the view you want to display.
+If not specified, it defaults to today&#039;s date.
 
 For example, if you want to display 2 months from the current month, you must specify the first day of the current month as
 the reference date. Then you can use the [calendarSize](#opt-calendarSize) option to show 2 months.
 
-**Default value**: `'1970/01/01'`
+**Default value**: `undefined`
 ### responsive {#opt-responsive}
 
 [MbscResponsiveOptions&lt;MbscDatepickerOptions&gt;](#type-MbscResponsiveOptions)

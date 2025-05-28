@@ -23,7 +23,7 @@ This Timeline view displays a timeline with its related events. You can render t
 
 By default the Timeline rows will have variable height and will expand to accommodate the displayed events. But, this can be changed by the `rowHeight` property of the [Timeline view](##opt-view) option. [If it is set to equal](https://demo.mobiscroll.com/timeline/timeline-resource-height), the rows will have equal heights, and overlapping events will be distributed evenly to fit in the row.
 
-Also, the `eventList` [property](##opt-view) transforms the event display into a [daily listing mode](https://demo.mobiscroll.com/timeline/event-listing). This view represents a daily summary rather than an hour-by-hour layout.
+Also, the `eventDisplay` [property](##opt-view) transforms the event display into a [daily listing mode](https://demo.mobiscroll.com/timeline/event-listing). This view represents a daily summary rather than an hour-by-hour layout.
 
 The capabilities like [recurring events](/javascript/core-concepts/recurrence), [all-day, multi-day events](#opt-data), [responsiveness](#responsiveness) are supported by the Timeline.
 
@@ -40,7 +40,7 @@ mobiscroll.eventcalendar('#timeline', {
   view: {
     timeline: {
       maxEventStack: 2,
-      eventList: true,
+      eventDisplay: 'fill',
       resolutionHorizontal: 'day',
       type: 'week',
       resourceReorder: true
@@ -520,7 +520,7 @@ With an hourly (or sub-hourly) resolution the [renderHour](#renderer-renderHour)
 </ImgComparisonSlider>
 
 #### Daily header/footer template
-With a daily resolution, the [renderDay](#renderer-renderDay) and [renderDayFooter](#renderer-renderDayFooter) options can come in handy for customizing the header and footer.
+With a daily resolution, the [renderTimelineDay](#renderer-renderTimelineDay) and [renderDayFooter](#renderer-renderDayFooter) options can come in handy for customizing the header and footer.
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
@@ -607,7 +607,7 @@ With a yearly resolution, the [renderYear](#renderer-renderYear) and [renderYear
 Check out how you can style the date header and footer in [this example](https://demo.mobiscroll.com/timeline/hour-day-week-month-quarter-year-header-footer-template#) or just play with the sliders above to see the differences.
 
 ### The event and buffer areas
-You can use the [renderScheduleEvent](#renderer-renderScheduleEvent) option to customize the events that appear on the scheduler. It should return the markup of the event. The Eventcalendar will take care of the positioning, but anything else you want to show is up to you - like a title, description, color the background or show any content.
+You can use the [renderTimelineEvent](#renderer-renderTimelineEvent) option to customize the events that appear on the scheduler. It should return the markup of the event. The Eventcalendar will take care of the positioning, but anything else you want to show is up to you - like a title, description, color the background or show any content.
 
 The buffers can be customized through the [renderBufferBefore](#renderer-renderBufferBefore) and [renderBufferAfter](#renderer-renderBufferAfter) options. These can help you visualise delays or added minutes for tasks. For example travel time for meetings/appointments, check in/check out for flights.
 
@@ -628,7 +628,7 @@ Check out how you can style the events and the buffer areas in [this example](ht
 </ImgComparisonSlider>
 
 ### The event content
-If you are looking to customize only the content and don't want to bother with the styling of the event, you can use the [renderScheduleEventContent](#renderer-renderScheduleEventContent) option. Mobiscroll will position the event to the right place and will render essential information like the color of the event, the time and if it's an all day event or not. The title, description and any other fields you want to show (like participants or an avatar) will be coming from your custom function.
+If you are looking to customize only the content and don't want to bother with the styling of the event, you can use the [renderTimelineEventContent](#renderer-renderTimelineEventContent) option. Mobiscroll will position the event to the right place and will render essential information like the color of the event, the time and if it's an all day event or not. The title, description and any other fields you want to show (like participants or an avatar) will be coming from your custom function.
 
 Check out how you can style the event content in [this example](https://demo.mobiscroll.com/timeline/meal-planner#) or just play with the slider below to see the differences.
 

@@ -26,6 +26,19 @@ and scrolling the list updates the selected date on the calendar.
 
 **Default value**: `undefined`
 
+### renderAgendaDay {#renderer-renderAgendaDay}
+
+(args: MbscCalendarDayData) => any
+
+
+Customize the day cells of the agenda view.
+
+The following day specific details are available:
+- `date`: _Date_ - The date of the rendered day.
+- `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the day.
+
+**Default value**: `undefined`
+
 ### renderAgendaEmpty {#renderer-renderAgendaEmpty}
 
 () => any
@@ -35,35 +48,15 @@ Customize the agenda listing when the list is empty.
 
 **Default value**: `undefined`
 
-### renderDay {#renderer-renderDay}
-
-(args: MbscCalendarDayData) => any
-
-
-Customize the day cells of the calendar view and the date header in case of scheduler and timeline views.
-
-If you are looking to customize only the day cells content and don&#039;t want to bother with the styling of the event,
-in case of calendar and scheduler views you can use the [renderDayContent](#renderer-renderDayContent) option.
-
-The following day specific details are available:
-- `date`: _Date_ - The date of the rendered day.
-- `selected`: _boolean_ - True if the date is selected (in case of the calendar view).
-- `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the day.
-- `resource`: _string | number_ - The id of the resource in case of the scheduler (week and month views)
-when the events are grouped by resources.
-- `isActive`: _boolean_ - True for the current day (in case of the timeline view).
-
-**Default value**: `undefined`
-
-### renderEvent {#renderer-renderEvent}
+### renderAgendaEvent {#renderer-renderAgendaEvent}
 
 (data: MbscCalendarEventData) => any
 
 
-Customize the events that appear on the agenda and the popover.
+Customize the events that appear on the agenda.
 
 If you are looking to customize only the content (e.g. add custom elements) and don&#039;t want to bother with the styling of the event,
-you can use the [renderEventContent](#renderer-renderEventContent) option.
+you can use the [renderAgendaEventContent](#renderer-renderAgendaEventContent) option.
 
 Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
 The following event specific properties are available:
@@ -78,16 +71,16 @@ The following event specific properties are available:
 
 **Default value**: `undefined`
 
-### renderEventContent {#renderer-renderEventContent}
+### renderAgendaEventContent {#renderer-renderAgendaEventContent}
 
 (data: MbscCalendarEventData) => any
 
 
-Customize the event content that appears on the agenda and the popover.
+Customize the event content that appears on the agenda.
 The Eventcalendar will take care of styling and you can focus on what you show inside of the event.
 
 If you are looking to fully customize the event (e.g. add custom hover effects) you will need to use the
-[renderEvent](#renderer-renderEvent) option.
+[renderAgendaEvent](#renderer-renderAgendaEvent) option.
 
 Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
 The following event specific properties are available:

@@ -66,7 +66,7 @@ Then you can use the initialization functions from the mobiscroll namespace:
 
 ```javascript
 mobiscroll.eventcalendar('#my-div', {
-  view: { schedule: { type: 'day' }},
+  view: { scheduler: { type: 'day' }},
 });
 
 mobiscroll.datepicker('#my-other-div', {

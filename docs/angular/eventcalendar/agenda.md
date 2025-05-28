@@ -128,7 +128,7 @@ export class MyComponent {
 The display of Agenda can be customized with different [templating functions](#templates).
 
 ### The event
-Customize the events that appear on the agenda with the[eventTemplate](#template-eventTemplate) option. It should return the markup of the event. The event calendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
+Customize the events that appear on the agenda with the[agendaEventTemplate](#template-agendaEventTemplate) option. It should return the markup of the event. The event calendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
 
 Check out how you can style events in [this example](https://demo.mobiscroll.com/angular/agenda/full-event-customization#) or just play with the slider below to see the differences.
 
@@ -147,7 +147,7 @@ Check out how you can style events in [this example](https://demo.mobiscroll.com
 </ImgComparisonSlider>
 
 ### The event content
-Customize the event content that appears on the agenda by using the [eventContentTemplate](#template-eventContentTemplate) option. The event calendar will take care of styling and you can focus on what you show inside of the event.
+Customize the event content that appears on the agenda by using the [agendaEventContentTemplate](#template-agendaEventContentTemplate) option. The event calendar will take care of styling and you can focus on what you show inside of the event.
 
 Check out how you can style event content in [this example](https://demo.mobiscroll.com/angular/agenda/event-content-customization#) or just play with the slider below to see the differences.
 
@@ -187,7 +187,7 @@ Check out how you can style the header in [this example](https://demo.mobiscroll
 </ImgComparisonSlider>
 
 ### The agenda day header
-Customize the day headers that appear on the agenda with the [dayTemplate](#template-dayTemplate) option. It should contain the markup for the day header.
+Customize the day headers that appear on the agenda with the [agendaDayTemplate](#template-agendaDayTemplate) option. It should contain the markup for the day header.
 
 Check out how you can style the day headers in [this example](https://demo.mobiscroll.com/angular/agenda/customizing-day-header#) or just play with the slider below to see the differences.
 

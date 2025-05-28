@@ -29,7 +29,7 @@ Parameters:
 (args: MbscItemDragEvent) => void
 
 
-Triggered when an event is dragged into the calendar/timeline/schedule view.
+Triggered when an event is dragged into the calendar/timeline/scheduler view.
 
 Parameters:
  - args - The event argument with the following properties:
@@ -43,7 +43,7 @@ Parameters:
 (args: MbscItemDragEvent) => void
 
 
-Triggered when an event is dragged into the calendar/timeline/schedule view.
+Triggered when an event is dragged into the calendar/timeline/scheduler view.
 
 Parameters:
  - args - The event argument with the following properties:

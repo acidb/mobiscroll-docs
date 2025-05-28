@@ -547,7 +547,7 @@ modules: [print]
 [MbscDateType](#type-MbscDateType)
 
 Specifies the reference date for the view calculation, when multiple days, weeks, months or years are displayed.
-If not specified, for the scheduler and timeline views will be today&#039;s date, for the calendar and agenda views will be 1970/01/01.
+If not specified, will be today&#039;s date.
 
 It denotes the reference point when calculating the pages going in the future and in the past.
 For example if the view type is day, the view size is 3, and the current date is `01/16/2024`,

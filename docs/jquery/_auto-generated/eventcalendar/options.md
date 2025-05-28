@@ -662,7 +662,7 @@ modules: [print]
 [MbscDateType](#type-MbscDateType)
 
 Specifies the reference date for the view calculation, when multiple days, weeks, months or years are displayed.
-If not specified, for the scheduler and timeline views will be today&#039;s date, for the calendar and agenda views will be 1970/01/01.
+If not specified, will be today&#039;s date.
 
 It denotes the reference point when calculating the pages going in the future and in the past.
 For example if the view type is day, the view size is 3, and the current date is `01/16/2024`,
@@ -1041,7 +1041,7 @@ Configures the Eventcalendar view. Possible views:
 - `showEmptyDays`: *boolean* (default `false`) - When set to `true`, it will display day headers for every day
   in the list, even for those without events.
 
-`schedule`: Configures the scheduler view. Properties:
+`scheduler`: Configures the scheduler view. Properties:
 - `type`: *&#039;day&#039; | &#039;week&#039; | &#039;month&#039;* (default `'week'`) - Sets the scheduler type.
 - `size`: *number* (default: `1`)- Specifies the number of displayed months, weeks or days.
 - `allDay`: *boolean* (default `true`) - Show or hide the all day events.
@@ -1108,12 +1108,13 @@ Configures the Eventcalendar view. Possible views:
   Supported values: 1, 5, 10, 15, 20, 30, 60, 120, 180, 240, 360, 480, 720, 1440.
 - `timeLabelStep`: *number* (default `60`) - Set the step of the time labels in minutes.
   Supported values: 1, 5, 10, 15, 20, 30, 60, 120, 180, 240, 360, 480, 720, 1440.
+- `eventDisplay`: *&#039;fill&#039; | &#039;exact&#039;* (default &#039;exact&#039;) - Specifies how events are displayed.
+  - If set to `'exact'`, events are displayed according to their start and end times.
+  - If set to `'fill'`, events cover the entire cell.
 - `eventHeight`: *&#039;variable&#039; | &#039;equal&#039;* (default &#039;equal&#039;) - Specifies wether the height of the events is equal or variable.
   :::info
   Experimental feature: [learn more about variable event heights](./timeline#variable-event-height).
   :::
-- `eventList`: *boolean* (default `false`) - If `true`, transforms the layout into a summary view.
-  The events are listed in the appropriate cell one after the other.
 - `rowHeight`: *&#039;variable&#039; | &#039;equal&#039;* (default &#039;variable&#039;) - Controls the height of the timeline rows.
   By default rows will have variable height and will expand to accommodate the displayed events.
   If it is set to `'equal'`, the rows will have equal heights.

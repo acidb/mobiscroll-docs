@@ -42,44 +42,6 @@ The following event specific properties are available:
 - `title`: _string_ - The title of the event.
 - `currentResource`: _string | number_ - The resource of the row or column where the event is being rendered.
 
-### day {#slot-day}
-
-```html
-<template #day="args">...</template>
-```
-
-Customize the day cells of the calendar view and the date header in case of scheduler and timeline views.
-
-If you are looking to customize only the day cells content and don&#039;t want to bother with the styling of the event,
-in case of calendar and scheduler views you can use the [dayContent](#slot-dayContent) option.
-
-The following day specific details are available:
-- `date`: _Date_ - The date of the rendered day.
-- `selected`: _boolean_ - True if the date is selected (in case of the calendar view).
-- `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the day.
-- `resource`: _string | number_ - The id of the resource in case of the scheduler (week and month views)
-when the events are grouped by resources.
-- `isActive`: _boolean_ - True for the current day (in case of the timeline view).
-
-### dayContent {#slot-dayContent}
-
-```html
-<template #dayContent="args">...</template>
-```
-
-Customize the day cells content of the event calendar. The Eventcalendar will take care of the styling and you can focus on
-what you show beside the day number.
-
-If you are looking to fully customize the day (e.g. add custom hover effects) you will need to use the
-[day](#slot-day) option.
-
-The following properties are available:
- - `date`: _Date_ - The date of the rendered day.
- - `selected`: _boolean_ - True if the date is selected (in case of the calendar view).
- - `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the day.
- - `resource`: _string | number_ - The id of the resource in case of the scheduler (week and month views)
-when the events are grouped by resources.
-
 ### header {#slot-header}
 
 ```html
@@ -103,18 +65,53 @@ The following properties are available:
  Available when grouping by date in the scheduler view,
  or when vertical day resolution is used in the timeline view.
 
-### scheduleEvent {#slot-scheduleEvent}
+### schedulerDay {#slot-schedulerDay}
 
 ```html
-<template #scheduleEvent="event">...</template>
+<template #schedulerDay="args">...</template>
 ```
 
-Customize the events that appear on the scheduler and timeline.
+Customize the date header of the scheduler view.
+
+If you are looking to customize only the day cells content and don&#039;t want to bother with the styling of the cells,
+use the [schedulerDayContent](#slot-schedulerDayContent) option.
+
+The following day specific details are available:
+- `date`: _Date_ - The date of the rendered day.
+- `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the day.
+- `resource`: _string | number_ - The id of the resource in case of the scheduler (week and month views)
+when the events are grouped by resources.
+
+### schedulerDayContent {#slot-schedulerDayContent}
+
+```html
+<template #schedulerDayContent="args">...</template>
+```
+
+Customize the day cells content of the scheduler view. The Eventcalendar will take care of the styling and you can focus on
+what you show beside the day number.
+
+If you are looking to fully customize the day (e.g. add custom hover effects) you will need to use the
+[schedulerDay](#slot-schedulerDay) option.
+
+The following properties are available:
+ - `date`: _Date_ - The date of the rendered day.
+ - `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the day.
+ - `resource`: _string | number_ - The id of the resource in case of the scheduler (week and month views)
+when the events are grouped by resources.
+
+### schedulerEvent {#slot-schedulerEvent}
+
+```html
+<template #schedulerEvent="event">...</template>
+```
+
+Customize the events that appear on the scheduler.
 The Eventcalendar will take care of the positioning,
 but everything else (like background color, hover effect, etc.) is left to you.
 
 If you are looking to customize only the content (e.g. add custom elements) and don&#039;t want to bother with the styling of the event,
-you can use the [scheduleEventContent](#slot-scheduleEventContent) option.
+you can use the [schedulerEventContent](#slot-schedulerEventContent) option.
 
 Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
 The following event specific properties are available:
@@ -128,17 +125,17 @@ The following event specific properties are available:
 - `title`: _string_ - The title of the event.
 - `currentResource`: _string | number_ - The resource of the row or column where the event is being rendered.
 
-### scheduleEventContent {#slot-scheduleEventContent}
+### schedulerEventContent {#slot-schedulerEventContent}
 
 ```html
-<template #scheduleEventContent="event">...</template>
+<template #schedulerEventContent="event">...</template>
 ```
 
-Customize the event content that appears on the scheduler and timeline.
+Customize the event content that appears on the scheduler.
 The Eventcalendar will take care of styling and you can focus on what you show inside of the event.
 
 If you are looking to fully customize the event (e.g. add custom hover effects) you will need to use
-the [scheduleEvent](#slot-scheduleEvent) option. In that case you will only get
+the [schedulerEvent](#slot-schedulerEvent) option. In that case you will only get
 the positioning done by the Eventcalendar and everything else is up to you.
 
 Some of the event specific details are computed, but there is also a reference to the **original** event they come from.

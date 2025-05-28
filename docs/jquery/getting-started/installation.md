@@ -71,7 +71,7 @@ Then you can use the initialization functions through jquery:
 ```javascript
 $(function() {
   $('#my-div').mobiscroll().eventcalendar({
-    view: { schedule: { type: 'day' }},
+    view: { scheduler: { type: 'day' }},
   });
   $('#my-other-div').mobiscroll().datepicker({
     select: 'range',

@@ -44,46 +44,6 @@ The following event specific properties are available:
 
 **Default value**: `undefined`
 
-### renderDay {#renderer-renderDay}
-
-(args: MbscCalendarDayData) => any
-
-
-Customize the day cells of the calendar view and the date header in case of scheduler and timeline views.
-
-If you are looking to customize only the day cells content and don&#039;t want to bother with the styling of the event,
-in case of calendar and scheduler views you can use the [renderDayContent](#renderer-renderDayContent) option.
-
-The following day specific details are available:
-- `date`: _Date_ - The date of the rendered day.
-- `selected`: _boolean_ - True if the date is selected (in case of the calendar view).
-- `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the day.
-- `resource`: _string | number_ - The id of the resource in case of the scheduler (week and month views)
-when the events are grouped by resources.
-- `isActive`: _boolean_ - True for the current day (in case of the timeline view).
-
-**Default value**: `undefined`
-
-### renderDayContent {#renderer-renderDayContent}
-
-(args: MbscCalendarDayData) => any
-
-
-Customize the day cells content of the event calendar. The Eventcalendar will take care of the styling and you can focus on
-what you show beside the day number.
-
-If you are looking to fully customize the day (e.g. add custom hover effects) you will need to use the
-[renderDay](#renderer-renderDay) option.
-
-The following properties are available:
- - `date`: _Date_ - The date of the rendered day.
- - `selected`: _boolean_ - True if the date is selected (in case of the calendar view).
- - `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the day.
- - `resource`: _string | number_ - The id of the resource in case of the scheduler (week and month views)
-when the events are grouped by resources.
-
-**Default value**: `undefined`
-
 ### renderHeader {#renderer-renderHeader}
 
 () => any
@@ -109,17 +69,54 @@ The following properties are available:
 
 **Default value**: `undefined`
 
-### renderScheduleEvent {#renderer-renderScheduleEvent}
+### renderSchedulerDay {#renderer-renderSchedulerDay}
+
+(args: MbscCalendarDayData) => any
+
+
+Customize the date header of the scheduler view.
+
+If you are looking to customize only the day cells content and don&#039;t want to bother with the styling of the cells,
+use the [renderSchedulerDayContent](#renderer-renderSchedulerDayContent) option.
+
+The following day specific details are available:
+- `date`: _Date_ - The date of the rendered day.
+- `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the day.
+- `resource`: _string | number_ - The id of the resource in case of the scheduler (week and month views)
+when the events are grouped by resources.
+
+**Default value**: `undefined`
+
+### renderSchedulerDayContent {#renderer-renderSchedulerDayContent}
+
+(args: MbscCalendarDayData) => any
+
+
+Customize the day cells content of the scheduler view. The Eventcalendar will take care of the styling and you can focus on
+what you show beside the day number.
+
+If you are looking to fully customize the day (e.g. add custom hover effects) you will need to use the
+[renderSchedulerDay](#renderer-renderSchedulerDay) option.
+
+The following properties are available:
+ - `date`: _Date_ - The date of the rendered day.
+ - `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the day.
+ - `resource`: _string | number_ - The id of the resource in case of the scheduler (week and month views)
+when the events are grouped by resources.
+
+**Default value**: `undefined`
+
+### renderSchedulerEvent {#renderer-renderSchedulerEvent}
 
 (event: MbscCalendarEventData) => any
 
 
-Customize the events that appear on the scheduler and timeline.
+Customize the events that appear on the scheduler.
 The Eventcalendar will take care of the positioning,
 but everything else (like background color, hover effect, etc.) is left to you.
 
 If you are looking to customize only the content (e.g. add custom elements) and don&#039;t want to bother with the styling of the event,
-you can use the [renderScheduleEventContent](#renderer-renderScheduleEventContent) option.
+you can use the [renderSchedulerEventContent](#renderer-renderSchedulerEventContent) option.
 
 Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
 The following event specific properties are available:
@@ -135,16 +132,16 @@ The following event specific properties are available:
 
 **Default value**: `undefined`
 
-### renderScheduleEventContent {#renderer-renderScheduleEventContent}
+### renderSchedulerEventContent {#renderer-renderSchedulerEventContent}
 
 (event: MbscCalendarEventData) => any
 
 
-Customize the event content that appears on the scheduler and timeline.
+Customize the event content that appears on the scheduler.
 The Eventcalendar will take care of styling and you can focus on what you show inside of the event.
 
 If you are looking to fully customize the event (e.g. add custom hover effects) you will need to use
-the [renderScheduleEvent](#renderer-renderScheduleEvent) option. In that case you will only get
+the [renderSchedulerEvent](#renderer-renderSchedulerEvent) option. In that case you will only get
 the positioning done by the Eventcalendar and everything else is up to you.
 
 Some of the event specific details are computed, but there is also a reference to the **original** event they come from.

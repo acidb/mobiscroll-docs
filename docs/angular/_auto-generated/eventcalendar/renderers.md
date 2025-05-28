@@ -1,7 +1,56 @@
+### agendaDayTemplate {#template-agendaDayTemplate}
+
+Customize the day cells of the agenda view.
+
+The template will receive an object as data. This data can be used to show day specific things on the Eventcalendar.
+The object passed to the template has the following properties:
+- `date`: Date object - The specific date as a Date object.
+- `events`: Array - The list of events of the day.
+
+**Default value**: `undefined`
 ### agendaEmptyTemplate {#template-agendaEmptyTemplate}
 
 Template to customize the agenda empty state.
 Should contain the desired template to be used in the agenda when the events list is empty.
+### agendaEventContentTemplate {#template-agendaEventContentTemplate}
+
+Template to customize the event content that appears on the agenda.
+The Eventcalendar will take care of styling and you can focus on what you show inside of the event.
+
+If you are looking to fully customize the event (e.g. add custom hover effects) you will need to use the
+[agendaEventTemplate](#template-agendaEventTemplate) option.
+
+Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
+The following event specific properties are available:
+- `allDay`: _string_ - The localized all-day text in case of all day events.
+- `end`: _string_ - The formatted end time, if the event is not all day.
+- `id`: _string_ - The id of the event.
+- `isMultiDay`: _boolean_ - True if the event spans across multiple days.
+- `lastDay`: _boolean_ - True if it&#039;s rendered on the last day of a multiple event.
+- `original`: _MbscCalendarEvent_ - The original event object. Any custom property on the event can be accessed through this property.
+- `start`: _string_ - The formatted start time, if the event is not all day.
+- `title`: _string_ - The title of the event.
+
+**Default value**: `undefined`
+### agendaEventTemplate {#template-agendaEventTemplate}
+
+Template to customize the events that appear on the agenda.
+
+If you are looking to customize only the content (e.g. add custom elements) and don&#039;t want to bother with the styling of the event,
+you can use the [agendaEventContentTemplate](#template-agendaEventContentTemplate) option.
+
+Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
+The following event specific properties are available:
+- `allDay`: _string_ - The localized all-day text in case of all day events.
+- `end`: _string_ - The formatted end time, if the event is not all day.
+- `id`: _string_ - The id of the event.
+- `isMultiDay`: _boolean_ - True if the event spans across multiple days.
+- `lastDay`: _boolean_ - True if it&#039;s rendered on the last day of a multiple event.
+- `original`: _MbscCalendarEvent_ - The original event object.
+- `start`: _string_ - The formatted start time, if the event is not all day.
+- `title`: _string_ - The title of the event.
+
+**Default value**: `undefined`
 ### agendaTemplate {#template-agendaTemplate}
 
 Template to customize agenda listing.
@@ -74,21 +123,69 @@ The following event specific properties are available:
 - `currentResource`: _string | number_ - The resource of the row or column where the event is being rendered.
 
 **Default value**: `undefined`
-### dayContentTemplate {#template-dayContentTemplate}
+### calendarDayContentTemplate {#template-calendarDayContentTemplate}
 
 Customize the day cells content of the event calendar. The Eventcalendar will take care of the styling and you can focus on
 what you show beside the day number.
 
 If you are looking to fully customize the day (e.g. add custom hover effects) you will need to use the
-[dayTemplate](#template-dayTemplate) option.
+[calendarDayTemplate](#template-calendarDayTemplate) option.
 
 The template will receive an object as data. This data can be used to show day specific things on the Eventcalendar.
 The object passed to the template has the following properties:
 - `date`: Date object - The specific date as a Date object.
-- `selected`: Boolean - True if the date is selected. (In case of calendar view)
+- `selected`: Boolean - True if the date is selected.
 - `events`: Array - The list of events of the day.
-- `resource`: String, Number - The id of the resource in case of scheduler(week and month views)
-when the events are grouped by resources.
+
+**Default value**: `undefined`
+### calendarDayTemplate {#template-calendarDayTemplate}
+
+Customize the day cells of the calendar view.
+
+If you are looking to customize only the day cells content and don&#039;t want to bother with the styling of the event,
+in case of calendar and scheduler views you can use the [calendarDayContentTemplate](#template-calendarDayContentTemplate) option.
+
+The template will receive an object as data. This data can be used to show day specific things on the Eventcalendar.
+The object passed to the template has the following properties:
+- `date`: Date object - The specific date as a Date object.
+- `selected`: Boolean - True if the date is selected.
+- `events`: Array - The list of events of the day.
+
+**Default value**: `undefined`
+### calendarEventContentTemplate {#template-calendarEventContentTemplate}
+
+Template to customize the event contents, that appears on the calendar.
+The Eventcalendar will take care of styling and you can focus on what you show inside of the event.
+
+If you are looking to fully customize the event (ex. add custom hover effects) you will need to use the
+[calendarEventTemplate](#template-calendarEventTemplate) option.
+In that case you will only get the positioning done by the Eventcalendar and everything else is up to you.
+
+Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
+The following event specific properties are available:
+- `end`: _string_ - The formatted end time, if the event is not all day.
+- `id`: _string_ -  The id of the event.
+- `isMultiDay`: _boolean_ - True if the event spans across multiple days.
+- `original`: _MbscCalendarEvent_ - The original event object. Any custom property on the event can be accessed through this property.
+- `start`: _string_ - The formatted start time, if the event is not all day.
+
+**Default value**: `undefined`
+### calendarEventTemplate {#template-calendarEventTemplate}
+
+Customize the events that appear on the calendar view.
+The Eventcalendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
+
+If you are looking to customize only the content (e.g. add custom elements) and
+don&#039;t want to bother with the styling of the event, you can use the
+[calendarEventContentTemplate](#template-calendarEventContentTemplate) option.
+
+Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
+The following event specific properties are available:
+- `end`: _string_ - The formatted end time, if the event is not all day.
+- `id`: _string_ -  The id of the event.
+- `isMultiDay`: _boolean_ - True if the event spans across multiple days.
+- `original`: _MbscCalendarEvent_ - The original event object. Any custom property on the event can be accessed through this property.
+- `start`: _string_ - The formatted start time, if the event is not all day.
 
 **Default value**: `undefined`
 ### dayFooterTemplate {#template-dayFooterTemplate}
@@ -98,62 +195,6 @@ Template to customize the footer of each day for the timeline.
 The following day specific details are available:
 - `date`: _Date_ - The date of the day.
 - `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the day.
-
-**Default value**: `undefined`
-### dayTemplate {#template-dayTemplate}
-
-Customize the day cells of the calendar view and the date header in case of scheduler and timeline views.
-
-If you are looking to customize only the day cells content and don&#039;t want to bother with the styling of the event,
-in case of calendar and scheduler views you can use the [dayContentTemplate](#template-dayContentTemplate) option.
-
-The template will receive an object as data. This data can be used to show day specific things on the Eventcalendar.
-The object passed to the template has the following properties:
-- `date`: Date object - The specific date as a Date object.
-- `selected`: Boolean - True if the date is selected. (In case of calendar view)
-- `events`: Array - The list of events of the day.
-- `resource`: String, Number - The id of the resource in case of scheduler(week and month views)
-when the events are grouped by resources.
-- `isActive`: Boolean - On the timeline view, this parameter will be true when rendering the current day/week/month/year
-
-**Default value**: `undefined`
-### eventContentTemplate {#template-eventContentTemplate}
-
-Template to customize the event content that appears on the agenda and the popover.
-The Eventcalendar will take care of styling and you can focus on what you show inside of the event.
-
-If you are looking to fully customize the event (e.g. add custom hover effects) you will need to use the
-[eventTemplate](#template-eventTemplate) option.
-
-Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
-The following event specific properties are available:
-- `allDay`: _string_ - The localized all-day text in case of all day events.
-- `end`: _string_ - The formatted end time, if the event is not all day.
-- `id`: _string_ - The id of the event.
-- `isMultiDay`: _boolean_ - True if the event spans across multiple days.
-- `lastDay`: _boolean_ - True if it&#039;s rendered on the last day of a multiple event.
-- `original`: _MbscCalendarEvent_ - The original event object. Any custom property on the event can be accessed through this property.
-- `start`: _string_ - The formatted start time, if the event is not all day.
-- `title`: _string_ - The title of the event.
-
-**Default value**: `undefined`
-### eventTemplate {#template-eventTemplate}
-
-Template to customize the events that appear on the agenda and the popover.
-
-If you are looking to customize only the content (e.g. add custom elements) and don&#039;t want to bother with the styling of the event,
-you can use the [eventContentTemplate](#template-eventContentTemplate) option.
-
-Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
-The following event specific properties are available:
-- `allDay`: _string_ - The localized all-day text in case of all day events.
-- `end`: _string_ - The formatted end time, if the event is not all day.
-- `id`: _string_ - The id of the event.
-- `isMultiDay`: _boolean_ - True if the event spans across multiple days.
-- `lastDay`: _boolean_ - True if it&#039;s rendered on the last day of a multiple event.
-- `original`: _MbscCalendarEvent_ - The original event object.
-- `start`: _string_ - The formatted start time, if the event is not all day.
-- `title`: _string_ - The title of the event.
 
 **Default value**: `undefined`
 ### headerTemplate {#template-headerTemplate}
@@ -183,41 +224,6 @@ The following properties are available:
 - `isActive`: _boolean_ - True for the current hour.
 
 **Default value**: `undefined`
-### labelContentTemplate {#template-labelContentTemplate}
-
-Template to customize the label contents, that appears on the calendar.
-The Eventcalendar will take care of styling and you can focus on what you show inside of the label.
-
-If you are looking to fully customize the label (ex. add custom hover effects) you will need to use the
-[labelTemplate](#template-labelTemplate) option.
-In that case you will only get the positioning done by the Eventcalendar and everything else is up to you.
-
-Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
-The following event specific properties are available:
-- `end`: _string_ - The formatted end time, if the event is not all day.
-- `id`: _string_ -  The id of the event.
-- `isMultiDay`: _boolean_ - True if the event spans across multiple days.
-- `original`: _MbscCalendarEvent_ - The original event object. Any custom property on the event can be accessed through this property.
-- `start`: _string_ - The formatted start time, if the event is not all day.
-
-**Default value**: `undefined`
-### labelTemplate {#template-labelTemplate}
-
-Customize the labels that appear on the calendar view.
-The Eventcalendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
-
-If you are looking to customize only the content (e.g. add custom elements) and
-don&#039;t want to bother with the styling of the label, you can use the [labelContentTemplate](#template-labelContentTemplate) option.
-
-Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
-The following event specific properties are available:
-- `end`: _string_ - The formatted end time, if the event is not all day.
-- `id`: _string_ -  The id of the event.
-- `isMultiDay`: _boolean_ - True if the event spans across multiple days.
-- `original`: _MbscCalendarEvent_ - The original event object. Any custom property on the event can be accessed through this property.
-- `start`: _string_ - The formatted start time, if the event is not all day.
-
-**Default value**: `undefined`
 ### monthFooterTemplate {#template-monthFooterTemplate}
 
 Template to customize the footer of the month column on the timeline view.
@@ -236,6 +242,45 @@ The following properties are available:
  - `date`: _Date_ - First day of the rendered month.
  - `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the month.
  - `isActive`: _boolean_ - True for the current month.
+
+**Default value**: `undefined`
+### popoverEventContentTemplate {#template-popoverEventContentTemplate}
+
+Template to customize the event content that appears on the popover.
+The Eventcalendar will take care of styling and you can focus on what you show inside of the event.
+
+If you are looking to fully customize the event (e.g. add custom hover effects) you will need to use the
+[popoverEventTemplate](#template-popoverEventTemplate) option.
+
+Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
+The following event specific properties are available:
+- `allDay`: _string_ - The localized all-day text in case of all day events.
+- `end`: _string_ - The formatted end time, if the event is not all day.
+- `id`: _string_ - The id of the event.
+- `isMultiDay`: _boolean_ - True if the event spans across multiple days.
+- `lastDay`: _boolean_ - True if it&#039;s rendered on the last day of a multiple event.
+- `original`: _MbscCalendarEvent_ - The original event object. Any custom property on the event can be accessed through this property.
+- `start`: _string_ - The formatted start time, if the event is not all day.
+- `title`: _string_ - The title of the event.
+
+**Default value**: `undefined`
+### popoverEventTemplate {#template-popoverEventTemplate}
+
+Template to customize the events that appear on the popover.
+
+If you are looking to customize only the content (e.g. add custom elements) and don&#039;t want to bother with the styling of the event,
+you can use the [popoverEventContentTemplate](#template-popoverEventContentTemplate) option.
+
+Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
+The following event specific properties are available:
+- `allDay`: _string_ - The localized all-day text in case of all day events.
+- `end`: _string_ - The formatted end time, if the event is not all day.
+- `id`: _string_ - The id of the event.
+- `isMultiDay`: _boolean_ - True if the event spans across multiple days.
+- `lastDay`: _boolean_ - True if it&#039;s rendered on the last day of a multiple event.
+- `original`: _MbscCalendarEvent_ - The original event object.
+- `start`: _string_ - The formatted start time, if the event is not all day.
+- `title`: _string_ - The title of the event.
 
 **Default value**: `undefined`
 ### quarterFooterTemplate {#template-quarterFooterTemplate}
@@ -302,13 +347,44 @@ The following properties are available:
 ```
 
 **Default value**: `undefined`
-### scheduleEventContentTemplate {#template-scheduleEventContentTemplate}
+### schedulerDayContentTemplate {#template-schedulerDayContentTemplate}
 
-Template to customize the event content that appears on the scheduler and timeline.
+Customize the day cells content of the event calendar. The Eventcalendar will take care of the styling and you can focus on
+what you show beside the day number.
+
+If you are looking to fully customize the day (e.g. add custom hover effects) you will need to use the
+[schedulerDayTemplate](#template-schedulerDayTemplate) option.
+
+The template will receive an object as data. This data can be used to show day specific things on the Eventcalendar.
+The object passed to the template has the following properties:
+- `date`: Date object - The specific date as a Date object.
+- `events`: Array - The list of events of the day.
+- `resource`: String, Number - The id of the resource in case of scheduler(week and month views)
+when the events are grouped by resources.
+
+**Default value**: `undefined`
+### schedulerDayTemplate {#template-schedulerDayTemplate}
+
+Customize the day cells of the scheduler view.
+
+If you are looking to customize only the day cells content and don&#039;t want to bother with the styling of the event,
+in case of calendar and scheduler views you can use the [schedulerDayContentTemplate](#template-schedulerDayContentTemplate) option.
+
+The template will receive an object as data. This data can be used to show day specific things on the Eventcalendar.
+The object passed to the template has the following properties:
+- `date`: Date object - The specific date as a Date object.
+- `events`: Array - The list of events of the day.
+- `resource`: String, Number - The id of the resource in case of scheduler(week and month views)
+when the events are grouped by resources.
+
+**Default value**: `undefined`
+### schedulerEventContentTemplate {#template-schedulerEventContentTemplate}
+
+Template to customize the event content that appears on the scheduler.
 The Eventcalendar will take care of styling and you can focus on what you show inside of the event.
 
 If you are looking to fully customize the event (e.g. add custom hover effects) you will need to use
-the [scheduleEventTemplate](#template-scheduleEventTemplate) option. In that case you will only get
+the [schedulerEventTemplate](#template-schedulerEventTemplate) option. In that case you will only get
 the positioning done by the Eventcalendar and everything else is up to you.
 
 Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
@@ -324,14 +400,14 @@ The following event specific properties are available:
 - `currentResource`: _string | number_ - The resource of the row or column where the event is being rendered.
 
 **Default value**: `undefined`
-### scheduleEventTemplate {#template-scheduleEventTemplate}
+### schedulerEventTemplate {#template-schedulerEventTemplate}
 
-Template to customize the events that appear on the scheduler and timeline.
+Template to customize the events that appear on the scheduler.
 The Eventcalendar will take care of the positioning,
 but everything else (like background color, hover effect, etc.) is left to you.
 
 If you are looking to customize only the content (e.g. add custom elements) and don&#039;t want to bother with the styling of the event,
-you can use the [scheduleEventContentTemplate](#template-scheduleEventContentTemplate) option.
+you can use the [schedulerEventContentTemplate](#template-schedulerEventContentTemplate) option.
 
 Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
 The following event specific properties are available:
@@ -382,6 +458,61 @@ It will receive an object as parameter that has the following properties:
   </ng-template>
 </mbsc-eventcalendar>
 ```
+
+**Default value**: `undefined`
+### timelineDayTemplate {#template-timelineDayTemplate}
+
+Customize the day cells of the calendar view and the date header in case of scheduler and timeline views.
+
+The template will receive an object as data. This data can be used to show day specific things on the Eventcalendar.
+The object passed to the template has the following properties:
+- `date`: Date object - The specific date as a Date object.
+- `events`: Array - The list of events of the day.
+- `isActive`: Boolean - This parameter will be true when rendering the current day/week/month/year
+
+**Default value**: `undefined`
+### timelineEventContentTemplate {#template-timelineEventContentTemplate}
+
+Template to customize the event content that appears on the timeline.
+The Eventcalendar will take care of styling and you can focus on what you show inside of the event.
+
+If you are looking to fully customize the event (e.g. add custom hover effects) you will need to use
+the [timelineEventTemplate](#template-timelineEventTemplate) option. In that case you will only get
+the positioning done by the Eventcalendar and everything else is up to you.
+
+Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
+The following event specific properties are available:
+- `allDay`: _string_ - The localized all-day text in case of all day events.
+- `end`: _string_ - The formatted end time, if the event is not all day.
+- `id`: _string_ - The id of the event.
+- `isMultiDay`: _boolean_ - True if the event spans across multiple days.
+- `lastDay`: _boolean_ - True if it&#039;s rendered on the last day of a multiple event.
+- `original`: _MbscCalendarEvent_ - The original event object.
+- `start`: _string_ - The formatted start time, if the event is not all day.
+- `title`: _string_ - The title of the event.
+- `currentResource`: _string | number_ - The resource of the row or column where the event is being rendered.
+
+**Default value**: `undefined`
+### timelineEventTemplate {#template-timelineEventTemplate}
+
+Template to customize the events that appear on the timeline.
+The Eventcalendar will take care of the positioning,
+but everything else (like background color, hover effect, etc.) is left to you.
+
+If you are looking to customize only the content (e.g. add custom elements) and don&#039;t want to bother with the styling of the event,
+you can use the [timelineEventContentTemplate](#template-timelineEventContentTemplate) option.
+
+Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
+The following event specific properties are available:
+- `allDay`: _string_ - The localized all-day text in case of all day events.
+- `end`: _string_ - The formatted end time, if the event is not all day.
+- `id`: _string_ - The id of the event.
+- `isMultiDay`: _boolean_ - True if the event spans across multiple days.
+- `lastDay`: _boolean_ - True if it&#039;s rendered on the last day of a multiple event.
+- `original`: _MbscCalendarEvent_ - The original event object.
+- `start`: _string_ - The formatted start time, if the event is not all day.
+- `title`: _string_ - The title of the event.
+- `currentResource`: _string | number_ - The resource of the row or column where the event is being rendered.
 
 **Default value**: `undefined`
 ### weekFooterTemplate {#template-weekFooterTemplate}

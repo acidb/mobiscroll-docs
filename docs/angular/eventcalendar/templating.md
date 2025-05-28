@@ -21,7 +21,7 @@ When you want to customize how the events look, depending on what your goal is, 
 To define a template, create an `<ng-template>` tag with a variable reference and pass it to the apropriate eventcalendar option:
 
 ```html title="Using the v-slot directive"
-<mbsc-eventcalendar [scheduleEventContentTemplate]="myTemplate">
+<mbsc-eventcalendar [schedulerEventContentTemplate]="myTemplate">
   <ng-template #myTemplate>
     <!-- your content here -->
   </ng-template>
@@ -32,12 +32,14 @@ To define a template, create an `<ng-template>` tag with a variable reference an
 
 In most cases you only want to customize the content section of the event. In this case your template will be used as the content of the event. Mobiscroll will position the event to the right place and will render essential information like the color of the event, the time and if it's an all day event or not. The title, description and any other fields you want to show (like participants, an avatar...) will be coming from your custom template.
 
-- For the agenda and popover - use the [`eventContentTemplate`](api#template-eventContentTemplate) for the custom template
-- For event labels in the calendar and all-day events in the scheduler - use the [`labelContentTemplate`](api#template-labelContentTemplate) for the custom template
-- For the scheduler and timeline - use the [`scheduleEventContentTemplate`](api#template-scheduleEventContentTemplate) for the custom template
+- For the agenda - use the [`agendaEventContentTemplate`](api#template-agendaEventContentTemplate) for the custom template
+- For the popover - use the [`popoverEventContentTemplate`](api#template-popoverEventContentTemplate) for the custom template
+- For event labels in the calendar - use the [`calendarEventContentTemplate`](api#template-calendarEventContentTemplate) for the custom template
+- For the scheduler - use the [`schedulerEventContentTemplate`](api#template-schedulerEventContentTemplate) for the custom template
+- For the timeline - use the [`timelineEventContentTemplate`](api#template-timelineEventContentTemplate) for the custom template
 
 ```html
-<mbsc-eventcalendar [eventContentTemplate]="myAwesomeTemplate">
+<mbsc-eventcalendar [agendaEventContentTemplate]="myAwesomeTemplate">
   <ng-template #myAwesomeTemplate let-data>
     <!-- your content here -->
   </ng-template>
@@ -63,9 +65,11 @@ Play with the slider below to see the differences.
 
 In case of full event templating, whenever there is an event (in the agenda, scheduler, timeline, labels or popover) your custom template will be used instead of the default template. Mobiscroll will position your component to the right place, but anything else you want to show is up to you... like a title, description, color the background or show any content.
 
-- For the agenda and popover - use the [`eventTemplate`](api#template-eventTemplate) for the custom template
-- For event labels in the calendar and all-day events in the scheduler - use the [`labelTemplate`](api#template-labelTemplate) for the custom template
-- For the scheduler and timeline - use the [`scheduleEventTemplate`](api#template-scheduleEventTemplate) for the custom template
+- For the agenda - use the [`agendaEventTemplate`](api#template-agendaEventTemplate) for the custom template
+- For the popover - use the [`popoverEventTemplate`](api#template-popoverEventTemplate) for the custom template
+- For event labels in the calendar - use the [`calendarEventTemplate`](api#template-calendarEventTemplate) for the custom template
+- For the scheduler - use the [`schedulerEventTemplate`](api#template-schedulerEventTemplate) for the custom template
+- For the timeline - use the [`timelineEventTemplate`](api#template-timelineEventTemplate) for the custom template
 
 Play with the slider below to see the differences.
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">

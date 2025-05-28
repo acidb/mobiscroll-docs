@@ -126,8 +126,8 @@ The display of Calendar can be customized with different [templating functions](
 
 ### The event label and their content
 There are two approaches you can take:
-- Customize the label contents, that appears on the calendar - for this you will want to use the [labelContentTemplate](#template-labelContentTemplate) option. The Event Calendar will take care of styling and you can focus on what you show inside of the label.
-- Customize the labels that appear on the Calendar view - use the [labelTemplate](#template-labelTemplate) option. The Event Calendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
+- Customize the label contents, that appears on the calendar - for this you will want to use the [calendarEventContentTemplate](#template-calendarEventContentTemplate) option. The Event Calendar will take care of styling and you can focus on what you show inside of the label.
+- Customize the labels that appear on the Calendar view - use the [calendarEventTemplate](#template-calendarEventTemplate) option. The Event Calendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
 
 Check out how you can style labels and their content in [this example](https://demo.mobiscroll.com/angular/eventcalendar/customize-label-look-and-feel#) or just play with the slider below to see the differences.
 
@@ -147,8 +147,8 @@ Check out how you can style labels and their content in [this example](https://d
 
 ### The event in popover and their content
 The events can be customized in two ways:
-- Customize the event content that appears on the popover - by using the [eventContentTemplate](#template-eventContentTemplate) option. The Event Calendar will take care of styling and you can focus on what you show inside of the event.
-- Customize the events that appear on the popover - with the [eventTemplate](#template-eventTemplate) option. It should return the markup of the event. The Event Calendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
+- Customize the event content that appears on the popover - by using the [popoverEventContentTemplate](#template-popoverEventContentTemplate) option. The Event Calendar will take care of styling and you can focus on what you show inside of the event.
+- Customize the events that appear on the popover - with the [popoverEventTemplate](#template-popoverEventTemplate) option. It should return the markup of the event. The Event Calendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
 
 Check out how you can style events and their content in [this example](https://demo.mobiscroll.com/angular/eventcalendar/customize-event-popover#) or just play with the slider below to see the differences.
 

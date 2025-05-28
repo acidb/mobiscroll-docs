@@ -36,40 +36,6 @@ The following event specific properties are available:
 - `currentResource`: _string | number_ - The resource of the row or column where the event is being rendered.
 
 **Default value**: `undefined`
-### dayContentTemplate {#template-dayContentTemplate}
-
-Customize the day cells content of the event calendar. The Eventcalendar will take care of the styling and you can focus on
-what you show beside the day number.
-
-If you are looking to fully customize the day (e.g. add custom hover effects) you will need to use the
-[dayTemplate](#template-dayTemplate) option.
-
-The template will receive an object as data. This data can be used to show day specific things on the Eventcalendar.
-The object passed to the template has the following properties:
-- `date`: Date object - The specific date as a Date object.
-- `selected`: Boolean - True if the date is selected. (In case of calendar view)
-- `events`: Array - The list of events of the day.
-- `resource`: String, Number - The id of the resource in case of scheduler(week and month views)
-when the events are grouped by resources.
-
-**Default value**: `undefined`
-### dayTemplate {#template-dayTemplate}
-
-Customize the day cells of the calendar view and the date header in case of scheduler and timeline views.
-
-If you are looking to customize only the day cells content and don&#039;t want to bother with the styling of the event,
-in case of calendar and scheduler views you can use the [dayContentTemplate](#template-dayContentTemplate) option.
-
-The template will receive an object as data. This data can be used to show day specific things on the Eventcalendar.
-The object passed to the template has the following properties:
-- `date`: Date object - The specific date as a Date object.
-- `selected`: Boolean - True if the date is selected. (In case of calendar view)
-- `events`: Array - The list of events of the day.
-- `resource`: String, Number - The id of the resource in case of scheduler(week and month views)
-when the events are grouped by resources.
-- `isActive`: Boolean - On the timeline view, this parameter will be true when rendering the current day/week/month/year
-
-**Default value**: `undefined`
 ### headerTemplate {#template-headerTemplate}
 
 Template to customize the header of the event calendar.
@@ -98,13 +64,44 @@ The following properties are available:
 ```
 
 **Default value**: `undefined`
-### scheduleEventContentTemplate {#template-scheduleEventContentTemplate}
+### schedulerDayContentTemplate {#template-schedulerDayContentTemplate}
 
-Template to customize the event content that appears on the scheduler and timeline.
+Customize the day cells content of the event calendar. The Eventcalendar will take care of the styling and you can focus on
+what you show beside the day number.
+
+If you are looking to fully customize the day (e.g. add custom hover effects) you will need to use the
+[schedulerDayTemplate](#template-schedulerDayTemplate) option.
+
+The template will receive an object as data. This data can be used to show day specific things on the Eventcalendar.
+The object passed to the template has the following properties:
+- `date`: Date object - The specific date as a Date object.
+- `events`: Array - The list of events of the day.
+- `resource`: String, Number - The id of the resource in case of scheduler(week and month views)
+when the events are grouped by resources.
+
+**Default value**: `undefined`
+### schedulerDayTemplate {#template-schedulerDayTemplate}
+
+Customize the day cells of the scheduler view.
+
+If you are looking to customize only the day cells content and don&#039;t want to bother with the styling of the event,
+in case of calendar and scheduler views you can use the [schedulerDayContentTemplate](#template-schedulerDayContentTemplate) option.
+
+The template will receive an object as data. This data can be used to show day specific things on the Eventcalendar.
+The object passed to the template has the following properties:
+- `date`: Date object - The specific date as a Date object.
+- `events`: Array - The list of events of the day.
+- `resource`: String, Number - The id of the resource in case of scheduler(week and month views)
+when the events are grouped by resources.
+
+**Default value**: `undefined`
+### schedulerEventContentTemplate {#template-schedulerEventContentTemplate}
+
+Template to customize the event content that appears on the scheduler.
 The Eventcalendar will take care of styling and you can focus on what you show inside of the event.
 
 If you are looking to fully customize the event (e.g. add custom hover effects) you will need to use
-the [scheduleEventTemplate](#template-scheduleEventTemplate) option. In that case you will only get
+the [schedulerEventTemplate](#template-schedulerEventTemplate) option. In that case you will only get
 the positioning done by the Eventcalendar and everything else is up to you.
 
 Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
@@ -120,14 +117,14 @@ The following event specific properties are available:
 - `currentResource`: _string | number_ - The resource of the row or column where the event is being rendered.
 
 **Default value**: `undefined`
-### scheduleEventTemplate {#template-scheduleEventTemplate}
+### schedulerEventTemplate {#template-schedulerEventTemplate}
 
-Template to customize the events that appear on the scheduler and timeline.
+Template to customize the events that appear on the scheduler.
 The Eventcalendar will take care of the positioning,
 but everything else (like background color, hover effect, etc.) is left to you.
 
 If you are looking to customize only the content (e.g. add custom elements) and don&#039;t want to bother with the styling of the event,
-you can use the [scheduleEventContentTemplate](#template-scheduleEventContentTemplate) option.
+you can use the [schedulerEventContentTemplate](#template-schedulerEventContentTemplate) option.
 
 Some of the event specific details are computed, but there is also a reference to the **original** event they come from.
 The following event specific properties are available:

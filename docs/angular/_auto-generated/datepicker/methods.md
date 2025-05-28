@@ -1,4 +1,10 @@
 
+### forceUpdate {#method-forceUpdate}
+
+() => void
+
+
+
 
 ### isVisible {#method-isVisible}
 
@@ -35,5 +41,11 @@ Sets which date or time is currently selected.
 
 Parameters:
  - active - Specifies the active selection: start or end.
+
+
+### setState {#method-setState}
+
+(newState: any) => void
+
 
 

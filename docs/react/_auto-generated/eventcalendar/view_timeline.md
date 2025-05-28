@@ -38,10 +38,19 @@ Days outside of the `startDay` and `endDay` range will not be visible.
 
 string
 
-Specifies the end time of schedule column.
+Specifies the end time of scheduler column.
 Hours and minutes can be specified in the same string, example: &#039;18:30&#039;.
 
 **Default value**: `'24:00'`
+### eventDisplay {#view-timeline-eventDisplay}
+
+"fill" &#124; "exact"
+
+Specifies how events are displayed.
+  - If set to `'exact'`, events are displayed according to their start and end times.
+  - If set to `'fill'`, events cover the entire cell.
+
+**Default value**: `'exact'`
 ### eventHeight {#view-timeline-eventHeight}
 
 "variable" &#124; "equal"
@@ -53,9 +62,11 @@ event heights](https://mobiscroll.com/docs/eventcalendar/timeline#variable-event
 :::
 
 **Default value**: `'equal'`
-### eventList {#view-timeline-eventList}
+### ~~eventList~~ (deprecated) {#view-timeline-eventList}
 
 boolean
+
+DEPRECATED: Use the `eventDisplay` property instead.
 
 If `true`, transforms the layout into a summary view.
 The events are listed in the appropriate cell one after the other.
@@ -71,14 +82,6 @@ specified value, a &quot;more&quot; button will be displayed which opens a popov
   - If set to `'all'`, all events will be displayed.
 
 **Default value**: `'all'`
-### ~~resolution~~ (deprecated) {#view-timeline-resolution}
-
-"day" &#124; "hour" &#124; "month" &#124; "year" &#124; "week" &#124; "quarter"
-
-DEPRECATED: Use the `resolutionHorizontal` and `resolutionVertical` properties instead.
-
-Specifies the resolution of the timeline column.
-Possible values: &#039;hour&#039;, &#039;day&#039;, &#039;week&#039;, &#039;month&#039;, &#039;quarter&#039;, &#039;year&#039;.
 ### resolutionHorizontal {#view-timeline-resolutionHorizontal}
 
 "day" &#124; "hour" &#124; "month" &#124; "year" &#124; "week" &#124; "quarter"
@@ -136,7 +139,7 @@ which sets the first day of the week, and, if not set, is defined by the [locali
 
 string
 
-Specifies the start time of schedule column.
+Specifies the start time of scheduler column.
 Hours and minutes can be specified in the string, example: &#039;09:30&#039;.
 
 **Default value**: `'00:00'`

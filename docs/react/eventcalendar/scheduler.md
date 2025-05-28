@@ -38,7 +38,7 @@ function App() {
     calendar: {
       type: 'week'
     },
-    schedule: {
+    scheduler: {
       type: 'day'
     }
   };
@@ -49,12 +49,12 @@ function App() {
 
 ### Configuring the view
 
-The Scheduler view can be configured through the `view` option. Below are listed the `schedule` object properties which can help you fine-tune this view.
+The Scheduler view can be configured through the `view` option. Below are listed the `scheduler` object properties which can help you fine-tune this view.
 
 ```jsx title='Example'
 function App() {
   const myViewOptions = {
-    schedule: {
+    scheduler: {
       type: 'week',
       startDay: 1,
       endDay: 5,
@@ -260,11 +260,11 @@ The available width is queried from the container element of the component and n
 function App() {
   const myResponsive = {
     xsmall: {
-      view: { schedule: { type: 'day' }}
+      view: { scheduler: { type: 'day' }}
     },
     custom: { // Custom breakpoint, you can use multiple if needed, but each must have a unique name.
       breakpoint: 600,
-      view: { schedule: { type: 'week' }}
+      view: { scheduler: { type: 'week' }}
     }
   };
 
@@ -279,8 +279,8 @@ The display of Scheduler can be customized with different [render functions](#re
 
 ### The event, their content and buffer areas
 The events can be customized in two ways:
-- You can use the [renderScheduleEvent](#renderer-renderScheduleEvent) option to customize the events that appear on the Scheduler. It should return the markup of the event. The Eventcalendar will take care of the positioning, but anything else you want to show is up to you - like a title, description, color the background or show any content.
-- If you are looking to customize only the content and don't want to bother with the styling of the event, you can use the [renderScheduleEventContent](#renderer-renderScheduleEventContent) option. Mobiscroll will position the event to the right place and will render essential information like the color of the event, the time and if it's an all day event or not. The title, description and any other fields you want to show (like participants or an avatar) will be coming from your custom function.
+- You can use the [renderSchedulerEvent](#renderer-renderSchedulerEvent) option to customize the events that appear on the Scheduler. It should return the markup of the event. The Eventcalendar will take care of the positioning, but anything else you want to show is up to you - like a title, description, color the background or show any content.
+- If you are looking to customize only the content and don't want to bother with the styling of the event, you can use the [renderSchedulerEventContent](#renderer-renderSchedulerEventContent) option. Mobiscroll will position the event to the right place and will render essential information like the color of the event, the time and if it's an all day event or not. The title, description and any other fields you want to show (like participants or an avatar) will be coming from your custom function.
 
 The buffers can be customized through the [renderBufferBefore](#renderer-renderBufferBefore) and [renderBufferAfter](#renderer-renderBufferAfter) options. These can help you visualise delays or added minutes for tasks. For example travel time for meetings/appointments, check in/check out for flights.
 
@@ -302,8 +302,8 @@ Check out how you can style event content and buffer areas in [this example](htt
 
 ### The date header
 There are two approaches you can take:
-- Customize the date headers of the Scheduler with the [renderDay](#renderer-renderDay) option by adding relevant content, labels or completely change how they look. It takes a function that should return the desired markup. The Eventcalendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you. The render function will receive an object as parameter. This data can be used to show day specific things on the Scheduler.
-- If you are looking to customize only the content and don't want to bother with the styling of the event, you can use the [renderDayContent](#renderer-renderDayContent) option. You will get the styling taken care of by the Eventcalendar, and you can focus on what you show besides the day number. The template will receive an object as data. This data can be used to show day specific things on the Scheduler.
+- Customize the date headers of the Scheduler with the [renderSchedulerDay](#renderer-renderSchedulerDay) option by adding relevant content, labels or completely change how they look. It takes a function that should return the desired markup. The Eventcalendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you. The render function will receive an object as parameter. This data can be used to show day specific things on the Scheduler.
+- If you are looking to customize only the content and don't want to bother with the styling of the event, you can use the [renderSchedulerDayContent](#renderer-renderSchedulerDayContent) option. You will get the styling taken care of by the Eventcalendar, and you can focus on what you show besides the day number. The template will receive an object as data. This data can be used to show day specific things on the Scheduler.
 
 Check out how you can style the date header in [this example](https://demo.mobiscroll.com/scheduler/date-header-template#) or just play with the slider below to see the differences.
 

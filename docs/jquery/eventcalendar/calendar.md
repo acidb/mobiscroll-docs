@@ -111,8 +111,8 @@ The display of Calendar can be customized with different [render functions](#ren
 
 ### The event label and their content
 There are two approaches you can take:
-- Customize the label contents, that appears on the calendar - for this you will want to use the [renderLabelContent](#renderer-renderLabelContent) option. The Event Calendar will take care of styling and you can focus on what you show inside of the label.
-- Customize the labels that appear on the calendar view - use the [renderLabel](#renderer-renderLabel) option. The Event Calendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
+- Customize the label contents, that appears on the calendar - for this you will want to use the [renderCalendarEventContent](#renderer-renderCalendarEventContent) option. The Event Calendar will take care of styling and you can focus on what you show inside of the label.
+- Customize the labels that appear on the calendar view - use the [renderCalendarEvent](#renderer-renderCalendarEvent) option. The Event Calendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
 
 Check out how you can style labels and their content in [this example](https://demo.mobiscroll.com/eventcalendar/customize-label-look-and-feel#) or just play with the slider below to see the differences.
 
@@ -132,8 +132,8 @@ Check out how you can style labels and their content in [this example](https://d
 
 ### The event in popover and their content
 The events can be customized in two ways:
-- Customize the event content that appears on the popover - by using the [renderEventContent](#renderer-renderEventContent) option. The Event Calendar will take care of styling and you can focus on what you show inside of the event.
-- Customize the events that appear on the popover - with the [renderEvent](#renderer-renderEvent) option. It should return the markup of the event. The Event Calendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
+- Customize the event content that appears on the popover - by using the [renderPopoverEventContent](#renderer-renderPopoverEventContent) option. The Event Calendar will take care of styling and you can focus on what you show inside of the event.
+- Customize the events that appear on the popover - with the [renderPopoverEvent](#renderer-renderPopoverEvent) option. It should return the markup of the event. The Event Calendar will take care of the positioning, but everything else (like background color, hover effect, etc.) is left to you.
 
 Check out how you can style events and their content in [this example](https://demo.mobiscroll.com/eventcalendar/customize-event-popover#) or just play with the slider below to see the differences.
 

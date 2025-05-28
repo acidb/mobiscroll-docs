@@ -28,7 +28,7 @@ In case of the timeline view, this will be the first day of the event on the cur
    - `resourceObj`: *MbscResource* - The resource where the event was clicked, if [resources](#opt-resources) are set.
    - `slot`: *string | number* - The id of the slot where the event was clicked, if [slots](#opt-slots) are set.
    - `slotObj`: *MbscSlot* - The slot where the event was clicked, if [slots](#opt-slots) are set.
-   - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;schedule&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event was clicked.
+   - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;scheduler&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event was clicked.
    - `target`: *HTMLElement* - The DOM element of the event.
 
  - inst - The component instance.
@@ -45,7 +45,7 @@ Parameters:
  - args - The event argument with the following properties:
    - `event`: *MbscCalendarEvent* - The deleted event.
    - `events`: *Array&lt;MbscCalendarEvent&gt;* - The deleted events in case of multiple event selection.
-   - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;timeline&#039; | &#039;schedule&#039;* - The view where the event was deleted.
+   - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;timeline&#039; | &#039;scheduler&#039;* - The view where the event was deleted.
 
  - inst - The component instance.
 
@@ -67,7 +67,7 @@ In case of the timeline view, this will be the first day of the event on the cur
    - `resourceObj`: *MbscResource* - The resource where the event was clicked, if [resources](#opt-resources) are set.
    - `slot`: *string | number* - The id of the slot where the event was clicker, if [slots](#opt-slots) are set.
    - `slotObj`: *MbscResource* - The resource where the event was clicker, if [slots](#opt-slots) are set.
-   - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;schedule&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event was clicked.
+   - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;scheduler&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event was clicked.
    - `target`: *HTMLElement* - The DOM element of the event.
 
  - inst - The component instance.
@@ -90,7 +90,7 @@ In case of the timeline view, this will be the first day of the event on the cur
    - `resourceObj`: *MbscResource* - The resource where the event is hovered, if [resources](#opt-resources) are set.
    - `slot`: *string | number* - The id of the slot where the event is hovered, if [slots](#opt-slots) are set.
    - `slotObj`: *MbscSlot* - The slot where the event is hovered, if [slots](#opt-slots) are set.
-   - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;schedule&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event is hovered.
+   - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;scheduler&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event is hovered.
    - `target`: *HTMLElement* - The DOM element of the event.
 
  - inst - The component instance.
@@ -113,7 +113,7 @@ In case of the timeline view, this will be the first day of the event on the cur
    - `resourceObj`: *MbscResource* - The resource where the event was hovered, if [resources](#opt-resources) are set.
    - `slot`: *string | number* - The id of the slot where the event was hovered, if [slots](#opt-slots) are set.
    - `slotObj`: *MbscSlot* - The slot where the event was hovered, if [slots](#opt-slots) are set.
-   - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;schedule&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event was hovered.
+   - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;scheduler&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event was hovered.
    - `target`: *HTMLElement* - The DOM element of the event.
 
  - inst - The component instance.
@@ -136,7 +136,7 @@ In case of the timeline view, this will be the first day of the event on the cur
    - `resourceObj`: *MbscResource* - The resource where the event was clicked, if [resources](#opt-resources) are set.
    - `slot`: *string | number* - The id of the slot where the event was clicked, if [slots](#opt-slots) are set.
    - `slotObj`: *MbscSlot* - The slot where the event was clicked, if [slots](#opt-slots) are set.
-   - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;schedule&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event was clicked.
+   - `source`: *&#039;agenda&#039; | &#039;calendar&#039; | &#039;scheduler&#039; | &#039;timeline&#039; | &#039;popover&#039;* - The view where the event was clicked.
    - `target`: *HTMLElement* - The DOM element of the event.
 
  - inst - The component instance.

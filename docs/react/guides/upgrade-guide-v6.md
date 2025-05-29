@@ -23,13 +23,13 @@ Starting with Mobiscroll 6.0, we dropped support for IE11. Additionally, we upda
 
 ## Frameworks
 
-Starting with Mobiscroll 6.0 we updated the minimum supported framework and language versions. React 17 is no longer supported — please upgrade to React 18+ to continue using Mobiscroll. Additionally, TypeScript 4+ is now required.
+Starting with Mobiscroll 6.0 we updated the minimum supported framework and language versions. Please upgrade to React 17+ to continue using Mobiscroll. Additionally, TypeScript 4+ is now required.
 
 ## Packages
 
 To align with current ecosystem standards, we renamed several packages:
 
-* We renamed `react` to `react-legacy` (for React versions before 17).
+* We renamed `react` to `react-legacy` (for React versions before 18).
 * We renamed `react-next` to `react`, now the default React package.
 
 ## General

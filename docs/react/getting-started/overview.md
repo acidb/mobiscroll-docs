@@ -16,7 +16,7 @@ Mobiscroll is a collection of UI components that helps deliver great mobile apps
 Mobiscroll for React is a collection of React Components that take advantage of React's virtual DOM and state management capabilities. They are a perfect fit to use in a React application.
 
 :::info Supported versions
-Mobiscroll supports React version 18 and up to React 19.
+Mobiscroll supports React version 17 and up to React 19.
 :::
 
 <SupportedPlatforms />

@@ -1,0 +1,91 @@
+import CodeBlock from '@theme/CodeBlock';
+
+A convenient way to customize the colors of the components is to override the Sass color variables.
+
+Let's say your branding uses a nice red accent color, and you'd like that color to appear on the Mobiscroll components as well,
+while still using platform specific themes (e.g. `ios` on iOS devices, `material` on Android devices).
+You can override the accent color for every theme:
+
+<CodeBlock language="scss">
+@use '@mobiscroll/{props.framework}/dist/css/mobiscroll.scss' with ({'\n'}
+{'  '}$mbsc-ios-accent: #e61d2a;{'\n'}
+{'  '}$mbsc-material-accent: #e61d2a;{'\n'}
+{'  '}$mbsc-windows-accent: #e61d2a;{'\n'}
+);
+</CodeBlock>
+
+When using the deprecated [Ruby Sass](https://sass-lang.com/ruby-sass/) or [LibSass](https://sass-lang.com/libsass/) implementations, use the following syntax:
+
+<CodeBlock language="scss">
+// Override the variables BEFORE the scss file import, otherwise they won't take effect{'\n'}
+$mbsc-ios-accent: #e61d2a;{'\n'}
+$mbsc-material-accent: #e61d2a;{'\n'}
+$mbsc-windows-accent: #e61d2a;{'\n'}
+{'\n'}
+@import '@mobiscroll/{props.framework}/dist/css/mobiscroll.scss';
+</CodeBlock>
+
+Here's the complete list of the Sass color variables available grouped by themes:
+
+## iOS color variables
+
+```scss title="Available color variables and defaults for iOS"
+$mbsc-ios-accent: #007bff;      // Accent color
+$mbsc-ios-background: #f7f7f7;  // Background color
+$mbsc-ios-text: #000000;        // Text color
+
+$mbsc-ios-dark-accent: #ff8400;      // Dark Accent color
+$mbsc-ios-dark-background: #000000;  // Dark Background color
+$mbsc-ios-dark-text: #ffffff;        // Dark Text color
+
+$mbsc-ios-primary: #3f97f6;     // Primary color
+$mbsc-ios-secondary: #90979e;   // Secondary color
+$mbsc-ios-success: #43be5f;     // Success color
+$mbsc-ios-danger: #f5504e;      // Danger color
+$mbsc-ios-warning: #f8b042;     // Warning color
+$mbsc-ios-info: #5bb7c5;        // Info color
+$mbsc-ios-light: #ffffff;       // Light color
+$mbsc-ios-dark: #47494a;        // Dark color
+```
+
+## Material color variables
+
+```scss title="Available color variables and defaults for Material"
+$mbsc-material-accent: #009688;         // Accent color
+$mbsc-material-background: #eeeeee;     // Background color
+$mbsc-material-text: #5b5b5b;           // Text color
+
+$mbsc-material-dark-accent: #81ccc4;    // Accent color for dark version
+$mbsc-material-dark-background: #303030;// Background color for dark version
+$mbsc-material-dark-text: #c2c2c2;      // Text color for dark version
+
+$mbsc-material-primary: #3f97f6;        // Primary color
+$mbsc-material-secondary: #90979E;      // Secondary color
+$mbsc-material-success: #43BE5F;        // Success color
+$mbsc-material-danger: #f5504e;         // Danger color
+$mbsc-material-warning: #f8b042;        // Warning color
+$mbsc-material-info: #5BB7C5;           // Info color
+$mbsc-material-light: #ffffff;          // Light color
+$mbsc-material-dark: #47494A;           // Dark color
+```
+
+## Windows color variables
+
+```scss title="Available color variables and defaults for Windows"
+$mbsc-windows-accent: #0078d7;          // Accent color
+$mbsc-windows-background: #f2f2f2;      // Background color
+$mbsc-windows-text: #262626;            // Text color
+
+$mbsc-windows-dark-accent: #0078d7;     // Accent color for dark version
+$mbsc-windows-dark-background: #1a1a1a; // Background color for dark version
+$mbsc-windows-dark-text: #ffffff;       // Text color for dark version
+
+$mbsc-windows-primary: #3f97f6;         // Primary color
+$mbsc-windows-secondary: #90979E;       // Secondary color
+$mbsc-windows-success: #43BE5F;         // Success color
+$mbsc-windows-danger: #f5504e;          // Danger color
+$mbsc-windows-warning: #f8b042;         // Warning color
+$mbsc-windows-info: #5BB7C5;            // Info color
+$mbsc-windows-light: #ffffff;           // Light color
+$mbsc-windows-dark: #47494A;            // Dark color
+```

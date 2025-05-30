@@ -23,14 +23,14 @@ Starting with Mobiscroll 6.0, we dropped support for IE11. Additionally, we upda
 
 ## Frameworks
 
-Starting with Mobiscroll 6.0 we updated the minimum supported framework and language versions. Please upgrade to Vue 3+ to continue using Mobiscroll. Additionally, TypeScript 4+ is now required.
+Starting with Mobiscroll 6.0 we updated the minimum supported framework and language versions. Please upgrade to Vue 3+ to continue using Mobiscroll. Additionally, if you're using TypeScript, please make sure you're on version 4 or newer.
 
 
 ## General
 
-### `refDate` option change
+### `SASS` updates
 
-We changed the default [refDate](/vue/eventcalendar/api#opt-refDate) to today.
+Starting with Mobiscroll 6.0, we updated our `SASS` code to remove deprecated functions. The minimum supported `SASS` version is now x.x.x, and we no longer support `node-sass`.
 
 ### HTML support in data strings 
 
@@ -41,7 +41,7 @@ We removed support for HTML in data strings. These are no longer supported outsi
 
 ### Changed
 
-We changed the default [refDate](/vue/datepicker/api#opt-refDate) to today.
+We changed the default [refDate](/vue/datepicker/api#opt-refDate) from 1970/01/01 to today.
 
 ### Removed
 
@@ -51,14 +51,22 @@ We removed the `weeks` option. Use [calendarSize](/vue/datepicker/api#opt-calend
   <TabItem value="old" label="Old code" default>
 
 ```jsx
-:weeks="2"
+<template>
+  <MbscDatepicker
+    :weeks="6"
+  />
+</template>
 ```
 
   </TabItem>
   <TabItem value="new" label="New code">
 
 ```jsx
-:calendarSize="2"
+<template>
+  <MbscDatepicker
+    :calendarSize="6"
+  />
+</template>
 ```
 
   </TabItem>
@@ -70,7 +78,7 @@ We performed a cleanup and standardization of slot names. This improves consiste
 
 ### Changed
 
-We changed the default [refDate](/vue/eventcalendar/api#opt-refDate) to today.
+We changed the default [refDate](/vue/eventcalendar/api#opt-refDate) from 1970/01/01 to today.
 
 We renamed the `#event` slot to [#agendaEvent](/vue/eventcalendar/api#slot-agendaEvent).  
 We renamed the `#eventContent` slot to [#agendaEventContent](/vue/eventcalendar/api#slot-agendaEventContent).  
@@ -113,7 +121,7 @@ We performed a cleanup and standardization of slot names. This improves consiste
 
 ### Changed
 
-We changed the default [refDate](/vue/eventcalendar/api#opt-refDate) to today.
+We changed the default [refDate](/vue/eventcalendar/api#opt-refDate) from 1970/01/01 to today.
 
 We renamed the `#label` slot to [#calendarEvent](/vue/eventcalendar/api#slot-calendarEvent).  
 We renamed the `#labelContent` slot to [#calendarEventContent](/vue/eventcalendar/api#slot-calendarEventContent).  
@@ -158,8 +166,6 @@ We renamed the `#dayContent` slot to [#calendarDayContent](/vue/eventcalendar/ap
 We performed a cleanup and standardization of slot names. This improves consistency across components. Deprecated names are still supported for now but will be removed in a future release.
 
 ### Changed
-
-We changed the default [refDate](/vue/eventcalendar/api#opt-refDate) to today.
 
 We renamed the `#event` slot to [#schedulerEvent](/vue/eventcalendar/api#slot-schedulerEvent).  
 We renamed the `#eventContent` slot to [#schedulerEventContent](/vue/eventcalendar/api#slot-schedulerEventContent).  
@@ -226,8 +232,6 @@ We performed a cleanup and standardization of slot names. This improves consiste
 
 ### Changed
 
-We changed the default [refDate](/vue/eventcalendar/api#opt-refDate) to today.
-
 We renamed the `#event` slot to [#timelineEvent](/vue/eventcalendar/api#slot-timelineEvent).  
 We renamed the `#eventContent` slot to [#timelineEventContent](/vue/eventcalendar/api#slot-timelineEventContent).  
 We renamed the `#day` slot to [#timelineDay](/vue/eventcalendar/api#slot-timelineDay).  
@@ -262,7 +266,7 @@ We renamed the `#day` slot to [#timelineDay](/vue/eventcalendar/api#slot-timelin
   </TabItem>
 </Tabs>
 
-We added a new `eventDisplay` prop under [view](/vue/eventcalendar/api#opt-view) that takes `'exact'` or `'fill'` as values, and deprecated the `eventList` boolean.
+We added a new `eventDisplay` property to the [view](/vue/eventcalendar/api#opt-view) option that takes `'exact'` or `'fill'` as values, and deprecated the `eventList` boolean.
 
 <Tabs>
   <TabItem value="old" label="Old code" default>
@@ -287,7 +291,7 @@ We added a new `eventDisplay` prop under [view](/vue/eventcalendar/api#opt-view)
 
 ### Removed
 
-We removed the generic `resolution` prop in favor of `resolutionHorizontal` and `resolutionVertical` under the [view](/vue/eventcalendar/api#opt-view) configuration.
+We removed the deprecated `resolution` property from the [view](/vue/eventcalendar/api#opt-view) option. Use the `resolutionHorizontal` property instead.
 
 <Tabs>
   <TabItem value="old" label="Old code" default>

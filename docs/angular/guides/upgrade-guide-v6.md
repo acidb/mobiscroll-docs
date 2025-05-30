@@ -34,9 +34,9 @@ To align with current ecosystem standards, we renamed the packages as follows:
 
 ## General
 
-### `refDate` option change
+### `SASS` updates
 
-We changed the default [refDate](/angular/eventcalendar/api#opt-refDate) to today.
+Starting with Mobiscroll 6.0, we updated our `SASS` code to remove deprecated functions. The minimum supported `SASS` version is now x.x.x, and we no longer support `node-sass`.
 
 ### HTML support in data strings 
 
@@ -47,7 +47,7 @@ We removed support for HTML in data strings. These are no longer supported outsi
 
 ### Changed
 
-We changed the default [refDate](/angular/datepicker/api#opt-refDate) to today.
+We changed the default [refDate](/angular/datepicker/api#opt-refDate) from 1970/01/01 to today.
 
 ### Removed
 
@@ -56,14 +56,14 @@ We removed the `weeks` option. Use [calendarSize](/angular/datepicker/api#opt-ca
 <Tabs>
   <TabItem value="old" label="Old code" default>
 
-```jsx
-weeks: 6
+```html
+<mbsc-datepicker [weeks]="6"></mbsc-datepicker>
 ```
   </TabItem>
   <TabItem value="new" label="New code">
 
-```jsx
-calendarSize: 6
+```html
+<mbsc-datepicker [calendarSize]="6"></mbsc-datepicker>
 ```
 
   </TabItem>
@@ -75,7 +75,7 @@ We performed a cleanup and standardization of template option names. This improv
 
 ### Changed
 
-We changed the default [refDate](/angular/eventcalendar/api#opt-refDate) to today. 
+We changed the default [refDate](/angular/eventcalendar/api#opt-refDate) from 1970/01/01 to today. 
 
 We renamed the `eventTemplate` template to [agendaEventTemplate](/angular/eventcalendar/api#template-agendaEventTemplate).  
 We renamed the `eventContentTemplate` template to [agendaEventContentTemplate](/angular/eventcalendar/api#template-agendaEventContentTemplate).   
@@ -105,7 +105,7 @@ We performed a cleanup and standardization of template option names. This improv
 
 ### Changed
 
-We changed the default [refDate](/angular/eventcalendar/api#opt-refDate) to today.  
+We changed the default [refDate](/angular/eventcalendar/api#opt-refDate) from 1970/01/01 to today.  
 
 We renamed the `labelTemplate` template to [calendarEventTemplate](/angular/eventcalendar/api#template-calendarEventTemplate).  
 We renamed the `labelContentTemplate` template to [calendarEventContentTemplate](/angular/eventcalendar/api#template-calendarEventContentTemplate).  
@@ -138,8 +138,6 @@ We renamed the `dayContentTemplate` template to [calendarDayContentTemplate](/an
 We performed a cleanup and standardization of template option names. This improves consistency across components. Deprecated names are still supported for now but will be removed in a future release.
 
 ### Changed
-
-We changed the default [refDate](/angular/eventcalendar/api#opt-refDate) to today.  
 
 We also renamed the `schedule` [view](/angular/eventcalendar/api#opt-view) to `scheduler`:
 
@@ -191,8 +189,6 @@ We performed a cleanup and standardization of template option names. This improv
 
 ### Changed
 
-We changed the default [refDate](/angular/eventcalendar/api#opt-refDate) to today.
-
 We renamed the `scheduleEventTemplate` template to [timelineEventTemplate](/angular/eventcalendar/api#template-timelineEventTemplate).  
 We renamed the `scheduleEventContentTemplate` template to [timelineEventContentTemplate](/angular/eventcalendar/api#template-timelineEventContentTemplate).  
 We renamed the `dayTemplate` template to [timelineDayTemplate](/angular/eventcalendar/api#template-timelineDayTemplate).  
@@ -214,7 +210,7 @@ We renamed the `dayTemplate` template to [timelineDayTemplate](/angular/eventcal
   </TabItem>
 </Tabs>
 
-We added a new `eventDisplay` prop under [view](/angular/eventcalendar/api#opt-view) that takes `'exact'` or `'fill'` as values, and deprecated the `eventList` boolean.
+We added a new `eventDisplay` property to the [view](/angular/eventcalendar/api#opt-view) option that takes `'exact'` or `'fill'` as values, and deprecated the `eventList` boolean.
 
 <Tabs>
   <TabItem value="old" label="Old code" default>
@@ -236,7 +232,7 @@ We added a new `eventDisplay` prop under [view](/angular/eventcalendar/api#opt-v
 
 ### Removed
 
-We removed the generic `resolution` prop in favor of `resolutionHorizontal` and `resolutionVertical` under the [view](/angular/eventcalendar/api#opt-view) configuration.
+We removed the deprecated `resolution` property from the [view](/angular/eventcalendar/api#opt-view) option. Use the `resolutionHorizontal` property instead.
 
 <Tabs>
   <TabItem value="old" label="Old code" default>

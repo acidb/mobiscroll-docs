@@ -23,21 +23,19 @@ Starting with Mobiscroll 6.0, we dropped support for IE11. Additionally, we upda
 
 ## Frameworks
 
-Starting with Mobiscroll 6.0, we updated the minimum supported language versions. Please make sure you're using TypeScript 4 or newer.
-
+Starting with Mobiscroll 6.0, we updated the minimum supported language versions. If you're using TypeScript, please make sure you're on version 4 or newer.
 
 ## General
 
-### `refDate` option change
+### `SASS` updates
 
-We changed the default [refDate](/jquery/eventcalendar/api#opt-refDate) to today.
-
+Starting with Mobiscroll 6.0, we updated our `SASS` code to remove deprecated functions. The minimum supported `SASS` version is now x.x.x, and we no longer support `node-sass`.
 
 ## Datepicker
 
 ### Changed
 
-We changed the default [refDate](/jquery/datepicker/api#opt-refDate) to today.
+We changed the default [refDate](/jquery/datepicker/api#opt-refDate) from 1970/01/01 to today.
 
 ### Removed
 
@@ -47,14 +45,18 @@ We removed the `weeks` option. Use [calendarSize](/jquery/datepicker/api#opt-cal
   <TabItem value="old" label="Old code" default>
 
 ```jsx
-weeks: 6
+$('#myID').mobiscroll().datepicker({
+  weeks: 6
+}
 ```
 
   </TabItem>
   <TabItem value="new" label="New code">
 
 ```jsx
-calendarSize: 6
+$('#myID').mobiscroll().datepicker({
+  calendarSize: 6
+}
 ```
 
   </TabItem>
@@ -66,7 +68,7 @@ We performed a cleanup and standardization of renderer option names. This improv
 
 ### Changed
 
-We changed the default [refDate](/jquery/eventcalendar/api#opt-refDate) to today.
+We changed the default [refDate](/jquery/eventcalendar/api#opt-refDate) from 1970/01/01 to today.
 
 We renamed the `renderEvent` option to [renderAgendaEvent](/jquery/eventcalendar/api#renderer-renderAgendaEvent).   
 We renamed the `renderEventContent` option to [renderAgendaEventContent](/jquery/eventcalendar/api#renderer-renderAgendaEventContent).  
@@ -76,7 +78,7 @@ We renamed the `renderDay` option to [renderAgendaDay](/jquery/eventcalendar/api
   <TabItem value="old" label="Old code" default>
 
 ```jsx
-$('#myid').mobiscroll().eventcalendar({
+$('#myID').mobiscroll().eventcalendar({
   renderEvent: myRender
 });
 ```
@@ -85,7 +87,7 @@ $('#myid').mobiscroll().eventcalendar({
   <TabItem value="new" label="New code">
 
 ```jsx
-$('#myid').mobiscroll().eventcalendar({
+$('#myID').mobiscroll().eventcalendar({
   renderAgendaEvent: myRender
 });
 ```
@@ -100,7 +102,7 @@ We performed a cleanup and standardization of renderer option names. This improv
 
 ### Changed
 
-We changed the default [refDate](/jquery/eventcalendar/api#opt-refDate) to today.
+We changed the default [refDate](/jquery/eventcalendar/api#opt-refDate) from 1970/01/01 to today.
 
 We renamed the `renderLabel` option to [renderCalendarEvent](/jquery/eventcalendar/api#renderer-renderCalendarEvent).  
 We renamed the `renderLabelContent` option to [renderCalendarEventContent](/jquery/eventcalendar/api#renderer-renderCalendarEventContent).  
@@ -114,7 +116,7 @@ We renamed the `renderDayContent` option to [renderCalendarDayContent](/jquery/e
   <TabItem value="old" label="Old code" default>
 
 ```jsx
-$('#myid').mobiscroll().eventcalendar({
+$('#myID').mobiscroll().eventcalendar({
   renderLabel: myRender
 });
 ```
@@ -123,7 +125,7 @@ $('#myid').mobiscroll().eventcalendar({
   <TabItem value="new" label="New code">
 
 ```jsx
-$('#myid').mobiscroll().eventcalendar({
+$('#myID').mobiscroll().eventcalendar({
   renderCalendarEvent: myRender
 });
 ```
@@ -138,8 +140,6 @@ We performed a cleanup and standardization of renderer option names. This improv
 
 ### Changed
 
-We changed the default [refDate](/jquery/eventcalendar/api#opt-refDate) to today.  
-
 We renamed the `renderScheduleEvent` option to [renderSchedulerEvent](/jquery/eventcalendar/api#renderer-renderSchedulerEvent).  
 We renamed the `renderScheduleEventContent` option to [renderSchedulerEventContent](/jquery/eventcalendar/api#renderer-renderSchedulerEventContent).  
 We renamed the `renderDay` option to [renderSchedulerDay](/jquery/eventcalendar/api#renderer-renderSchedulerDay).  
@@ -150,7 +150,7 @@ We renamed the `renderDayContent` option to [renderSchedulerDayContent](/jquery/
   <TabItem value="old" label="Old code" default>
 
 ```jsx
-$('#myid').mobiscroll().eventcalendar({
+$('#myID').mobiscroll().eventcalendar({
   renderScheduleEvent: myRender
 });
 ```
@@ -159,7 +159,7 @@ $('#myid').mobiscroll().eventcalendar({
   <TabItem value="new" label="New code">
 
 ```jsx
-$('#myid').mobiscroll().eventcalendar({
+$('#myID').mobiscroll().eventcalendar({
   renderSchedulerEvent: myRender
 });
 ```
@@ -173,7 +173,7 @@ We also renamed the `schedule` [view](/jquery/eventcalendar/api#opt-view) to `sc
   <TabItem value="old" label="Old code" default>
 
 ```jsx
-$('#myid').mobiscroll().eventcalendar({
+$('#myID').mobiscroll().eventcalendar({
   view: { schedule: { type: 'day' } }
 });
 ```
@@ -182,7 +182,7 @@ $('#myid').mobiscroll().eventcalendar({
   <TabItem value="new" label="New code">
 
 ```jsx
-$('#myid').mobiscroll().eventcalendar({
+$('#myID').mobiscroll().eventcalendar({
   view: { scheduler: { type: 'day' } }
 });
 ```
@@ -196,8 +196,6 @@ We performed a cleanup and standardization of renderer option names. This improv
 
 ### Changed
 
-We changed the default [refDate](/jquery/eventcalendar/api#opt-refDate) to today.  
-
 We renamed the `renderScheduleEvent` option to [renderTimelineEvent](/jquery/eventcalendar/api#renderer-renderTimelineEvent).  
 We renamed the `renderScheduleEventContent` option to [renderTimelineEventContent](/jquery/eventcalendar/api#renderer-renderTimelineEventContent).  
 We renamed the `renderDay` option to [renderTimelineDay](/jquery/eventcalendar/api#renderer-renderTimelineDay).  
@@ -206,7 +204,7 @@ We renamed the `renderDay` option to [renderTimelineDay](/jquery/eventcalendar/a
   <TabItem value="old" label="Old code" default>
 
 ```jsx
-$('#myid').mobiscroll().eventcalendar({
+$('#myID').mobiscroll().eventcalendar({
   renderScheduleEvent: myRender
 });
 ```
@@ -214,7 +212,7 @@ $('#myid').mobiscroll().eventcalendar({
   <TabItem value="new" label="New code">
 
 ```jsx
-$('#myid').mobiscroll().eventcalendar({
+$('#myID').mobiscroll().eventcalendar({
   renderTimelineEvent: myRender
 });
 ```
@@ -222,13 +220,13 @@ $('#myid').mobiscroll().eventcalendar({
   </TabItem>
 </Tabs>
 
-We added a new `eventDisplay` prop under [view](/jquery/eventcalendar/api#opt-view) that takes `'exact'` or `'fill'` as values, and deprecated the `eventList` boolean.
+We added a new `eventDisplay` property to the [view](/jquery/eventcalendar/api#opt-view) option that takes `'exact'` or `'fill'` as values, and deprecated the `eventList` boolean.
 
 <Tabs>
   <TabItem value="old" label="Old code" default>
 
 ```jsx
-$('#myid').mobiscroll().eventcalendar({
+$('#myID').mobiscroll().eventcalendar({
   view: { timeline: { type: 'day', eventList: true } }
 });
 ```
@@ -236,7 +234,7 @@ $('#myid').mobiscroll().eventcalendar({
   <TabItem value="new" label="New code">
 
 ```jsx
-$('#myid').mobiscroll().eventcalendar({
+$('#myID').mobiscroll().eventcalendar({
   view: { timeline: { type: 'day', eventDisplay: 'fill' } }
 });
 ```
@@ -246,13 +244,13 @@ $('#myid').mobiscroll().eventcalendar({
 
 ### Removed
 
-We removed the generic `resolution` prop in favor of `resolutionHorizontal` and `resolutionVertical` under the [view](/jquery/eventcalendar/api#opt-view) configuration.
+We removed the deprecated `resolution` property from the [view](/jquery/eventcalendar/api#opt-view) option. Use the `resolutionHorizontal` property instead.
 
 <Tabs>
   <TabItem value="old" label="Old code" default>
 
 ```jsx
-$('#myid').mobiscroll().eventcalendar({
+$('#myID').mobiscroll().eventcalendar({
   view: { timeline: { type: 'day', resolutiuon: 'hour' } }
 });
 ```
@@ -260,7 +258,7 @@ $('#myid').mobiscroll().eventcalendar({
   <TabItem value="new" label="New code">
 
 ```jsx
-$('#myid').mobiscroll().eventcalendar({
+$('#myID').mobiscroll().eventcalendar({
   view: { timeline: { type: 'day', resolutiuonHorizontal: 'hour' } }
 });
 ```

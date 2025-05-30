@@ -23,7 +23,7 @@ Starting with Mobiscroll 6.0, we dropped support for IE11. Additionally, we upda
 
 ## Frameworks
 
-Starting with Mobiscroll 6.0 we updated the minimum supported framework and language versions. Please upgrade to React 17+ to continue using Mobiscroll. Additionally, TypeScript 4+ is now required.
+Starting with Mobiscroll 6.0 we updated the minimum supported framework and language versions. Please upgrade to React 17+ to continue using Mobiscroll. Additionally, if you're using TypeScript, please make sure you're on version 4 or newer.
 
 ## Packages
 
@@ -34,9 +34,9 @@ To align with current ecosystem standards, we renamed several packages:
 
 ## General
 
-### `refDate` option change
+### `SASS` updates
 
-We changed the default [refDate](/react/eventcalendar/api#opt-refDate) to today.
+Starting with Mobiscroll 6.0, we updated our `SASS` code to remove deprecated functions. The minimum supported `SASS` version is now x.x.x, and we no longer support `node-sass`.
 
 ### HTML support in data strings 
 
@@ -47,7 +47,7 @@ We removed support for HTML in data strings. These are no longer supported outsi
 
 ### Changed
 
-We changed the default [refDate](/react/datepicker/api#opt-refDate) to today.
+We changed the default [refDate](/react/datepicker/api#opt-refDate) from 1970/01/01 to today.
 
 ### Removed
 
@@ -57,14 +57,18 @@ We removed the `weeks` option. Use [calendarSize](/react/datepicker/api#opt-cale
   <TabItem value="old" label="Old code" default>
 
 ```jsx
-weeks=6
+<Datepicker
+  weeks={6}
+/>
 ```
 
   </TabItem>
   <TabItem value="new" label="New code">
 
 ```jsx
-calendarSize=6
+<Datepicker
+  calendarSize={2}
+/>
 ```
 
   </TabItem>
@@ -76,7 +80,7 @@ We performed a cleanup and standardization of renderer option names. This improv
 
 ### Changed
 
-We changed the default [refDate](/react/eventcalendar/api#opt-refDate) to today.  
+We changed the default [refDate](/react/eventcalendar/api#opt-refDate) from 1970/01/01 to today.  
 
 We renamed the `renderEvent` option to [renderAgendaEvent](/react/eventcalendar/api#renderer-renderAgendaEvent).    
 We renamed the `renderEventContent` option to [renderAgendaEventContent](/react/eventcalendar/api#renderer-renderAgendaEventContent).   
@@ -104,7 +108,7 @@ We performed a cleanup and standardization of renderer option names. This improv
 
 ### Changed
 
-We changed the default [refDate](/react/eventcalendar/api#opt-refDate) to today.  
+We changed the default [refDate](/react/eventcalendar/api#opt-refDate) from 1970/01/01 to today.  
 
 We renamed the `renderLabel` option to [renderCalendarEvent](/react/eventcalendar/api#renderer-renderCalendarEvent).  
 We renamed the `renderLabelContent` option to [renderCalendarEventContent](/react/eventcalendar/api#renderer-renderCalendarEventContent).  
@@ -137,8 +141,6 @@ We renamed the `renderDayContent` option to [renderCalendarDayContent](/react/ev
 We performed a cleanup and standardization of renderer option names. This improves consistency across components. Deprecated names are still supported for now but will be removed in a future release.
 
 ### Changed
-
-We changed the default [refDate](/react/eventcalendar/api#opt-refDate) to today.
 
 We renamed the `renderScheduleEvent` option to [renderSchedulerEvent](/react/eventcalendar/api#renderer-renderSchedulerEvent).  
 We renamed the `renderScheduleEventContent` option to [renderSchedulerEventContent](/react/eventcalendar/api#renderer-renderSchedulerEventContent).  
@@ -188,8 +190,6 @@ We performed a cleanup and standardization of renderer option names. This improv
 
 ### Changed
 
-We changed the default [refDate](/react/eventcalendar/api#opt-refDate) to today.
-
 We renamed the `renderScheduleEvent` option to [renderTimelineEvent](/react/eventcalendar/api#renderer-renderTimelineEvent).  
 We renamed the `renderScheduleEventContent` option to [renderTimelineEventContent](/react/eventcalendar/api#renderer-renderTimelineEventContent).  
 We renamed the `renderDay` option to [renderTimelineDay](/react/eventcalendar/api#renderer-renderTimelineDay).  
@@ -212,7 +212,7 @@ We renamed the `renderDay` option to [renderTimelineDay](/react/eventcalendar/ap
   </TabItem>
 </Tabs>
 
-We added a new `eventDisplay` prop under [view](/react/eventcalendar/api#opt-view) that takes `'exact'` or `'fill'` as values, and deprecated the `eventList` boolean.
+We added a new `eventDisplay` property to the [view](/react/eventcalendar/api#opt-view) option that takes `'exact'` or `'fill'` as values, and deprecated the `eventList` boolean.
 
 <Tabs>
   <TabItem value="old" label="Old code" default>
@@ -233,7 +233,7 @@ We added a new `eventDisplay` prop under [view](/react/eventcalendar/api#opt-vie
 
 ### Removed
 
-We removed the generic `resolution` prop in favor of `resolutionHorizontal` and `resolutionVertical` under the [view](/react/eventcalendar/api#opt-view) configuration.
+We removed the deprecated `resolution` property from the [view](/react/eventcalendar/api#opt-view) option. Use the `resolutionHorizontal` property instead.
 
 <Tabs>
   <TabItem value="old" label="Old code" default>

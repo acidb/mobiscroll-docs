@@ -135,29 +135,14 @@ We renamed the `dayContentTemplate` template to [calendarDayContentTemplate](/an
 
 ## Scheduler
 
-We performed a cleanup and standardization of template option names. This improves consistency across components. Deprecated names are still supported for now but will be removed in a future release.
+### Header consistency
+
+We unified the Scheduler header layout across different view configurations. The single-day view with resources now uses the same header structure as multi-day (e.g., weekly, monthly or daily) views. This ensures a consistent look and feel regardless of the selected view type.
+
 
 ### Changed
 
-We also renamed the `schedule` [view](/angular/eventcalendar/api#opt-view) to `scheduler`:
-
-<Tabs>
-  <TabItem value="old" label="Old code" default>
-
-```html
-<mbsc-eventcalendar [view]="{ schedule: { type: 'day' }}"></mbsc-eventcalendar>
-```
-
-  </TabItem>
-  <TabItem value="new" label="New code">
-
-```html
-<mbsc-eventcalendar [view]="{ scheduler: { type: 'day' }}"></mbsc-eventcalendar>
-```
-
-  </TabItem>
-</Tabs>
-
+We performed a cleanup and standardization of template option names. This improves consistency across components. Deprecated names are still supported for now but will be removed in a future release.
 
 We renamed the `scheduleEventTemplate` template to [schedulerEventTemplate](/angular/eventcalendar/api#template-schedulerEventTemplate).    
 We renamed the `scheduleEventContentTemplate` template to [schedulerEventContentTemplate](/angular/eventcalendar/api#template-schedulerEventContentTemplate).   
@@ -181,7 +166,24 @@ We renamed the `dayContentTemplate` template to [schedulerDayContentTemplate](/a
   </TabItem>
 </Tabs>
 
+We also renamed the `schedule` [view](/angular/eventcalendar/api#opt-view) to `scheduler`:
 
+<Tabs>
+  <TabItem value="old" label="Old code" default>
+
+```html
+<mbsc-eventcalendar [view]="{ schedule: { type: 'day' }}"></mbsc-eventcalendar>
+```
+
+  </TabItem>
+  <TabItem value="new" label="New code">
+
+```html
+<mbsc-eventcalendar [view]="{ scheduler: { type: 'day' }}"></mbsc-eventcalendar>
+```
+
+  </TabItem>
+</Tabs>
 
 ## Timeline
 

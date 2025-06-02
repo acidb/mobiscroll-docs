@@ -163,9 +163,14 @@ We renamed the `#dayContent` slot to [#calendarDayContent](/vue/eventcalendar/ap
 
 ## Scheduler
 
-We performed a cleanup and standardization of slot names. This improves consistency across components. Deprecated names are still supported for now but will be removed in a future release.
+### Header consistency
+
+We unified the Scheduler header layout across different view configurations. The single-day view with resources now uses the same header structure as multi-day (e.g., weekly, monthly or daily) views. This ensures a consistent look and feel regardless of the selected view type.
+
 
 ### Changed
+
+We performed a cleanup and standardization of slot names. This improves consistency across components. Deprecated names are still supported for now but will be removed in a future release.
 
 We renamed the `#event` slot to [#schedulerEvent](/vue/eventcalendar/api#slot-schedulerEvent).  
 We renamed the `#eventContent` slot to [#schedulerEventContent](/vue/eventcalendar/api#slot-schedulerEventContent).  

@@ -28,9 +28,9 @@ Starting with Mobiscroll 6.0 we updated the minimum supported framework and lang
 
 ## General
 
-### `SASS` updates
+### Sass updates
 
-Starting with Mobiscroll 6.0, we updated our `SASS` code to remove deprecated functions. The minimum supported `SASS` version is now x.x.x, and we no longer support `node-sass`.
+Starting with Mobiscroll 6.0, we updated our `Sass` code to remove deprecated functions. The minimum supported `Sass` version is now [1.80.0.](https://www.npmjs.com/package/sass), and we no longer support [node-sass](https://www.npmjs.com/package/node-sass). If you're currently using `node-sass`, we recommend switching to the [sass](https://www.npmjs.com/package/sass) package, which is now the primary implementation. For help with the migration, refer to the official [Sass upgrade guide](https://sass-lang.com/blog/libsass-is-deprecated/#how-do-i-migrate).
 
 ### HTML support in data strings 
 
@@ -271,7 +271,7 @@ We renamed the `#day` slot to [#timelineDay](/vue/eventcalendar/api#slot-timelin
   </TabItem>
 </Tabs>
 
-We added a new `eventDisplay` property to the [view](/vue/eventcalendar/api#opt-view) option that takes `'exact'` or `'fill'` as values, and deprecated the `eventList` boolean.
+We added a new `eventDisplay` property to the [view](/vue/eventcalendar/api#opt-view) option that takes `'exact'` or `'fill'` as values, and deprecated the `eventList` boolean property.
 
 <Tabs>
   <TabItem value="old" label="Old code" default>

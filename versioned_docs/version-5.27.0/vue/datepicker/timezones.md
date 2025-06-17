@@ -6,7 +6,7 @@ displayed_sidebar: vueSidebar
 
 # Timezones
 
-By default the Datepicker uses the local timezone of the browser for value selection. If you want to select a date-time in a different timezone, you will need an external library to handle the timezone conversions. There are two libraries that Mobiscroll supports: [moment-timezone](https://momentjs.com/timezone/) and [luxon](https://moment.github.io/luxon/).
+By default the Datepicker uses the local timezone of the browser for value selection. If you want to select a date-time in a different timezone, you will need an external library to handle the timezone conversions. There are two libraries that Mobiscroll supports: [moment-timezone](https://momentjs.com/timezone/)and [luxon](https://moment.github.io/luxon/).
 
 :::info
 When using a timezone plugin with the Datepicker, the returned values are always ISO 8601 date strings, no matter what [`returnFormat`](./api#opt-returnFormat) option is used.

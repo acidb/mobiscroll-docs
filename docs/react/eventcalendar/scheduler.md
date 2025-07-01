@@ -145,6 +145,11 @@ If you override both resource and day column widths, make sure column groups (da
 are wide enough to contain their child elements, or specify a `min-width` for the group column instead of a fixed width.
 :::
 
+### Hide empty columns
+
+Columns without any events can be hidden by setting `hideEmptyColumns` to `true` under the [view](#configuring-the-view) configuration.
+
+
 ## Resources
 
 ### Resource grouping

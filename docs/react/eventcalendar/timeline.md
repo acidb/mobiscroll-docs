@@ -329,6 +329,14 @@ There are three CSS classes which can be used for [changing the height of resour
    }
    ```
 
+### Hiding empty resources
+
+Resources without any events can be hidden by setting `hideEmptyResources` to `true` under the [view](#configuring-the-view) configuration.
+
+   :::info
+   Setting `hideEmptyDays` to `true` will hide days that have no scheduled events, but it only takes effect when `resolutionVertical` is set to `'day'`. 
+   :::
+   
 ## Load data on scroll
 
 The timeline view is virtualized, meaning its markup is dynamically generated and managed as needed. Scrolling vertically or horizontally triggers the [onVirtualLoading](#event-onVirtualLoading) lifecycle event, which can be used to [load data incrementally during scrolling](https://demo.mobiscroll.com/timeline/load-resources-on-scroll#), rather than loading all data during the initial render. This dramatically improves performance in case of a large event or resource count since not all data is loaded in memory from start. 

@@ -319,10 +319,10 @@ There are three CSS classes which can be used for [changing the height of resour
 
 ### Hiding empty resources
 
-Resources without any events can be hidden by setting `hideEmptyResources` to `true` under the [view](#configuring-the-view) configuration.
+Rows without any events can be hidden by setting `hideEmptyRows` to `true` under the [view](#configuring-the-view) configuration.
 
    :::info
-   Setting `hideEmptyDays` to `true` will hide days that have no scheduled events, but it only takes effect when `resolutionVertical` is set to `'day'`. 
+   It has no effect on parent resources. These will remain visible despite of this setting.
    :::
    
 ## Load data on scroll

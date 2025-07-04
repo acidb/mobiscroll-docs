@@ -323,7 +323,7 @@ There are three CSS classes which can be used for [changing the height of resour
 Rows without any events can be hidden by setting `hideEmptyRows` to `true` under the [view](#configuring-the-view) configuration.
 
    :::info
-   It has no effect on parent resources. These will remain visible despite of this setting.
+   Parent resources will always be displayed, even when empty.
    :::
 
 ## Load data on scroll

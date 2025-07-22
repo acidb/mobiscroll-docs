@@ -1,6 +1,6 @@
 ---
 sidebar_position: 8
-sidebar_label: Migrating from Bryntum to Mobiscroll
+sidebar_label: Migrating from Bryntum
 displayed_sidebar: javascriptSidebar
 title: Migrating from Bryntum to Mobiscroll
 toc_max_heading_level: 2
@@ -82,7 +82,7 @@ mobiscroll.eventcalendar('#container', {
             endTime: '20:00',
         }
     },
-    selectedDate: '2017-01-01' // if you want to set the initial view to a specific date
+    defaultSelectedDate: '2017-01-01' // if you want to set the initial view to a specific date
 });
 ```
 
@@ -111,7 +111,7 @@ mobiscroll.eventcalendar('#container', {
             type: 'week'
         }
     },
-    selectedDate: '2020-09-12' // if you want to set the initial view to a specific date
+    defaultSelectedDate: '2020-09-12' // if you want to set the initial view to a specific date
 });
 ```
 
@@ -251,7 +251,7 @@ var calendar = mobiscroll.eventcalendar('#container', {
       labels: true,
     },
   },
-  selectedDate: '2020-09-12' // if you want to set the initial view to a specific date
+  defaultSelectedDate: '2020-09-12', // if you want to set the initial view to a specific date
   
   renderHeader: function () {
     return (

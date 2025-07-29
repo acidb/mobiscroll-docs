@@ -171,7 +171,7 @@ events: [
 ```jsx
 data: [
     {
-        id: 1, 
+        id: 1,
         resource: 'r1',
         start: '2017-01-01T10:00',
         end: '2017-01-01T12:00',
@@ -252,7 +252,7 @@ var calendar = mobiscroll.eventcalendar('#container', {
     },
   },
   defaultSelectedDate: '2020-09-12', // if you want to set the initial view to a specific date
-  
+
   renderHeader: function () {
     return (
       '<div mbsc-calendar-nav class="cal-header-nav"></div>' +
@@ -313,7 +313,7 @@ document.querySelectorAll('.md-view-change').forEach(function (elm) {
         break;
     }
   });
-  
+
 });
 ```
 
@@ -324,7 +324,7 @@ While Bryntum offers more built-in functionality out of the box, Mobiscroll prov
 In addition to drag & drop and custom view-switching, Mobiscroll also supports [timezone handling](https://demo.mobiscroll.com/scheduler/setting-the-timezone) and [zooming levels](https://demo.mobiscroll.com/timeline/calendar-zoom). All of our views work seamlessly across both [mobile](https://demo.mobiscroll.com/scheduler/mobile-day-view) and [desktop](https://demo.mobiscroll.com/scheduler/desktop-day-view) environments, with full support for touch interactions.
 
 As mentioned above, with some additional setup, most —if not all— features can be effectively replicated when migrating from Bryntum to Mobiscroll.
-If you have any specific questions or run into any issues, don’t hesitate to [reach out](mailto:support@mobiscroll.com) — we’re happy to help.
+If you have any specific questions or run into any issues, don’t hesitate to [reach out](https://mobiscroll.com#get-help) — we’re happy to help.
 
 ## Conclusion
 
@@ -338,7 +338,7 @@ The overall migration process includes:
 
 With a clear understanding of both libraries’ capabilities and structures, you can migrate efficiently and take full advantage of Mobiscroll’s modern UI and feature-rich environment.
 
-#### Considering migrating from Bryntum to Mobiscroll? 
+#### Considering migrating from Bryntum to Mobiscroll?
 
 [Schedule a call](https://calendly.com/mobiscroll/30min) and let's chat about how we can help.
 We're here to support you in the migration process.

@@ -52,7 +52,7 @@ mobiscroll.eventcalendar('#container', {
 ## View configuration
 
 Key Differences:
-- Mobiscroll offers refined control over time ranges and timeline views.
+- With Mobiscroll, you get precise control over [time ranges](https://demo.mobiscroll.com/scheduler/show-hide-hours-days) on Scheduler and [Timeline](https://demo.mobiscroll.com/timeline/daily-weekly-monthly-yearly-timeline) views, plus feature-rich [Event Calendar](https://demo.mobiscroll.com/eventcalendar) and [Agenda](https://demo.mobiscroll.com/agenda) views for seamless scheduling.
 - Bryntum provides more built-in view presets.
 
 ### Bryntum Scheduler Pro:
@@ -100,7 +100,7 @@ const calendar = new Calendar({
 });
 ```
 
-### Mobiscroll Scheduler view:
+### Mobiscroll Scheduler:
 
 You can customize the visible days and hours, as well as the time grid scale, using the `schedule` object under the `view` [option](/javascript/eventcalendar/scheduler#configuring-the-view). This allows you to define which days are shown (e.g., weekdays), set the visible time range (e.g., 8 AM to 6 PM), adjust the time scale (e.g., 30-minute intervals), and control the frequency of the labels (e.g., every 15 minutes).
 
@@ -131,7 +131,7 @@ resources: [
 ]
 ```
 
-### Mobiscroll Timeline view – resource definition:
+### Mobiscroll Timeline view/ Scheduler – resource definition:
 
 ```jsx
 resources: [
@@ -143,7 +143,7 @@ resources: [
 
 As shown above, both Bryntum and Mobiscroll use similar structures for defining resources, typically including `id` and `name` [properties](javascript/eventcalendar/timeline#opt-resources). Like Bryntum, Mobiscroll also supports a wide range of additional properties, as demonstrated in [this example](https://demo.mobiscroll.com/javascript/timeline/resource-data-structure#).
 
-For more complex use cases, consult the [Mobiscroll documentation](/javascript/eventcalendar/timeline#resources) for additional options and examples related to resource rendering and configuration.
+For more advanced use cases, refer to the [Mobiscroll documentation](/javascript/eventcalendar/resources) for additional options, including [custom rendering and templating of resources](/javascript/eventcalendar/timeline#the-resource-their-header-and-footer). You can also explore our demo page for [detailed resource configuration](https://demo.mobiscroll.com/timeline/timeline-resource-details-side-panel-footer) examples.
 
 ## Event migration
 
@@ -203,12 +203,12 @@ Every project may have its own unique data format and requirements, so this scri
 
 ## Feature migration
 
-As a final step, let’s explore how core features from Bryntum can be replicated using Mobiscroll. While some capabilities are available out of the box in Bryntum, Mobiscroll often requires more explicit setup but offers comparable flexibility.
+As a final step, let’s explore how core features from Bryntum can be replicated using Mobiscroll. While some capabilities are available out of the box in Bryntum, Mobiscroll often requires more explicit setup but offers much more flexibility.
 
 ### Drag & Drop functionality
 
 - Bryntum enables drag-and-drop operations by default with no extra configuration needed.
-- In Mobiscroll, the D&D features must be enabled explicitly via configuration options.
+- In Mobiscroll, the D&D features must be enabled explicitly via [configuration options](/javascript/eventcalendar/drag-and-drop).
 
 #### Enabling Drag & Drop in Mobiscroll:
 
@@ -222,12 +222,12 @@ mobiscroll.eventcalendar('#container', {
 });
 ```
 
-This setup activates event creation, moving, resizing, and deletion in the Mobiscroll.
+This configuration allows users to create, move, resize, and delete events in Mobiscroll.
 
 ### Switching Views (Calendar/Scheduler/Agenda)
 
 - Bryntum enables switching views by default with no extra configuration needed.
-- Mobiscroll does not provide a built-in view switching UI. You need to implement a custom header with segmented controls to allow users to toggle between views like Calendar, Scheduler, and Agenda.
+- Mobiscroll doesn’t include a built-in view-switching UI by default. However, it offers greater flexibility by allowing you to implement a custom header where you can design the view-switching experience to fit your needs. For example, you can use a [dropdown menu](https://demo.mobiscroll.com/select) or [segmented controls](https://demo.mobiscroll.com/forms/segmented) to let users switch between views like Calendar, Scheduler, Agenda, or any other layout that fits your use case.
 
 #### Bryntum:
 
@@ -241,7 +241,7 @@ const calendar = new Calendar({
 
 #### Mobiscroll:
 
-In Mobiscroll, switching between views such as day/week/month requires implementing a custom header and event listeners:
+In Mobiscroll, switching between views like Day, Week, or Month requires setting up a custom header along with event listeners to handle the view changes. You can see an example of this implementation [here](https://demo.mobiscroll.com/scheduler/switching-calendar-scheduler-agenda).
 
 ```jsx
 var calendar = mobiscroll.eventcalendar('#container', {
@@ -317,7 +317,14 @@ document.querySelectorAll('.md-view-change').forEach(function (elm) {
 });
 ```
 
-While Bryntum offers more built-in functionality with minimal setup, Mobiscroll provides flexibility that allows for tailored behavior through configuration and custom UI. With a bit of extra implementation, most features can be effectively mirrored when transitioning from Bryntum to Mobiscroll.
+While Bryntum offers more built-in functionality out of the box, Mobiscroll provides greater flexibility, enabling tailored behavior through configuration and custom UI components:
+- Feel free to explore our demo page for [Timeline](https://demo.mobiscroll.com/timeline), [Scheduler](https://demo.mobiscroll.com/scheduler), [Event Calendar](https://demo.mobiscroll.com/eventcalendar), and [Agenda](https://demo.mobiscroll.com/agenda) views - featuring grouped examples, including [common use cases](https://demo.mobiscroll.com/timeline/employee-shifts), [view configuration](https://demo.mobiscroll.com/scheduler/custom-range-view), [event](https://demo.mobiscroll.com/timeline/timeline-custom-event-rendering) and [resource](https://demo.mobiscroll.com/scheduler/custom-resource-header-template) templating, and [lifecycle event handling](https://demo.mobiscroll.com/timeline/event-hooks).
+- We also offer comprehensive documentation for the [Timeline](/javascript/eventcalendar/timeline), [Scheduler](/javascript/eventcalendar/scheduler), [Event Calendar](/javascript/eventcalendar/calendar), and [Agenda](/javascript/eventcalendar/agenda) views. It covers [usage](/javascript/eventcalendar/timezones), [APIs](/javascript/eventcalendar/api), [customization options](/javascript/eventcalendar/templating), and more in detail.
+
+In addition to drag & drop and custom view-switching, Mobiscroll also supports [timezone handling](https://demo.mobiscroll.com/scheduler/setting-the-timezone) and [zooming levels](https://demo.mobiscroll.com/timeline/calendar-zoom). All of our views work seamlessly across both [mobile](https://demo.mobiscroll.com/scheduler/mobile-day-view) and [desktop](https://demo.mobiscroll.com/scheduler/desktop-day-view) environments, with full support for touch interactions.
+
+As mentioned above, with some additional setup, most —if not all— features can be effectively replicated when migrating from Bryntum to Mobiscroll.
+If you have any specific questions or run into any issues, don’t hesitate to [reach out](mailto:support@mobiscroll.com) — we’re happy to help.
 
 ## Conclusion
 
@@ -330,3 +337,8 @@ The overall migration process includes:
 - Enabling features like drag-and-drop manually
 
 With a clear understanding of both libraries’ capabilities and structures, you can migrate efficiently and take full advantage of Mobiscroll’s modern UI and feature-rich environment.
+
+#### Considering migrating from Bryntum to Mobiscroll? 
+
+[Get in touch](https://calendly.com/mobiscroll/30min) for a free consultation. 
+We’re here to help you make a smooth transition.

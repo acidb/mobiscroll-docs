@@ -53,7 +53,7 @@ mobiscroll.eventcalendar('#container', {
 
 Key Differences:
 - With Mobiscroll, you get precise control over [time ranges](https://demo.mobiscroll.com/scheduler/show-hide-hours-days) on Scheduler and [Timeline](https://demo.mobiscroll.com/timeline/daily-weekly-monthly-yearly-timeline) views, plus feature-rich [Event Calendar](https://demo.mobiscroll.com/eventcalendar) and [Agenda](https://demo.mobiscroll.com/agenda) views for seamless scheduling.
-- Bryntum provides more built-in view presets.
+- Bryntum provides built-in view presets.
 
 ### Bryntum Scheduler Pro:
 
@@ -340,5 +340,5 @@ With a clear understanding of both libraries’ capabilities and structures, you
 
 #### Considering migrating from Bryntum to Mobiscroll? 
 
-[Get in touch](https://calendly.com/mobiscroll/30min) for a free consultation. 
-We’re here to help you make a smooth transition.
+[Schedule a call](https://calendly.com/mobiscroll/30min) and let's chat about how we can help.
+We're here to support you in the migration process.

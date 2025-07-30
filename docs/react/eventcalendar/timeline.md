@@ -334,7 +334,17 @@ There are three CSS classes which can be used for [changing the height of resour
 Rows without any events can be hidden by setting `hideEmptyRows` to `true` under the [view](#configuring-the-view) configuration.
 
    :::info
-   Parent resources will always be displayed, even when empty.
+   If [resolutionVertical](#view-timeline-resolutionVertical) is not set, parent resources will always be displayed, even when empty.
+   If [resolutionVertical](#view-timeline-resolutionVertical) is set to `'day'` and all resources for a given day are empty, the entire day will be hidden.
+   :::
+
+### Hiding invalid resources
+
+Fully invalid rows can be hidden by setting `hideInvalidRows` to `true` under the [view](#configuring-the-view) configuration.
+
+   :::info
+   If [resolutionVertical](#view-timeline-resolutionVertical) is not set, parent resources will always be displayed, even when fully invalid.
+   If [resolutionVertical](#view-timeline-resolutionVertical) is set to `'day'` and all resources for a given day are fully invalid, the entire day will be hidden.
    :::
    
 ## Load data on scroll

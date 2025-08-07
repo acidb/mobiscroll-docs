@@ -156,6 +156,11 @@ Columns without any events can be hidden by setting `hideEmptyColumns` to `true`
 
 Fully invalid columns can be hidden by setting `hideInvalidColumns` to `true` under the [view](#configuring-the-view) configuration.
 
+   :::info
+   A column is considered fully invalid if it contains [invalid](#opt-invalid) periods defined with `allDay`, date (`MbscDateType`) values,
+   or time ranges that span a full day or multiple days.
+   :::
+   
 ## Resources
 
 ### Resource grouping

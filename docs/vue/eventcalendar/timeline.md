@@ -345,6 +345,8 @@ Rows without any events can be hidden by setting `hideEmptyRows` to `true` under
 Fully invalid rows can be hidden by setting `hideInvalidRows` to `true` under the [view](#configuring-the-view) configuration.
 
    :::info
+   A resource row is considered fully invalid if it contains [invalid](#opt-invalid) periods defined with `allDay`, date (`MbscDateType`) values,
+   or time ranges that span a full day or multiple days.
    If [resolutionVertical](#view-timeline-resolutionVertical) is not set, parent resources will always be displayed, even when fully invalid.
    If [resolutionVertical](#view-timeline-resolutionVertical) is set to `'day'` and all resources for a given day are fully invalid, the entire day will be hidden.
    :::

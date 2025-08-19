@@ -267,6 +267,29 @@ $('#scheduler').mobiscroll().eventcalendar({
 ## Templating
 The display of Scheduler can be customized with different [render functions](#renderers).
 
+### The cell
+Use the [renderCell](#renderer-renderCell) option to fully customize the Scheduler cells. Customize how the cell look and what they show. Utilize properties passed in the [cell](#opt-resources) array. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well.
+
+:::info
+Since cells are rendered frequently while scrolling, keep the customization lightweight for best performance.
+:::
+
+Check out how you can style the cell in [this example](https://demo.mobiscroll.com/scheduler/cell-content-template#) or just play with the slider below to see the differences.
+
+<ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
+  <figure slot="first" className="before">
+    <img width="1480" height="975" src={require('@site/static/img/normal-cell-templating-scheduler.png').default} />
+    <figcaption>Default template</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="1479" height="975" src={require('@site/static/img/cell-templating-scheduler.png').default} />
+    <figcaption>Custom template</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
+  </svg>
+</ImgComparisonSlider>
+
 ### The event, their content and buffer areas
 The events can be customized in two ways:
 - You can use the [renderScheduleEvent](#renderer-renderScheduleEvent) option to customize the events that appear on the Scheduler. It should return the markup of the event. The Eventcalendar will take care of the positioning, but anything else you want to show is up to you - like a title, description, color the background or show any content.

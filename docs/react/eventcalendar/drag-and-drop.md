@@ -13,7 +13,8 @@ import { toc as intTOC } from '../../_shared/eventcalendar/dnd-internal.mdx';
 
 export const toc = [...intTOC,
   { value: 'Draggable', level: 3, id: 'draggable'},
-  { value: 'Draggable options', level: 3, id: 'dropcontainer-events'},
+  { value: 'Draggable options', level: 3, id: 'draggable-options'},
+  { value: 'Third party dragging support', level: 3, id: 'third-party-dragging-support'},
   { value: 'The Eventcalendar as source', level: 2, id: 'the-eventcalendar-as-source'},
   { value: 'Dropcontainer', level: 3, id: 'dropcontainer'},
   { value: 'Dropcontainer events', level: 3, id: 'dropcontainer-events'},
@@ -54,6 +55,109 @@ function App() {
 <div className="option-list">
   <DraggableOptions />
 </div>
+
+<h3 id="third-party-dragging-support">Third party dragging libraries</h3>
+
+Mobiscroll comes with built-in support for two of the most popular third-party dragging libraries: [SortableJS](https://sortablejs.github.io/Sortable/) and [Dragula](https://bevacqua.github.io/dragula/). With the `sortableJsDraggable` and `dragulaDraggable` plugins, you can seamlessly drag items into the Eventcalendar with just a few lines of code.   
+
+<h4 id="sortable-js">SortableJS:</h4>
+
+Integration: call the `sortableJsDraggable` plugin’s `init()` method and pass the SortableJS instance along with the `options: MbscSortableJsDraggableOptions` object.
+The options object can include the following properties: 
+- `cloneSelector` - the selector of the SortableJS clone element, typically `'.sortable-drag'`
+- `dragData` - *(el: HTMLElement) => MbscCalendarEvent | MbscResource* - function to build the resource or event object. Defaults to `data-drag-data` attribute on the element. 
+- `type` - *'event' | 'resource'* - Creates an event or resource on the Eventcalendar. Defaults to `'event'`
+
+```tsx
+// TODO sortable js for react example - this works, but ...
+import { Eventcalendar, sortableJsDraggable} from '@mobiscroll/react';
+import { useEffect } from 'react';
+import Sortable from 'sortablejs';
+
+function App() {
+  useEffect(() => {
+    const sortableList = document.getElementById('sortable-list');
+    const sortableInst = Sortable.create(sortableList, {
+      animation: 150,
+      forceFallback: true,
+    });
+
+    sortableJsDraggable.init(sortableInst, {
+      cloneSelector: '.sortable-drag',
+    });
+  }, []);
+
+  return <>
+    <div className="mbsc-form-group-title">Sortable appointments</div>
+      <div id="sortable-list">
+        <div className="task" data-drag-data='{ "title": "Winfred Lesley - Teeth whitening", "start": "00:00", "end": "01:30" }'>
+          <div>Winfred Lesley - Teeth whitening</div>
+          <div>1.5 hours</div>
+        </div>
+        <div className="task" data-drag-data='{ "title": "Rosalin Delice - Crown and bridge", "start": "00:00", "end": "02:00" }'>
+          <div>Rosalin Delice - Crown and bridge</div>
+          <div>2 hours</div>
+        </div>
+      </div>
+    </div>
+    <Eventcalendar externalDrop={true} />
+  </>
+}
+```
+
+:::info
+The SortableJS integration works only if fallback mode is used.  
+The `cloneSelector` must be set in the `options: MbscSortableJsDraggableOptions` object.
+:::
+
+<h4 id="dragula">Dragula:</h4>
+
+Integration: call the `dragulaDraggable` plugin’s `init()` method and pass the Dragula instance, optionally providing an `options: MbscDragulaDraggableOptions` object to customize the behavior.
+The options object can include the following properties:
+- `dragData` - *(el: HTMLElement) => MbscCalendarEvent | MbscResource* - function to build the resource or event object. Defaults to `data-drag-data` attribute on the element.
+- `type` - *'event' | 'resource'* - Creates an event or resource on the Eventcalendar. Defaults to `'event'`
+
+```tsx
+// TODO dragula for react example
+import dragula from 'dragula';
+import { Eventcalendar, dragulaDraggable} from '@mobiscroll/react';
+import { useEffect } from 'react';
+
+function App() {
+  useEffect(() => {
+    var dragulaList = document.getElementById('dragula-list');
+    var drake = dragula([dragulaList], {
+      copy: true,
+    });
+    dragulaDraggable.init(drake);
+  }, []);
+
+  return <>
+    <div className="mbsc-form-group-title">Sortable appointments</div>
+      <div id="dragula-list">
+        <div className="task" data-drag-data='{ "title": "Winfred Lesley - Teeth whitening", "start": "00:00", "end": "01:30" }'>
+          <div>Winfred Lesley - Teeth whitening</div>
+          <div>1.5 hours</div>
+        </div>
+        <div className="task" data-drag-data='{ "title": "Rosalin Delice - Crown and bridge", "start": "00:00", "end": "02:00" }'>
+          <div>Rosalin Delice - Crown and bridge</div>
+          <div>2 hours</div>
+        </div>
+      </div>
+    </div>
+    <Eventcalendar externalDrop={true} />
+  </>
+}
+```
+
+:::info
+When using the Dragula integration on touch devices, draggable items require the following CSS rule to ensure proper behavior:
+`.task {
+  touch-action: none;
+}` 
+This is a known limitation in Dragula’s touch support that has not been addressed yet.
+:::
+
 
 <h2 id="the-eventcalendar-as-source">The Eventcalendar as source</h2>
 

@@ -69,7 +69,6 @@ The options object can include the following properties:
 - `type` - *'event' | 'resource'* - Creates an event or resource on the Eventcalendar. Defaults to `'event'`
 
 ```tsx
-// TODO sortable js for react example - this works, but ...
 import { Eventcalendar, sortableJsDraggable} from '@mobiscroll/react';
 import { useEffect } from 'react';
 import Sortable from 'sortablejs';
@@ -118,15 +117,14 @@ The options object can include the following properties:
 - `type` - *'event' | 'resource'* - Creates an event or resource on the Eventcalendar. Defaults to `'event'`
 
 ```tsx
-// TODO dragula for react example
 import dragula from 'dragula';
 import { Eventcalendar, dragulaDraggable} from '@mobiscroll/react';
 import { useEffect } from 'react';
 
 function App() {
   useEffect(() => {
-    var dragulaList = document.getElementById('dragula-list');
-    var drake = dragula([dragulaList], {
+    const dragulaList = document.getElementById('dragula-list');
+    const drake = dragula([dragulaList], {
       copy: true,
     });
     dragulaDraggable.init(drake);

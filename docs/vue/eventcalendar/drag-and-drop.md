@@ -69,8 +69,45 @@ The options object can include the following properties:
 - `dragData` - *(el: HTMLElement) => MbscCalendarEvent | MbscResource* - function to build the resource or event object. Defaults to `data-drag-data` attribute on the element. 
 - `type` - *'event' | 'resource'* - Creates an event or resource on the Eventcalendar. Defaults to `'event'`
 
-```tsx
-// Soon
+```html
+<script setup>
+import { onMounted } from 'vue'
+import { MbscEventcalendar, sortableJsDraggable } from '@mobiscroll/vue'
+
+onMounted(() => {
+  const sortableList = document.getElementById("sortable-list");
+  const sortableInst = Sortable.create(sortableList, {
+    animation: 150,
+    forceFallback: true,
+  });
+
+  sortableJsDraggable.init(sortableInst, {
+    cloneSelector: ".sortable-drag",
+  });
+})
+</script>
+
+<template>
+  <div class="mbsc-form-group-title">Sortable appointments</div>
+  <div id="sortable-list">
+    <div
+      class="task"
+      data-drag-data='{ "title": "Winfred Lesley - Teeth whitening", "start": "00:00", "end": "01:30" }'
+    >
+      <div>Winfred Lesley - Teeth whitening</div>
+      <div>1.5 hours</div>
+    </div>
+    <div
+      class="task"
+      data-drag-data='{ "title": "Rosalin Delice - Crown and bridge", "start": "00:00", "end": "02:00" }'
+    >
+      <div>Rosalin Delice - Crown and bridge</div>
+      <div>2 hours</div>
+    </div>
+  </div>
+
+  <MbscEventcalendar :externalDrop="true" />
+</template>
 ```
 
 :::info
@@ -85,8 +122,41 @@ The options object can include the following properties:
 - `dragData` - *(el: HTMLElement) => MbscCalendarEvent | MbscResource* - function to build the resource or event object. Defaults to `data-drag-data` attribute on the element.
 - `type` - *'event' | 'resource'* - Creates an event or resource on the Eventcalendar. Defaults to `'event'`
 
-```tsx
-// Soon 
+```html
+<script setup>
+import { onMounted } from 'vue'
+import { MbscEventcalendar, dragulaDraggable } from '@mobiscroll/vue'
+
+onMounted(() => {
+  const dragulaList = document.getElementById("dragula-list");
+   var drake = dragula([dragulaList], {
+      copy: true,
+    });
+    dragulaDraggable.init(drake);
+})
+</script>
+
+<template>
+  <div class="mbsc-form-group-title">Sortable appointments</div>
+  <div id="dragula-list">
+    <div
+      class="task"
+      data-drag-data='{ "title": "Winfred Lesley - Teeth whitening", "start": "00:00", "end": "01:30" }'
+    >
+      <div>Winfred Lesley - Teeth whitening</div>
+      <div>1.5 hours</div>
+    </div>
+    <div
+      class="task"
+      data-drag-data='{ "title": "Rosalin Delice - Crown and bridge", "start": "00:00", "end": "02:00" }'
+    >
+      <div>Rosalin Delice - Crown and bridge</div>
+      <div>2 hours</div>
+    </div>
+  </div>
+
+  <MbscEventcalendar :externalDrop="true" />
+</template>
 ```
 
 :::info

@@ -473,6 +473,29 @@ Learn how to implement and adjust zoom levels by checking [this example](https:/
 ## Templating
 The display of Timeline can be customized with different [solt functions](#slots).
 
+### The cell
+Use the [renderCell](#renderer-renderCell) option to fully customize the Timeline cells. Customize how the cell look and what they show. Utilize properties passed in the [cell](#opt-resources) array. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well.
+
+:::info
+Since cells are rendered frequently while scrolling, keep the customization lightweight for best performance.
+:::
+
+Check out how you can style the cell in [this example](https://demo.mobiscroll.com/scheduler/dynamic-cell-content-template#) or just play with the slider below to see the differences.
+
+<ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
+  <figure slot="first" className="before">
+    <img width="1480" height="975" src={require('@site/static/img/normal-cell-templating-timeline.png').default} />
+    <figcaption>Default template</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="1479" height="975" src={require('@site/static/img/cell-templating-timeline.png').default} />
+    <figcaption>Custom template</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
+  </svg>
+</ImgComparisonSlider>
+
 ### The resource, their header and footer
 There are three approaches you can take:
 - Use the [resource](#slot-resource) option to customize the resource template of the Timeline. Customize how the resource headers look and what they show. Utilize properties passed in the [resources](#opt-resources) array. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well.

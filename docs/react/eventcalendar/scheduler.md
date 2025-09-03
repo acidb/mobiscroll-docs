@@ -149,13 +149,13 @@ are wide enough to contain their child elements, or specify a `min-width` for th
 
 Columns without any events can be hidden by setting `hideEmptyColumns` to `true` under the [view](#configuring-the-view) configuration.
 
-### Hiding invalid columns
+### Hide invalid columns
 
 Fully invalid columns can be hidden by setting `hideInvalidColumns` to `true` under the [view](#configuring-the-view) configuration.
 
    :::info
-   A column is considered fully invalid if it contains [invalid](#opt-invalid) periods defined with `allDay`, date (`MbscDateType`) values,
-   or time ranges that span a full day or multiple days.
+   A column is considered fully invalid if it contains [invalid](#opt-invalid) periods defined with `allDay`, date values,
+   or a single time range that covers a full day or multiple days.
    :::
 
 ## Resources

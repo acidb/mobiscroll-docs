@@ -148,6 +148,20 @@ If you override both resource and day column widths, make sure column groups (da
 are wide enough to contain their child elements, or specify a `min-width` for the group column instead of a fixed width.
 :::
 
+
+### Hide empty columns
+
+Columns without any events can be hidden by setting `hideEmptyColumns` to `true` under the [view](#configuring-the-view) configuration.
+
+### Hide invalid columns
+
+Fully invalid columns can be hidden by setting `hideInvalidColumns` to `true` under the [view](#configuring-the-view) configuration.
+
+   :::info
+   A column is considered fully invalid if it contains [invalid](#opt-invalid) periods defined with `allDay`, date values,
+   or a single time range that covers a full day or multiple days.
+   :::
+
 ## Resources
 
 ### Resource grouping

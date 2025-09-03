@@ -319,7 +319,7 @@ export class MyComponent {
 The display of Scheduler can be customized with different [templating functions](#templates).
 
 ### The cell
-Use the [renderCell](#renderer-renderCell) option to fully customize the Scheduler cells. Customize how the cell look and what they show. Utilize properties passed in the [cell](#opt-resources) array. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well.
+Use the [cellTemplate](#template-cellTemplate) option to fully customize the Scheduler cells. Customize how the cell look and what they show. The template gets an object with properties like date, events, colors, invalids, and resource, which can be used to display custom content.
 
 :::info
 Since cells are rendered frequently while scrolling, keep the customization lightweight for best performance.

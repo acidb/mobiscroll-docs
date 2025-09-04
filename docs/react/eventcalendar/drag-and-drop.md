@@ -58,13 +58,13 @@ function App() {
 
 <h3 id="third-party-dragging-support">Third party dragging libraries</h3>
 
-Mobiscroll comes with built-in support for two of the most popular third-party dragging libraries: [SortableJS](https://sortablejs.github.io/Sortable/) and [Dragula](https://bevacqua.github.io/dragula/). With the `sortableJsDraggable` and `dragulaDraggable` plugins, you can seamlessly drag items into the Eventcalendar with just a few lines of code.   
+Mobiscroll comes with built-in support for two of the most popular dragging libraries: [SortableJS](https://sortablejs.github.io/Sortable/) and [Dragula](https://bevacqua.github.io/dragula/). With the `sortableJsDraggable` and `dragulaDraggable` plugins, you can seamlessly drag items into the Eventcalendar with just a few lines of code.   
 
 <h4 id="sortable-js">SortableJS:</h4>
 
-Integration: call the `sortableJsDraggable` plugin’s `init()` method and pass the SortableJS instance along with the `options: MbscSortableJsDraggableOptions` object.
+Integration: call the `sortableJsDraggable` plugin’s `init()` method and pass the SortableJS instance along with the `options` object.
 The options object can include the following properties: 
-- `cloneSelector` - the selector of the SortableJS clone element, typically `'.sortable-drag'`
+- `cloneSelector` - *string* - the selector of the SortableJS clone element, typically `'.sortable-drag'`
 - `dragData` - *(el: HTMLElement) => MbscCalendarEvent | MbscResource* - function to build the resource or event object. Defaults to `data-drag-data` attribute on the element. 
 - `type` - *'event' | 'resource'* - Creates an event or resource on the Eventcalendar. Defaults to `'event'`
 
@@ -106,12 +106,12 @@ function App() {
 
 :::info
 The SortableJS integration works only if fallback mode is used.  
-The `cloneSelector` must be set in the `options: MbscSortableJsDraggableOptions` object.
+The `cloneSelector` must be set in the `options` object.
 :::
 
 <h4 id="dragula">Dragula:</h4>
 
-Integration: call the `dragulaDraggable` plugin’s `init()` method and pass the Dragula instance, optionally providing an `options: MbscDragulaDraggableOptions` object to customize the behavior.
+Integration: call the `dragulaDraggable` plugin’s `init()` method and pass the Dragula instance, optionally providing an `options` object to customize the behavior.
 The options object can include the following properties:
 - `dragData` - *(el: HTMLElement) => MbscCalendarEvent | MbscResource* - function to build the resource or event object. Defaults to `data-drag-data` attribute on the element.
 - `type` - *'event' | 'resource'* - Creates an event or resource on the Eventcalendar. Defaults to `'event'`

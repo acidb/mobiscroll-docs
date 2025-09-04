@@ -776,7 +776,7 @@ Check out how you can style the Timeline header in [this example](https://demo.m
   </svg>
 </ImgComparisonSlider>
 
-### Variable event height (experimental) {#variable-event-height}
+### Variable event height {#variable-event-height}
 
 <VariableEventHeight />
 

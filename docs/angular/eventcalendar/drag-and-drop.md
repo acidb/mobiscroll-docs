@@ -7,6 +7,8 @@ title: Drag & drop
 
 import DropcontainerEvents from '../_auto-generated/dropcontainer/events.md';
 import DraggableOptions from '../_auto-generated/draggable/options.md';
+import SortableOptions from '../_auto-generated/sortablejsdraggable/options.md';
+import DragulaOptions from '../_auto-generated/draguladraggable/options.md';
 
 import Content from '../../_shared/eventcalendar/dnd-internal.mdx';
 import { toc as intTOC } from '../../_shared/eventcalendar/dnd-internal.mdx';
@@ -15,6 +17,8 @@ export const toc = [...intTOC,
   { value: 'Draggable', level: 3, id: 'draggable'},
   { value: 'Draggable options', level: 3, id: 'draggable-options'},
   { value: 'Third party dragging support', level: 3, id: 'third-party-dragging-support'},
+  { value: 'SortableJs draggable options', level: 3, id: 'sortable-draggable-options'},
+  { value: 'Dragula draggable options', level: 3, id: 'dragula-draggable-options'},
   { value: 'The Eventcalendar as source', level: 2, id: 'the-eventcalendar-as-source'},
   { value: 'Dropcontainer', level: 3, id: 'dropcontainer'},
   { value: 'Dropcontainer events', level: 3, id: 'dropcontainer-events'},
@@ -59,11 +63,7 @@ Mobiscroll comes with built-in support for two of the most popular dragging libr
 
 <h4 id="sortable-js">SortableJS:</h4>
 
-Integration: call the `sortableJsDraggable` plugin’s `init()` method and pass the SortableJS instance along with the `options` object.
-The options object can include the following properties: 
-- `cloneSelector` - *string* -  the selector of the SortableJS clone element, typically `'.sortable-drag'`
-- `dragData` - *(el: HTMLElement) => MbscCalendarEvent | MbscResource* - function to build the resource or event object. Defaults to `data-drag-data` attribute on the element. 
-- `type` - *'event' | 'resource'* - Creates an event or resource on the Eventcalendar. Defaults to `'event'`
+Integration: call the `sortableJsDraggable` plugin’s `init()` method and pass the SortableJS instance along with the `options:`[`MbscSortableJsDraggableOptions`](#sortable-draggable-options) object.
 
 ```html
 <div class="mbsc-form-group-title">Sortable appointments</div>
@@ -114,15 +114,12 @@ export class MyComponent implements AfterViewInit {
 
 :::info
 The SortableJS integration works only if fallback mode is used.  
-The `cloneSelector` must be set in the `options` object.
+The `cloneSelector` must be set in the `options:`[MbscSortableJsDraggableOptions](#sortable-draggable-options) object.
 :::
 
 <h4 id="dragula">Dragula:</h4>
 
-Integration: call the `dragulaDraggable` plugin’s `init()` method and pass the Dragula instance, optionally providing an `options` object to customize the behavior.
-The options object can include the following properties:
-- `dragData` - *(el: HTMLElement) => MbscCalendarEvent | MbscResource* - function to build the resource or event object. Defaults to `data-drag-data` attribute on the element.
-- `type` - *'event' | 'resource'* - Creates an event or resource on the Eventcalendar. Defaults to `'event'`
+Integration: call the `dragulaDraggable` plugin’s `init()` method and pass the Dragula instance, optionally providing an `options:`[MbscDragulaDraggableOptions](#dragula-draggable-options) object to customize the behavior.
 
 
 ```html
@@ -177,6 +174,17 @@ When using the Dragula integration on touch devices, draggable items require the
 This is a known limitation in Dragula’s touch support that has not been addressed yet.
 :::
 
+<h3 id="sortable-draggable-options">SortableJS draggable options</h3>
+
+<div className="option-list">
+  <SortableOptions />
+</div>
+
+<h3 id="dragula-draggable-options">Dragula draggable options</h3>
+
+<div className="option-list">
+  <DragulaOptions />
+</div>
 
 <h2 id="the-eventcalendar-as-source">The Eventcalendar as source</h2>
 

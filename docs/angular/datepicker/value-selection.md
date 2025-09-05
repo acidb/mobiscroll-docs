@@ -67,12 +67,17 @@ Both the start and end value of the returned array will respect the [`returnForm
 <TabItem value="ts" label="app.component.ts">
 
 ```ts
-import { MbscDatepickerControl } from '@mobiscroll/angular';
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+// highlight-next-line
+import { MbscDatepickerControl, MbscModule } from '@mobiscroll/angular';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  standalone: true,
+  imports: [CommonModule, MbscModule]
 })
 export class AppComponent {
   // highlight-next-line

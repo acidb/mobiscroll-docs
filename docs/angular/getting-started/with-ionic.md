@@ -78,6 +78,8 @@ export class YourNewPageModule {}
 
 To test it let's add a simple input to the Tab1 component in the starter app. In case of an older ionic app (for example Ionic 4 or Ionic 5) you can use the home page found at: `src/app/home/home.page.html`
 
+### Using modules
+
 <Tabs>
 <TabItem value="html" label="src/app/tab1/tab1.page.html">
 
@@ -150,6 +152,69 @@ export class Tab1PageModule {}
 </TabItem>
 </Tabs>
 
+### Using standalone components
+
+<Tabs>
+<TabItem value="html" label="src/app/tab1/tab1.page.html">
+
+```html
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 1
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 1</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  // highlight-start
+  <ion-item>
+      <ion-input label="Birthday" [(ngModel)]="myBirthday" mbsc-datepicker></ion-input>
+  </ion-item>
+  // highlight-end
+</ion-content>
+```
+
+</TabItem>
+<TabItem value="ts" label="src/app/tab1/tab1.page.ts">
+
+```ts
+// highlight-next-line
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-tab1',
+  templateUrl: 'tab1.page.html',
+  styleUrls: ['tab1.page.scss'],
+  standalone: true,
+  imports: [
+    IonicModule,
+    CommonModule,
+    FormsModule,
+    ExploreContainerComponentModule,
+    Tab1PageRoutingModule,
+    // highlight-next-line
+    MbscModule
+  ]
+})
+export class Tab1Page {
+
+  // highlight-next-line
+  public myBirthday: Date | null = null;
+
+  constructor() {}
+
+}
+```
+
+</TabItem>
+</Tabs>
 
 To build the app just run the serve command in the CLI:
 

@@ -21,32 +21,43 @@ export const toc = [...recTOC, { value: 'Full example', level: 2, id: 'full-exam
 <TabItem value="ts" label="component.ts">
 
 ```ts
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { MbscCalendarEvent, MbscModule } from '@mobiscroll/angular';
+
 @Component({
   selector: 'component',
   templateUrl: './component.html',
+  standalone: true,
+  imports: [CommonModule, MbscModule]
 })
 export class AppComponent {
   public myData: MbscCalendarEvent[] = [{
       start: new Date(2020, 2, 18, 9, 0),
       end: new Date(2020, 2, 18, 17, 0),
       title: 'Repeat every 2 days 5 times',
+      // highlight-start
       recurring: {
         repeat: 'daily',
           count: 5,
           interval: 2
       }
+      // highlight-end
     }, {
       start: new Date(2020, 2, 17, 20, 0),
       end: new Date(2020, 2, 17, 22, 0),
       title: 'Football training every Monday and Wednesday',
+      // highlight-next-line
       recurring: 'FREQ=WEEKLY;UNTIL=2020-06-17;BYDAY=MO,WE'
     }, {
       title: 'Pay the bills - on every first Friday of the months',
+       // highlight-start
       recurring: {
         repeat: 'monthly',
           pos: 1,
           weekDays: 'FR',
       }
+      // highlight-end
     }
   ];
 }

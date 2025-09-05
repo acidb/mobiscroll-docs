@@ -44,6 +44,37 @@ $ npm install .\mobiscroll-angular-5.25.1.tgz
 
 The installed package is a production ready package. After installing it, you can import and use the individual modules from it:
 
+### Using standalone components
+
+```ts title="app.component.ts"
+import { MbscEventcalendarModule, MbscDatepickerModule } from '@mobiscroll/angular';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+  standalone: true,
+  imports: [ 
+    MbscEventcalendarModule,
+    MbscDatepickerModule,
+    FormsModule,  
+    BrowserModule
+  ],
+})
+export class AppComponent { }
+```
+
+```html title="app.component.html"
+<mbsc-eventcalendar></mbsc-eventcalendar>
+<mbsc-datepicker [(ngModel)]="myDate" label="My Date"></mbsc-datepicker>
+<mbsc-datepicker [(ngModel)]="myRange" select="range" label="My Range"></mbsc-datepicker>
+```
+
+### Using modules
+
 ```ts title="app.module.ts"
 import { MbscEventcalendarModule, MbscDatepickerModule } from '@mobiscroll/angular';
 import { FormsModule } from '@angular/forms';

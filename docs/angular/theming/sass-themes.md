@@ -56,7 +56,7 @@ Before you can use the custom theme, you will also need to register it in your j
 
 
 <Tabs>
-<TabItem value="module" label="app.module.ts">
+<TabItem value="ts" label="app.component.ts">
 
 ```js
 import { createCustomTheme } from '@mobiscroll/angular';

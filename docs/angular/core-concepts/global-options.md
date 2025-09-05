@@ -15,7 +15,7 @@ import SetOptionsDescription from '../../_shared/core-concepts/global_setoptions
 
 <SetOptionsDescription />
 
-```ts title="app.module.ts"
+```ts title="app.component.ts"
 import {
   // highlight-next-line
   setOptions,
@@ -75,7 +75,8 @@ import { MbscOptionsService } from '@mobiscroll/angular';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  standalone: false,
 })
 export class AppComponent {
 

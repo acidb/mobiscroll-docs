@@ -70,7 +70,7 @@ const scheduler = new Scheduler({
 
 ### Mobiscroll Timeline view:
 
-In the Mobiscroll Timeline view, the `timeline` object within the `view` [option](/javascript/eventcalendar/timeline#configuring-the-view) allows you to customize the visible days and the timeline’s scale. You can specify which days to display (e.g., weekdays), set the time scale (e.g., 30-minute intervals), and define the frequency of the labels shown (e.g., every 15 minutes).
+In the Mobiscroll Timeline view, the `timeline` object within the [`view`](/javascript/eventcalendar/timeline#configuring-the-view) option allows you to customize the visible days and the timeline’s scale. You can specify which days to display (e.g., weekdays), set the time scale (e.g., 30-minute intervals), and define the frequency of the labels shown (e.g., every 15 minutes).
 
 ```jsx
 mobiscroll.eventcalendar('#container', {
@@ -86,7 +86,7 @@ mobiscroll.eventcalendar('#container', {
 });
 ```
 
-Check out how you can configure the Timeline view in [this live example](https://demo.mobiscroll.com/javascript/timeline/daily-weekly-monthly-yearly-timeline#).
+Check out how you can configure the Timeline view in [this live example](https://demo.mobiscroll.com/timeline/daily-weekly-monthly-yearly-timeline#).
 
 ### Bryntum Calendar view config:
 
@@ -102,7 +102,7 @@ const calendar = new Calendar({
 
 ### Mobiscroll Scheduler:
 
-You can customize the visible days and hours, as well as the time grid scale, using the `schedule` object under the `view` [option](/javascript/eventcalendar/scheduler#configuring-the-view). This allows you to define which days are shown (e.g., weekdays), set the visible time range (e.g., 8 AM to 6 PM), adjust the time scale (e.g., 30-minute intervals), and control the frequency of the labels (e.g., every 15 minutes).
+You can customize the visible days and hours, as well as the time grid scale, using the `schedule` object under the [`view`](/javascript/eventcalendar/scheduler#configuring-the-view) option. This allows you to define which days are shown (e.g., weekdays), set the visible time range (e.g., 8 AM to 6 PM), adjust the time scale (e.g., 30-minute intervals), and control the frequency of the labels (e.g., every 15 minutes).
 
 ```jsx
 mobiscroll.eventcalendar('#container', {
@@ -115,7 +115,7 @@ mobiscroll.eventcalendar('#container', {
 });
 ```
 
-Check out how you can configure the Scheduler view in [this live example](https://demo.mobiscroll.com/javascript/scheduler/show-hide-hours-days#).
+Check out how you can configure the Scheduler view in [this live example](https://demo.mobiscroll.com/scheduler/show-hide-hours-days#).
 
 ## Resource configuration
 
@@ -141,13 +141,13 @@ resources: [
 ]
 ```
 
-As shown above, both Bryntum and Mobiscroll use similar structures for defining resources, typically including `id` and `name` [properties](javascript/eventcalendar/timeline#opt-resources). Like Bryntum, Mobiscroll also supports a wide range of additional properties, as demonstrated in [this example](https://demo.mobiscroll.com/javascript/timeline/resource-data-structure#).
+As shown above, both Bryntum and Mobiscroll use similar structures for defining resources, typically including `id` and `name` [properties](javascript/eventcalendar/timeline#opt-resources). Like Bryntum, Mobiscroll also supports a wide range of additional properties, as demonstrated in [this example](https://demo.mobiscroll.com/timeline/resource-data-structure#).
 
 For more advanced use cases, refer to the [Mobiscroll documentation](/javascript/eventcalendar/resources) for additional options, including [custom rendering and templating of resources](/javascript/eventcalendar/timeline#the-resource-their-header-and-footer). You can also explore our demo page for [detailed resource configuration](https://demo.mobiscroll.com/timeline/timeline-resource-details-side-panel-footer) examples.
 
 ## Event migration
 
-As shown above, there are clear differences in how events are structured between Bryntum and Mobiscroll. Bryntum defines an event inside the `events` option using a `startDate`, along with a `duration` and `durationUnit` to determine the end time. In contrast, Mobiscroll uses the `data` [option](/javascript/eventcalendar/timeline#opt-data) and explicit `start` and `end` [properties](https://demo.mobiscroll.com/javascript/timeline/event-data-structure#) for defining the event period.
+As shown above, there are clear differences in how events are structured between Bryntum and Mobiscroll. Bryntum defines an event inside the `events` option using a `startDate`, along with a `duration` and `durationUnit` to determine the end time. In contrast, Mobiscroll uses the [`data`](/javascript/eventcalendar/timeline#opt-data) option and explicit `start` and `end` [properties](https://demo.mobiscroll.com/timeline/event-data-structure#) for defining the event period.
 
 ### Event structure comparison
 
@@ -219,8 +219,8 @@ Bryntum:
 
 Mobiscroll:
 - Mobiscroll components accept static arrays, which can be [inline](/javascript/eventcalendar/data-binding#local-data) (preloaded in memory) or [dynamically fetched](/javascript/eventcalendar/data-binding#remote-data) from remote APIs. 
-- The `onPageLoading` [event](/javascript/eventcalendar/api#event-onPageLoading) plays a central role in incremental data loading, enabling applications to [request only the events needed](/javascript/eventcalendar/load-events-on-demand#) for the current view (e.g., the current month or week) as the user navigates.
-- Mobiscroll also offers [integration with external calendar services](/javascript/eventcalendar/calendar-integrations/) ([Google Calendar](https://demo.mobiscroll.com/javascript/eventcalendar/sync-events-google-calendar#), [Outlook](https://demo.mobiscroll.com/javascript/eventcalendar/sync-events-outlook-calendar#)) via plugins, handling data retrieval and format conversion internally.
+- The [`onPageLoading`](/javascript/eventcalendar/api#event-onPageLoading) event plays a central role in incremental data loading, enabling applications to [request only the events needed](/javascript/eventcalendar/load-events-on-demand#) for the current view (e.g., the current month or week) as the user navigates.
+- Mobiscroll also offers [integration with external calendar services](/javascript/eventcalendar/calendar-integrations/) ([Google Calendar](https://demo.mobiscroll.com/eventcalendar/sync-events-google-calendar#), [Outlook](https://demo.mobiscroll.com/eventcalendar/sync-events-outlook-calendar#)) via plugins, handling data retrieval and format conversion internally.
 
 Let’s see an example for each case:
 
@@ -245,7 +245,7 @@ events: [
 
 #### Mobiscroll:
 
-Pass the event array to the `data` [option](/javascript/eventcalendar/api#opt-data).
+Pass the event array to the [`data`](/javascript/eventcalendar/api#opt-data) option.
 
 ```jsx
 data: [
@@ -292,9 +292,9 @@ const scheduler = new Scheduler({
 
 #### Mobiscroll
 
-You can load the data through an external request and use the `setEvents` [method](/javascript/eventcalendar/api#method-setEvents) to update the event calendar with the newly received data.
+You can load the data through an external request and use the [`setEvents`]](/javascript/eventcalendar/api#method-setEvents) method to update the event calendar with the newly received data.
 
-In case of Mobiscroll, you can also use the `onPageLoading` [pevent](/javascript/eventcalendar/api#event-onPageLoading) to load the data (on demand) relevant to the currently active view. The event fires every time the date range of the view changes, for example, when someone navigates the event calendar. Getting the events in real time as the user interacts with the UI improves load performance and always serves the most recent data.
+In case of Mobiscroll, you can also use the [`onPageLoading`](/javascript/eventcalendar/api#event-onPageLoading) pevent to load the data (on demand) relevant to the currently active view. The event fires every time the date range of the view changes, for example, when someone navigates the event calendar. Getting the events in real time as the user interacts with the UI improves load performance and always serves the most recent data.
 
 ```jsx
 mobiscroll.eventcalendar('#myDiv', {
@@ -317,7 +317,7 @@ mobiscroll.eventcalendar('#myDiv', {
 });
 ```
 
-In case of the timeline view, data can also be [loaded dynamically during scrolling](/javascript/eventcalendar/timeline#load-data-on-scroll). Scrolling vertically or horizontally triggers the `onVirtualLoading` [lifecycle event](/javascript/eventcalendar/data-binding#event-onVirtualLoading), which can be used to [load data incrementally during scrolling](https://demo.mobiscroll.com/timeline/load-resources-on-scroll).
+In case of the timeline view, data can also be [loaded dynamically during scrolling](/javascript/eventcalendar/timeline#load-data-on-scroll). Scrolling vertically or horizontally triggers the [`onVirtualLoading`](/javascript/eventcalendar/data-binding#event-onVirtualLoading) lifecycle event, which can be used to [load data incrementally during scrolling](https://demo.mobiscroll.com/timeline/load-resources-on-scroll).
 
 ### Saving data
 
@@ -352,7 +352,7 @@ const scheduler = new Scheduler({
 #### Mobiscroll
 
 - Persistence is managed by listening to Mobiscroll’s [CRUD lifecycle events](/javascript/eventcalendar/crud).
-- To overwrite all events with a new set of data on the event calendar, you can use the `setEvents` [method](/javascript/eventcalendar/api#method-setEvents).
+- To overwrite all events with a new set of data on the event calendar, you can use the [`setEvents`](/javascript/eventcalendar/api#method-setEvents) method.
 - The Event Calendar exposes a [variety of events](/javascript/eventcalendar/api#events) that are triggered on certain actions made on calendar events. These events can be used to send your data to your API or save it to persistent storage.
 
 Example for saving, updating, and deleting an event through an API:
@@ -463,10 +463,10 @@ Although the naming conventions and parameter structures differ slightly between
 To explore the full list of available Mobiscroll lifecycle events and understand how they can be leveraged, please refer to the [documentation](/javascript/eventcalendar/api#events).
 
 Additionally, you can see these events in action through live, interactive examples for the following Mobiscroll components:
-- [Event Calendar](https://demo.mobiscroll.com/javascript/eventcalendar/event-hooks)
-- [Scheduler](https://demo.mobiscroll.com/javascript/scheduler/event-hooks)
-- [Timeline](https://demo.mobiscroll.com/javascript/timeline/event-hooks)
-- [Agenda](https://demo.mobiscroll.com/javascript/agenda/event-hooks)
+- [Event Calendar](https://demo.mobiscroll.com/eventcalendar/event-hooks)
+- [Scheduler](https://demo.mobiscroll.com/scheduler/event-hooks)
+- [Timeline](https://demo.mobiscroll.com/timeline/event-hooks)
+- [Agenda](https://demo.mobiscroll.com/agenda/event-hooks)
 
 These examples provide hands-on insights into how lifecycle events work in practice.
 
@@ -586,7 +586,7 @@ document.querySelectorAll('.md-view-change').forEach(function (elm) {
 });
 ```
 
-### Drag & Drop functionality
+### Timezones
 
 Handling time zones accurately is crucial in calendar and scheduling applications, especially when working across regions or coordinating international events. Both Bryntum and Mobiscroll offer support for working with time zones, though they approach it differently in terms of configuration and underlying technology. So, let’s see a simple example of how this scenario is handled in the case of Bryntum and Mobiscroll.
 
@@ -594,7 +594,7 @@ Handling time zones accurately is crucial in calendar and scheduling application
 
 Bryntum provides built-in time zone support across all of its scheduling products. This allows you to configure components to operate in a specific time zone, independent of the browser or system time.
 
-To enable time zone conversion in Bryntum, simply set the `timeZone` [configuration](https://bryntum.com/products/schedulerpro/docs/api/Scheduler/model/ProjectModel#config-timeZone) on the project object. You can use either:
+To enable time zone conversion in Bryntum, simply set the [`timeZone`](https://bryntum.com/products/schedulerpro/docs/api/Scheduler/model/ProjectModel#config-timeZone) configuration on the project object. You can use either:
 - an IANA time zone identifier (e.g., 'Europe/Stockholm'), or
 - a UTC offset in minutes (e.g., -120)
 
@@ -621,7 +621,7 @@ Mobiscroll exposes two configuration options to handle time zones:
 - `dataTimezone` [option](/javascript/eventcalendar/api#opt-dataTimezone) – the time zone in which your event data is stored (e.g., 'utc')
 - `displayTimezone` [option](/javascript/eventcalendar/api#opt-displayTimezone) – the time zone in which you want the data to be presented (e.g., 'Europe/Stockholm')
 
-So, let’s say you want to use the Day.js timezone library. After [installing](/javascript/eventcalendar/timezones#the-dayjs-library) it into your project, you can pass the `dayjsTimezone` object to the Timeline’s `timezonePlugin` [option](/javascript/eventcalendar/api#opt-timezonePlugin):
+So, let’s say you want to use the Day.js timezone library. After [installing](/javascript/eventcalendar/timezones#the-dayjs-library) it into your project, you can pass the `dayjsTimezone` object to the Timeline’s [`timezonePlugin`](/javascript/eventcalendar/api#opt-timezonePlugin) option:
 
 ```jsx
 import { eventcalendar, dayjsTimezone } from '@mobiscroll/javascript';
@@ -641,17 +641,17 @@ eventcalendar('#myDiv', {
 ```
 
 Also, feel free to explore live examples to see how time zones work in action:
-- [Event Calendar](https://demo.mobiscroll.com/javascript/eventcalendar/setting-the-timezone#)
-- [Scheduler](https://demo.mobiscroll.com/javascript/scheduler/setting-the-timezone#)
-- [Timeline](https://demo.mobiscroll.com/javascript/timeline/setting-the-timezone#)
-- [Agenda](https://demo.mobiscroll.com/javascript/agenda/setting-the-timezone#)
+- [Event Calendar](https://demo.mobiscroll.com/eventcalendar/setting-the-timezone#)
+- [Scheduler](https://demo.mobiscroll.com/scheduler/setting-the-timezone#)
+- [Timeline](https://demo.mobiscroll.com/timeline/setting-the-timezone#)
+- [Agenda](https://demo.mobiscroll.com/agenda/setting-the-timezone#)
 
 Or you can also check advanced demos such as:
-- [switching timezones (on the fly) from the header](https://demo.mobiscroll.com/javascript/eventcalendar/multiple-timezone-support)
-- [display time for multiple timezones](https://demo.mobiscroll.com/javascript/scheduler/show-multiple-timezones) 
-- [create a meeting planner across multiple timezones](https://demo.mobiscroll.com/javascript/timeline/timezone-meeting-planner)
+- [switching timezones (on the fly) from the header](https://demo.mobiscroll.com/eventcalendar/multiple-timezone-support)
+- [display time for multiple timezones](https://demo.mobiscroll.com/scheduler/show-multiple-timezones) 
+- [create a meeting planner across multiple timezones](https://demo.mobiscroll.com/timeline/timezone-meeting-planner)
 
-You can also store the timezone inside the event data, using the `timezone` [property](/javascript/eventcalendar/api#opt-data).
+You can also store the timezone inside the event data, using the [`timezone`](/javascript/eventcalendar/api#opt-data) property.
 
 As a conclusion, both libraries, Bryntum and Mobiscroll, provide timezone support. Mobiscroll supports multiple timezone libraries ([Moment-Timezone](/javascript/eventcalendar/timezones#the-moment-timezone-library), [Luxon](/javascript/eventcalendar/timezones#the-luxon-library), and [Day.js](/javascript/eventcalendar/timezones#the-dayjs-library)), while Bryntum relies on JavaScript Date, which may introduce DST inconsistencies.
 
@@ -665,6 +665,287 @@ In addition to drag & drop and custom view-switching, Mobiscroll also supports [
 
 As mentioned above, with some additional setup, most —if not all— features can be effectively replicated when migrating from Bryntum to Mobiscroll.
 If you have any specific questions or run into any issues, don’t hesitate to [reach out](https://mobiscroll.com#get-help) — we’re happy to help.
+
+## Templating and renderers
+
+### Event templating
+
+#### Bryntum
+
+Bryntum handles templating for events, resources, and other UI elements through a flexible system that allows developers to customize content rendering using template functions or strings.
+
+In case of Bryntum you can show any HTML structure inside an event bar using the [`eventRenderer`](https://bryntum.com/products/schedulerpro/docs/api/Scheduler/view/mixin/SchedulerEventRendering#config-eventRenderer).
+
+```jsx
+new Scheduler({
+    appendTo: 'container',
+    events: [
+        { id: 10, resourceId: 1, name: 'Custom Meeting', startDate: '2025-08-27 09:00', endDate: '2025-08-27 11:00', location: 'Room 203' }
+    ],
+    // Custom eventRenderer function
+    eventRenderer({ eventRecord }) {
+        // Template with custom color and extra data
+        return {
+            // Add a colored bar and extra text info
+            // You can also set event style directly here
+            html: `
+                <div style="background:#a8d8ea; border-radius:4px; padding:4px;">
+                  <strong>${eventRecord.name}</strong>
+                  <div style="font-size:12px; color:#444;">Location: ${eventRecord.location}</div>
+                </div>
+            `
+        };
+    }
+});
+```
+
+#### Mobiscroll
+
+You can customize many parts of the Event Calendar by writing custom templates. In the context of plain javascript these templates are functions that return a string containing the html markup. You will find a comprehensive list of all the available render functions for the Event Calendar in the [API templates](/javascript/eventcalendar/api#renderers) section.
+
+When you want to customize how the events look, depending on what your goal is, you have two options:
+- [Customize the event content](/javascript/eventcalendar/templating#event-content-templating) - Mobiscroll takes care of rendering the events in the correct order and also prints basic fields, like `start`/`end`, whether it is an `allDay` event or not and also takes care of coloring the event appropriately. Everything else comes from the custom template.
+- [Customize the full event](/javascript/eventcalendar/templating#full-event-templating) - Mobiscroll takes care of rendering the events in the correct order, but everything else comes form the template you write.
+
+To define a custom template, pass a functional to the appropriate option that returns the desired html:
+
+```jsx
+mobiscroll.eventcalendar('#container', {
+    // ...other config...
+    
+  data: [ { id: 10, resourceId: 1, title: 'Custom Meeting', start: '2025-08-27 09:00', end: '2025-08-27 11:00' }],
+
+  renderScheduleEvent: function (eventRecord) {
+    return `
+        <div style="background:#a8d8ea; border-radius:4px; padding:4px;">
+            <strong>${title}</strong>
+            <div style="font-size:12px; color:#444;">Location: ${eventRecord.location </div>
+        </div>
+    `;
+  }
+});
+```
+
+Feel free to explore live examples to see how event content templating work in action:
+- [Event Calendar](https://demo.mobiscroll.com/eventcalendar/customize-label-look-and-feel#)
+- [Scheduler](https://demo.mobiscroll.com/scheduler/customizing-events#)
+- [Timeline](https://demo.mobiscroll.com/timeline/meal-planner#)
+- [Agenda](https://demo.mobiscroll.com/agenda/event-content-customization#)
+
+Feel free to explore live examples to see how full event templating work in action:
+- [Event Calendar](https://demo.mobiscroll.com/eventcalendar/customize-event-popover#)
+- [Scheduler](https://demo.mobiscroll.com/scheduler/customizing-events#)
+- [Timeline](https://demo.mobiscroll.com/timeline/timeline-custom-event-rendering#)
+- [Agenda](https://demo.mobiscroll.com/javascript/agenda/customizing-calendar-header)
+
+### Resource templating
+
+#### Bryntum
+
+You can customize cell content and styling in a column using a [renderer](https://bryntum.com/products/scheduler/docs/api/Grid/column/Column#config-renderer) function.
+
+To customize the column header, use the [`headerRenderer`](https://bryntum.com/products/scheduler/docs/api/Grid/column/Column#config-headerRenderer) option.
+
+```jsx
+const scheduler = new Scheduler({
+  appendTo: 'container',  
+  // ... other config ...
+  resources: [
+    { id: 1, name: 'Adam', city: 'Washington' },
+    { id: 2, name: 'Eva', city: 'New York' },
+  ],
+  columns: [
+    {
+      text: 'Name',
+      field: 'name',
+      width: 130,
+      headerRenderer: () => {
+        return '<strong>Name</strong>';
+      },
+      renderer: ({ record }) => {
+        return { html: `<strong>${record.name}</strong>` };
+      },
+    },
+    {
+      text: 'City',
+      field: 'city',
+      width: 90,
+      headerRenderer: () => {
+        return '<i>City</i>';
+      },
+      renderer: ({ record }) => {
+        return { html: `<i>${record.city}</i>` };
+      },
+    },
+  ],
+});
+```
+
+#### Mobiscroll
+
+In the case of Mobiscroll, we take a different approach. We provide various templating options (listed below), which allow you to customize the resources. This is unlike Bryntum, where customization requires modifying the columns with different renderers.
+
+#### Scheduler
+
+Use the [`renderResource`](/javascript/eventcalendar/scheduler#renderer-renderResource) option to customize the resource template of the Scheduler. Customize how the resource headers look and what they show. Utilize properties passed in the [resources](/javascript/eventcalendar/scheduler#opt-resources) array. It takes a function that should return the desired markup.
+
+Check out how you can style the resources in [this example](https://demo.mobiscroll.com/scheduler/custom-resource-header-template#).
+
+#### Timeline
+
+In case of the Timeline view there are three places where you can customize the resource column:
+- Use the [`renderResource`](/javascript/eventcalendar/timeline#renderer-renderResource) option to customize the resource template of the Timeline. Customize how the resource headers look and what they show. Utilize properties passed in the [resources](/javascript/eventcalendar/timeline#opt-resources) array. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well.
+- Customize the empty cell content above the resource column with the [`renderResourceHeader`](/javascript/eventcalendar/timeline#renderer-renderResourceHeader) option. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well.
+- Or if you want to customize the empty cell content below the resource column you can achieve this with the renderResourceFooter option. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well. This element only renders for the Timeline view, if the [`renderDayFooter`](/javascript/eventcalendar/timeline#renderer-renderDayFooter) option is present.
+
+Check out how you can style these resource parts in [this example](https://demo.mobiscroll.com/timeline/timeline-resource-details-side-panel-footer#).
+
+```jsx
+mobiscroll.eventcalendar('#container', {  
+  // ... other config ...
+  resources: [
+    { id: 1, name: 'Adam', city: 'Washington' },
+    { id: 2, name: 'Eva', city: 'New York' },
+  ],
+  renderResourceHeader: function () {
+    return (
+      '<div class="my-resource-header">' +
+      'Name' +
+      '</div>' +
+      '<div class="my-resource-header">' +
+      'City' +
+      '</div>'
+    );
+  },
+  renderResource: function (resource) {
+    return (
+      '<div class="my-resource-cell">' +
+      resource.name +
+      '</div>' +
+      '<div class="my-resource-cell">' +
+      resource.city +
+      '</div>'
+    );
+  }
+});
+```
+
+### Header templating
+
+The header of the Mobiscroll calendar can be fully customized to one's needs with the use of the [`renderHeader`](/javascript/eventcalendar/api#renderer-renderHeader) option.
+
+Here's the list of the built in components of the default header. You can initialize these by putting the attributes on the elements:
+- `mbsc-calendar-prev` - Previous button component, that navigates to the previous month.
+- `mbsc-calendar-next` - Next button component, that navigates to the next month.
+- `mbsc-calendar-today` - Today button component, that navigates to the current date.
+- `mbsc-calendar-nav` - The title navigation button component, that opens the year/month navigation.
+
+The following example will render the prev and next buttons and a custom title.
+
+```jsx
+mobiscroll.eventcalendar('#container', {  
+  renderHeader: function (Awesome Title) {    
+    return `    
+    <button mbsc-calendar-prev></button>    
+    <button mbsc-calendar-next></button>    
+    <button class="my-custom-title">${myTitle}</button>`;  
+  },
+});
+```
+
+Also, feel free to explore live examples to see how header templating work in action:
+- [Event Calendar](https://demo.mobiscroll.com/eventcalendar/customizing-header#)
+- [Scheduler](https://demo.mobiscroll.com/scheduler/customizing-header#)
+- [Timeline](https://demo.mobiscroll.com/timeline/switching-day-week-work-week-timeline)
+- [Agenda](https://demo.mobiscroll.com/agenda/customizing-calendar-header)
+
+### Other templating/ renderer options
+
+#### Event Calendar
+
+- Date header templating - There are two approaches you can take:
+  - Customize the date headers of the Event Calendar with the [`renderDay`](/javascript/eventcalendar/calendar#renderer-renderDay) option by adding relevant content, labels or completely change how they look.
+  - If you are looking to customize only the content and don't want to bother with the styling of the event, you can use the [`renderDayContent`](/javascript/eventcalendar/calendar#renderer-renderDayContent) option. 
+
+#### Scheduler
+
+- [Date header templating](/javascript/eventcalendar/scheduler#the-date-header) - There are two approaches you can take:
+  - Customize the date headers of the Scheduler with the [`renderDay`](/javascript/eventcalendar/scheduler#renderer-renderDay) option by adding relevant content, labels or completely change how they look.
+  - If you are looking to customize only the content and don't want to bother with the styling of the event, you can use the [`renderDayContent`](/javascript/eventcalendar/scheduler#renderer-renderDayContent) option. 
+
+  Check out how you can style the date header in [this example](https://demo.mobiscroll.com/scheduler/date-header-template#). 
+
+#### Timeline
+
+- [Templating the sidebar header and footer](/javascript/eventcalendar/timeline#the-sidebar-their-header-and-footer) - Besides the resource template, an additional sidebar can be rendered on the opposite end of the row and there are three approaches you can take:
+  - Use the [`renderSidebar`](/javascript/eventcalendar/timeline#renderer-renderSidebar) option to render a custom sidebar on the right side of the Timeline. 
+  - Customize the empty cell content above the sidebar column with the [`renderSidebarHeader`](/javascript/eventcalendar/timeline#renderer-renderSidebarHeader) option. 
+  - Or if you want to customize the empty cell content below the sidebar column you can achieve this with the [`renderSidebarFooter`](/javascript/eventcalendar/timeline#renderer-renderSidebarFooter) option. 
+
+  Check out how you can style the sidebar parts in [this example](https://demo.mobiscroll.com/timeline/timeline-resource-details-side-panel-footer#).
+
+- [Date header and footer templating](/javascript/eventcalendar/timeline#the-date-header-and-footer) - The headers hold key information like the date, day of the week and in some cases it also holds the full date. Whenever you need to show extra information, or if you would like to change the styling or date format, time format you can use the various header templates, depending on the view configuration. You can also show a footer element, for displaying more information.
+
+  Check out how you can style the date header and footer in [this example](https://demo.mobiscroll.com/timeline/hour-day-week-month-quarter-year-header-footer-template#).
+
+- [Slots](/javascript/eventcalendar/timeline#the-event-slots) - Use the renderSlot option to customize the slot template of the Timeline view. 
+
+  Check out how you can style the slots in [this example](https://demo.mobiscroll.com/timeline/shift-template#).
+
+- [Variable event height](/javascript/eventcalendar/timeline#variable-event-height) - When using [event templating](/javascript/eventcalendar/templating#event-templating), you might end up with various event heights, depending on the displayed content, e.g. larger description, list of tasks, etc. You can enable support for variable event heights by setting the `eventHeight: 'variable'` property for the timeline inside the [`view`](/javascript/eventcalendar/timeline#view-timeline-eventHeight) option. 
+
+  Check out how you can set and style the variable event height in [this example](https://demo.mobiscroll.com/timeline/variable-event-height)
+
+#### Agenda
+
+- [Day header templating](/javascript/eventcalendar/agenda#the-agenda-day-header) - Customize the day headers that appear on the agenda with the [`renderDay`](/javascript/eventcalendar/agenda#renderer-renderDay) option. 
+
+  Check out how you can style the day headers in [this example](https://demo.mobiscroll.com/agenda/customizing-day-header#).
+
+- [Empty state templating](/javascript/eventcalendar/agenda#the-agenda-empty-state) - Customize the look of the empty state through [`renderAgendaEmpty`](/javascript/eventcalendar/agenda#renderer-renderAgendaEmpty) function. 
+
+  Check out how you can style the empty state in [this example](https://demo.mobiscroll.com/agenda/empty-state#).
+
+## Localization
+
+### Bryntum
+
+Bryntum supports localization by allowing developers to select from built-in locales or define custom ones. Key aspects include:
+- Locale files translate UI text, date formats, and number formats to the target language.
+- Custom locales can be created or modified using their locale structure.
+- Right-to-left (RTL) layout support is included
+
+```jsx
+import { LocaleManager, LocaleHelper } from @bryntum/schedulerpro;
+
+LocaleManager.locale = LocaleHelper.locales.FrFR;
+```
+
+### Mobiscroll
+
+Mobiscroll [enables localization](/javascript/core-concepts/localization) by letting developers set language, date, and time formats both globally (across the entire application) and locally (on individual components). Highlights:
+- Global settings object lets developers set locale, theme, and format across the app (first example).
+- Each component (e.g., Date Picker, Event Calendar) supports locale switching and custom translations with simple configuration (second example).
+- RTL and calendar system support (Gregorian, Jalali, Hijri)
+- Quick override ability for localized formats ensures that adaptations can be made case-by-case or via global settings.
+
+Example setting the locale option globally:
+
+```jsx
+mobiscroll.setOptions({
+    // ...other config...
+    locale: mobiscroll.localeFr // French locale applied globally
+});
+```
+
+Example setting the locale at the component level:
+
+```jsx
+mobiscroll.eventcalendar('#container', {
+    // ...other config...
+    locale: mobiscroll.localeFr, // Switch to French locale
+});
+```
 
 ## Conclusion
 

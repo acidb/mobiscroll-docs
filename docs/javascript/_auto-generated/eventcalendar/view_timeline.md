@@ -48,8 +48,7 @@ Hours and minutes can be specified in the same string, example: &#039;18:30&#039
 
 Specifies wether the height of the events is equal or variable.
 :::info
-Experimental feature: [learn more about variable
-event heights](https://mobiscroll.com/docs/eventcalendar/timeline#variable-event-height).
+[Learn more about variable event heights](https://mobiscroll.com/docs/eventcalendar/timeline#variable-event-height).
 :::
 
 **Default value**: `'equal'`
@@ -61,6 +60,26 @@ If `true`, transforms the layout into a summary view.
 The events are listed in the appropriate cell one after the other.
 
 **Default value**: `false`
+### hideEmptyRows {#view-timeline-hideEmptyRows}
+
+boolean
+
+Hide the empty rows.
+:::info
+Parent resources will always be displayed, even when empty.
+:::
+
+**Default value**: `false.`
+### hideInvalidRows {#view-timeline-hideInvalidRows}
+
+boolean
+
+Hide the fully invalid rows.
+:::info
+Parent resources will always be displayed, even when fully invalid, unless `resolutionVertical: 'day'` is used.
+:::
+
+**Default value**: `false.`
 ### maxEventStack {#view-timeline-maxEventStack}
 
 number &#124; "all"

@@ -29,6 +29,20 @@ If there is no slot defined, it will be applied to every slot.
  - `textColor`: *string*  - A color applied on the text.
  - `title`: *string*  - A title that will be displayed on the item.
 
+### MbscCalendarInvalid {#type-MbscCalendarInvalid}
+
+Interface
+
+Properties:
+ - `allDay`: *boolean*  - If true the specified invalid will cover the whole day.
+ - `end`: *[MbscDateType](#type-MbscDateType)*  - Specifies the end of the invalid range.
+ - `recurring`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)*  - Recurrence rule for recurring invalid ranges.
+ - `recurringException`: *[MbscDateType](#type-MbscDateType) &#124; Array&lt;[MbscDateType](#type-MbscDateType)&gt;*  - Specifies recurring exceptions.
+Useful when specific dates need to be skipped from the rule.
+ - `recurringExceptionRule`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)*  - Specifies a recurrence exception rule.
+Useful when recurring dates need to be skipped from the rule.
+ - `start`: *[MbscDateType](#type-MbscDateType)*  - Specifies the start of the invalid range.
+
 ### MbscDateType {#type-MbscDateType}
 
 string &#124; Date &#124; object

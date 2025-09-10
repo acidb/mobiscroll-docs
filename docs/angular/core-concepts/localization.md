@@ -59,13 +59,19 @@ The `locale` option can be used to set the language of a component. It takes an 
 <mbsc-eventcalendar [locale]="myLocale"></mbsc-eventcalendar>
 ```
 ```ts
-import { localeDe } from '@mobiscroll/angular';
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+// highlight-next-line
+import { localeDe, MbscModule } from '@mobiscroll/angular';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [CommonModule, MbscModule]
 })
 export class AppComponent {
+    // highlight-next-line
     myLocale = localeDe;
 }
 ```
@@ -76,16 +82,23 @@ Creating your own locale object is simple as creating an object in JavaScript. F
 <mbsc-eventcalendar [locale]="myLocale"></mbsc-eventcalendar>
 ```
 ```ts
-import { MbscLocale } from '@mobiscroll/angular';
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+// highlight-next-line
+import { MbscLocale, MbscModule } from '@mobiscroll/angular';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [CommonModule, MbscModule]
 })
 export class AppComponent {
+ // highlight-start
   myLocale: MbscLocale = {
     cancelText: 'Mégse'
   }
+ // highlight-end
 }
 ```
 

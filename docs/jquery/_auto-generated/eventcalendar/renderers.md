@@ -81,6 +81,26 @@ The following event specific properties are available:
 
 **Default value**: `undefined`
 
+### renderCell {#renderer-renderCell}
+
+(args: MbscCalendarCellData) => any
+
+
+Customize the cells of the Eventcalendar in scheduler and timeline views.
+
+The template will receive an object as context, which can be used to display custom content in the cells.
+Keep the cell template simple, as it will be called and rendered **very frequently** during scroll and view changes.
+
+The object passed to the template contains the following properties:
+- `colors`: _Array&lt;MbscCalendarColor&gt;_ - The list of colors for the current cell.
+- `date`:  _Date_ – The current cell&#039;s date.
+- `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the current cell.
+- `invalids`: _Array&lt;MbscCalendarInvalid&gt;_ - The list of invalids for the current cell.
+- `resource`: _MbscResource_ – The resource object for the current cell.
+- `slot`: _MbscSlot_ - The slot object for the current cell.
+
+**Default value**: `undefined`
+
 ### renderDay {#renderer-renderDay}
 
 (args: MbscCalendarDayData) => any

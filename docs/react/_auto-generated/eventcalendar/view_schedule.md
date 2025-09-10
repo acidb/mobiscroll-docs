@@ -34,6 +34,20 @@ Set the end time of scheduler column.
 Hours and minutes can be specified in the same string, example: `'18:30'`.
 
 **Default value**: `'24:00'`
+### hideEmptyColumns {#view-schedule-hideEmptyColumns}
+
+boolean
+
+Hide the empty columns.
+
+**Default value**: `false.`
+### hideInvalidColumns {#view-schedule-hideInvalidColumns}
+
+boolean
+
+Hide the fully invalid columns.
+
+**Default value**: `false.`
 ### maxEventStack {#view-schedule-maxEventStack}
 
 number &#124; "all" &#124; "auto"

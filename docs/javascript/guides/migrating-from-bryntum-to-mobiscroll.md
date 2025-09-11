@@ -218,8 +218,8 @@ Bryntum:
 - The backend layer is fully decoupled, enabling the use of any technology stack (Node.js, PHP, Java, etc.) to deliver JSON payloads to the Bryntum frontend.
 
 Mobiscroll:
-- Mobiscroll components accept static arrays, which can be [inline](/javascript/eventcalendar/data-binding#local-data) (preloaded in memory) or [dynamically fetched](/javascript/eventcalendar/data-binding#remote-data) from remote APIs. 
-- The [`onPageLoading`](/javascript/eventcalendar/api#event-onPageLoading) event plays a central role in incremental data loading, enabling applications to [request only the events needed](/javascript/eventcalendar/load-events-on-demand#) for the current view (e.g., the current month or week) as the user navigates.
+- Mobiscroll components accept static arrays, which can be [inline](/javascript/eventcalendar/data-binding#local-data) (preloaded in memory) or [dynamically fetched](/javascript/eventcalendar/data-binding#remote-data) from remote APIs.
+- The [`onPageLoading`](/javascript/eventcalendar/api#event-onPageLoading) event plays a central role in incremental data loading, enabling applications to [request only the events needed](/javascript/eventcalendar/load-events-on-demand) for the current view (e.g., the current month or week) as the user navigates.
 - Mobiscroll also offers [integration with external calendar services](/javascript/eventcalendar/calendar-integrations/) ([Google Calendar](https://demo.mobiscroll.com/eventcalendar/sync-events-google-calendar#), [Outlook](https://demo.mobiscroll.com/eventcalendar/sync-events-outlook-calendar#)) via plugins, handling data retrieval and format conversion internally.
 
 Let’s see an example for each case:

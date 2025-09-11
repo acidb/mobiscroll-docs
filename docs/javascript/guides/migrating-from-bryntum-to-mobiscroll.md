@@ -52,7 +52,7 @@ mobiscroll.eventcalendar('#container', {
 ## View configuration
 
 Key Differences:
-- With Mobiscroll, you get precise control over [time ranges](https://demo.mobiscroll.com/scheduler/show-hide-hours-days) on Scheduler and [Timeline](https://demo.mobiscroll.com/timeline/daily-weekly-monthly-yearly-timeline) views, plus feature-rich [Event Calendar](https://demo.mobiscroll.com/eventcalendar) and [Agenda](https://demo.mobiscroll.com/agenda) views for seamless scheduling.
+- With Mobiscroll, you get precise control over time ranges on [Scheduler](https://demo.mobiscroll.com/scheduler/show-hide-hours-days) and [Timeline](https://demo.mobiscroll.com/timeline/daily-weekly-monthly-yearly-timeline) views, plus feature-rich [Event Calendar](https://demo.mobiscroll.com/eventcalendar) and [Agenda](https://demo.mobiscroll.com/agenda) views for seamless scheduling.
 - Bryntum provides built-in view presets.
 
 ### Bryntum Scheduler Pro:
@@ -141,7 +141,7 @@ resources: [
 ]
 ```
 
-As shown above, both Bryntum and Mobiscroll use similar structures for defining resources, typically including `id` and `name` [properties](javascript/eventcalendar/timeline#opt-resources). Like Bryntum, Mobiscroll also supports a wide range of additional properties, as demonstrated in [this example](https://demo.mobiscroll.com/timeline/resource-data-structure#).
+As shown above, both Bryntum and Mobiscroll use similar structures for defining resources, typically including `id` and `name` [properties](/javascript/eventcalendar/timeline#opt-resources). Like Bryntum, Mobiscroll also supports a wide range of additional properties, as demonstrated in [this example](https://demo.mobiscroll.com/timeline/resource-data-structure#).
 
 For more advanced use cases, refer to the [Mobiscroll documentation](/javascript/eventcalendar/resources) for additional options, including [custom rendering and templating of resources](/javascript/eventcalendar/timeline#the-resource-their-header-and-footer). You can also explore our demo page for [detailed resource configuration](https://demo.mobiscroll.com/timeline/timeline-resource-details-side-panel-footer) examples.
 
@@ -219,7 +219,7 @@ Bryntum:
 
 Mobiscroll:
 - Mobiscroll components accept static arrays, which can be [inline](/javascript/eventcalendar/data-binding#local-data) (preloaded in memory) or [dynamically fetched](/javascript/eventcalendar/data-binding#remote-data) from remote APIs.
-- The [`onPageLoading`](/javascript/eventcalendar/api#event-onPageLoading) event plays a central role in incremental data loading, enabling applications to [request only the events needed](/javascript/eventcalendar/load-events-on-demand) for the current view (e.g., the current month or week) as the user navigates.
+- The [`onPageLoading`](/javascript/eventcalendar/api#event-onPageLoading) event plays a central role in incremental data loading, enabling applications to [request only the events needed](https://demo.mobiscroll.com/timeline/load-events-on-demand) for the current view (e.g., the current month or week) as the user navigates.
 - Mobiscroll also offers [integration with external calendar services](/javascript/eventcalendar/calendar-integrations/) ([Google Calendar](https://demo.mobiscroll.com/eventcalendar/sync-events-google-calendar#), [Outlook](https://demo.mobiscroll.com/eventcalendar/sync-events-outlook-calendar#)) via plugins, handling data retrieval and format conversion internally.
 
 Let’s see an example for each case:
@@ -292,7 +292,7 @@ const scheduler = new Scheduler({
 
 #### Mobiscroll
 
-You can load the data through an external request and use the [`setEvents`]](/javascript/eventcalendar/api#method-setEvents) method to update the event calendar with the newly received data.
+You can load the data through an external request and use the [`setEvents`](/javascript/eventcalendar/api#method-setEvents) method to update the event calendar with the newly received data.
 
 In case of Mobiscroll, you can also use the [`onPageLoading`](/javascript/eventcalendar/api#event-onPageLoading) pevent to load the data (on demand) relevant to the currently active view. The event fires every time the date range of the view changes, for example, when someone navigates the event calendar. Getting the events in real time as the user interacts with the UI improves load performance and always serves the most recent data.
 
@@ -317,7 +317,7 @@ mobiscroll.eventcalendar('#myDiv', {
 });
 ```
 
-In case of the timeline view, data can also be [loaded dynamically during scrolling](/javascript/eventcalendar/timeline#load-data-on-scroll). Scrolling vertically or horizontally triggers the [`onVirtualLoading`](/javascript/eventcalendar/data-binding#event-onVirtualLoading) lifecycle event, which can be used to [load data incrementally during scrolling](https://demo.mobiscroll.com/timeline/load-resources-on-scroll).
+In case of the timeline view, data can also be [loaded dynamically during scrolling](/javascript/eventcalendar/timeline#load-data-on-scroll). Scrolling vertically or horizontally triggers the [`onVirtualLoading`](/javascript/eventcalendar/api#event-onVirtualLoading) lifecycle event, which can be used to [load data incrementally during scrolling](https://demo.mobiscroll.com/timeline/load-resources-on-scroll).
 
 ### Saving data
 

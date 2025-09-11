@@ -367,15 +367,15 @@ mobiscroll.eventcalendar('#myDiv', {
     onEventCreated: function (args, inst) {
       fetch('save.php', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' }, 
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(args.event)
       });
     },
-    
+
     onEventUpdated: function (args, inst) {
       fetch('update.php', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' }, 
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(args.event)
       });
     },
@@ -383,7 +383,7 @@ mobiscroll.eventcalendar('#myDiv', {
     onEventDeleted: function (args, inst) {
       fetch('update.php', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' }, 
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(args.event)
       });
     }
@@ -604,7 +604,7 @@ This configuration automatically adjusts the timeline headers, event/task start 
 new Scheduler({
     project : {
         // This will convert time to CET (UTC+1) or
-        // CEST (UTC+2) depending on DST 
+        // CEST (UTC+2) depending on DST
         timeZone : 'Europe/Stockholm'
     }
 });
@@ -648,7 +648,7 @@ Also, feel free to explore live examples to see how time zones work in action:
 
 Or you can also check advanced demos such as:
 - [switching timezones (on the fly) from the header](https://demo.mobiscroll.com/eventcalendar/multiple-timezone-support)
-- [display time for multiple timezones](https://demo.mobiscroll.com/scheduler/show-multiple-timezones) 
+- [display time for multiple timezones](https://demo.mobiscroll.com/scheduler/show-multiple-timezones)
 - [create a meeting planner across multiple timezones](https://demo.mobiscroll.com/timeline/timezone-meeting-planner)
 
 You can also store the timezone inside the event data, using the [`timezone`](/javascript/eventcalendar/api#opt-data) property.
@@ -712,7 +712,7 @@ To define a custom template, pass a functional to the appropriate option that re
 ```jsx
 mobiscroll.eventcalendar('#container', {
     // ...other config...
-    
+
   data: [ { id: 10, resourceId: 1, title: 'Custom Meeting', start: '2025-08-27 09:00', end: '2025-08-27 11:00' }],
 
   renderScheduleEvent: function (eventRecord) {
@@ -748,7 +748,7 @@ To customize the column header, use the [`headerRenderer`](https://bryntum.com/p
 
 ```jsx
 const scheduler = new Scheduler({
-  appendTo: 'container',  
+  appendTo: 'container',
   // ... other config ...
   resources: [
     { id: 1, name: 'Adam', city: 'Washington' },
@@ -801,7 +801,7 @@ In case of the Timeline view there are three places where you can customize the 
 Check out how you can style these resource parts in [this example](https://demo.mobiscroll.com/timeline/timeline-resource-details-side-panel-footer#).
 
 ```jsx
-mobiscroll.eventcalendar('#container', {  
+mobiscroll.eventcalendar('#container', {
   // ... other config ...
   resources: [
     { id: 1, name: 'Adam', city: 'Washington' },
@@ -843,12 +843,12 @@ Here's the list of the built in components of the default header. You can initia
 The following example will render the prev and next buttons and a custom title.
 
 ```jsx
-mobiscroll.eventcalendar('#container', {  
-  renderHeader: function (Awesome Title) {    
-    return `    
-    <button mbsc-calendar-prev></button>    
-    <button mbsc-calendar-next></button>    
-    <button class="my-custom-title">${myTitle}</button>`;  
+mobiscroll.eventcalendar('#container', {
+  renderHeader: function (Awesome Title) {
+    return `
+    <button mbsc-calendar-prev></button>
+    <button mbsc-calendar-next></button>
+    <button class="my-custom-title">${myTitle}</button>`;
   },
 });
 ```
@@ -865,22 +865,22 @@ Also, feel free to explore live examples to see how header templating work in ac
 
 - Date header templating - There are two approaches you can take:
   - Customize the date headers of the Event Calendar with the [`renderDay`](/javascript/eventcalendar/calendar#renderer-renderDay) option by adding relevant content, labels or completely change how they look.
-  - If you are looking to customize only the content and don't want to bother with the styling of the event, you can use the [`renderDayContent`](/javascript/eventcalendar/calendar#renderer-renderDayContent) option. 
+  - If you are looking to customize only the content and don't want to bother with the styling of the event, you can use the [`renderDayContent`](/javascript/eventcalendar/calendar#renderer-renderDayContent) option.
 
 #### Scheduler
 
 - [Date header templating](/javascript/eventcalendar/scheduler#the-date-header) - There are two approaches you can take:
   - Customize the date headers of the Scheduler with the [`renderDay`](/javascript/eventcalendar/scheduler#renderer-renderDay) option by adding relevant content, labels or completely change how they look.
-  - If you are looking to customize only the content and don't want to bother with the styling of the event, you can use the [`renderDayContent`](/javascript/eventcalendar/scheduler#renderer-renderDayContent) option. 
+  - If you are looking to customize only the content and don't want to bother with the styling of the event, you can use the [`renderDayContent`](/javascript/eventcalendar/scheduler#renderer-renderDayContent) option.
 
-  Check out how you can style the date header in [this example](https://demo.mobiscroll.com/scheduler/date-header-template#). 
+  Check out how you can style the date header in [this example](https://demo.mobiscroll.com/scheduler/date-header-template#).
 
 #### Timeline
 
 - [Templating the sidebar header and footer](/javascript/eventcalendar/timeline#the-sidebar-their-header-and-footer) - Besides the resource template, an additional sidebar can be rendered on the opposite end of the row and there are three approaches you can take:
-  - Use the [`renderSidebar`](/javascript/eventcalendar/timeline#renderer-renderSidebar) option to render a custom sidebar on the right side of the Timeline. 
-  - Customize the empty cell content above the sidebar column with the [`renderSidebarHeader`](/javascript/eventcalendar/timeline#renderer-renderSidebarHeader) option. 
-  - Or if you want to customize the empty cell content below the sidebar column you can achieve this with the [`renderSidebarFooter`](/javascript/eventcalendar/timeline#renderer-renderSidebarFooter) option. 
+  - Use the [`renderSidebar`](/javascript/eventcalendar/timeline#renderer-renderSidebar) option to render a custom sidebar on the right side of the Timeline.
+  - Customize the empty cell content above the sidebar column with the [`renderSidebarHeader`](/javascript/eventcalendar/timeline#renderer-renderSidebarHeader) option.
+  - Or if you want to customize the empty cell content below the sidebar column you can achieve this with the [`renderSidebarFooter`](/javascript/eventcalendar/timeline#renderer-renderSidebarFooter) option.
 
   Check out how you can style the sidebar parts in [this example](https://demo.mobiscroll.com/timeline/timeline-resource-details-side-panel-footer#).
 
@@ -888,21 +888,21 @@ Also, feel free to explore live examples to see how header templating work in ac
 
   Check out how you can style the date header and footer in [this example](https://demo.mobiscroll.com/timeline/hour-day-week-month-quarter-year-header-footer-template#).
 
-- [Slots](/javascript/eventcalendar/timeline#the-event-slots) - Use the renderSlot option to customize the slot template of the Timeline view. 
+- [Slots](/javascript/eventcalendar/timeline#the-event-slots) - Use the renderSlot option to customize the slot template of the Timeline view.
 
   Check out how you can style the slots in [this example](https://demo.mobiscroll.com/timeline/shift-template#).
 
-- [Variable event height](/javascript/eventcalendar/timeline#variable-event-height) - When using [event templating](/javascript/eventcalendar/templating#event-templating), you might end up with various event heights, depending on the displayed content, e.g. larger description, list of tasks, etc. You can enable support for variable event heights by setting the `eventHeight: 'variable'` property for the timeline inside the [`view`](/javascript/eventcalendar/timeline#view-timeline-eventHeight) option. 
+- [Variable event height](/javascript/eventcalendar/timeline#variable-event-height) - When using [event templating](/javascript/eventcalendar/templating#event-templating), you might end up with various event heights, depending on the displayed content, e.g. larger description, list of tasks, etc. You can enable support for variable event heights by setting the `eventHeight: 'variable'` property for the timeline inside the [`view`](/javascript/eventcalendar/timeline#view-timeline-eventHeight) option.
 
   Check out how you can set and style the variable event height in [this example](https://demo.mobiscroll.com/timeline/variable-event-height)
 
 #### Agenda
 
-- [Day header templating](/javascript/eventcalendar/agenda#the-agenda-day-header) - Customize the day headers that appear on the agenda with the [`renderDay`](/javascript/eventcalendar/agenda#renderer-renderDay) option. 
+- [Day header templating](/javascript/eventcalendar/agenda#the-agenda-day-header) - Customize the day headers that appear on the agenda with the [`renderDay`](/javascript/eventcalendar/agenda#renderer-renderDay) option.
 
   Check out how you can style the day headers in [this example](https://demo.mobiscroll.com/agenda/customizing-day-header#).
 
-- [Empty state templating](/javascript/eventcalendar/agenda#the-agenda-empty-state) - Customize the look of the empty state through [`renderAgendaEmpty`](/javascript/eventcalendar/agenda#renderer-renderAgendaEmpty) function. 
+- [Empty state templating](/javascript/eventcalendar/agenda#the-agenda-empty-state) - Customize the look of the empty state through [`renderAgendaEmpty`](/javascript/eventcalendar/agenda#renderer-renderAgendaEmpty) function.
 
   Check out how you can style the empty state in [this example](https://demo.mobiscroll.com/agenda/empty-state#).
 

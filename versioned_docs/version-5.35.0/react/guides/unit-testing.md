@@ -15,7 +15,7 @@ We are using the [@testing-library](https://testing-library.com/) because their 
 
 ## Setup
 
-In the following examples we are using the [Create React App (cra)](https://create-react-app.dev/) as a starting project. At the time of this guide's writing the CRA (version 5.0.1) comes with the react testing library installed.
+In the following examples we are using [Vite](https://vite.dev/) (version 8.0.1 at the time of writing) as a starting project, along with [Vitest](https://vitest.dev/) as the testing environment.
 
 :::info
 
@@ -25,17 +25,23 @@ For instructions on how to install the testing library please check the official
 
 ### Requirements
 
-The only requirement for the Mobiscroll Components to be testable is to install the [jest-canvas-mock](https://www.npmjs.com/package/jest-canvas-mock) package. The following command should install it:
+The only requirement for the Mobiscroll Components to be testable is to install the [vitest-canvas-mock](https://www.npmjs.com/package/vitest-canvas-mock) package. The following command should install it:
 
 ```bash
-npm install jest-canvas-mock --save
+npm install vitest-canvas-mock --save
 ```
+
+:::note
+This guide uses **Vitest** for examples. Vitest has the same syntax as Jest, but it is more modern,
+faster, and works better with ES modules and TypeScript.  
+If you already use Jest, the examples will work there as well with little to no change.
+:::
 
 After the package is installed, it has to be imported in the setupTests.js file located at the src folder:
 
 ```js title="src/setupTests.js"
-import '@testing-library/jest-dom';
-import 'jest-canvas-mock'; // required for Mobiscroll Components
+import "@testing-library/vitest-dom";
+import "vitest-canvas-mock"; // required for Mobiscroll Components
 ```
 
 After the import above, the components can be tested without any errors using:
@@ -55,15 +61,15 @@ Querying a particular DOM element with the @testing-library is not encouraged, b
 #### Eventcalendar
 
 ```tsx title="App.test.js"
-import { Eventcalendar } from '@mobiscroll/react';
-import { render } from '@testing-library/react';
+import { Eventcalendar } from "@mobiscroll/react";
+import { render } from "@testing-library/react";
 
-test('The Mobiscroll Eventcalendar renders', () => {
-    const { baseElement } = render(<Eventcalendar />);
+test("The Mobiscroll Eventcalendar renders", () => {
+  const { baseElement } = render(<Eventcalendar />);
 
-    // eslint-disable-next-line
-    const div = baseElement.querySelector('.mbsc-eventcalendar');
-    expect(div).toBeInTheDocument();
+  // eslint-disable-next-line
+  const div = baseElement.querySelector(".mbsc-eventcalendar");
+  expect(div).toBeInTheDocument();
 });
 ```
 
@@ -78,14 +84,14 @@ ESLint needs to be disabled on the line above, because avoiding direct Node acce
 In the case of the Datepicker, we might not need a workaround like this. By default the Datepicker renders an input element with a label. The `@testing-library` gives us tools that can be used to query elements the User can perceive on the screen.
 
 ```jsx title="App.test.js"
-import { Datepicker } from '@mobiscroll/react';
-import { render, screen } from '@testing-library/react';
+import { Datepicker } from "@mobiscroll/react";
+import { render, screen } from "@testing-library/react";
 
-test('The Mobiscroll Datepicker renders', () => {
-    render(<Datepicker label="My Date picker" />);
+test("The Mobiscroll Datepicker renders", () => {
+  render(<Datepicker label="My Date picker" />);
 
-    const label = screen.getByLabelText('My Date picker');
-    expect(label).toBeInTheDocument();
+  const label = screen.getByLabelText("My Date picker");
+  expect(label).toBeInTheDocument();
 });
 ```
 
@@ -94,27 +100,32 @@ test('The Mobiscroll Datepicker renders', () => {
 Here is an example, how to test if an event is rendered on the Eventcalendar timeline view for today.
 
 ```jsx title="Eventcalendar rendering an event"
-import { Eventcalendar } from '@mobiscroll/react';
-import { render } from '@testing-library/react';
+import { Eventcalendar } from "@mobiscroll/react";
+import { render } from "@testing-library/react";
 
-test('Eventcalendar renders an event for today', () => {
-    // options to pass to the Eventcalendar
-    const viewOption = { timeline: { type: 'week' }};
-    const today = new Date(2023, 0, 31); // 2023. Jan. 31.  * see Note 1 below
-    const eventData = [{
-        start: new Date(2023, 0, 31, 10), // 10:00
-        end: new Date(2023, 0, 31, 11, 30), // 11:30
-        text: 'My Today Event',
-    }];
-    // rendering
-    render(<Eventcalendar view={viewOption} selectedDate={today} data={eventData} />);
-    // assertion
-    const eventElement = screen.getByText(/^My Today Event$/i); // regex * see Note 2 below
-    expect(eventElement).toBeInTheDocument();
+test("Eventcalendar renders an event for today", () => {
+  // options to pass to the Eventcalendar
+  const viewOption = { timeline: { type: "week" } };
+  const today = new Date(2023, 0, 31); // 2023. Jan. 31.  * see Note 1 below
+  const eventData = [
+    {
+      start: new Date(2023, 0, 31, 10), // 10:00
+      end: new Date(2023, 0, 31, 11, 30), // 11:30
+      text: "My Today Event",
+    },
+  ];
+  // rendering
+  render(
+    <Eventcalendar view={viewOption} selectedDate={today} data={eventData} />,
+  );
+  // assertion
+  const eventElement = screen.getByText(/^My Today Event$/i); // regex * see Note 2 below
+  expect(eventElement).toBeInTheDocument();
 });
 ```
 
 A few notes worth mentioning here:
+
 1. The Eventcalendar uses in some cases defaults that are calculated at run time. For example the selected date that defaults to today. These defaults can easily fail the test if not provided explicitly.
 2. In the `getByText()` function we used a regular expression that queries elements with the exact same content. The eventcalendar might render elements that contain the event title and other information for screen readers. The test need to be specific for the event text, otherwise it might fail due to multiple elements with the same content.
 
@@ -123,23 +134,41 @@ A few notes worth mentioning here:
 The following is a more complex example, where the event passed to the Eventcalendar is not rendered due to the Eventcalendar's virtual scrolling feature. The event is only expected to be in the DOM when selected date is "close" to the event date. How close it should be is an implementation detail and can't be set currently from the outside. We use approximately 2 days in this test to feature this:
 
 ```jsx title="Eventcalendar navigation and rendering event"
-import { Eventcalendar } from '@mobiscroll/react';
-import { render } from '@testing-library/react';
+import { Eventcalendar } from "@mobiscroll/react";
+import { render } from "@testing-library/react";
 
 // options passed to the Eventcalendar
-const viewOption = { timeline: { type: 'week' } };
-const tomorrowData = [{ start: new Date(2023, 0, 19, 10), end: new Date(2023, 0, 19, 11, 30), text: 'My Dayaftertomorrow Event' }];
+const viewOption = { timeline: { type: "week" } };
+const tomorrowData = [
+  {
+    start: new Date(2023, 0, 19, 10),
+    end: new Date(2023, 0, 19, 11, 30),
+    text: "My Dayaftertomorrow Event",
+  },
+];
 const dayAfterTomorrow = new Date(2023, 0, 19);
 const today = new Date(2023, 0, 17);
 
-test('renders an event for the day after tomorrow on the eventcalendar', () => {
-  const { rerender } = render(<Eventcalendar view={viewOption} selectedDate={today} data={tomorrowData} />);
+test("renders an event for the day after tomorrow on the eventcalendar", () => {
+  const { rerender } = render(
+    <Eventcalendar
+      view={viewOption}
+      selectedDate={today}
+      data={tomorrowData}
+    />,
+  );
 
   const eventElement = screen.queryByText(/^My Dayaftertomorrow Event$/i); // we are using the queryByText instead of the getByText
   expect(eventElement).not.toBeInTheDocument();
 
   // passing the dayAfterTomorrow as selected date, navigates the Eventcalendar to the dayAfterTomorrow
-  rerender(<Eventcalendar view={viewOption} selectedDate={dayAfterTomorrow} data={tomorrowData} />);
+  rerender(
+    <Eventcalendar
+      view={viewOption}
+      selectedDate={dayAfterTomorrow}
+      data={tomorrowData}
+    />,
+  );
 
   const eventElementAgain = screen.queryByText(/^My Dayaftertomorrow Event$/i);
   expect(eventElementAgain).toBeInTheDocument();
@@ -161,16 +190,16 @@ Re-rendering a component with different props can be done using the returned `re
 The `@testing-library` provides easy to use functions to simulate events. In the following example we use a click event to open a Datepicker and check whether the picker elements are in the DOM.
 
 ```jsx title="Opening a Datepicker by clicking the input label"
-import { Datepicker } from '@mobiscroll/react';
-import { fireEvent, render } from '@testing-library/react';
+import { Datepicker } from "@mobiscroll/react";
+import { fireEvent, render } from "@testing-library/react";
 
-test('Opens a Datepicker', () => {
+test("Opens a Datepicker", () => {
   const { baseElement } = render(<Datepicker label="Date picker" />);
-  const label = screen.getByLabelText('Date picker');
+  const label = screen.getByLabelText("Date picker");
   fireEvent.click(label);
 
   // eslint-disable-next-line
-  const datepickerDiv = baseElement.querySelector('.mbsc-datepicker');
+  const datepickerDiv = baseElement.querySelector(".mbsc-datepicker");
   expect(datepickerDiv).toBeInTheDocument();
 });
 ```
@@ -181,27 +210,27 @@ Events can be fired using the `fireEvent` object imported from the `@testing-lib
 
 The Mobiscroll components have lifecycle events that are fired during various phases of the component. For example in the previous test, the Datepicker was opened. In that case the Datepicker also fires an onOpen event, that can be used to act after the picker was opened.
 
-In the following example we will test if the onOpen event was fired properly. There is are specific methods in the `@testing-library` that allow us to test this. Whether a function was called or not can be tested using the testing framework underneath the `@testing-library` which is Jest.
+In the following example we will test if the onOpen event was fired properly. There is are specific methods in the `@testing-library` that allow us to test this. Whether a function was called or not can be tested using the testing framework underneath the `@testing-library` which is Vitest/Jest.
 
 :::info
 
-While the @testing-library can be used with other testing frameworks, they also recommend using Jest.
+While the @testing-library can be used with other testing frameworks, they also recommend using Jest/Vitest.
 
 :::
 
 ```jsx title="Testing event handlers/function calls"
-import { Datepicker } from '@mobiscroll/react';
-import { fireEvent, render } from '@testing-library/react';
+import { Datepicker } from "@mobiscroll/react";
+import { fireEvent, render } from "@testing-library/react";
 
-test('Fires the onOpen event when the Datepicker is opened', () => {
-  const openHandler = jest.fn(() => {}); // create a mock function with jest
+test("Fires the onOpen event when the Datepicker is opened", () => {
+  const openHandler = vi.fn(() => {}); // create a mock function with vitest
 
   render(<Datepicker label="Date picker" onOpen={openHandler} />);
 
   expect(openHandler).not.toHaveBeenCalled(); // not called before open
 
   // open the picker
-  const label = screen.getByLabelText('Date picker');
+  const label = screen.getByLabelText("Date picker");
   fireEvent.click(label);
 
   expect(openHandler).toHaveBeenCalled(); // called after open

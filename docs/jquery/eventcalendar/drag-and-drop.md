@@ -56,7 +56,7 @@ $('#myDiv').mobiscroll().eventcalendar({
 
 <h3 id="third-party-dragging-support">Third party dragging libraries</h3>
 
-Mobiscroll comes with built-in support for two of the most popular dragging libraries: [SortableJS](https://sortablejs.github.io/Sortable/) and [Dragula](https://bevacqua.github.io/dragula/). With the `sortableJsDraggable` and `dragulaDraggable` plugins, you can seamlessly drag items into the Eventcalendar with just a few lines of code.   
+Mobiscroll comes with built-in support for two widely used reorderable drag-and-drop list libraries: [SortableJS](https://sortablejs.github.io/Sortable/) and [Dragula](https://bevacqua.github.io/dragula/). With the `sortableJsDraggable` and `dragulaDraggable` plugins, you can seamlessly drag items into the Eventcalendar with just a few lines of code.   
 
 <h4 id="sortable-js">SortableJS:</h4>
 
@@ -89,11 +89,11 @@ The options object can include the following properties:
 ```
 
 ```ts
-mobiscroll.eventcalendar('#myDiv', {
+$('#myDiv').mobiscroll().eventcalendar({
   externalDrop: true,
 });
 
-var sortableList = document.getElementById('sortable-list');
+var sortableList = $('#sortable-list')[0];
 
 var sortableInst = Sortable.create(sortableList, {
   animation: 150,
@@ -119,7 +119,7 @@ The options object can include the following properties:
 
 
 ```html
-<div class="mbsc-form-group-title">Sortable appointments</div>
+<div class="mbsc-form-group-title">Dragula appointments</div>
 <div id="dragula-list">
   <div
     class="task"
@@ -141,11 +141,11 @@ The options object can include the following properties:
 ```
 
 ```ts
-mobiscroll.eventcalendar('#myDiv', {
+$('#myDiv').mobiscroll().eventcalendar({
   externalDrop: true,
 });
 
-var dragulaList = document.getElementById('dragula-list');
+var dragulaList = $('#dragula-list')[0];
 
 var drake = dragula([dragulaList], {
   copy: true,

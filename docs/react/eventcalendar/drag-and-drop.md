@@ -58,7 +58,7 @@ function App() {
 
 <h3 id="third-party-dragging-support">Third party dragging libraries</h3>
 
-Mobiscroll comes with built-in support for two of the most popular dragging libraries: [SortableJS](https://sortablejs.github.io/Sortable/) and [Dragula](https://bevacqua.github.io/dragula/). With the `sortableJsDraggable` and `dragulaDraggable` plugins, you can seamlessly drag items into the Eventcalendar with just a few lines of code.   
+Mobiscroll comes with built-in support for two widely used reorderable drag-and-drop list libraries: [SortableJS](https://sortablejs.github.io/Sortable/) and [Dragula](https://bevacqua.github.io/dragula/). With the `sortableJsDraggable` and `dragulaDraggable` plugins, you can seamlessly drag items into the Eventcalendar with just a few lines of code.   
 
 <h4 id="sortable-js">SortableJS:</h4>
 
@@ -131,7 +131,7 @@ function App() {
   }, []);
 
   return <>
-    <div className="mbsc-form-group-title">Sortable appointments</div>
+    <div className="mbsc-form-group-title">Dragula appointments</div>
       <div id="dragula-list">
         <div className="task" data-drag-data='{ "title": "Winfred Lesley - Teeth whitening", "start": "00:00", "end": "01:30" }'>
           <div>Winfred Lesley - Teeth whitening</div>

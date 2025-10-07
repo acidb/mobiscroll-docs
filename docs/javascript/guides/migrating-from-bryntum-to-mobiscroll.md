@@ -406,7 +406,7 @@ One such example is how each library handles a double-click on a cell. Below is 
 
 ### Bryntum
 
-In Bryntum, the onCellDblClick event is triggered when a user double-clicks a grid cell. This event provides access to several key objects that describe the interaction and context:
+In Bryntum, the `onCellDblClick` event is triggered when a user double-clicks a grid cell. This event provides access to several key objects that describe the interaction and context:
 - `event`: Object - The Bryntum event object
 - `grid`: Grid - The grid instance
 - `record`: Model - The record representing the row
@@ -432,7 +432,7 @@ const scheduler = new bryntum.scheduler.Scheduler({
 
 ### Mobiscroll
 
-Mobiscroll components (e.g., Event Calendar, Scheduler, Timeline) expose a similar onCellDoubleClick event, which is fired when a cell is double-clicked. It includes contextual information that allows for granular control over the interaction:
+Mobiscroll components (e.g., Event Calendar, Scheduler, Timeline) expose a similar [`onCellDoubleClick`](/javascript/eventcalendar/api#event-onCellDoubleClick) event, which is fired when a cell is double-clicked. It includes contextual information that allows for granular control over the interaction:
 - `args` - The event argument with the following properties:
   - `date`: Date - The date of the clicked cell.
   - `domEvent`: Event - The DOM event of the click.
@@ -794,9 +794,9 @@ Check out how you can style the resources in [this example](https://demo.mobiscr
 #### Timeline
 
 In case of the Timeline view there are three places where you can customize the resource column:
-- Use the [`renderResource`](/javascript/eventcalendar/timeline#renderer-renderResource) option to customize the resource template of the Timeline. Customize how the resource headers look and what they show. Utilize properties passed in the [resources](/javascript/eventcalendar/timeline#opt-resources) array. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well.
-- Customize the empty cell content above the resource column with the [`renderResourceHeader`](/javascript/eventcalendar/timeline#renderer-renderResourceHeader) option. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well.
-- Or if you want to customize the empty cell content below the resource column you can achieve this with the renderResourceFooter option. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well. This element only renders for the Timeline view, if the [`renderDayFooter`](/javascript/eventcalendar/timeline#renderer-renderDayFooter) option is present.
+- Use the [`renderResource`](/javascript/eventcalendar/timeline#renderer-renderResource) option to customize the resource template of the Timeline. Customize how the resource headers look and what they show. Utilize properties passed in the [resources](/javascript/eventcalendar/timeline#opt-resources) array.
+- Customize the empty cell content above the resource column with the [`renderResourceHeader`](/javascript/eventcalendar/timeline#renderer-renderResourceHeader) option.
+- Or if you want to customize the empty cell content below the resource column you can achieve this with the [`renderResourceFooter`](/javascript/eventcalendar/timeline#renderer-renderResourceFooter) option. This element only renders for the Timeline view, if the [`renderDayFooter`](/javascript/eventcalendar/timeline#renderer-renderDayFooter) option is present.
 
 Check out how you can style these resource parts in [this example](https://demo.mobiscroll.com/timeline/timeline-resource-details-side-panel-footer#).
 
@@ -888,13 +888,13 @@ Also, feel free to explore live examples to see how header templating work in ac
 
   Check out how you can style the date header and footer in [this example](https://demo.mobiscroll.com/timeline/hour-day-week-month-quarter-year-header-footer-template#).
 
-- [Slots](/javascript/eventcalendar/timeline#the-event-slots) - Use the renderSlot option to customize the slot template of the Timeline view.
+- [Slots](/javascript/eventcalendar/timeline#the-event-slots) - Use the [`renderSlot`](/javascript/eventcalendar/timeline#renderer-renderSlot) option to customize the slot template of the Timeline view.
 
   Check out how you can style the slots in [this example](https://demo.mobiscroll.com/timeline/shift-template#).
 
 - [Variable event height](/javascript/eventcalendar/timeline#variable-event-height) - When using [event templating](/javascript/eventcalendar/templating#event-templating), you might end up with various event heights, depending on the displayed content, e.g. larger description, list of tasks, etc. You can enable support for variable event heights by setting the `eventHeight: 'variable'` property for the timeline inside the [`view`](/javascript/eventcalendar/timeline#view-timeline-eventHeight) option.
 
-  Check out how you can set and style the variable event height in [this example](https://demo.mobiscroll.com/timeline/variable-event-height)
+  Check out how you can set and style the variable event height in [this example](https://demo.mobiscroll.com/timeline/variable-event-height).
 
 #### Agenda
 

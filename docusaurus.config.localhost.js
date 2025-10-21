@@ -64,6 +64,18 @@ const config = {
     ],
   ],
 
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'connect',
+        path: 'connect',
+        routeBasePath: 'connect',
+        sidebarPath: './sidebarsConnect.js',
+      },
+    ],
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({

@@ -718,8 +718,8 @@ mobiscroll.eventcalendar('#container', {
   renderScheduleEvent: function (eventRecord) {
     return `
         <div style="background:#a8d8ea; border-radius:4px; padding:4px;">
-            <strong>${title}</strong>
-            <div style="font-size:12px; color:#444;">Location: ${eventRecord.location </div>
+            <strong>${eventRecord.title}</strong>
+            <div style="font-size:12px; color:#444;">Location: ${eventRecord.location} </div>
         </div>
     `;
   }

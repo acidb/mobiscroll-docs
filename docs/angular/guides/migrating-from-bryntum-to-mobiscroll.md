@@ -581,7 +581,7 @@ Example for saving, updating, and deleting an event through an API:
 
 ```ts
 import axios from 'axios';
-import { MbscCalendarEvent, MbscEventcalendarView, MbscEventCreateEvent, MbscEventUpdatedEvent, MbscEventDeletedEvent } from '@mobiscroll/angular';
+import { MbscCalendarEvent, MbscEventcalendarView, MbscEventCreatedEvent, MbscEventUpdatedEvent, MbscEventDeletedEvent } from '@mobiscroll/angular';
 
 @Component({...})
 export class MyComponent {
@@ -593,7 +593,7 @@ export class MyComponent {
     { id: 'id1' start: '2023-09-24', end: '2023-09-30', title: 'Short trip!'},
   ];
 
-  saveEvent(args: MbscEventCreateEvent) {
+  saveEvent(args: MbscEventCreatedEvent) {
     const eventToSave = args.event;
     // you can use whatever library you want instead of axios
     axios.post('/your-api', eventToSave);

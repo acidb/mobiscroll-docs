@@ -1,33 +1,35 @@
 # Calendars API
 
-## GET /calendars {#endpoint-get-calendars}
+## List Calendars {#endpoint-get-calendars}
 
 Retrieves all calendar lists from all connected providers (Google Calendar, Microsoft Outlook, Apple Calendar) for the authenticated user.
 
 Fetches the list of calendars from all connected calendar providers and returns a unified array of calendars across all providers with provider-specific metadata including timezone, color, and access role information.
 
-## Response
+**Endpoint:** `GET /calendars`
 
-### calendars {#calendars-response}
+### Response
+
+#### calendars {#calendars-response}
 
 *Array&lt;Calendar&gt;*
 
-Array of calendar objects from all providers. Each Calendar object contains:
+Array of calendar objects from all connected providers. Each Calendar object contains:
 
-- `provider`: _string_ - Provider name: `'google'`, `'microsoft'`, or `'apple'`
-- `id`: _string_ - Unique calendar identifier from the provider
-- `title`: _string_ - Display name of the calendar
-- `timeZone`: _string_ - Calendar timezone (e.g., "America/New_York")
-- `color`: _string_ - Calendar color code
-- `description`: _string_ - Calendar description
-- `original`: _object_ - Original calendar object from the provider
+- `provider`: *string* - Provider name: `'google'`, `'microsoft'`, or `'apple'`
+- `id`: *string* - Unique calendar identifier from the provider
+- `title`: *string* - Display name of the calendar
+- `timeZone`: *string* - Calendar timezone (e.g., "America/New_York")
+- `color`: *string* - Calendar color code
+- `description`: *string* - Calendar description
+- `original`: *object* - Original calendar object from the provider
 
-## Error Responses
+### Error Responses
 
 - **401** - Unauthorized. Invalid or missing bearer token
 - **500** - Internal Server Error. Provider error or unexpected failure
 
-## Examples
+### Examples
 
 ```bash title="Fetch all calendars for authenticated user"
 GET /calendars

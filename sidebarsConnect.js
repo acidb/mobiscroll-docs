@@ -23,7 +23,7 @@ const sidebars = {
         type: "doc",
         id: "api",
       },
-      items: ["api/oauth", "api/events", "api/calendars", "api/webhooks"],
+      items: ["api/oauth", "api/events", "api/calendars"],
     },
   ],
 };

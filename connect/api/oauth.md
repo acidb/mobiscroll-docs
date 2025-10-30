@@ -1,14 +1,18 @@
 # OAuth API
 
-## GET /authorize {#endpoint-authorize}
+## Authorize {#endpoint-authorize}
 
 Entry point for the OAuth2 authorization flow. Creates or retrieves the user in the database, loads any existing tokens, stores the OAuth request in a cookie, and redirects to the provider selection page where users can connect their calendar accounts.
 
 :::info
 This endpoint does not require authentication. It initiates the OAuth2 authorization flow.
+
+**Endpoint:** `GET /authorize`
 :::
 
-### client_id {#authorize-client_id}
+### Request Parameters
+
+#### client_id {#authorize-client_id}
 
 *string*
 
@@ -16,7 +20,7 @@ Project/application identifier. This uniquely identifies your application in the
 
 **Required**
 
-### user_id {#authorize-user_id}
+#### user_id {#authorize-user_id}
 
 *string*
 
@@ -24,7 +28,7 @@ External user identifier from the client application. This is your application's
 
 **Required**
 
-### user_name {#authorize-user_name}
+#### user_name {#authorize-user_name}
 
 *string*
 
@@ -32,7 +36,7 @@ User's display name. Used for identification and display purposes.
 
 **Default value**: `undefined`
 
-### user_email {#authorize-user_email}
+#### user_email {#authorize-user_email}
 
 *string*
 
@@ -40,7 +44,7 @@ User's email address. May be used for provider authentication and identification
 
 **Default value**: `undefined`
 
-### redirect_uri {#authorize-redirect_uri}
+#### redirect_uri {#authorize-redirect_uri}
 
 *string*
 
@@ -48,7 +52,7 @@ Callback URL after authorization completes. The user will be redirected to this 
 
 **Default value**: `undefined`
 
-### state {#authorize-state}
+#### state {#authorize-state}
 
 *string*
 
@@ -56,7 +60,7 @@ Optional state parameter to maintain across the OAuth flow. This is passed back 
 
 **Default value**: `undefined`
 
-### response_type {#authorize-response_type}
+#### response_type {#authorize-response_type}
 
 *string*
 
@@ -64,15 +68,15 @@ OAuth2 response type. Typically set to `"code"` for the authorization code flow.
 
 **Default value**: `undefined`
 
-## Response
+### Response
 
-### Redirect {#authorize-redirect}
+#### Redirect {#authorize-redirect}
 
 *302 - Redirect*
 
 Redirects to the provider selection page (`/provider-select.html`) with all query parameters preserved.
 
-### Cookie {#authorize-cookie}
+#### Cookie {#authorize-cookie}
 
 Sets `oauth_req` cookie containing the complete OAuth request for later retrieval. The cookie has the following properties:
 - **httpOnly**: true
@@ -80,12 +84,12 @@ Sets `oauth_req` cookie containing the complete OAuth request for later retrieva
 - **maxAge**: 30 minutes
 - **sameSite**: lax
 
-## Error Responses
+### Error Responses
 
 - **400** - Bad Request. Error creating or retrieving user
 - **500** - Internal Server Error. Database or unexpected error
 
-## Examples
+### Examples
 
 ```bash title="Initiate OAuth authorization"
 GET /authorize?client_id=proj-123&user_id=user-456&user_name=John&user_email=john@example.com&redirect_uri=https://app.example.com/callback&response_type=code&state=xyz789
@@ -108,12 +112,14 @@ Set-Cookie: oauth_req={"client_id":"proj-123","user_id":"user-456",...}; HttpOnl
 
 ---
 
-## POST /token {#endpoint-token}
+## Get Access Token {#endpoint-token}
 
 Exchanges an authorization code for an access token. This is the token endpoint of the OAuth2 authorization code flow.
 
 :::info
 This endpoint requires client authentication using either HTTP Basic authentication or client credentials in the request body.
+
+**Endpoint:** `POST /token`
 :::
 
 ### Authentication
@@ -128,7 +134,9 @@ Authorization: Basic base64(client_id:client_secret)
 **Request Body Authentication:**
 - Include `client_id` and `client_secret` in the request body
 
-### grant_type {#token-grant_type}
+### Request Parameters
+
+#### grant_type {#token-grant_type}
 
 *string*
 
@@ -136,7 +144,7 @@ The OAuth2 grant type. Must be set to `"authorization_code"` for the authorizati
 
 **Required**
 
-### code {#token-code}
+#### code {#token-code}
 
 *string*
 
@@ -144,7 +152,7 @@ The authorization code received from the authorization endpoint. This code is re
 
 **Required**
 
-### redirect_uri {#token-redirect_uri}
+#### redirect_uri {#token-redirect_uri}
 
 *string*
 
@@ -152,7 +160,7 @@ The redirect URI used in the authorization request. This must match exactly with
 
 **Required**
 
-### client_id {#token-client_id}
+#### client_id {#token-client_id}
 
 *string*
 
@@ -160,7 +168,7 @@ Your application's client identifier. Required if not using HTTP Basic authentic
 
 **Default value**: `undefined`
 
-### client_secret {#token-client_secret}
+#### client_secret {#token-client_secret}
 
 *string*
 
@@ -168,27 +176,27 @@ Your application's client secret. Required if not using HTTP Basic authenticatio
 
 **Default value**: `undefined`
 
-## Response
+### Response
 
-### access_token {#token-response-access_token}
+#### access_token {#token-response-access_token}
 
 *string*
 
 The access token (JWT) that can be used to authenticate API requests. This token contains the user ID, client ID, and project ID in the payload.
 
-### token_type {#token-response-token_type}
+#### token_type {#token-response-token_type}
 
 *string*
 
 The type of token returned. Always `"Bearer"`.
 
-### expires_in {#token-response-expires_in}
+#### expires_in {#token-response-expires_in}
 
 *number*
 
 The lifetime in seconds of the access token. Typically `3600` (1 hour).
 
-## Error Responses
+### Error Responses
 
 - **400** - Bad Request
   - `invalid_grant` - Invalid authorization code, code expired, client mismatch, or redirect URI mismatch
@@ -196,7 +204,7 @@ The lifetime in seconds of the access token. Typically `3600` (1 hour).
   - `invalid_request` - Missing required parameters
 - **401** - Unauthorized. Client authentication failed
 
-## Token Validation
+### Token Validation
 
 The endpoint performs the following validations:
 
@@ -206,7 +214,7 @@ The endpoint performs the following validations:
 4. **Code expiration** - The authorization code expires after 10 minutes
 5. **Single use** - The authorization code is deleted after successful exchange
 
-## JWT Token Payload
+### JWT Token Payload
 
 The access token is a JWT containing:
 
@@ -219,7 +227,7 @@ The access token is a JWT containing:
 }
 ```
 
-## Examples
+### Examples
 
 ```bash title="Exchange authorization code for access token (HTTP Basic Auth)"
 POST /token

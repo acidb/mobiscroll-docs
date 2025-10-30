@@ -1,12 +1,16 @@
 # Webhooks API
 
-## POST /subscribe-webhook {#endpoint-subscribe-webhook}
+## Subscribe to Webhook {#endpoint-subscribe-webhook}
 
 Creates a webhook subscription to receive real-time notifications when calendar events change.
 
-Registers the subscription with the provider's API. For Google Calendar, performs an initial sync to establish a sync token. Automatically unsubscribes from any existing subscriptions for the same calendar before creating a new one.
+Registers the subscription with the provider's API and stores the channel mapping in the database. For Google Calendar, performs an initial sync to establish a sync token. Automatically unsubscribes from any existing subscriptions for the same calendar before creating a new one.
 
-### provider {#subscribe-provider}
+**Endpoint:** `POST /subscribe-webhook`
+
+### Request Parameters
+
+#### provider {#subscribe-provider}
 
 *string*
 
@@ -17,7 +21,7 @@ Provider name to subscribe to. Possible values:
 
 **Required**
 
-### calendarId {#subscribe-calendarId}
+#### calendarId {#subscribe-calendarId}
 
 *string*
 
@@ -25,7 +29,7 @@ Calendar ID to subscribe to. This is the unique identifier of the calendar from 
 
 **Required**
 
-### channelId {#subscribe-channelId}
+#### channelId {#subscribe-channelId}
 
 *string*
 
@@ -33,7 +37,7 @@ Optional custom channel ID. If not provided, a unique channel ID will be auto-ge
 
 **Default value**: `undefined`
 
-### expiration {#subscribe-expiration}
+#### expiration {#subscribe-expiration}
 
 *number*
 
@@ -41,21 +45,21 @@ Optional subscription expiration timestamp in milliseconds. Provider-specific be
 
 **Default value**: `undefined`
 
-## Response
+### Response
 
-### success {#subscribe-response-success}
+#### success {#subscribe-response-success}
 
 *boolean*
 
 Operation success status.
 
-### provider {#subscribe-response-provider}
+#### provider {#subscribe-response-provider}
 
 *string*
 
 Provider name.
 
-### subscription {#subscribe-response-subscription}
+#### subscription {#subscribe-response-subscription}
 
 *object*
 
@@ -64,19 +68,25 @@ Subscription details from provider containing:
 - `resourceId`: *string* - Resource identifier (for Google) (optional)
 - `expiration`: *Date* - Subscription expiration date (optional)
 
-### channelId {#subscribe-response-channelId}
+#### serverWebhookUrl {#subscribe-response-serverWebhookUrl}
+
+*string*
+
+Server endpoint receiving notifications from the provider.
+
+#### channelId {#subscribe-response-channelId}
 
 *string*
 
 The channel ID used for this subscription.
 
-## Error Responses
+### Error Responses
 
 - **400** - Bad Request. Missing required parameters, provider not supported, or webhook URL not configured
 - **401** - Unauthorized. Invalid or missing bearer token
 - **500** - Internal Server Error. Provider API error or unexpected failure
 
-## Examples
+### Examples
 
 ```bash title="Subscribe to Google Calendar webhook"
 POST /subscribe-webhook
@@ -111,13 +121,17 @@ POST /subscribe-webhook
 
 ---
 
-## POST /unsubscribe-webhook {#endpoint-unsubscribe-webhook}
+## Unsubscribe from Webhook {#endpoint-unsubscribe-webhook}
 
 Stops receiving webhook notifications for a specific calendar subscription.
 
 Calls the provider's unsubscribe API and removes the channel mapping from the database. Even if the provider unsubscribe fails (e.g., expired subscription), the local mapping is removed.
 
-### provider {#unsubscribe-provider}
+**Endpoint:** `POST /unsubscribe-webhook`
+
+### Request Parameters
+
+#### provider {#unsubscribe-provider}
 
 *string*
 
@@ -128,7 +142,7 @@ Provider name to unsubscribe from. Possible values:
 
 **Required**
 
-### channelId {#unsubscribe-channelId}
+#### channelId {#unsubscribe-channelId}
 
 *string*
 
@@ -136,7 +150,7 @@ Unique channel/subscription ID to unsubscribe.
 
 **Required**
 
-### resourceId {#unsubscribe-resourceId}
+#### resourceId {#unsubscribe-resourceId}
 
 *string*
 
@@ -144,27 +158,27 @@ Resource ID (required for some providers like Google).
 
 **Default value**: `undefined`
 
-## Response
+### Response
 
-### success {#unsubscribe-response-success}
+#### success {#unsubscribe-response-success}
 
 *boolean*
 
 Operation success status.
 
-### message {#unsubscribe-response-message}
+#### message {#unsubscribe-response-message}
 
 *string*
 
 Confirmation or info message.
 
-## Error Responses
+### Error Responses
 
 - **400** - Bad Request. Missing provider or channelId, or provider not supported
 - **401** - Unauthorized. Invalid or missing bearer token
 - **500** - Internal Server Error. Unexpected failure
 
-## Examples
+### Examples
 
 ```bash title="Unsubscribe from webhook"
 POST /unsubscribe-webhook

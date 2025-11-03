@@ -365,7 +365,7 @@ mobiscroll.eventcalendar('#myDiv', {
     ],
 
     onEventCreated: function (args, inst) {
-      fetch('save.php', {
+      fetch('add.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(args.event)
@@ -381,7 +381,7 @@ mobiscroll.eventcalendar('#myDiv', {
     },
 
     onEventDeleted: function (args, inst) {
-      fetch('update.php', {
+      fetch('delete.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(args.event)

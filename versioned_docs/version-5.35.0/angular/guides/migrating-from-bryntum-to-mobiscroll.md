@@ -580,7 +580,6 @@ Example for saving, updating, and deleting an event through an API:
 <TabItem value="ts" label="app.component.ts">
 
 ```ts
-import axios from 'axios';
 import { MbscCalendarEvent, MbscEventcalendarView, MbscEventCreatedEvent, MbscEventUpdatedEvent, MbscEventDeletedEvent } from '@mobiscroll/angular';
 
 @Component({...})
@@ -595,20 +594,17 @@ export class MyComponent {
 
   saveEvent(args: MbscEventCreatedEvent) {
     const eventToSave = args.event;
-    // you can use whatever library you want instead of axios
-    axios.post('/your-api', eventToSave);
+    fetch.post('/your-api', eventToSave);
   },
     
   updateEvent(args: MbscEventUpdatedEvent) {
-    const updatedEvent = args.event;
-    // you can use whatever library you want instead of axios
-    axios.post('/your-api', updatedEvent);
+    const eventToUpdate = args.event;
+    fetch.post('/your-api', eventToUpdate);
   },
 
   deleteEvent(args: MbscEventDeletedEvent) {
-    const theEvent = args.event;
-    // you can use whatever library you want instead of axios
-    axios.post('/your-api', theEvent);
+    const eventToDelete = args.event;
+    fetch.post('/your-api', eventToDelete);
   }
 });   
 ```

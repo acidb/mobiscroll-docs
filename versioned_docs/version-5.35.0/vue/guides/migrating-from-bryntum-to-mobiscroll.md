@@ -270,7 +270,7 @@ const myEvents = ref([
 
 Here’s a simple example of how to convert Bryntum-style events into the format used by Mobiscroll:
 
-```html
+```js
 const mobiscrollEvents = ref([])
 
 // ...

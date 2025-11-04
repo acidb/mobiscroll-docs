@@ -593,18 +593,27 @@ export class MyComponent {
   ];
 
   saveEvent(args: MbscEventCreatedEvent) {
-    const eventToSave = args.event;
-    fetch.post('/your-api', eventToSave);
+    fetch('add.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(args.event)
+    });
   },
     
   updateEvent(args: MbscEventUpdatedEvent) {
-    const eventToUpdate = args.event;
-    fetch.post('/your-api', eventToUpdate);
+    fetch('update.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(args.event)
+    });
   },
 
   deleteEvent(args: MbscEventDeletedEvent) {
-    const eventToDelete = args.event;
-    fetch.post('/your-api', eventToDelete);
+    fetch('delete.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(args.event)
+    });
   }
 });   
 ```

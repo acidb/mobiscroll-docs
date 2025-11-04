@@ -34,7 +34,7 @@ Alternatively, Mobiscroll also supports [manual installation](/vue/getting-start
 
 ### Bryntum:
 
-```jsx
+```html
 <script setup>
 import { BryntumSchedulerPro } from '@bryntum/schedulerpro-vue-3'
 import '@bryntum/schedulerpro/schedulerpro.stockholm.css'
@@ -47,7 +47,7 @@ import '@bryntum/schedulerpro/schedulerpro.stockholm.css'
 
 ### Mobiscroll:
 
-```jsx
+```html
 <script setup>
 import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
 import { MbscEventcalendar } from '@mobiscroll/vue'
@@ -68,7 +68,7 @@ Key Differences:
 
 For the Bryntum Scheduler, the time axis is configured using three settings: `startDate`, `endDate`, and `viewPreset`. The `startDate` and `endDate` define the overall date range visible on the axis, while the `viewPreset` controls its visual layout and determines which specific dates are displayed.
 
-```jsx
+```html
 <script setup>
 import { BryntumSchedulerPro } from '@bryntum/schedulerpro-vue-3'
 import '@bryntum/schedulerpro/schedulerpro.stockholm.css'
@@ -89,7 +89,7 @@ const schedulerConfig = {
 
 In the Mobiscroll Timeline view, the `timeline` object within the [`view`](/vue/eventcalendar/timeline#configuring-the-view) option allows you to customize the visible days and the timeline’s scale. You can specify which days to display (e.g., weekdays), set the time scale (e.g., 30-minute intervals), and define the frequency of the labels shown (e.g., every 15 minutes).
 
-```jsx
+```html
 <script setup>
 import { MbscEventcalendar } from '@mobiscroll/vue'
 import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
@@ -117,7 +117,7 @@ Check out how you can configure the Timeline view in [this live example](https:
 
 In the Bryntum Calendar, the `date` option sets the initial date that the Calendar, its sidebar date picker, and the active view should center around upon initialization. The `mode` option determines which of the built-in views (such as day, week, or month) is active by default.
 
-```jsx
+```html
 <script setup>
 import { BryntumCalendar } from '@bryntum/calendar-vue-3'
 import '@bryntum/calendar/calendar.stockholm.css'
@@ -137,7 +137,7 @@ const calendarConfig = {
 
 You can customize the visible days and hours, as well as the time grid scale, using the `schedule` object under the [`view`](/vue/eventcalendar/scheduler#configuring-the-view) option. This allows you to define which days are shown (e.g., weekdays), set the visible time range (e.g., 8 AM to 6 PM), adjust the time scale (e.g., 30-minute intervals), and control the frequency of the labels (e.g., every 15 minutes).
 
-```jsx
+```html
 <script setup>
 import { MbscEventcalendar } from '@mobiscroll/vue'
 import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
@@ -164,7 +164,7 @@ Migrating resource data from Bryntum to Mobiscroll should be relatively straight
 
 ### Bryntum Scheduler Pro – resource definition:
 
-```jsx
+```html
 <script setup>
 import { BryntumSchedulerPro } from '@bryntum/schedulerpro-vue-3'
 import '@bryntum/schedulerpro/schedulerpro.stockholm.css'
@@ -186,7 +186,7 @@ const myResources = ref([
 
 ### Mobiscroll Timeline view/ Scheduler – resource definition:
 
-```jsx
+```html
 <script setup>
 import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
 import { MbscEventcalendar } from '@mobiscroll/vue'
@@ -218,7 +218,7 @@ As shown above, there are clear differences in how events are structured between
 
 #### Bryntum:
 
-```jsx
+```html
 <script setup>
 import { BryntumSchedulerPro } from '@bryntum/schedulerpro-vue-3'
 import '@bryntum/scheduler/schedulerpro.stockholm.css'
@@ -243,7 +243,7 @@ const myEvents = ref([
 
 #### Mobiscroll:
 
-```jsx
+```html
 <script setup>
 import { MbscEventcalendar } from '@mobiscroll/vue'
 import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
@@ -270,7 +270,7 @@ const myEvents = ref([
 
 Here’s a simple example of how to convert Bryntum-style events into the format used by Mobiscroll:
 
-```jsx
+```html
 const mobiscrollEvents = ref([])
 
 // ...
@@ -324,7 +324,7 @@ Let’s see an example for each case:
 
 You can use the `events` option for passing the data inline.
 
-```jsx
+```html
 <script setup>
 import { BryntumSchedulerPro } from '@bryntum/schedulerpro-vue-3'
 import '@bryntum/schedulerpro/schedulerpro.stockholm.css'
@@ -351,7 +351,7 @@ const myEvents = ref([
 
 Pass the event array to the [`data`](/vue/eventcalendar/api#opt-data) option.
 
-```jsx
+```html
 <script setup>
 import { MbscEventcalendar } from '@mobiscroll/vue'
 import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
@@ -380,7 +380,7 @@ const myEvents = ref([
 
 You can use a project definition that solves the loading of the events from the backend.
 
-```jsx
+```html
 <script setup>
 import { BryntumSchedulerPro } from '@bryntum/schedulerpro-vue-3';
 import '@bryntum/schedulerpro/schedulerpro.stockholm.css';
@@ -407,7 +407,7 @@ const schedulerproProps = {
 
 In case of Mobiscroll, you can also use the [`page-loading`](/vue/eventcalendar/api#event-onPageLoading) pevent to load the data (on demand) relevant to the currently active view. The event fires every time the date range of the view changes, for example, when someone navigates the event calendar. Getting the events in real time as the user interacts with the UI improves load performance and always serves the most recent data.
 
-```jsx
+```html
 <script setup>
   import { MbscEventcalendar, getJson } from '@mobiscroll/vue'
   import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
@@ -453,7 +453,7 @@ In case of the timeline view, data can also be [loaded dynamically during scroll
 
 Example:
 
-```jsx
+```html
 <script setup>
 import { BryntumSchedulerPro } from '@bryntum/schedulerpro-vue-3';
 import '@bryntum/schedulerpro/schedulerpro.stockholm.css';
@@ -479,7 +479,7 @@ const schedulerproProps = {
 
 Example for saving, updating, and deleting an event through an API:
 
-```jsx
+```html
 <script setup>
   import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
   import { MbscEventcalendar } from "@mobiscroll/vue";
@@ -554,7 +554,7 @@ In Bryntum, the `cellDblClick` event is triggered when a user double-clicks a gr
 
 Example:
 
-```jsx
+```html
 <script setup>
 import { BryntumSchedulerPro } from '@bryntum/schedulerpro-vue-3';
 import '@bryntum/schedulerpro/schedulerpro.stockholm.css';
@@ -597,7 +597,7 @@ Mobiscroll components (e.g., Event Calendar, Scheduler, Timeline) expose a simil
 
 Example:
 
-```jsx
+```html
 <script setup>
 import { MbscEventcalendar } from '@mobiscroll/vue'
 import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
@@ -638,7 +638,7 @@ As a final step, let’s explore how core features from Bryntum can be replicate
 
 #### Enabling Drag & Drop in Mobiscroll:
 
-```jsx
+```html
 <script setup>
 import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
 import { MbscEventcalendar } from '@mobiscroll/vue'
@@ -665,7 +665,7 @@ This configuration allows users to create, move, resize, and delete events in Mo
 
 #### Bryntum:
 
-```jsx
+```html
 <script setup>
 import { BryntumCalendar } from '@bryntum/calendar-vue-3'
 import '@bryntum/calendar/calendar.stockholm.css'
@@ -685,7 +685,7 @@ const calendarConfig = {
 
 In Mobiscroll, switching between views like Day, Week, or Month requires setting up a custom header along with event listeners to handle the view changes. You can see an example of this implementation [here](https://demo.mobiscroll.com/scheduler/switching-calendar-scheduler-agenda).
 
-```jsx
+```html
 <script setup>
 import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
 import {
@@ -794,7 +794,7 @@ To enable time zone conversion in Bryntum, simply set the [`timeZone`](https://b
 
 This configuration automatically adjusts the timeline headers, event/task start and end times, and all other time-based calculations to match the configured zone.
 
-```jsx
+```html
 <script setup>
 import { BryntumSchedulerPro } from '@bryntum/schedulerpro-vue-3';
 import '@bryntum/schedulerpro/schedulerpro.stockholm.css';
@@ -819,7 +819,7 @@ Mobiscroll exposes two configuration options to handle time zones:
 
 So, let’s say you want to use the Day.js timezone library. After [installing](/vue/eventcalendar/timezones#the-dayjs-library) it into your project, you can pass the `dayjsTimezone` object to the Timeline’s [`timezonePlugin`](/vue/eventcalendar/api#opt-timezonePlugin) option:
 
-```jsx
+```html
 <script setup>
   import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
   import { dayjsTimezone, MbscEventcalendar } from '@mobiscroll/vue';
@@ -877,7 +877,7 @@ Bryntum handles templating for events, resources, and other UI elements through 
 
 In case of Bryntum you can show any HTML structure inside an event bar using the [`eventRenderer`](https://bryntum.com/products/schedulerpro/docs/api/Scheduler/view/mixin/SchedulerEventRendering#config-eventRenderer).
 
-```jsx
+```html
 <script setup>
 import { BryntumSchedulerPro } from '@bryntum/schedulerpro-vue-3';
 import '@bryntum/schedulerpro/schedulerpro.stockholm.css';
@@ -924,7 +924,7 @@ When you want to customize how the events look, depending on what your goal is, 
 
 To define a custom template, pass a functional to the appropriate option that returns the desired html:
 
-```jsx
+```html
 <script setup>
 import { MbscEventcalendar } from '@mobiscroll/vue';
 import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
@@ -979,7 +979,7 @@ You can customize cell content and styling in a column using a [renderer](https:
 
 To customize the column header, use the [`headerRenderer`](https://bryntum.com/products/scheduler/docs/api/Grid/column/Column#config-headerRenderer) option.
 
-```jsx
+```html
 <script setup>
 import { BryntumSchedulerPro } from '@bryntum/schedulerpro-vue-3';
 import '@bryntum/schedulerpro/schedulerpro.stockholm.css';
@@ -1040,7 +1040,7 @@ In case of the Timeline view there are three places where you can customize the 
 
 Check out how you can style these resource parts in [this example](https://demo.mobiscroll.com/timeline/timeline-resource-details-side-panel-footer#).
 
-```jsx
+```html
 <script setup>
 import { MbscEventcalendar } from '@mobiscroll/vue';
 import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
@@ -1094,7 +1094,7 @@ Here's the list of the built in components of the default header. You can initia
 
 The following example will render the prev and next buttons and a custom title.
 
-```jsx
+```html
 <MbscEventcalendar>
   <template #header>
     <MbscCalendarPrev />
@@ -1166,7 +1166,7 @@ Bryntum supports localization by allowing developers to select from built-in loc
 - Custom locales can be created or modified using their locale structure.
 - Right-to-left (RTL) layout support is included
 
-```jsx
+```html
 <script setup>
 import { BryntumSchedulerPro, LocaleManager } from '@bryntum/schedulerpro-vue';
 import '@bryntum/schedulerpro/schedulerpro.stockholm.css';
@@ -1190,7 +1190,7 @@ Mobiscroll [enables localization](/vue/core-concepts/localization) by letting de
 
 Example setting the locale option globally:
 
-```jsx
+```html
 <script setup>
 import { setOptions, localeFr } from '@mobiscroll/vue';
 
@@ -1203,7 +1203,7 @@ setOptions({
 
 Example setting the locale at the component level:
 
-```jsx
+```html
 <script setup>
 import { Eventcalendar, localeFr } from '@mobiscroll/vue';
 import '@mobiscroll/vue/dist/css/mobiscroll.min.css';

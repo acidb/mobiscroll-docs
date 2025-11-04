@@ -34,7 +34,7 @@ Alternatively, Mobiscroll also supports [manual installation](/javascript/gettin
 
 ### Bryntum:
 
-```jsx
+```js
 const scheduler = new Scheduler({
     appendTo   : 'container',
     // ...
@@ -43,7 +43,7 @@ const scheduler = new Scheduler({
 
 ### Mobiscroll:
 
-```jsx
+```js
 mobiscroll.eventcalendar('#container', {
     // ...
 });
@@ -59,7 +59,7 @@ Key Differences:
 
 For the Bryntum Scheduler, the time axis is configured using three settings: `startDate`, `endDate`, and `viewPreset`. The `startDate` and `endDate` define the overall date range visible on the axis, while the `viewPreset` controls its visual layout and determines which specific dates are displayed.
 
-```jsx
+```js
 const scheduler = new Scheduler({
     appendTo   : 'container',
     startDate  : new Date(2017, 0, 1, 6),
@@ -72,7 +72,7 @@ const scheduler = new Scheduler({
 
 In the Mobiscroll Timeline view, the `timeline` object within the [`view`](/javascript/eventcalendar/timeline#configuring-the-view) option allows you to customize the visible days and the timeline’s scale. You can specify which days to display (e.g., weekdays), set the time scale (e.g., 30-minute intervals), and define the frequency of the labels shown (e.g., every 15 minutes).
 
-```jsx
+```js
 mobiscroll.eventcalendar('#container', {
     view: {
         timeline: {
@@ -92,7 +92,7 @@ Check out how you can configure the Timeline view in [this live example](https:
 
 In the Bryntum Calendar, the `date` option sets the initial date that the Calendar, its sidebar date picker, and the active view should center around upon initialization. The `mode` option determines which of the built-in views (such as day, week, or month) is active by default.
 
-```jsx
+```js
 const calendar = new Calendar({
     appendTo   : 'container',
     date : new Date(2020, 9, 12),
@@ -104,7 +104,7 @@ const calendar = new Calendar({
 
 You can customize the visible days and hours, as well as the time grid scale, using the `schedule` object under the [`view`](/javascript/eventcalendar/scheduler#configuring-the-view) option. This allows you to define which days are shown (e.g., weekdays), set the visible time range (e.g., 8 AM to 6 PM), adjust the time scale (e.g., 30-minute intervals), and control the frequency of the labels (e.g., every 15 minutes).
 
-```jsx
+```js
 mobiscroll.eventcalendar('#container', {
     view: {
         schedule: {
@@ -123,7 +123,7 @@ Migrating resource data from Bryntum to Mobiscroll should be relatively straight
 
 ### Bryntum Scheduler Pro – resource definition:
 
-```jsx
+```js
 resources: [
     { id: 'r1', name: 'Mike' },
     { id: 'r2', name: 'Linda' },
@@ -133,7 +133,7 @@ resources: [
 
 ### Mobiscroll Timeline view/ Scheduler – resource definition:
 
-```jsx
+```js
 resources: [
     { id: 'r1', name: 'Mike' },
     { id: 'r2', name: 'Linda' },
@@ -153,7 +153,7 @@ As shown above, there are clear differences in how events are structured between
 
 #### Bryntum:
 
-```jsx
+```js
 events: [
     {
         id: 1,
@@ -168,7 +168,7 @@ events: [
 
 #### Mobiscroll:
 
-```jsx
+```js
 data: [
     {
         id: 1,
@@ -184,7 +184,7 @@ data: [
 
 Here’s a simple example of how to convert Bryntum-style events into the format used by Mobiscroll:
 
-```jsx
+```js
 const mobiscrollEvents = bryntumEvents.map(event => {
     const start = new Date(event.startDate);
     const end = new Date(start.getTime() + event.duration * 60 * 60 * 1000);
@@ -230,7 +230,7 @@ Let’s see an example for each case:
 
 You can use the `events` option for passing the data inline.
 
-```jsx
+```js
 events: [
     {
         id: 1,
@@ -247,7 +247,7 @@ events: [
 
 Pass the event array to the [`data`](/javascript/eventcalendar/api#opt-data) option.
 
-```jsx
+```js
 data: [
     {
         id: 1,
@@ -265,7 +265,7 @@ data: [
 
 You can use a [class called](https://bryntum.com/products/scheduler/docs/guide/Scheduler/data/crud_manager) `CrudManager` or a project definition that solves the loading of the events from the backend.
 
-```jsx
+```js
 // With CRUD Manager
 const crudManager = new CrudManager({
     autoLoad : true,
@@ -296,7 +296,7 @@ You can load the data through an external request and use the [`setEvents`](/jav
 
 In case of Mobiscroll, you can also use the [`onPageLoading`](/javascript/eventcalendar/api#event-onPageLoading) pevent to load the data (on demand) relevant to the currently active view. The event fires every time the date range of the view changes, for example, when someone navigates the event calendar. Getting the events in real time as the user interacts with the UI improves load performance and always serves the most recent data.
 
-```jsx
+```js
 mobiscroll.eventcalendar('#myDiv', {
   view: {
     schedule: { type: 'day' }
@@ -328,7 +328,7 @@ In case of the timeline view, data can also be [loaded dynamically during scroll
 
 Example:
 
-```jsx
+```js
 // With CRUD Manager
 const crudManager = new CrudManager({
     syncUrl  : 'save.php'
@@ -357,7 +357,7 @@ const scheduler = new Scheduler({
 
 Example for saving, updating, and deleting an event through an API:
 
-```jsx
+```js
 mobiscroll.eventcalendar('#myDiv', {
     view: { schedule: { type: "week" } },
     data: [
@@ -417,7 +417,7 @@ In Bryntum, the `onCellDblClick` event is triggered when a user double-clicks a 
 
 Example:
 
-```jsx
+```js
 const scheduler = new bryntum.scheduler.Scheduler({
     // ...other config...
     listeners: {
@@ -445,7 +445,7 @@ Mobiscroll components (e.g., Event Calendar, Scheduler, Timeline) expose a simil
 
 Example:
 
-```jsx
+```js
 mobiscroll.eventcalendar('#my-calendar', {
     // ...other options...
      events,
@@ -481,7 +481,7 @@ As a final step, let’s explore how core features from Bryntum can be replicate
 
 #### Enabling Drag & Drop in Mobiscroll:
 
-```jsx
+```js
 mobiscroll.eventcalendar('#container', {
     clickToCreate: true,
     dragToCreate: true,
@@ -500,7 +500,7 @@ This configuration allows users to create, move, resize, and delete events in Mo
 
 #### Bryntum:
 
-```jsx
+```js
 const calendar = new Calendar({
     appendTo   : 'container',
     date : new Date(2020, 9, 12),
@@ -512,7 +512,7 @@ const calendar = new Calendar({
 
 In Mobiscroll, switching between views like Day, Week, or Month requires setting up a custom header along with event listeners to handle the view changes. You can see an example of this implementation [here](https://demo.mobiscroll.com/scheduler/switching-calendar-scheduler-agenda).
 
-```jsx
+```js
 var calendar = mobiscroll.eventcalendar('#container', {
 
   view: {
@@ -600,7 +600,7 @@ To enable time zone conversion in Bryntum, simply set the [`timeZone`](https://b
 
 This configuration automatically adjusts the timeline headers, event/task start and end times, and all other time-based calculations to match the configured zone.
 
-```jsx
+```js
 new Scheduler({
     project : {
         // This will convert time to CET (UTC+1) or
@@ -623,7 +623,7 @@ Mobiscroll exposes two configuration options to handle time zones:
 
 So, let’s say you want to use the Day.js timezone library. After [installing](/javascript/eventcalendar/timezones#the-dayjs-library) it into your project, you can pass the `dayjsTimezone` object to the Timeline’s [`timezonePlugin`](/javascript/eventcalendar/api#opt-timezonePlugin) option:
 
-```jsx
+```js
 import { eventcalendar, dayjsTimezone } from '@mobiscroll/javascript';
 import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
@@ -676,7 +676,7 @@ Bryntum handles templating for events, resources, and other UI elements through 
 
 In case of Bryntum you can show any HTML structure inside an event bar using the [`eventRenderer`](https://bryntum.com/products/schedulerpro/docs/api/Scheduler/view/mixin/SchedulerEventRendering#config-eventRenderer).
 
-```jsx
+```js
 new Scheduler({
     appendTo: 'container',
     events: [
@@ -709,7 +709,7 @@ When you want to customize how the events look, depending on what your goal is, 
 
 To define a custom template, pass a functional to the appropriate option that returns the desired html:
 
-```jsx
+```js
 mobiscroll.eventcalendar('#container', {
     // ...other config...
 
@@ -746,7 +746,7 @@ You can customize cell content and styling in a column using a [renderer](https:
 
 To customize the column header, use the [`headerRenderer`](https://bryntum.com/products/scheduler/docs/api/Grid/column/Column#config-headerRenderer) option.
 
-```jsx
+```js
 const scheduler = new Scheduler({
   appendTo: 'container',
   // ... other config ...
@@ -800,7 +800,7 @@ In case of the Timeline view there are three places where you can customize the 
 
 Check out how you can style these resource parts in [this example](https://demo.mobiscroll.com/timeline/timeline-resource-details-side-panel-footer#).
 
-```jsx
+```js
 mobiscroll.eventcalendar('#container', {
   // ... other config ...
   resources: [
@@ -842,7 +842,7 @@ Here's the list of the built in components of the default header. You can initia
 
 The following example will render the prev and next buttons and a custom title.
 
-```jsx
+```js
 mobiscroll.eventcalendar('#container', {
   renderHeader: function (Awesome Title) {
     return `
@@ -915,7 +915,7 @@ Bryntum supports localization by allowing developers to select from built-in loc
 - Custom locales can be created or modified using their locale structure.
 - Right-to-left (RTL) layout support is included
 
-```jsx
+```js
 import { LocaleManager, LocaleHelper } from @bryntum/schedulerpro;
 
 LocaleManager.locale = LocaleHelper.locales.FrFR;
@@ -931,7 +931,7 @@ Mobiscroll [enables localization](/javascript/core-concepts/localization) by let
 
 Example setting the locale option globally:
 
-```jsx
+```js
 mobiscroll.setOptions({
     // ...other config...
     locale: mobiscroll.localeFr // French locale applied globally
@@ -940,7 +940,7 @@ mobiscroll.setOptions({
 
 Example setting the locale at the component level:
 
-```jsx
+```js
 mobiscroll.eventcalendar('#container', {
     // ...other config...
     locale: mobiscroll.localeFr, // Switch to French locale

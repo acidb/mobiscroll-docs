@@ -49,6 +49,10 @@ const myBirthday = {
 };
 ```
 
+:::info
+For Javascript Date objects the month numbers are zero based. Like: 0 - January, 1 - February ... 11 - December.
+:::
+
 The event objects may have additional custom properties as well. The custom properties are not used by the eventcalendar, but they are kept and will be available anywhere the event objects are used. E.g. the [`onEventClick`](api#event-onEventClick) event will receive the event object as argument, containing the custom properties as well.
 
 ```javascript title="Event object with custom properties"

@@ -74,7 +74,7 @@ OAuth2 response type. Typically set to `"code"` for the authorization code flow.
 
 *302 - Redirect*
 
-Redirects to the provider selection page (`/provider-select.html`) with all query parameters preserved.
+Redirects the user to the provider selection page with all query parameters preserved.
 
 #### Cookie {#authorize-cookie}
 

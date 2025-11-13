@@ -10,35 +10,45 @@ Welcome to the Mobiscroll Connect API documentation. This API enables you to int
 
 ## Authentication
 
-:::info
-All API endpoints require authentication using a Bearer token (JWT). Include the token in the `Authorization` header:
+Most API endpoints require authentication using a Bearer token (JWT). Include the token in the `Authorization` header:
 
 ```
 Authorization: Bearer YOUR_JWT_TOKEN
 ```
-:::
+
+**Exception:** The OAuth authorization endpoint (`GET /authorize`) does not require authentication as it initiates the OAuth flow.
+
+To obtain an access token:
+
+1. Direct users to the **GET /authorize** endpoint to initiate the OAuth2 flow
+2. Users will authenticate with their calendar provider(s)
+3. After successful authentication, they'll be redirected to your `redirect_uri` with an authorization code
+4. Exchange the authorization code for an access token using **POST /token**
+5. Use the access token in the `Authorization` header for all subsequent API requests
 
 ## Available Endpoints
 
+### [OAuth API](api/oauth)
+
+Initiate and complete the OAuth2 authorization flow to connect user calendar accounts.
+
+- **GET /authorize** - Initiate OAuth2 authorization flow
+- **POST /token** - Exchange authorization code for access token
+
 ### [Events API](api/events)
 
-Retrieve calendar events from all connected providers with support for pagination, filtering, and recurring events.
+Retrieve, create, update, and delete calendar events from connected providers with support for pagination, filtering, and recurring events.
 
 - **GET /events** - Fetch calendar events with advanced filtering and pagination
+- **POST /event** - Create a new calendar event
+- **PUT /event** - Update an existing calendar event
+- **DELETE /event** - Delete a calendar event
 
 ### [Calendars API](api/calendars)
 
 Manage calendar lists across all connected providers.
 
 - **GET /calendars** - Retrieve all calendars from connected providers
-
-### [Webhooks API](api/webhooks)
-
-Subscribe to real-time calendar event notifications from providers.
-
-- **POST /subscribe-webhook** - Create a webhook subscription
-- **POST /unsubscribe-webhook** - Remove a webhook subscription
-- **POST /webhook-receiver/:provider** - Receive provider notifications (internal endpoint)
 
 ## Supported Providers
 

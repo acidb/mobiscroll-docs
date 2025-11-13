@@ -75,14 +75,13 @@ Array of calendar events from all providers, sorted chronologically by start tim
 
 - `provider`: *string* - Provider name: `'google'`, `'microsoft'`, or `'apple'`
 - `id`: *string* - Event ID
+- `calendarId`: *string* - Calendar identifier where the event belongs
 - `title`: *string* - Event title/summary
 - `start`: *Date* - Event start date/time
 - `end`: *Date* - Event end date/time
 - `allDay`: *boolean* - True if all-day event
 - `recurringEventId`: *string* - ID of the recurring event series (if this is an instance of a recurring event) (optional)
-- `color`: *object* - Event color information (optional)
-  - `background`: *string* - Background color
-  - `foreground`: *string* - Foreground/text color
+- `color`: *string* - Event background color (optional)
 - `original`: *object* - Original event object from the provider
 
 #### pageSize {#response-pageSize}
@@ -96,12 +95,6 @@ Number of events per page.
 *string*
 
 Base64 encoded pagination state for the next request. Pass this value as the [paging](#param-paging) parameter when loading more events. Only included in the response if more events are available.
-
-#### isMore {#response-isMore}
-
-*boolean*
-
-True if more events are available to load from any provider.
 
 ### Error Responses
 
@@ -129,8 +122,7 @@ GET /events?pageSize=50&start=2025-10-01T00:00:00Z&end=2025-10-31T23:59:59Z
     }
   ],
   "pageSize": 50,
-  "paging": "eyJnb29nbGUiOnsidG9rZW4iOnsiY2FsMTIzIjp7Im5leHRQYWdlVG9rZW4iOiJhYmMifX0sImlzRGVwbGV0ZWQiOmZhbHNlfX0=",
-  "isMore": true
+  "paging": "eyJnb29nbGUiOnsidG9rZW4iOnsiY2FsMTIzIjp7Im5leHRQYWdlVG9rZW4iOiJhYmMifX0sImlzRGVwbGV0ZWQiOmZhbHNlfX0="
 }
 ```
 
@@ -152,8 +144,9 @@ GET /events?pageSize=50&singleEvents=false
 - Maximum `pageSize` is capped at 1000 events
 - The `paging` token is Base64 encoded and should be passed as-is to subsequent requests
 - Each provider (Google, Microsoft, Apple) tracks its own pagination state independently
-- The `paging` parameter is only included in the response when `isMore` is `true`
+- The `paging` parameter is only included in the response when more events are available
 - Date strings are automatically normalized to handle malformed ISO 8601 formats before parsing
+- The `color` property contains the background color value directly (not an object)
 :::
 
 ---
@@ -164,12 +157,15 @@ Creates a new calendar event in the specified calendar for the authenticated use
 
 Supports creating single events or recurring events with recurrence rules. The event is created in the provider's calendar system (Google Calendar, Microsoft Outlook, or Apple Calendar) based on the calendar ID.
 
-**Endpoint:** `POST /{provider}-event`
-
-**Path Parameters:**
-- `provider`: *string* - One of: `google`, `microsoft`, or `apple`
+**Endpoint:** `POST /event`
 
 ### Request Body
+
+#### provider {#create-provider}
+
+*string*
+
+Calendar provider where the event will be created. One of: `'google'`, `'microsoft'`, or `'apple'`. **Required**
 
 #### calendarId {#create-calendarId}
 
@@ -263,12 +259,13 @@ Error or status message (included on failure).
 ### Examples
 
 ```bash title="Create a simple event"
-POST /google-event
+POST /event
 Content-Type: application/json
 ```
 
 ```json
 {
+  "provider": "google",
   "calendarId": "primary",
   "title": "Team Meeting",
   "description": "Discuss project updates",
@@ -291,12 +288,13 @@ Content-Type: application/json
 ```
 
 ```bash title="Create a recurring event"
-POST /microsoft-event
+POST /event
 Content-Type: application/json
 ```
 
 ```json
 {
+  "provider": "microsoft",
   "calendarId": "AAMkAGVmMDEz...",
   "title": "Weekly Standup",
   "start": "2025-11-01T09:00:00Z",
@@ -312,12 +310,13 @@ Content-Type: application/json
 ```
 
 ```bash title="Create an all-day event"
-POST /apple-event
+POST /event
 Content-Type: application/json
 ```
 
 ```json
 {
+  "provider": "apple",
   "calendarId": "https://caldav.icloud.com/.../calendars/...",
   "title": "Conference",
   "start": "2025-11-15T00:00:00Z",
@@ -328,7 +327,7 @@ Content-Type: application/json
 ```
 
 :::info
-- The `provider` in the URL path must match the calendar provider of the `calendarId`
+- The `provider` parameter must match the calendar provider of the `calendarId`
 - For recurring events, either `count` or `until` can be specified, but not both
 - The `byDay` property is typically used with `WEEKLY` frequency
 - All-day events should have start and end times at midnight (00:00:00)
@@ -343,12 +342,15 @@ Updates an existing calendar event.
 
 Supports updating single events, recurring event series, or individual instances of recurring events. For recurring events, you can specify whether to update only the current instance, all following instances, or the entire series.
 
-**Endpoint:** `PUT /{provider}-event`
-
-**Path Parameters:**
-- `provider`: *string* - One of: `google`, `microsoft`, or `apple`
+**Endpoint:** `PUT /event`
 
 ### Request Body
+
+#### provider {#update-provider}
+
+*string*
+
+Calendar provider where the event exists. One of: `'google'`, `'microsoft'`, or `'apple'`. **Required**
 
 #### eventId {#update-eventId}
 
@@ -458,12 +460,13 @@ Error or status message (included on failure).
 ### Examples
 
 ```bash title="Update a simple event"
-PUT /google-event
+PUT /event
 Content-Type: application/json
 ```
 
 ```json
 {
+  "provider": "google",
   "eventId": "event123abc",
   "calendarId": "primary",
   "title": "Updated Team Meeting",
@@ -473,12 +476,13 @@ Content-Type: application/json
 ```
 
 ```bash title="Update a single instance of a recurring event"
-PUT /microsoft-event
+PUT /event
 Content-Type: application/json
 ```
 
 ```json
 {
+  "provider": "microsoft",
   "eventId": "instance456",
   "recurringEventId": "series123",
   "calendarId": "AAMkAGVmMDEz...",
@@ -490,12 +494,13 @@ Content-Type: application/json
 ```
 
 ```bash title="Update all future occurrences"
-PUT /apple-event
+PUT /event
 Content-Type: application/json
 ```
 
 ```json
 {
+  "provider": "apple",
   "eventId": "recurring-event-id",
   "calendarId": "https://caldav.icloud.com/.../calendars/...",
   "updateMode": "following",
@@ -504,7 +509,7 @@ Content-Type: application/json
 ```
 
 :::info
-- The `eventId` is required to identify which event to update
+- The `provider` parameter must match the calendar provider where the event exists
 - For recurring events, use `recurringEventId` and `updateMode` to control update scope
 - Only include fields you want to update; omitted fields remain unchanged
 - When using `updateMode: 'this'` on a recurring event, a new exception instance may be created
@@ -519,12 +524,15 @@ Deletes a calendar event.
 
 Supports deleting single events, recurring event series, or individual instances of recurring events. For recurring events, you can specify whether to delete only the current instance, all following instances, or the entire series.
 
-**Endpoint:** `DELETE /{provider}-event`
-
-**Path Parameters:**
-- `provider`: *string* - One of: `google`, `microsoft`, or `apple`
+**Endpoint:** `DELETE /event`
 
 ### Request Body
+
+#### provider {#delete-provider}
+
+*string*
+
+Calendar provider where the event exists. One of: `'google'`, `'microsoft'`, or `'apple'`. **Required**
 
 #### eventId {#delete-eventId}
 
@@ -584,12 +592,13 @@ Confirmation or error message.
 ### Examples
 
 ```bash title="Delete a simple event"
-DELETE /google-event
+DELETE /event
 Content-Type: application/json
 ```
 
 ```json
 {
+  "provider": "google",
   "eventId": "event123abc",
   "calendarId": "primary"
 }
@@ -603,12 +612,13 @@ Content-Type: application/json
 ```
 
 ```bash title="Delete a single instance of a recurring event"
-DELETE /microsoft-event
+DELETE /event
 Content-Type: application/json
 ```
 
 ```json
 {
+  "provider": "microsoft",
   "eventId": "instance456",
   "recurringEventId": "series123",
   "calendarId": "AAMkAGVmMDEz...",
@@ -617,12 +627,13 @@ Content-Type: application/json
 ```
 
 ```bash title="Delete entire recurring series"
-DELETE /apple-event
+DELETE /event
 Content-Type: application/json
 ```
 
 ```json
 {
+  "provider": "apple",
   "eventId": "recurring-event-id",
   "calendarId": "https://caldav.icloud.com/.../calendars/...",
   "deleteMode": "all"
@@ -630,7 +641,7 @@ Content-Type: application/json
 ```
 
 :::info
-- Both `eventId` and `calendarId` are required for deletion
+- The `provider` parameter must match the calendar provider where the event exists
 - For recurring events, use `recurringEventId` and `deleteMode` to control deletion scope
 - Deleting with `deleteMode: 'this'` creates an exception (cancelled instance) in the series
 - Deleting with `deleteMode: 'all'` removes the entire recurring series

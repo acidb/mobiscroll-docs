@@ -48,9 +48,9 @@ User's email address. May be used for provider authentication and identification
 
 *string*
 
-Callback URL after authorization completes. The user will be redirected to this URL with the authorization code.
+Callback URL after authorization completes. **Note:** This parameter is retrieved from the database based on the `client_id`, not from the query parameter. The user will be redirected to this URL with the authorization code.
 
-**Default value**: `undefined`
+**Default value**: Retrieved from database
 
 #### state {#authorize-state}
 
@@ -74,7 +74,21 @@ OAuth2 response type. Typically set to `"code"` for the authorization code flow.
 
 *302 - Redirect*
 
-Redirects the user to the provider selection page with all query parameters preserved.
+Redirects to the provider selection page (`/provider-select.html`) with all query parameters preserved (including the resolved `redirect_uri` from the database). The provider selection page allows the user to:
+
+1. Choose which calendar provider(s) to connect (Google Calendar, Microsoft Outlook, Apple Calendar)
+2. Authenticate with each selected provider
+3. Review and approve the OAuth consent screen
+4. Complete the OAuth authorization flow
+
+After the user successfully authenticates and approves the authorization, they will be redirected back to your application's `redirect_uri` with:
+- `code`: The authorization code that can be exchanged for an access token (this is the `user_id` value)
+- `state`: The state parameter you provided (if any), for CSRF protection
+
+**Example redirect to your application:**
+```
+https://app.example.com/callback?code=user-456&state=xyz789
+```
 
 #### Cookie {#authorize-cookie}
 
@@ -87,6 +101,7 @@ Sets `oauth_req` cookie containing the complete OAuth request for later retrieva
 ### Error Responses
 
 - **400** - Bad Request. Error creating or retrieving user
+- **401** - Unauthorized. Invalid or unrecognized `client_id`
 - **500** - Internal Server Error. Database or unexpected error
 
 ### Examples
@@ -103,11 +118,14 @@ Set-Cookie: oauth_req={"client_id":"proj-123","user_id":"user-456",...}; HttpOnl
 ```
 
 :::info
+- The `client_id` is validated against the database before proceeding
+- If the `client_id` is invalid, the user is redirected to an error page
+- The `redirect_uri` is retrieved from the database based on the `client_id` (not from the query parameter)
 - The OAuth request is stored in a cookie to maintain state across the authorization flow
 - If the user already exists in the database, their existing information is retrieved
 - Any existing provider tokens are loaded and initialized in the token store
 - The cookie expires after 30 minutes if the flow is not completed
-- All query parameters are preserved and passed to the provider selection page
+- All query parameters plus the database `redirect_uri` are preserved and passed to the provider selection page
 :::
 
 ---
@@ -148,7 +166,7 @@ The OAuth2 grant type. Must be set to `"authorization_code"` for the authorizati
 
 *string*
 
-The authorization code received from the authorization endpoint. This code is returned to your `redirect_uri` after the user completes the authorization flow.
+The authorization code received from the authorization endpoint. This code is the `user_id` and is returned to your `redirect_uri` after the user completes the authorization flow.
 
 **Required**
 
@@ -202,6 +220,7 @@ The lifetime in seconds of the access token. Typically `3600` (1 hour).
   - `invalid_grant` - Invalid authorization code, code expired, client mismatch, or redirect URI mismatch
   - `invalid_client` - Client authentication failed
   - `invalid_request` - Missing required parameters
+  - `session_expired` - OAuth session expired (transaction lost)
 - **401** - Unauthorized. Client authentication failed
 
 ### Token Validation

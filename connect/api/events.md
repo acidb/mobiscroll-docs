@@ -24,7 +24,7 @@ Number of events to fetch per request. Maximum value is capped at 1000.
 
 ISO date string to filter events starting from this date. Date strings are automatically normalized to handle malformed ISO 8601 formats.
 
-**Default value**: `undefined`
+**Default value**: First day of the current month at 00:00:00 UTC
 
 #### end {#param-end}
 
@@ -32,13 +32,15 @@ ISO date string to filter events starting from this date. Date strings are autom
 
 ISO date string to filter events ending before this date. Date strings are automatically normalized to handle malformed ISO 8601 formats.
 
-**Default value**: `undefined`
+**Default value**: Last day of the current month at 23:59:59 UTC
 
 #### calendarIds {#param-calendarIds}
 
 *string*
 
 JSON stringified array of calendar IDs to fetch events from. If not provided, events from all calendars will be fetched.
+
+Calendar IDs that are not associated with the authenticated user's connected accounts will be silently ignored.
 
 ```js title="Example"
 '["personal@gmail.com", "work@company.com"]'

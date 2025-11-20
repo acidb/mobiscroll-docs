@@ -84,6 +84,11 @@ Array of calendar events from all providers, sorted chronologically by start tim
 - `allDay`: *boolean* - True if all-day event
 - `recurringEventId`: *string* - ID of the recurring event series (if this is an instance of a recurring event) (optional)
 - `color`: *string* - Event background color (optional)
+- `location`: *string* - Event location (optional)
+- `attendees`: *Array&lt;EventAttendee&gt;* - Array of event attendees (optional)
+  - `email`: *string* - Attendee email address
+  - `status`: *string* - Response status: `'accepted'`, `'declined'`, `'tentative'`, or `'none'`
+  - `organizer`: *boolean* - True if this attendee is the event organizer (optional)
 - `original`: *object* - Original event object from the provider
 
 #### pageSize {#response-pageSize}
@@ -149,6 +154,7 @@ GET /events?pageSize=50&singleEvents=false
 - The `paging` parameter is only included in the response when more events are available
 - Date strings are automatically normalized to handle malformed ISO 8601 formats before parsing
 - The `color` property contains the background color value directly (not an object)
+- All event endpoints return events in the **unified CalendarEvent format** across all providers
 :::
 
 ---
@@ -241,9 +247,9 @@ Indicates whether the event was created successfully.
 
 #### event {#create-response-event}
 
-*object*
+*CalendarEvent*
 
-The created event object from the provider (Google, Microsoft, or Apple format).
+The created event object in unified CalendarEvent format (see [List Events response](#events-response) for structure).
 
 #### message {#create-response-message}
 
@@ -442,9 +448,9 @@ Indicates whether the event was updated successfully.
 
 #### event {#update-response-event}
 
-*object*
+*CalendarEvent*
 
-The updated event object from the provider.
+The updated event object in unified CalendarEvent format (see [List Events response](#events-response) for structure).
 
 #### message {#update-response-message}
 

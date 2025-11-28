@@ -85,7 +85,7 @@ Array of calendar events from all providers, sorted chronologically by start tim
 - `recurringEventId`: *string* — ID of the recurring event series (if this is an instance of a recurring event) (optional)
 - `color`: *string* — Event background color (optional)
 - `location`: *string* — Event location (optional)
-- `attendees`: *Array<EventAttendee>* — Array of event attendees (optional)
+- `attendees`: *Array of objects* — Array of event attendees (optional)
   - `email`: *string* — Attendee email address
   - `status`: *string* — Response status: `'accepted'`, `'declined'`, `'tentative'`, or `'none'`
   - `organizer`: *boolean* — True if this attendee is the event organizer (optional)

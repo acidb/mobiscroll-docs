@@ -75,21 +75,27 @@ _Array&lt;CalendarEvent&gt;_
 
 Array of calendar events from all providers, sorted chronologically by start time. Each CalendarEvent object contains:
 
-- `provider`: *string* - Provider name: `'google'`, `'microsoft'`, or `'apple'`
-- `id`: *string* - Event ID
-- `calendarId`: *string* - Calendar identifier where the event belongs
-- `title`: *string* - Event title/summary
-- `start`: *Date* - Event start date/time
-- `end`: *Date* - Event end date/time
-- `allDay`: *boolean* - True if all-day event
-- `recurringEventId`: *string* - ID of the recurring event series (if this is an instance of a recurring event) (optional)
-- `color`: *string* - Event background color (optional)
-- `location`: *string* - Event location (optional)
-- `attendees`: *Array&lt;EventAttendee&gt;* - Array of event attendees (optional)
-  - `email`: *string* - Attendee email address
-  - `status`: *string* - Response status: `'accepted'`, `'declined'`, `'tentative'`, or `'none'`
-  - `organizer`: *boolean* - True if this attendee is the event organizer (optional)
-- `original`: *object* - Original event object from the provider
+- `provider`: *string* — Provider name: `'google'`, `'microsoft'`, or `'apple'`
+- `id`: *string* — Event ID
+- `calendarId`: *string* — Calendar identifier where the event belongs
+- `title`: *string* — Event title/summary
+- `start`: *Date* — Event start date/time
+- `end`: *Date* — Event end date/time
+- `allDay`: *boolean* — True if all-day event
+- `recurringEventId`: *string* — ID of the recurring event series (if this is an instance of a recurring event) (optional)
+- `color`: *string* — Event background color (optional)
+- `location`: *string* — Event location (optional)
+- `attendees`: *Array<EventAttendee>* — Array of event attendees (optional)
+  - `email`: *string* — Attendee email address
+  - `status`: *string* — Response status: `'accepted'`, `'declined'`, `'tentative'`, or `'none'`
+  - `organizer`: *boolean* — True if this attendee is the event organizer (optional)
+- `custom`: *object* — Custom key-value pairs for additional event data (optional)
+- `conference`: *string* — Conference meeting link or identifier (optional)
+- `transparency`: *string* — Event transparency: `'opaque'` or `'transparent'` (optional)
+- `visibility`: *string* — Event visibility: `'public'`, `'private'`, or `'confidential'` (optional)
+- `status`: *string* — Event status: `'confirmed'`, `'tentative'`, or `'cancelled'` (optional)
+- `link`: *string* — Public event link (optional)
+- `original`: *object* — Original event object from the provider
 
 #### pageSize {#response-pageSize}
 

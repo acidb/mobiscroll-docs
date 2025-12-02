@@ -80,6 +80,40 @@ export class MyComponent {
 
 </div>
 
+### Shifted days
+
+Custom shifted views — such as a [continuous shift planning](https://demo.mobiscroll.com/scheduler/24-hour-manufacturing-shift-rota-planning) — can be implemented by extending the scheduler view with hours from the previous or next calendar days. This feature is particularly useful for visualizing highly dynamic, continuous operations that frequently cross midnight.
+
+![Scheduler shifted days](/img/scheduler-shifted-view.png)
+
+To configure a shifted view, you must set the <code>startTime</code> and <code>endTime</code> properties within the <code>schedule</code> object of the [view](#configuring-the-view) option using a specific day-offset format. The day offset is specified by appending a sign (+ or -) followed by the number of days to the time string (HH:MM).
+
+#### Shift Start Time (Previous Day Offset)
+
+To show hours from the previous day (creating a view that starts before midnight), use the subtractive format. The day offset must be a negative number (e.g., <code>'20:00-1'</code>).
+
+#### Shift End Time (Next Day Offset)
+
+To extend the view into the next day (creating a view that ends after midnight), use the additive format. The day offset must be a positive number (e.g., <code>'06:00+1'</code>).
+
+
+```ts
+view: {
+  schedule: {
+      type: 'week',
+      // Starts the view at 20:00 on the previous day
+      startTime: '20:00-1', 
+      // Ends the view at 06:00 on the next day
+      endTime: '06:00+1' 
+  }
+}
+```
+
+#### Customizing the Calendar Day Start
+
+When using shifted days, the calendar day start (00:00) is often a critical transition point. To allow for easy visual marking of this boundary, the library automatically adds the CSS class <code>.mbsc-shifted-day-start</code> to the time cell row that corresponds to the 00:00 midnight boundary. This class is automatically applied, and you can fully customize the appearance of this column using your own stylesheets.
+
+
 ### Row height
 
 There might be cases when you would like to change the height of the schedule cell. You can use the following CSS classes for this purpose:

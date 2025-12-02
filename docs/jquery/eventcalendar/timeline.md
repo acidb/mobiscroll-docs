@@ -142,6 +142,48 @@ The predefined sizes correspond to specific default widths, but you can override
 You need to apply these rules after the mobiscroll default rules, otherwise the default rules will take precedence over them.
 :::
 
+
+### Shifted days
+
+Custom rolling windows and shifted views — such as a [36-hour aircraft view](https://demo.mobiscroll.com/timeline/36-hour-rolling-window-aircraft-view) — can be implemented by extending the daily timeline view with hours from the previous or next calendar days. This feature is particularly useful for visualizing highly dynamic, continuous operations that frequently cross midnight.
+
+![Timeline shifted days](/img/timeline-shifted-days.png)
+
+To configure a shifted view, you must set the <code>startTime</code> and <code>endTime</code> properties within the <code>timeline</code> object of the [view](#configuring-the-view) option using a specific day-offset format. The day offset is specified by appending a sign (+ or -) followed by the number of days to the time string (HH:MM).
+
+#### Shift Start Time (Previous Day Offset)
+
+To show hours from the previous day (creating a view that starts before midnight), use the subtractive format. The day offset must be a negative number (e.g., <code>'20:00-1'</code>).
+
+#### Shift End Time (Next Day Offset)
+
+To extend the view into the next day (creating a view that ends after midnight), use the additive format. The day offset must be a positive number (e.g., <code>'06:00+1'</code>).
+
+
+```ts
+view: {
+  timeline: {
+      type: 'day',
+      resolutionHorizontal: 'hour',
+      resolutionVertical: 'day',             
+      // Starts the view at 20:00 on the previous day
+      startTime: '20:00-1', 
+      // Ends the view at 06:00 on the next day
+      endTime: '06:00+1' 
+  }
+}
+```
+
+#### Customizing the Calendar Day Start
+
+When using shifted days, the calendar day start (00:00) is often a critical transition point. To allow for easy visual marking of this boundary, the library automatically adds the CSS class <code>.mbsc-shifted-day-start</code> to the time cell column that corresponds to the 00:00 midnight boundary. This class is automatically applied, and you can fully customize the appearance of this column using your own stylesheets.
+
+:::info
+The day-offset feature is strictly dependent on the <code>type: 'day'</code> and the default hourly <code>resolutionHorizontal</code> setting. This can be efficiently combined with <code>resolutionVertical: 'day'</code> of any size.
+:::
+
+
+
 ## Resources
 
 ### Resource grouping and hierarchy

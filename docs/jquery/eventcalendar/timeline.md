@@ -176,7 +176,15 @@ view: {
 
 #### Customizing the Calendar Day Start
 
-When using shifted days, the calendar day start (00:00) is often a critical transition point. To allow for easy visual marking of this boundary, the library automatically adds the CSS class <code>.mbsc-shifted-day-start</code> to the time cell column that corresponds to the 00:00 midnight boundary. This class is automatically applied, and you can fully customize the appearance of this column using your own stylesheets.
+When using shifted days, the calendar day start (00:00) is often a critical transition point. To allow for easy visual marking of this boundary, the library automatically adds the CSS class <code>.mbsc-timeline-day-limit</code> to the time column that corresponds to the 00:00 midnight boundary. This class is automatically applied, and you can fully customize the appearance of this column using your own stylesheets.
+
+```css
+.my-calendar .mbsc-timeline-day-limit {
+  border-left-color: #d38231;
+  border-left-style: dashed;
+  border-left-width: 1px;
+}
+```
 
 :::info
 The day-offset feature is strictly dependent on the <code>type: 'day'</code> and the default hourly <code>resolutionHorizontal</code> setting. This can be efficiently combined with <code>resolutionVertical: 'day'</code> of any size.

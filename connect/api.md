@@ -8,25 +8,7 @@ slug: /api
 
 Welcome to the Mobiscroll Connect API documentation. This API enables you to integrate with multiple calendar providers (Google Calendar, Microsoft Outlook, and Apple Calendar) through a unified interface.
 
-<div
-  style={{width: '100%', margin: 'auto'}}>
-  <iframe
-    src="/connect_flow_chart.pdf"
-    style={{width: '100%', minHeight: 100, height: '40vh', border: 'none'}}
-    title="Connect Flow Chart"
-    className="connect-flow-chart-iframe"
-  ></iframe>
-</div>
-
-<style>{`
-@media (max-width: 600px) {
-  .connect-flow-chart-iframe {
-    height: 20vh !important;
-  }
-}
-`}</style>
-
-[View full size PDF](/connect_flow_chart.pdf)
+> Want to see the full authentication flow diagram? [Click here to check it](../static/mobiscroll_connect_auth_flow.pdf)
 
 ## Authentication
 

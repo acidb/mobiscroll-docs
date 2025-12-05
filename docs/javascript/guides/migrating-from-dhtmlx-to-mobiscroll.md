@@ -866,7 +866,7 @@ The following example will render the prev and next buttons and a custom title.
 var myTitle = 'Awesome title';
 
 mobiscroll.eventcalendar('#scheduler_here', {
-  renderHeader: function (Awesome Title) {
+  renderHeader: function () {
     return `
     <button mbsc-calendar-prev></button>
     <button mbsc-calendar-next></button>

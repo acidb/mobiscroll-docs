@@ -8,9 +8,11 @@ slug: /api
 
 Welcome to the Mobiscroll Connect API documentation. This API enables you to integrate with multiple calendar providers (Google Calendar, Microsoft Outlook, and Apple Calendar) through a unified interface.
 
-> Want to see the full authentication flow diagram? [Click here to check it](../static/mobiscroll_connect_auth_flow.pdf)
+![API Flow](/connect/api_flow.png)
 
 ## Authentication
+
+![Auth Flow](/connect/auth_flow.png)
 
 Most API endpoints require authentication using a Bearer token (JWT). Include the token in the `Authorization` header:
 

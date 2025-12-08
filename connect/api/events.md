@@ -91,8 +91,8 @@ Array of calendar events from all providers, sorted chronologically by start tim
   - `organizer`: *boolean* — True if this attendee is the event organizer (optional)
 - `custom`: *object* — Custom key-value pairs for additional event data (optional)
 - `conference`: *string* — Conference meeting link or identifier (optional)
-- `transparency`: *string* — Event transparency: `'opaque'` or `'transparent'` (optional)
-- `visibility`: *string* — Event visibility: `'public'`, `'private'`, or `'confidential'` (optional)
+- `availability`: *string* — Event availability: `'busy'` or `'free'` (optional)
+- `privacy`: *string* — Event privacy: `'public'`, `'private'`, or `'confidential'` (optional)
 - `status`: *string* — Event status: `'confirmed'`, `'tentative'`, or `'cancelled'` (optional)
 - `link`: *string* — Public event link (optional)
 - `original`: *object* — Original event object from the provider
@@ -229,6 +229,14 @@ Whether this is an all-day event.
 
 **Default value**: `false`
 
+#### attendees {#create-attendees}
+
+*string[]*
+
+Array of attendee email addresses.
+
+**Default value**: `undefined`
+
 #### recurrence {#create-recurrence}
 
 *object*
@@ -240,6 +248,16 @@ Recurrence rule for creating a recurring event series. Object with the following
 - `count`: *number* - Number of occurrences (mutually exclusive with `until`)
 - `until`: *string* - End date in format `YYYYMMDDTHHMMSSZ` (mutually exclusive with `count`)
 - `byDay`: *string[]* - Array of weekday codes: `['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU']`
+- `byMonthDay`: *number[]* - Array of days of the month (1-31)
+- `byMonth`: *number[]* - Array of months (1-12)
+
+**Default value**: `undefined`
+
+#### custom {#create-custom}
+
+*object*
+
+Custom key-value pairs for additional event data.
 
 **Default value**: `undefined`
 
@@ -435,6 +453,18 @@ Event location.
 *boolean*
 
 Whether this is an all-day event.
+
+#### attendees {#update-attendees}
+
+*string[]*
+
+Array of attendee email addresses.
+
+#### custom {#update-custom}
+
+*object*
+
+Custom key-value pairs for additional event data.
 
 #### recurrence {#update-recurrence}
 

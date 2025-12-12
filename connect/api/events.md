@@ -292,17 +292,39 @@ Event status: `'confirmed'`, `'tentative'`, or `'cancelled'`.
 
 Indicates whether the event was created successfully.
 
-#### event {#create-response-event}
+#### id {#create-response-id}
 
-*CalendarEvent*
+*string*
 
-The created event object in unified CalendarEvent format (see [List Events response](#events-response) for structure).
+The event ID.
+
+#### title {#create-response-title}
+
+*string*
+
+The event title.
+
+#### start {#create-response-start}
+
+*Date*
+
+The event start date/time.
+
+#### end {#create-response-end}
+
+*Date*
+
+The event end date/time.
 
 #### message {#create-response-message}
 
 *string*
 
 Error or status message (included on failure).
+
+:::info
+The response includes all properties of the created [CalendarEvent](#response-events) object merged at the root level.
+:::
 
 ### Error Responses
 
@@ -333,12 +355,12 @@ Content-Type: application/json
 ```json title="Response"
 {
   "success": true,
-  "event": {
-    "id": "event123abc",
-    "summary": "Team Meeting",
-    "start": { "dateTime": "2025-11-01T10:00:00Z" },
-    "end": { "dateTime": "2025-11-01T11:00:00Z" }
-  }
+  "id": "event123abc",
+  "title": "Team Meeting",
+  "start": "2025-11-01T10:00:00.000Z",
+  "end": "2025-11-01T11:00:00.000Z",
+  "provider": "google",
+  "allDay": false
 }
 ```
 
@@ -523,17 +545,15 @@ Same structure as [Create Event response](#create-response-success).
 
 Indicates whether the event was updated successfully.
 
-#### event {#update-response-event}
-
-*CalendarEvent*
-
-The updated event object in unified CalendarEvent format (see [List Events response](#events-response) for structure).
-
 #### message {#update-response-message}
 
 *string*
 
 Error or status message (included on failure).
+
+:::info
+The response includes all properties of the updated [CalendarEvent](#response-events) object merged at the root level.
+:::
 
 ### Error Responses
 

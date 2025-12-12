@@ -77,7 +77,6 @@ Array of calendar events from all providers, sorted chronologically by start tim
 
 - `provider`: *string* — Provider name: `'google'`, `'microsoft'`, or `'apple'`
 - `id`: *string* — Event ID
-- `calendarId`: *string* — Calendar identifier where the event belongs
 - `title`: *string* — Event title/summary
 - `start`: *Date* — Event start date/time
 - `end`: *Date* — Event end date/time
@@ -258,6 +257,30 @@ Recurrence rule for creating a recurring event series. Object with the following
 *object*
 
 Custom key-value pairs for additional event data.
+
+**Default value**: `undefined`
+
+#### availability {#create-availability}
+
+*string*
+
+Event availability: `'free'` or `'busy'`.
+
+**Default value**: `undefined`
+
+#### privacy {#create-privacy}
+
+*string*
+
+Event privacy: `'public'`, `'private'`, or `'confidential'`.
+
+**Default value**: `undefined`
+
+#### status {#create-status}
+
+*string*
+
+Event status: `'confirmed'`, `'tentative'`, or `'cancelled'`.
 
 **Default value**: `undefined`
 
@@ -465,6 +488,24 @@ Array of attendee email addresses.
 *object*
 
 Custom key-value pairs for additional event data.
+
+#### availability {#update-availability}
+
+*string*
+
+Event availability: `'free'` or `'busy'`.
+
+#### privacy {#update-privacy}
+
+*string*
+
+Event privacy: `'public'`, `'private'`, or `'confidential'`.
+
+#### status {#update-status}
+
+*string*
+
+Event status: `'confirmed'`, `'tentative'`, or `'cancelled'`.
 
 #### recurrence {#update-recurrence}
 

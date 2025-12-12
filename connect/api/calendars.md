@@ -39,24 +39,25 @@ GET /calendars
 [
   {
     "id": "work@company.com",
-    "name": "My Calendar",
+    "title": "My Calendar",
     "provider": "google",
-    "timezone": "America/Los_Angeles",
+    "timeZone": "America/Los_Angeles",
     "color": "#9fc6e7",
-    "accessRole": "owner"
+    "description": "Work calendar"
   },
   {
     "id": "AAMkAGI2T...",
-    "name": "Work Calendar",
+    "title": "Work Calendar",
     "provider": "microsoft",
-    "timezone": "UTC",
-    "accessRole": "owner"
+    "timeZone": "UTC",
+    "description": ""
   },
   {
     "id": "E2857962-EE43-4E90-829C-A826D534C0D9",
-    "name": "Personal",
+    "title": "Personal",
     "provider": "apple",
-    "timezone": "America/New_York"
+    "timeZone": "America/New_York",
+    "description": "Personal events"
   }
 ]
 ```

@@ -1,0 +1,100 @@
+import CodeBlock from '@theme/CodeBlock';
+
+Mobiscroll components can be styled by overriding CSS4 color variables.
+In addition to Sass variables, these CSS variables let you customize colors at runtime without rebuilding styles.
+
+Mobiscroll uses a **two-level CSS variable system**:
+
+- **Theme (generic) variables** define the base color palette for a theme (`ios`, `material`, `windows`)
+- **Component variables** are component-specific and inherit their values from the theme variables.
+
+Components never use hardcoded colors.
+They always resolve colors from theme variables, making global theming predictable.
+
+Overriding a theme variable updates all dependent components.
+Component variables can still be overridden for fine-grained control.
+
+**Using theme color variables**
+
+Theme variables can be overridden in CSS by redefining them on `:root`.
+
+```scss
+/* Override the iOS accent color */
+:root {
+  --mbsc-ios-accent: #ff3b30;
+}
+```
+
+Here's the complete list of the CSS4 **theme (generic)** color variables, grouped by themes.
+
+---
+
+## iOS color variables
+
+```scss title="Available color variables and defaults for iOS"
+:root {
+  /* iOS theme – light */
+  --mbsc-ios-background: #f7f7f7;                     /* Page background */
+  --mbsc-ios-surface-background: #ffffff;             /* Cards, sheets */
+  --mbsc-ios-text: #000000;                           /* Primary text */
+  --mbsc-ios-accent: #007bff;                         /* Brand / accent */
+  --mbsc-ios-accent-soft: rgba(0, 123, 255, 0.15);    /* Subtle accent */
+  --mbsc-ios-outline: #d1d1d6;                        /* Borders, dividers */
+  --mbsc-ios-on-accent: #ffffff;                      /* Text on accent */
+  --mbsc-ios-on-background: #000000;                  /* Text on background */
+  --mbsc-ios-action-success: #43be5f;                 /* Success state */
+  --mbsc-ios-control-background: #ffffff;             /* Inputs, buttons */
+  --mbsc-ios-border-color: #d1d1d6;                   /* Control borders */
+  --mbsc-ios-surface-secondary-background: #efeff4;   /* Secondary surfaces */
+  --mbsc-ios-surface-cell-background: #ffffff;        /* List / calendar cells */
+  --mbsc-ios-highlight-background: #ffffff;           /* Hover / active */
+
+  /* Dark variants are also included using the `-dark-` prefixed variables. */
+  --mbsc-ios-dark-background: #000000;                   
+  --mbsc-ios-dark-surface-background: #1c1c1e;           
+  --mbsc-ios-dark-text: #ffffff;                         
+  --mbsc-ios-dark-accent: #0a84ff;                       
+  --mbsc-ios-dark-accent-soft: rgba(10, 132, 255, 0.25);  
+  --mbsc-ios-dark-outline: #2c2c2e;                     
+  --mbsc-ios-dark-on-accent: #ffffff;                    
+  --mbsc-ios-dark-on-background: #ffffff;                 
+  --mbsc-ios-dark-action-success: #30d158;             
+  --mbsc-ios-dark-control-background: #1c1c1e;             
+  --mbsc-ios-dark-border-color: #2c2c2e;                
+  --mbsc-ios-dark-surface-secondary-background: #2c2c2e;   
+  --mbsc-ios-dark-surface-cell-background: #1c1c1e;        
+  --mbsc-ios-dark-highlight-background: rgba(255, 255, 255, 0.08); 
+
+}
+```
+
+**Theme color variables usage in components:**
+
+- `background` – page background  
+- `surface-background` – cards, sheets  
+- `text` – primary text  
+- `accent` – selection, focus, active  
+- `accent-soft` – subtle highlight, feedback  
+- `outline` – borders, dividers  
+- `on-accent` – text / icons on accent  
+- `on-background` – text / icons on background  
+- `action-success` – success states  
+- `control-background` – inputs, buttons  
+- `border-color` – control borders  
+- `surface-secondary-background` – secondary surfaces  
+- `surface-cell-background` – list, calendar cells  
+- `highlight-background` – hover, active feedback
+
+
+
+## Material color variables
+
+```scss title="Available color variables and defaults for Material"
+
+```
+
+## Windows color variables
+
+```scss title="Available color variables and defaults for Windows"
+
+```

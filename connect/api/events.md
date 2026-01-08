@@ -125,12 +125,13 @@ GET /events?pageSize=50&start=2025-10-01T00:00:00Z&end=2025-10-31T23:59:59Z
   "events": [
     {
       "id": "event123",
-      "calendarId": "primary",
       "title": "Team Meeting",
       "start": "2025-10-15T10:00:00Z",
       "end": "2025-10-15T11:00:00Z",
       "provider": "google",
-      "allDay": false
+      "allDay": false,
+      "location": "Conference Room A",
+      "color": "#9fc6e7"
     }
   ],
   "pageSize": 50,
@@ -355,12 +356,26 @@ Content-Type: application/json
 ```json title="Response"
 {
   "success": true,
+  "provider": "google",
   "id": "event123abc",
   "title": "Team Meeting",
   "start": "2025-11-01T10:00:00.000Z",
   "end": "2025-11-01T11:00:00.000Z",
-  "provider": "google",
-  "allDay": false
+  "allDay": false,
+  "location": "Conference Room A",
+  "attendees": [],
+  "color": "#9fc6e7",
+  "availability": "busy",
+  "privacy": "public",
+  "status": "confirmed",
+  "link": "https://calendar.google.com/calendar/event?eid=...",
+  "original": {
+    "kind": "calendar#event",
+    "etag": "\"3366428166344000\"",
+    "id": "event123abc",
+    "summary": "Team Meeting"
+    ...
+  }
 }
 ```
 

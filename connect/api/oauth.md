@@ -196,11 +196,20 @@ Your application's client secret. Required if not using HTTP Basic authenticatio
 
 ### Response
 
+
 #### access_token {#token-response-access_token}
 
 *string*
 
 The access token (JWT) that can be used to authenticate API requests. This token contains the user ID, client ID, and project ID in the payload.
+
+:::info What is an Access Token?
+An **access token** is a credential (usually a string) that your application receives after a successful authentication. It is used to authorize API requests on behalf of a user. In Mobiscroll Connect, the access token is a JWT (JSON Web Token).
+:::
+
+:::info What is a JWT (JSON Web Token)?
+A **JWT** is a secure, compact, URL-safe token format that encodes claims about the user and the application. Mobiscroll Connect uses JWTs as access tokens, which include information such as the user ID, client ID, and expiration time. The server verifies the JWT to ensure requests are authentic and authorized.
+:::
 
 #### token_type {#token-response-token_type}
 

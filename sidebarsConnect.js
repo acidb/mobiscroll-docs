@@ -25,6 +25,7 @@ const sidebars = {
       },
       items: ["api/oauth", "api/events", "api/calendars"],
     },
+    "application-setup",
   ],
 };
 

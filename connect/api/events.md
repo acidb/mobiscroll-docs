@@ -4,7 +4,7 @@
 
 Retrieves calendar events from all connected providers (Google Calendar, Microsoft Outlook, Apple Calendar) for the authenticated user.
 
-Fetches events from multiple calendar providers simultaneously with support for pagination, filtering by date range and specific calendars, and handling of recurring events. Returns chronologically sorted events across all providers with "load more" functionality using paging tokens.
+Fetches events from multiple calendar providers simultaneously with support for pagination, filtering by date range and specific calendars, and handling of recurring events. Returns chronologically sorted events across all providers with "load more" functionality using nextPageToken tokens.
 
 **Endpoint:** `GET /events`
 
@@ -48,7 +48,7 @@ Calendar IDs that are not associated with the authenticated user's connected acc
 
 **Default value**: `undefined`
 
-#### paging {#param-paging}
+#### nextPageToken {#param-nextPageToken}
 
 *string*
 
@@ -102,15 +102,15 @@ Array of calendar events from all providers, sorted chronologically by start tim
 
 Number of events per page.
 
-#### paging {#response-paging}
+#### nextPageToken {#response-nextPageToken}
 
 *string*
 
-Base64 encoded pagination state for the next request. Pass this value as the [paging](#param-paging) parameter when loading more events. Only included in the response if more events are available.
+Base64 encoded pagination state for the next request. Pass this value as the [nextPageToken](#param-nextPageToken) parameter when loading more events. Only included in the response if more events are available.
 
 ### Error Responses
 
-- **400** - Bad Request. Invalid paging parameters
+- **400** - Bad Request. Invalid nextPageToken parameters
 - **401** - Unauthorized. Invalid or missing bearer token
 - **500** - Internal Server Error. Provider error or unexpected failure
 
@@ -135,12 +135,12 @@ GET /events?pageSize=50&start=2025-10-01T00:00:00Z&end=2025-10-31T23:59:59Z
     }
   ],
   "pageSize": 50,
-  "paging": "eyJnb29nbGUiOnsidG9rZW4iOnsiY2FsMTIzIjp7Im5leHRQYWdlVG9rZW4iOiJhYmMifX0sImlzRGVwbGV0ZWQiOmZhbHNlfX0="
+  "nextPageToken": "eyJnb29nbGUiOnsidG9rZW4iOnsiY2FsMTIzIjp7Im5leHRQYWdlVG9rZW4iOiJhYmMifX0sImlzRGVwbGV0ZWQiOmZhbHNlfX0="
 }
 ```
 
-```bash title="Load more events using paging token"
-GET /events?pageSize=50&paging=eyJnb29nbGUiOnsidG9rZW4iOnsiY2FsMTIzIjp7Im5leHRQYWdlVG9rZW4iOiJhYmMifX0sImlzRGVwbGV0ZWQiOmZhbHNlfX0=
+```bash title="Load more events using nextPageToken"
+GET /events?pageSize=50&nextPageToken=eyJnb29nbGUiOnsidG9rZW4iOnsiY2FsMTIzIjp7Im5leHRQYWdlVG9rZW4iOiJhYmMifX0sImlzRGVwbGV0ZWQiOmZhbHNlfX0=
 ```
 
 ```bash title="Filter by specific calendars"
@@ -155,9 +155,9 @@ GET /events?pageSize=50&singleEvents=false
 - Events are sorted chronologically by start time across all providers
 - The `pageSize` is distributed across all active providers (not per provider)
 - Maximum `pageSize` is capped at 1000 events
-- The `paging` token is Base64 encoded and should be passed as-is to subsequent requests
+- The `nextPageToken` token is Base64 encoded and should be passed as-is to subsequent requests
 - Each provider (Google, Microsoft, Apple) tracks its own pagination state independently
-- The `paging` parameter is only included in the response when more events are available
+- The `nextPageToken` parameter is only included in the response when more events are available
 - Date strings are automatically normalized to handle malformed ISO 8601 formats before parsing
 - The `color` property contains the background color value directly (not an object)
 - All event endpoints return events in the **unified CalendarEvent format** across all providers

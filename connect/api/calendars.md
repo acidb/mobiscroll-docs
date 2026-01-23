@@ -1,5 +1,6 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import { Parameter } from '@site/src/components/Connect';
 
 # Calendars API
 
@@ -13,19 +14,39 @@ Fetches the list of calendars from all connected calendar providers and returns 
 
 ### Response
 
-#### calendars {#calendars-response}
 
-*Array&lt;Calendar&gt;*
-
+<Parameter name="calendars" type="Array&lt;Calendar&gt;" id="calendars-response">
 Array of calendar objects from all connected providers. Each Calendar object contains:
 
-- `provider`: *string* - Provider name: `'google'`, `'microsoft'`, or `'apple'`
-- `id`: *string* - Unique calendar identifier from the provider
-- `title`: *string* - Display name of the calendar
-- `timeZone`: *string* - Calendar timezone (e.g., "America/New_York")
-- `color`: *string* - Calendar color code
-- `description`: *string* - Calendar description
-- `original`: *object* - Original calendar object from the provider
+<Parameter name="provider" type="string">
+Provider name: `'google'`, `'microsoft'`, or `'apple'`
+</Parameter>
+
+<Parameter name="id" type="string">
+Unique calendar identifier from the provider
+</Parameter>
+
+<Parameter name="title" type="string">
+Display name of the calendar
+</Parameter>
+
+<Parameter name="timeZone" type="string">
+Calendar timezone (e.g., "America/New_York")
+</Parameter>
+
+<Parameter name="color" type="string">
+Calendar color code
+</Parameter>
+
+<Parameter name="description" type="string">
+Calendar description
+</Parameter>
+
+<Parameter name="original" type="object">
+Original calendar object from the provider
+</Parameter>
+
+</Parameter>
 
 ### Error Responses
 
@@ -42,7 +63,7 @@ GET /calendars
 ```
 
 </TabItem>
-<TabItem value="sdk" label="Node.js SDK">
+<TabItem value="sdk" label="Node.js">
 
 ```typescript
 const calendars = await client.calendars.list();

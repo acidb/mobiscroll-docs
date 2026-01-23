@@ -1,5 +1,6 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import { Parameter } from '@site/src/components/Connect';
 
 # OAuth API
 
@@ -15,68 +16,39 @@ This endpoint does not require authentication. It initiates the OAuth2 authoriza
 
 ### Request Parameters
 
-#### client_id {#authorize-client_id}
 
-*string*
-
+<Parameter name="client_id" type="string" required id="authorize-client_id">
 Project/application identifier. This uniquely identifies your application in the Mobiscroll Connect system.
+</Parameter>
 
-**Required**
-
-#### user_id {#authorize-user_id}
-
-*string*
-
+<Parameter name="user_id" type="string" required id="authorize-user_id">
 External user identifier from the client application. This is your application's unique identifier for the user.
+</Parameter>
 
-**Required**
-
-#### user_name {#authorize-user_name}
-
-*string*
-
+<Parameter name="user_name" type="string" defaultValue={<code>undefined</code>} id="authorize-user_name">
 User's display name. Used for identification and display purposes.
+</Parameter>
 
-**Default value**: `undefined`
-
-#### user_email {#authorize-user_email}
-
-*string*
-
+<Parameter name="user_email" type="string" defaultValue={<code>undefined</code>} id="authorize-user_email">
 User's email address. May be used for provider authentication and identification.
+</Parameter>
 
-**Default value**: `undefined`
-
-#### redirect_uri {#authorize-redirect_uri}
-
-*string*
-
+<Parameter name="redirect_uri" type="string" defaultValue="Retrieved from database" id="authorize-redirect_uri">
 Callback URL after authorization completes. **Note:** This parameter is retrieved from the database based on the `client_id`, not from the query parameter. The user will be redirected to this URL with the authorization code.
+</Parameter>
 
-**Default value**: Retrieved from database
-
-#### state {#authorize-state}
-
-*string*
-
+<Parameter name="state" type="string" defaultValue={<code>undefined</code>} id="authorize-state">
 Optional state parameter to maintain across the OAuth flow. This is passed back to your redirect_uri and can be used to prevent CSRF attacks and maintain application state.
+</Parameter>
 
-**Default value**: `undefined`
-
-#### response_type {#authorize-response_type}
-
-*string*
-
+<Parameter name="response_type" type="string" defaultValue={<code>undefined</code>} id="authorize-response_type">
 OAuth2 response type. Typically set to `"code"` for the authorization code flow.
-
-**Default value**: `undefined`
+</Parameter>
 
 ### Response
 
-#### Redirect {#authorize-redirect}
 
-*302 - Redirect*
-
+<Parameter name="Redirect" type="302 - Redirect" id="authorize-redirect">
 Redirects to the provider selection page (`/provider-select.html`) with all query parameters preserved (including the resolved `redirect_uri` from the database). The provider selection page allows the user to:
 
 1. Choose which calendar provider(s) to connect (Google Calendar, Microsoft Outlook, Apple Calendar)
@@ -92,14 +64,17 @@ After the user successfully authenticates and approves the authorization, they w
 ```
 https://app.example.com/callback?code=user-456&state=xyz789
 ```
+</Parameter>
 
-#### Cookie {#authorize-cookie}
-
+<Parameter name="Cookie" type="httpOnly" id="authorize-cookie">
 Sets `oauth_req` cookie containing the complete OAuth request for later retrieval. The cookie has the following properties:
+
 - **httpOnly**: true
 - **path**: /
 - **maxAge**: 30 minutes
 - **sameSite**: lax
+
+</Parameter>
 
 ### Error Responses
 
@@ -124,7 +99,7 @@ Set-Cookie: oauth_req={"client_id":"proj-123","user_id":"user-456",...}; HttpOnl
 ```
 
 </TabItem>
-<TabItem value="sdk" label="Node.js SDK">
+<TabItem value="sdk" label="Node.js">
 
 ```typescript
 // Generate the authorization URL
@@ -179,53 +154,32 @@ Authorization: Basic base64(client_id:client_secret)
 
 ### Request Parameters
 
-#### grant_type {#token-grant_type}
 
-*string*
-
+<Parameter name="grant_type" type="string" required id="token-grant_type">
 The OAuth2 grant type. Must be set to `"authorization_code"` for the authorization code flow.
+</Parameter>
 
-**Required**
-
-#### code {#token-code}
-
-*string*
-
+<Parameter name="code" type="string" required id="token-code">
 The authorization code received from the authorization endpoint. This code is the `user_id` and is returned to your `redirect_uri` after the user completes the authorization flow.
+</Parameter>
 
-**Required**
-
-#### redirect_uri {#token-redirect_uri}
-
-*string*
-
+<Parameter name="redirect_uri" type="string" required id="token-redirect_uri">
 The redirect URI used in the authorization request. This must match exactly with the redirect URI used when obtaining the authorization code.
+</Parameter>
 
-**Required**
-
-#### client_id {#token-client_id}
-
-*string*
-
+<Parameter name="client_id" type="string" defaultValue={<code>undefined</code>} id="token-client_id">
 Your application's client identifier. Required if not using HTTP Basic authentication.
+</Parameter>
 
-**Default value**: `undefined`
-
-#### client_secret {#token-client_secret}
-
-*string*
-
+<Parameter name="client_secret" type="string" defaultValue={<code>undefined</code>} id="token-client_secret">
 Your application's client secret. Required if not using HTTP Basic authentication.
-
-**Default value**: `undefined`
+</Parameter>
 
 ### Response
 
 
-#### access_token {#token-response-access_token}
 
-*string*
-
+<Parameter name="access_token" type="string" id="token-response-access_token">
 The access token (JWT) that can be used to authenticate API requests. This token contains the user ID, client ID, and project ID in the payload.
 
 :::info What is an Access Token?
@@ -235,18 +189,15 @@ An **access token** is a credential (usually a string) that your application rec
 :::info What is a JWT (JSON Web Token)?
 A **JWT** is a secure, compact, URL-safe token format that encodes claims about the user and the application. Mobiscroll Connect uses JWTs as access tokens, which include information such as the user ID, client ID, and expiration time. The server verifies the JWT to ensure requests are authentic and authorized.
 :::
+</Parameter>
 
-#### token_type {#token-response-token_type}
-
-*string*
-
+<Parameter name="token_type" type="string" id="token-response-token_type">
 The type of token returned. Always `"Bearer"`.
+</Parameter>
 
-#### expires_in {#token-response-expires_in}
-
-*number*
-
+<Parameter name="expires_in" type="number" id="token-response-expires_in">
 The lifetime in seconds of the access token. Typically `3600` (1 hour).
+</Parameter>
 
 ### Error Responses
 
@@ -323,7 +274,7 @@ grant_type=authorization_code&code=user-456&redirect_uri=https://app.example.com
 ```
 
 </TabItem>
-<TabItem value="sdk" label="Node.js SDK">
+<TabItem value="sdk" label="Node.js">
 
 ```typescript
 // Exchange authorization code for access token
@@ -332,9 +283,6 @@ const tokenResponse = await client.auth.getToken(code);
 
 // The client is automatically authenticated with the new token
 // You can also access it later via tokenResponse.access_token or client.getConfig() credentials
-
-// You should save the token for future use/sessions
-// saveTokenForUser(userId, tokenResponse);
 ```
 
 </TabItem>

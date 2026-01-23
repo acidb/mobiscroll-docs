@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Events API
 
 ## List Events {#endpoint-get-events}
@@ -116,6 +119,9 @@ Base64 encoded pagination state for the next request. Pass this value as the [ne
 
 ### Examples
 
+<Tabs>
+<TabItem value="api" label="API">
+
 ```bash title="Fetch initial events with date range filter"
 GET /events?pageSize=50&start=2025-10-01T00:00:00Z&end=2025-10-31T23:59:59Z
 ```
@@ -150,6 +156,40 @@ GET /events?pageSize=25&calendarIds=["personal@gmail.com","work@company.com"]
 ```bash title="Get recurring event series masters (not expanded)"
 GET /events?pageSize=50&singleEvents=false
 ```
+
+</TabItem>
+<TabItem value="sdk" label="Node.js SDK">
+
+```typescript
+// Fetch initial events with date range filter
+const response = await client.events.list({
+  pageSize: 50,
+  start: '2025-10-01T00:00:00Z',
+  end: '2025-10-31T23:59:59Z'
+});
+console.log(response.events);
+
+// Load more events using nextPageToken
+const nextResponse = await client.events.list({
+  pageSize: 50,
+  nextPageToken: response.nextPageToken
+});
+
+// Filter by specific calendars
+const filteredEvents = await client.events.list({
+  pageSize: 25,
+  calendarIds: ['personal@gmail.com', 'work@company.com']
+});
+
+// Get recurring event series masters (not expanded)
+const masters = await client.events.list({
+  pageSize: 50,
+  singleEvents: false
+});
+```
+
+</TabItem>
+</Tabs>
 
 :::info
 - Events are sorted chronologically by start time across all providers
@@ -336,6 +376,9 @@ The response includes all properties of the created [CalendarEvent](#response-ev
 
 ### Examples
 
+<Tabs>
+<TabItem value="api" label="API">
+
 ```bash title="Create a simple event"
 POST /event
 Content-Type: application/json
@@ -417,6 +460,52 @@ Content-Type: application/json
   "description": "Annual tech conference"
 }
 ```
+
+</TabItem>
+<TabItem value="sdk" label="Node.js SDK">
+
+```typescript
+// Create a simple event
+const event = await client.events.create({
+  provider: 'google',
+  calendarId: 'primary',
+  title: 'Team Meeting',
+  description: 'Discuss project updates',
+  start: '2025-11-01T10:00:00Z',
+  end: '2025-11-01T11:00:00Z',
+  location: 'Conference Room A'
+});
+
+// Create a recurring event
+const recurringEvent = await client.events.create({
+  provider: 'microsoft',
+  calendarId: 'AAMkAGVmMDEz...',
+  title: 'Weekly Standup',
+  start: '2025-11-01T09:00:00Z',
+  end: '2025-11-01T09:30:00Z',
+  allDay: false,
+  recurrence: {
+    frequency: 'WEEKLY',
+    interval: 1,
+    count: 10,
+    byDay: ['MO', 'WE', 'FR']
+  }
+});
+
+// Create an all-day event
+const allDayEvent = await client.events.create({
+  provider: 'apple',
+  calendarId: 'https://caldav.icloud.com/.../calendars/...',
+  title: 'Conference',
+  start: '2025-11-15T00:00:00Z',
+  end: '2025-11-16T00:00:00Z',
+  allDay: true,
+  description: 'Annual tech conference'
+});
+```
+
+</TabItem>
+</Tabs>
 
 :::info
 - The `provider` parameter must match the calendar provider of the `calendarId`
@@ -579,6 +668,9 @@ The response includes all properties of the updated [CalendarEvent](#response-ev
 
 ### Examples
 
+<Tabs>
+<TabItem value="api" label="API">
+
 ```bash title="Update a simple event"
 PUT /event
 Content-Type: application/json
@@ -627,6 +719,45 @@ Content-Type: application/json
   "location": "New Conference Room B"
 }
 ```
+
+</TabItem>
+<TabItem value="sdk" label="Node.js SDK">
+
+```typescript
+// Update a simple event
+const updatedEvent = await client.events.update({
+  provider: 'google',
+  calendarId: 'primary',
+  eventId: 'event123abc',
+  title: 'Updated Team Meeting',
+  start: '2025-11-01T14:00:00Z',
+  end: '2025-11-01T15:00:00Z'
+});
+
+// Update a single instance of a recurring event
+const updatedInstance = await client.events.update({
+  provider: 'microsoft',
+  eventId: 'instance456',
+  recurringEventId: 'series123',
+  calendarId: 'AAMkAGVmMDEz...',
+  updateMode: 'this',
+  title: 'Standup - Special Topic Today',
+  start: '2025-11-01T09:00:00Z',
+  end: '2025-11-01T10:00:00Z'
+});
+
+// Update all future occurrences
+const updatedFuture = await client.events.update({
+  provider: 'apple',
+  eventId: 'recurring-event-id',
+  calendarId: 'https://caldav.icloud.com/.../calendars/...',
+  updateMode: 'following',
+  location: 'New Conference Room B'
+});
+```
+
+</TabItem>
+</Tabs>
 
 :::info
 - The `provider` parameter must match the calendar provider where the event exists
@@ -711,6 +842,9 @@ Confirmation or error message.
 
 ### Examples
 
+<Tabs>
+<TabItem value="api" label="API">
+
 ```bash title="Delete a simple event"
 DELETE /event
 Content-Type: application/json
@@ -759,6 +893,38 @@ Content-Type: application/json
   "deleteMode": "all"
 }
 ```
+
+</TabItem>
+<TabItem value="sdk" label="Node.js SDK">
+
+```typescript
+// Delete a simple event
+await client.events.delete({
+  provider: 'google',
+  calendarId: 'primary',
+  eventId: 'event123abc'
+});
+
+// Delete a single instance of a recurring event
+await client.events.delete({
+  provider: 'microsoft',
+  calendarId: 'AAMkAGVmMDEz...',
+  eventId: 'instance456',
+  recurringEventId: 'series123',
+  deleteMode: 'this'
+});
+
+// Delete entire recurring series
+await client.events.delete({
+  provider: 'apple',
+  calendarId: 'https://caldav.icloud.com/.../calendars/...',
+  eventId: 'recurring-event-id',
+  deleteMode: 'all'
+});
+```
+
+</TabItem>
+</Tabs>
 
 :::info
 - The `provider` parameter must match the calendar provider where the event exists

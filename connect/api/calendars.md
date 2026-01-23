@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Calendars API
 
 ## List Calendars {#endpoint-get-calendars}
@@ -31,9 +34,22 @@ Array of calendar objects from all connected providers. Each Calendar object con
 
 ### Examples
 
+<Tabs>
+<TabItem value="api" label="API">
+
 ```bash title="Fetch all calendars for authenticated user"
 GET /calendars
 ```
+
+</TabItem>
+<TabItem value="sdk" label="Node.js SDK">
+
+```typescript
+const calendars = await client.calendars.list();
+```
+
+</TabItem>
+</Tabs>
 
 ```json title="Response"
 [

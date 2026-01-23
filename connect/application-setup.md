@@ -88,5 +88,33 @@ ${MOBISCROLL_CONNECT_BASE_URL}/authorize?client_id=${MOBISCROLL_CONNECT_CLIENT_I
 
 ---
 
+## Setting up the Node.js SDK
+
+To simplify integration, you can use the official Mobiscroll Connect SDK for Node.js.
+
+### Installation
+
+Install the SDK via npm:
+
+```bash
+npm install @mobiscroll/connect-sdk
+```
+
+### Initialization
+
+Initialize the client with your credentials:
+
+```typescript
+import { MobiscrollConnectClient } from '@mobiscroll/connect-sdk';
+
+const client = new MobiscrollConnectClient({
+  clientId: process.env.MOBISCROLL_CONNECT_CLIENT_ID,
+  clientSecret: process.env.MOBISCROLL_CONNECT_CLIENT_SECRET,
+  redirectUri: 'https://your-app.com/callback' // Your configured Redirect URI
+});
+```
+
+You are now ready to use the SDK to manage authentication and calendar data.
+
 **Next Steps:**
-Your environment is now ready. You can proceed to implement the full [Authorization Flow](./api/oauth.md#endpoint-authorize) to start connecting user calendars.
+Your environment is now ready. You can proceed to implement the full [Authorization Flow](./api/oauth.md#endpoint-authorize) to start connecting user calendars. The [API Reference](./api.md) includes Node.js SDK examples for each endpoint.

@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # OAuth API
 
 ## Authorize {#endpoint-authorize}
@@ -106,6 +109,9 @@ Sets `oauth_req` cookie containing the complete OAuth request for later retrieva
 
 ### Examples
 
+<Tabs>
+<TabItem value="api" label="API">
+
 ```bash title="Initiate OAuth authorization"
 GET /authorize?client_id=proj-123&user_id=user-456&user_name=John&user_email=john@example.com&redirect_uri=https://app.example.com/callback&response_type=code&state=xyz789
 ```
@@ -116,6 +122,25 @@ Location: /provider-select.html?client_id=proj-123&user_id=user-456&user_name=Jo
 
 Set-Cookie: oauth_req={"client_id":"proj-123","user_id":"user-456",...}; HttpOnly; Path=/; Max-Age=1800; SameSite=Lax
 ```
+
+</TabItem>
+<TabItem value="sdk" label="Node.js SDK">
+
+```typescript
+// Generate the authorization URL
+const authUrl = client.auth.generateAuthUrl({
+  userId: 'user-456',
+  // Optional parameters
+  // state: 'xyz789',
+  // scope: 'calendar.readonly'
+});
+
+// Redirect the user to authUrl
+// res.redirect(authUrl);
+```
+
+</TabItem>
+</Tabs>
 
 :::info
 - The `client_id` is validated against the database before proceeding
@@ -257,6 +282,9 @@ The access token is a JWT containing:
 
 ### Examples
 
+<Tabs>
+<TabItem value="api" label="API">
+
 ```bash title="Exchange authorization code for access token (HTTP Basic Auth)"
 POST /token
 Authorization: Basic YmFzZTY0X2VuY29kZWRfY3JlZGVudGlhbHM=
@@ -293,6 +321,24 @@ grant_type=authorization_code&code=user-456&redirect_uri=https://app.example.com
   "error_description": "Authorization code expired"
 }
 ```
+
+</TabItem>
+<TabItem value="sdk" label="Node.js SDK">
+
+```typescript
+// Exchange authorization code for access token
+// The client uses the configured clientId and clientSecret
+const tokenResponse = await client.auth.getToken(code);
+
+// The client is automatically authenticated with the new token
+// You can also access it later via tokenResponse.access_token or client.getConfig() credentials
+
+// You should save the token for future use/sessions
+// saveTokenForUser(userId, tokenResponse);
+```
+
+</TabItem>
+</Tabs>
 
 ```json title="Error Response - Client Mismatch"
 {

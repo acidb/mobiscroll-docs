@@ -25,12 +25,8 @@ Project/application identifier. This uniquely identifies your application in the
 External user identifier from the client application. This is your application's unique identifier for the user.
 </Parameter>
 
-<Parameter name="user_name" type="string" defaultValue={<code>undefined</code>} id="authorize-user_name">
-User's display name. Used for identification and display purposes.
-</Parameter>
-
-<Parameter name="user_email" type="string" defaultValue={<code>undefined</code>} id="authorize-user_email">
-User's email address. May be used for provider authentication and identification.
+<Parameter name="scope" type="string" defaultValue={<code>undefined</code>} id="authorize-scope">
+The scope of access requested from the user. Can be one of `free-busy`, `read`, or `read-write`. If not specified, defaults to `read-write`.
 </Parameter>
 
 <Parameter name="redirect_uri" type="string" defaultValue="Retrieved from database" id="authorize-redirect_uri">
@@ -88,12 +84,12 @@ Sets `oauth_req` cookie containing the complete OAuth request for later retrieva
 <TabItem value="api" label="API">
 
 ```bash title="Initiate OAuth authorization"
-GET /authorize?client_id=proj-123&user_id=user-456&user_name=John&user_email=john@example.com&redirect_uri=https://app.example.com/callback&response_type=code&state=xyz789
+GET /authorize?client_id=proj-123&user_id=user-456&redirect_uri=https://app.example.com/callback&response_type=code&state=xyz789&scope=read-write
 ```
 
 ```bash title="Redirects to provider selection page"
 302 Redirect
-Location: /provider-select.html?client_id=proj-123&user_id=user-456&user_name=John&user_email=john@example.com&redirect_uri=https://app.example.com/callback&response_type=code&state=xyz789
+Location: /provider-select.html?client_id=proj-123&user_id=user-456&redirect_uri=https://app.example.com/callback&response_type=code&state=xyz789&scope=read-write
 
 Set-Cookie: oauth_req={"client_id":"proj-123","user_id":"user-456",...}; HttpOnly; Path=/; Max-Age=1800; SameSite=Lax
 ```

@@ -96,3 +96,9 @@ To simplify integration, you can use the official Mobiscroll Connect SDK for Nod
 
 **Next Steps:**
 Your environment is now ready. You can proceed to implement the full [Authorization Flow](./api/oauth.md#endpoint-authorize) to start connecting user calendars. The [API Reference](./api.md) includes Node.js examples for each endpoint.
+
+## Demo Application
+
+For a complete working example, check out our public demo repository. It demonstrates the full OAuth flow, calendar synchronization, and event management.
+
+[View the Demo App on GitHub](https://github.com/acidb/mobiscroll-connect-demo)

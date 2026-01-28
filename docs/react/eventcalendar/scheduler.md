@@ -78,19 +78,17 @@ function App() {
 
 ### Shifted days
 
-Custom shifted views — such as a [continuous shift planning](https://demo.mobiscroll.com/scheduler/24-hour-manufacturing-shift-rota-planning) — can be implemented by extending the scheduler view with hours from the previous or next calendar days. This feature is particularly useful for visualizing highly dynamic, continuous operations that frequently cross midnight.
+[Shifted views](https://demo.mobiscroll.com/scheduler/24-hour-manufacturing-shift-rota-planning) — can be implemented by extending the scheduler [view](#configuring-the-view) with hours from the previous or next calendar days using the <code>startTime</code> and <code>endTime</code> properties with a day-offset format.
 
 ![Scheduler shifted days](/img/scheduler-shifted-view.png)
 
-To configure a shifted view, you must set the <code>startTime</code> and <code>endTime</code> properties within the <code>schedule</code> object of the [view](#configuring-the-view) option using a specific day-offset format. The day offset is specified by appending a sign (+ or -) followed by the number of days to the time string (HH:MM).
-
 #### Shift Start Time (Previous Day Offset)
 
-To show hours from the previous day (creating a view that starts before midnight), use the subtractive format. The day offset must be a negative number (e.g., <code>'20:00-1'</code>).
+Use a negative day offset (HH:MM-D) to show hours from the previous day (e.g., <code>'20:00-1'</code>).
 
 #### Shift End Time (Next Day Offset)
 
-To extend the view into the next day (creating a view that ends after midnight), use the additive format. The day offset must be a positive number (e.g., <code>'06:00+1'</code>).
+Use a positive day offset (HH:MM+D) to extend the view into the next day (e.g., <code>'06:00+1'</code>).
 
 
 ```ts
@@ -107,16 +105,14 @@ view: {
 
 #### Customizing the Calendar Day Start
 
-When using shifted days, the calendar day start (00:00) is often a critical transition point. To allow for easy visual marking of this boundary, the library automatically adds the CSS class <code>.mbsc-schedule-day-limit</code> to the time row that corresponds to the 00:00 midnight boundary. This class is automatically applied, and you can fully customize the appearance of this column using your own stylesheets.
+The library applies the <code>.mbsc-schedule-day-limit</code> CSS class to the time row at the 00:00 midnight boundary. You can optionally customize its appearance using your own stylesheets.
 
 ```css
-.my-calendar .mbsc-schedule-day-limit {
+.my-calendar .mbsc-schedule-day-limit::after {
   border-top-color: #d38231;
   border-top-style: dashed;
-  border-top-width: 1px;
 }
 ```
-
 
 ### Row height
 

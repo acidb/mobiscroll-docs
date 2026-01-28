@@ -146,22 +146,19 @@ The predefined sizes correspond to specific default widths, but you can override
 You need to apply these rules after the mobiscroll default rules, otherwise the default rules will take precedence over them.
 :::
 
-
 ### Shifted days
 
-Custom rolling windows and shifted views — such as a [36-hour aircraft view](https://demo.mobiscroll.com/timeline/36-hour-rolling-window-aircraft-view) — can be implemented by extending the daily timeline view with hours from the previous or next calendar days. This feature is particularly useful for visualizing highly dynamic, continuous operations that frequently cross midnight.
+[Shifted views](https://demo.mobiscroll.com/timeline/36-hour-rolling-window-aircraft-view) can be implemented by extending the daily timeline [view](#configuring-the-view) with hours from the previous or next calendar days using the <code>startTime</code> and <code>endTime</code> properties with a day-offset format.
 
 ![Timeline shifted days](/img/timeline-shifted-days.png)
 
-To configure a shifted view, you must set the <code>startTime</code> and <code>endTime</code> properties within the <code>timeline</code> object of the [view](#configuring-the-view) option using a specific day-offset format. The day offset is specified by appending a sign (+ or -) followed by the number of days to the time string (HH:MM).
-
 #### Shift Start Time (Previous Day Offset)
 
-To show hours from the previous day (creating a view that starts before midnight), use the subtractive format. The day offset must be a negative number (e.g., <code>'20:00-1'</code>).
+Use a negative day offset (HH:MM-D) to show hours from the previous day (e.g., <code>'20:00-1'</code>).
 
 #### Shift End Time (Next Day Offset)
 
-To extend the view into the next day (creating a view that ends after midnight), use the additive format. The day offset must be a positive number (e.g., <code>'06:00+1'</code>).
+Use a positive day offset (HH:MM+D) to extend the view into the next day (e.g., <code>'06:00+1'</code>).
 
 
 ```ts
@@ -180,13 +177,12 @@ view: {
 
 #### Customizing the Calendar Day Start
 
-When using shifted days, the calendar day start (00:00) is often a critical transition point. To allow for easy visual marking of this boundary, the library automatically adds the CSS class <code>.mbsc-timeline-day-limit</code> to the time column that corresponds to the 00:00 midnight boundary. This class is automatically applied, and you can fully customize the appearance of this column using your own stylesheets.
+The library applies the <code>.mbsc-timeline-day-limit</code> CSS class to the time column at the 00:00 midnight boundary. You can optionally customize its appearance using your own stylesheets.
 
 ```css
 .my-calendar .mbsc-timeline-day-limit {
   border-left-color: #d38231;
   border-left-style: dashed;
-  border-left-width: 1px;
 }
 ```
 

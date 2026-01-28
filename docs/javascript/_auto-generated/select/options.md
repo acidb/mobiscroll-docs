@@ -217,13 +217,6 @@ If `true`, after closing the popup the focus will be moved to the last focused e
 before the popup was opened.
 
 **Default value**: `true`
-### focusOnOpen {#opt-focusOnOpen}
-
-boolean
-
-If `true`, the popup will receive the focus when opened.
-
-**Default value**: `true`
 ### focusTrap {#opt-focusTrap}
 
 boolean

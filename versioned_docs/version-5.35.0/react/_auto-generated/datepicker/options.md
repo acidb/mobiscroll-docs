@@ -184,6 +184,9 @@ The colored range will be considered all-day if:
 The dates can be specified as JavaScript Date objects, ISO 8601 strings, or moment objects.
 :::
 :::info
+For Javascript Date objects the month numbers are zero based. Like: 0 - January, 1 - February ... 11 - December.
+:::
+:::info
 The colors can be combined with the [labels](#opt-labels) or [marked](#opt-marked) options.
 :::
 
@@ -476,6 +479,9 @@ If there is no slot defined, the invalid range will be displayed in every slot.
 :::info
 The dates can be specified as JavaScript Date objects, ISO 8601 strings, or moment objects.
 :::
+:::info
+For Javascript Date objects the month numbers are zero based. Like: 0 - January, 1 - February ... 11 - December.
+:::
 
 ```js
 [
@@ -600,6 +606,9 @@ Useful when recurring dates need to be skipped from the rule.
 The dates can be specified as JavaScript Date objects, ISO 8601 strings, or moment objects.
 :::
 :::info
+For Javascript Date objects the month numbers are zero based. Like: 0 - January, 1 - February ... 11 - December.
+:::
+:::info
 The labels can be combined with the [colors](#opt-colors) option.
 :::
 
@@ -646,6 +655,9 @@ Useful when recurring dates need to be skipped from the rule.
 
 :::info
 The dates can be specified as JavaScript Date objects, ISO 8601 strings, or moment objects.
+:::
+:::info
+For Javascript Date objects the month numbers are zero based. Like: 0 - January, 1 - February ... 11 - December.
 :::
 :::info
 The marked days can be combined with the [colors](#opt-colors) option.
@@ -1137,6 +1149,9 @@ Useful when recurring dates need to be skipped from the rule.
 
 :::info
 The dates can be specified as JavaScript Date objects, ISO 8601 strings, or moment objects.
+:::
+:::info
+For Javascript Date objects the month numbers are zero based. Like: 0 - January, 1 - February ... 11 - December.
 :::
 
 ```js

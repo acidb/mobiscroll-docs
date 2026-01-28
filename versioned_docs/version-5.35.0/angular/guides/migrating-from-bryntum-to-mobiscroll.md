@@ -363,12 +363,14 @@ We will examine how each framework handles:
 ### Loading data
 
 Bryntum:
+
 - Bryntum components use stores, structured data collections that manage entities such as resources, events, and project details.
 - Data is typically loaded from remote REST endpoints (e.g., /load, /read-resources) that return JSON. These endpoints can support filtering and chunking to optimize handling of large datasets.
 - Lazy loading (or paginated loading) is supported, allowing data to be fetched on demand as the user scrolls or navigates, minimizing initial load times and memory usage.
 - The backend layer is fully decoupled, enabling the use of any technology stack (Node.js, PHP, Java, etc.) to deliver JSON payloads to the Bryntum frontend.
 
 Mobiscroll:
+
 - Mobiscroll components accept static arrays, which can be [inline](/angular/eventcalendar/data-binding#local-data) (preloaded in memory) or [dynamically fetched](/angular/eventcalendar/data-binding#remote-data) from remote APIs.
 - The [`onPageLoading`](/angular/eventcalendar/api#event-onPageLoading) event plays a central role in incremental data loading, enabling applications to [request only the events needed](https://demo.mobiscroll.com/timeline/load-events-on-demand) for the current view (e.g., the current month or week) as the user navigates.
 - Mobiscroll also offers [integration with external calendar services](/angular/eventcalendar/calendar-integrations/) ([Google Calendar](https://demo.mobiscroll.com/eventcalendar/sync-events-google-calendar#), [Outlook](https://demo.mobiscroll.com/eventcalendar/sync-events-outlook-calendar#)) via plugins, handling data retrieval and format conversion internally.
@@ -580,8 +582,7 @@ Example for saving, updating, and deleting an event through an API:
 <TabItem value="ts" label="app.component.ts">
 
 ```ts
-import axios from 'axios';
-import { MbscCalendarEvent, MbscEventcalendarView, MbscEventCreateEvent, MbscEventUpdatedEvent, MbscEventDeletedEvent } from '@mobiscroll/angular';
+import { MbscCalendarEvent, MbscEventcalendarView, MbscEventCreatedEvent, MbscEventUpdatedEvent, MbscEventDeletedEvent } from '@mobiscroll/angular';
 
 @Component({...})
 export class MyComponent {
@@ -593,22 +594,28 @@ export class MyComponent {
     { id: 'id1' start: '2023-09-24', end: '2023-09-30', title: 'Short trip!'},
   ];
 
-  saveEvent(args: MbscEventCreateEvent) {
-    const eventToSave = args.event;
-    // you can use whatever library you want instead of axios
-    axios.post('/your-api', eventToSave);
+  saveEvent(args: MbscEventCreatedEvent) {
+    fetch('add.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(args.event)
+    });
   },
     
   updateEvent(args: MbscEventUpdatedEvent) {
-    const updatedEvent = args.event;
-    // you can use whatever library you want instead of axios
-    axios.post('/your-api', updatedEvent);
+    fetch('update.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(args.event)
+    });
   },
 
   deleteEvent(args: MbscEventDeletedEvent) {
-    const theEvent = args.event;
-    // you can use whatever library you want instead of axios
-    axios.post('/your-api', theEvent);
+    fetch('delete.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(args.event)
+    });
   }
 });   
 ```

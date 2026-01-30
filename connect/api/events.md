@@ -14,7 +14,6 @@ Fetches events from multiple calendar providers simultaneously with support for 
 
 ### Request Parameters
 
-
 <Parameter name="pageSize" type="number" defaultValue={<code>250</code>} id="param-pageSize">
 Number of events to fetch per request. Maximum value is capped at 1000.
 </Parameter>
@@ -52,60 +51,59 @@ Controls how recurring events are returned:
 
 ### Response
 
-
-<Parameter name="events" type="Array&lt;CalendarEvent&gt;" id="response-events">
+<Parameter name="events" type="Array&lt;CalendarEvent&gt;" id="response-events" isObject>
 Array of calendar events from all providers, sorted chronologically by start time. Each CalendarEvent object contains:
 
-<Parameter name="provider" type="string">
-Provider name: `'google'`, `'microsoft'`, or `'apple'`
-</Parameter>
+  <Parameter name="provider" type="string">
+  Provider name: `'google'`, `'microsoft'`, or `'apple'`
+  </Parameter>
 
-<Parameter name="id" type="string">
-Event ID
-</Parameter>
+  <Parameter name="id" type="string">
+  Event ID
+  </Parameter>
 
-<Parameter name="title" type="string">
-Event title/summary
-</Parameter>
+  <Parameter name="title" type="string">
+  Event title/summary
+  </Parameter>
 
-<Parameter name="start" type="Date">
-Event start date/time
-</Parameter>
+  <Parameter name="start" type="Date">
+  Event start date/time
+  </Parameter>
 
-<Parameter name="end" type="Date">
-Event end date/time
-</Parameter>
+  <Parameter name="end" type="Date">
+  Event end date/time
+  </Parameter>
 
-<Parameter name="allDay" type="boolean">
-True if all-day event
-</Parameter>
+  <Parameter name="allDay" type="boolean">
+  True if all-day event
+  </Parameter>
 
-<Parameter name="recurringEventId" type="string">
-ID of the recurring event series (if this is an instance of a recurring event) (optional)
-</Parameter>
+  <Parameter name="recurringEventId" type="string">
+  ID of the recurring event series (if this is an instance of a recurring event) (optional)
+  </Parameter>
 
-<Parameter name="color" type="string">
-Event background color (optional)
-</Parameter>
+  <Parameter name="color" type="string">
+  Event background color (optional)
+  </Parameter>
 
-<Parameter name="location" type="string">
-Event location (optional)
-</Parameter>
+  <Parameter name="location" type="string">
+  Event location (optional)
+  </Parameter>
 
-<Parameter name="attendees" type="Array of objects">
-Array of event attendees (optional). Each object contains:
+  <Parameter name="attendees" type="Array of objects">
+  Array of event attendees (optional). Each object contains:
 
-<Parameter name="email" type="string">
-Attendee email address
-</Parameter>
+  <Parameter name="email" type="string">
+  Attendee email address
+  </Parameter>
 
-<Parameter name="status" type="string">
-Response status: `'accepted'`, `'declined'`, `'tentative'`, or `'none'`
-</Parameter>
+  <Parameter name="status" type="string">
+  Response status: `'accepted'`, `'declined'`, `'tentative'`, or `'none'`
+  </Parameter>
 
-<Parameter name="organizer" type="boolean">
-True if this attendee is the event organizer (optional)
-</Parameter>
+  <Parameter name="organizer" type="boolean">
+  True if this attendee is the event organizer (optional)
+  </Parameter>
 
 </Parameter>
 
@@ -156,7 +154,7 @@ Base64 encoded pagination state for the next request. Pass this value as the [ne
 ### Examples
 
 <Tabs>
-<TabItem value="api" label="API">
+<TabItem value="api" label="REST">
 
 ```bash title="Fetch initial events with date range filter"
 GET /events?pageSize=50&start=2025-10-01T00:00:00Z&end=2025-10-31T23:59:59Z
@@ -194,7 +192,7 @@ GET /events?pageSize=50&singleEvents=false
 ```
 
 </TabItem>
-<TabItem value="sdk" label="Node.js">
+<TabItem value="sdk" label="Node.js SDK">
 
 ```typescript
 // Fetch initial events with date range filter
@@ -250,7 +248,6 @@ Supports creating single events or recurring events with recurrence rules. The e
 **Endpoint:** `POST /event`
 
 ### Request Body
-
 
 <Parameter name="provider" type="string" required id="create-provider">
 Calendar provider where the event will be created. One of: `'google'`, `'microsoft'`, or `'apple'`.
@@ -339,7 +336,6 @@ Event status: `'confirmed'`, `'tentative'`, or `'cancelled'`.
 
 ### Response
 
-
 <Parameter name="success" type="boolean" id="create-response-success">
 Indicates whether the event was created successfully.
 </Parameter>
@@ -378,7 +374,7 @@ The response includes all properties of the created [CalendarEvent](#response-ev
 ### Examples
 
 <Tabs>
-<TabItem value="api" label="API">
+<TabItem value="api" label="REST">
 
 ```bash title="Create a simple event"
 POST /event
@@ -463,7 +459,7 @@ Content-Type: application/json
 ```
 
 </TabItem>
-<TabItem value="sdk" label="Node.js">
+<TabItem value="sdk" label="Node.js SDK">
 
 ```typescript
 // Create a simple event
@@ -527,7 +523,6 @@ Supports updating single events, recurring event series, or individual instances
 **Endpoint:** `PUT /event`
 
 ### Request Body
-
 
 <Parameter name="provider" type="string" required id="update-provider">
 Calendar provider where the event exists. One of: `'google'`, `'microsoft'`, or `'apple'`.
@@ -607,7 +602,6 @@ Recurrence rule for updating recurring event properties. Same structure as [crea
 
 Same structure as [Create Event response](#create-response-success).
 
-
 <Parameter name="success" type="boolean" id="update-response-success">
 Indicates whether the event was updated successfully.
 </Parameter>
@@ -630,7 +624,7 @@ The response includes all properties of the updated [CalendarEvent](#response-ev
 ### Examples
 
 <Tabs>
-<TabItem value="api" label="API">
+<TabItem value="api" label="REST">
 
 ```bash title="Update a simple event"
 PUT /event
@@ -682,7 +676,7 @@ Content-Type: application/json
 ```
 
 </TabItem>
-<TabItem value="sdk" label="Node.js">
+<TabItem value="sdk" label="Node.js SDK">
 
 ```typescript
 // Update a simple event
@@ -740,7 +734,6 @@ Supports deleting single events, recurring event series, or individual instances
 
 ### Request Body
 
-
 <Parameter name="provider" type="string" required id="delete-provider">
 Calendar provider where the event exists. One of: `'google'`, `'microsoft'`, or `'apple'`.
 </Parameter>
@@ -769,7 +762,6 @@ Only applicable for recurring events. If not specified, deletes the single event
 
 ### Response
 
-
 <Parameter name="success" type="boolean" id="delete-response-success">
 Indicates whether the event was deleted successfully.
 </Parameter>
@@ -788,7 +780,7 @@ Confirmation or error message.
 ### Examples
 
 <Tabs>
-<TabItem value="api" label="API">
+<TabItem value="api" label="REST">
 
 ```bash title="Delete a simple event"
 DELETE /event
@@ -840,7 +832,7 @@ Content-Type: application/json
 ```
 
 </TabItem>
-<TabItem value="sdk" label="Node.js">
+<TabItem value="sdk" label="Node.js SDK">
 
 ```typescript
 // Delete a simple event

@@ -61,6 +61,10 @@
   --ifm-color-primary-lightest: #5ca5e1;
 }
 
+[data-theme="dark"] .calendar-api-header h3 {
+  color: #d3d3d3
+}
+
 .mobiscroll-ui-nav, .mobiscroll-connect-nav {
   display: none;
 }

@@ -8,11 +8,14 @@ interface ParameterProps {
   required?: boolean;
   children: React.ReactNode;
   id?: string;
+  isObject?: boolean;
 }
 
-export function Parameter({ name, type, defaultValue, required, children, id }: ParameterProps) {
+export function Parameter({ name, type, defaultValue, required, children, id, isObject }: ParameterProps) {
+  const containerClass = isObject ? styles.parameterObject : styles.parameter;
+  
   return (
-    <div className={styles.parameter} id={id}>
+    <div className={containerClass} id={id}>
       <div className={styles.header}>
         <span className={styles.name}>{name}</span>
         <span className={styles.type}>{type}</span>

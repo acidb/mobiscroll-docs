@@ -335,25 +335,44 @@ There are three CSS classes which can be used for [changing the height of resour
 
 Rows without any events can be hidden by setting `hideEmptyRows` to `true` under the [view](#configuring-the-view) configuration.
 
-   :::info
-   Parent resources will always be displayed, even when empty.
-   If [resolutionVertical](#view-timeline-resolutionVertical) is set to `'day'` and all resources for a given day are empty, the entire day will be hidden.
-   :::
+:::info
+Parent resources will always be displayed, even when empty.
+If [resolutionVertical](#view-timeline-resolutionVertical) is set to `'day'` and all resources for a given day are empty, the entire day will be hidden.
+:::
 
 ### Hide invalid resources
 
 Fully invalid rows can be hidden by setting `hideInvalidRows` to `true` under the [view](#configuring-the-view) configuration.
 
-   :::info
-   A resource row is considered fully invalid if it contains [invalid](#opt-invalid) periods defined with `allDay`, date values,
-   or a single time range that covers a full day or multiple days.
-   Parent resources will always be displayed, even when fully invalid.
-   If [resolutionVertical](#view-timeline-resolutionVertical) is set to `'day'` and all resources for a given day are fully invalid, the entire day will be hidden.
-   :::
-   
-## Load data on scroll
+:::info
+A resource row is considered fully invalid if it contains [invalid](#opt-invalid) periods defined with `allDay`, date values,
+or a single time range that covers a full day or multiple days.
+Parent resources will always be displayed, even when fully invalid.
+If [resolutionVertical](#view-timeline-resolutionVertical) is set to `'day'` and all resources for a given day are fully invalid, the entire day will be hidden.
+:::
 
-The timeline view is virtualized, meaning its markup is dynamically generated and managed as needed. Scrolling vertically or horizontally triggers the [onVirtualLoading](#event-onVirtualLoading) lifecycle event, which can be used to [load data incrementally during scrolling](https://demo.mobiscroll.com/timeline/load-resources-on-scroll#), rather than loading all data during the initial render. This dramatically improves performance in case of a large event or resource count since not all data is loaded in memory from start. 
+## Virtual scroll
+
+Virtual scroll is a performance optimization that ensures smooth scrolling and fast rendering when displaying large numbers of events or resources in the timeline.
+
+The timeline view is virtualized, meaning its markup is dynamically generated and managed as needed. As you scroll vertically or horizontally, the component updates what's visible in real time, only rendering the elements that appear in the viewport.
+This approach dramatically improves performance for large datasets: events and resources are not all loaded into memory at once, keeping the interface fast and responsive.
+
+When virtual scroll is enabled, the timeline calculates which items should be displayed based on the current scroll position.  
+Only the visible portion of the view is rendered, while non-visible parts are skipped until they come into view.
+
+Scrolling triggers the [onVirtualLoading](#event-onVirtualLoading) lifecycle event, which can be used to load data incrementally during scrolling, instead of fetching everything upfront.  
+You can see an example of this pattern in the [Load resources on scroll demo](https://demo.mobiscroll.com/timeline/load-resources-on-scroll).
+
+The calendar needs to be to placed inside a container which has a height. This can be either a fixed height, a height in percentage, or a flex height. When the calendar is placed directly in a container with a fixed height, it will work out of the box.
+If the height of the container is specified in percentage, e.g. you'd like to fill the full page height, you need to make sure that all parent elements also have height: 100% specified, up until the body and html elements, or until the closest parent which has a fixed height.
+If the container is inside a parent with flex layout, it will also work out of the box.
+
+In some cases, you may want to disable virtual scroll, for example:
+- When working with a small dataset that doesn't benefit from virtualization.
+- When you need to access or manipulate all DOM elements at once.
+
+To disable it, set [virtualScroll](#view-timeline-virtualScroll) to `false`.
 
 ## Event connections
 

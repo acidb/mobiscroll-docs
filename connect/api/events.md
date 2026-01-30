@@ -51,59 +51,59 @@ Controls how recurring events are returned:
 
 ### Response
 
-<Parameter name="events" type="Array&lt;CalendarEvent&gt;" id="response-events">
+<Parameter name="events" type="Array&lt;CalendarEvent&gt;" id="response-events" isObject>
 Array of calendar events from all providers, sorted chronologically by start time. Each CalendarEvent object contains:
 
-<Parameter name="provider" type="string">
-Provider name: `'google'`, `'microsoft'`, or `'apple'`
-</Parameter>
+  <Parameter name="provider" type="string">
+  Provider name: `'google'`, `'microsoft'`, or `'apple'`
+  </Parameter>
 
-<Parameter name="id" type="string">
-Event ID
-</Parameter>
+  <Parameter name="id" type="string">
+  Event ID
+  </Parameter>
 
-<Parameter name="title" type="string">
-Event title/summary
-</Parameter>
+  <Parameter name="title" type="string">
+  Event title/summary
+  </Parameter>
 
-<Parameter name="start" type="Date">
-Event start date/time
-</Parameter>
+  <Parameter name="start" type="Date">
+  Event start date/time
+  </Parameter>
 
-<Parameter name="end" type="Date">
-Event end date/time
-</Parameter>
+  <Parameter name="end" type="Date">
+  Event end date/time
+  </Parameter>
 
-<Parameter name="allDay" type="boolean">
-True if all-day event
-</Parameter>
+  <Parameter name="allDay" type="boolean">
+  True if all-day event
+  </Parameter>
 
-<Parameter name="recurringEventId" type="string">
-ID of the recurring event series (if this is an instance of a recurring event) (optional)
-</Parameter>
+  <Parameter name="recurringEventId" type="string">
+  ID of the recurring event series (if this is an instance of a recurring event) (optional)
+  </Parameter>
 
-<Parameter name="color" type="string">
-Event background color (optional)
-</Parameter>
+  <Parameter name="color" type="string">
+  Event background color (optional)
+  </Parameter>
 
-<Parameter name="location" type="string">
-Event location (optional)
-</Parameter>
+  <Parameter name="location" type="string">
+  Event location (optional)
+  </Parameter>
 
-<Parameter name="attendees" type="Array of objects">
-Array of event attendees (optional). Each object contains:
+  <Parameter name="attendees" type="Array of objects">
+  Array of event attendees (optional). Each object contains:
 
-<Parameter name="email" type="string">
-Attendee email address
-</Parameter>
+  <Parameter name="email" type="string">
+  Attendee email address
+  </Parameter>
 
-<Parameter name="status" type="string">
-Response status: `'accepted'`, `'declined'`, `'tentative'`, or `'none'`
-</Parameter>
+  <Parameter name="status" type="string">
+  Response status: `'accepted'`, `'declined'`, `'tentative'`, or `'none'`
+  </Parameter>
 
-<Parameter name="organizer" type="boolean">
-True if this attendee is the event organizer (optional)
-</Parameter>
+  <Parameter name="organizer" type="boolean">
+  True if this attendee is the event organizer (optional)
+  </Parameter>
 
 </Parameter>
 

@@ -17,7 +17,7 @@ const sidebars = {
   homeSidebar: [
     "getting-started",
     "application-setup",
-    "node-sdk",
+    "scopes",
     {
       type: "category",
       label: "API Reference",
@@ -25,7 +25,7 @@ const sidebars = {
         type: "doc",
         id: "api",
       },
-      items: ["api/oauth", "api/scopes", "api/events", "api/calendars"],
+      items: ["api/oauth", "api/events", "api/calendars", "api/node-sdk"],
     },
   ],
 };

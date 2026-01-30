@@ -24,11 +24,11 @@ This scope is designed for privacy-first use cases where you only need to know *
 
 *   **Read Access:** RESTRICTED. You can retrieve availability (free/busy slots).
 *   **Event Details:** SANITIZED. Titles, descriptions, and attendees are hidden. Events appear as opaque "Busy" blocks.
-*   **Calendar List:** BLOCKED. Calling [`GET /calendars`](./calendars.md#endpoint-get-calendars) returns `403 Forbidden`.
+*   **Calendar List:** BLOCKED. Calling [`GET /calendars`](./api/calendars.md#endpoint-get-calendars) returns `403 Forbidden`.
 *   **Write Access:** DENIED. Returns `401 Unauthorized` if attempted.
 
 **Endpoint Behavior Example:**
-When calling [`GET /calendars`](./calendars.md#endpoint-get-calendars) with `free-busy` scope:
+When calling [`GET /calendars`](./api/calendars.md#endpoint-get-calendars) with `free-busy` scope:
 
 ```json
 // GET /calendars -> 403 Forbidden
@@ -49,7 +49,7 @@ This scope allows full visibility into the user's schedule without the risk of a
 *   **Write Access:** DENIED. Returns `401 Unauthorized` if attempted.
 
 **Endpoint Behavior Example:**
-When attempting to [create an event](./events.md#endpoint-create-event) with `read` scope:
+When attempting to [create an event](./api/events.md#endpoint-create-event) with `read` scope:
 
 ```json
 // POST /event -> 401 Unauthorized
@@ -71,7 +71,7 @@ This is the default scope if none is specified. It provides complete control ove
 You can upgrade an existing connection to a higher scope (e.g., from `free-busy` to `read-write`) if the user enables features that require more permissions.
 
 ### Workflow
-1.  **Initiate new Auth Flow:** Redirect the user to the [authorization endpoint](./oauth.md#endpoint-authorize) with the new `scope` query parameter.
+1.  **Initiate new Auth Flow:** Redirect the user to the [authorization endpoint](./api/oauth.md#endpoint-authorize) with the new `scope` query parameter.
     *   Example: `?scope=read-write` or `?scope=read`
 2.  **User Consent:** The provider (Google, Outlook, etc.) will present the consent screen again, asking the user to approve the additional access.
 3.  **Token Update:** Connect handles the incremental authorization internally. The existing user connection is updated with the new permissions.

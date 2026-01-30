@@ -7,6 +7,31 @@
   border-bottom: none;
 }
 
+.parameterObject {
+  padding: 1.5rem 0;
+  margin: 1rem 0;
+}
+
+.parameterObject .header {
+  margin-bottom: 1rem;
+}
+
+.parameterObject .name {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.parameterObject .type {
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.parameterObject > .description > .parameter {
+  margin-left: 2rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--ifm-color-emphasis-300);
+}
+
 .header {
   display: flex;
   align-items: baseline;

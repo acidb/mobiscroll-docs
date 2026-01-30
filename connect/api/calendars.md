@@ -15,36 +15,36 @@ Fetches the list of calendars from all connected calendar providers and returns 
 ### Response
 
 
-<Parameter name="calendars" type="Array&lt;Calendar&gt;" id="calendars-response">
+<Parameter name="calendars" type="Array&lt;Calendar&gt;" id="calendars-response" isObject>
 Array of calendar objects from all connected providers. Each Calendar object contains:
 
-<Parameter name="provider" type="string">
-Provider name: `'google'`, `'microsoft'`, or `'apple'`
-</Parameter>
+  <Parameter name="provider" type="string">
+  Provider name: `'google'`, `'microsoft'`, or `'apple'`
+  </Parameter>
 
-<Parameter name="id" type="string">
-Unique calendar identifier from the provider
-</Parameter>
+  <Parameter name="id" type="string">
+  Unique calendar identifier from the provider
+  </Parameter>
 
-<Parameter name="title" type="string">
-Display name of the calendar
-</Parameter>
+  <Parameter name="title" type="string">
+  Display name of the calendar
+  </Parameter>
 
-<Parameter name="timeZone" type="string">
-Calendar timezone (e.g., "America/New_York")
-</Parameter>
+  <Parameter name="timeZone" type="string">
+  Calendar timezone (e.g., "America/New_York")
+  </Parameter>
 
-<Parameter name="color" type="string">
-Calendar color code
-</Parameter>
+  <Parameter name="color" type="string">
+  Calendar color code
+  </Parameter>
 
-<Parameter name="description" type="string">
-Calendar description
-</Parameter>
+  <Parameter name="description" type="string">
+  Calendar description
+  </Parameter>
 
-<Parameter name="original" type="object">
-Original calendar object from the provider
-</Parameter>
+  <Parameter name="original" type="object">
+  Original calendar object from the provider
+  </Parameter>
 
 </Parameter>
 

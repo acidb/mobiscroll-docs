@@ -61,6 +61,15 @@
   --ifm-color-primary-lightest: #5ca5e1;
 }
 
+.mobiscroll-ui-nav, .mobiscroll-connect-nav {
+  display: none;
+}
+
+.plugin-id-default .mobiscroll-ui-nav { display: block; }
+.plugin-id-connect .mobiscroll-connect-nav { display: block; }
+
+
+
 .theme-doc-sidebar-item-category {
   padding-bottom: 30px;
 }

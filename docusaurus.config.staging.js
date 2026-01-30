@@ -82,10 +82,28 @@ const config = {
         },
         items: [
           {
+            type: 'dropdown',
+            className: 'mobiscroll-ui-nav mobiscroll-connect-nav',
+            label: 'Docs',
+            position: 'left',
+            items: [
+              {
+                label: 'Mobiscroll UI',
+                href: '/'
+              },
+              {
+                label: 'Mobiscroll Connect',
+                href: 'connect'
+              },
+            ]
+          },
+          {
             type: 'docsVersionDropdown',
+            className: 'mobiscroll-ui-nav'
           },
           {
             type: 'custom-frameworkDropdown',
+            className: 'mobiscroll-ui-nav',
             label: 'Framework',
             items: [
               {
@@ -126,6 +144,7 @@ const config = {
           },
           {
             type: 'dropdown',
+            className: 'mobiscroll-ui-nav',
             label: 'Legacy docs',
             items: [
               {
@@ -144,6 +163,7 @@ const config = {
             position: 'right',
           },
           {
+            className: 'mobiscroll-ui-nav',
             type: 'dropdown',
             label: 'Community',
             items: [

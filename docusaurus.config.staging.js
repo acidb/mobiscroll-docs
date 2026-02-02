@@ -93,7 +93,7 @@ const config = {
               },
               {
                 label: 'Mobiscroll Connect',
-                href: 'connect'
+                href: '/connect'
               },
             ]
           },

@@ -32,6 +32,20 @@ const config = {
     locales: ['en'],
   },
 
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'connect',
+        path: 'connect',
+        routeBasePath: 'connect',
+        sidebarPath: './sidebarsConnect.js',
+        includeCurrentVersion: false,
+        lastVersion: '1.0.0',
+      },
+    ],
+  ],
+
   presets: [
     [
       'classic',
@@ -81,7 +95,7 @@ const config = {
               },
               {
                 label: 'Mobiscroll Connect',
-                href: 'connect'
+                href: '/connect'
               },
             ]
           },

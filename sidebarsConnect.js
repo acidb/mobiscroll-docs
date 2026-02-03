@@ -21,6 +21,8 @@ const sidebars = {
     {
       type: "category",
       label: "API Reference",
+      collapsed: false,
+      collapsible: true,
       link: {
         type: "doc",
         id: "api",

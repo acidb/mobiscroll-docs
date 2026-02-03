@@ -32,6 +32,18 @@ const config = {
     locales: ['en'],
   },
 
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'connect',
+        path: 'connect',
+        routeBasePath: 'connect',
+        sidebarPath: './sidebarsConnect.js',
+      },
+    ],
+  ],
+
   presets: [
     [
       'classic',
@@ -64,18 +76,6 @@ const config = {
     ],
   ],
 
-  plugins: [
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'connect',
-        path: 'connect',
-        routeBasePath: 'connect',
-        sidebarPath: './sidebarsConnect.js',
-      },
-    ],
-  ],
-
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -101,7 +101,7 @@ const config = {
               },
               {
                 label: 'Mobiscroll Connect',
-                href: 'connect'
+                href: '/connect'
               },
             ]
           },

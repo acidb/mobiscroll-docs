@@ -1,4 +1,5 @@
 ---
+sidebar_position: 3
 title: Scopes & Permissions
 sidebar_label: Scopes
 ---

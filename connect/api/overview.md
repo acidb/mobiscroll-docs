@@ -1,10 +1,8 @@
 ---
-sidebar_position: 2
-sidebar_label: API Reference
-slug: /api
+sidebar_label: Overview
 ---
 
-# API Reference
+# Overview
 
 Welcome to the Mobiscroll Connect API documentation. This API enables you to integrate with multiple calendar providers (Google Calendar, Microsoft Outlook, and Apple Calendar) through a unified interface.
 

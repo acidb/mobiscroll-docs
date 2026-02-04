@@ -32,27 +32,30 @@ To obtain an access token:
 
 ## Available Endpoints
 
-### [OAuth API](api/oauth)
+
+### [OAuth API](/connect/oauth)
 
 Initiate and complete the OAuth2 authorization flow to connect user calendar accounts.
 
-- **[GET /authorize](api/oauth#endpoint-authorize)** - Initiate OAuth2 authorization flow
-- **[POST /token](api/oauth#endpoint-token)** - Exchange authorization code for access token
+- **[GET /authorize](/connect/oauth#endpoint-authorize)** - Initiate OAuth2 authorization flow
+- **[POST /token](/connect/oauth#endpoint-token)** - Exchange authorization code for access token
 
-### [Events API](api/events)
+
+### [Events API](/connect/events)
 
 Retrieve, create, update, and delete calendar events from connected providers with support for pagination, filtering, and recurring events.
 
-- **[GET /events](api/events#endpoint-get-events)** - Fetch calendar events with advanced filtering and pagination
-- **[POST /event](api/events#endpoint-create-event)** - Create a new calendar event
-- **[PUT /event](api/events#endpoint-update-event)** - Update an existing calendar event
-- **[DELETE /event](api/events#endpoint-delete-event)** - Delete a calendar event
+- **[GET /events](/connect/events#endpoint-get-events)** - Fetch calendar events with advanced filtering and pagination
+- **[POST /event](/connect/events#endpoint-create-event)** - Create a new calendar event
+- **[PUT /event](/connect/events#endpoint-update-event)** - Update an existing calendar event
+- **[DELETE /event](/connect/events#endpoint-delete-event)** - Delete a calendar event
 
-### [Calendars API](api/calendars)
+
+### [Calendars API](/connect/calendars)
 
 Manage calendar lists across all connected providers.
 
-- **[GET /calendars](api/calendars#endpoint-get-calendars)** - Retrieve all calendars from connected providers
+- **[GET /calendars](/connect/calendars#endpoint-get-calendars)** - Retrieve all calendars from connected providers
 
 ## Supported Providers
 

@@ -1,3 +1,9 @@
+---
+sidebar_position: 3
+sidebar_label: Calendars API
+slug: /calendars
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import { Parameter } from '@site/src/components/Connect';
@@ -56,14 +62,14 @@ Array of calendar objects from all connected providers. Each Calendar object con
 ### Examples
 
 <Tabs>
-<TabItem value="api" label="API">
+<TabItem value="api" label="REST">
 
 ```bash title="Fetch all calendars for authenticated user"
 GET /calendars
 ```
 
 </TabItem>
-<TabItem value="sdk" label="Node.js">
+<TabItem value="sdk" label="Node.js SDK">
 
 ```typescript
 const calendars = await client.calendars.list();

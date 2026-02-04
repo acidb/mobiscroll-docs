@@ -60,9 +60,6 @@ Create or update a `.env` file in the root of your project (Node.js, Python, etc
 # Your Mobiscroll Connect Credentials
 MOBISCROLL_CONNECT_CLIENT_ID=proj-123456...
 MOBISCROLL_CONNECT_CLIENT_SECRET=secret-xyz789...
-
-# The URL for the Mobiscroll Connect Service
-MOBISCROLL_CONNECT_BASE_URL=https://connect.mobiscroll.com
 ```
 
 :::warning Security Note
@@ -71,13 +68,17 @@ MOBISCROLL_CONNECT_BASE_URL=https://connect.mobiscroll.com
 
 ## Verifying the Integration
 
-To validate that your credentials are correct and the connection is established, you can perform a "Hello World" connection test by manually constructing an authorization URL.
+To validate that your credentials are correct and the connection is established, you can perform a "Hello World" connection test by manually constructing an authorization URL that matches the integration code sample.
 
-**Step 1:** Construct a URL using your Base URL and Client ID:
+**Step 1:** Construct the URL:
 
+``` bash
+https://connect.mobiscroll.com/api/oauth/authorize?response_type=code&client_id=${MOBISCROLL_CONNECT_CLIENT_ID}&user_id=test-user-1&scope=read-write
 ```
-${MOBISCROLL_CONNECT_BASE_URL}/authorize?client_id=${MOBISCROLL_CONNECT_CLIENT_ID}&user_id=test-user-1
-```
+
+**Parameter notes:**
+- `user_id` is the unique identifier of a user in your system.
+- `scope` defines the level of access requested (e.g., `read-write` for full calendar access). For more details, see [scopes](/connect/scopes).
 
 **Step 2:** Paste this URL into your browser.
 
@@ -88,17 +89,24 @@ ${MOBISCROLL_CONNECT_BASE_URL}/authorize?client_id=${MOBISCROLL_CONNECT_CLIENT_I
 
 ---
 
-## Setting up the Node.js SDK
+## Next Steps
 
-To simplify integration, you can use the official Mobiscroll Connect SDK for Node.js.
+Now that your credentials are verified and the connection is established, you can proceed with integrating Mobiscroll Connect into your application. Choose the approach that best fits your workflow:
 
-[See the Node.js SDK documentation](./node-sdk) for installation and usage instructions.
+### REST API Integration
 
-**Next Steps:**
-Your environment is now ready. You can proceed to implement the full [Authorization Flow](./api/oauth.md#endpoint-authorize) to start connecting user calendars. The [API Reference](./api.md) includes Node.js examples for each endpoint.
+Build your integration directly using HTTP requests to the Mobiscroll Connect API endpoints. This approach gives you full control and flexibility.
 
-## Demo Application
+**[Get started with REST API Integration](/connect/rest-api-integration)**
 
-For a complete working example, check out our public demo repository. It demonstrates the full OAuth flow, calendar synchronization, and event management.
+### Node.js SDK
 
-[View the Demo App on GitHub](https://github.com/acidb/mobiscroll-connect-demo)
+Use the official Node.js SDK for a streamlined integration experience. The SDK provides typed methods, automatic token management, and simplified error handling.
+
+**[Get started with the Node.js SDK](/connect/node-sdk)**
+
+### Demo Application
+
+Start with our complete working example that demonstrates the full OAuth flow, calendar synchronization, and event management using the Node.js SDK out of the box.
+
+**[View the Demo App on GitHub](https://github.com/acidb/mobiscroll-connect-demo)**

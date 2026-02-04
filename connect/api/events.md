@@ -1,3 +1,9 @@
+---
+sidebar_position: 4
+sidebar_label: Events API
+slug: /events
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import { Parameter } from '@site/src/components/Connect';

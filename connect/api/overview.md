@@ -1,12 +1,12 @@
 ---
 sidebar_label: Overview
+sidebar_position: 1
+slug: /overview
 ---
 
 # Overview
 
 Welcome to the Mobiscroll Connect API documentation. This API enables you to integrate with multiple calendar providers (Google Calendar, Microsoft Outlook, and Apple Calendar) through a unified interface.
-
-![API Flow](/connect/api_flow.png)
 
 ## Authentication
 
@@ -27,6 +27,8 @@ To obtain an access token:
 3. After successful authentication, they'll be redirected to your `redirect_uri` with an authorization code
 4. Exchange the authorization code for an access token using **POST /token**
 5. Use the access token in the `Authorization` header for all subsequent API requests
+
+![API Flow](/connect/api_flow.png)
 
 ## Available Endpoints
 

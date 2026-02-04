@@ -1,3 +1,9 @@
+---
+sidebar_position: 2
+sidebar_label: OAuth API
+slug: /oauth
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import { Parameter } from '@site/src/components/Connect';
@@ -81,7 +87,7 @@ Sets `oauth_req` cookie containing the complete OAuth request for later retrieva
 ### Examples
 
 <Tabs>
-<TabItem value="api" label="API">
+<TabItem value="api" label="REST">
 
 ```bash title="Initiate OAuth authorization"
 GET /authorize?client_id=proj-123&user_id=user-456&redirect_uri=https://app.example.com/callback&response_type=code&state=xyz789&scope=read-write
@@ -95,7 +101,7 @@ Set-Cookie: oauth_req={"client_id":"proj-123","user_id":"user-456",...}; HttpOnl
 ```
 
 </TabItem>
-<TabItem value="sdk" label="Node.js">
+<TabItem value="sdk" label="Node.js SDK">
 
 ```typescript
 // Generate the authorization URL
@@ -230,7 +236,7 @@ The access token is a JWT containing:
 ### Examples
 
 <Tabs>
-<TabItem value="api" label="API">
+<TabItem value="api" label="REST">
 
 ```bash title="Exchange authorization code for access token (HTTP Basic Auth)"
 POST /token
@@ -270,7 +276,7 @@ grant_type=authorization_code&code=user-456&redirect_uri=https://app.example.com
 ```
 
 </TabItem>
-<TabItem value="sdk" label="Node.js">
+<TabItem value="sdk" label="Node.js SDK">
 
 ```typescript
 // Exchange authorization code for access token

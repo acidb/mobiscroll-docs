@@ -1,5 +1,5 @@
 ---
-sidebar_label: REST API Integration
+sidebar_label: REST API
 sidebar_position: 2
 slug: /rest-api-integration
 ---

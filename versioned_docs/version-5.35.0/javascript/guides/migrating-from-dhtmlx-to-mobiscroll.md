@@ -1,18 +1,18 @@
 ---
-sidebar_position: 8
-sidebar_label: Migrating from Bryntum
+sidebar_position: 9
+sidebar_label: Migrating from DHTMLX
 displayed_sidebar: javascriptSidebar
-title: Migrating from Bryntum to Mobiscroll
+title: Migrating from DHTMLX to Mobiscroll
 toc_max_heading_level: 2
 ---
 
 ## Overview
 
-This article provides a comprehensive guide for migrating your scheduling solution from Bryntum to Mobiscroll. It highlights the key differences between the two libraries and outlines step-by-step instructions, covering installation, configuration, resources, events, and features, ensuring a smooth and informed transition.
+This article provides a comprehensive guide for migrating your scheduling solution from DHTMLX to Mobiscroll. It highlights the key differences between the two libraries and outlines step-by-step instructions, covering installation, configuration, resources, events, and features, ensuring a smooth and informed transition.
 
 ## Installation
 
-Migrating from Bryntum to Mobiscroll starts with a different approach to installation, especially regarding package access and tooling.
+Migrating from DHTMLX Scheduler to Mobiscroll starts with a different approach to installation, especially regarding package access and tooling.
 
 ### Mobiscroll installation steps:
 
@@ -32,19 +32,16 @@ Alternatively, Mobiscroll also supports [manual installation](/javascript/gettin
 
 ## Initialization
 
-### Bryntum:
+### DHTMLX Scheduler:
 
 ```js
-const scheduler = new Scheduler({
-    appendTo   : 'container',
-    // ...
-});
+scheduler.init('scheduler_here');
 ```
 
 ### Mobiscroll:
 
 ```js
-mobiscroll.eventcalendar('#container', {
+mobiscroll.eventcalendar('#scheduler_here', {
     // ...
 });
 ```
@@ -53,19 +50,35 @@ mobiscroll.eventcalendar('#container', {
 
 Key Differences:
 - With Mobiscroll, you get precise control over time ranges on [Scheduler](https://demo.mobiscroll.com/scheduler/show-hide-hours-days) and [Timeline](https://demo.mobiscroll.com/timeline/daily-weekly-monthly-yearly-timeline) views, plus feature-rich [Event Calendar](https://demo.mobiscroll.com/eventcalendar) and [Agenda](https://demo.mobiscroll.com/agenda) views for seamless scheduling.
-- Bryntum provides built-in view presets.
+- DHTMLX uses deeply nested JavaScript objects or HTML for defining views, layouts, templates, and event sources. Views like “Day,” “Week,” “Month,” and custom configurations are declared in the scheduler initialization with specific settings for each widget, often grouped into sections and requiring manual wiring for advanced customization.
 
-### Bryntum Scheduler Pro:
+### DHTMLX Scheduler - Timeline view:
 
-For the Bryntum Scheduler, the time axis is configured using three settings: `startDate`, `endDate`, and `viewPreset`. The `startDate` and `endDate` define the overall date range visible on the axis, while the `viewPreset` controls its visual layout and determines which specific dates are displayed.
+For the DHTMLX you have to use the [`createTimelineView`](https://docs.dhtmlx.com/scheduler/api__scheduler_createtimelineview.html) method for customizing the Timeline view
 
 ```js
-const scheduler = new Scheduler({
-    appendTo   : 'container',
-    startDate  : new Date(2017, 0, 1, 6),
-    endDate    : new Date(2017, 0, 1, 20),
-    viewPreset : 'hourAndDay'
+scheduler.plugins({
+  timeline: true,
 });
+
+scheduler.createTimelineView({
+  name: 'timeline',
+  x_unit: 'minute', // measuring unit of the X-Axis.
+  x_date: '%H:%i', // date format of the X-Axis
+  x_step: 30, // X-Axis step in 'x_unit's
+  x_size: 24, // X-Axis length specified as the total number of 'x_step's
+  x_start: 16, // X-Axis offset in 'x_unit's
+  x_length: 48, // number of 'x_step's that will be scrolled at a time
+  y_unit: [
+    { key: 1, label: 'Resource 1' },
+    { key: 2, label: 'Resource 2' },
+    { key: 3, label: 'Resource 3' },
+    { key: 4, label: 'Resource 4' },
+  ],
+  render: 'bar', // view mode
+});
+
+scheduler.init('scheduler_here');
 ```
 
 ### Mobiscroll Timeline view:
@@ -73,7 +86,7 @@ const scheduler = new Scheduler({
 In the Mobiscroll Timeline view, the `timeline` object within the [`view`](/javascript/eventcalendar/timeline#configuring-the-view) option allows you to customize the visible days and the timeline’s scale. You can specify which days to display (e.g., weekdays), set the time scale (e.g., 30-minute intervals), and define the frequency of the labels shown (e.g., every 15 minutes).
 
 ```js
-mobiscroll.eventcalendar('#container', {
+mobiscroll.eventcalendar('#scheduler_here', {
     view: {
         timeline: {
             type: 'day',
@@ -81,23 +94,18 @@ mobiscroll.eventcalendar('#container', {
             startTime: '06:00',
             endTime: '20:00',
         }
-    },
-    defaultSelectedDate: '2017-01-01' // if you want to set the initial view to a specific date
+    }
 });
 ```
 
 Check out how you can configure the Timeline view in [this live example](https://demo.mobiscroll.com/timeline/daily-weekly-monthly-yearly-timeline#).
 
-### Bryntum Calendar view config:
+### DHTMLX Scheduler view:
 
-In the Bryntum Calendar, the `date` option sets the initial date that the Calendar, its sidebar date picker, and the active view should center around upon initialization. The `mode` option determines which of the built-in views (such as day, week, or month) is active by default.
+In case of DHTMLX Scheduler the Week view is added to the [basic scheduler's markup](https://docs.dhtmlx.com/scheduler/scheduler_markup.html) by default. That's why you don't need to provide any extra code for adding the view to the scheduler.
 
 ```js
-const calendar = new Calendar({
-    appendTo   : 'container',
-    date : new Date(2020, 9, 12),
-    mode : 'week'
-});
+scheduler.init('scheduler_here',new Date(2019,0,10),"week");
 ```
 
 ### Mobiscroll Scheduler:
@@ -105,13 +113,13 @@ const calendar = new Calendar({
 You can customize the visible days and hours, as well as the time grid scale, using the `schedule` object under the [`view`](/javascript/eventcalendar/scheduler#configuring-the-view) option. This allows you to define which days are shown (e.g., weekdays), set the visible time range (e.g., 8 AM to 6 PM), adjust the time scale (e.g., 30-minute intervals), and control the frequency of the labels (e.g., every 15 minutes).
 
 ```js
-mobiscroll.eventcalendar('#container', {
+mobiscroll.eventcalendar('#scheduler_here', {
     view: {
         schedule: {
             type: 'week'
         }
     },
-    defaultSelectedDate: '2020-09-12' // if you want to set the initial view to a specific date
+    defaultSelectedDate: '2019-01-10' // if you want to set the initial view to a specific date
 });
 ```
 
@@ -119,9 +127,62 @@ Check out how you can configure the Scheduler view in [this live example](https
 
 ## Resource configuration
 
-Migrating resource data from Bryntum to Mobiscroll should be relatively straightforward.
+Both DHTMLX Scheduler and Mobiscroll support resource-based scheduling (e.g., rooms, employees, assets), but they use different configuration models and event data structures.
 
-### Bryntum Scheduler Pro – resource definition:
+In DHTMLX Scheduler, resource assignment depends on the view you use:
+- Timeline view uses `y_property` to decide which row an event belongs to.
+- Unit view uses `property` to decide which column an event belongs to. You pick the event field name yourself (e.g. `room_id`, `employee_id`), and Scheduler groups events accordingly.
+
+In Mobiscroll, resources are defined once in a global `resources` array. Mobiscroll can handle multiple resources inside a single instance. Mobiscroll also supports multi-resource assignment out of the box.
+
+### DHTMLX Scheduler - Timeline view – resource definition:
+
+```js
+scheduler.plugins({
+  timeline: true,
+});
+
+scheduler.createTimelineView({
+  name: 'timeline',
+  y_property: 'section_id', // mapped data property
+  y_unit: [
+    { key: 1, label: 'Mike' },
+    { key: 2, label: 'Linda' },
+    // ...
+  ],
+});
+
+scheduler.init('scheduler_here');
+```
+
+### DHTMLX Scheduler - Units view – resource definition:
+
+The DHTMLX Units view uses the `list` parameter of the [`createUnitsView`](https://docs.dhtmlx.com/scheduler/api__scheduler_createunitsview.html) option to set values/ units for the X-Axis. To be correctly processed, `list` items must have 2 mandatory properties:
+- `key` - the item's id
+- `label` - the item's label
+
+```js
+scheduler.plugins({
+  units: true,
+});
+
+scheduler.createUnitsView({
+  name: 'unit',
+  property: 'unit_id', //the mapped data property
+  list: [
+    //defines the units of the view
+    { key: 1, label: 'Mike' },
+    { key: 2, label: 'Linda' },
+    // ...
+  ],
+});
+
+scheduler.init('scheduler_here');
+```
+
+### Mobiscroll Timeline view/ Scheduler – resource definition
+
+Mobiscroll uses the [`resources`](https://mobiscroll.com/docs/angular/eventcalendar/timeline#opt-resources) array with `id` and `name` properties.
 
 ```js
 resources: [
@@ -131,39 +192,30 @@ resources: [
 ]
 ```
 
-### Mobiscroll Timeline view/ Scheduler – resource definition:
-
-```js
-resources: [
-    { id: 'r1', name: 'Mike' },
-    { id: 'r2', name: 'Linda' },
-    // ...
-]
-```
-
-As shown above, both Bryntum and Mobiscroll use similar structures for defining resources, typically including `id` and `name` [properties](/javascript/eventcalendar/timeline#opt-resources). Like Bryntum, Mobiscroll also supports a wide range of additional properties, as demonstrated in [this example](https://demo.mobiscroll.com/timeline/resource-data-structure#).
+Mobiscroll offers significantly more resource manipulation flexibility, including fixed rows, reorder, and external drag & drop.
 
 For more advanced use cases, refer to the [Mobiscroll documentation](/javascript/eventcalendar/resources) for additional options, including [custom rendering and templating of resources](/javascript/eventcalendar/timeline#the-resource-their-header-and-footer). You can also explore our demo page for [detailed resource configuration](https://demo.mobiscroll.com/timeline/timeline-resource-details-side-panel-footer) examples.
 
 ## Event migration
 
-As shown above, there are clear differences in how events are structured between Bryntum and Mobiscroll. Bryntum defines an event inside the `events` option using a `startDate`, along with a `duration` and `durationUnit` to determine the end time. In contrast, Mobiscroll uses the [`data`](/javascript/eventcalendar/timeline#opt-data) option and explicit `start` and `end` [properties](https://demo.mobiscroll.com/timeline/event-data-structure#) for defining the event period.
+As shown below, there are clear differences in how events are structured between DHTMLX and Mobiscroll:
+- The basic DHTMLX event structure is a JSON object with a unique event `id`, `start_date` and `end_date` (that defines the event period), an event title defined by `text` property, and optional custom properties like `room_id` to link to resources - this defines how events are internally represented and loaded in the scheduler.
+- In contrast, Mobiscroll uses the [`data`](https://demo.mobiscroll.com/timeline/event-data-structure#) option in which `start` and `end` define the event period, the `title` property represents the event’s title, and an event `id` property is also available. Additionally, you can use the `resource` property to specify which resource the event should be assigned to.
 
 ### Event structure comparison
 
-#### Bryntum:
+#### DHTMLX Scheduler:
 
 ```js
-events: [
-    {
-        id: 1,
-        resourceId: 'r1',
-        startDate: new Date(2017, 0, 1, 10),
-        duration: 2,
-        durationUnit: 'h',
-        name: 'Click me'
-    }
-]
+scheduler.parse([
+  {
+    id: 1,
+    text: 'Conference',
+    start_date: '2012-09-17 12:00',
+    end_date: '2012-09-28 21:00',
+    room_id: 1, // Custom property to associate event with a resource (e.g., room)
+  },
+]);
 ```
 
 #### Mobiscroll:
@@ -173,28 +225,28 @@ data: [
     {
         id: 1,
         resource: 'r1',
-        start: '2017-01-01T10:00',
-        end: '2017-01-01T12:00',
-        title: 'Click me'
+        start: '2012-09-17T12:00',
+        end: '2012-09-18T21:00',
+        title: 'Conference'
     }
 ]
 ```
 
-### Converting Bryntum events to Mobiscroll format
+### Converting DHTMLX Scheduler events to Mobiscroll Format
 
-Here’s a simple example of how to convert Bryntum-style events into the format used by Mobiscroll:
+Here’s a simple example of how to convert DHTMLX-style events into the format used by Mobiscroll:
 
 ```js
-const mobiscrollEvents = bryntumEvents.map(event => {
-    const start = new Date(event.startDate);
-    const end = new Date(start.getTime() + event.duration * 60 * 60 * 1000);
+const mobiscrollEvents = dhtmlxEvents.map(event => {
+    const start = new Date(event.start_date);
+    const end = new Date(event.end_date);
 
     return {
         id: event.id,
-        title: event.name,
+        title: event.text,
         start,
         end,
-        resource: event.resourceId
+        resource: event.room_id // based on `property` option
     };
 });
 ```
@@ -211,11 +263,10 @@ We will examine how each framework handles:
 
 ### Loading data
 
-Bryntum:
-- Bryntum components use stores, structured data collections that manage entities such as resources, events, and project details.
-- Data is typically loaded from remote REST endpoints (e.g., /load, /read-resources) that return JSON. These endpoints can support filtering and chunking to optimize handling of large datasets.
-- Lazy loading (or paginated loading) is supported, allowing data to be fetched on demand as the user scrolls or navigates, minimizing initial load times and memory usage.
-- The backend layer is fully decoupled, enabling the use of any technology stack (Node.js, PHP, Java, etc.) to deliver JSON payloads to the Bryntum frontend.
+DHTMLX:
+In DHTMLX Scheduler, loading data works by calling `scheduler.parse()` or `scheduler.load()` after initialization:
+- `scheduler.load(url, format)` - fetches events from a server (JSON, XML, or iCal).
+- `scheduler.parse(data, format)` - loads events directly from a JavaScript object. Once loaded, Scheduler automatically renders the events into the current view.
 
 Mobiscroll:
 - Mobiscroll components accept static arrays, which can be [inline](/javascript/eventcalendar/data-binding#local-data) (preloaded in memory) or [dynamically fetched](/javascript/eventcalendar/data-binding#remote-data) from remote APIs.
@@ -226,21 +277,20 @@ Let’s see an example for each case:
 
 ### Local data
 
-#### Bryntum:
-
-You can use the `events` option for passing the data inline.
+#### DHTMLX Scheduler:
 
 ```js
-events: [
-    {
-        id: 1,
-        resourceId: 'r1',
-        startDate: new Date(2017, 0, 1, 10),
-        duration: 2,
-        durationUnit: 'h',
-        name: 'Click me'
-    }
-]
+scheduler.init('scheduler_here');
+
+scheduler.parse([
+  {
+    id: 1,
+    text: 'Conference',
+    start_date: '2012-09-17 12:00',
+    end_date: '2012-09-28 21:00',
+    room_id: 1, // Custom property to associate event with a resource (e.g., room)
+  },
+]);
 ```
 
 #### Mobiscroll:
@@ -252,42 +302,27 @@ data: [
     {
         id: 1,
         resource: 'r1',
-        start: '2017-01-01T10:00',
-        end: '2017-01-01T12:00',
-        title: 'Click me'
+        start: '2012-09-17T12:00',
+        end: '2012-09-18T21:00',
+        title: 'Conference'
     }
 ]
 ```
 
 ### Remote data
 
-#### Bryntum
+#### DHTMLX Scheduler
 
-You can use a [class called](https://bryntum.com/products/scheduler/docs/guide/Scheduler/data/crud_manager) `CrudManager` or a project definition that solves the loading of the events from the backend.
+In case of DHTMLX, `scheduler.init` initializes the scheduler in the specified HTML element, then `scheduler.load` fetches event data as a JSON array from a remote URL for display in the scheduler.
 
 ```js
-// With CRUD Manager
-const crudManager = new CrudManager({
-    autoLoad : true,
-    loadUrl  : 'read.php',
-    syncUrl  : 'save.php'
-});
+scheduler.init('scheduler_here', new Date(), 'day');
 
-const scheduler = new Scheduler({
-    // ... other configs
-    crudManager : crudManager
-});
+// enable dynamic loading BEFORE load()
+scheduler.setLoadMode('day'); // "day" | "week" | "month" | "year"
 
-// With project setup
-const scheduler = new Scheduler({
-    // ... other configs
-    project : {
-            autoLoad        : true,
-            autoSync        : true,
-            loadUrl         : 'read.php',
-            syncUrl         : 'save.php',
-    }
-});
+// initial fetch for current range
+scheduler.load('/api/events');
 ```
 
 #### Mobiscroll
@@ -297,7 +332,7 @@ You can load the data through an external request and use the [`setEvents`](/jav
 In case of Mobiscroll, you can also use the [`onPageLoading`](/javascript/eventcalendar/api#event-onPageLoading) pevent to load the data (on demand) relevant to the currently active view. The event fires every time the date range of the view changes, for example, when someone navigates the event calendar. Getting the events in real time as the user interacts with the UI improves load performance and always serves the most recent data.
 
 ```js
-mobiscroll.eventcalendar('#myDiv', {
+mobiscroll.eventcalendar('#scheduler_here', {
   view: {
     schedule: { type: 'day' }
   },
@@ -321,31 +356,20 @@ In case of the timeline view, data can also be [loaded dynamically during scroll
 
 ### Saving data
 
-#### Bryntum
+#### DHTMLX
 
-- Bryntum provides a configurable `CrudManager` for orchestrating create, update, and delete operations, or developers can manually connect stores to custom endpoints.
-- By enabling `autoSync: true` in the project configuration, local changes automatically trigger API requests to persist modifications without additional boilerplate.
+In DHTMLX Scheduler, saving data works by attaching a `dataProcessor` to the scheduler that handles CRUD operations by sending changes (adds, updates, deletes) to a server-side script which updates the database accordingly.
 
 Example:
 
 ```js
-// With CRUD Manager
-const crudManager = new CrudManager({
-    syncUrl  : 'save.php'
-});
+scheduler.init('scheduler_here');
 
-const scheduler = new Scheduler({
-    // ... other configs
-    crudManager : crudManager
-});
+scheduler.load('/api/events');
 
-// With project setup
-const scheduler = new Scheduler({
-    // ... other configs
-    project : {
-            autoSync        : true,
-            syncUrl         : 'save.php',
-    }
+const dp = scheduler.createDataProcessor({
+  url: '/api/events',
+  mode: 'REST',
 });
 ```
 
@@ -358,7 +382,7 @@ const scheduler = new Scheduler({
 Example for saving, updating, and deleting an event through an API:
 
 ```js
-mobiscroll.eventcalendar('#myDiv', {
+mobiscroll.eventcalendar('#scheduler_here', {
     view: { schedule: { type: "week" } },
     data: [
       { id: 'id1' start: '2023-09-24', end: '2023-09-30', title: 'Short trip!'},
@@ -396,37 +420,30 @@ Both libraries are capable of handling modern scheduling needs, but the choice d
 
 ## Lifecycle events
 
-Both libraries, Bryntum and Mobiscroll, provide a comprehensive set of lifecycle event hooks, enabling deep customization and integration with your application logic. These events are emitted at various stages of a component’s lifecycle, offering developers full control to inject custom behavior and extend default functionality.
+Both libraries, DHTMLX and Mobiscroll, provide a comprehensive set of lifecycle event hooks, enabling deep customization and integration with your application logic. These events are emitted at various stages of a component’s lifecycle, offering developers full control to inject custom behavior and extend default functionality.
 
 Whether you’re looking to manipulate data before rendering, respond to user interactions, or perform cleanup tasks, Mobiscroll’s event system offers the flexibility to tailor components to your specific needs.
 
-When migrating between Bryntum and Mobiscroll, it’s important to note that most lifecycle events follow similar patterns across both libraries. This alignment minimizes friction during the transition process and helps preserve custom behaviors with minimal adjustments.
+When migrating between DHTMLX and Mobiscroll, it’s important to note that most lifecycle events follow similar patterns across both libraries. This alignment minimizes friction during the transition process and helps preserve custom behaviors with minimal adjustments.
 
 One such example is how each library handles a double-click on a cell. Below is a comparison of the respective event handlers and their parameters.
 
-### Bryntum
+### DHTMLX
 
-In Bryntum, the `onCellDblClick` event is triggered when a user double-clicks a grid cell. This event provides access to several key objects that describe the interaction and context:
-- `event`: Object - The Bryntum event object
-- `grid`: Grid - The grid instance
-- `record`: Model - The record representing the row
-- `column`: Column - The column to which the cell belongs
-- `cellElement`: HTMLElement - The cell HTML element
-- `target`: HTMLElement - The target element
-- `event`: MouseEvent - The native DOM event
+In DHTMLX Scheduler, lifecycle events such as creating, updating, or deleting an event are handled through the `scheduler.attachEvent()` method. This API allows you to subscribe to internal scheduler callbacks — for example: `onEventAdded`, `onEventChanged`, or `onEventDeleted` — and execute custom logic when these actions occur.
+
+For example the `onXScaleDblClick` event is triggered when the user makes a double click on a cell on the x-axis (the Timeline view only). This event provides access to several key objects that describe the interaction and `contextDblClick`:
+- `index`: number - the column index of the clicked cell (zero-based numbering)
+- `value`: object - Date object of the start time stamp of the clicked cell
+- `e`: event - native event object
 
 Example:
 
 ```js
-const scheduler = new bryntum.scheduler.Scheduler({
-    // ...other config...
-    listeners: {
-        cellDblClick({ date, resourceRecord, column }) {
-            console.log('Cell double-clicked:', date, column);
-            // Example: open editor for a new event
-            // scheduler.editEventDialog.show({ startDate: date, resourceRecord });
-        }
-    }
+scheduler.attachEvent('onCellDblClick', function (x_ind, y_ind, x_val, y_val, e) {
+  console.log('Cell double-clicked:', x_ind, y_ind, x_val, y_val, e);
+  // Example: open a new event creation dialog
+  // showCreateEventDialog(x_val, y_val);
 });
 ```
 
@@ -446,7 +463,7 @@ Mobiscroll components (e.g., Event Calendar, Scheduler, Timeline) expose a simil
 Example:
 
 ```js
-mobiscroll.eventcalendar('#my-calendar', {
+mobiscroll.eventcalendar('#scheduler_here', {
     // ...other options...
      events,
     onCellDoubleClick: function (args, inst) {
@@ -457,8 +474,6 @@ mobiscroll.eventcalendar('#my-calendar', {
     }
 });
 ```
-
-Although the naming conventions and parameter structures differ slightly between Bryntum and Mobiscroll, the overall event purpose and customization potential remain aligned. Developers familiar with Bryntum’s event model will find it straightforward to adapt similar functionality in Mobiscroll, ensuring a smooth migration path with minimal overhead.
 
 To explore the full list of available Mobiscroll lifecycle events and understand how they can be leveraged, please refer to the [documentation](/javascript/eventcalendar/api#events).
 
@@ -472,17 +487,17 @@ These examples provide hands-on insights into how lifecycle events work in pract
 
 ## Feature migration
 
-As a final step, let’s explore how core features from Bryntum can be replicated using Mobiscroll. While some capabilities are available out of the box in Bryntum, Mobiscroll often requires more explicit setup but offers much more flexibility.
+As a final step, let’s explore how core features from DHTMLX can be replicated using Mobiscroll. While some capabilities are available out of the box in DHTMLX, Mobiscroll often requires more explicit setup but offers much more flexibility.
 
 ### Drag & Drop functionality
 
-- Bryntum enables drag-and-drop operations by default with no extra configuration needed.
-- In Mobiscroll, the D&D features must be enabled explicitly via [configuration options](/javascript/eventcalendar/drag-and-drop).
+- DHTMLX Scheduler enables drag-and-drop operations by default with no extra configuration needed.
+- In Mobiscroll, the [D&D features](https://demo.mobiscroll.com/timeline/move-resize-drag-drop-to-create-events#) must be enabled explicitly via [configuration options](/javascript/eventcalendar/drag-and-drop).
 
 #### Enabling Drag & Drop in Mobiscroll:
 
 ```js
-mobiscroll.eventcalendar('#container', {
+mobiscroll.eventcalendar('#scheduler_here', {
     clickToCreate: true,
     dragToCreate: true,
     dragToMove: true,
@@ -495,17 +510,13 @@ This configuration allows users to create, move, resize, and delete events in Mo
 
 ### Switching Views (Calendar/Scheduler/Agenda)
 
-- Bryntum enables switching views by default with no extra configuration needed.
+- DHTMLX Scheduler enables switching views by default with no extra configuration needed.
 - Mobiscroll doesn’t include a built-in view-switching UI by default. However, it offers greater flexibility by allowing you to implement a custom header where you can design the view-switching experience to fit your needs. For example, you can use a [dropdown menu](https://demo.mobiscroll.com/select) or [segmented controls](https://demo.mobiscroll.com/forms/segmented) to let users switch between views like Calendar, Scheduler, Agenda, or any other layout that fits your use case.
 
-#### Bryntum:
+#### DHTMLX Scheduler:
 
 ```js
-const calendar = new Calendar({
-    appendTo   : 'container',
-    date : new Date(2020, 8, 12),
-    mode : 'week'
-});
+scheduler.init('scheduler_here', new Date(2020,8,12), "week");
 ```
 
 #### Mobiscroll:
@@ -513,7 +524,7 @@ const calendar = new Calendar({
 In Mobiscroll, switching between views like Day, Week, or Month requires setting up a custom header along with event listeners to handle the view changes. You can see an example of this implementation [here](https://demo.mobiscroll.com/scheduler/switching-calendar-scheduler-agenda).
 
 ```js
-var calendar = mobiscroll.eventcalendar('#container', {
+var calendar = mobiscroll.eventcalendar('#scheduler_here', {
 
   view: {
     calendar: {
@@ -588,27 +599,11 @@ document.querySelectorAll('.md-view-change').forEach(function (elm) {
 
 ### Timezones
 
-Handling time zones accurately is crucial in calendar and scheduling applications, especially when working across regions or coordinating international events. Both Bryntum and Mobiscroll offer support for working with time zones, though they approach it differently in terms of configuration and underlying technology. So, let’s see a simple example of how this scenario is handled in the case of Bryntum and Mobiscroll.
+Handling time zones accurately is crucial in calendar and scheduling applications, especially when working across regions or coordinating international events. Mobiscroll and DHTMLX take significantly different approaches. Mobiscroll is clearly superior in timezone management, while DHTMLX only operates with native JS Date objects, which limits its ability to handle complex timezone scenarios. 
 
-#### Bryntum
+#### DHTMLX
 
-Bryntum provides built-in time zone support across all of its scheduling products. This allows you to configure components to operate in a specific time zone, independent of the browser or system time.
-
-To enable time zone conversion in Bryntum, simply set the [`timeZone`](https://bryntum.com/products/schedulerpro/docs/api/Scheduler/model/ProjectModel#config-timeZone) configuration on the project object. You can use either:
-- an IANA time zone identifier (e.g., 'Europe/Stockholm'), or
-- a UTC offset in minutes (e.g., -120)
-
-This configuration automatically adjusts the timeline headers, event/task start and end times, and all other time-based calculations to match the configured zone.
-
-```js
-new Scheduler({
-    project : {
-        // This will convert time to CET (UTC+1) or
-        // CEST (UTC+2) depending on DST
-        timeZone : 'Europe/Stockholm'
-    }
-});
-```
+DHTMLX Scheduler only operates with native JS Date objects.
 
 #### Mobiscroll
 
@@ -633,7 +628,7 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjsTimezone.dayjs = dayjs;
 
-eventcalendar('#myDiv', {
+eventcalendar('#scheduler_here', {
   timezonePlugin: dayjsTimezone,
   dataTimezone: "utc",
   displayTimezone: "Europe/Stockholm",
@@ -653,50 +648,58 @@ Or you can also check advanced demos such as:
 
 You can also store the timezone inside the event data, using the [`timezone`](/javascript/eventcalendar/api#opt-data) property.
 
-As a conclusion, both libraries, Bryntum and Mobiscroll, provide timezone support. Mobiscroll supports multiple timezone libraries ([Moment-Timezone](/javascript/eventcalendar/timezones#the-moment-timezone-library), [Luxon](/javascript/eventcalendar/timezones#the-luxon-library), and [Day.js](/javascript/eventcalendar/timezones#the-dayjs-library)), while Bryntum relies on JavaScript Date, which may introduce DST inconsistencies.
+As a conclusion, Mobiscroll is clearly superior in timezone management, DHTMLX only operates with native JS Date objects.
 
 #### Conclusion
 
-While Bryntum offers more built-in functionality out of the box, Mobiscroll provides greater flexibility, enabling tailored behavior through configuration and custom UI components:
+DHTMLX Scheduler offers stronger server-side capabilities and export options, while Mobiscroll excels in multi-calendar systems and flexible component design:
 - Feel free to explore our demo page for [Timeline](https://demo.mobiscroll.com/timeline), [Scheduler](https://demo.mobiscroll.com/scheduler), [Event Calendar](https://demo.mobiscroll.com/eventcalendar), and [Agenda](https://demo.mobiscroll.com/agenda) views - featuring grouped examples, including [common use cases](https://demo.mobiscroll.com/timeline/employee-shifts), [view configuration](https://demo.mobiscroll.com/scheduler/custom-range-view), [event](https://demo.mobiscroll.com/timeline/timeline-custom-event-rendering) and [resource](https://demo.mobiscroll.com/scheduler/custom-resource-header-template) templating, and [lifecycle event handling](https://demo.mobiscroll.com/timeline/event-hooks).
 - We also offer comprehensive documentation for the [Timeline](/javascript/eventcalendar/timeline), [Scheduler](/javascript/eventcalendar/scheduler), [Event Calendar](/javascript/eventcalendar/calendar), and [Agenda](/javascript/eventcalendar/agenda) views. It covers [usage](/javascript/eventcalendar/timezones), [APIs](/javascript/eventcalendar/api), [customization options](/javascript/eventcalendar/templating), and more in detail.
 
 In addition to drag & drop and custom view-switching, Mobiscroll also supports [timezone handling](https://demo.mobiscroll.com/scheduler/setting-the-timezone) and [zooming levels](https://demo.mobiscroll.com/timeline/calendar-zoom). All of our views work seamlessly across both [mobile](https://demo.mobiscroll.com/scheduler/mobile-day-view) and [desktop](https://demo.mobiscroll.com/scheduler/desktop-day-view) environments, with full support for touch interactions.
 
-As mentioned above, with some additional setup, most —if not all— features can be effectively replicated when migrating from Bryntum to Mobiscroll.
+As mentioned above, with some additional setup, most —if not all— features can be effectively replicated when migrating from DHTMLX to Mobiscroll.
 If you have any specific questions or run into any issues, don’t hesitate to [reach out](https://mobiscroll.com#get-help) — we’re happy to help.
 
 ## Templating and renderers
 
 ### Event templating
 
-#### Bryntum
+#### DHTMLX
 
-Bryntum handles templating for events, resources, and other UI elements through a flexible system that allows developers to customize content rendering using template functions or strings.
+In DHTMLX Scheduler, you can customize the content of events and define which data should be displayed by using templates. Each view relies on its own set of templates, so to determine which templates a particular view uses, refer to the article [Formatting Labels, Dates, Styles](https://docs.dhtmlx.com/scheduler/templates.html) article. 
 
-In case of Bryntum you can show any HTML structure inside an event bar using the [`eventRenderer`](https://bryntum.com/products/schedulerpro/docs/api/Scheduler/view/mixin/SchedulerEventRendering#config-eventRenderer).
+Most views use the following two templates for customizing event text:
+- [`event_header`](https://docs.dhtmlx.com/scheduler/api__scheduler_event_header_template.html) - defines the text shown in the event header
+- [`event_text`](https://docs.dhtmlx.com/scheduler/api__scheduler_event_text_template.html) - defines the main text displayed inside the event
+
+DHTMLX also recommends redefining templates inside the `onTemplatesReady` event handler. Doing so ensures that your custom templates are not overwritten by the default ones.
+
+Below is an example of how to display the event location together with the event text in the event box:
 
 ```js
-new Scheduler({
-    appendTo: 'container',
-    events: [
-        { id: 10, resourceId: 1, name: 'Custom Meeting', startDate: '2025-08-27 09:00', endDate: '2025-08-27 11:00', location: 'Room 203' }
-    ],
-    // Custom eventRenderer function
-    eventRenderer({ eventRecord }) {
-        // Template with custom color and extra data
-        return {
-            // Add a colored bar and extra text info
-            // You can also set event style directly here
-            html: `
-                <div style="background:#a8d8ea; border-radius:4px; padding:4px;">
-                  <strong>${eventRecord.name}</strong>
-                  <div style="font-size:12px; color:#444;">Location: ${eventRecord.location}</div>
-                </div>
-            `
-        };
-    }
+scheduler.attachEvent('onTemplatesReady', function () {
+  scheduler.templates.event_text = function (start, end, event) {
+    return `
+      <div style="background:#a8d8ea; border-radius:4px; padding:4px;">
+          <strong>${event.text}</strong>
+          <div style="font-size:12px; color:#444;">Location: ${event.location} </div>
+      </div>
+  `;
+  };
 });
+
+scheduler.init('scheduler_here', new Date(2019, 5, 5), 'week');
+
+scheduler.parse([
+  {
+    id: 1,
+    text: 'Custom Meeting',
+    start_date: '2019-06-05 09:00',
+    end_date: '2019-06-05 11:00',
+    location: 'Room 1',
+  },
+]);
 ```
 
 #### Mobiscroll
@@ -713,7 +716,7 @@ To define a custom template, pass a functional to the appropriate option that re
 mobiscroll.eventcalendar('#container', {
     // ...other config...
 
-  data: [ { id: 10, resourceId: 1, title: 'Custom Meeting', start: '2025-08-27 09:00', end: '2025-08-27 11:00' }],
+  data: [ { id: 1, title: 'Custom Meeting', start: '2019-06-05 09:00', end: '2019-06-05 11:00', location: 'Room 1' }],
 
   renderScheduleEvent: function (eventRecord) {
     return `
@@ -740,50 +743,45 @@ Feel free to explore live examples to see how full event templating work in acti
 
 ### Resource templating
 
-#### Bryntum
+#### DHTMLX
 
-You can customize cell content and styling in a column using a [renderer](https://bryntum.com/products/scheduler/docs/api/Grid/column/Column#config-renderer) function.
-
-To customize the column header, use the [`headerRenderer`](https://bryntum.com/products/scheduler/docs/api/Grid/column/Column#config-headerRenderer) option.
+In case of DHTMLX Scheduler - Timeline view the resources can be customized through the columns property of the timeline configuration object:
 
 ```js
-const scheduler = new Scheduler({
-  appendTo: 'container',
-  // ... other config ...
-  resources: [
-    { id: 1, name: 'Adam', city: 'Washington' },
-    { id: 2, name: 'Eva', city: 'New York' },
+scheduler.plugins({
+  timeline: true,
+});
+
+scheduler.createTimelineView({
+  name: 'timeline',
+  y_unit: [
+    { key: 1, label: 'Adam', city: 'Washington' },
+    { key: 2, label: 'Eva', city: 'New York' },
   ],
   columns: [
     {
-      text: 'Name',
-      field: 'name',
+      label: '<strong>Name</strong>',
       width: 130,
-      headerRenderer: () => {
-        return '<strong>Name</strong>';
-      },
-      renderer: ({ record }) => {
-        return { html: `<strong>${record.name}</strong>` };
+      template: function (obj) {
+        return '<strong>' + obj.label + '<strong>';
       },
     },
     {
-      text: 'City',
-      field: 'city',
+      label: '<i>City</i>',
       width: 90,
-      headerRenderer: () => {
-        return '<i>City</i>';
-      },
-      renderer: ({ record }) => {
-        return { html: `<i>${record.city}</i>` };
+      template: function (obj) {
+        return '<i>' + obj.city + '<i>';
       },
     },
   ],
 });
+
+scheduler.init('scheduler_here');
 ```
 
 #### Mobiscroll
 
-In the case of Mobiscroll, we take a different approach. We provide various templating options (listed below), which allow you to customize the resources. This is unlike Bryntum, where customization requires modifying the columns with different renderers.
+In the case of Mobiscroll, we take a different approach. We provide various templating options (listed below), which allow you to customize the resources.
 
 #### Scheduler
 
@@ -801,7 +799,7 @@ In case of the Timeline view there are three places where you can customize the 
 Check out how you can style these resource parts in [this example](https://demo.mobiscroll.com/timeline/timeline-resource-details-side-panel-footer#).
 
 ```js
-mobiscroll.eventcalendar('#container', {
+mobiscroll.eventcalendar('#scheduler_here', {
   // ... other config ...
   resources: [
     { id: 1, name: 'Adam', city: 'Washington' },
@@ -832,6 +830,28 @@ mobiscroll.eventcalendar('#container', {
 
 ### Header templating
 
+#### DHTMLX
+
+In DHTMLX Scheduler, the header (the top navigation area containing the date, navigation buttons, and view tabs) is generated from a combination of HTML markup and Scheduler’s template system.
+
+The header area corresponds to this block in your code:
+
+```js
+<div class="dhx_cal_navline">
+  <div class="dhx_cal_prev_button">&nbsp;</div>
+  <div class="dhx_cal_next_button">&nbsp;</div>
+  <div class="dhx_cal_today_button"></div>
+  <div class="dhx_cal_date"></div>
+  <div class="dhx_cal_tab" data-tab="day"></div>
+  <div class="dhx_cal_tab" data-tab="week" ></div>
+  <div class="dhx_cal_tab" data-tab="month"></div>
+</div>
+```
+
+Scheduler fills these elements using built-in templates, which you can override to control what appears in the header.
+
+#### Mobiscroll
+
 The header of the Mobiscroll calendar can be fully customized to one's needs with the use of the [`renderHeader`](/javascript/eventcalendar/api#renderer-renderHeader) option.
 
 Here's the list of the built in components of the default header. You can initialize these by putting the attributes on the elements:
@@ -845,7 +865,7 @@ The following example will render the prev and next buttons and a custom title.
 ```js
 var myTitle = 'Awesome title';
 
-mobiscroll.eventcalendar('#container', {
+mobiscroll.eventcalendar('#scheduler_here', {
   renderHeader: function () {
     return `
     <button mbsc-calendar-prev></button>
@@ -910,17 +930,23 @@ Also, feel free to explore live examples to see how header templating work in ac
 
 ## Localization
 
-### Bryntum
+### DHTMLX
 
-Bryntum supports localization by allowing developers to select from built-in locales or define custom ones. Key aspects include:
-- Locale files translate UI text, date formats, and number formats to the target language.
-- Custom locales can be created or modified using their locale structure.
-- Right-to-left (RTL) layout support is included
+DHTMLX Scheduler supports scheduler's localization by providing a number of predefined locales and means of creating custom ones. By default, DHTMLX Scheduler uses [English locale](https://docs.dhtmlx.com/scheduler/api__scheduler_locale_other.html).
+
+To set the desired language for the scheduler, you need to activate the necessary locale via the `setLocale` method of the [`scheduler.i18n`](https://docs.dhtmlx.com/scheduler/api__scheduler_i18n_other.html) object.
 
 ```js
-import { LocaleManager, LocaleHelper } from @bryntum/schedulerpro;
+scheduler.i18n.setLocale("fr");
+```
 
-LocaleManager.locale = LocaleHelper.locales.FrFR;
+You can use and update any of the [predefined locales](https://docs.dhtmlx.com/scheduler/localization.html#includedlocales) that are bundled with the `dhtmlxscheduler.js` file or define a custom locale.
+
+The locale can be switched dynamically but the changes will be applied only after a complete redrawing of the Scheduler either with the `scheduler.render()` or `scheduler.init()` call.
+
+```js
+scheduler.i18n.setLocale("fr");
+scheduler.init("scheduler_here");
 ```
 
 ### Mobiscroll
@@ -943,7 +969,7 @@ mobiscroll.setOptions({
 Example setting the locale at the component level:
 
 ```js
-mobiscroll.eventcalendar('#container', {
+mobiscroll.eventcalendar('#scheduler_here', {
     // ...other config...
     locale: mobiscroll.localeFr, // Switch to French locale
 });
@@ -951,7 +977,7 @@ mobiscroll.eventcalendar('#container', {
 
 ## Conclusion
 
-Migrating from Bryntum Scheduler to Mobiscroll Scheduler involves rethinking certain configurations, especially around views, events, and feature toggles. While Bryntum comes with richer built-in functionality out of the box (like zooming, vertical timelines, and infinite scrolling), Mobiscroll shines in flexibility, responsive design, and easier timeline and calendar customizations.
+Migrating from DHTMLX Scheduler to Mobiscroll involves rethinking certain configurations, especially around views, events, and feature toggles. While DHTMLX Scheduler offers strong server-side capabilities and comprehensive export options, Mobiscroll stands out as a modern, developer-friendly, and highly adaptable calendar and scheduling solution. Its superior framework support, refined UX, accessibility readiness, and deep customization make it the better long-term choice for teams building maintainable and scalable scheduling experiences.
 
 The overall migration process includes:
 - Adjusting initialization patterns
@@ -961,7 +987,7 @@ The overall migration process includes:
 
 With a clear understanding of both libraries’ capabilities and structures, you can migrate efficiently and take full advantage of Mobiscroll’s modern UI and feature-rich environment.
 
-#### Considering migrating from Bryntum to Mobiscroll?
+#### Considering migrating from DHTMLX Scheduler to Mobiscroll?
 
 [Schedule a call](https://calendly.com/mobiscroll/30min) and let's chat about how we can help.
 We're here to support you in the migration process.

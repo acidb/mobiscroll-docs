@@ -363,12 +363,14 @@ We will examine how each framework handles:
 ### Loading data
 
 Bryntum:
+
 - Bryntum components use stores, structured data collections that manage entities such as resources, events, and project details.
 - Data is typically loaded from remote REST endpoints (e.g., /load, /read-resources) that return JSON. These endpoints can support filtering and chunking to optimize handling of large datasets.
 - Lazy loading (or paginated loading) is supported, allowing data to be fetched on demand as the user scrolls or navigates, minimizing initial load times and memory usage.
 - The backend layer is fully decoupled, enabling the use of any technology stack (Node.js, PHP, Java, etc.) to deliver JSON payloads to the Bryntum frontend.
 
 Mobiscroll:
+
 - Mobiscroll components accept static arrays, which can be [inline](/angular/eventcalendar/data-binding#local-data) (preloaded in memory) or [dynamically fetched](/angular/eventcalendar/data-binding#remote-data) from remote APIs.
 - The [`onPageLoading`](/angular/eventcalendar/api#event-onPageLoading) event plays a central role in incremental data loading, enabling applications to [request only the events needed](https://demo.mobiscroll.com/timeline/load-events-on-demand) for the current view (e.g., the current month or week) as the user navigates.
 - Mobiscroll also offers [integration with external calendar services](/angular/eventcalendar/calendar-integrations/) ([Google Calendar](https://demo.mobiscroll.com/eventcalendar/sync-events-google-calendar#), [Outlook](https://demo.mobiscroll.com/eventcalendar/sync-events-outlook-calendar#)) via plugins, handling data retrieval and format conversion internally.

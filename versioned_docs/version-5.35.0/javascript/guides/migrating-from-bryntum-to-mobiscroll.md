@@ -503,7 +503,7 @@ This configuration allows users to create, move, resize, and delete events in Mo
 ```js
 const calendar = new Calendar({
     appendTo   : 'container',
-    date : new Date(2020, 9, 12),
+    date : new Date(2020, 8, 12),
     mode : 'week'
 });
 ```
@@ -843,8 +843,10 @@ Here's the list of the built in components of the default header. You can initia
 The following example will render the prev and next buttons and a custom title.
 
 ```js
+var myTitle = 'Awesome title';
+
 mobiscroll.eventcalendar('#container', {
-  renderHeader: function (Awesome Title) {
+  renderHeader: function () {
     return `
     <button mbsc-calendar-prev></button>
     <button mbsc-calendar-next></button>

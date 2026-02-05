@@ -82,7 +82,7 @@ const config = {
         },
         items: [
           {
-            type: 'dropdown',
+            type: 'custom-baseDropdown',
             className: 'mobiscroll-ui-nav mobiscroll-connect-nav',
             label: 'Docs',
             position: 'left',

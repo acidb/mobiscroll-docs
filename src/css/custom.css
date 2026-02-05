@@ -72,6 +72,9 @@
 .plugin-id-default .mobiscroll-ui-nav { display: block; }
 .plugin-id-connect .mobiscroll-connect-nav { display: block; }
 
+.plugin-id-default .navbar-sidebar .mobiscroll-ui-nav { display: flex; }
+.plugin-id-connect .navbar-sidebar .mobiscroll-connect-nav { display: flex; }
+
 
 
 .theme-doc-sidebar-item-category {

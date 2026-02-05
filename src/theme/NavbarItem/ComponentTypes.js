@@ -8,6 +8,7 @@ import DocSidebarNavbarItem from '@theme/NavbarItem/DocSidebarNavbarItem';
 import DocsVersionNavbarItem from '@theme/NavbarItem/DocsVersionNavbarItem';
 import DocsVersionDropdownNavbarItem from '@theme/NavbarItem/DocsVersionDropdownNavbarItem';
 import FrameworkDropdown from '@site/src/components/NavbarItems/FrameworkDropdown';
+import BaseDropdown from '@site/src/components/NavbarItems/BaseDropdown';
 
 const ComponentTypes = {
   default: DefaultNavbarItem,
@@ -20,5 +21,6 @@ const ComponentTypes = {
   docsVersion: DocsVersionNavbarItem,
   docsVersionDropdown: DocsVersionDropdownNavbarItem,
   'custom-frameworkDropdown': FrameworkDropdown,
+  'custom-baseDropdown': BaseDropdown,
 };
 export default ComponentTypes;

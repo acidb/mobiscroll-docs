@@ -184,6 +184,9 @@ The colored range will be considered all-day if:
 The dates can be specified as JavaScript Date objects, ISO 8601 strings, or moment objects.
 :::
 :::info
+For Javascript Date objects the month numbers are zero based. Like: 0 - January, 1 - February ... 11 - December.
+:::
+:::info
 The colors can be combined with the [labels](#opt-labels) or [marked](#opt-marked) options.
 :::
 
@@ -453,7 +456,7 @@ Allow the typing into the input field in desktop mode.
 **Default value**: `true`
 ### invalid {#opt-invalid}
 
-Array&lt;[MbscDateType](#type-MbscDateType)&gt; &#124; Array&lt;IValidateProps&gt;
+Array&lt;[MbscDateType](#type-MbscDateType)&gt; &#124; Array&lt;[MbscCalendarInvalid](#type-MbscCalendarInvalid)&gt;
 
 An array containing the invalid values. Can contain dates,
 or objects with the following properties:
@@ -475,6 +478,9 @@ If there is no slot defined, the invalid range will be displayed in every slot.
 
 :::info
 The dates can be specified as JavaScript Date objects, ISO 8601 strings, or moment objects.
+:::
+:::info
+For Javascript Date objects the month numbers are zero based. Like: 0 - January, 1 - February ... 11 - December.
 :::
 
 ```js
@@ -516,6 +522,21 @@ The dates can be specified as JavaScript Date objects, ISO 8601 strings, or mome
 ```
 
 **Default value**: `undefined`
+
+The [`MbscCalendarInvalid`](#type-MbscCalendarInvalid) type has the following properties:
+ - `allDay`: *boolean* - If true the specified invalid will cover the whole day.
+ - `end`: *[MbscDateType](#type-MbscDateType)* - Specifies the end of the invalid range.
+ - `recurring`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)* - Recurrence rule for recurring invalid ranges.
+ - `recurringException`: *[MbscDateType](#type-MbscDateType) &#124; Array&lt;[MbscDateType](#type-MbscDateType)&gt;* - Specifies recurring exceptions.
+Useful when specific dates need to be skipped from the rule.
+ - `recurringExceptionRule`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)* - Specifies a recurrence exception rule.
+Useful when recurring dates need to be skipped from the rule.
+ - `start`: *[MbscDateType](#type-MbscDateType)* - Specifies the start of the invalid range.
+
+
+
+
+
 ### isOpen {#opt-isOpen}
 
 boolean
@@ -585,6 +606,9 @@ Useful when recurring dates need to be skipped from the rule.
 The dates can be specified as JavaScript Date objects, ISO 8601 strings, or moment objects.
 :::
 :::info
+For Javascript Date objects the month numbers are zero based. Like: 0 - January, 1 - February ... 11 - December.
+:::
+:::info
 The labels can be combined with the [colors](#opt-colors) option.
 :::
 
@@ -631,6 +655,9 @@ Useful when recurring dates need to be skipped from the rule.
 
 :::info
 The dates can be specified as JavaScript Date objects, ISO 8601 strings, or moment objects.
+:::
+:::info
+For Javascript Date objects the month numbers are zero based. Like: 0 - January, 1 - February ... 11 - December.
 :::
 :::info
 The marked days can be combined with the [colors](#opt-colors) option.
@@ -1106,7 +1133,7 @@ The [`MbscTimezonePlugin`](#type-MbscTimezonePlugin) type has the following prop
 
 ### valid {#opt-valid}
 
-Array&lt;[MbscDateType](#type-MbscDateType)&gt; &#124; Array&lt;IValidateProps&gt;
+Array&lt;[MbscDateType](#type-MbscDateType)&gt; &#124; Array&lt;[MbscCalendarInvalid](#type-MbscCalendarInvalid)&gt;
 
 An array containing the valid values. Use it when it&#039;s more convenient to specify valid values instead of the invalid ones.
 If specified, everything else is considered to be invalid, and the [invalid](#opt-invalid) option will be ignored.
@@ -1123,6 +1150,9 @@ Useful when recurring dates need to be skipped from the rule.
 
 :::info
 The dates can be specified as JavaScript Date objects, ISO 8601 strings, or moment objects.
+:::
+:::info
+For Javascript Date objects the month numbers are zero based. Like: 0 - January, 1 - February ... 11 - December.
 :::
 
 ```js
@@ -1164,6 +1194,21 @@ The dates can be specified as JavaScript Date objects, ISO 8601 strings, or mome
 ```
 
 **Default value**: `undefined`
+
+The [`MbscCalendarInvalid`](#type-MbscCalendarInvalid) type has the following properties:
+ - `allDay`: *boolean* - If true the specified invalid will cover the whole day.
+ - `end`: *[MbscDateType](#type-MbscDateType)* - Specifies the end of the invalid range.
+ - `recurring`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)* - Recurrence rule for recurring invalid ranges.
+ - `recurringException`: *[MbscDateType](#type-MbscDateType) &#124; Array&lt;[MbscDateType](#type-MbscDateType)&gt;* - Specifies recurring exceptions.
+Useful when specific dates need to be skipped from the rule.
+ - `recurringExceptionRule`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)* - Specifies a recurrence exception rule.
+Useful when recurring dates need to be skipped from the rule.
+ - `start`: *[MbscDateType](#type-MbscDateType)* - Specifies the start of the invalid range.
+
+
+
+
+
 ### wheelWidth {#opt-wheelWidth}
 
 number &#124; Array&lt;number&gt;

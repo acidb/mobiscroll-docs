@@ -72,6 +72,44 @@ $('#scheduler').mobiscroll().eventcalendar({
 
 </div>
 
+### Shifted days
+
+[Shifted views](https://demo.mobiscroll.com/scheduler/24-hour-manufacturing-shift-rota-planning) — can be implemented by extending the scheduler [view](#configuring-the-view) with hours from the previous or next calendar days using the <code>startTime</code> and <code>endTime</code> properties with a day-offset format.
+
+![Scheduler shifted days](/img/scheduler-shifted-view.png)
+
+#### Shift Start Time (Previous Day Offset)
+
+Use a negative day offset (HH:MM-D) to show hours from the previous day (e.g., <code>'20:00-1'</code>).
+
+#### Shift End Time (Next Day Offset)
+
+Use a positive day offset (HH:MM+D) to extend the view into the next day (e.g., <code>'06:00+1'</code>).
+
+
+```ts
+view: {
+  schedule: {
+      type: 'week',
+      // Starts the view at 20:00 on the previous day
+      startTime: '20:00-1', 
+      // Ends the view at 06:00 on the next day
+      endTime: '06:00+1' 
+  }
+}
+```
+
+#### Customizing the Calendar Day Start
+
+The library applies the <code>.mbsc-schedule-day-limit</code> CSS class to the time row at the 00:00 midnight boundary. You can optionally customize its appearance using your own stylesheets.
+
+```css
+.my-calendar .mbsc-schedule-day-limit::after {
+  border-top-color: #d38231;
+  border-top-style: dashed;
+}
+```
+
 ### Row height
 
 There might be cases when you would like to change the height of the schedule cell. You can use the following CSS classes for this purpose:
@@ -138,6 +176,19 @@ resources: [
 :::info
 If you override both resource and day column widths, make sure column groups (day or resource, depending on the [`groupBy`](#opt-groupBy) option)
 are wide enough to contain their child elements, or specify a `min-width` for the group column instead of a fixed width.
+:::
+
+### Hide empty columns
+
+Columns without any events can be hidden by setting `hideEmptyColumns` to `true` under the [view](#configuring-the-view) configuration.
+
+### Hide invalid columns
+
+Fully invalid columns can be hidden by setting `hideInvalidColumns` to `true` under the [view](#configuring-the-view) configuration.
+
+:::info
+A column is considered fully invalid if it contains [invalid](#opt-invalid) periods defined with `allDay`, date values,
+or a single time range that covers a full day or multiple days.
 :::
 
 ## Resources
@@ -266,6 +317,29 @@ $('#scheduler').mobiscroll().eventcalendar({
 
 ## Templating
 The display of Scheduler can be customized with different [render functions](#renderers).
+
+### The cell
+Use the [renderCell](#renderer-renderCell) option to fully customize the Scheduler cells. Customize how the cell look and what they show. The renderer function gets an object with properties like date, events, colors, invalids, and resource, which can be used to display custom content.
+
+:::info
+Since cells are rendered frequently while scrolling, keep the customization lightweight for best performance.
+:::
+
+Check out how you can style the cell in [this example](https://demo.mobiscroll.com/scheduler/cell-content-template#) or just play with the slider below to see the differences.
+
+<ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
+  <figure slot="first" className="before">
+    <img width="1480" height="975" src={require('@site/static/img/normal-cell-templating-scheduler.png').default} />
+    <figcaption>Default template</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="1479" height="975" src={require('@site/static/img/cell-templating-scheduler.png').default} />
+    <figcaption>Custom template</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
+  </svg>
+</ImgComparisonSlider>
 
 ### The event, their content and buffer areas
 The events can be customized in two ways:

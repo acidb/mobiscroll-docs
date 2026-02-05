@@ -23,6 +23,17 @@ number
 string
 
 
+### hideEmptyColumns {#view-schedule-hideEmptyColumns}
+
+boolean
+
+
+**Default value**: `false.`
+### hideInvalidColumns {#view-schedule-hideInvalidColumns}
+
+boolean
+
+
 ### maxEventStack {#view-schedule-maxEventStack}
 
 number &#124; "all" &#124; "auto"

@@ -142,6 +142,51 @@ The predefined sizes correspond to specific default widths, but you can override
 You need to apply these rules after the mobiscroll default rules, otherwise the default rules will take precedence over them.
 :::
 
+### Shifted days
+
+[Shifted views](https://demo.mobiscroll.com/timeline/36-hour-rolling-window-aircraft-view) can be implemented by extending the daily timeline [view](#configuring-the-view) with hours from the previous or next calendar days using the <code>startTime</code> and <code>endTime</code> properties with a day-offset format.
+
+![Timeline shifted days](/img/timeline-shifted-days.png)
+
+#### Shift Start Time (Previous Day Offset)
+
+Use a negative day offset (HH:MM-D) to show hours from the previous day (e.g., <code>'20:00-1'</code>).
+
+#### Shift End Time (Next Day Offset)
+
+Use a positive day offset (HH:MM+D) to extend the view into the next day (e.g., <code>'06:00+1'</code>).
+
+
+```ts
+view: {
+  timeline: {
+      type: 'day',
+      resolutionHorizontal: 'hour',
+      resolutionVertical: 'day',             
+      // Starts the view at 20:00 on the previous day
+      startTime: '20:00-1', 
+      // Ends the view at 06:00 on the next day
+      endTime: '06:00+1' 
+  }
+}
+```
+
+#### Customizing the Calendar Day Start
+
+The library applies the <code>.mbsc-timeline-day-limit</code> CSS class to the time column at the 00:00 midnight boundary. You can optionally customize its appearance using your own stylesheets.
+
+```css
+.my-calendar .mbsc-timeline-day-limit {
+  border-left-color: #d38231;
+  border-left-style: dashed;
+}
+```
+
+:::info
+The day-offset feature is strictly dependent on the <code>type: 'day'</code> and the default hourly <code>resolutionHorizontal</code> setting. This can be efficiently combined with <code>resolutionVertical: 'day'</code> of any size.
+:::
+
+
 ## Resources
 
 ### Resource grouping and hierarchy
@@ -317,10 +362,49 @@ There are three CSS classes which can be used for [changing the height of resour
      height: 6px;
    }
    ```
+   
+### Hide empty resources
 
-## Load data on scroll
+Rows without any events can be hidden by setting `hideEmptyRows` to `true` under the [view](#configuring-the-view) configuration.
 
-The timeline view is virtualized, meaning its markup is dynamically generated and managed as needed. Scrolling vertically or horizontally triggers the [onVirtualLoading](#event-onVirtualLoading) lifecycle event, which can be used to [load data incrementally during scrolling](https://demo.mobiscroll.com/timeline/load-resources-on-scroll#), rather than loading all data during the initial render. This dramatically improves performance in case of a large event or resource count since not all data is loaded in memory from start. 
+:::info
+Parent resources will always be displayed, even when empty.
+If [resolutionVertical](#view-timeline-resolutionVertical) is set to `'day'` and all resources for a given day are empty, the entire day will be hidden.
+:::
+
+### Hide invalid resources
+
+Fully invalid rows can be hidden by setting `hideInvalidRows` to `true` under the [view](#configuring-the-view) configuration.
+
+:::info
+A resource row is considered fully invalid if it contains [invalid](#opt-invalid) periods defined with `allDay`, date values,
+or a single time range that covers a full day or multiple days.
+Parent resources will always be displayed, even when fully invalid.
+If [resolutionVertical](#view-timeline-resolutionVertical) is set to `'day'` and all resources for a given day are fully invalid, the entire day will be hidden.
+:::
+
+## Virtual scroll
+
+Virtual scroll is a performance optimization that ensures smooth scrolling and fast rendering when displaying large numbers of events or resources in the timeline.
+
+The timeline view is virtualized, meaning its markup is dynamically generated and managed as needed. As you scroll vertically or horizontally, the component updates what's visible in real time, only rendering the elements that appear in the viewport.
+This approach dramatically improves performance for large datasets: events and resources are not all loaded into memory at once, keeping the interface fast and responsive.
+
+When virtual scroll is enabled, the timeline calculates which items should be displayed based on the current scroll position.  
+Only the visible portion of the view is rendered, while non-visible parts are skipped until they come into view.
+
+Scrolling triggers the [onVirtualLoading](#event-onVirtualLoading) lifecycle event, which can be used to load data incrementally during scrolling, instead of fetching everything upfront.  
+You can see an example of this pattern in the [Load resources on scroll demo](https://demo.mobiscroll.com/timeline/load-resources-on-scroll).
+
+The calendar needs to be to placed inside a container which has a height. This can be either a fixed height, a height in percentage, or a flex height. When the calendar is placed directly in a container with a fixed height, it will work out of the box.
+If the height of the container is specified in percentage, e.g. you'd like to fill the full page height, you need to make sure that all parent elements also have height: 100% specified, up until the body and html elements, or until the closest parent which has a fixed height.
+If the container is inside a parent with flex layout, it will also work out of the box.
+
+In some cases, you may want to disable virtual scroll, for example:
+- When working with a small dataset that doesn't benefit from virtualization.
+- When you need to access or manipulate all DOM elements at once.
+
+To disable it, set [virtualScroll](#view-timeline-virtualScroll) to `false`.
 
 ## Event connections
 
@@ -451,6 +535,29 @@ Learn how to implement and adjust zoom levels by checking [this example](https:/
 
 ## Templating
 The display of Timeline can be customized with different [render functions](#renderers).
+
+### The cell
+Use the [renderCell](#renderer-renderCell) option to fully customize the Timeline cells. Customize how the cell look and what they show. The renderer function gets an object with properties like date, events, colors, invalids, resource, and slot which can be used to display custom content.
+
+:::info
+Since cells are rendered frequently while scrolling, keep the customization lightweight for best performance.
+:::
+
+Check out how you can style the cell in [this example](https://demo.mobiscroll.com/scheduler/dynamic-cell-content-template#) or just play with the slider below to see the differences.
+
+<ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
+  <figure slot="first" className="before">
+    <img width="1480" height="975" src={require('@site/static/img/normal-cell-templating-timeline.png').default} />
+    <figcaption>Default template</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="1479" height="975" src={require('@site/static/img/cell-templating-timeline.png').default} />
+    <figcaption>Custom template</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
+  </svg>
+</ImgComparisonSlider>
 
 ### The resource, their header and footer
 There are three approaches you can take:
@@ -686,7 +793,7 @@ Check out how you can style the Timeline header in [this example](https://demo.m
   </svg>
 </ImgComparisonSlider>
 
-### Variable event height (experimental) {#variable-event-height}
+### Variable event height {#variable-event-height}
 
 <VariableEventHeight />
 

@@ -71,6 +71,9 @@ The colored range will be considered all-day if:
 The dates can be specified as JavaScript Date objects, ISO 8601 strings, or moment objects.
 :::
 :::info
+For Javascript Date objects the month numbers are zero based. Like: 0 - January, 1 - February ... 11 - December.
+:::
+:::info
 The colors can be combined with the [labels](#opt-labels) or [marked](#opt-marked) options.
 :::
 
@@ -175,6 +178,9 @@ If there is no slot defined, it will be displayed on every slot.
 
 :::info
 The dates can be specified as JavaScript Date objects, ISO 8601 strings, or moment objects.
+:::
+:::info
+For Javascript Date objects the month numbers are zero based. Like: 0 - January, 1 - February ... 11 - December.
 :::
 :::info
 The event objects may have additional custom properties as well.
@@ -454,7 +460,7 @@ only fire the necessary lifecycle events, where the original data can be updated
 **Default value**: `undefined`
 ### invalid {#opt-invalid}
 
-Array&lt;[MbscDateType](#type-MbscDateType)&gt; &#124; Array&lt;IValidateProps&gt;
+Array&lt;[MbscDateType](#type-MbscDateType)&gt; &#124; Array&lt;[MbscCalendarInvalid](#type-MbscCalendarInvalid)&gt;
 
 An array containing the invalid values. Can contain dates,
 or objects with the following properties:
@@ -476,6 +482,9 @@ If there is no slot defined, the invalid range will be displayed in every slot.
 
 :::info
 The dates can be specified as JavaScript Date objects, ISO 8601 strings, or moment objects.
+:::
+:::info
+For Javascript Date objects the month numbers are zero based. Like: 0 - January, 1 - February ... 11 - December.
 :::
 
 ```js
@@ -517,6 +526,21 @@ The dates can be specified as JavaScript Date objects, ISO 8601 strings, or mome
 ```
 
 **Default value**: `undefined`
+
+The [`MbscCalendarInvalid`](#type-MbscCalendarInvalid) type has the following properties:
+ - `allDay`: *boolean* - If true the specified invalid will cover the whole day.
+ - `end`: *[MbscDateType](#type-MbscDateType)* - Specifies the end of the invalid range.
+ - `recurring`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)* - Recurrence rule for recurring invalid ranges.
+ - `recurringException`: *[MbscDateType](#type-MbscDateType) &#124; Array&lt;[MbscDateType](#type-MbscDateType)&gt;* - Specifies recurring exceptions.
+Useful when specific dates need to be skipped from the rule.
+ - `recurringExceptionRule`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)* - Specifies a recurrence exception rule.
+Useful when recurring dates need to be skipped from the rule.
+ - `start`: *[MbscDateType](#type-MbscDateType)* - Specifies the start of the invalid range.
+
+
+
+
+
 ### invalidateEvent {#opt-invalidateEvent}
 
 "strict" &#124; "start-end"
@@ -555,6 +579,9 @@ Useful when recurring dates need to be skipped from the rule.
 
 :::info
 The dates can be specified as JavaScript Date objects, ISO 8601 strings, or moment objects.
+:::
+:::info
+For Javascript Date objects the month numbers are zero based. Like: 0 - January, 1 - February ... 11 - December.
 :::
 :::info
 The labels can be combined with the [colors](#opt-colors) option.
@@ -603,6 +630,9 @@ Useful when recurring dates need to be skipped from the rule.
 
 :::info
 The dates can be specified as JavaScript Date objects, ISO 8601 strings, or moment objects.
+:::
+:::info
+For Javascript Date objects the month numbers are zero based. Like: 0 - January, 1 - February ... 11 - December.
 :::
 :::info
 The marked days can be combined with the [colors](#opt-colors) option.
@@ -1056,6 +1086,10 @@ Configures the Eventcalendar view. Possible views:
   Hours and minutes can be specified in the same string, example: `'09:30'`.
 - `endTime`: *string* (default `'24:00'`) - Set the end time of scheduler column.
   Hours and minutes can be specified in the same string, example: `'18:30'`.
+- `hideEmptyColumns`: *boolean* (default `false`) - Hide the empty columns in the scheduler view.
+  If set to `true`, the scheduler will not display columns without events.
+- `hideInvalidColumns`: *boolean* (default `false`) - Hide the fully invalid columns in the scheduler view.
+  If set to `true`, the scheduler will not display fully invalid columns.
 - `maxEventStack`: *&#039;all&#039; | &#039;auto&#039; | number* - Limit the number of displayed events. When the number of overlapping events reaches the
   specified value, a &quot;more&quot; button will be displayed which opens a popover showing the rest of the events.
     - If it is a `number`, it specifies how many events will be displayed before the &quot;more&quot; button appears.
@@ -1091,6 +1125,16 @@ Configures the Eventcalendar view. Possible views:
   hours (2, 3, 4, 6, 8, 12) using the `timeCellStep` and `timeLabelStep` properties.
 - `currentTimeIndicator`: *boolean* - Show or hide the current time indicator.
   Defaults to `true`, when the horizontal resolution is less than a day.
+- `hideEmptyRows`: *boolean* (default `false`) - Hide the empty rows in the timeline view.
+  If set to `true`, the timeline will not display rows without events.
+  :::info
+  Parent resources will always be displayed, even when empty.
+  :::
+- `hideInvalidRows`: *boolean* (default `false`) - Hide the fully invalid rows in the timeline view.
+  If set to `true`, the timeline will not display the fully invalid rows.
+  :::info
+  Parent resources will always be displayed, even when fully invalid.
+  :::
 - `startDay`: *number* (default `0`) - Specifies the first visible weekday of the view. Sunday is 0, Monday is 1, etc.
   Days outside of the `startDay` and `endDay` range will not be visible.
   Should not be mistaken for the [firstDay](#localization-firstDay) option,
@@ -1113,7 +1157,7 @@ Configures the Eventcalendar view. Possible views:
   - If set to `'fill'`, events cover the entire cell.
 - `eventHeight`: *&#039;variable&#039; | &#039;equal&#039;* (default &#039;equal&#039;) - Specifies wether the height of the events is equal or variable.
   :::info
-  Experimental feature: [learn more about variable event heights](./timeline#variable-event-height).
+  [Learn more about variable event heights](./timeline#variable-event-height).
   :::
 - `rowHeight`: *&#039;variable&#039; | &#039;equal&#039;* (default &#039;variable&#039;) - Controls the height of the timeline rows.
   By default rows will have variable height and will expand to accommodate the displayed events.

@@ -38,6 +38,50 @@ Parameters:
  - inst - The component instance.
 
 
+### @cell-hover-in {#event-onCellHoverIn}
+
+(args: MbscCellHoverEvent, inst: EventcalendarBase) => void
+
+
+Triggered when the mouse pointer hovers a day on the calendar view (does not apply for agenda view).
+
+Parameters:
+ - args - The event argument with the following properties:
+   - `colors`: *Array&lt;MbscCalendarColor&gt;* - The colors for the hovered cell.
+   - `date`: *Date* - The date of the hovered day.
+   - `events`: *Array&lt;MbscCalendarEvent&gt;* - The events for the hovered cell.
+   - `invalids`: *Array&lt;MbscCalendarInvalid&gt;* - The invalid dates for the hovered cell.
+   - `labels`: *Array&lt;MbscCalendarLabel&gt;* - If the cell has labels, contains the label objects for the hovered cell.
+   - `marked`: *Array&lt;MbscCalendarMarked&gt;* - If the cell is marked, contains the marked objects for the hovered cell.
+   - `selected`: *boolean* - Specifies if the cell is currently selected or not (in case of calendar view).
+   - `target`: *HTMLElement* - The DOM element of the cell.
+   - `resource`: *MbscResource* - The resource object for the hovered cell.
+
+ - inst - The component instance.
+
+
+### @cell-hover-out {#event-onCellHoverOut}
+
+(args: MbscCellHoverEvent, inst: EventcalendarBase) => void
+
+
+Triggered when the mouse pointer leaves a day on the calendar view (does not apply for agenda view).
+
+Parameters:
+ - args - The event argument with the following properties:
+   - `colors`: *Array&lt;MbscCalendarColor&gt;* - The colors for the hovered cell.
+   - `date`: *Date* - The date of the hovered cell.
+   - `events`: *Array&lt;MbscCalendarEvent&gt;* - The events for the hovered cell.
+   - `invalids`: *Array&lt;MbscCalendarInvalid&gt;* - The invalid dates for the hovered cell.
+   - `labels`: *Array&lt;MbscCalendarLabel&gt;* - If the cell has labels, contains the label objects for the hovered cell.
+   - `marked`: *Array&lt;MbscCalendarMarked&gt;* - If the cell is marked, contains the marked objects for the hovered cell.
+   - `selected`: *boolean* - Specifies if the cell is currently selected or not (in case of calendar view).
+   - `target`: *HTMLElement* - The DOM element of the cell.
+   - `resource`: *MbscResource* - The resource object for the hovered cell.
+
+ - inst - The component instance.
+
+
 ### @cell-right-click {#event-onCellRightClick}
 
 (args: MbscCellClickEvent, inst: EventcalendarBase) => void
@@ -655,6 +699,40 @@ Parameters:
    - `domEvent`: *Event* - The DOM event of the click.
    - `resource`: *string | number* - The id of the expanded [resource](#opt-resources).
    - `resourceObj`: *MbscResource* - The expanded [resource](#opt-resources).
+
+ - inst - The component instance.
+
+
+### @resource-hover-in {#event-onResourceHoverIn}
+
+(args: MbscResourceHoverEvent, inst: EventcalendarBase) => void
+
+
+Triggered when the mouse pointer hovers a resource cell on the timeline or scheduler view.
+
+Parameters:
+ - args - The event argument with the following properties:
+   - `date`: *Date* - The date of the hovered resource cell in case of group by date.
+   - `resource`: *MbscResource* - The hovered resource.
+   - `source`: *&#039;schedule&#039; | &#039;timeline&#039;* - The view where the resource cell was hovered.
+   - `target`: *HTMLElement* - The DOM element of the resource cell.
+
+ - inst - The component instance.
+
+
+### @resource-hover-out {#event-onResourceHoverOut}
+
+(args: MbscResourceHoverEvent, inst: EventcalendarBase) => void
+
+
+Triggered when the mouse pointer leaves a resource cell on the timeline or scheduler view.
+
+Parameters:
+ - args - The event argument with the following properties:
+   - `date`: *Date* - The date of the hovered resource cell in case of group by date.
+   - `resource`: *MbscResource* - The hovered resource.
+   - `source`: *&#039;schedule&#039; | &#039;timeline&#039;* - The view where the resource cell was hovered.
+   - `target`: *HTMLElement* - The DOM element of the resource cell.
 
  - inst - The component instance.
 

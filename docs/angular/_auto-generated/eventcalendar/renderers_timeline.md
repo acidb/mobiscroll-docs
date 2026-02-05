@@ -36,6 +36,22 @@ The following event specific properties are available:
 - `currentResource`: _string | number_ - The resource of the row or column where the event is being rendered.
 
 **Default value**: `undefined`
+### cellTemplate {#template-cellTemplate}
+
+Customize the cells of the Eventcalendar in scheduler and timeline views.
+
+The template will receive an object as context, which can be used to display custom content in the cells.
+Keep the cell template simple, as it will be called and rendered **very frequently** during scroll and view changes.
+
+The object passed to the template contains the following properties:
+- `colors`: _Array&lt;MbscCalendarColor&gt;_ - The list of colors for the current cell.
+- `date`: _Date_ – The current cell&#039;s date.
+- `events`: _Array&lt;MbscCalendarEvent&gt;_ List of events for the current cell.
+- `invalids`: _Array&lt;MbscCalendarInvalid&gt;_ - The list of invalids for the current cell.
+- `resource`: _MbscResource_ - The resource object of the current cell.
+- `slot`: _MbscSlot_ - The slot object of the rendered cell.
+
+**Default value**: `undefined`
 ### dayFooterTemplate {#template-dayFooterTemplate}
 
 Template to customize the footer of each day for the timeline.

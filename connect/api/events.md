@@ -12,7 +12,7 @@ import { Parameter } from '@site/src/components/Connect';
 
 ## List Events {#endpoint-get-events}
 
-Retrieves calendar events from all connected providers (Google Calendar, Microsoft Outlook, Apple Calendar) for the authenticated user.
+Retrieves calendar events from all connected providers (Google Calendar, Microsoft Outlook, Apple Calendar, CalDAV) for the authenticated user.
 
 Fetches events from multiple calendar providers simultaneously with support for pagination, filtering by date range and specific calendars, and handling of recurring events. Returns chronologically sorted events across all providers with "load more" functionality using nextPageToken tokens.
 
@@ -44,7 +44,7 @@ Calendar IDs that are not associated with the authenticated user's connected acc
 </Parameter>
 
 <Parameter name="nextPageToken" type="string" defaultValue={<code>undefined</code>} id="param-nextPageToken">
-Base64 encoded JSON pagination state object containing token information for each provider (Google, Microsoft, Apple). This parameter should be passed as-is from the previous response when loading more events.
+Base64 encoded JSON pagination state object containing token information for each provider (Google, Microsoft, Apple, CalDAV). This parameter should be passed as-is from the previous response when loading more events.
 </Parameter>
 
 <Parameter name="singleEvents" type="boolean" defaultValue={<code>true</code>} id="param-singleEvents">
@@ -61,7 +61,7 @@ Controls how recurring events are returned:
 Array of calendar events from all providers, sorted chronologically by start time. Each CalendarEvent object contains:
 
   <Parameter name="provider" type="string">
-  Provider name: `'google'`, `'microsoft'`, or `'apple'`
+  Provider name: `'google'`, `'microsoft'`, `'apple'`, or `'caldav'`
   </Parameter>
 
   <Parameter name="id" type="string">
@@ -236,7 +236,7 @@ const masters = await client.events.list({
 - The `pageSize` is distributed across all active providers (not per provider)
 - Maximum `pageSize` is capped at 1000 events
 - The `nextPageToken` token is Base64 encoded and should be passed as-is to subsequent requests
-- Each provider (Google, Microsoft, Apple) tracks its own pagination state independently
+- Each provider (Google, Microsoft, Apple, CalDAV) tracks its own pagination state independently
 - The `nextPageToken` parameter is only included in the response when more events are available
 - Date strings are automatically normalized to handle malformed ISO 8601 formats before parsing
 - The `color` property contains the background color value directly (not an object)
@@ -249,14 +249,14 @@ const masters = await client.events.list({
 
 Creates a new calendar event in the specified calendar for the authenticated user.
 
-Supports creating single events or recurring events with recurrence rules. The event is created in the provider's calendar system (Google Calendar, Microsoft Outlook, or Apple Calendar) based on the calendar ID.
+Supports creating single events or recurring events with recurrence rules. The event is created in the provider's calendar system (Google Calendar, Microsoft Outlook, Apple Calendar, or CalDAV) based on the calendar ID.
 
 **Endpoint:** `POST /event`
 
 ### Request Body
 
 <Parameter name="provider" type="string" required id="create-provider">
-Calendar provider where the event will be created. One of: `'google'`, `'microsoft'`, or `'apple'`.
+Calendar provider where the event will be created. One of: `'google'`, `'microsoft'`, `'apple'`, or `'caldav'`.
 </Parameter>
 
 <Parameter name="calendarId" type="string" required id="create-calendarId">
@@ -515,7 +515,7 @@ const allDayEvent = await client.events.create({
 - For recurring events, either `count` or `until` can be specified, but not both
 - The `byDay` property is typically used with `WEEKLY` frequency
 - All-day events should have start and end times at midnight (00:00:00)
-- The response `event` object format varies by provider (Google, Microsoft, Apple)
+- The response `event` object format varies by provider (Google, Microsoft, Apple, CalDAV)
 :::
 
 ---
@@ -531,7 +531,7 @@ Supports updating single events, recurring event series, or individual instances
 ### Request Body
 
 <Parameter name="provider" type="string" required id="update-provider">
-Calendar provider where the event exists. One of: `'google'`, `'microsoft'`, or `'apple'`.
+Calendar provider where the event exists. One of: `'google'`, `'microsoft'`, `'apple'`, or `'caldav'`.
 </Parameter>
 
 <Parameter name="eventId" type="string" required id="update-eventId">
@@ -741,7 +741,7 @@ Supports deleting single events, recurring event series, or individual instances
 ### Request Body
 
 <Parameter name="provider" type="string" required id="delete-provider">
-Calendar provider where the event exists. One of: `'google'`, `'microsoft'`, or `'apple'`.
+Calendar provider where the event exists. One of: `'google'`, `'microsoft'`, `'apple'`, or `'caldav'`.
 </Parameter>
 
 <Parameter name="eventId" type="string" required id="delete-eventId">

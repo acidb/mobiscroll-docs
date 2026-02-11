@@ -78,7 +78,7 @@ const { access_token } = await response.json();
 
 ### Calendars
 
-The Calendars endpoints allow you to retrieve calendar lists from all connected providers (Google, Outlook, Apple). Use these to display available calendars to users.
+The Calendars endpoints allow you to retrieve calendar lists from all connected providers (Google, Outlook, Apple, CalDAV). Use these to display available calendars to users.
 
 **Example: List Calendars**
 

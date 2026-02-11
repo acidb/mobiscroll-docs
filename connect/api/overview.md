@@ -6,7 +6,7 @@ slug: /overview
 
 # Overview
 
-Welcome to the Mobiscroll Connect API documentation. This API enables you to integrate with multiple calendar providers (Google Calendar, Microsoft Outlook, and Apple Calendar) through a unified interface.
+Welcome to the Mobiscroll Connect API documentation. This API enables you to integrate with multiple calendar providers (Google Calendar, Microsoft Outlook, Apple Calendar, and CalDAV) through a unified interface.
 
 ## Authentication
 
@@ -18,7 +18,7 @@ Most API endpoints require authentication using a Bearer token (JWT). Include th
 Authorization: Bearer YOUR_JWT_TOKEN
 ```
 
-**Exception:** The OAuth authorization endpoint (`GET /authorize`) does not require authentication as it initiates the OAuth flow.
+**Exception:** The [OAuth authorization endpoint](/connect/oauth#endpoint-authorize) does not require authentication as it initiates the OAuth flow.
 
 To obtain an access token:
 
@@ -64,6 +64,7 @@ Mobiscroll Connect supports the following calendar providers:
 - **Google Calendar** (`'google'`)
 - **Microsoft Outlook** (`'microsoft'`)
 - **Apple Calendar** (`'apple'`)
+- **CalDAV** (`'caldav'`)
 
 ## Base URL
 

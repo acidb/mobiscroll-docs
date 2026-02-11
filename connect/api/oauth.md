@@ -51,9 +51,9 @@ OAuth2 response type. Typically set to `"code"` for the authorization code flow.
 
 
 <Parameter name="Redirect" type="302 - Redirect" id="authorize-redirect">
-Redirects to the provider selection page (`/provider-select.html`) with all query parameters preserved (including the resolved `redirect_uri` from the database). The provider selection page allows the user to:
+Redirects to the provider selection page (`/authorize`) with all query parameters preserved (including the resolved `redirect_uri` from the database). The provider selection page allows the user to:
 
-1. Choose which calendar provider(s) to connect (Google Calendar, Microsoft Outlook, Apple Calendar)
+1. Choose which calendar provider(s) to connect (Google Calendar, Microsoft Outlook, Apple Calendar, CalDAV)
 2. Authenticate with each selected provider
 3. Review and approve the OAuth consent screen
 4. Complete the OAuth authorization flow
@@ -93,9 +93,9 @@ Sets `oauth_req` cookie containing the complete OAuth request for later retrieva
 GET /authorize?client_id=proj-123&user_id=user-456&redirect_uri=https://app.example.com/callback&response_type=code&state=xyz789&scope=read-write
 ```
 
-```bash title="Redirects to provider selection page"
+```bash title="Redirects to authorization page"
 302 Redirect
-Location: /provider-select.html?client_id=proj-123&user_id=user-456&redirect_uri=https://app.example.com/callback&response_type=code&state=xyz789&scope=read-write
+Location: /authorize?client_id=proj-123&user_id=user-456&redirect_uri=https://app.example.com/callback&response_type=code&state=xyz789&scope=read-write
 
 Set-Cookie: oauth_req={"client_id":"proj-123","user_id":"user-456",...}; HttpOnly; Path=/; Max-Age=1800; SameSite=Lax
 ```

@@ -12,7 +12,7 @@ import { Parameter } from '@site/src/components/Connect';
 
 ## List Calendars {#endpoint-get-calendars}
 
-Retrieves all calendar lists from all connected providers (Google Calendar, Microsoft Outlook, Apple Calendar) for the authenticated user.
+Retrieves all calendar lists from all connected providers (Google Calendar, Microsoft Outlook, Apple Calendar, CalDAV) for the authenticated user.
 
 Fetches the list of calendars from all connected calendar providers and returns a unified array of calendars across all providers with provider-specific metadata including timezone, color, and access role information.
 
@@ -25,7 +25,7 @@ Fetches the list of calendars from all connected calendar providers and returns 
 Array of calendar objects from all connected providers. Each Calendar object contains:
 
   <Parameter name="provider" type="string">
-  Provider name: `'google'`, `'microsoft'`, or `'apple'`
+  Provider name: `'google'`, `'microsoft'`, `'apple'`, or `'caldav'`
   </Parameter>
 
   <Parameter name="id" type="string">
@@ -101,6 +101,13 @@ const calendars = await client.calendars.list();
     "provider": "apple",
     "timeZone": "America/New_York",
     "description": "Personal events"
+  },
+  {
+    "id": "https://nextcloud.example.com/remote.php/dav/calendars/user/personal/",
+    "title": "CalDAV Personal",
+    "provider": "caldav",
+    "timeZone": "UTC",
+    "description": "CalDAV calendar"
   }
 ]
 ```

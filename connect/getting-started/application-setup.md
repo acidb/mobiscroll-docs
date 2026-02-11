@@ -10,7 +10,7 @@ slug: /application-setup
 
 Before creating your application, ensure you are logged into your Mobiscroll account.
 
-Head over to the pricing page and choose the plan that suits you the best. After your subscription is started, the Mobiscroll Connect dashboard will become available here https://mobiscroll.com/account/connect.
+Head over to the [pricing page](https://staging.mobiscroll.com/connect-pricing) and choose the plan that suits you the best. After your subscription is started, the [Mobiscroll Connect dashboard](https://mobiscroll.com/account/connect) will become available.
 
 :::info
 This guide assumes your initial Mobiscroll account setup is already complete. If you have not yet set up your Mobiscroll account, please finalize your profile registration before proceeding.
@@ -20,7 +20,7 @@ This guide assumes your initial Mobiscroll account setup is already complete. If
 
 To use Mobiscroll Connect services, you must register your application to generate the necessary API credentials.
 
-1. Navigate to the **Connect** dashboard tab on your account page.
+1. Navigate to the **[Connect dashboard](https://mobiscroll.com/account/connect)** tab on your account page.
 2. Click the **Create new app**.
 3. You will be prompted to fill in the project details:
 

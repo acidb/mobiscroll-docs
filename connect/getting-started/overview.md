@@ -8,7 +8,7 @@ slug: /
 
 ## What is Mobiscroll Connect?
 
-Mobiscroll Connect is an API service that acts as a full-fledged OAuth 2.0 provider, enabling seamless integration with multiple calendar providers through a unified interface. It connects to Google Calendar, Microsoft 365/Outlook.com, and Apple Calendar, exposing a standardized API for client applications to access calendar data securely.
+Mobiscroll Connect is an API service that acts as a full-fledged OAuth 2.0 provider, enabling seamless integration with multiple calendar providers through a unified interface. It connects to Google Calendar, Microsoft 365/Outlook.com, Apple Calendar, and CalDAV, exposing a standardized API for client applications to access calendar data securely.
 
 The service handles the complexity of working with different calendar providers, offering a single authentication flow and consistent API endpoints. Client applications can retrieve calendars and events from all connected providers without managing multiple OAuth implementations or dealing with provider-specific APIs.
 

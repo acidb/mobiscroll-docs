@@ -75,7 +75,9 @@
 .plugin-id-default .navbar-sidebar .mobiscroll-ui-nav { display: flex; }
 .plugin-id-connect .navbar-sidebar .mobiscroll-connect-nav { display: flex; }
 
-
+.docs-doc-id-getting-started .navbar__item {
+  display: none;
+}
 
 .theme-doc-sidebar-item-category {
   padding-bottom: 30px;

@@ -49,8 +49,6 @@ const config = {
         path: 'connect',
         routeBasePath: 'connect',
         sidebarPath: './sidebarsConnect.js',
-        includeCurrentVersion: false,
-        lastVersion: '1.0.0',
       },
     ],
   ],
@@ -65,6 +63,11 @@ const config = {
           routeBasePath: '/',
           includeCurrentVersion: false,
           lastVersion: '5.35.0',
+          versions: {
+            "5.35.0": {
+              badge: false,
+            },
+          }
         },
         blog: false,
         theme: {

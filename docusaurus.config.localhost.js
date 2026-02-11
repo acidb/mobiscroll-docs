@@ -66,6 +66,7 @@ const config = {
           versions: {
             current: {
               banner: 'none',
+              badge: false,
             },
           },
         },

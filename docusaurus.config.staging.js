@@ -63,6 +63,11 @@ const config = {
           routeBasePath: '/',
           includeCurrentVersion: false,
           lastVersion: '5.35.0',
+          versions: {
+            "5.35.0": {
+              badge: false,
+            },
+          }
         },
         blog: false,
         theme: {

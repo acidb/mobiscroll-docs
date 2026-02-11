@@ -26,7 +26,8 @@
   font-weight: 600;
 }
 
-.parameterObject > .description > .parameter {
+.parameterObject .description > .parameter,
+.parameterObject .description > .parameterObject {
   margin-left: 2rem;
   padding-left: 1rem;
   border-left: 2px solid var(--ifm-color-emphasis-300);

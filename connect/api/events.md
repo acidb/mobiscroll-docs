@@ -72,6 +72,10 @@ Array of calendar events from all providers, sorted chronologically by start tim
   Event title/summary
   </Parameter>
 
+  <Parameter name="description" type="string">
+  Event description or notes (optional)
+  </Parameter>
+
   <Parameter name="start" type="Date">
   Event start date/time
   </Parameter>
@@ -96,7 +100,7 @@ Array of calendar events from all providers, sorted chronologically by start tim
   Event location (optional)
   </Parameter>
 
-  <Parameter name="attendees" type="Array of objects">
+  <Parameter name="attendees" type="Array&lt;EventAttendee&gt;" isObject>
   Array of event attendees (optional). Each object contains:
 
   <Parameter name="email" type="string">
@@ -111,7 +115,7 @@ Array of calendar events from all providers, sorted chronologically by start tim
   True if this attendee is the event organizer (optional)
   </Parameter>
 
-</Parameter>
+  </Parameter>
 
 <Parameter name="custom" type="object">
 Custom key-value pairs for additional event data (optional)

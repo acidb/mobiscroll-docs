@@ -4,6 +4,15 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
+// overwrite urls for localhost
+const navbar = require('./navbar.config');
+const links = navbar.items[3].items;
+for(var i =0; i < links.length; i++) { // Older versions
+  if(links[i].href) {
+    links[i].href = links[i].href.replace('docs.mobiscroll.com', 'docs.mobiscrollprod.com');
+  }
+}
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Mobiscroll Documentation',
@@ -32,6 +41,18 @@ const config = {
     locales: ['en'],
   },
 
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'connect',
+        path: 'connect',
+        routeBasePath: 'connect',
+        sidebarPath: './sidebarsConnect.js',
+      },
+    ],
+  ],
+
   presets: [
     [
       'classic',
@@ -45,6 +66,7 @@ const config = {
           versions: {
             current: {
               banner: 'none',
+              badge: false,
             },
           },
         },
@@ -69,117 +91,7 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/fb-home.png',
-      navbar: {
-        title: '',
-        logo: {
-          alt: 'Mobiscroll Logo',
-          src: 'img/mobiscroll-logo.svg',
-          srcDark: 'img/mobiscroll-logo-dark.svg',
-        },
-        items: [
-          {
-            type: 'docsVersionDropdown',
-          },
-          {
-            type: 'custom-frameworkDropdown',
-            label: 'Framework',
-            items: [
-              {
-                type: 'doc',
-                label: 'Angular',
-                // href: 'https://docs.mobiscrollprod.com/angular',
-                docId: 'angular/getting-started/overview',
-                framework: 'angular'
-              },
-              {
-                type: 'doc',
-                label: 'JavaScript',
-                // href: 'https://docs.mobiscrollprod.com/javascript',
-                docId: 'javascript/getting-started/overview',
-                framework: 'javascript'
-              },
-              {
-                type: 'doc',
-                label: 'jQuery',
-                // href: 'https://docs.mobiscrollprod.com/jquery',
-                docId: 'jquery/getting-started/overview',
-                framework: 'jquery'
-              },
-              {
-                type: 'doc',
-                label: 'React',
-                // href: 'https://docs.mobiscrollprod.com/react',
-                docId: 'react/getting-started/overview',
-                framework: 'react'
-              },
-              {
-                type: 'doc',
-                label: 'Vue',
-                docId: 'vue/getting-started/overview',
-                framework: 'vue'
-              },
-            ],
-          },
-          // {
-          //   type: 'custom-frameworkDropdown',
-          // },
-          {
-            type: 'dropdown',
-            label: 'Older versions',
-            position: 'right',
-            items: [
-              {
-                label: 'Version 4.10.10',
-                href: 'https://docs.mobiscrollprod.com/4-10-10/getting-started'
-              },
-              {
-                label: 'Version 3.2.6',
-                href: 'https://docs.mobiscrollprod.com/3-2-6/getting-started'
-              },
-            ]
-          },
-          // {
-          //   type: 'doc',
-          //   docId: 'core-concepts/cli',
-          //   label: 'CLI',
-          //   position: 'right',
-          // },
-          {
-            type: 'dropdown',
-            label: 'Community',
-            items: [
-              {
-                label: 'Forum',
-                href: 'https://forum.mobiscroll.com/',
-              },
-              {
-                label: 'Blog',
-                href: ' https://blog.mobiscroll.com/',
-              },
-              {
-                href: 'https://github.com/acidb/mobiscroll/issues',
-                label: 'GitHub',
-              },
-            ],
-            position: 'right',
-          },
-          {
-            type: 'dropdown',
-            label: 'Support',
-            items: [
-              {
-                href: 'https://mobiscroll.com/account/supporttickets',
-                label: 'Support tickets',
-              },
-              {
-                label: 'Help Center',
-                href: 'http://help.mobiscroll.com',
-              },
-            ],
-            position: 'right',
-          },
-        ],
-      },
+      navbar: navbar,
       footer: {
         style: 'dark',
         copyright: `Copyright © ${new Date().getFullYear()} Acid Media LLC. Built with Docusaurus.`,

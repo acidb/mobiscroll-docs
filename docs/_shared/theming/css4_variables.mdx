@@ -34,67 +34,148 @@ Here's the complete list of the CSS4 **theme (generic)** color variables, groupe
 ```scss title="Available color variables and defaults for iOS"
 :root {
   /* iOS theme – light */
-  --mbsc-ios-background: #f7f7f7;                     /* Page background */
-  --mbsc-ios-surface-background: #ffffff;             /* Cards, sheets */
-  --mbsc-ios-text: #000000;                           /* Primary text */
-  --mbsc-ios-accent: #007bff;                         /* Brand / accent */
-  --mbsc-ios-accent-soft: rgba(0, 123, 255, 0.15);    /* Subtle accent */
-  --mbsc-ios-outline: #d1d1d6;                        /* Borders, dividers */
-  --mbsc-ios-on-accent: #ffffff;                      /* Text on accent */
-  --mbsc-ios-on-background: #000000;                  /* Text on background */
-  --mbsc-ios-action-success: #43be5f;                 /* Success state */
-  --mbsc-ios-control-background: #ffffff;             /* Inputs, buttons */
-  --mbsc-ios-border-color: #d1d1d6;                   /* Control borders */
-  --mbsc-ios-surface-secondary-background: #efeff4;   /* Secondary surfaces */
-  --mbsc-ios-surface-cell-background: #ffffff;        /* List / calendar cells */
-  --mbsc-ios-highlight-background: #ffffff;           /* Hover / active */
+  --mbsc-ios-background;              /* Calendar bg */
+  --mbsc-ios-background-alt;          /* Page bg */
+  --mbsc-ios-surface-1;               /* Popup bg, disabled bg */
+  --mbsc-ios-surface-2;
+  --mbsc-ios-surface-3;
+  --mbsc-ios-surface-4;               /* Segmented selected bg */
+  --mbsc-ios-surface-5;               /* Button bg, switch track, segmented bg */
+  --mbsc-ios-surface-6;               /* Timeline parent resource bg */
+  --mbsc-ios-surface-7;               /* Form control bg inside popup */
+  --mbsc-ios-text;
+  --mbsc-ios-text-soft;
+  --mbsc-ios-accent;
+  --mbsc-ios-accent-soft;             /* Calendar event bg */
+  --mbsc-ios-border;
+  --mbsc-ios-focus;
+  --mbsc-ios-highlight;               /* Range selection bg, day hover bg */
+  --mbsc-ios-action-success;          /* Switch on bg, drag valid */
+  --mbsc-ios-action-error;            /* Drag invalid */
+  --mbsc-ios-on-accent;
+  --mbsc-ios-on-accent-soft;
 
   /* Dark variants are also included using the `-dark-` prefixed variables. */
-  --mbsc-ios-dark-background: #000000;                   
-  --mbsc-ios-dark-surface-background: #1c1c1e;           
-  --mbsc-ios-dark-text: #ffffff;                         
-  --mbsc-ios-dark-accent: #0a84ff;                       
-  --mbsc-ios-dark-accent-soft: rgba(10, 132, 255, 0.25);  
-  --mbsc-ios-dark-outline: #2c2c2e;                     
-  --mbsc-ios-dark-on-accent: #ffffff;                    
-  --mbsc-ios-dark-on-background: #ffffff;                 
-  --mbsc-ios-dark-action-success: #30d158;             
-  --mbsc-ios-dark-control-background: #1c1c1e;             
-  --mbsc-ios-dark-border-color: #2c2c2e;                
-  --mbsc-ios-dark-surface-secondary-background: #2c2c2e;   
-  --mbsc-ios-dark-surface-cell-background: #1c1c1e;        
-  --mbsc-ios-dark-highlight-background: rgba(255, 255, 255, 0.08); 
-
+  --mbsc-ios-dark-background;
+  --mbsc-ios-dark-background-alt;
+  --mbsc-ios-dark-surface-1;
+  --mbsc-ios-dark-surface-2;
+  --mbsc-ios-dark-surface-3;
+  --mbsc-ios-dark-surface-4;
+  --mbsc-ios-dark-surface-5;
+  --mbsc-ios-dark-surface-6;
+  --mbsc-ios-dark-surface-7;
+  --mbsc-ios-dark-text;
+  --mbsc-ios-dark-text-soft;
+  --mbsc-ios-dark-accent;
+  --mbsc-ios-dark-accent-soft;
+  --mbsc-ios-dark-border;
+  --mbsc-ios-dark-focus;
+  --mbsc-ios-dark-highlight;
+  --mbsc-ios-dark-action-success;
+  --mbsc-ios-dark-action-error;
+  --mbsc-ios-dark-on-accent;
+  --mbsc-ios-dark-on-accent-soft;
 }
 ```
-
-**Theme color variables usage in components:**
-
-- `background` – page background  
-- `surface-background` – cards, sheets  
-- `text` – primary text  
-- `accent` – selection, focus, active  
-- `accent-soft` – subtle highlight, feedback  
-- `outline` – borders, dividers  
-- `on-accent` – text / icons on accent  
-- `on-background` – text / icons on background  
-- `action-success` – success states  
-- `control-background` – inputs, buttons  
-- `border-color` – control borders  
-- `surface-secondary-background` – secondary surfaces  
-- `surface-cell-background` – list, calendar cells  
-- `highlight-background` – hover, active feedback
-
-
 
 ## Material color variables
 
 ```scss title="Available color variables and defaults for Material"
+:root {
+  /* Material theme – light */
+  --mbsc-material-accent;                     /* Primary / brand */
+  --mbsc-material-background;                 /* Main surface (component backgrounds) */
+  --mbsc-material-text;                       /* Main text */
+  --mbsc-material-outline;                    /* Outlines (e.g. button/switch outline) */
+  --mbsc-material-secondary-container;        /* Secondary container surface */
+  --mbsc-material-surface-container-high;     /* Popup / elevated surface */
+  --mbsc-material-surface-container-highest;  /* Input box / highest surface */
+  --mbsc-material-on-accent;                  /* Text/icons on accent */
+  --mbsc-material-on-background;              /* Text/icons on background */
+  --mbsc-material-on-surface;                 /* Text/icons on surface */
+  --mbsc-material-on-surface-variant;         /* Input/checkbox/radio borders, subtle text */
+  --mbsc-material-on-surface-variant;         /* (same name, used as “variant” role) */
+  --mbsc-material-accent-soft;                /* Segmented selected bg */
+  --mbsc-material-border;                     /* Borders (datepicker, segmented, etc.) */
+  --mbsc-material-surface-1;                  /* Stepper disabled button bg */
+  --mbsc-material-surface-2;                  /* Timeline resource parent bg */
+  --mbsc-material-surface-3;                  /* Timeline disabled bg / select input focused */
+  --mbsc-material-surface-4;                  /* Timeline disabled cell bg / text */
+  --mbsc-material-surface-5;                  /* Timeline resource parent hover */
+  --mbsc-material-action-error;               /* Error state */
 
+  /* Dark variants are also included using the `-dark-` prefixed variables. */
+  --mbsc-material-dark-accent;
+  --mbsc-material-dark-background;
+  --mbsc-material-dark-text;
+  --mbsc-material-dark-outline;
+  --mbsc-material-dark-secondary-container;
+  --mbsc-material-dark-surface-container-high;
+  --mbsc-material-dark-surface-container-highest;
+  --mbsc-material-dark-on-accent;
+  --mbsc-material-dark-on-background;
+  --mbsc-material-dark-on-surface;
+  --mbsc-material-dark-on-surface-variant;
+  --mbsc-material-dark-accent-soft;
+  --mbsc-material-dark-border;
+  --mbsc-material-dark-surface-1;
+  --mbsc-material-dark-surface-2;
+  --mbsc-material-dark-surface-3;
+  --mbsc-material-dark-surface-4;
+  --mbsc-material-dark-surface-5;
+  --mbsc-material-dark-action-error;
+}
 ```
 
 ## Windows color variables
 
 ```scss title="Available color variables and defaults for Windows"
+:root {
+  /* Windows theme – light */
+  --mbsc-windows-background;            /* Used as default component backgrounds */
+  --mbsc-windows-surface-1;             /* Checkbox active state */
+  --mbsc-windows-surface-2;             /* Eventcalendar disabled cell bg */
+  --mbsc-windows-surface-3;             /* Eventcalendar disabled cell text */
+  --mbsc-windows-surface-4;             /* Notification bg, select tag bg, calendar view button bg */
+  --mbsc-windows-surface-5;             /* Small UI surfaces (e.g. radio border / clear icon bg) */
+  --mbsc-windows-surface-6;             /* Hover/secondary surfaces, timeline parent bg */
+  --mbsc-windows-text;                  /* Default text */
+  --mbsc-windows-accent;                /* Brand / accent */
+  --mbsc-windows-accent-soft;           /* Segmented selected bg */
+  --mbsc-windows-border;                /* Button/input border */
+  --mbsc-windows-border-hover;
+  --mbsc-windows-border-focus;
+  --mbsc-windows-border-strong;         /* Checkbox/radio/switch/input strong border */
+  --mbsc-windows-border-strong-hover;
+  --mbsc-windows-outline;               /* Hover/interaction bg, list border, etc. */
+  --mbsc-windows-highlight;             /* Datepicker hover / selected bg */
+  --mbsc-windows-action-error;          /* Error state */
+  --mbsc-windows-on-accent;             /* Text/icons on accent */
+  --mbsc-windows-on-background;         /* Text/icons on background */
+  --mbsc-windows-on-surface;            /* Text/icons on surface */
 
+  /* Dark variants are also included using the `-dark-` prefixed variables. */
+  --mbsc-windows-dark-background;
+  --mbsc-windows-dark-surface-1;
+  --mbsc-windows-dark-surface-2;
+  --mbsc-windows-dark-surface-3;
+  --mbsc-windows-dark-surface-4;
+  --mbsc-windows-dark-surface-5;
+  --mbsc-windows-dark-surface-6;
+  --mbsc-windows-dark-text;
+  --mbsc-windows-dark-accent;
+  --mbsc-windows-dark-accent-soft;
+  --mbsc-windows-dark-border;
+  --mbsc-windows-dark-border-hover;
+  --mbsc-windows-dark-border-focus;
+  --mbsc-windows-dark-border-strong;
+  --mbsc-windows-dark-border-strong-hover;
+  --mbsc-windows-dark-outline;
+  --mbsc-windows-dark-highlight;
+  --mbsc-windows-dark-action-error;
+  --mbsc-windows-dark-on-accent;
+  --mbsc-windows-dark-on-background;
+  --mbsc-windows-dark-on-surface;
+}
 ```

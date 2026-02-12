@@ -1,1 +1,168 @@
-### test shared eventcalendar
+import CodeBlock from '@theme/CodeBlock';
+
+This page lists the Eventcalendar-specific CSS4 variables that can be overridden to customize colors and visual states.
+For general theming concepts and shared (generic) theme variables, see the [CSS variables overview](../theming/css4-variables).
+
+:::info
+Variable names and available options may differ between themes, so make sure to override the variables that correspond to the active theme.
+:::
+
+---
+
+## Eventcalendar variables
+
+Variables can be overridden globally on `:root` or scoped to a specific container.
+
+```scss
+:root {
+  --mbsc-ios-eventcalendar-accent: #007aff;
+  --mbsc-ios-eventcalendar-event-color: #34c759;
+}
+
+.my-calendar {
+  --mbsc-material-eventcalendar-accent: #6200ee;
+}
+```
+
+### iOS theme
+
+These variables apply when the `ios` theme is active.
+
+
+```scss
+:root {
+  /* Core */
+  --mbsc-ios-eventcalendar-accent: ;              /* Selected day, active state, primary highlight color */
+  --mbsc-ios-eventcalendar-on-accent: ;           /* Text/icons shown on accent background */
+
+  --mbsc-ios-eventcalendar-bg-color: ;            /* Main calendar background */
+  --mbsc-ios-eventcalendar-text-color: ;          /* Default text color (days, labels) */
+  --mbsc-ios-eventcalendar-border-color: ;        /* Grid lines, separators */
+
+  --mbsc-ios-eventcalendar-event-color: ;         /* Event background color */
+  --mbsc-ios-eventcalendar-event-text: ;          /* Text color inside events */
+  --mbsc-ios-eventcalendar-event-mark: ;          /* Small event dot / indicator color */
+
+  --mbsc-ios-eventcalendar-highlight: ;           /* Today / highlighted day background */
+  --mbsc-ios-eventcalendar-time-color: ;          /* Time labels, week numbers */
+
+  --mbsc-ios-eventcalendar-disabled-bg-color: ;   /* Disabled day background */
+  --mbsc-ios-eventcalendar-parent: ;              /* Background of parent days (outside month) */
+  --mbsc-ios-eventcalendar-parent-hover: ;        /* Hover background of parent days */
+
+  --mbsc-ios-eventcalendar-focus: ;               /* Focus outline color (keyboard nav) */
+  --mbsc-ios-eventcalendar-success: ;             /* Success state color */
+  --mbsc-ios-eventcalendar-error: ;               /* Error state color */
+
+  --mbsc-ios-eventcalendar-popup-bg-color: ;      /* Event popup background */
+  --mbsc-ios-eventcalendar-popup-list-bg-color: ; /* Popup event list background */
+
+  /* Calendar view */
+  --mbsc-ios-calendar-accent: ;           /* Calendar selection color */
+  --mbsc-ios-calendar-on-accent: ;        /* Text on selected day */
+  --mbsc-ios-calendar-bg: ;               /* Calendar surface background */
+  --mbsc-ios-calendar-popup-bg: ;         /* Popup surface background */
+  --mbsc-ios-calendar-text: ;             /* Calendar text */
+  --mbsc-ios-calendar-border: ;           /* Calendar grid border */
+  --mbsc-ios-calendar-event: ;            /* Event background (calendar view) */
+  --mbsc-ios-calendar-event-text: ;       /* Event text (calendar view) */
+  --mbsc-ios-calendar-mark: ;             /* Event dots (calendar view) */
+  --mbsc-ios-calendar-highlight: ;        /* Highlighted day background */
+  --mbsc-ios-calendar-focus: ;            /* Focus outline */
+  --mbsc-ios-calendar-week-nr: ;          /* Week number color */
+
+  /* List */
+  --mbsc-ios-list-bg-color: ;             /* List background */
+  --mbsc-ios-list-bg-color-popup: ;       /* List background inside popup */
+  --mbsc-ios-list-text-color: ;           /* List item text */
+  --mbsc-ios-list-border-color: ;         /* List separators */
+  --mbsc-ios-list-header-bg-color: ;      /* List header background */
+  --mbsc-ios-list-header-text-color: ;    /* List header text */
+}
+```
+### Windows theme
+
+These variables apply when the `windows` theme is active.
+
+```scss
+:root {
+   /* Core */
+  --mbsc-windows-eventcalendar-accent: ;              /* Selected day / primary accent */
+  --mbsc-windows-eventcalendar-bg-color: ;            /* Calendar background */
+  --mbsc-windows-eventcalendar-text-color: ;          /* Default text color */
+  --mbsc-windows-eventcalendar-border-color: ;        /* Grid / separator color */
+
+  --mbsc-windows-eventcalendar-event-color: ;         /* Event background */
+  --mbsc-windows-eventcalendar-on-accent: ;           /* Text color on event background */
+  --mbsc-windows-eventcalendar-event-mark: ;          /* Selected marker color */
+
+  --mbsc-windows-eventcalendar-background-parent: ;   /* Outside month day background */
+  --mbsc-windows-eventcalendar-background-parent-hover: ; /* Outside month hover */
+  --mbsc-windows-eventcalendar-disabled-bg-color: ;   /* Disabled day background */
+  --mbsc-windows-eventcalendar-disabled-text: ;       /* Disabled day text */
+
+  --mbsc-windows-eventcalendar-list-item-focus: ;     /* Focused list item background */
+  --mbsc-windows-eventcalendar-success: ;             /* Success state color */
+  --mbsc-windows-eventcalendar-error: ;               /* Error state color */
+
+  /* Calendar view */
+  --mbsc-windows-calendar-accent: ;                   /* Calendar accent */
+  --mbsc-windows-calendar-bg: ;                       /* Calendar surface background */
+  --mbsc-windows-calendar-text: ;                     /* Calendar text */
+  --mbsc-windows-calendar-border: ;                   /* Calendar cell border */
+  --mbsc-windows-calendar-mark: ;                     /* Event dot color */
+  --mbsc-windows-calendar-focus: ;                    /* Focus outline color */
+  --mbsc-windows-calendar-event: ;                    /* Event background */
+  --mbsc-windows-calendar-event-text: ;               /* Event text color */
+  --mbsc-windows-calendar-button-bg: ;                /* Calendar button background */
+  --mbsc-windows-calendar-border-hover: ;             /* Hovered border color */
+  --mbsc-windows-calendar-text-contrast-secondary: ;  /* Secondary contrast text */
+
+  /* List */
+  --mbsc-windows-list-bg-color: ;                     /* List background */
+  --mbsc-windows-list-text-color: ;                   /* List item text */
+  --mbsc-windows-list-header-bg-color: ;              /* List header background */
+  --mbsc-windows-list-header-text-color: ;            /* List header text */
+}
+```
+### Material theme
+
+These variables apply when the `material` theme is active.
+
+```scss
+:root {
+  /* Core */
+  --mbsc-material-eventcalendar-accent: ;                 /* Primary accent / selected day */
+  --mbsc-material-eventcalendar-bg-color: ;               /* Calendar background */
+  --mbsc-material-eventcalendar-text-color: ;             /* Default text color */
+  --mbsc-material-eventcalendar-border-color: ;           /* Grid / separators */
+
+  --mbsc-material-eventcalendar-event-color: ;            /* Event background */
+  --mbsc-material-eventcalendar-event-mark: ;             /* Selected marker color */
+  --mbsc-material-eventcalendar-event-text: ;             /* Event text color */
+  --mbsc-material-eventcalendar-on-accent: ;              /* Text/icons on accent background */
+
+  --mbsc-material-eventcalendar-resource-parent-bg: ;     /* Timeline resource parent background */
+  --mbsc-material-eventcalendar-resource-parent-hover: ;  /* Timeline resource parent hover */
+  --mbsc-material-eventcalendar-schedule-event-active: ;  /* Dragged event shadow color */
+  --mbsc-material-eventcalendar-schedule-text-color: ;    /* Schedule view text color */
+
+  --mbsc-material-eventcalendar-disabled-bg-color: ;      /* Disabled day background */
+  --mbsc-material-eventcalendar-disabled-text: ;          /* Disabled day text */
+
+  /* Calendar view */
+  --mbsc-material-calendar-accent: ;                      /* Calendar accent */
+  --mbsc-material-calendar-bg: ;                          /* Calendar surface background */
+  --mbsc-material-calendar-text: ;                        /* Calendar text */
+  --mbsc-material-calendar-border: ;                      /* Calendar border */
+  --mbsc-material-calendar-mark: ;                        /* Event dot color */
+  --mbsc-material-calendar-event: ;                       /* Event background */
+  --mbsc-material-calendar-event-text: ;                  /* All-day event text color */
+  --mbsc-material-calendar-event-text-secondary: ;        /* Secondary event text */
+
+  /* List */
+  --mbsc-material-list-bg-color: ;                        /* List background */
+  --mbsc-material-list-text-color: ;                      /* List item text */
+  --mbsc-material-list-header-bg-color: ;                 /* List header background */
+  --mbsc-material-list-header-text-color: ;               /* List header text */
+}

@@ -103,16 +103,6 @@ view: {
 }
 ```
 
-#### Customizing the Calendar Day Start
-
-The library applies the <code>.mbsc-schedule-day-limit</code> CSS class to the time row at the 00:00 midnight boundary. You can optionally customize its appearance using your own stylesheets.
-
-```css
-.my-calendar .mbsc-schedule-day-limit::after {
-  border-top-color: #d38231;
-  border-top-style: dashed;
-}
-```
 
 ### Row height
 

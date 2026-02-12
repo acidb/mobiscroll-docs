@@ -34,6 +34,18 @@ const config = {
     locales: ['en'],
   },
 
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'connect',
+        path: 'connect',
+        routeBasePath: 'connect',
+        sidebarPath: './sidebarsConnect.js',
+      },
+    ],
+  ],
+
   presets: [
     [
       'classic',

@@ -180,16 +180,6 @@ view: {
 }
 ```
 
-#### Customizing the Calendar Day Start
-
-The library applies the <code>.mbsc-timeline-day-limit</code> CSS class to the time column at the 00:00 midnight boundary. You can optionally customize its appearance using your own stylesheets.
-
-```css
-.my-calendar .mbsc-timeline-day-limit {
-  border-left-color: #d38231;
-  border-left-style: dashed;
-}
-```
 
 :::info
 The day-offset feature is strictly dependent on the <code>type: 'day'</code> and the default hourly <code>resolutionHorizontal</code> setting. This can be efficiently combined with <code>resolutionVertical: 'day'</code> of any size.

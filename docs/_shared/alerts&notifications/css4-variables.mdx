@@ -1,1 +1,119 @@
-### test shared alerts & notifications
+import CodeBlock from '@theme/CodeBlock';
+
+This page lists the Notification and alert specific CSS4 variables that can be overridden to customize colors and visual states.
+For general theming concepts and shared (generic) theme variables, see the [CSS variables overview](../theming/css4-variables).
+
+:::info
+Variable names and available options may differ between themes, so make sure to override the variables that correspond to the active theme.
+:::
+
+---
+
+## Notification and alert variables
+
+Variables can be overridden globally on `:root` or scoped to a specific container.
+
+```scss
+:root {
+  --mbsc-notification-bg: #ffffff;
+  --mbsc-notification-text: #1a1a1a;
+
+  --mbsc-toast-bg-color: #333333;
+  --mbsc-toast-text-color: #ffffff;
+}
+
+.my-notification {
+  --mbsc-notification-bg: #f5f5f5;
+  --mbsc-snackbar-button-color: #6200ee;
+}
+```
+
+:::info
+**Theming & dark mode**
+
+Variables can be overridden globally on `:root`, which affects all active themes.
+
+To target a specific theme, use its theme selector:
+
+- `.mbsc-windows`
+- `.mbsc-windows-dark`
+- `.mbsc-ios`
+- `.mbsc-ios-dark`
+- `.mbsc-material`
+- `.mbsc-material-dark`
+:::
+
+### iOS theme
+
+These variables apply when the `ios` theme is active.
+
+
+```scss
+:root {
+  /* Alert */
+  --mbsc-alert-bg-color: ;          /* Alert background (surface color) */
+  --mbsc-alert-text-color: ;        /* Alert text color */
+
+  /* Popup */
+  --mbsc-popup-bg-color: ;          /* Popup background (mapped from alert bg when alert is used) */
+  --mbsc-popup-text-color: ;        /* Popup text color (mapped from alert text when alert is used) */
+
+  /* Toast */
+  --mbsc-toast-bg-color: ;          /* Toast background color */
+  --mbsc-toast-text-color: ;        /* Toast text color */
+
+  /* Snackbar */
+  --mbsc-snackbar-bg-color: ;       /* Snackbar background color */
+  --mbsc-snackbar-text-color: ;     /* Snackbar text color */
+  --mbsc-snackbar-button-color: ;   /* Snackbar action button color */
+}
+
+```
+### Windows theme
+
+These variables apply when the `windows` theme is active.
+
+```scss
+:root {
+  /* Alert */
+  --mbsc-alert-bg-color: ;          /* Alert background (surface-1 fallback) */
+  --mbsc-alert-text-color: ;        /* Alert text color */
+
+  /* Popup */
+  --mbsc-popup-bg-color: ;          /* Popup background (mapped from alert bg when alert is used) */
+  --mbsc-popup-text-color: ;        /* Popup text color (mapped from alert text when alert is used) */
+
+  /* Toast */
+  --mbsc-toast-bg-color: ;          /* Toast background (surface-4 fallback) */
+  --mbsc-toast-text-color: ;        /* Toast text color */
+
+  /* Snackbar */
+  --mbsc-snackbar-bg-color: ;       /* Snackbar background (surface-4 fallback) */
+  --mbsc-snackbar-text-color: ;     /* Snackbar text color */
+  --mbsc-snackbar-button-color: ;   /* Snackbar action button color (accent fallback) */
+}
+
+```
+### Material theme
+
+These variables apply when the `material` theme is active.
+
+```scss
+:root {
+  /* Alert */
+  --mbsc-notification-bg: ;          /* Alert/notification background */
+  --mbsc-notification-text: ;        /* Alert/notification text color */
+
+  /* Popup */
+  --mbsc-popup-bg-color: ;           /* Popup background (mapped from alert/notification bg) */
+  --mbsc-popup-text-color: ;         /* Popup text color (mapped from alert/notification text) */
+
+  /* Toast */
+  --mbsc-toast-bg-color: ;           /* Toast background color */
+  --mbsc-toast-text-color: ;         /* Toast text color */
+
+  /* Snackbar */
+  --mbsc-snackbar-bg-color: ;        /* Snackbar background color */
+  --mbsc-snackbar-text-color: ;      /* Snackbar text color */
+  --mbsc-snackbar-button-color: ;    /* Snackbar action button text color */
+}

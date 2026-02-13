@@ -1,1 +1,165 @@
-### test shared datepicker
+import CodeBlock from '@theme/CodeBlock';
+
+This page lists the Datepicker specific CSS4 variables that can be overridden to customize colors and visual states.
+For general theming concepts and shared (generic) theme variables, see the [CSS variables overview](../theming/css4-variables).
+
+:::info
+Variable names and available options may differ between themes, so make sure to override the variables that correspond to the active theme.
+:::
+
+---
+
+## Datepicker variables
+
+Variables can be overridden globally on `:root` or scoped to a specific container.
+
+```scss
+:root {
+  --mbsc-datepicker-bg-color: #ffffff;
+  --mbsc-datepicker-text-color: #1a1a1a;
+}
+
+.my-datepicker {
+  --mbsc-datepicker-selected-color: #e91e63;
+  --mbsc-datepicker-highlight: #fde4ef;
+}
+```
+
+:::info
+**Theming & dark mode**
+
+Variables can be overridden globally on `:root`, which affects all active themes.
+
+To target a specific theme, use its theme selector:
+
+- `.mbsc-windows`
+- `.mbsc-windows-dark`
+- `.mbsc-ios`
+- `.mbsc-ios-dark`
+- `.mbsc-material`
+- `.mbsc-material-dark`
+:::
+
+### iOS theme
+
+These variables apply when the `ios` theme is active.
+
+
+```scss
+:root {
+  /* Core */
+  --mbsc-datepicker-bg-color: ;          /* Datepicker background (popup surface) */
+  --mbsc-datepicker-text-color: ;        /* Default text color */
+  --mbsc-datepicker-border-color: ;      /* Calendar grid / separators */
+
+  --mbsc-datepicker-selected-color: ;    /* Selected day / primary accent */
+  --mbsc-datepicker-selected-text: ;     /* Text/icons on selected day */
+
+  --mbsc-datepicker-highlight: ;         /* Today / highlighted day background */
+  --mbsc-datepicker-focus: ;             /* Focus outline color (keyboard nav) */
+
+  --mbsc-datepicker-label-color: ;       /* Range/label background (mapped to calendar event color) */
+  --mbsc-datepicker-label-text: ;        /* Range/label text color (mapped to calendar event text) */
+
+  --mbsc-datepicker-mark: ;              /* Day mark / dot / indicator color */
+  --mbsc-datepicker-text-soft: ;         /* Softer secondary text (mapped to week number color) */
+
+  /* Popup */
+  --mbsc-popup-bg-color: ;               /* Popup background (inherits from datepicker bg) */
+  --mbsc-popup-text-color: ;             /* Popup text color (inherits from datepicker text) */
+
+  /* Calendar view */
+  --mbsc-calendar-accent: ;              /* Calendar selection/accent (from datepicker selected color) */
+  --mbsc-calendar-on-accent: ;           /* Text on selected day (from datepicker selected text) */
+  --mbsc-calendar-bg: ;                  /* Calendar surface background (from datepicker bg) */
+  --mbsc-calendar-text: ;                /* Calendar text (from datepicker text) */
+  --mbsc-calendar-border: ;              /* Calendar cell border (from datepicker border) */
+  --mbsc-calendar-highlight: ;           /* Highlighted day bg (from datepicker highlight) */
+  --mbsc-calendar-event: ;               /* Label/range bg (from datepicker label color) */
+  --mbsc-calendar-event-text: ;          /* Label/range text (from datepicker label text) */
+  --mbsc-calendar-mark: ;                /* Day marks/dots (from datepicker mark) */
+  --mbsc-calendar-focus: ;               /* Focus outline (from datepicker focus) */
+  --mbsc-calendar-week-nr: ;             /* Week number / secondary text (from datepicker text-soft) */
+
+  /* Timegrid */
+  --mbsc-timegrid-bg: ;                  /* Timegrid background (from datepicker bg) */
+  --mbsc-timegrid-text: ;                /* Timegrid text (from datepicker text) */
+  --mbsc-timegrid-accent: ;              /* Timegrid accent (from datepicker selected color) */
+  --mbsc-timegrid-on-accent: ;           /* Text on timegrid accent (from datepicker selected text) */
+  --mbsc-timegrid-focus: ;               /* Timegrid focus outline (from datepicker focus) */
+
+  /* Scroller */
+  --mbsc-scroller-bg: ;                  /* Scroller background (from datepicker bg) */
+  --mbsc-scroller-text: ;                /* Scroller text (from datepicker text) */
+  --mbsc-scroller-accent: ;              /* Scroller accent (from datepicker selected color) */
+  --mbsc-scroller-highlight: ;           /* Scroller highlight (from datepicker highlight) */
+  --mbsc-scroller-focus: ;               /* Scroller focus outline (from datepicker focus) */
+}
+```
+### Windows theme
+
+These variables apply when the `windows` theme is active.
+
+```scss
+:root {
+  /* Core */
+  --mbsc-datepicker-bg-color: ;            /* Datepicker background (surface) */
+  --mbsc-datepicker-text-color: ;          /* Default text color */
+  --mbsc-datepicker-border-color: ;        /* Calendar grid / separator color */
+
+  --mbsc-datepicker-selected-color: ;      /* Selected day / primary accent */
+  --mbsc-datepicker-highlight: ;           /* Highlighted day background (e.g. today) */
+
+  --mbsc-datepicker-range-label-clear: ;   /* Range label “clear”/neutral background color */
+
+  /* Calendar */
+  --mbsc-calendar-bg: ;                    /* Calendar surface background (from datepicker bg) */
+  --mbsc-calendar-text: ;                  /* Calendar text color (from datepicker text) */
+  --mbsc-calendar-border-hover: ;          /* Range selection hover/preview border color */
+  --mbsc-calendar-accent: ;                /* Calendar selection/accent color (from datepicker selected) */
+  --mbsc-calendar-highlight: ;             /* Calendar highlighted day background (from datepicker highlight) */
+
+  /* Timegrid */
+  --mbsc-timegrid-bg: ;                    /* Timegrid background */
+  --mbsc-timegrid-text: ;                  /* Timegrid text color */
+  --mbsc-timegrid-accent: ;                /* Timegrid accent color */
+
+  /* Scroller */
+  --mbsc-scroller-bg: ;                    /* Scroller background */
+  --mbsc-scroller-text: ;                  /* Scroller text color */
+  --mbsc-scroller-accent: ;                /* Scroller accent color */
+  --mbsc-scroller-separator: ;             /* Scroller column separator color */
+  --mbsc-scroller-focus: ;                 /* Scroller focus color (mapped from calendar border hover) */
+}
+```
+### Material theme
+
+These variables apply when the `material` theme is active.
+
+```scss
+:root {
+  /* Core */
+  --mbsc-datepicker-bg-color: ;        /* Datepicker background (surface) */
+  --mbsc-datepicker-text-color: ;      /* Default text color */
+  --mbsc-datepicker-border-color: ;    /* Calendar grid / separator color */
+
+  --mbsc-datepicker-selected-color: ;  /* Selected day / primary accent */
+  --mbsc-datepicker-highlight: ;       /* Highlighted day (e.g. today) background */
+
+  /* Calendar */
+  --mbsc-calendar-bg: ;                /* Calendar surface background (from datepicker bg) */
+  --mbsc-calendar-text: ;              /* Calendar text color (from datepicker text) */
+  --mbsc-calendar-border: ;            /* Calendar cell border color (from datepicker border) */
+  --mbsc-calendar-accent: ;            /* Calendar selection/accent color */
+  --mbsc-calendar-highlight: ;         /* Calendar highlighted day background */
+
+  /* Timegrid */
+  --mbsc-timegrid-bg: ;                /* Timegrid background */
+  --mbsc-timegrid-text: ;              /* Timegrid text color */
+  --mbsc-timegrid-accent: ;            /* Timegrid accent color */
+
+  /* Scroller */
+  --mbsc-scroller-bg: ;                /* Scroller background */
+  --mbsc-scroller-text: ;              /* Scroller text color */
+  --mbsc-scroller-accent: ;            /* Scroller accent color */
+}

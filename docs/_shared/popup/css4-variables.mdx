@@ -1,1 +1,79 @@
-### test shared popup
+import CodeBlock from '@theme/CodeBlock';
+
+This page lists the Popup specific CSS4 variables that can be overridden to customize colors and visual states.
+For general theming concepts and shared (generic) theme variables, see the [CSS variables overview](../theming/css4-variables).
+
+:::info
+Variable names and available options may differ between themes, so make sure to override the variables that correspond to the active theme.
+:::
+
+---
+
+## Popup variables
+
+Variables can be overridden globally on `:root` or scoped to a specific container.
+
+```scss
+:root {
+  --mbsc-popup-bg-color: #ffffff;
+  --mbsc-popup-text-color: #1a1a1a;
+  --mbsc-popup-accent: #0078d4;
+  --mbsc-popup-on-accent: #ffffff;
+}
+
+.my-popup {
+  --mbsc-popup-accent: #e91e63;
+}
+```
+
+:::info
+**Theming & dark mode**
+
+Variables can be overridden globally on `:root`, which affects all active themes.
+
+To target a specific theme, use its theme selector:
+
+- `.mbsc-windows`
+- `.mbsc-windows-dark`
+- `.mbsc-ios`
+- `.mbsc-ios-dark`
+- `.mbsc-material`
+- `.mbsc-material-dark`
+:::
+
+### iOS theme
+
+These variables apply when the `ios` theme is active.
+
+
+```scss
+:root {
+  --mbsc-popup-bg-color: ;        /* Popup background (surface color) */
+  --mbsc-popup-text-color: ;      /* Default popup text color */
+  --mbsc-popup-accent: ;          /* Popup accent color (buttons, highlights) */
+  --mbsc-popup-on-accent: ;       /* Text/icons shown on accent background */
+}
+```
+### Windows theme
+
+These variables apply when the `windows` theme is active.
+
+```scss
+:root {
+  --mbsc-popup-bg-color: ;        /* Popup background (surface color) */
+  --mbsc-popup-text-color: ;      /* Default popup text color */
+  --mbsc-popup-accent: ;          /* Accent color (buttons, primary actions) */
+  --mbsc-popup-on-accent: ;       /* Text/icons on accent background */
+}
+```
+### Material theme
+
+These variables apply when the `material` theme is active.
+
+```scss
+:root {
+  --mbsc-material-popup-bg-color: ;        /* Popup background (surface container high) */
+  --mbsc-material-popup-text-color: ;      /* Default popup text color */
+  --mbsc-material-popup-accent: ;          /* Accent color (buttons, primary actions) */
+  --mbsc-material-popup-on-accent: ;       /* Text/icons shown on accent background */
+}

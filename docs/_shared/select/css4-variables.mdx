@@ -1,1 +1,97 @@
-### test shared select
+import CodeBlock from '@theme/CodeBlock';
+
+This page lists the Select specific CSS4 variables that can be overridden to customize colors and visual states.
+For general theming concepts and shared (generic) theme variables, see the [CSS variables overview](../theming/css4-variables).
+
+:::info
+Variable names and available options may differ between themes, so make sure to override the variables that correspond to the active theme.
+:::
+
+---
+
+## Select variables
+
+Variables can be overridden globally on `:root` or scoped to a specific container.
+
+```scss
+:root {
+  --mbsc-select-bg-color: #ffffff;
+  --mbsc-select-text-color: #1a1a1a;
+  --mbsc-select-selected-color: #0078d4;
+}
+
+.my-select {
+  --mbsc-select-selected-color: #e91e63;
+}
+```
+
+:::info
+**Theming & dark mode**
+
+Variables can be overridden globally on `:root`, which affects all active themes.
+
+To target a specific theme, use its theme selector:
+
+- `.mbsc-windows`
+- `.mbsc-windows-dark`
+- `.mbsc-ios`
+- `.mbsc-ios-dark`
+- `.mbsc-material`
+- `.mbsc-material-dark`
+:::
+
+### iOS theme
+
+These variables apply when the `ios` theme is active.=
+
+```scss
+:root {
+  /* Core */
+  --mbsc-select-accent: ;            /* Primary accent color (selected item highlight) */
+  --mbsc-select-bg-color: ;          /* Select surface / popup background */
+  --mbsc-select-text-color: ;        /* Default text color */
+  --mbsc-select-text-soft: ;         /* Secondary / muted text color */
+  --mbsc-select-border-color: ;      /* Border / separator color */
+  --mbsc-select-highlight: ;         /* Highlighted item background */
+  --mbsc-select-filter-bg-color: ;   /* Filter input background (if filtering enabled) */
+  --mbsc-select-focus: ;             /* Focus outline color */
+
+  /* Popup */
+  --mbsc-popup-bg-color: ;           /* Popup background */
+  --mbsc-popup-text-color: ;         /* Popup text color */
+
+  /* Scroller */
+  --mbsc-scroller-bg: ;              /* Scroller background */
+  --mbsc-scroller-border: ;          /* Scroller border color */
+  --mbsc-scroller-text: ;            /* Scroller item text color */
+  --mbsc-scroller-text-soft: ;       /* Scroller secondary text color */
+  --mbsc-scroller-accent: ;          /* Selected item accent color */
+  --mbsc-scroller-highlight: ;       /* Highlighted item background */
+  --mbsc-scroller-focus: ;           /* Focus color inside scroller */
+}
+
+```
+### Windows theme
+
+These variables apply when the `windows` theme is active.
+
+```scss
+:root {
+  /* Core */
+  --mbsc-select-bg-color: ;          /* Select background (surface color) */
+  --mbsc-select-text-color: ;        /* Default text color */
+  --mbsc-select-selected-color: ;    /* Selected item color / primary accent */
+}
+```
+### Material theme
+
+These variables apply when the `material` theme is active.
+
+```scss
+:root {
+  /* Core */
+  --mbsc-select-bg-color: ;          /* Select surface / dropdown background */
+  --mbsc-select-text-color: ;        /* Default text color */
+  --mbsc-select-selected-color: ;    /* Selected item color / primary accent */
+}
+```

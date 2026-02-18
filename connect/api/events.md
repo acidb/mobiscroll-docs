@@ -33,12 +33,12 @@ ISO date string to filter events ending before this date. Date strings are autom
 </Parameter>
 
 <Parameter name="calendarIds" type="string" defaultValue={<code>undefined</code>} id="param-calendarIds">
-JSON stringified array of calendar IDs to fetch events from. If not provided, events from all calendars will be fetched.
+JSON stringified object of calendar IDs per provider. If not provided, events from all calendars will be fetched.
 
 Calendar IDs that are not associated with the authenticated user's connected accounts will be silently ignored.
 
 ```js title="Example"
-'["personal@gmail.com", "work@company.com"]'
+'{"google":["john.andrew@mobiscroll.com"],"microsoft":[],"apple":[],"caldav":[]}'
 ```
 
 </Parameter>
@@ -194,7 +194,7 @@ GET /events?pageSize=50&nextPageToken=eyJnb29nbGUiOnsidG9rZW4iOnsiY2FsMTIzIjp7Im
 ```
 
 ```bash title="Filter by specific calendars"
-GET /events?pageSize=25&calendarIds=["personal@gmail.com","work@company.com"]
+GET /events?pageSize=25&calendarIds=%7B%22google%22:%5B%22john.andrew%40mobiscroll.com%22%5D,%22microsoft%22:%5B%5D,%22apple%22:%5B%5D,%22caldav%22:%5B%5D%7D
 ```
 
 ```bash title="Get recurring event series masters (not expanded)"

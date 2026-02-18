@@ -68,6 +68,10 @@ Array of calendar events from all providers, sorted chronologically by start tim
   Event ID
   </Parameter>
 
+  <Parameter name="calendarId" type="string">
+  Calendar ID
+  </Parameter>
+
   <Parameter name="title" type="string">
   Event title/summary
   </Parameter>

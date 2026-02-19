@@ -16,7 +16,7 @@ Angular is a javascript framework and development platform for creating efficien
 The controls use Angular's rendering engine and change detection systems. UI components follow platform UX guidelines and can be styled with the Theme Builder for a perfect fit.
 
 :::info Supported versions
-Mobiscroll supports Angular version 4 and up to Angular 20 and requires TypeScript 2.2.0 or newer.
+Mobiscroll supports Angular version 4 and up to Angular 21 and requires TypeScript 2.2.0 or newer.
 :::
 
 <SupportedPlatforms />

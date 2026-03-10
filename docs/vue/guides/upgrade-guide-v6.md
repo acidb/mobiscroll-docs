@@ -25,8 +25,48 @@ Starting with Mobiscroll 6.0, we dropped support for IE11. Additionally, we upda
 
 Starting with Mobiscroll 6.0 we updated the minimum supported framework and language versions. Please upgrade to Vue 3+ to continue using Mobiscroll. Additionally, if you're using TypeScript, please make sure you're on version 4 or newer.
 
-
 ## General
+
+### Theme updates
+
+Mobiscroll 6.0 introduces redesigned themes based on the latest Fluent, Material, and iOS design systems. These updated themes are used by default.
+
+If you prefer the previous (v5) appearance, you can continue using the legacy themes. Legacy themes are not included in the default bundle and must be imported manually.
+
+The legacy package contains:
+
+- `mobiscroll-legacy.min.css`
+- `mobiscroll-legacy.scss`
+
+#### Using legacy themes
+
+**1. Using CSS**
+
+Import the legacy CSS in your main entry file:
+
+```ts
+import 'mobiscroll/dist/css/mobiscroll-legacy.min.css';
+```
+
+**2. Using SCSS**
+
+If you are customizing styles with SCSS, import:
+
+```scss
+@import 'mobiscroll/src/scss/mobiscroll-legacy.scss';
+```
+
+**3. Set the legacy theme**
+
+After loading the styles, reference one of the legacy themes:
+
+```ts
+mobiscroll.setOptions({
+  theme: 'ios-legacy',
+  // theme: 'material-legacy'
+  // theme: 'windows-legacy'
+});
+```
 
 ### Sass updates
 

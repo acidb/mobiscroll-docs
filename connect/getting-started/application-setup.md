@@ -26,7 +26,7 @@ To use Mobiscroll Connect services, you must register your application to genera
 
 - **Application Name**: A friendly name for your application (e.g., "My Scheduling App").
 - **Redirect URI (Callback URL)**: The URL where users will be redirected after successfully authorizing with a provider. This must match the route in your application that handles the OAuth callback.
-- **Webhook URL (Optional)**: If you plan to use webhooks for event notifications, provide the endpoint URL where Mobiscroll Connect can send these updates.
+- **Webhook URL (Optional)**: If you plan to use webhooks for event notifications, provide the endpoint URL where Mobiscroll Connect can send these updates. See [Webhooks API](/connect/webhooks) for subscription and payload details.
 
 4. Click **Create application** to finalize the application setup.
 

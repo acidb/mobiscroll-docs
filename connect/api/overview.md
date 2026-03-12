@@ -39,6 +39,8 @@ Initiate and complete the OAuth2 authorization flow to connect user calendar acc
 
 - **[GET /authorize](/connect/oauth#endpoint-authorize)** - Initiate OAuth2 authorization flow
 - **[POST /token](/connect/oauth#endpoint-token)** - Exchange authorization code for access token
+- **[POST /token](/connect/oauth#endpoint-refresh-token)** - Refresh access token using a refresh token
+- **[POST /revoke](/connect/oauth#endpoint-revoke)** - Revoke all active tokens for a user
 
 
 ### [Events API](/connect/events)
@@ -56,6 +58,14 @@ Retrieve, create, update, and delete calendar events from connected providers wi
 Manage calendar lists across all connected providers.
 
 - **[GET /calendars](/connect/calendars#endpoint-get-calendars)** - Retrieve all calendars from connected providers
+
+### [Webhooks API](/connect/webhooks)
+
+Subscribe calendars and receive normalized event change notifications from connected providers.
+
+- **[POST /subscribe-webhook](/connect/webhooks#endpoint-subscribe-webhook)** - Create a webhook subscription for a calendar
+- **[POST /unsubscribe-webhook](/connect/webhooks#endpoint-unsubscribe-webhook)** - Remove an existing webhook subscription
+- **[POST /webhook-receiver/:provider](/connect/webhooks#endpoint-webhook-receiver)** - Provider callback endpoint information
 
 ## Supported Providers
 

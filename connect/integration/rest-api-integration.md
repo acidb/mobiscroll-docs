@@ -64,7 +64,36 @@ const response = await fetch('https://connect.mobiscroll.com/api/oauth/token', {
   })
 });
 
-const { access_token } = await response.json();
+const { access_token, refresh_token } = await response.json();
+// Store both tokens securely on the server side
+```
+
+**Example: Refresh Access Token**
+
+```javascript
+const response = await fetch('https://connect.mobiscroll.com/api/oauth/token', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  body: new URLSearchParams({
+    grant_type: 'refresh_token',
+    refresh_token: 'STORED_REFRESH_TOKEN',
+    client_id: 'YOUR_CLIENT_ID',
+    client_secret: 'YOUR_CLIENT_SECRET'
+  }).toString()
+});
+
+const { access_token, refresh_token: newRefreshToken } = await response.json();
+// Replace the stored refresh token with newRefreshToken
+```
+
+**Example: Revoke Tokens**
+
+```javascript
+await fetch('https://connect.mobiscroll.com/api/oauth/revoke', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ token: access_token })
+});
 ```
 
 <DocCardList items={[
@@ -152,8 +181,10 @@ const event = await response.json();
 
 ## Best Practices
 
-1. **Store tokens securely** - Keep access tokens in secure, server-side storage
-2. **Handle token expiration** - Implement token refresh logic when tokens expire
-3. **Validate state parameter** - Always validate the `state` parameter in OAuth callbacks to prevent CSRF attacks
-4. **Use HTTPS** - Always use HTTPS for API requests and callbacks
-5. **Handle rate limits** - Implement exponential backoff for rate-limited requests
+1. **Store tokens securely** - Keep access tokens and refresh tokens in secure, server-side storage; never expose them in client-side code
+2. **Handle token expiration** - Access tokens expire after 1 hour; use the `POST /token` refresh flow to get a new one automatically before making API calls
+3. **Rotate refresh tokens** - Always replace the stored refresh token with the new one returned after each refresh; the old token is immediately invalidated
+4. **Revoke on logout** - Call `POST /revoke` when a user logs out to invalidate all active tokens
+5. **Validate state parameter** - Always validate the `state` parameter in OAuth callbacks to prevent CSRF attacks
+6. **Use HTTPS** - Always use HTTPS for API requests and callbacks
+7. **Handle rate limits** - Implement exponential backoff for rate-limited requests

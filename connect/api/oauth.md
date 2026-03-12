@@ -198,7 +198,15 @@ The type of token returned. Always `"Bearer"`.
 </Parameter>
 
 <Parameter name="expires_in" type="number" id="token-response-expires_in">
-The lifetime in seconds of the access token. Typically `3600` (1 hour).
+The lifetime in seconds of the access token. `3600` (1 hour).
+</Parameter>
+
+<Parameter name="refresh_token" type="string" id="token-response-refresh_token">
+A refresh token that can be used to obtain a new access token when the current one expires. Refresh tokens do not expire on their own — they remain valid until used or explicitly revoked. Each use of a refresh token issues a new access token **and** a new refresh token (token rotation), and the previous refresh token is invalidated. Store this token securely on the server side.
+
+:::info Refresh Token Rotation
+Mobiscroll Connect implements **refresh token rotation**: every time you exchange a refresh token for a new access token, the server issues a brand-new refresh token and invalidates the old one. If an already-used (revoked) refresh token is ever presented, the entire token family is invalidated as a security measure against token theft.
+:::
 </Parameter>
 
 ### Error Responses
@@ -222,14 +230,27 @@ The endpoint performs the following validations:
 
 ### JWT Token Payload
 
-The access token is a JWT containing:
+The **access token** is a JWT containing:
 
 ```json
 {
   "sub": "user_id",            // User identifier
   "aud": "client_id",          // Client/Project identifier
   "projectId": "client_id",    // Project identifier
-  "exp": 1234567890            // Expiration timestamp
+  "exp": 1234567890            // Expiration timestamp (1 hour from issuance)
+}
+```
+
+The **refresh token** is a JWT containing:
+
+```json
+{
+  "sub": "user_id",            // User identifier
+  "aud": "client_id",          // Client/Project identifier
+  "projectId": "client_id",    // Project identifier
+  "type": "refresh",           // Token type discriminator
+  "jti": "uuid",               // Unique token ID (used for rotation tracking)
+  // No "exp" — validity is managed server-side via the database
 }
 ```
 
@@ -257,7 +278,8 @@ grant_type=authorization_code&code=user-456&redirect_uri=https://app.example.com
 {
   "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
   "token_type": "Bearer",
-  "expires_in": 3600
+  "expires_in": 3600,
+  "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 }
 ```
 
@@ -301,7 +323,166 @@ const tokenResponse = await client.auth.getToken(code);
 - Authorization codes expire after 10 minutes
 - Authorization codes are single-use and deleted after successful exchange
 - Access tokens expire after 1 hour
+- A refresh token is always returned alongside the access token; store it securely server-side
 - The access token is a JWT that must be included as a Bearer token in all subsequent API requests
 - Client credentials can be provided via HTTP Basic authentication or in the request body
 - The redirect_uri must exactly match the one used in the authorization request
+- Revoked access tokens are rejected immediately even if the JWT signature is still valid
+:::
+
+---
+
+## Refresh Access Token {#endpoint-refresh-token}
+
+Obtains a new access token using a refresh token. Each call also issues a new refresh token and invalidates the previously used one (refresh token rotation).
+
+:::info
+This endpoint requires client authentication using either HTTP Basic authentication or client credentials in the request body.
+
+**Endpoint:** `POST /token`
+:::
+
+### Authentication
+
+Same as [Get Access Token](#endpoint-token) — HTTP Basic or request body credentials.
+
+### Request Parameters
+
+<Parameter name="grant_type" type="string" required id="refresh-grant_type">
+Must be `"refresh_token"`.
+</Parameter>
+
+<Parameter name="refresh_token" type="string" required id="refresh-refresh_token">
+The refresh token obtained from a previous token exchange.
+</Parameter>
+
+<Parameter name="client_id" type="string" defaultValue={<code>undefined</code>} id="refresh-client_id">
+Your application's client identifier. Required if not using HTTP Basic authentication.
+</Parameter>
+
+<Parameter name="client_secret" type="string" defaultValue={<code>undefined</code>} id="refresh-client_secret">
+Your application's client secret. Required if not using HTTP Basic authentication.
+</Parameter>
+
+### Response
+
+<Parameter name="access_token" type="string" id="refresh-response-access_token">
+A new access token (JWT) valid for 1 hour.
+</Parameter>
+
+<Parameter name="token_type" type="string" id="refresh-response-token_type">
+Always `"Bearer"`.
+</Parameter>
+
+<Parameter name="expires_in" type="number" id="refresh-response-expires_in">
+The lifetime in seconds of the new access token. `3600` (1 hour).
+</Parameter>
+
+<Parameter name="refresh_token" type="string" id="refresh-response-refresh_token">
+A new refresh token. The previously used refresh token is immediately invalidated. Store this new token in place of the old one.
+</Parameter>
+
+### Error Responses
+
+- **400** - Bad Request
+  - `invalid_grant` - Refresh token not found, already revoked, client mismatch, or wrong token type
+  - `invalid_client` - Client authentication failed
+
+### Examples
+
+<Tabs>
+<TabItem value="api" label="REST">
+
+```bash title="Refresh access token (HTTP Basic Auth)"
+POST /token
+Authorization: Basic YmFzZTY0X2VuY29kZWRfY3JlZGVudGlhbHM=
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=refresh_token&refresh_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+```
+
+```json title="Success Response"
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "token_type": "Bearer",
+  "expires_in": 3600,
+  "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
+```
+
+```json title="Error Response - Revoked or Invalid Token"
+{
+  "error": "invalid_grant",
+  "error_description": "Invalid refresh token"
+}
+```
+
+</TabItem>
+</Tabs>
+
+:::info
+- Always replace the stored refresh token with the new one returned in the response
+- Presenting a refresh token that has already been used (rotated out) immediately revokes the entire token family as a security measure — the user will need to re-authorize
+- Refresh tokens are managed server-side; they have no embedded expiry date
+:::
+
+---
+
+## Revoke Token {#endpoint-revoke}
+
+Revokes all active access tokens and refresh tokens for a given user/client pair. Use this endpoint when the user logs out or explicitly disconnects from Mobiscroll Connect.
+
+:::info
+This endpoint does not require authentication. The token itself is used to identify the user and client.
+
+**Endpoint:** `POST /revoke`
+:::
+
+### Request Body
+
+<Parameter name="token" type="string" required id="revoke-token">
+Either an access token or a refresh token. The server decodes it to extract the user and client identifiers, then revokes all active tokens for that user/client combination.
+</Parameter>
+
+### Response
+
+Returns `200 OK` even if the token was already invalid or expired — this prevents leaking information about token state.
+
+```json title="Success Response"
+{
+  "success": true
+}
+```
+
+### Error Responses
+
+- **400** - Bad Request. `token` field is missing or not a string.
+
+### Examples
+
+<Tabs>
+<TabItem value="api" label="REST">
+
+```bash title="Revoke tokens"
+POST /revoke
+Content-Type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
+```
+
+```json title="Success Response"
+{
+  "success": true
+}
+```
+
+</TabItem>
+</Tabs>
+
+:::info
+- Both access tokens and refresh tokens are accepted — the endpoint revokes the entire token family regardless of which token type is provided
+- The response is always `200` with `{ "success": true }` to avoid leaking information about token validity
+- After revocation, the user must complete the OAuth authorization flow again to obtain new tokens
 :::

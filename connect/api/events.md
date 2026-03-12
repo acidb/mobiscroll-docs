@@ -141,6 +141,10 @@ Event privacy: `'public'`, `'private'`, or `'confidential'` (optional)
 Event status: `'confirmed'`, `'tentative'`, or `'cancelled'` (optional)
 </Parameter>
 
+<Parameter name="lastModified" type="string">
+ISO 8601 timestamp of when the event was last modified (optional)
+</Parameter>
+
 <Parameter name="link" type="string">
 Public event link (optional)
 </Parameter>
@@ -185,7 +189,8 @@ GET /events?pageSize=50&start=2025-10-01T00:00:00Z&end=2025-10-31T23:59:59Z
       "provider": "google",
       "allDay": false,
       "location": "Conference Room A",
-      "color": "#9fc6e7"
+      "color": "#9fc6e7",
+      "lastModified": "2026-03-10T13:36:08.000Z"
     }
   ],
   "pageSize": 50,
@@ -422,6 +427,7 @@ Content-Type: application/json
   "availability": "busy",
   "privacy": "public",
   "status": "confirmed",
+  "lastModified": "2026-03-10T13:36:08.000Z",
   "link": "https://calendar.google.com/calendar/event?eid=...",
   "original": {
     "kind": "calendar#event",

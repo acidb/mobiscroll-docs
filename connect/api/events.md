@@ -341,6 +341,10 @@ Array of months (1-12)
 Custom key-value pairs for additional event data.
 </Parameter>
 
+:::info External IDs
+If you need to associate provider-generated event IDs with your own domain entities, store your external/business ID in `custom` (for example `custom.externalEventId = "icoll-rdv-123"`).
+:::
+
 <Parameter name="availability" type="string" defaultValue={<code>undefined</code>} id="create-availability">
 Event availability: `'free'` or `'busy'`.
 </Parameter>

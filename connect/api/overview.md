@@ -61,7 +61,7 @@ Manage calendar lists across all connected providers.
 
 ### [Webhooks API](/connect/webhooks)
 
-Subscribe calendars and receive normalized event change notifications from connected providers.
+Subscribe calendars and receive normalized event change notifications from Google, Microsoft and Apple.
 
 - **[POST /subscribe-webhook](/connect/webhooks#endpoint-subscribe-webhook)** - Create a webhook subscription for a calendar
 - **[POST /unsubscribe-webhook](/connect/webhooks#endpoint-unsubscribe-webhook)** - Remove an existing webhook subscription

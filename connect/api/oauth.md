@@ -205,7 +205,7 @@ The lifetime in seconds of the access token. `3600` (1 hour).
 A refresh token that can be used to obtain a new access token when the current one expires. Refresh tokens do not expire on their own — they remain valid until used or explicitly revoked. Each use of a refresh token issues a new access token **and** a new refresh token (token rotation), and the previous refresh token is invalidated. Store this token securely on the server side.
 
 :::info Refresh Token Rotation
-Mobiscroll Connect implements **refresh token rotation**: every time you exchange a refresh token for a new access token, the server issues a brand-new refresh token and invalidates the old one. If an already-used (revoked) refresh token is ever presented, the entire token family is invalidated as a security measure against token theft.
+Mobiscroll Connect implements **refresh token rotation**: every time you exchange a refresh token for a new access token, the server issues a brand-new refresh token and invalidates the old one. If an already-used (revoked) refresh token is presented again, the request is rejected with `invalid_grant`.
 :::
 </Parameter>
 
@@ -422,7 +422,8 @@ grant_type=refresh_token&refresh_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 
 :::info
 - Always replace the stored refresh token with the new one returned in the response
-- Presenting a refresh token that has already been used (rotated out) immediately revokes the entire token family as a security measure — the user will need to re-authorize
+- Presenting a refresh token that has already been used (rotated out) is rejected with `invalid_grant`
+- Repeated or concurrent refresh attempts with the same token can fail once rotation has already occurred
 - Refresh tokens are managed server-side; they have no embedded expiry date
 :::
 

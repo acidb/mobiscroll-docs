@@ -10,6 +10,8 @@ import { Parameter } from '@site/src/components/Connect';
 
 Use webhooks to receive near real-time event change notifications from connected calendar providers.
 
+When a user modifies an event in Google, Microsoft, or Apple, Connect can forward the normalized change payload to your configured project webhook URL after you subscribe the calendar via `POST /subscribe-webhook`.
+
 This API lets you:
 - Subscribe a calendar to provider notifications
 - Unsubscribe an existing webhook channel
@@ -20,10 +22,11 @@ This API lets you:
 - **Google Calendar** (`google`)
 - **Microsoft Outlook** (`microsoft`)
 - **Apple Calendar** (`apple`)
-- **CalDAV** (`caldav`)
 
 :::info
-Apple integration is delivered through periodic polling behavior and then forwarded through the same webhook payload format documented below.
+CalDAV does not support provider-native push webhooks in Connect.
+
+CalDAV polling-based webhook delivery is not currently supported and is planned for upcoming versions.
 :::
 
 ## Subscribe webhook {#endpoint-subscribe-webhook}
@@ -236,6 +239,10 @@ Calendar ID where changes were detected.
 <Parameter name="events" type="Array&lt;WebhookEvent&gt;" id="client-payload-events" isObject>
 Changed events list.
 
+  <Parameter name="calendarId" type="string">
+  Calendar ID where the event belongs.
+  </Parameter>
+
   <Parameter name="id" type="string">
   Event ID.
   </Parameter>
@@ -246,6 +253,14 @@ Changed events list.
 
   <Parameter name="title" type="string">
   Event title.
+  </Parameter>
+
+  <Parameter name="description" type="string">
+  Event description/notes (optional).
+  </Parameter>
+
+  <Parameter name="lastModified" type="string">
+  ISO 8601 timestamp of the last provider-side modification (optional).
   </Parameter>
 
   <Parameter name="start" type="Date">
@@ -260,12 +275,60 @@ Changed events list.
   Indicates all-day event.
   </Parameter>
 
+  <Parameter name="recurringEventId" type="string">
+  Recurring series master ID when this event is an instance (optional).
+  </Parameter>
+
   <Parameter name="changeType" type="string">
   One of `created`, `updated`, `deleted`.
   </Parameter>
 
   <Parameter name="color" type="string">
   Optional event color.
+  </Parameter>
+
+  <Parameter name="location" type="string">
+  Optional event location.
+  </Parameter>
+
+  <Parameter name="attendees" type="Array&lt;EventAttendee&gt;" isObject>
+  Optional attendee list.
+
+    <Parameter name="email" type="string">
+    Attendee email.
+    </Parameter>
+
+    <Parameter name="status" type="string">
+    Response status: `accepted`, `declined`, `tentative`, or `none`.
+    </Parameter>
+
+    <Parameter name="organizer" type="boolean">
+    Indicates if attendee is organizer.
+    </Parameter>
+  </Parameter>
+
+  <Parameter name="custom" type="object">
+  Optional custom key-value pairs.
+  </Parameter>
+
+  <Parameter name="conference" type="string">
+  Optional conference meeting URL or identifier.
+  </Parameter>
+
+  <Parameter name="availability" type="string">
+  Optional availability: `busy` or `free`.
+  </Parameter>
+
+  <Parameter name="privacy" type="string">
+  Optional privacy: `public`, `private`, or `confidential`.
+  </Parameter>
+
+  <Parameter name="status" type="string">
+  Optional event status: `confirmed`, `tentative`, or `cancelled`.
+  </Parameter>
+
+  <Parameter name="link" type="string">
+  Optional provider event link.
   </Parameter>
 
   <Parameter name="original" type="object">
@@ -301,17 +364,38 @@ Additional webhook metadata.
 
 ```json title="Delivered to your webhook URL"
 {
-  "provider": "microsoft",
+  "provider": "google",
   "userId": "user-123",
-  "calendarId": "AAMkAG...",
+  "calendarId": "work@company.com",
   "events": [
     {
-      "id": "AAMkAGI2...",
-      "provider": "microsoft",
+      "id": "event-abc",
+      "provider": "google",
+      "calendarId": "work@company.com",
       "title": "Product review",
+      "description": "Quarterly review",
+      "lastModified": "2026-03-10T09:00:00.000Z",
       "start": "2026-03-12T09:00:00.000Z",
       "end": "2026-03-12T10:00:00.000Z",
       "allDay": false,
+      "recurringEventId": "series-master-id",
+      "color": "#9fc6e7",
+      "location": "Office / Meeting room",
+      "attendees": [
+        {
+          "email": "user@example.com",
+          "status": "accepted",
+          "organizer": true
+        }
+      ],
+      "custom": {
+        "yourCustomKey": "yourCustomValue"
+      },
+      "conference": "https://meet.example.com/abc",
+      "availability": "busy",
+      "privacy": "private",
+      "status": "confirmed",
+      "link": "https://provider-event-link",
       "changeType": "updated",
       "original": {}
     }
@@ -339,7 +423,9 @@ Additional webhook metadata.
 ## Operational notes {#webhook-operational-notes}
 
 - Delivery forwarding to your webhook URL is best-effort and should be handled with idempotent processing on your side.
-- Duplicate/loop-prevention filtering is applied for very recent API-originated changes.
+- Provider-side notifications may be emitted for changes regardless of where the change originated.
+- Connect applies built-in echo/loop filtering for very recent API-originated changes (short-lived in-memory dedup window, currently 30 seconds), so webhook echoes for your own immediate `POST /event` / `PUT /event` updates are suppressed in the common case.
+- In distributed or multi-instance setups, add an application-level origin marker in `custom` (for example `custom.source = "my-system"`) and ignore matching webhook events as an additional loop-prevention safeguard.
 - For Apple, event change detection is based on periodic synchronization rather than provider-native push.
 - A single delivery may contain multiple event changes and return `changeType: "mixed"`.
 - When notifications are filtered out, no events may be delivered in that callback cycle.

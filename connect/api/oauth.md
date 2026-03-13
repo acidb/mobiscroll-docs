@@ -132,6 +132,25 @@ const authUrl = client.auth.generateAuthUrl({
 
 ---
 
+## Token management {#token-management}
+
+### Token Lifetimes {#token-lifetimes}
+
+The following table summarizes the lifetime of every credential issued by Mobiscroll Connect.
+
+| Token / Credential | Lifetime | Notes |
+|--------------------|----------|-------|
+| **Authorization code** | 10 minutes | Single-use — deleted on first exchange |
+| **Access token (JWT)** | 1 hour (`3600 s`) | `exp` claim embedded in the JWT; rejected immediately after expiry even if the signature is valid |
+| **Refresh token** | No embedded expiry | Validity enforced server-side via JTI rotation; remains valid until used or explicitly revoked |
+| **OAuth session cookie** | 30 minutes | `oauth_req` cookie that carries the in-progress authorization state |
+
+:::info Refresh Token Rotation
+Every `POST /token` call with `grant_type=refresh_token` issues a **new** refresh token and immediately invalidates the previous one.
+Presenting an already-rotated refresh token returns `invalid_grant`.
+Calling `/revoke` invalidates the entire token family (all access tokens and refresh tokens for that user/client pair) at once.
+:::
+
 ## Get Access Token {#endpoint-token}
 
 Exchanges an authorization code for an access token. This is the token endpoint of the OAuth2 authorization code flow.
@@ -203,6 +222,12 @@ The lifetime in seconds of the access token. `3600` (1 hour).
 
 <Parameter name="refresh_token" type="string" id="token-response-refresh_token">
 A refresh token that can be used to obtain a new access token when the current one expires. Refresh tokens do not expire on their own — they remain valid until used or explicitly revoked. Each use of a refresh token issues a new access token **and** a new refresh token (token rotation), and the previous refresh token is invalidated. Store this token securely on the server side.
+
+:::info What is a Refresh Token?
+An **access token** is short-lived (1 hour). Rather than forcing the user to log in again every hour, the server issues a **refresh token** alongside the access token. Your application stores the refresh token securely (server-side, never in the browser) and uses it — silently, without user interaction — to obtain a fresh access token whenever the current one expires.
+
+If you lose the refresh token (e.g. it was never persisted, or was overwritten before the new one was saved), the user must complete the full OAuth authorization flow again to restore access.
+:::
 
 :::info Refresh Token Rotation
 Mobiscroll Connect implements **refresh token rotation**: every time you exchange a refresh token for a new access token, the server issues a brand-new refresh token and invalidates the old one. If an already-used (revoked) refresh token is presented again, the request is rejected with `invalid_grant`.
@@ -380,6 +405,15 @@ The lifetime in seconds of the new access token. `3600` (1 hour).
 
 <Parameter name="refresh_token" type="string" id="refresh-response-refresh_token">
 A new refresh token. The previously used refresh token is immediately invalidated. Store this new token in place of the old one.
+
+:::warning Persist the new refresh token before using it
+The moment this endpoint responds successfully, the **old** refresh token is gone. You must durably persist the new refresh token **before** discarding the old one. If your application crashes, loses the response, or fails to save the token to your database:
+- The old token is already invalidated — it cannot be reused.
+- The new token is lost — it was only ever returned in this response.
+- **The user must re-authorize** (complete the full OAuth flow again) to restore access.
+
+To mitigate this, persist the new token atomically (e.g. in a database transaction) before acknowledging success, and avoid concurrent refresh calls for the same user.
+:::
 </Parameter>
 
 ### Error Responses

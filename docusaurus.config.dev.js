@@ -41,6 +41,18 @@ const config = {
     locales: ['en'],
   },
 
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'connect',
+        path: 'connect',
+        routeBasePath: 'connect',
+        sidebarPath: './sidebarsConnect.js',
+      },
+    ],
+  ],
+
   presets: [
     [
       'classic',
@@ -55,7 +67,8 @@ const config = {
             "5.35.0": {
               badge: false,
             },
-          }
+          },
+          onlyIncludeVersions: ['5.35.0', "5.34.0"],
         },
         blog: false,
         theme: {

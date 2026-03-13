@@ -130,6 +130,12 @@ const authUrl = client.auth.generateAuthUrl({
 - All query parameters plus the database `redirect_uri` are preserved and passed to the provider selection page
 :::
 
+:::info Re-authorizing an existing user
+Calling `/authorize` again for a `user_id` that already has tokens **does not revoke** any existing access or refresh tokens. The existing tokens are loaded and remain valid. The authorization flow simply allows the user to connect additional calendar provider accounts on top of the ones already connected.
+
+To fully invalidate a user's tokens before re-authorization, call [`POST /revoke`](#endpoint-revoke) first.
+:::
+
 ---
 
 ## Token management {#token-management}
@@ -142,7 +148,7 @@ The following table summarizes the lifetime of every credential issued by Mobisc
 |--------------------|----------|-------|
 | **Authorization code** | 10 minutes | Single-use — deleted on first exchange |
 | **Access token (JWT)** | 1 hour (`3600 s`) | `exp` claim embedded in the JWT; rejected immediately after expiry even if the signature is valid |
-| **Refresh token** | No embedded expiry | Validity enforced server-side via JTI rotation; remains valid until used or explicitly revoked |
+| **Refresh token** | No embedded expiry | The refresh token **does not** expire after a given time. Validity enforced server-side via JTI rotation (rotation happens on refresh call, not by time). Remains valid until used/rotated or explicitly revoked. If refresh returns `invalid_grant` or the newly issued refresh token is lost before persistence, the user must re-authorize. |
 | **OAuth session cookie** | 30 minutes | `oauth_req` cookie that carries the in-progress authorization state |
 
 :::info Refresh Token Rotation
@@ -150,6 +156,26 @@ Every `POST /token` call with `grant_type=refresh_token` issues a **new** refres
 Presenting an already-rotated refresh token returns `invalid_grant`.
 Calling `/revoke` invalidates the entire token family (all access tokens and refresh tokens for that user/client pair) at once.
 :::
+
+### Handling token expiry on API calls {#handling-401}
+
+All protected API endpoints (`/events`, `/calendars`, `/webhooks/subscribe`, etc.) validate the `Authorization: Bearer <access_token>` header. When the access token is missing, expired, or revoked the server returns **`401 Unauthorized`**.
+
+Recommended handling flow:
+
+```
+API call
+  └─► 401 Unauthorized
+    └─► POST /token  (grant_type=refresh_token)
+      ├─► 200 OK  →  persist new tokens, retry original request
+      └─► 400 invalid_grant  →  user must re-authorize (redirect to GET /authorize)
+```
+
+:::tip
+Implement a single request-retry wrapper (or an HTTP interceptor) that catches `401` responses, attempts one token refresh, and only falls back to re-authorization if the refresh itself fails.
+:::
+
+---
 
 ## Get Access Token {#endpoint-token}
 
@@ -405,6 +431,10 @@ The lifetime in seconds of the new access token. `3600` (1 hour).
 
 <Parameter name="refresh_token" type="string" id="refresh-response-refresh_token">
 A new refresh token. The previously used refresh token is immediately invalidated. Store this new token in place of the old one.
+
+:::info Scope inheritance
+The new access token carries the **same scope** as the original authorization. Scope cannot be upgraded through token refresh — the user must re-authorize (via [`GET /authorize`](#endpoint-authorize)) to request a different scope.
+:::
 
 :::warning Persist the new refresh token before using it
 The moment this endpoint responds successfully, the **old** refresh token is gone. You must durably persist the new refresh token **before** discarding the old one. If your application crashes, loses the response, or fails to save the token to your database:

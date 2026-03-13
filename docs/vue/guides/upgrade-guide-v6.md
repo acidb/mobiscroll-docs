@@ -40,20 +40,39 @@ The legacy package contains:
 
 #### Using legacy themes
 
-**1. Using CSS**
+How you import the legacy styles depends on how Mobiscroll was installed.
 
-Import the legacy CSS in your main entry file:
+**1. Installed from NPM**
+
+If Mobiscroll is installed from NPM, import the legacy styles from the package.
+
+Using CSS:
 
 ```ts
-import 'mobiscroll/dist/css/mobiscroll-legacy.min.css';
+import '@mobiscroll/vue/dist/css/mobiscroll-legacy.min.css';
+
 ```
 
-**2. Using SCSS**
-
-If you are customizing styles with SCSS, import:
+Using SCSS:
 
 ```scss
-@import 'mobiscroll/src/scss/mobiscroll-legacy.scss';
+@import '@mobiscroll/vue/dist/css/mobiscroll-legacy.scss';
+```
+
+**2. Installed from a downloaded package**
+
+If Mobiscroll was added manually from a downloaded package, import the legacy styles from the copied library folder.
+
+Using CSS:
+
+```ts
+import '@mobiscroll/vue/dist/css/mobiscroll-legacy.min.css';
+```
+
+Using SCSS:
+
+```scss
+@import '@mobiscroll/vue/dist/css/mobiscroll-legacy.scss';
 ```
 
 **3. Set the legacy theme**

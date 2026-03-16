@@ -6,21 +6,20 @@ slug: /postman-collection
 
 # Get started with the Postman Collection
 
-Use the Mobiscroll Connect Postman assets to validate OAuth flows and API endpoints in both local and production environments.
+Use the Mobiscroll Connect Postman assets to explore the API, validate OAuth flows, and test endpoints against the production server — without writing any code. It is most useful after completing [Application Setup](/connect/application-setup), before starting SDK or REST integration work.
 
 ## Download assets
 
 - [Mobiscroll Connect Public API collection](/connect/postman/mobiscroll-connect-public-api.postman_collection.json)
-- [Local environment](/connect/postman/mobiscroll-connect-public-local.postman_environment.json)
 - [Production environment](/connect/postman/mobiscroll-connect-public-prod.postman_environment.json)
 
 ## Prerequisites
 
 Before using the collection, make sure:
 
-- You have a reachable Mobiscroll Connect API base URL (for example local `http://localhost:3000` or your production API URL)
-- You have valid OAuth credentials (`clientId`, `clientSecret`) for the target environment
-- You have a valid `userId` for the same environment
+- `baseUrl` is already set to `https://connect.mobiscroll.com` in the preset environment file — no server setup needed
+- You have valid OAuth credentials (`clientId`, `clientSecret`) — see [Application Setup Guide](/connect/application-setup)
+- You have a valid `userId` for your environment
 - At least one provider account is connectable (Google, Microsoft, Apple, or CalDAV)
 
 Quick health check:
@@ -36,14 +35,10 @@ Quick health check:
 
 ## 2) Create and configure a Postman environment
 
-Preferred: import one of the preset environment files.
+Preferred: import the preset environment file.
 
 1. In Postman, click **Import**.
-2. Import one of:
-
-- `Local environment`
-- `Production environment`
-
+2. Import `Production environment`.
 3. Fill in `clientId`, `clientSecret`, and `userId` (see [Where to get each value](#where-to-get-each-value)).
 4. Select this environment before sending requests.
 
@@ -70,17 +65,13 @@ The collection expects these variables:
 - `accessToken` and `refreshToken` generation: see [OAuth API](/connect/oauth#endpoint-token)
 - Base API endpoints and auth overview: see [API Overview](/connect/overview)
 
-If your team already provides Local/Staging/Prod Postman environments, use those first and only update sensitive values locally.
+If your team already provides preset Postman environments, use those first and only update sensitive values locally.
 
-### Redirect URI rules by environment
+### Redirect URI
 
-- Local/dev explicit OAuth requests: `redirectUri` can be your local callback (for example `http://localhost:4000/callback`)
-- Postman Authorization-tab flow: use `https://oauth.pstmn.io/v1/callback`
-- Production Postman testing: ensure the production OAuth client allows Postman callback and set `redirectUri` to the Postman callback value
+The preset production environment sets `redirectUri` to `https://oauth.pstmn.io/v1/callback`.
 
-For Postman Authorization-tab token flow:
-
-- `redirectUri=https://oauth.pstmn.io/v1/callback`
+Ensure the OAuth client in your [Application Setup](/connect/application-setup) has this URL registered as an allowed redirect URI.
 
 ## 3) Understand collection auth behavior
 

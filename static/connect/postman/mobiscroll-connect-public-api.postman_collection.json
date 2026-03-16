@@ -1,0 +1,452 @@
+{
+  "info": {
+    "_postman_id": "6ba4896b-12bd-4e19-8d00-977f89a4310d",
+    "name": "Mobiscroll Connect — Public API",
+    "description": "Public API endpoints used by test-app, plus health check.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "48135684"
+  },
+  "item": [
+    {
+      "name": "OAuth",
+      "item": [
+        {
+          "name": "Authorize (Browser)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/oauth/authorize?response_type=code&client_id={{clientId}}&user_id={{userId}}&scope={{scope}}&redirect_uri={{redirectUri}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "oauth", "authorize"],
+              "query": [
+                {
+                  "key": "response_type",
+                  "value": "code"
+                },
+                {
+                  "key": "client_id",
+                  "value": "{{clientId}}"
+                },
+                {
+                  "key": "user_id",
+                  "value": "{{userId}}"
+                },
+                {
+                  "key": "scope",
+                  "value": "{{scope}}"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "{{redirectUri}}"
+                }
+              ]
+            },
+            "description": "Start OAuth authorization code flow."
+          },
+          "response": []
+        },
+        {
+          "name": "Exchange Code for Token",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{clientId}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{clientSecret}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                },
+                {
+                  "key": "code",
+                  "value": "PASTE_AUTH_CODE_HERE"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "{{redirectUri}}"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/oauth/token",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "oauth", "token"]
+            },
+            "description": "Exchange authorization code for access + refresh token."
+          },
+          "response": []
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{clientId}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{clientSecret}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "grant_type",
+                  "value": "refresh_token"
+                },
+                {
+                  "key": "refresh_token",
+                  "value": "{{refreshToken}}"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/oauth/token",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "oauth", "token"]
+            },
+            "description": "Refresh access token with refresh token."
+          },
+          "response": []
+        },
+        {
+          "name": "Revoke Token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"{{accessToken}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/oauth/revoke",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "oauth", "revoke"]
+            },
+            "description": "Revoke token family for the authenticated user/client pair."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Calendars",
+      "item": [
+        {
+          "name": "Get Calendars",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/calendars",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "calendars"]
+            },
+            "description": "Returns all calendars from all connected providers for the authenticated user."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Events",
+      "item": [
+        {
+          "name": "Get Events",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/events?start=2025-01-01T00:00:00Z&end=2025-12-31T23:59:59Z&pageSize=50&singleEvents=true",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "events"],
+              "query": [
+                {
+                  "key": "start",
+                  "value": "2025-01-01T00:00:00Z"
+                },
+                {
+                  "key": "end",
+                  "value": "2025-12-31T23:59:59Z"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "50"
+                },
+                {
+                  "key": "singleEvents",
+                  "value": "true"
+                },
+                {
+                  "key": "calendarIds",
+                  "value": "",
+                  "description": "JSON stringified array of calendar IDs",
+                  "disabled": true
+                },
+                {
+                  "key": "nextPageToken",
+                  "value": "",
+                  "description": "Pagination token from previous response",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Get events from all connected providers with pagination and date filtering."
+          },
+          "response": []
+        },
+        {
+          "name": "Create Event",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"provider\": \"google\",\n  \"calendarId\": \"primary\",\n  \"title\": \"Test Event\",\n  \"start\": \"2025-10-20T10:00:00Z\",\n  \"end\": \"2025-10-20T11:00:00Z\",\n  \"description\": \"Created via Postman\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/event",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "event"]
+            },
+            "description": "Create event using unified endpoint."
+          },
+          "response": []
+        },
+        {
+          "name": "Update Event",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"provider\": \"google\",\n  \"calendarId\": \"primary\",\n  \"eventId\": \"EVENT_ID_HERE\",\n  \"title\": \"Updated Event\",\n  \"start\": \"2025-10-20T10:00:00Z\",\n  \"end\": \"2025-10-20T12:00:00Z\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/event",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "event"]
+            },
+            "description": "Update event using unified endpoint."
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Event",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"provider\": \"google\",\n  \"calendarId\": \"primary\",\n  \"eventId\": \"EVENT_ID_HERE\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/event",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "event"]
+            },
+            "description": "Delete event using unified endpoint."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Webhooks",
+      "item": [
+        {
+          "name": "Subscribe Webhook",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"provider\": \"google\",\n  \"calendarId\": \"primary\",\n  \"expiration\": 1766448000000\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/subscribe-webhook",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "subscribe-webhook"]
+            },
+            "description": "Subscribe to calendar change notifications."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "health"]
+            },
+            "description": "Returns { \"status\": \"ok\" }"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "tokenType",
+        "value": "Bearer",
+        "type": "string"
+      },
+      {
+        "key": "accessToken",
+        "value": "{{accessToken}}",
+        "type": "string"
+      },
+      {
+        "key": "useBrowser",
+        "value": true,
+        "type": "boolean"
+      },
+      {
+        "key": "tokenName",
+        "value": "Mobiscroll Connect Token",
+        "type": "string"
+      },
+      {
+        "key": "callbackUrl",
+        "value": "https://oauth.pstmn.io/v1/callback",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "{{baseUrl}}/api/oauth/authorize?user_id={{userId}}&scope={{scope}}",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "{{baseUrl}}/api/oauth/token",
+        "type": "string"
+      },
+      {
+        "key": "clientId",
+        "value": "{{clientId}}",
+        "type": "string"
+      },
+      {
+        "key": "clientSecret",
+        "value": "{{clientSecret}}",
+        "type": "string"
+      },
+      {
+        "key": "scope",
+        "value": "{{scope}}",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      },
+      {
+        "key": "client_authentication",
+        "value": "body",
+        "type": "string"
+      },
+      {
+        "key": "addTokenTo",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  }
+}

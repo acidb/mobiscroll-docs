@@ -42,7 +42,7 @@ $('#myInput').mobiscroll().datepicker({
   }
 });
 ```
-![Calendar header template](/img/calendar-header-template.png)
+  ![Calendar header template](/img/v6/calendar-header-template.png)
 
 ## Calendar cell template
 
@@ -59,4 +59,4 @@ $('#myInput').mobiscroll().datepicker({
   }
 });
 ```
-![Calendar cell template](/img/calendar-cell-template.png)
+  ![Calendar cell template](/img/v6/calendar-cell-template.png)

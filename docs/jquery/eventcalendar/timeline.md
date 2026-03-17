@@ -27,7 +27,7 @@ Also, the `eventDisplay` [property](##opt-view) transforms the event display int
 
 The capabilities like [recurring events](/jquery/core-concepts/recurrence), [all-day, multi-day events](#opt-data), [responsiveness](#responsiveness) are supported by the Timeline.
 
-![Timeline overview](/img/timeline-overview.png)
+![Timeline overview](/img/v6/timeline-overview.png)
 
 ## Showing the Timeline
 
@@ -78,7 +78,7 @@ $('#timeline').mobiscroll().eventcalendar({
 });
 ```
 
-![Timeline slots](/img/timeline-slots.png)
+![Timeline slots](/img/v6/timeline-slots.png)
 
 ### Column width
 
@@ -146,7 +146,7 @@ You need to apply these rules after the mobiscroll default rules, otherwise the 
 
 [Shifted views](https://demo.mobiscroll.com/timeline/36-hour-rolling-window-aircraft-view) can be implemented by extending the daily timeline [view](#configuring-the-view) with hours from the previous or next calendar days using the <code>startTime</code> and <code>endTime</code> properties with a day-offset format.
 
-![Timeline shifted days](/img/timeline-shifted-days.png)
+![Timeline shifted days](/img/v6/timeline-shifted-days.png)
 
 #### Shift Start Time (Previous Day Offset)
 
@@ -399,7 +399,7 @@ To disable it, set [virtualScroll](#view-timeline-virtualScroll) to `false`.
 
 The Timeline view can [display connections between events](https://demo.mobiscroll.com/timeline/connecting-linking-events-arrows). Events will be linked with lines and additionally arrows can be displayed to illustrate the direction of the connection. Events can have multiple connections simultaneously. Connections can be specified with the [`connections`](#opt-connections) option.
 
-![Timeline event connections](/img/event-connections.png)
+![Timeline event connections](/img/v6/event-connections.png)
 
 ## Event order
 
@@ -469,7 +469,7 @@ $('#timeline').mobiscroll().eventcalendar({
 });
 ```
 
-![Timeline responsive behavior](/img/timeline-responsive.gif)
+![Timeline responsive behavior](/img/v6/timeline-responsive.gif)
 
 ## Zoom Levels
 
@@ -538,11 +538,11 @@ Check out how you can style the cell in [this example](https://demo.mobiscroll.c
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="1480" height="975" src={require('@site/static/img/normal-cell-templating-timeline.png').default} />
+    <img width="1480" height="975" src={require('@site/static/img/v6/normal-cell-templating-timeline.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="1479" height="975" src={require('@site/static/img/cell-templating-timeline.png').default} />
+    <img width="1479" height="975" src={require('@site/static/img/v6/cell-templating-timeline.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
@@ -560,11 +560,11 @@ Check out how you can style these resource parts in [this example](https://demo.
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="1770" height="507" src={require('@site/static/img/normal-resource-header-footer-timeline.png').default} />
+    <img width="1770" height="507" src={require('@site/static/img/v6/normal-resource-header-footer-timeline.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="1770" height="507" src={require('@site/static/img/resource-header-footer-timeline.png').default} />
+    <img width="1770" height="507" src={require('@site/static/img/v6/resource-header-footer-timeline.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
@@ -582,11 +582,11 @@ Check out how you can style the sidebar parts in [this example](https://demo.mob
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="1770" height="507" src={require('@site/static/img/normal-sidebar-header-footer-timeline.png').default} />
+    <img width="1770" height="507" src={require('@site/static/img/v6/normal-sidebar-header-footer-timeline.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="1770" height="507" src={require('@site/static/img/sidebar-header-footer-timeline.png').default} />
+    <img width="1770" height="507" src={require('@site/static/img/v6/sidebar-header-footer-timeline.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
@@ -605,11 +605,11 @@ With an hourly (or sub-hourly) resolution the [renderHour](#renderer-renderHour)
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="1767" height="633" src={require('@site/static/img/normal-hourly-header-timeline.png').default} />
+    <img width="1767" height="633" src={require('@site/static/img/v6/normal-hourly-header-timeline.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="1767" height="633" src={require('@site/static/img/hourly-header-timeline.png').default} />
+    <img width="1767" height="633" src={require('@site/static/img/v6/hourly-header-timeline.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
@@ -622,11 +622,11 @@ With a daily resolution, the [renderTimelineDay](#renderer-renderTimelineDay) an
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="1767" height="635" src={require('@site/static/img/normal-daily-header-timeline.png').default} />
+    <img width="1767" height="635" src={require('@site/static/img/v6/normal-daily-header-timeline.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="1767" height="635" src={require('@site/static/img/daily-header-timeline.png').default} />
+    <img width="1767" height="635" src={require('@site/static/img/v6/daily-header-timeline.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
@@ -639,11 +639,11 @@ When the resolution is weekly, the [renderWeek](#renderer-renderWeek) and [rende
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="1767" height="593" src={require('@site/static/img/normal-weekly-header-timeline.png').default} />
+    <img width="1767" height="593" src={require('@site/static/img/v6/normal-weekly-header-timeline.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="1767" height="593" src={require('@site/static/img/weekly-header-timeline.png').default} />
+    <img width="1767" height="593" src={require('@site/static/img/v6/weekly-header-timeline.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
@@ -656,11 +656,11 @@ When displaying multiple months, the [renderMonth](#renderer-renderMonth) and [r
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="1767" height="593" src={require('@site/static/img/normal-monthly-header-template.png').default} />
+    <img width="1767" height="593" src={require('@site/static/img/v6/normal-monthly-header-template.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="1767" height="593" src={require('@site/static/img/monthly-header-template.png').default} />
+    <img width="1767" height="593" src={require('@site/static/img/v6/monthly-header-template.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
@@ -673,11 +673,11 @@ When displaying multiple quarters, the [renderQuarter](#renderer-renderQuarter) 
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="1767" height="593" src={require('@site/static/img/normal-monthly-header-template.png').default} />
+    <img width="1767" height="593" src={require('@site/static/img/v6/normal-monthly-header-template.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="1767" height="593" src={require('@site/static/img/monthly-header-template.png').default} />
+    <img width="1767" height="593" src={require('@site/static/img/v6/monthly-header-template.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
@@ -690,11 +690,11 @@ With a yearly resolution, the [renderYear](#renderer-renderYear) and [renderYear
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="1767" height="593" src={require('@site/static/img/normal-monthly-header-template.png').default} />
+    <img width="1767" height="593" src={require('@site/static/img/v6/normal-monthly-header-template.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="1767" height="593" src={require('@site/static/img/monthly-header-template.png').default} />
+    <img width="1767" height="593" src={require('@site/static/img/v6/monthly-header-template.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
@@ -713,11 +713,11 @@ Check out how you can style the events and the buffer areas in [this example](ht
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="1793" height="401" src={require('@site/static/img/normal-event-buffer-templating-timeline.png').default} />
+    <img width="1793" height="401" src={require('@site/static/img/v6/normal-event-buffer-templating-timeline.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="1793" height="401" src={require('@site/static/img/event-buffer-templating-timeline.png').default} />
+    <img width="1793" height="401" src={require('@site/static/img/v6/event-buffer-templating-timeline.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
@@ -732,11 +732,11 @@ Check out how you can style the event content in [this example](https://demo.mob
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="1793" height="380" src={require('@site/static/img/normal-event-content-timeline.png').default} />
+    <img width="1793" height="380" src={require('@site/static/img/v6/normal-event-content-timeline.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="1793" height="380" src={require('@site/static/img/event-content-timeline.png').default} />
+    <img width="1793" height="380" src={require('@site/static/img/v6/event-content-timeline.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
@@ -751,11 +751,11 @@ Check out how you can style the slots in [this example](https://demo.mobiscroll.
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="1539" height="274" src={require('@site/static/img/normal-slot-template-timeline.png').default} />
+    <img width="1539" height="274" src={require('@site/static/img/v6/normal-slot-template-timeline.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="1539" height="274" src={require('@site/static/img/slot-template-timeline.png').default} />
+    <img width="1539" height="274" src={require('@site/static/img/v6/slot-template-timeline.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
@@ -772,11 +772,11 @@ Check out how you can style the Timeline header in [this example](https://demo.m
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="1766" height="468" src={require('@site/static/img/normal-header-template-timeline.png').default} />
+    <img width="1766" height="468" src={require('@site/static/img/v6/normal-header-template-timeline.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="1766" height="468" src={require('@site/static/img/header-template-timeline.png').default} />
+    <img width="1766" height="468" src={require('@site/static/img/v6/header-template-timeline.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">

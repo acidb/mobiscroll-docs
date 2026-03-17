@@ -1,12 +1,12 @@
 ---
 sidebar_position: 4
-sidebar_label: CSS4 variables
+sidebar_label: CSS variables
 displayed_sidebar: angularSidebar
-title: CSS4 variables
+title: CSS variables
 ---
 
-import Content from '../../_shared/theming/css4_variables.mdx';
-import { toc as ContentTOC } from '../../_shared/theming/css4_variables.mdx';
+import Content from '../../_shared/theming/css-variables.mdx';
+import { toc as ContentTOC } from '../../_shared/theming/css-variables.mdx';
 
 export const toc = [...ContentTOC];
 

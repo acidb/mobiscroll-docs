@@ -1,12 +1,12 @@
 ---
 sidebar_position: 4
-sidebar_label: CSS4 Styling
+sidebar_label: CSS variables
 displayed_sidebar: jquerySidebar
-title: CSS4 Styling
+title: CSS variables
 ---
 
-import Content from '../../_shared/popup/css4-variables.mdx';
-import { toc as TOC } from '../../_shared/popup/css4-variables.mdx';
+import Content from '../../_shared/popup/css-variables.mdx';
+import { toc as TOC } from '../../_shared/popup/css-variables.mdx';
 export const toc = [...TOC];
 
 <Content />

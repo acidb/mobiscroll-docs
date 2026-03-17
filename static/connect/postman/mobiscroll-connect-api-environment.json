@@ -1,5 +1,5 @@
 {
-  "name": "Mobiscroll Connect Public - Prod",
+  "name": "Mobiscroll Connect API Environment",
   "values": [
     {
       "key": "baseUrl",
@@ -9,13 +9,13 @@
     },
     {
       "key": "clientId",
-      "value": "",
+      "value": "your-client-id",
       "type": "default",
       "enabled": true
     },
     {
       "key": "clientSecret",
-      "value": "",
+      "value": "your-client-secret",
       "type": "secret",
       "enabled": true
     },
@@ -27,7 +27,7 @@
     },
     {
       "key": "userId",
-      "value": "user-id",
+      "value": "your-geo-user-id",
       "type": "default",
       "enabled": true
     },

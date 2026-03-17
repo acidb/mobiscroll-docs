@@ -21,13 +21,13 @@ export function Parameter({ name, type, defaultValue, required, children, id, is
         <span className={styles.type}>{type}</span>
         {required && <span className={styles.required}>Required</span>}
       </div>
+      <div className={styles.description}>{children}</div>
       {defaultValue && (
         <div className={styles.defaultValue}>
           <strong>Default: </strong>
           {defaultValue}
         </div>
       )}
-      <div className={styles.description}>{children}</div>
     </div>
   );
 }

@@ -28,10 +28,10 @@ Project/application identifier. This uniquely identifies your application in the
 </Parameter>
 
 <Parameter name="user_id" type="string" required id="authorize-user_id">
-External user identifier from the client application. This is your application's unique identifier for the user.
+Your own unique identifier for the user in your system who is being authorized.
 </Parameter>
 
-<Parameter name="scope" type="string" defaultValue={<code>undefined</code>} id="authorize-scope">
+<Parameter name="scope" type="string" defaultValue={<code>read-write</code>} id="authorize-scope">
 The scope of access requested from the user. Can be one of `free-busy`, `read`, or `read-write`. If not specified, defaults to `read-write`.
 </Parameter>
 

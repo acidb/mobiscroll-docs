@@ -1,8 +1,8 @@
 {
   "info": {
     "_postman_id": "6ba4896b-12bd-4e19-8d00-977f89a4310d",
-    "name": "Mobiscroll Connect — Public API",
-    "description": "Public API endpoints used by test-app, plus health check.",
+    "name": "Mobiscroll Connect API Collection",
+    "description": "Explore the collection for the Mobiscroll Connect calendar and scheduling API. For more information see https://mobiscroll.com/docs/connect.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "48135684"
   },

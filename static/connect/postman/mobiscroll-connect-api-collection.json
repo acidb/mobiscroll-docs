@@ -16,9 +16,9 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/api/oauth/authorize?response_type=code&client_id={{clientId}}&user_id={{userId}}&scope={{scope}}&redirect_uri={{redirectUri}}",
+              "raw": "{{baseUrl}}/oauth/authorize?response_type=code&client_id={{clientId}}&user_id={{userId}}&scope={{scope}}&redirect_uri={{redirectUri}}",
               "host": ["{{baseUrl}}"],
-              "path": ["api", "oauth", "authorize"],
+              "path": ["oauth", "authorize"],
               "query": [
                 {
                   "key": "response_type",
@@ -89,9 +89,9 @@
               ]
             },
             "url": {
-              "raw": "{{baseUrl}}/api/oauth/token",
+              "raw": "{{baseUrl}}/oauth/token",
               "host": ["{{baseUrl}}"],
-              "path": ["api", "oauth", "token"]
+              "path": ["oauth", "token"]
             },
             "description": "Exchange authorization code for access + refresh token."
           },
@@ -136,9 +136,9 @@
               ]
             },
             "url": {
-              "raw": "{{baseUrl}}/api/oauth/token",
+              "raw": "{{baseUrl}}/oauth/token",
               "host": ["{{baseUrl}}"],
-              "path": ["api", "oauth", "token"]
+              "path": ["oauth", "token"]
             },
             "description": "Refresh access token with refresh token."
           },
@@ -164,9 +164,9 @@
               }
             },
             "url": {
-              "raw": "{{baseUrl}}/api/oauth/revoke",
+              "raw": "{{baseUrl}}/oauth/revoke",
               "host": ["{{baseUrl}}"],
-              "path": ["api", "oauth", "revoke"]
+              "path": ["oauth", "revoke"]
             },
             "description": "Revoke token family for the authenticated user/client pair."
           },
@@ -183,9 +183,9 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/api/calendars",
+              "raw": "{{baseUrl}}/calendars",
               "host": ["{{baseUrl}}"],
-              "path": ["api", "calendars"]
+              "path": ["calendars"]
             },
             "description": "Returns all calendars from all connected providers for the authenticated user."
           },
@@ -202,9 +202,9 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/api/events?start=2025-01-01T00:00:00Z&end=2025-12-31T23:59:59Z&pageSize=50&singleEvents=true",
+              "raw": "{{baseUrl}}/events?start=2025-01-01T00:00:00Z&end=2025-12-31T23:59:59Z&pageSize=50&singleEvents=true",
               "host": ["{{baseUrl}}"],
-              "path": ["api", "events"],
+              "path": ["events"],
               "query": [
                 {
                   "key": "start",
@@ -260,9 +260,9 @@
               }
             },
             "url": {
-              "raw": "{{baseUrl}}/api/event",
+              "raw": "{{baseUrl}}/event",
               "host": ["{{baseUrl}}"],
-              "path": ["api", "event"]
+              "path": ["event"]
             },
             "description": "Create event using unified endpoint."
           },
@@ -288,9 +288,9 @@
               }
             },
             "url": {
-              "raw": "{{baseUrl}}/api/event",
+              "raw": "{{baseUrl}}/event",
               "host": ["{{baseUrl}}"],
-              "path": ["api", "event"]
+              "path": ["event"]
             },
             "description": "Update event using unified endpoint."
           },
@@ -316,9 +316,9 @@
               }
             },
             "url": {
-              "raw": "{{baseUrl}}/api/event",
+              "raw": "{{baseUrl}}/event",
               "host": ["{{baseUrl}}"],
-              "path": ["api", "event"]
+              "path": ["event"]
             },
             "description": "Delete event using unified endpoint."
           },
@@ -349,9 +349,9 @@
               }
             },
             "url": {
-              "raw": "{{baseUrl}}/api/subscribe-webhook",
+              "raw": "{{baseUrl}}/subscribe-webhook",
               "host": ["{{baseUrl}}"],
-              "path": ["api", "subscribe-webhook"]
+              "path": ["subscribe-webhook"]
             },
             "description": "Subscribe to calendar change notifications."
           },
@@ -368,9 +368,9 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/api/health",
+              "raw": "{{baseUrl}}/health",
               "host": ["{{baseUrl}}"],
-              "path": ["api", "health"]
+              "path": ["health"]
             },
             "description": "Returns { \"status\": \"ok\" }"
           },
@@ -409,12 +409,12 @@
       },
       {
         "key": "authUrl",
-        "value": "{{baseUrl}}/api/oauth/authorize?user_id={{userId}}&scope={{scope}}",
+        "value": "{{baseUrl}}/oauth/authorize?user_id={{userId}}&scope={{scope}}",
         "type": "string"
       },
       {
         "key": "accessTokenUrl",
-        "value": "{{baseUrl}}/api/oauth/token",
+        "value": "{{baseUrl}}/oauth/token",
         "type": "string"
       },
       {

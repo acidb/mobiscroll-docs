@@ -3,7 +3,7 @@
   "values": [
     {
       "key": "baseUrl",
-      "value": "https://connect.mobiscroll.com",
+      "value": "https://connect.mobiscroll.com/api",
       "type": "default",
       "enabled": true
     },

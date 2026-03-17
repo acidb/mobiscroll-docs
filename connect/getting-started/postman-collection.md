@@ -4,6 +4,8 @@ sidebar_position: 3
 slug: /postman-collection
 ---
 
+import { PostmanRunButton } from '@site/src/components/Connect/PostmanRunButton';
+
 # Get started with the Postman Collection
 
 Use the Mobiscroll Connect Postman assets to explore the API, validate OAuth flows, and test endpoints against the production server — without writing any code. It is most useful after completing the [Application Setup Guide](/connect/application-setup#verifying-the-integration), before starting SDK or REST integration work.
@@ -24,6 +26,12 @@ This path pre-fills `baseUrl`, `clientId`, and `clientSecret` for the selected a
 For Postman OAuth testing, your Connect app must allow `https://oauth.pstmn.io/v1/callback` as a redirect URI.
 If this URI is missing from app settings, token exchange/auth flows in Postman can fail with `invalid_grant` or redirect URI mismatch errors.
 :::
+
+## Run in Postman
+
+You can also fork the collection directly from this page:
+
+<PostmanRunButton />
 
 ## Download assets
 

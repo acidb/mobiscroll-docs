@@ -8,25 +8,26 @@ export default function FooterWrapper(props) {
       <div className="container_12">
         <div className="grid_2">
           <div className="foot-link-c"><div className="foot-title">Products</div></div>
-          <div className="foot-link-c"><a className="foot-link" href="//demo.mobiscroll.com/javascript">for Javascript</a></div>
-          <div className="foot-link-c"><a className="foot-link" href="//demo.mobiscroll.com/jquery">for jQuery</a></div>
-          <div className="foot-link-c"><a className="foot-link" href="//demo.mobiscroll.com/angular">for Angular</a></div>
-          <div className="foot-link-c"><a className="foot-link" href="//demo.mobiscroll.com/react">for React</a></div>
+          <div className="foot-link-c"><a className="foot-link" href="//demo.mobiscroll.com/javascript">UI for Javascript</a></div>
+          <div className="foot-link-c"><a className="foot-link" href="//demo.mobiscroll.com/jquery">UI for jQuery</a></div>
+          <div className="foot-link-c"><a className="foot-link" href="//demo.mobiscroll.com/angular">UI for Angular</a></div>
+          <div className="foot-link-c"><a className="foot-link" href="//demo.mobiscroll.com/react">UI for React</a></div>
+          <div className="foot-link-c"><a className="foot-link" href="//demo.mobiscroll.com/vue">UI for Vue</a></div>
+          <div className="foot-link-c"><a className="foot-link" href="//mobiscroll.com/connect">Calendar API</a></div>
           <div className="foot-delimiter"></div>
-          <div className="foot-link-c"><a className="foot-link" href="//demo.mobiscroll.com/">View Controls</a></div>
-          <div className="foot-link-c"><a className="foot-link" href="//mobiscroll.com/pricing">View Pricing</a></div>
-          <div className="foot-link-c"><a className="foot-link" href="//download.mobiscroll.com">Download Products</a></div>
+          <div className="foot-link-c"><a className="foot-link" href="//mobiscroll.com/pricing">UI Pricing</a></div>
+          <div className="foot-link-c"><a className="foot-link" href="//mobiscroll.com/connect-pricing">Connect Pricing</a></div>
         </div>
         <div className="grid_2">
           <div className="foot-link-c"><div className="foot-title">Features</div></div>
-          <div className="foot-link-c"><a className="foot-link" href="//mobiscroll.com/event-calendar-scheduler">Event calendar & scheduler</a></div>
-          <div className="foot-link-c"><a className="foot-link" href="//mobiscroll.com/date-time-picker-calendar">Date picker & calendar</a></div>
-
-          <div className="foot-link-c"><a className="foot-link" href="//mobiscroll.com/mobiscroll-vs-fullcalendar">FullCalendar alternative</a></div>
+          <div className="foot-link-c"><a className="foot-link" href="//demo.mobiscroll.com/eventcalendar">Event calendar</a></div>
+          <div className="foot-link-c"><a className="foot-link" href="//demo.mobiscroll.com/scheduler">Scheduler</a></div>
+          <div className="foot-link-c"><a className="foot-link" href="//demo.mobiscroll.com/timeline">Timeline</a></div>
+          <div className="foot-link-c"><a className="foot-link" href="//demo.mobiscroll.com/agenda">Agenda</a></div>
+          <div className="foot-link-c"><a className="foot-link" href="//demo.mobiscroll.com/datetime">Date & time</a></div>
+          <div className="foot-link-c"><a className="foot-link" href="//mobiscroll.com/docs/connect">Calendar API</a></div>
           <div className="foot-delimiter"></div>
-          <div className="foot-link-c"><a className="foot-link" style={{ "textTransform": "none" }} href="//mobiscroll.com/ui-for-ios">UI for iOS</a></div>
-          <div className="foot-link-c"><a className="foot-link" style={{ "textTransform": "none" }} href="//mobiscroll.com/ionic-components">UI for Ionic</a></div>
-          <div className="foot-link-c"><a className="foot-link" style={{ "textTransform": "none" }} href="//mobiscroll.com/cordova">UI for Cordova</a></div>
+          <div className="foot-link-c"><a className="foot-link" href="//mobiscroll.com/mobiscroll-vs-fullcalendar">FullCalendar alternative</a></div>
         </div>
         <div className="grid_2">
           <div className="foot-link-c"><div className="foot-title">Resources</div></div>

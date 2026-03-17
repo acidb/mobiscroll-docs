@@ -11,7 +11,7 @@ export default function Root({children}) {
   const isBrowser = useIsBrowser();
 
   useEffect(() => {
-    if (pathname && pathname.length > 1 && !skipUrls(pathname) && !/\/(react|angular|vue|javascript|jquery)/.test(pathname)) {
+    if (pathname && pathname.length > 1 && !skipUrls(pathname) && !/\/(react|angular|vue|javascript|jquery|connect)/.test(pathname)) {
         const rest = /(\/docs)?(\/[0-9]+\.[0-9]+\.[0-9]+)?\/(.*)/.exec(pathname);
         const redir = rest != null;
         if (redir) {

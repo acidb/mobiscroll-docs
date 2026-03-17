@@ -7,6 +7,7 @@ export function getLocationInfo(location) {
   const frRegex = /(jquery|angular|javascript|react|vue)/g;
   const compRegex =
     /(eventcalendar|datepicker|select|popup|input|textarea|dropdown|segmented|button|stepper|radio|switch|checkbox)/g;
+  const connectRegex = /\/connect/g;
   let framework = "";
   let component = null;
   const frMatches = frRegex.exec(location.pathname);
@@ -17,9 +18,13 @@ export function getLocationInfo(location) {
   if (compMatches !== null && compMatches.length > 0) {
     component = compMatches[1];
   }
+
+  const docsBase = connectRegex.test(location.pathname) ? "connect" : "docs";
+
   return {
     framework,
     component,
+    docsBase,
   };
 }
 

@@ -29,9 +29,10 @@ Starting with Mobiscroll 6.0 we updated the minimum supported framework and lang
 
 ### Theme updates
 
-Mobiscroll 6.0 introduces redesigned themes based on the latest Fluent, Material, and iOS design systems. These updated themes are used by default.
+Mobiscroll 6.0 introduces redesigned themes based on the latest Fluent, Material, and iOS design systems. These updated themes are used by default and are exposed primarily through **CSS variables**.  
+For a complete list of theme-level variables and guidance on how to override them, see the [CSS variables overview](/vue/theming/css-variables).
 
-If you prefer the previous (v5) appearance, you can continue using the legacy themes. Legacy themes are not included in the default bundle and must be imported manually.
+If you prefer the previous (v5) appearance, you can continue using the legacy themes. Legacy themes are not part of the default styles, so you need to load an extra legacy stylesheet bundle.
 
 The legacy package contains:
 
@@ -40,23 +41,21 @@ The legacy package contains:
 
 #### Using legacy themes
 
-**1. Using CSS**
+Regardless of whether Mobiscroll was installed from NPM or from a downloaded package, import the legacy styles from the Vue package:
 
-Import the legacy CSS in your main entry file:
+Using CSS:
 
 ```ts
-import 'mobiscroll/dist/css/mobiscroll-legacy.min.css';
+import '@mobiscroll/vue/dist/css/mobiscroll-legacy.min.css';
 ```
 
-**2. Using SCSS**
-
-If you are customizing styles with SCSS, import:
+Using SCSS:
 
 ```scss
-@import 'mobiscroll/src/scss/mobiscroll-legacy.scss';
+@import '@mobiscroll/vue/dist/css/mobiscroll-legacy.scss';
 ```
 
-**3. Set the legacy theme**
+**Then set the legacy theme:**
 
 After loading the styles, reference one of the legacy themes:
 

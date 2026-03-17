@@ -6,7 +6,7 @@ export function showActiveMenu() {
   const navCont = document.querySelector("nav.menu") as HTMLElement;
   if (activeItems && activeItems.length) {
     const aItem = activeItems[activeItems.length - 1] as HTMLElement;
-    const itemTop = aItem.offsetTop || (aItem.offsetParent as HTMLElement).offsetTop;
+    const itemTop = aItem.offsetTop || (aItem.offsetParent && (aItem.offsetParent as HTMLElement).offsetTop) || 0;
     const scrollY = itemTop - (navCont.clientHeight / 2);
     navCont.scroll({
       top: scrollY,

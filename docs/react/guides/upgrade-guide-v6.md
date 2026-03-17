@@ -36,9 +36,10 @@ To align with current ecosystem standards, we renamed several packages:
 
 ### Theme updates
 
-Mobiscroll 6.0 introduces redesigned themes based on the latest Fluent, Material, and iOS design systems. These updated themes are used by default.
+Mobiscroll 6.0 introduces redesigned themes based on the latest Fluent, Material, and iOS design systems. These updated themes are used by default and are exposed primarily through **CSS variables**.  
+For a complete list of theme-level variables and guidance on how to override them, see the [CSS variables overview](/react/theming/css-variables).
 
-If you prefer the previous (v5) appearance, you can continue using the legacy themes. Legacy themes are not included in the default bundle and must be imported manually.
+If you prefer the previous (v5) appearance, you can continue using the legacy themes. Legacy themes are not part of the default styles, so you need to load an extra legacy stylesheet bundle.
 
 The legacy package contains:
 
@@ -47,28 +48,7 @@ The legacy package contains:
 
 #### Using legacy themes
 
-How you import the legacy styles depends on how Mobiscroll was installed.
-
-**1. Installed from NPM**
-
-If Mobiscroll is installed from NPM, import the legacy styles from the package.
-
-Using CSS:
-
-```ts
-import '@mobiscroll/react/dist/css/mobiscroll-legacy.min.css';
-
-```
-
-Using SCSS:
-
-```scss
-@import '@mobiscroll/react/dist/css/mobiscroll-legacy.scss';
-```
-
-**2. Installed from a downloaded package**
-
-If Mobiscroll was added manually from a downloaded package, import the legacy styles from the copied library folder.
+Regardless of whether Mobiscroll was installed from NPM or from a downloaded package, import the legacy styles from the React package:
 
 Using CSS:
 
@@ -82,7 +62,7 @@ Using SCSS:
 @import '@mobiscroll/react/dist/css/mobiscroll-legacy.scss';
 ```
 
-**3. Set the legacy theme**
+**Then set the legacy theme:**
 
 After loading the styles, reference one of the legacy themes:
 
@@ -197,6 +177,11 @@ We renamed the `renderDayContent` option to [renderCalendarDayContent](/react/ev
 
 
 ## Scheduler
+
+### Header consistency
+
+We unified the Scheduler header layout across different view configurations. The single-day view with resources now uses the same header structure as multi-day (e.g., weekly, monthly or daily) views. This ensures a consistent look and feel regardless of the selected view type.
+
 
 ### Changed
 

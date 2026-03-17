@@ -204,11 +204,6 @@ mobiscroll.eventcalendar('#myID', {
 
 ## Scheduler
 
-### Header consistency
-
-We unified the Scheduler header layout across different view configurations. The single-day view with resources now uses the same header structure as multi-day (e.g., weekly, monthly or daily) views. This ensures a consistent look and feel regardless of the selected view type.
-
-
 ### Changed
 
 We performed a cleanup and standardization of renderer option names. This improves consistency across components. Deprecated names are still supported for now but will be removed in a future release.

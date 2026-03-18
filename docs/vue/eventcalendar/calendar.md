@@ -23,7 +23,7 @@ The Calendar view supports everything from [single to multiple week views](https
 
 The capabilities like [recurring events](/javascript/core-concepts/recurrence), [all-day, multi-day events](#opt-data), [responsiveness](#responsiveness) are supported by the Event Calendar.
 
-![Event Calendar overview](/img/event-calendar-overview.png)
+![Event Calendar overview](/img/v6/event-calendar-overview.png)
 
 ## Showing the Calendar
 
@@ -120,7 +120,7 @@ const myResponsive = {
 </template>
 ```
 
-![Event Calendar responsive behavior](/img/event-calendar-responsive.gif)
+![Event Calendar responsive behavior](/img/v6/event-calendar-responsive.gif)
 
 ## Templating
 The display of Calendar can be customized with different [solt functions](#slots).
@@ -134,11 +134,11 @@ Check out how you can style labels and their content in [this example](https://d
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="1256" height="547" src={require('@site/static/img/normal-label-content-calendar.png').default} />
+    <img width="1256" height="547" src={require('@site/static/img/v6/normal-label-content-calendar.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="1256" height="547" src={require('@site/static/img/label-content-calendar.png').default} />
+    <img width="1256" height="547" src={require('@site/static/img/v6/label-content-calendar.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
@@ -159,7 +159,7 @@ Check out how you can style events and their content in [this example](https://d
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="1256" height="373" src={require('@site/static/img/event-content-calendar.png').default} />
+      <img width="1256" height="373" src={require('@site/static/img/v6/event-content-calendar.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
@@ -176,11 +176,11 @@ Check out how you can style the header in [this example](https://demo.mobiscroll
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="1256" height="547" src={require('@site/static/img/normal-header-calendar.png').default} />
+    <img width="1256" height="547" src={require('@site/static/img/v6/normal-header-calendar.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="1256" height="547" src={require('@site/static/img/header-calendar.png').default} />
+    <img width="1256" height="547" src={require('@site/static/img/v6/header-calendar.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">

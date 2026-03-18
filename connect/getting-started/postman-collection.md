@@ -22,7 +22,7 @@ If you are starting from the docs, the fastest setup is from your Connect app se
 
 This path pre-fills `baseUrl`, `clientId`, and `clientSecret` for the selected app, so setup is faster and less error-prone.
 
-:::warning
+:::info
 For Postman OAuth testing, your Connect app must allow `https://oauth.pstmn.io/v1/callback` as a redirect URI.
 If this URI is missing from app settings, token exchange/auth flows in Postman can fail with `invalid_grant` or redirect URI mismatch errors.
 :::
@@ -54,7 +54,7 @@ Quick health check:
 - Request: `GET /api/health`
 - Expected response: `{ "status": "ok" }`
 
-## 1) Import or fork the collection
+## Step 1: Import or fork the collection
 
 If you used **Run in Postman** from app settings, you can skip this step.
 
@@ -62,14 +62,14 @@ If you used **Run in Postman** from app settings, you can skip this step.
 2. Click **Import**.
 3. Import `Mobiscroll Connect API Collection`.
 
-## 2) Create and configure a Postman environment
+## Step 2: Create and configure a Postman environment
 
 If you downloaded environment from app settings, import that file and use it.
 
 Preferred: import the preset environment file.
 
 1. In Postman, click **Import**.
-2. Import `Mobiscroll Connect Public API Environment`.
+2. Import `Mobiscroll Connect API Environment`.
 3. Fill in `clientId`, `clientSecret`, and `userId` (see [Where to get each value](#where-to-get-each-value)).
 4. Select this environment before sending requests.
 
@@ -83,7 +83,7 @@ The collection expects these variables:
 - `clientId`
 - `clientSecret`
 - `userId`
-- `scope` (`read-write` or `free-busy`)
+- `scope` (`read-write`, `read`, or `free-busy`)
 - `redirectUri` (must match your OAuth client config)
 - `accessToken`
 - `refreshToken`
@@ -107,7 +107,7 @@ The preset production environment sets `redirectUri` to `https://oauth.pstmn.io/
 
 Ensure the OAuth client in your [Creating the First Application](/connect/application-setup#creating-the-first-application) setup has this URL registered as an allowed redirect URI.
 
-## 3) Understand collection auth behavior
+## Step 3: Understand collection auth behavior
 
 The collection sends OAuth 2.0 Bearer auth globally using `{{accessToken}}`.
 
@@ -116,7 +116,7 @@ The collection sends OAuth 2.0 Bearer auth globally using `{{accessToken}}`.
 
 If you get `401 Unauthorized`, refresh or replace `{{accessToken}}`.
 
-## 3.1) Get a new token from the Postman Authorization tab
+### Step 3.1: Get a new token from the Postman Authorization tab
 
 You can fetch a token directly from Postman without manually running token requests.
 
@@ -144,7 +144,7 @@ The manual flow is included for clarity, debugging, and cases where you want to 
 
 Optionally copy the token to `{{accessToken}}` to keep environment variables in sync.
 
-## 4) (Optional) Run the OAuth authorization-code flow manually
+## Step 4: Run the OAuth authorization-code flow manually (optional)
 
 ### Step 4.1: Open authorization URL in browser
 
@@ -203,7 +203,7 @@ See more: [Revoke Token](/connect/oauth#endpoint-revoke).
 
 Use this as a cleanup/security step, especially in shared or production-like environments.
 
-## 5) Test core API endpoints
+## Step 5: Test core API endpoints
 
 Run these requests in order.
 
@@ -233,7 +233,7 @@ Use `nextPageToken` from response for pagination.
 
 ### Step 5.4: Create, update, and delete an event
 
-All write operations require `read-write` scope. Tokens issued with `free-busy` or other non-write scopes return `401`.
+All write operations require `read-write` scope. Tokens issued with `free-busy`, `read`, or other non-write scopes return `403`.
 
 1. [**Create Event**](/connect/events#endpoint-create-event) (`POST /api/event`) with `provider`, `calendarId`, `title`, `start`, `end` — returns `201`
 2. [**Update Event**](/connect/events#endpoint-update-event) (`PUT /api/event`) with `provider`, `calendarId`, `eventId` — returns `200`

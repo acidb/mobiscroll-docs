@@ -1,7 +1,7 @@
 import CodeBlock from '@theme/CodeBlock';
 
 This page lists the Form components specific CSS variables that can be overridden to customize colors and visual states.
-For general theming concepts and shared (generic) theme variables, see the [CSS variables overview](../theming/css4-variables).
+For general theming concepts and shared (generic) theme variables, see the [CSS variables overview](../theming/css-variables).
 
 :::info
 Variable names and available options may differ between themes, so make sure to override the variables that correspond to the active theme.
@@ -150,13 +150,11 @@ The variables in each section below apply only when the corresponding theme (`io
 - `--mbsc-radio-border-hover`: Radio border color on hover
 - `--mbsc-radio-selected-color`: Selected radio color
 - `--mbsc-radio-focus`: Focus outline color
-- `--mbsc-radio-disabled`: Disabled radio color
 
 ### Material theme
 
 - `--mbsc-radio-border-color`: Radio border color
 - `--mbsc-radio-selected-color`: Selected radio color
-- `--mbsc-radio-disabled`: Disabled radio color
 - `--mbsc-radio-focus`: Focus outline color
 
 ---
@@ -173,8 +171,10 @@ The variables in each section below apply only when the corresponding theme (`io
 
 - `--mbsc-segmented-bg-color`: Segmented background
 - `--mbsc-segmented-text-color`: Segment text color
-- `--mbsc-segmented-selected-color`: Selected segment background
+- `--mbsc-segmented-selected-bg-color`: Selected segment background
+- `--mbsc-segmented-selected-text-color`: Selected segment text color
 - `--mbsc-segmented-border-color`: Segmented border color
+- `--mbsc-segmented-focus`: Focus outline/highlight color
 
 ### Material theme
 
@@ -213,8 +213,7 @@ The variables in each section below apply only when the corresponding theme (`io
 - `--mbsc-stepper-bg-color`: Stepper background
 - `--mbsc-stepper-text-color`: Stepper text color
 - `--mbsc-stepper-border-color`: Stepper border color
-- `--mbsc-stepper-icon-color`: Stepper icon color
-- `--mbsc-stepper-disabled-button-color`: Disabled button icon color
+- `--mbsc-stepper-focus`: Focus outline/highlight color
 - `--mbsc-stepper-disabled-bg`: Disabled stepper background
 - `--mbsc-stepper-disabled-text`: Disabled stepper text color
 
@@ -234,12 +233,11 @@ The variables in each section below apply only when the corresponding theme (`io
 
 - `--mbsc-switch-handle-color`: Switch handle color
 - `--mbsc-switch-track-color`: Switch track background
-- `--mbsc-switch-border`: Switch border color
-- `--mbsc-switch-text`: Switch text color
 - `--mbsc-switch-selected-handle-color`: Handle color when checked
 - `--mbsc-switch-selected-track-color`: Track color when checked
-- `--mbsc-switch-outline`: Outline color
-- `--mbsc-switch-hover-color`: Hover background color
+- `--mbsc-switch-border-color`: Switch border color
+- `--mbsc-switch-border-hover`: Switch border color on hover
+- `--mbsc-switch-border-active`: Switch border color in active state
 - `--mbsc-switch-focus`: Focus color
 
 ### Material theme
@@ -249,3 +247,4 @@ The variables in each section below apply only when the corresponding theme (`io
 - `--mbsc-switch-border-color`: Switch border color
 - `--mbsc-switch-selected-handle-color`: Handle color when checked
 - `--mbsc-switch-selected-track-color`: Track color when checked
+- `--mbsc-switch-focus`: Focus outline/highlight color

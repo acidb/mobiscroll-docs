@@ -154,7 +154,7 @@ Check out how you can style events and their content in [this example](https://d
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="1256" height="373" src={require('@site/static/img/normal-event-content-calendar.png').default} />
+    <img width="1256" height="373" src={require('@site/static/img/v6/normal-event-content-calendar.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">

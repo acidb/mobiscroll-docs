@@ -93,6 +93,12 @@ https://connect.mobiscroll.com/api/oauth/authorize?response_type=code&client_id=
 
 Now that your credentials are verified and the connection is established, you can proceed with integrating Mobiscroll Connect into your application. Choose the approach that best fits your workflow:
 
+### Explore the API (no code required)
+
+Before writing any integration code, use the Postman collection to run the full OAuth flow, inspect real API responses, and get familiar with the available endpoints. This is the fastest way to understand how Mobiscroll Connect works and to validate your credentials end to end.
+
+**[Get started with the Postman Collection](/connect/postman-collection)**
+
 ### REST API Integration
 
 Build your integration directly using HTTP requests to the Mobiscroll Connect API endpoints. This approach gives you full control and flexibility.

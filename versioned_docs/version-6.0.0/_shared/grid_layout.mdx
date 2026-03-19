@@ -1,0 +1,334 @@
+## Overview
+
+The Mobiscroll Grid Layout is a powerful flexbox system for building custom layouts of all shapes and sizes.
+
+## Basic usage
+
+The grid is combined from the following units: grid, rows and columns.
+It has a twelve column layout with different breakpoints depending on the size of the screen or the predefined CSS class.
+
+```jsx title="Three columns with the same size"
+<div class="mbsc-grid">
+    <div class="mbsc-row">
+        <div class="mbsc-col">
+            One of three columns
+        </div>
+        <div class="mbsc-col">
+            One of three columns
+        </div>
+        <div class="mbsc-col">
+            One of three columns
+        </div>
+    </div>
+</div>
+```
+
+For many more examples - simple and complex use-cases - check out the [grid-layout demos](https://demo.mobiscroll.com/grid-layout).
+
+## Grid size
+
+By default the grid has full width and with the `.mbsc-grid-fixed` class the layout will have a max width based on the screen size.
+
+```jsx title="Fix width grid"
+<div class="mbsc-grid-fixed">
+    <div class="mbsc-row">
+        <div class="mbsc-col">
+            This grid has a fixed width
+        </div>
+    </div>
+</div>
+```
+
+<table>
+    <tbody>
+        <tr>
+            <th></th>
+            <th>Extra small (&lt;576px)</th>
+            <th>Small (&gt;=576px)</th>
+            <th>Medium (&gt;=768px)</th>
+            <th>Large (&gt;=992px)</th>
+            <th>Extra large (&gt;=1200px)</th>
+        </tr>
+        <tr>
+            <td>Max container width</td>
+            <td>auto</td>
+            <td>540px</td>
+            <td>720px</td>
+            <td>960px</td>
+            <td>1140px</td>
+        </tr>
+        <tr>
+            <td>Class prefix</td>
+            <td><code>.col-</code></td>
+            <td><code>.col-sm-</code></td>
+            <td><code>.col-md-</code></td>
+            <td><code>.col-lg-</code></td>
+            <td><code>.col-xl-</code></td>
+        </tr>
+        <tr>
+            <td>Number of columns</td>
+            <td colSpan="5">12</td>
+        </tr>
+        <tr>
+            <td>Gutter width</td>
+            <td colSpan="5">2em (1em on each side of the column)</td>
+        </tr>
+        <tr>
+            <td>Column ordering</td>
+            <td colSpan="5">Yes</td>
+        </tr>
+    </tbody>
+</table>
+
+## Column sizing
+
+Column classes specify the number of columns out of the possible 12 per row. See the grids below illustrating the column classes.
+
+### Equal-width
+
+With `.mbsc-col` class, each column will be the same width inside of a row for every device and viewport.
+
+<div className="docs-code-title">Equal-width columns</div>
+<div className="docs-grid-example">
+    <div className="mbsc-grid">
+        <div className="mbsc-row">
+            <div className="mbsc-col">mbsc-col (1 of 3)</div>
+            <div className="mbsc-col">mbsc-col (1 of 3)</div>
+            <div className="mbsc-col">mbsc-col (1 of 3)</div>
+        </div>
+        <div className="mbsc-row">
+            <div className="mbsc-col">mbsc-col (1 of 5)</div>
+            <div className="mbsc-col">mbsc-col (1 of 5)</div>
+            <div className="mbsc-col">mbsc-col (1 of 5)</div>
+            <div className="mbsc-col">mbsc-col (1 of 5)</div>
+            <div className="mbsc-col">mbsc-col (1 of 5)</div>
+        </div>
+        <div className="mbsc-row">
+            <div className="mbsc-col">mbsc-col (1 of 10)</div>
+            <div className="mbsc-col">mbsc-col (1 of 10)</div>
+            <div className="mbsc-col">mbsc-col (1 of 10)</div>
+            <div className="mbsc-col">mbsc-col (1 of 10)</div>
+            <div className="mbsc-col">mbsc-col (1 of 10)</div>
+            <div className="mbsc-col">mbsc-col (1 of 10)</div>
+            <div className="mbsc-col">mbsc-col (1 of 10)</div>
+            <div className="mbsc-col">mbsc-col (1 of 10)</div>
+            <div className="mbsc-col">mbsc-col (1 of 10)</div>
+            <div className="mbsc-col">mbsc-col (1 of 10)</div>
+        </div>
+    </div>
+</div>
+
+### Specified column sizes
+
+Specifying a numbered class will adjust columns to take up `x` columns out of the available columns.
+Using the `.mbsc-col-{size}` class will set the column width for all devices and screens.
+
+<div className="docs-code-title">Specified column widths for all screen sizes</div>
+<div className="docs-grid-example">
+    <div className="mbsc-grid">
+        <div className="mbsc-row">
+            <div className="mbsc-col-1">mbsc-col-1</div>
+            <div className="mbsc-col-11">mbsc-col-11</div>
+        </div>
+        <div className="mbsc-row">
+            <div className="mbsc-col-2">mbsc-col-2</div>
+            <div className="mbsc-col-10">mbsc-col-10</div>
+        </div>
+        <div className="mbsc-row">
+            <div className="mbsc-col-3">mbsc-col-3</div>
+            <div className="mbsc-col-9">mbsc-col-9</div>
+        </div>
+        <div className="mbsc-row">
+            <div className="mbsc-col-4">mbsc-col-4</div>
+            <div className="mbsc-col-8">mbsc-col-8</div>
+        </div>
+        <div className="mbsc-row">
+            <div className="mbsc-col-5">mbsc-col-5</div>
+            <div className="mbsc-col-7">mbsc-col-7</div>
+        </div>
+        <div className="mbsc-row">
+            <div className="mbsc-col-6">mbsc-col-6</div>
+            <div className="mbsc-col-6">mbsc-col-6</div>
+        </div>
+        <div className="mbsc-row">
+            <div className="mbsc-col-12">mbsc-col-12</div>
+        </div>
+    </div>
+</div>
+
+### Responsive classes
+
+Using the `.mbsc-col-{breakpoint}-{size}` classes, the column widths will adapt to the screen size based on the predefined classes and become horizontal at the specified breakpoint.
+
+:::info
+
+Try this example with different screen sizes.
+
+:::
+
+<div className="docs-code-title">Specified column widths for all screen sizes</div>
+<div className="docs-grid-example">
+    <div className="mbsc-grid">
+        <div className="mbsc-row">
+            <div className="mbsc-col-sm-4">mbsc-col-sm-4</div>
+            <div className="mbsc-col-sm-8">mbsc-col-sm-8</div>
+        </div>
+        <div className="mbsc-row">
+            <div className="mbsc-col-md-3">mbsc-col-md-3</div>
+            <div className="mbsc-col-md-7">mbsc-col-md-7</div>
+            <div className="mbsc-col-md-2">mbsc-col-md-2</div>
+        </div>
+        <div className="mbsc-row">
+            <div className="mbsc-col-lg-3">mbsc-col-lg-3</div>
+            <div className="mbsc-col-lg-4">mbsc-col-lg-4</div>
+            <div className="mbsc-col-lg-5">mbsc-col-lg-5</div>
+        </div>
+        <div className="mbsc-row">
+            <div className="mbsc-col-xl-6">mbsc-col-xl-6</div>
+            <div className="mbsc-col-xl-6">mbsc-col-xl-6</div>
+        </div>
+    </div>
+</div>
+
+<div className="docs-code-title">Specified column widths for all screen sizes</div>
+<div className="docs-grid-example">
+    <div className="mbsc-grid">
+        <div className="mbsc-row">
+            <div className="mbsc-col-sm-4 mbsc-col-md-8 mbsc-col-lg-3 mbsc-col-xl-5">Column 1</div>
+            <div className="mbsc-col-sm-4 mbsc-col-md-2 mbsc-col-lg-6 mbsc-col-xl-2">Column 2</div>
+            <div className="mbsc-col-sm-4 mbsc-col-md-2 mbsc-col-lg-3 mbsc-col-xl-5">Column 3</div>
+        </div>
+    </div>
+</div>
+
+### Setting one column width
+
+Using our predefined classes, it's possible to set the width of one column and have the remaining columns automatically resize around it.
+
+<div className="docs-code-title">Setting one column width</div>
+<div className="docs-grid-example">
+    <div className="mbsc-grid">
+        <div className="mbsc-row">
+            <div className="mbsc-col-2">mbsc-col-2</div>
+            <div className="mbsc-col">mbsc-col</div>
+            <div className="mbsc-col">mbsc-col</div>
+            <div className="mbsc-col">mbsc-col</div>
+        </div>
+        <div className="mbsc-row">
+            <div className="mbsc-col">mbsc-col</div>
+            <div className="mbsc-col-7">mbsc-col-7</div>
+            <div className="mbsc-col">mbsc-col</div>
+        </div>
+        <div className="mbsc-row">
+            <div className="mbsc-col">mbsc-col</div>
+            <div className="mbsc-col-10">mbsc-col-10</div>
+        </div>
+    </div>
+</div>
+
+### Variable-width
+
+With the `.mbsc-col-{breakpoint}-auto` attributes, the columns are sized based on the natural width of its content. The adjacent columns will resize to fill the row.
+
+<div className="docs-code-title">Variable width content</div>
+<div className="docs-grid-example">
+    <div className="mbsc-grid">
+        <div className="mbsc-row">
+            <div className="mbsc-col">mbsc-col</div>
+            <div className="mbsc-col-sm-auto">mbsc-col-sm-auto example</div>
+            <div className="mbsc-col">mbsc-col</div>
+        </div>
+        <div className="mbsc-row">
+            <div className="mbsc-col">mbsc-col</div>
+            <div className="mbsc-col-sm-auto">mbsc-col-sm-auto another example</div>
+        </div>
+    </div>
+</div>
+
+## Alignment
+
+### Vertical alignment
+
+All columns can be vertically aligned inside of a row by adding different attributes to the row.
+Classes: `.mbsc-align-items-start`, `.mbsc-align-items-center`, `.mbsc-align-items-end`.
+
+```jsx title="Columns vertically aligned to the end"
+<div class="mbsc-grid">
+    <div class="mbsc-row mbsc-align-items-end">
+        <div class="mbsc-col">
+            First column
+        </div>
+        <div class="mbsc-col">
+            Second column
+        </div>
+    </div>
+</div>
+```
+
+### Horizontal alignment
+
+All columns can be horizontally aligned inside of a row by adding different attributes to the row.
+Classes: `.mbsc-justify-content-start`, `.mbsc-justify-content-center`, `.mbsc-justify-content-end`, `.mbsc-justify-content-around`, `.mbsc-justify-content-between`.
+
+```jsx title="Columns horizontally aligned to center"
+<div class="mbsc-grid">
+    <div class="mbsc-row mbsc-justify-content-center">
+        <div class="mbsc-col-4">
+            First column
+        </div>
+        <div class="mbsc-col-4">
+            Second column
+        </div>
+    </div>
+</div>
+```
+
+## Offseting columns
+
+Offset classes are used to increase the left margin of a column by `x` columns.
+Classes: `mbsc-offset-{size}`, `.mbsc-offset-{breakpoint}-{size}`.
+
+```jsx title="Offsetting columns"
+<div class="mbsc-grid">
+    <div class="mbsc-row">
+        <div class="mbsc-col-4">
+            Col 4
+        </div>
+        <div class="mbsc-col-md-3  mbsc-offset-md-3">
+            This column's margin left is increased by 3 columns
+        </div>
+    </div>
+</div>
+```
+
+## Push and pull
+
+It's possible to change the order of the grid columns with the push and pull attributes: `.mbsc-push-{breakpoint}-{size}`, `.mbsc-pull-{breakpoint}-{size}`.
+These attributes adjust the left and right of the columns by `x` columns making it easy to reorder them.
+
+```jsx title="Using push and pull"
+<div class="mbsc-grid">
+    <div class="mbsc-row">
+        <div class="mbsc-col-5 mbsc-push-sm-7">
+            This column is the first on large screen
+        </div>
+        <div class="mbsc-col-7 mbsc-pull-sm-5">
+            This column is the first on small (<576px) screen
+        </div>
+    </div>
+</div>
+```
+
+## No padding
+
+The columns initially have right and left padding which can be removed with the `mbsc-no-padding` class.
+
+```jsx title="Columns without padding"
+<div class="mbsc-grid mbsc-no-padding">
+    <div class="mbsc-row">
+        <div class="mbsc-col-sm">
+            This column has no padding
+        </div>
+    </div>
+</div>
+```

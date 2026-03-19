@@ -67,7 +67,7 @@ Parameters:
 (args: MbscDatepickerCellHoverEvent, inst: DatepickerBase) => void
 
 
-Triggered when the mouse pointer leaves a day on the calendar view (does not apply for agenda, schedule and timeline views).
+Triggered when the mouse pointer leaves a day on the calendar view (does not apply for agenda, scheduler and timeline views).
 
 Parameters:
  - args - The event argument with the following properties:

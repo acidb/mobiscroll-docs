@@ -23,7 +23,7 @@ Starting with Mobiscroll 6.0, we dropped support for IE11. Additionally, we upda
 
 ## Frameworks
 
-Starting with Mobiscroll 6.0 we updated the minimum supported framework and language versions. Angular 8 is no longer supported — please upgrade to Angular 9+ to continue using Mobiscroll. Additionally, TypeScript 4+ is now required.
+Starting with Mobiscroll 6.0 we updated the minimum supported framework and language versions. Please upgrade to Angular 9+ to continue using Mobiscroll. Additionally, TypeScript 4+ is now required.
 
 ## Packages
 

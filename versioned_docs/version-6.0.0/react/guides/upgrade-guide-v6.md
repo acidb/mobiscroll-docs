@@ -32,15 +32,61 @@ To align with current ecosystem standards, we renamed several packages:
 * We renamed `react` to `react-legacy` (for React versions before 18).
 * We renamed `react-next` to `react`, now the default React package.
 
+To automatically handle the package updates and apply these changes, the simplest method is to re-run the [configuration command](/react/getting-started/installation#installing-from-npm) in your project. Navigate to your project's root folder and run:
+
+```bash
+mobiscroll config react
+```
+
 ## General
+
+### Theme updates
+
+Mobiscroll 6.0 introduces redesigned themes based on the latest Fluent, Material, and iOS design systems. These updated themes are used by default and are exposed primarily through **CSS variables**.  
+For a complete list of theme-level variables and guidance on how to override them, see the [CSS variables overview](/react/theming/css-variables).
+
+If you prefer the previous (v5) appearance, you can continue using the legacy themes. Legacy themes are not part of the default styles, so you need to load an extra legacy stylesheet bundle.
+
+The legacy package contains:
+
+- `mobiscroll-legacy.min.css`
+- `mobiscroll-legacy.scss`
+
+#### Using legacy themes
+
+Regardless of whether Mobiscroll was installed from NPM or from a downloaded package, import the legacy styles from the React package:
+
+Using CSS:
+
+```ts
+import '@mobiscroll/react/dist/css/mobiscroll-legacy.min.css';
+```
+
+Using SCSS:
+
+```scss
+@import '@mobiscroll/react/dist/css/mobiscroll-legacy.scss';
+```
+
+**Then set the legacy theme:**
+
+After loading the styles, reference one of the legacy themes:
+
+```ts
+mobiscroll.setOptions({
+  theme: 'ios-legacy',
+  // theme: 'material-legacy'
+  // theme: 'windows-legacy'
+});
+```
 
 ### Sass updates
 
 Starting with Mobiscroll 6.0, we updated our `Sass` code to remove deprecated functions. The minimum supported `Sass` version is now [1.80.0.](https://www.npmjs.com/package/sass), and we no longer support [node-sass](https://www.npmjs.com/package/node-sass). If you're currently using `node-sass`, we recommend switching to the [sass](https://www.npmjs.com/package/sass) package, which is now the primary implementation. For help with the migration, refer to the official [Sass upgrade guide](https://sass-lang.com/blog/libsass-is-deprecated/#how-do-i-migrate).
 
-### HTML support in data strings 
+### HTML support in strings 
 
-We removed support for HTML in data strings. These are no longer supported outside of jQuery and JavaScript implementations.
+We dropped support for HTML markup in strings for improved security. It is only supported in jQuery and JavaScript render functions.
 
 
 ## Datepicker
@@ -137,6 +183,11 @@ We renamed the `renderDayContent` option to [renderCalendarDayContent](/react/ev
 
 
 ## Scheduler
+
+### Header consistency
+
+We unified the Scheduler header layout across different view configurations. The single-day view with resources now uses the same header structure as multi-day (e.g., weekly, monthly or daily) views. This ensures a consistent look and feel regardless of the selected view type.
+
 
 ### Changed
 

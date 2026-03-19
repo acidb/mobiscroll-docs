@@ -33,9 +33,16 @@ A reference to the component instance is available in every Mobiscroll event thr
 <TabItem value="ts" label="component.ts">
 
 ```ts
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+// highlight-next-line
+import { MbscEventcalendarView, MbscModule, MbscEventCreateEvent } from '@mobiscroll/angular';
+
 @Component({
   selector: 'component',
   templateUrl: './component.html',
+  standalone: true,
+  imports: [CommonModule, MbscModule]
 })
 export class AppComponent {
   myHandler(args: MbscEventCreateEvent) {
@@ -78,9 +85,16 @@ All the component methods are documented on each components API section. The met
 ### Inside classes
 
 ```ts
+import { CommonModule } from '@angular/common';
+import { Component, ViewChild } from '@angular/core';
+// highlight-next-line
+import { MbscModule, MbscPopup } from '@mobiscroll/angular';
+
 @Component({
   selector: 'component',
   templateUrl: './component.html',
+  standalone: true,
+  imports: [CommonModule, MbscModule]
 })
 export class AppComponent {
   // highlight-start
@@ -102,11 +116,20 @@ export class AppComponent {
 One such a case when you might need to call an instance method would be to get the invalid data for a time period from the eventcalendar. Since the invalid data you pass to the Eventcalendar can contain recurring rules, you need a way to calculate the actual occurences. Luckily the Eventcalendar has a method that will return the actual occurences for a time period.
 
 ```ts title="Invalid rule that repeats on specific days"
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+// highlight-next-line
+import { MbscDateType, MbscModule } from '@mobiscroll/angular';
+
 @Component({
   selector: 'component',
   templateUrl: './component.html',
+  standalone: true,
+// highlight-next-line
+  imports: [CommonModule, MbscModule]
 })
 export class AppComponent {
+// highlight-start
   invalidsArray: MbscDateType[] = [{
       start: '2023-10-18',
       allDay: true,
@@ -116,6 +139,7 @@ export class AppComponent {
         interval: 1
       }
   }];
+// highlight-end
 }
 ```
 
@@ -128,12 +152,22 @@ To get the actual invalid days for the month of November, you can call the [`get
 Then you can query the invalid days through the instance:
 
 ```ts
+import { CommonModule } from '@angular/common';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { Eventcalendar, MbscDateType, MbscModule } from '@mobiscroll/angular';
+
 @Component({
   selector: 'component',
   templateUrl: './component.html',
+  standalone: true,
+  imports: [CommonModule, MbscModule]
 })
-// highlight-next-line
-export class AppComponent implements AfterViewInit {
+// highlight-start
+export class AppComponent implements AfterViewInit {  
+  @ViewChild('myCalendar')
+  inst: Eventcalendar | null = null;
+  // highlight-end
+
   invalidsArray: MbscDateType[] = [{
       start: '2023-10-18',
       allDay: true,
@@ -145,9 +179,6 @@ export class AppComponent implements AfterViewInit {
   }];
 
   // highlight-start
-  @ViewChild('myCalendar')
-  inst: Eventcalendar | null = null;
-
   ngAfterViewInit(): void {
     const occurences = this.inst!.getInvalids('2023-11-01', '2023-12-01');
   }

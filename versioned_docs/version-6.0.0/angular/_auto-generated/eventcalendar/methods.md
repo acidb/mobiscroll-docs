@@ -1,7 +1,7 @@
-
-### forceUpdate {#method-forceUpdate}
+### _onScrollEnd {#method-_onScrollEnd}
 
 () => void
+
 
 
 
@@ -56,12 +56,6 @@ Parameters:
 are used in timeline or scheduler views) must be present in the object.
 
 
-
-
-
-### setState {#method-setState}
-
-(newState: any) => void
 
 
 

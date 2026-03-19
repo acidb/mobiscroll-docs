@@ -38,6 +38,50 @@ Parameters:
  - inst - The component instance.
 
 
+### onCellHoverIn {#event-onCellHoverIn}
+
+(args: MbscCellHoverEvent, inst: EventcalendarBase) => void
+
+
+Triggered when the mouse pointer hovers a day on the calendar view (does not apply for agenda view).
+
+Parameters:
+ - args - The event argument with the following properties:
+   - `colors`: *Array&lt;MbscCalendarColor&gt;* - The colors for the hovered cell.
+   - `date`: *Date* - The date of the hovered day.
+   - `events`: *Array&lt;MbscCalendarEvent&gt;* - The events for the hovered cell.
+   - `invalids`: *Array&lt;MbscCalendarInvalid&gt;* - The invalid dates for the hovered cell.
+   - `labels`: *Array&lt;MbscCalendarLabel&gt;* - If the cell has labels, contains the label objects for the hovered cell.
+   - `marked`: *Array&lt;MbscCalendarMarked&gt;* - If the cell is marked, contains the marked objects for the hovered cell.
+   - `selected`: *boolean* - Specifies if the cell is currently selected or not (in case of calendar view).
+   - `target`: *HTMLElement* - The DOM element of the cell.
+   - `resource`: *MbscResource* - The resource object for the hovered cell.
+
+ - inst - The component instance.
+
+
+### onCellHoverOut {#event-onCellHoverOut}
+
+(args: MbscCellHoverEvent, inst: EventcalendarBase) => void
+
+
+Triggered when the mouse pointer leaves a day on the calendar view (does not apply for agenda view).
+
+Parameters:
+ - args - The event argument with the following properties:
+   - `colors`: *Array&lt;MbscCalendarColor&gt;* - The colors for the hovered cell.
+   - `date`: *Date* - The date of the hovered cell.
+   - `events`: *Array&lt;MbscCalendarEvent&gt;* - The events for the hovered cell.
+   - `invalids`: *Array&lt;MbscCalendarInvalid&gt;* - The invalid dates for the hovered cell.
+   - `labels`: *Array&lt;MbscCalendarLabel&gt;* - If the cell has labels, contains the label objects for the hovered cell.
+   - `marked`: *Array&lt;MbscCalendarMarked&gt;* - If the cell is marked, contains the marked objects for the hovered cell.
+   - `selected`: *boolean* - Specifies if the cell is currently selected or not (in case of calendar view).
+   - `target`: *HTMLElement* - The DOM element of the cell.
+   - `resource`: *MbscResource* - The resource object for the hovered cell.
+
+ - inst - The component instance.
+
+
 ### onCellRightClick {#event-onCellRightClick}
 
 (args: MbscCellClickEvent, inst: EventcalendarBase) => void
@@ -503,7 +547,7 @@ Parameters:
    - `date`: *Date* - The date of the day on which the resource was clicked, when resources are grouped by day.
    - `domEvent`: *Event* - The DOM event of the click.
    - `resource`: *MbscResource* - The resource associated with the clicked cell.
-   - `source`: *&#039;schedule&#039; | &#039;timeline&#039;* - The view where the cell was clicked.
+   - `source`: *&#039;scheduler&#039; | &#039;timeline&#039;* - The view where the cell was clicked.
    - `target`: *HTMLElement* - The DOM element of the clicked cell.
 
  - inst - The component instance.
@@ -521,8 +565,42 @@ Parameters:
    - `date`: *Date* - The date of the day on which the resource was clicked, when resources are grouped by day.
    - `domEvent`: *Event* - The DOM event of the click.
    - `resource`: *MbscResource* - The resource associated with the clicked cell.
-   - `source`: *&#039;schedule&#039; | &#039;timeline&#039;* - The view where the cell was clicked.
+   - `source`: *&#039;scheduler&#039; | &#039;timeline&#039;* - The view where the cell was clicked.
    - `target`: *HTMLElement* - The DOM element of the clicked cell.
+
+ - inst - The component instance.
+
+
+### onResourceHoverIn {#event-onResourceHoverIn}
+
+(args: MbscResourceHoverEvent, inst: EventcalendarBase) => void
+
+
+Triggered when the mouse pointer hovers a resource cell on the timeline or scheduler view.
+
+Parameters:
+ - args - The event argument with the following properties:
+   - `date`: *Date* - The date of the hovered resource cell in case of group by date.
+   - `resource`: *MbscResource* - The hovered resource.
+   - `source`: *&#039;scheduler&#039; | &#039;timeline&#039;* - The view where the resource cell was hovered.
+   - `target`: *HTMLElement* - The DOM element of the resource cell.
+
+ - inst - The component instance.
+
+
+### onResourceHoverOut {#event-onResourceHoverOut}
+
+(args: MbscResourceHoverEvent, inst: EventcalendarBase) => void
+
+
+Triggered when the mouse pointer leaves a resource cell on the timeline or scheduler view.
+
+Parameters:
+ - args - The event argument with the following properties:
+   - `date`: *Date* - The date of the hovered resource cell in case of group by date.
+   - `resource`: *MbscResource* - The hovered resource.
+   - `source`: *&#039;scheduler&#039; | &#039;timeline&#039;* - The view where the resource cell was hovered.
+   - `target`: *HTMLElement* - The DOM element of the resource cell.
 
  - inst - The component instance.
 
@@ -539,7 +617,7 @@ Parameters:
    - `date`: *Date* - The date of the day on which the resource was clicked, when resources are grouped by day.
    - `domEvent`: *Event* - The DOM event of the click.
    - `resource`: *MbscResource* - The resource associated with the clicked cell.
-   - `source`: *&#039;schedule&#039; | &#039;timeline&#039;* - The view where the cell was clicked.
+   - `source`: *&#039;scheduler&#039; | &#039;timeline&#039;* - The view where the cell was clicked.
    - `target`: *HTMLElement* - The DOM element of the clicked cell.
 
  - inst - The component instance.
@@ -574,6 +652,32 @@ You can also select events programmatically using the [selectedEvents](#opt-sele
 Parameters:
  - args - The event argument with the following properties:
     - `events`: *Array&lt;MbscCalendarEvent&gt;* - The selected events.
+
+ - inst - The component instance.
+
+
+### onVirtualLoading {#event-onVirtualLoading}
+
+(args: MbscVirtualLoadEvent, inst: EventcalendarBase) => void
+
+
+Triggered when a new virtual page is loaded.
+You can use this to load events and resources on demand while scrolling the timeline and scheduler grid.
+
+Parameters:
+ - args - The event argument with the following properties:
+   - `viewStart`: *Date* - The date where the virtual view starts.
+   - `viewEnd`: *Date* - The date where the virtual view end.
+   - `resourceStart`: *number|string* - The id of the resource where the virtual view starts.
+   - `resourceEnd`:  *number|string* - The id of the resource where the virtual view ends.
+   - `timeStart`: *number* - The time in milliseconds where the virtual view starts on the scheduler view.
+   - `timeEnd`: *number* - The time in milliseconds where the virtual view ends on the scheduler view.
+   - `oldResourceStart`: *number|string* - The id of the resource where the previous virtual view started.
+   - `oldResourceEnd`: *number|string* - The id of the resource where the previous virtual view ended.
+   - `oldViewStart`: *Date* - The date where the previous virtual view started.
+   - `oldViewEnd`: *Date*- The date where the previous virtual view ended.
+   - `oldTimeStart`: *number* - The time in milliseconds where the previous virtual view started on the scheduler view.
+   - `oldTimeEnd`: *number* - The time in milliseconds where the previous virtual view ended on the scheduler view.
 
  - inst - The component instance.
 

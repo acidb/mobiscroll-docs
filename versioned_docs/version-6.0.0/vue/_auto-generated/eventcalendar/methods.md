@@ -1,7 +1,7 @@
-
-### forceUpdate {#method-forceUpdate}
+### _onScrollEnd {#method-_onScrollEnd}
 
 () => void
+
 
 
 

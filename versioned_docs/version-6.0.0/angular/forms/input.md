@@ -80,8 +80,4 @@ The Input component is fully localized. This covers date and time format, button
 
 <Localizations />
 
-## Types
-
-<Types />
-
 </div>

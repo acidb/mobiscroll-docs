@@ -1,10 +1,4 @@
 
-### forceUpdate {#method-forceUpdate}
-
-() => void
-
-
-
 ### getTempVal {#method-getTempVal}
 
 () => any

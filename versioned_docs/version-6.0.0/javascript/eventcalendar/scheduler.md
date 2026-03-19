@@ -22,7 +22,7 @@ The Scheduler displays a time grid with its related events. It can be configured
 
 The capabilities like [recurring events](/javascript/core-concepts/recurrence), [all-day, multi-day events](#opt-data), [responsiveness](#responsiveness) are supported by the Scheduler.
 
-![Scheduler overview](/img/scheduler-overview.png)
+![Scheduler overview](/img/v6/scheduler-overview.png)
 
 ## Showing the Scheduler
 
@@ -71,6 +71,34 @@ mobiscroll.eventcalendar('#scheduler', {
 <ViewOptions />
 
 </div>
+
+### Shifted days
+
+[Shifted views](https://demo.mobiscroll.com/scheduler/24-hour-manufacturing-shift-rota-planning) — can be implemented by extending the scheduler [view](#configuring-the-view) with hours from the previous or next calendar days using the <code>startTime</code> and <code>endTime</code> properties with a day-offset format.
+
+![Scheduler shifted days](/img/v6/scheduler-shifted-view.png)
+
+#### Shift Start Time (Previous Day Offset)
+
+Use a negative day offset (HH:MM-D) to show hours from the previous day (e.g., <code>'20:00-1'</code>).
+
+#### Shift End Time (Next Day Offset)
+
+Use a positive day offset (HH:MM+D) to extend the view into the next day (e.g., <code>'06:00+1'</code>).
+
+
+```ts
+view: {
+  schedule: {
+      type: 'week',
+      // Starts the view at 20:00 on the previous day
+      startTime: '20:00-1', 
+      // Ends the view at 06:00 on the next day
+      endTime: '06:00+1' 
+  }
+}
+```
+
 
 ### Row height
 
@@ -140,6 +168,19 @@ If you override both resource and day column widths, make sure column groups (da
 are wide enough to contain their child elements, or specify a `min-width` for the group column instead of a fixed width.
 :::
 
+### Hide empty columns
+
+Columns without any events can be hidden by setting `hideEmptyColumns` to `true` under the [view](#configuring-the-view) configuration.
+
+### Hide invalid columns
+
+Fully invalid columns can be hidden by setting `hideInvalidColumns` to `true` under the [view](#configuring-the-view) configuration.
+
+:::info
+A column is considered fully invalid if it contains [invalid](#opt-invalid) periods defined with `allDay`, date values,
+or a single time range that covers a full day or multiple days.
+:::
+   
 ## Resources
 
 ### Resource grouping
@@ -152,11 +193,11 @@ The Scheduler view can display multiple [resources](resources) inside a single i
         <label className="img-label">Resources grouped by date</label>
     </div>
     <div className="pdg-img">
-        <img width="1000" height="616" src={require('@site/static/img/groupbyresource.png').default} />
+          <img width="1000" height="616" src={require('@site/static/img/v6/groupbyresource.png').default} />
         <label className="img-label">Resources grouped by resource</label>
     </div>
     <div className="pdg-img">
-        <img width="1000" height="577" src={require('@site/static/img/groupbydayview.png').default} />
+          <img width="1000" height="577" src={require('@site/static/img/v6/groupbydayview.png').default} />
         <label className="img-label">Resources grouped by day view</label>
     </div>
 </div>
@@ -229,6 +270,11 @@ The initial order in which the resources appear on the scheduler follows the ord
 
 For dynamic sorting during runtime, sort the resource array and pass the updated array to the calendar.
 
+## Load data on scroll
+
+The scheduler view is virtualized, meaning its markup is dynamically generated and managed as needed. Scrolling vertically or horizontally triggers the [onVirtualLoading](#event-onVirtualLoading) lifecycle event, which can be used to load data incrementally during scrolling, rather than loading all data during the initial render. 
+This dramatically improves performance in case of a large event or resource count since not all data is loaded in memory from start. 
+
 ## Responsiveness
 
 The Scheduler is [fully responsive](https://demo.mobiscroll.com/scheduler/responsive-day-week-schedule#). It adapts to the available space and fills the screen to look good everywhere. While you don't have to worry about the width the height can be manually adjusted with the [height](#opt-height) option. This specifies different options for different container widths, in a form of an object, where the keys are the name of the breakpoints, and the values are objects containing the options for the given breakpoint.
@@ -262,10 +308,33 @@ mobiscroll.eventcalendar('#scheduler', {
 });
 ```
 
-![Scheduler responsive behavior](/img/scheduler-responsive.gif)
+![Scheduler responsive behavior](/img/v6/scheduler-responsive.gif)
 
 ## Templating
 The display of Scheduler can be customized with different [render functions](#renderers).
+
+### The cell
+Use the [renderCell](#renderer-renderCell) option to fully customize the Scheduler cells. Customize how the cell look and what they show. The renderer function gets an object with properties like date, events, colors, invalids, and resource, which can be used to display custom content.
+
+:::info
+Since cells are rendered frequently while scrolling, keep the customization lightweight for best performance.
+:::
+
+Check out how you can style the cell in [this example](https://demo.mobiscroll.com/scheduler/cell-content-template#) or just play with the slider below to see the differences.
+
+<ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
+  <figure slot="first" className="before">
+    <img width="1480" height="975" src={require('@site/static/img/v6/normal-cell-templating-scheduler.png').default} />
+    <figcaption>Default template</figcaption>
+  </figure>
+  <figure slot="second" className="after">
+    <img width="1479" height="975" src={require('@site/static/img/v6/cell-templating-scheduler.png').default} />
+    <figcaption>Custom template</figcaption>
+  </figure>
+  <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+    <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
+  </svg>
+</ImgComparisonSlider>
 
 ### The event, their content and buffer areas
 The events can be customized in two ways:
@@ -278,11 +347,11 @@ Check out how you can style event, their content and buffer areas in [this examp
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="1480" height="975" src={require('@site/static/img/normal-event-buffer-templating-scheduler.png').default} />
+    <img width="1480" height="975" src={require('@site/static/img/v6/normal-event-buffer-templating-scheduler.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="1479" height="975" src={require('@site/static/img/event-buffer-templating-scheduler.png').default} />
+    <img width="1479" height="975" src={require('@site/static/img/v6/event-buffer-templating-scheduler.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
@@ -299,11 +368,11 @@ Check out how you can style the date header in [this example](https://demo.mobis
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="1480" height="575" src={require('@site/static/img/normal-date-header-template-scheduler.png').default} />
+    <img width="1480" height="575" src={require('@site/static/img/v6/normal-date-header-template-scheduler.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="1480" height="575" src={require('@site/static/img/date-header-template-scheduler.png').default} />
+    <img width="1480" height="575" src={require('@site/static/img/v6/date-header-template-scheduler.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
@@ -318,11 +387,11 @@ Check out how you can style the resources in [this example](https://demo.mobiscr
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="1480" height="753" src={require('@site/static/img/normal-resource-template-scheduler.png').default} />
+    <img width="1480" height="753" src={require('@site/static/img/v6/normal-resource-template-scheduler.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="1480" height="753" src={require('@site/static/img/resource-template-scheduler.png').default} />
+      <img width="1480" height="753" src={require('@site/static/img/v6/resource-template-scheduler.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
@@ -339,11 +408,11 @@ Check out how you can style the Scheduler header in [this example](https://demo.
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="1480" height="625" src={require('@site/static/img/normal-header-template-scheduler.png').default} />
+    <img width="1480" height="625" src={require('@site/static/img/v6/normal-header-template-scheduler.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="1480" height="625" src={require('@site/static/img/header-template-scheduler.png').default} />
+    <img width="1480" height="625" src={require('@site/static/img/v6/header-template-scheduler.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">

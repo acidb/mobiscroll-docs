@@ -27,6 +27,52 @@ Starting with Mobiscroll 6.0, we updated the minimum supported language versions
 
 ## General
 
+### Theme updates
+
+Mobiscroll 6.0 introduces redesigned themes based on the latest Fluent, Material, and iOS design systems. These updated themes are used by default and are exposed primarily through **CSS variables**.  
+For a complete list of theme-level variables and guidance on how to override them, see the [CSS variables overview](/javascript/theming/css-variables).
+
+If you prefer the previous (v5) appearance, you can continue using the legacy themes. Legacy themes are not part of the default styles, so you need to load an extra legacy stylesheet bundle.
+
+The legacy package contains:
+
+- `mobiscroll-legacy.min.css`
+- `mobiscroll-legacy.scss`
+
+#### Using legacy themes
+
+If you use Mobiscroll via a bundler (from NPM or a downloaded package), import the legacy styles from the JavaScript package:
+
+Using CSS:
+
+```ts
+import '@mobiscroll/javascript/dist/css/mobiscroll-legacy.min.css';
+```
+
+Using SCSS:
+
+```scss
+@import '@mobiscroll/javascript/dist/css/mobiscroll-legacy.scss';
+```
+
+If you use Mobiscroll on a simple HTML page, include the legacy stylesheet directly in your HTML file:
+
+```html
+<link href="css/mobiscroll-legacy.min.css" rel="stylesheet" type="text/css">
+```
+
+**Set the legacy theme**
+
+After loading the styles, reference one of the legacy themes:
+
+```ts
+mobiscroll.setOptions({
+  theme: 'ios-legacy',
+  // theme: 'material-legacy'
+  // theme: 'windows-legacy'
+});
+```
+
 ### Sass updates
 
 Starting with Mobiscroll 6.0, we updated our `Sass` code to remove deprecated functions. The minimum supported `Sass` version is now [1.80.0.](https://www.npmjs.com/package/sass), and we no longer support [node-sass](https://www.npmjs.com/package/node-sass). If you're currently using `node-sass`, we recommend switching to the [sass](https://www.npmjs.com/package/sass) package, which is now the primary implementation. For help with the migration, refer to the official [Sass upgrade guide](https://sass-lang.com/blog/libsass-is-deprecated/#how-do-i-migrate).
@@ -135,6 +181,11 @@ mobiscroll.eventcalendar('#myID', {
 
 
 ## Scheduler
+
+### Header consistency
+
+We unified the Scheduler header layout across different view configurations. The single-day view with resources now uses the same header structure as multi-day (e.g., weekly, monthly or daily) views. This ensures a consistent look and feel regardless of the selected view type.
+
 
 ### Changed
 

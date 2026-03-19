@@ -7,7 +7,6 @@ displayed_sidebar: javascriptSidebar
 import Options from '../\_auto-generated/button/options.md';
 import Events from '../\_auto-generated/button/events.md';
 import Localizations from '../\_auto-generated/button/localizations.md';
-import Types from '../\_auto-generated/button/types.md';
 
 # Button
 
@@ -103,9 +102,5 @@ The Button component is fully localized. This covers date and time format, butto
 The Button component ships with different event hooks for deep customization. Events are triggered through the lifecycle of the component where you can tie in custom functionality and code.
 
 <Events />
-
-## Types
-
-<Types />
 
 </div>

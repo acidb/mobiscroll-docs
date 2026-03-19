@@ -5,12 +5,6 @@
 
 
 
-### forceUpdate {#method-forceUpdate}
-
-() => void
-
-
-
 ### getEvents {#method-getEvents}
 
 (start: [MbscDateType](#type-MbscDateType), end: [MbscDateType](#type-MbscDateType)) => Array&lt;[MbscCalendarEvent](#type-MbscCalendarEvent)&gt;
@@ -62,12 +56,6 @@ Parameters:
 are used in timeline or scheduler views) must be present in the object.
 
 
-
-
-
-### setState {#method-setState}
-
-(newState: any) => void
 
 
 

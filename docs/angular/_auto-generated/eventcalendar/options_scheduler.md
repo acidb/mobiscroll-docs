@@ -266,6 +266,14 @@ number
 Specifies the steps in minutes for the scheduler and timeline events during drag.
 
 **Default value**: `15`
+### dragTimeStepBase {#opt-dragTimeStepBase}
+
+"viewStart" &#124; "dayStart"
+
+Specifies the base of the [dragTimeStep](#opt-dragTimeStep) calculation.
+If set to `'viewStart'` it takes the `startTime` property of the [view](#opt-view) option as reference.
+
+**Default value**: `'dayStart'`
 ### dragToCreate {#opt-dragToCreate}
 
 boolean

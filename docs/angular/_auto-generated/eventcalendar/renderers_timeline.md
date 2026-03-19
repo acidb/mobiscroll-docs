@@ -132,6 +132,9 @@ The following properties are available:
 
 Template to customize the content of the resource column in case of an empty resource array.
 
+It will receive the following parameter:
+- `day`: _Date_ - The date on which the resource is rendered in case of vertical day resolution.
+
 ```html
 <mbsc-eventcalendar [resourceEmptyTemplate]="myEmptyTemplate">
   <ng-template #myEmptyTemplate>
@@ -189,6 +192,10 @@ This template is only rendered for the timeline view, if the [sidebarTemplate](#
 Template to customize and add a sidebar on the right side of the timeline.
 
 The template will receive the resource object as data. This data can be used to show resource specific things on the sidebar.
+
+It will receive the following parameters:
+- `resource`: _MbscResource_ - The rendered resource.
+- `day`: _Date_ - The date on which the resource is rendered in case of vertical day resolution in the timeline view.
 
 **Default value**: `undefined`
 ### slotTemplate {#template-slotTemplate}

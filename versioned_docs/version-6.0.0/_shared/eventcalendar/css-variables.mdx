@@ -1,0 +1,103 @@
+import CodeBlock from '@theme/CodeBlock';
+
+This page lists the Eventcalendar-specific CSS variables that can be overridden to customize colors and visual states.
+For general theming concepts and shared theme variables, see the [CSS variables overview](../theming/css-variables).
+
+:::info
+Variable names and available options may differ between themes, so make sure to override the variables that correspond to the active theme.
+:::
+
+---
+
+## Eventcalendar variables
+
+Variables can be overridden globally on `:root` or scoped to a specific container.
+
+```scss
+:root {
+  --mbsc-eventcalendar-accent: #007aff;
+  --mbsc-eventcalendar-event-color: #34c759;
+}
+
+.my-calendar {
+  --mbsc-eventcalendar-accent: #6200ee;
+}
+```
+
+:::info
+**Theming & dark mode**
+
+Variables can be overridden globally on `:root`, which affects all active themes.
+
+To target a specific theme, use its theme selector:
+
+- `.mbsc-windows`
+- `.mbsc-windows-dark`
+- `.mbsc-ios`
+- `.mbsc-ios-dark`
+- `.mbsc-material`
+- `.mbsc-material-dark`
+:::
+
+### iOS theme
+
+These variables apply when the `ios` theme is active.
+
+- `--mbsc-eventcalendar-accent`: Selected day, active state, primary highlight color
+- `--mbsc-eventcalendar-on-accent`: Text/icons shown on accent background
+- `--mbsc-eventcalendar-bg-color`: Main calendar background
+- `--mbsc-eventcalendar-text-color`: Default text color (days, labels)
+- `--mbsc-eventcalendar-border-color`: Grid lines, separators
+- `--mbsc-eventcalendar-event-color`: Event background color
+- `--mbsc-eventcalendar-event-text`: Text color inside events
+- `--mbsc-eventcalendar-event-mark`: Small event dot / indicator color
+- `--mbsc-eventcalendar-input-bg-color`: Input background color inside the Eventcalendar (e.g. filters, header inputs)
+- `--mbsc-eventcalendar-highlight`: Today / highlighted day background
+- `--mbsc-eventcalendar-time-color`: Time labels, week numbers
+- `--mbsc-eventcalendar-disabled-bg-color`: Disabled day background
+- `--mbsc-eventcalendar-parent`: Timeline parent row background
+- `--mbsc-eventcalendar-parent-hover`: Timeline parent row hover
+- `--mbsc-eventcalendar-focus`: Focus outline color (keyboard nav)
+- `--mbsc-eventcalendar-success`: Success state color
+- `--mbsc-eventcalendar-error`: Error state color
+- `--mbsc-eventcalendar-popup-bg-color`: Event popup background
+- `--mbsc-eventcalendar-popup-list-bg-color`: Popup event list background
+### Windows theme
+
+These variables apply when the `windows` theme is active.
+
+- `--mbsc-eventcalendar-accent`: Selected day / primary accent
+- `--mbsc-eventcalendar-bg-color`: Calendar background
+- `--mbsc-eventcalendar-text-color`: Default text color
+- `--mbsc-eventcalendar-border-color`: Grid / separator color
+- `--mbsc-eventcalendar-event-color`: Event background
+- `--mbsc-eventcalendar-on-accent`: Text color on event background
+- `--mbsc-eventcalendar-event-mark`: Selected marker color
+- `--mbsc-eventcalendar-background-parent`: Timeline parent row background
+- `--mbsc-eventcalendar-background-parent-hover`: Timeline parent row hover
+- `--mbsc-eventcalendar-disabled-bg-color`: Disabled day background
+- `--mbsc-eventcalendar-disabled-text`: Disabled day text
+- `--mbsc-eventcalendar-success`: Success state color
+- `--mbsc-eventcalendar-error`: Error state color
+### Material theme
+
+These variables apply when the `material` theme is active.
+
+- `--mbsc-eventcalendar-accent`: Primary accent / selected day
+- `--mbsc-eventcalendar-bg-color`: Calendar background
+- `--mbsc-eventcalendar-text-color`: Default text color
+- `--mbsc-eventcalendar-border-color`: Grid / separators
+- `--mbsc-eventcalendar-event-color`: Event background
+- `--mbsc-eventcalendar-event-mark`: Selected marker color
+- `--mbsc-eventcalendar-event-text`: Event text color
+- `--mbsc-eventcalendar-on-accent`: Text/icons on accent background
+- `--mbsc-eventcalendar-event-shadow`: Shadow color for events (e.g. selected or dragged events)
+- `--mbsc-eventcalendar-popup-bg-color`: Event popup background
+- `--mbsc-eventcalendar-time-color`: Time labels and secondary text color
+- `--mbsc-eventcalendar-disabled-bg-color`: Disabled day background
+- `--mbsc-eventcalendar-parent`: Timeline parent row background
+- `--mbsc-eventcalendar-parent-hover`: Timeline parent row hover
+- `--mbsc-eventcalendar-focus`: Focus outline color
+- `--mbsc-eventcalendar-success`: Success state color
+- `--mbsc-eventcalendar-error`: Error state color
+- `--mbsc-eventcalendar-schedule-text-color`: Schedule view text color

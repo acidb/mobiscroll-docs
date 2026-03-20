@@ -115,3 +115,4 @@ The following event specific properties are available:
 - `start`: _string_ - The formatted start time, if the event is not all day.
 - `title`: _string_ - The title of the event.
 - `currentResource`: _string | number_ - The resource of the row or column where the event is being rendered.
+

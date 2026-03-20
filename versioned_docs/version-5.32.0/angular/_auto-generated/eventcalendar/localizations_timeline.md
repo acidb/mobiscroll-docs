@@ -88,7 +88,7 @@ Set the first day of the week: Sunday is 0, Monday is 1, etc.
 **Default value**: `0`
 ### locale {#localization-locale}
 
-string &#124; [MbscLocale](#type-MbscLocale)
+string &#124; MbscLocale
 
 Sets the language of the component. The locale object contains all the translations for a given language.
 The built in language modules are listed below. If a language is not listed, it can be provided as a
@@ -180,9 +180,9 @@ Text for the previous button in the calendar header, used as accessibility label
 
 string
 
-Text for quarter numbers in the timeline header. The {count} inside the string will be replaced with the number of the current quarter.
+Text for quarter numbers in the timeline header. The &#123;count&#125; inside the string will be replaced with the number of the current quarter.
 
-**Default value**: `'Q {count}'`
+**Default value**: `'Q &#123;count&#125;'`
 ### rtl {#localization-rtl}
 
 boolean
@@ -221,6 +221,6 @@ Text for the &quot;Today&quot; button.
 
 string
 
-Text for week numbers in the timeline header. The {count} inside the string will be replaced with the number of the current week.
+Text for week numbers in the timeline header. The &#123;count&#125; inside the string will be replaced with the number of the current week.
 
-**Default value**: `'Week {count}'`
+**Default value**: `'Week &#123;count&#125;'`

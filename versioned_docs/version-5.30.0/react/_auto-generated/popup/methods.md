@@ -13,3 +13,4 @@ Returns if the component is opened or not.
 
 
 Recalculates the position of the component.
+

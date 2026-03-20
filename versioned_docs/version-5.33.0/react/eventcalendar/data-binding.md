@@ -16,7 +16,7 @@ export const toc = [...dataTOC,
 
 <EventDataStructure />
 
-<h2 id="local-data">Local data</h2>
+## Local data {#local-data}
 
 To bind local data to the event calendar, you can simply assign a JavaScript array of objects to the [`data`](api#opt-data) option of the component.
 
@@ -43,7 +43,7 @@ function App() {
 }
 ```
 
-<h2 id="remote-data">Remote data</h2>
+## Remote data {#remote-data}
 
 You can load the data through an external request and assign it to the data option of the component.
 
@@ -74,7 +74,7 @@ function App() {
 }
 ```
 
-<h2 id="on-demand-loading">On demand loading</h2>
+## On demand loading {#on-demand-loading}
 
 Use the [`onPageLoading`](api#event-onPageLoading) event to load the data relevant to the currently active view. The event fires every time the date range of the view changes, for example when someone navigates the event calendar. Getting the events in real time as the user interacts with the UI improves load performance and always serves the most recent data.
 

@@ -264,3 +264,4 @@ The display of the Agenda can be customized with different render functions.
 <Types />
 
 </div>
+

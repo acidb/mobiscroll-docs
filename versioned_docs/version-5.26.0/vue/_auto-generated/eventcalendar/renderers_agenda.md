@@ -87,3 +87,4 @@ The following event specific properties are available:
 
 Customize the header of the event calendar.
 You can use custom html as well as the built in header components of the calendar.
+

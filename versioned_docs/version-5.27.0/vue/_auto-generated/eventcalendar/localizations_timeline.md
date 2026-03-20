@@ -172,9 +172,9 @@ Text for the previous button in the calendar header, used as accessibility label
 
 string
 
-Text for quarter numbers in the timeline header. The {count} inside the string will be replaced with the number of the current quarter.
+Text for quarter numbers in the timeline header. The &#123;count&#125; inside the string will be replaced with the number of the current quarter.
 
-**Default value**: `'Q {count}'`
+**Default value**: `'Q &#123;count&#125;'`
 ### rtl {#localization-rtl}
 
 boolean
@@ -213,6 +213,6 @@ Text for the &quot;Today&quot; button.
 
 string
 
-Text for week numbers in the timeline header. The {count} inside the string will be replaced with the number of the current week.
+Text for week numbers in the timeline header. The &#123;count&#125; inside the string will be replaced with the number of the current week.
 
-**Default value**: `'Week {count}'`
+**Default value**: `'Week &#123;count&#125;'`

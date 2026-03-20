@@ -19,3 +19,4 @@ $('#myInput').mobiscroll().datepicker({
   returnFormat: 'moment'
 });
 ```
+

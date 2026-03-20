@@ -57,3 +57,4 @@ In the case of the `day` slot however, both the styling and the content (the dat
   </template>
 </MbscDatepicker>
 ```
+

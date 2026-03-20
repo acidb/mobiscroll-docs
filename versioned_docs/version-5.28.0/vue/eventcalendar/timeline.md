@@ -257,3 +257,4 @@ Each of these resolution has its own named slot for the header and the footer. F
 <Slots />
 
 </div>
+

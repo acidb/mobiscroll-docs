@@ -26,3 +26,4 @@ The following example will create a Select component with four options to choose
   <MbscSelect :data="myData" />
 </template>
 ```
+

@@ -67,7 +67,7 @@ The options object can include the following properties:
 - `dragData` - *(el: HTMLElement) => MbscCalendarEvent | MbscResource* - function to build the resource or event object. Defaults to `data-drag-data` attribute on the element. 
 - `type` - *'event' | 'resource'* - Creates an event or resource on the Eventcalendar. Defaults to `'event'`.
 - `externalDrop` - *boolean* - Enables drop from Eventcalendar to SortableJS list.
-- `onExternalDrop` - *(args: {container: HTMLElement, position: number, dragData: MbscCalendarEvent | MbscResource, afterElement?: HTMLElement}) => void* - function triggered on drop from Eventcalendar to SortableJS list.
+- `onExternalDrop` - *(args: &#123;container: HTMLElement, position: number, dragData: MbscCalendarEvent | MbscResource, afterElement?: HTMLElement&#125;) => void* - function triggered on drop from Eventcalendar to SortableJS list.
 
 
 ```html
@@ -121,7 +121,7 @@ The options object can include the following properties:
 - `dragData` - *(el: HTMLElement) => MbscCalendarEvent | MbscResource* - function to build the resource or event object. Defaults to `data-drag-data` attribute on the element.
 - `type` - *'event' | 'resource'* - Creates an event or resource on the Eventcalendar. Defaults to `'event'`.
 - `externalDrop` - *boolean* - Enables drop from Eventcalendar to Dragula list.
-- `onExternalDrop` - *(args: {container: HTMLElement, position: number, dragData: MbscCalendarEvent | MbscResource, afterElement?: HTMLElement}) => void* - function triggered on drop from Eventcalendar to Dragula list.
+- `onExternalDrop` - *(args: &#123;container: HTMLElement, position: number, dragData: MbscCalendarEvent | MbscResource, afterElement?: HTMLElement&#125;) => void* - function triggered on drop from Eventcalendar to Dragula list.
 
 
 ```html
@@ -250,3 +250,4 @@ Integration: enable dropping to third-party lists by setting `externalDrop` to `
     args.container.insertBefore(newItem, args.afterElement || null);
   },
 ```
+

@@ -7,6 +7,5 @@ title: Accessibility
 
 import Content from '../../_shared/eventcalendar/accessibility.mdx';
 import { toc as TOC } from '../../_shared/eventcalendar/accessibility.mdx';
-export const toc = [...TOC];
 
 <Content />

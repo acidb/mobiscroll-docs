@@ -24,3 +24,4 @@ The following example will create a popup with static content. When clicked or t
 const inst = $('#myDiv').mobiscroll().popup().mobiscroll('getInst');
 inst.open();
 ```
+

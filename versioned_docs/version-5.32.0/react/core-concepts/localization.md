@@ -101,7 +101,7 @@ const myLocale = {
     setText: 'OK',
     cancelText: 'Mégse',
     clearText: 'Törlés',
-    selectedText: '{count} kiválasztva',
+    selectedText: '&#123;count&#125; kiválasztva',
     // Datetime component
     dateFormat: 'YYYY.MM.DD.',
     dateFormatLong: 'YYYY. MMM. D., DDD',
@@ -135,6 +135,6 @@ const myLocale = {
     eventsText: 'esemény',
     allDayText: 'Egész nap',
     noEventsText: 'Nincs esemény',
-    moreEventsText: '{count} további',
+    moreEventsText: '&#123;count&#125; további',
 }
 ```

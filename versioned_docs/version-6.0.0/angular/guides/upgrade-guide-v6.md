@@ -248,3 +248,4 @@ We removed the deprecated `resolution` property from the [view](/angular/eventca
   </TabItem>
 </Tabs>
 
+

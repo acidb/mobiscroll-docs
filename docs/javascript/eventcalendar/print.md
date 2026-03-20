@@ -33,7 +33,7 @@ mobscroll.eventcalendar('#myDiv', {
 ```
 
 
-<h2 id="printing">Printing</h2>
+## Printing {#printing}
 
 Printing the Eventcalendar contents can be done using the print method of the Eventcalendar [instance](../core-concepts/instance). Calling this method will create a new window containing only the Eventcalendar and will invoke the print function of the browser. After the printing is done, the window should close automatically.
 

@@ -383,3 +383,4 @@ The following properties are available:
  - `date`: _Date_ - First day of the rendered year.
  - `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events for the year.
  - `isActive`: _boolean_ - True for the current year.
+

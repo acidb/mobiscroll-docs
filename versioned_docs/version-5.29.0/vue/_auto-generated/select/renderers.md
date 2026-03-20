@@ -15,3 +15,4 @@ Available parameters:
 - `value`: _any_ - The value of the item.
 - `isGroup`: _boolean_ - For group headers this property will be true
 - `data`: _MbscSelectData_ - The original option item that is passed in the [`data`](#opt-data) array
+

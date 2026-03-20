@@ -148,3 +148,4 @@ The following event specific properties are available:
 - `isMultiDay`: _boolean_ - Computed property. It&#039;s true if the event spans across multiple days.
 - `original`: _object_ -  Reference to the original event object. Any custom property on the event can be access through this property.
 - `start`: _string_ - Computed property. It holds the formatted start time, if the event is not all day.
+

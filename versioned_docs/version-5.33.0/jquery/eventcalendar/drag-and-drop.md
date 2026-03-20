@@ -42,14 +42,14 @@ $('#myDiv').mobiscroll().eventcalendar({
 });
 ```
 
-<h2 id="the-eventcalendar-as-source">The Eventcalendar as source</h2>
+## The Eventcalendar as source {#the-eventcalendar-as-source}
 
 The [`externalDrag`](./api#opt-externalDrag) option enables events to be dragged out from the calendar/schedule/timeline views and dropped on another instance of the Eventcalendar or any [Dropcontainer](#dropcontainer).
 
 When an event leaves the Eventcalendar the [`onEventDragLeave`](./api#event-onEventDragLeave) life-cycle event will be fired and a clone of the calendar event will be displayed for a better illustration of the movement. If the [`dragToMove`](./api#opt-dragToMove) option is not enabled the dragged event will instantly leave the calendar container and the [`onEventDragLeave`](./api#event-onEventDragLeave) event will fire and the event clone will be displayed. When an event enters the Eventcalendar the [`onEventDragEnter`](./api#event-onEventDragEnter) life-cycle event will be fired.
 
 
-<h3 id="dropcontainer">Dropcontainer</h3>
+### Dropcontainer {#dropcontainer}
 
 The Dropcontainer defines a container where events can be dragged from or dropped to. The [`onItemDragLeave`](#event-onItemDragLeave) and [`onItemDragEnter`](#event-onItemDragEnter) life-cycle events can be used to track when an event exits or enters the Dropcontainer. When an item is dropped inside the container the [`onItemDrop`](#event-onItemDrop) event is triggered. This can be useful for unscheduling work or appointments that were already scheduled.
 
@@ -91,7 +91,7 @@ $('#myDiv').mobiscroll().eventcalendar({
 });
 ```
 
-<h3 id="dropcontainer-events">Dropcontainer events</h3>
+### Dropcontainer events {#dropcontainer-events}
 
 <div className="option-list">
 

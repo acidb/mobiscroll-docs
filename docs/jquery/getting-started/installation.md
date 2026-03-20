@@ -52,7 +52,7 @@ A downloaded package can be installed into a webapp with module loaders as well 
 
 <ImportStyles framework="jquery" />
 
-When using module loaders, components that we want to include in the project's bundle need to be registered as described in [Registering components](#registering-components) section above.
+When using module loaders, components that we want to include in the project's bundle need to be registered by registering them.
 
 ### Web pages
 

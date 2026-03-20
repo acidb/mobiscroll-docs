@@ -129,3 +129,4 @@ Ionic is a good example for custom components usage. For instance, the select di
     <ion-input [(ngModel)]="selected" mbsc-select [data]="myData"></ion-input>
 </ion-item>
 ```
+

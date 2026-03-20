@@ -133,3 +133,4 @@ The following event specific properties are available:
 - `title`: _string_ - The title of the event.
 
 **Default value**: `undefined`
+

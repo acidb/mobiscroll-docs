@@ -127,3 +127,4 @@ When deleting a recurring event, there will not be an [`onEventDelete`](./api#ev
 
 Adding this exception to the rule is an update to the event, so the [`onEventUpdate`](./api#event-onEventUpdate) and [`onEventUpdated`](./api#event-onEventUpdated) are fired instead of the delete.
 :::
+

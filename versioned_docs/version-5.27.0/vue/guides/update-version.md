@@ -94,3 +94,4 @@ Running the following command will update the package in your project:
 ```bash
 mobiscroll config vue --no-npm
 ```
+

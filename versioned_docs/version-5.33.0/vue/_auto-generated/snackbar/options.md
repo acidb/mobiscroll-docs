@@ -7,8 +7,7 @@ Animation to use when the component is opened or closed.
 **Default value**: `undefined`
 ### button {#opt-button}
 
-{action?: () => void
-, icon?: string, text?: string}
+&#123;action?: () => void, icon?: string, text?: string&#125;
 
 Displays an action button on the snackbar. Properties:
 - `text`: *string* - Text of the button.

@@ -23,7 +23,7 @@ export const toc = [...intTOC,
 
 <Content />
 
-<h3 id="draggable">Draggable</h3>
+### Draggable {#draggable}
 
 You can initialize the draggable containers by using the `mbsc-draggable` directive on the element.
 
@@ -48,17 +48,17 @@ export class MyComponent {
 }
 ```
 
-<h3 id="draggable-options">Draggable options</h3>
+### Draggable options {#draggable-options}
 
 <div className="option-list">
   <DraggableOptions />
 </div>
 
-<h3 id="third-party-dragging-support">Third party dragging libraries</h3>
+### Third party dragging libraries {#third-party-dragging-support}
 
 Mobiscroll comes with built-in support for two widely used reorderable drag-and-drop list libraries: [SortableJS](https://sortablejs.github.io/Sortable/) and [Dragula](https://bevacqua.github.io/dragula/). With the `sortableJsDraggable` and `dragulaDraggable` plugins, you can seamlessly drag items into the Eventcalendar with just a few lines of code.   
 
-<h4 id="sortable-js">SortableJS:</h4>
+#### SortableJS: {#sortable-js}
 
 Integration: call the `sortableJsDraggable` plugin’s `init()` method and pass the SortableJS instance along with the `options` object.
 The options object can include the following properties: 
@@ -66,7 +66,7 @@ The options object can include the following properties:
 - `dragData` - *(el: HTMLElement) => MbscCalendarEvent | MbscResource* - function to build the resource or event object. Defaults to `data-drag-data` attribute on the element. 
 - `type` - *'event' | 'resource'* - Creates an event or resource on the Eventcalendar. Defaults to `'event'`.
 - `externalDrop` - *boolean* - Enables drop from Eventcalendar to SortableJS list.
-- `onExternalDrop` - *(args: {container: HTMLElement, position: number, dragData: MbscCalendarEvent | MbscResource, afterElement?: HTMLElement}) => void* - function triggered on drop from Eventcalendar to SortableJS list.
+- `onExternalDrop` - *(args: &#123;container: HTMLElement, position: number, dragData: MbscCalendarEvent | MbscResource, afterElement?: HTMLElement&#125;) => void* - function triggered on drop from Eventcalendar to SortableJS list.
 
 
 ```html
@@ -121,14 +121,14 @@ The SortableJS integration works only if fallback mode is used.
 The `cloneSelector` must be set in the `options` object.
 :::
 
-<h4 id="dragula">Dragula:</h4>
+#### Dragula: {#dragula}
 
 Integration: call the `dragulaDraggable` plugin’s `init()` method and pass the Dragula instance, optionally providing an `options` object to customize the behavior.
 The options object can include the following properties:
 - `dragData` - *(el: HTMLElement) => MbscCalendarEvent | MbscResource* - function to build the resource or event object. Defaults to `data-drag-data` attribute on the element.
 - `type` - *'event' | 'resource'* - Creates an event or resource on the Eventcalendar. Defaults to `'event'`.
 - `externalDrop` - *boolean* - Enables drop from Eventcalendar to Dragula list.
-- `onExternalDrop` - *(args: {container: HTMLElement, position: number, dragData: MbscCalendarEvent | MbscResource, afterElement?: HTMLElement}) => void* - function triggered on drop from Eventcalendar to Dragula list.
+- `onExternalDrop` - *(args: &#123;container: HTMLElement, position: number, dragData: MbscCalendarEvent | MbscResource, afterElement?: HTMLElement&#125;) => void* - function triggered on drop from Eventcalendar to Dragula list.
 
 
 ```html
@@ -184,14 +184,14 @@ This is a known limitation in Dragula’s touch support that has not been addres
 :::
 
 
-<h2 id="the-eventcalendar-as-source">The Eventcalendar as source</h2>
+## The Eventcalendar as source {#the-eventcalendar-as-source}
 
 The [`externalDrag`](./api#opt-externalDrag) option enables events to be dragged out from the calendar/schedule/timeline views and dropped on another instance of the Eventcalendar or any [Dropcontainer](#dropcontainer).
 
 When an event leaves the Eventcalendar the [`onEventDragLeave`](./api#event-onEventDragLeave) life-cycle event will be fired and a clone of the calendar event will be displayed for a better illustration of the movement. If the [`dragToMove`](./api#opt-dragToMove) option is not enabled the dragged event will instantly leave the calendar container and the [`onEventDragLeave`](./api#event-onEventDragLeave) event will fire and the event clone will be displayed. When an event enters the Eventcalendar the [`onEventDragEnter`](./api#event-onEventDragEnter) life-cycle event will be fired.
 
 
-<h3 id="dropcontainer">Dropcontainer</h3>
+### Dropcontainer {#dropcontainer}
 
 The Dropcontainer defines a container where events can be dragged from or dropped to. The [`onItemDragLeave`](#event-onItemDragLeave) and [`onItemDragEnter`](#event-onItemDragEnter) life-cycle events can be used to track when an event exits or enters the Dropcontainer. When an item is dropped inside the container the [`onItemDrop`](#event-onItemDrop) event is triggered. This can be useful for unscheduling work or appointments that were already scheduled.
 
@@ -231,7 +231,7 @@ export class MyComponent {
 }
 ```
 
-<h3 id="dropcontainer-events">Dropcontainer events</h3>
+### Dropcontainer events {#dropcontainer-events}
 
 <div className="option-list">
 
@@ -239,7 +239,7 @@ export class MyComponent {
 
 </div>
 
-<h3 id="third-party-dropping-support">Drop to third party drag&drop list</h3>
+### Drop to third party drag&drop list {#third-party-dropping-support}
 
 Mobiscroll comes with built-in support for dropping events and resources from the Eventcalendar to two of the most popular reordable drag and drop lists: [SortableJS](https://sortablejs.github.io/Sortable/) and [Dragula](https://bevacqua.github.io/dragula/). Unscheduling events or drag out resources can be enabled with the `sortableJsDraggable` and `dragulaDraggable` plugins. 
 
@@ -260,3 +260,4 @@ Integration: enable dropping to third-party lists by setting `externalDrop` to `
     this.myListItems = listItems;
   },
 ```
+

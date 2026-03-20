@@ -376,3 +376,4 @@ The following properties are available:
  - `isActive`: _boolean_ - True for the current year.
 
 **Default value**: `undefined`
+

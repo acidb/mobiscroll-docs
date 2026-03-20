@@ -159,7 +159,7 @@ string
 
 Text for the &quot;more&quot; label on the calendar, when there&#039;s not enough space to display all the labels for the day,
 and there are more than one extra labels.
-The `{count}` inside the string will be replaced with the number of extra labels.
+The `&#123;count&#125;` inside the string will be replaced with the number of extra labels.
 When not specified, the [moreEventsText](#localization-moreEventsText) option will be used for both plural and singular form.
 
 **Default value**: `undefined`
@@ -168,10 +168,10 @@ When not specified, the [moreEventsText](#localization-moreEventsText) option wi
 string
 
 Text for the &quot;more&quot; label on the calendar, when there&#039;s not enough space to display all the labels for the day.
-The `{count}` inside the string will be replaced with the number of extra labels.
+The `&#123;count&#125;` inside the string will be replaced with the number of extra labels.
 Use the [moreEventsPluralText](#localization-moreEventsPluralText) as well, if the plural form is different.
 
-**Default value**: `'{count} more'`
+**Default value**: `'&#123;count&#125; more'`
 ### newEventText {#localization-newEventText}
 
 string

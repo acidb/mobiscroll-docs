@@ -15,7 +15,7 @@ export const toc = [...recTOC, { value: 'Full example', level: 2, id: 'full-exam
 
 <Recurrence />
 
-<h2 id="full-example">Full example</h2>
+## Full example {#full-example}
 
 <Tabs>
 <TabItem value="ts" label="component.ts">
@@ -61,3 +61,4 @@ export class AppComponent {
 
 </TabItem>
 </Tabs>
+

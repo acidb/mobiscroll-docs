@@ -32,3 +32,4 @@ The events can be rendered as labels or in a popover that is shown on day click.
 <Localizations />
 
 </div>
+

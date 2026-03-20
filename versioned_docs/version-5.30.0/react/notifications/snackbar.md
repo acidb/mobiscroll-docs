@@ -60,3 +60,4 @@ The Snackbar component ships with different event hooks for deep customization. 
 <Events />
 
 </div>
+

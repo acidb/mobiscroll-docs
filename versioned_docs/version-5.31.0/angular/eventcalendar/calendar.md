@@ -263,3 +263,4 @@ The display of the Event Calendar can be customized with different templating 
 </div>
 
 </div>
+

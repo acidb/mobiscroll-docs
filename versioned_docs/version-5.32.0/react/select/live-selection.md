@@ -11,3 +11,4 @@ import Content from '../../_shared/live_selection.mdx';
 <Content />
 
 Furthermore the [`onTempChange`](./api#event-onTempChange) event is raised whenever the temporary value changes.
+

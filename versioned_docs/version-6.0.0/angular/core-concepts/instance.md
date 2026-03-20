@@ -156,3 +156,4 @@ export class AppComponent implements AfterViewInit {
 ```
 
 The result in this case will be an array of objects, each of them being an occurence of an invalid day in November. The `AfterViewInit` interface is required, because the `ViewChild` references will only get a value after the view was initialized.
+

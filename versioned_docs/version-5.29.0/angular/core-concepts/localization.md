@@ -295,7 +295,7 @@ string
 
 Text for the &quot;more&quot; label on the calendar, when there&#039;s not enough space to display all the labels for the day,
 and there are more than one extra labels.
-The `{count}` inside the string will be replaced with the number of extra labels.
+The `&#123;count&#125;` inside the string will be replaced with the number of extra labels.
 When not specified, the [moreEventsText](#localization-moreEventsText) option will be used for both plural and singular form.
 
 **Default value**: `undefined`
@@ -305,10 +305,10 @@ When not specified, the [moreEventsText](#localization-moreEventsText) option wi
 string
 
 Text for the &quot;more&quot; label on the calendar, when there&#039;s not enough space to display all the labels for the day.
-The `{count}` inside the string will be replaced with the number of extra labels.
+The `&#123;count&#125;` inside the string will be replaced with the number of extra labels.
 Use the [moreEventsPluralText](#localization-moreEventsPluralText) as well, if the plural form is different.
 
-**Default value**: `'{count} more'`
+**Default value**: `'&#123;count&#125; more'`
 
 ### nextPageText {#localization-nextPageText}
 
@@ -363,9 +363,9 @@ Text for the previous button in the calendar header, used as accessibility label
 
 string
 
-Text for quarter numbers in the timeline header. The {count} inside the string will be replaced with the number of the current quarter.
+Text for quarter numbers in the timeline header. The &#123;count&#125; inside the string will be replaced with the number of the current quarter.
 
-**Default value**: `'Q {count}'`
+**Default value**: `'Q &#123;count&#125;'`
 
 ### rangeEndHelp {#localization-rangeEndHelp}
 
@@ -411,19 +411,19 @@ Enables right-to-left display.
 
 string
 
-Specifies the plural form of the amount of selected items according to the rules of particular language. The &#039;{count}&#039; substring will
+Specifies the plural form of the amount of selected items according to the rules of particular language. The &#039;&#123;count&#125;&#039; substring will
 be replaced with the number of selected items.
 
-**Default value**: `'{count} selected'`
+**Default value**: `'&#123;count&#125; selected'`
 
 ### selectedText {#localization-selectedText}
 
 string
 
-Specifies the amount of selected items according to the rules of particular language. The &#039;{count}&#039; substring will be replaced with
+Specifies the amount of selected items according to the rules of particular language. The &#039;&#123;count&#125;&#039; substring will be replaced with
 the number of selected items.
 
-**Default value**: `'{count} selected'`
+**Default value**: `'&#123;count&#125; selected'`
 
 ### setText {#localization-setText}
 
@@ -484,9 +484,9 @@ Text for the &quot;Today&quot; button.
 
 string
 
-Text for week numbers in the timeline header. The {count} inside the string will be replaced with the number of the current week.
+Text for week numbers in the timeline header. The &#123;count&#125; inside the string will be replaced with the number of the current week.
 
-**Default value**: `'Week {count}'`
+**Default value**: `'Week &#123;count&#125;'`
 
 ### yearSuffix {#localization-yearSuffix}
 
@@ -548,7 +548,7 @@ const myLocale = {
     setText: 'OK',
     cancelText: 'Mégse',
     clearText: 'Törlés',
-    selectedText: '{count} kiválasztva',
+    selectedText: '&#123;count&#125; kiválasztva',
     // Datetime component
     dateFormat: 'YYYY.MM.DD.',
     dateFormatLong: 'YYYY. MMM. D., DDD',
@@ -582,6 +582,6 @@ const myLocale = {
     eventsText: 'esemény',
     allDayText: 'Egész nap',
     noEventsText: 'Nincs esemény',
-    moreEventsText: '{count} további',
+    moreEventsText: '&#123;count&#125; további',
 }
 ```

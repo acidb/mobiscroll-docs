@@ -38,3 +38,4 @@ If you are looking to fully customize the day cell (ex. add custom hover effects
 is up to you.
 
 The following day specific details are available:
+

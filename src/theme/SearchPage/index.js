@@ -2,7 +2,7 @@
 import React, {useEffect, useReducer, useRef, useState} from 'react';
 import clsx from 'clsx';
 import algoliaSearchHelper from 'algoliasearch-helper';
-import algoliaSearch from 'algoliasearch/lite';
+import {liteClient as algoliasearch} from 'algoliasearch/lite';
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
@@ -187,7 +187,7 @@ function SearchPageContent() {
     },
     initialSearchResultState,
   );
-  const algoliaClient = algoliaSearch(appId, apiKey);
+  const algoliaClient = algoliasearch(appId, apiKey);
   const algoliaHelper = algoliaSearchHelper(algoliaClient, indexName, {
     hitsPerPage: 15,
     advancedSyntax: true,
@@ -242,6 +242,7 @@ function SearchPageContent() {
     },
   );
   const [loaderRef, setLoaderRef] = useState(null);
+  const titleFormatter = useTitleFormatter();
   const prevY = useRef(0);
   const observer = useRef(
     ExecutionEnvironment.canUseIntersectionObserver &&
@@ -314,7 +315,7 @@ function SearchPageContent() {
   return (
     <Layout>
       <Head>
-        <title>{useTitleFormatter(getTitle())}</title>
+        <title>{titleFormatter.format(getTitle())}</title>
         {/*
          We should not index search pages
           See https://github.com/facebook/docusaurus/pull/3233

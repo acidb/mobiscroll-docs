@@ -134,3 +134,4 @@ Some Mobiscroll components can also be initialized using a html attribute that a
 :::caution
 When using an ESM bundles the auto-initialization will work only after [registering the components](#registering-components).
 :::
+

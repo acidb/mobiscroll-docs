@@ -74,3 +74,4 @@ Clicks can be handled using the standard `@click` event.
 <Events />
 
 </div>
+

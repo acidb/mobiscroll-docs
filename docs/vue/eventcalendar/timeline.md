@@ -21,9 +21,9 @@ Use the [Timeline view](https://demo.mobiscroll.com/timeline) which features a h
 
 This Timeline view displays a timeline with its related events. You can render the [times/days horizontally and the resources vertically](https://demo.mobiscroll.com/timeline/timeline-time-grid). The Timeline can easily accommodate a [large number of resources](https://demo.mobiscroll.com/timeline/loading-big-data-sets) thanks to the vertical scroll that is easy to understand for users. This plays well on larger screens and in landscape containers. [Work hours and work days](https://demo.mobiscroll.com/timeline/switching-day-week-work-week-timeline) along with [disabled time-spans, breaks](https://demo.mobiscroll.com/timeline/colors-invalids-css-class) can be added. Use it to for [advanced tasks](https://demo.mobiscroll.com/timeline/restaurant-shift-management) with built-in drag & drop.
 
-By default the Timeline rows will have variable height and will expand to accommodate the displayed events. But, this can be changed by the `rowHeight` property of the [Timeline view](##opt-view) option. [If it is set to equal](https://demo.mobiscroll.com/timeline/timeline-resource-height), the rows will have equal heights, and overlapping events will be distributed evenly to fit in the row.
+By default the Timeline rows will have variable height and will expand to accommodate the displayed events. But, this can be changed by the `rowHeight` property of the [Timeline view](#opt-view) option. [If it is set to equal](https://demo.mobiscroll.com/timeline/timeline-resource-height), the rows will have equal heights, and overlapping events will be distributed evenly to fit in the row.
 
-Also, the `eventDisplay` [property](##opt-view) transforms the event display into a [daily listing mode](https://demo.mobiscroll.com/timeline/event-listing). This view represents a daily summary rather than an hour-by-hour layout.
+Also, the `eventDisplay` [property](#opt-view) transforms the event display into a [daily listing mode](https://demo.mobiscroll.com/timeline/event-listing). This view represents a daily summary rather than an hour-by-hour layout.
 
 The capabilities like [recurring events](/vue/core-concepts/recurrence), [all-day, multi-day events](#opt-data), [responsiveness](#responsiveness) are supported by the Timeline.
 
@@ -305,11 +305,11 @@ You can drag and drop resources into or out of the timeline view, allowing for e
 
 #### Targeting the timeline  
 
-To allow external resources to be dragged into your timeline, first set the the [`externalResourceDrop`](./api#opt-externalResourceDrop) option to `true`. As a second step, you'll need to create your external [draggable](drag-and-drop#draggable) element and pass a skeleton resource definition through the `dragData` option. Make sure to also set `type="resource"` on the draggable element so the timeline correctly identifies it as a resource.
+To allow external resources to be dragged into your timeline, first set the the [`externalResourceDrop`](./api#opt-externalResourceDrop) option to `true`. As a second step, you'll need to create your external [draggable](./drag-and-drop#draggable) element and pass a skeleton resource definition through the `dragData` option. Make sure to also set `type="resource"` on the draggable element so the timeline correctly identifies it as a resource.
 
 #### The timeline as a source
 
-Resources can be dragged out of the timeline and dropped onto another instance of the Timeline or any [Dropcontainer](drag-and-drop#dropcontainer). To enable this behavior, you'll need to set the [`externalResourceDrag`](./api#opt-externalResourceDrag) option to `true`.
+Resources can be dragged out of the timeline and dropped onto another instance of the Timeline or any [Dropcontainer](./drag-and-drop#dropcontainer). To enable this behavior, you'll need to set the [`externalResourceDrag`](./api#opt-externalResourceDrag) option to `true`.
 
 When a resource is dragged out of the timeline, the [`@resource-drag-leave`](./api#event-onResourceDragLeave) lifecycle event is triggered. A visual clone of the resource is shown to indicate the movement. If the resource is dropped into an external drop container or another timeline, it gets removed from the original timeline. This action also triggers the [`@resource-delete`](./api#event-onResourceDelete) and [`@resource-deleted`](./api#event-onResourceDeleted) lifecycle events.
 
@@ -850,3 +850,4 @@ The display of the Timeline can be customized with different slot functions.
 <Types />
 
 </div>
+

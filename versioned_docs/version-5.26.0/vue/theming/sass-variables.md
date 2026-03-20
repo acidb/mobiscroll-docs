@@ -23,3 +23,4 @@ $mbsc-windows-accent: #e61d2a;
 :::info
 It's important that you override the variables BEFORE the scss file import, otherwise the variables won't take effect.
 :::
+

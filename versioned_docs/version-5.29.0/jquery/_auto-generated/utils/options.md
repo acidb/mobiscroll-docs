@@ -1,6 +1,6 @@
 ### updateRecurringEvent {#updateRecurringEvent}
 
-(originalRecurringEvent: MbscCalendarEvent, oldEventOccurrence: MbscCalendarEvent, newEvent: MbscCalendarEvent, updatedEvent: MbscCalendarEvent, updateMode: "all" &#124; "current" &#124; "following", timezone: string, timezonePlugin: any) => {newEvent: MbscCalendarEvent &#124; null, updatedEvent: MbscCalendarEvent}
+(originalRecurringEvent: MbscCalendarEvent, oldEventOccurrence: MbscCalendarEvent, newEvent: MbscCalendarEvent, updatedEvent: MbscCalendarEvent, updateMode: "all" &#124; "current" &#124; "following", timezone: string, timezonePlugin: any) => &#123;newEvent: MbscCalendarEvent &#124; null, updatedEvent: MbscCalendarEvent&#125;
 
 
 Updates a recurring event, returns the updated and the new event.
@@ -15,4 +15,5 @@ Parameters:
  - updatedEvent - The updated event from popup.
 
  - updateMode - The update type.
+
 

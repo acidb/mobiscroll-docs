@@ -15,3 +15,4 @@ $('#myInput').mobiscroll().datepicker({
   display: 'anchored',
 });
 ```
+

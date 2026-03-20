@@ -44,14 +44,14 @@ You can initialize the draggable containers by using the `<MbscDraggable />` com
 </template>
 ```
 
-<h2 id="the-eventcalendar-as-source">The Eventcalendar as source</h2>
+## The Eventcalendar as source {#the-eventcalendar-as-source}
 
 The [`externalDrag`](./api#opt-externalDrag) option enables events to be dragged out from the calendar/schedule/timeline views and dropped on another instance of the Eventcalendar or any [Dropcontainer](#dropcontainer).
 
 When an event leaves the Eventcalendar the [`@event-drag-leave`](./api#event-onEventDragLeave) life-cycle event will be fired and a clone of the calendar event will be displayed for a better illustration of the movement. If the [`dragToMove`](./api#opt-dragToMove) option is not enabled the dragged event will instantly leave the calendar container and the [`@event-drag-leave`](./api#event-onEventDragLeave) event will fire and the event clone will be displayed. When an event enters the Eventcalendar the [`@event-drag-enter`](./api#event-onEventDragEnter) life-cycle event will be fired.
 
 
-<h3 id="dropcontainer">Dropcontainer</h3>
+### Dropcontainer {#dropcontainer}
 
 The Dropcontainer defines a container where events can be dragged from or dropped to. The [`@item-drag-leave`](#event-onItemDragLeave) and [`@item-drag-enter`](#event-onItemDragEnter) life-cycle events can be used to track when an event exits or enters the Dropcontainer. When an item is dropped inside the container the [`@item-drop`](#event-onItemDrop) event is triggered. This can be useful for unscheduling work or appointments that were already scheduled.
 
@@ -97,7 +97,7 @@ The Dropcontainer defines a container where events can be dragged from or droppe
 </template>
 ```
 
-<h3 id="dropcontainer-events">Dropcontainer events</h3>
+### Dropcontainer events {#dropcontainer-events}
 
 <div className="option-list">
 

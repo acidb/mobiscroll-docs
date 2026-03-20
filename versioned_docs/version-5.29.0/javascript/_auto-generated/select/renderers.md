@@ -16,3 +16,4 @@ Available parameters:
 - `data`: _MbscSelectData_ - The original option item that is passed in the [`data`](#opt-data) array
 
 **Default value**: `undefined`
+

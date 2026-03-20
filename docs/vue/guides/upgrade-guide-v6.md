@@ -357,3 +357,4 @@ We removed the deprecated `resolution` property from the [view](/vue/eventcalend
 
   </TabItem>
 </Tabs>
+

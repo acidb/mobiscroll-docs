@@ -162,3 +162,4 @@ The `MbscResource` supports custom properties in the form:
 ```
 
 
+

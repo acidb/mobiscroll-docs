@@ -12,7 +12,7 @@ export const toc = [...recTOC, { value: 'Full example', level: 2, id: 'full-exam
 
 <Recurrence />
 
-<h2 id="full-example">Full example</h2>
+## Full example {#full-example}
 
 ```jsx title="Recurring events on the eventcalendar"
 import { useState } from 'react';
@@ -44,3 +44,4 @@ function App() {
   return <Eventcalendar data={myEvents} />
 }
 ```
+

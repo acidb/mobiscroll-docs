@@ -236,3 +236,4 @@ test("Fires the onOpen event when the Datepicker is opened", () => {
   expect(openHandler).toHaveBeenCalled(); // called after open
 });
 ```
+

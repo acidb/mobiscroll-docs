@@ -532,7 +532,7 @@ Parameters:
    - `oldParent`: *Resource* - The old parent resource object.
    - `parent`: *Resource* - The parent resource object.
    - `resource`: *Resource* - The updated resource object.
-   - `resources`: Array<*Resource*> - The entire resources array with the new order .
+   - `resources`: Array&lt;*Resource*&gt; - The entire resources array with the new order .
 
  - inst - The component instance.
 
@@ -590,4 +590,5 @@ Parameters:
    - `oldViewEnd`: *Date*- The date where the previous virtual view ended.
 
  - inst - The component instance.
+
 

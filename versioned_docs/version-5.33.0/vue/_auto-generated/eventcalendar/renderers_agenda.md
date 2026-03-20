@@ -20,7 +20,7 @@ Available parameters:
        - `title`: _string_ - The title of the event.
     - `timestamp`: _number_ - The timestamp of the day.
  - `options`: _MbscEventcalendarOptions_ - The current options of the component.
- - `dayRefs`: _{ [key: string]: HTMLElement | null }_ - An object holding the references
+ - `dayRefs`: _&#123; [key: string]: HTMLElement | null &#125;_ - An object holding the references
 to the DOM elements of the days containing the event lists.
 Needed for the scroll functionality: clicking on a calendar date scrolls to the date on the list as well,
 and scrolling the list updates the selected date on the calendar.
@@ -105,3 +105,4 @@ The following event specific properties are available:
 
 Customize the header of the event calendar.
 You can use custom markup and the built in header components of the calendar.
+

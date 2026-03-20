@@ -198,7 +198,7 @@ Show or hide week numbers.
 **Default value**: `false`
 ### zoomLevels {#view-timeline-zoomLevels}
 
-{ [key:string]: MbscTimelineZoomLevel }
+&#123; [key:string]: MbscTimelineZoomLevel &#125;
 
 Defines configuration options for multiple zoom levels for the timeline view.
 Each zoom level can specify its own properties for displaying a custom layout.

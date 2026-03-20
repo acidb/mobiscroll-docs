@@ -41,3 +41,4 @@ inst.setOptions({
   themeVarian: 'dark',
 })
 ```
+

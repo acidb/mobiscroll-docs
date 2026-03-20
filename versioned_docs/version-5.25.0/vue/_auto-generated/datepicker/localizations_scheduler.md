@@ -259,18 +259,18 @@ Enables right-to-left display.
 
 string
 
-Specifies the plural form of the amount of selected items according to the rules of particular language. The &#039;{count}&#039; substring will
+Specifies the plural form of the amount of selected items according to the rules of particular language. The &#039;&#123;count&#125;&#039; substring will
 be replaced with the number of selected items.
 
-**Default value**: `'{count} selected'`
+**Default value**: `'&#123;count&#125; selected'`
 ### selectedText {#localization-selectedText}
 
 string
 
-Specifies the amount of selected items according to the rules of particular language. The &#039;{count}&#039; substring will be replaced with
+Specifies the amount of selected items according to the rules of particular language. The &#039;&#123;count&#125;&#039; substring will be replaced with
 the number of selected items.
 
-**Default value**: `'{count} selected'`
+**Default value**: `'&#123;count&#125; selected'`
 ### setText {#localization-setText}
 
 string

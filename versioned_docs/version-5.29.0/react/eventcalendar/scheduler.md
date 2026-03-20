@@ -384,3 +384,4 @@ The display of the Scheduler can be customized with different render functions.
 <Slots />
 
 </div>
+

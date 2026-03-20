@@ -69,3 +69,4 @@ function App() {
 }
 ```
 ![Calendar cell template](/img/calendar-cell-template.png)
+

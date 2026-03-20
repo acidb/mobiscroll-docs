@@ -112,3 +112,4 @@ function App() {
   return <Eventcalendar data={myEvents} onPageLoading={myLoadPage} view={MY_VIEW} />
 }
 ```
+

@@ -32,6 +32,12 @@ To align with current ecosystem standards, we renamed several packages:
 * We renamed `react` to `react-legacy` (for React versions before 18).
 * We renamed `react-next` to `react`, now the default React package.
 
+To automatically handle the package updates and apply these changes, the simplest method is to re-run the [configuration command](/react/getting-started/installation#installing-from-npm) in your project. Navigate to your project's root folder and run:
+
+```bash
+mobiscroll config react
+```
+
 ## General
 
 ### Theme updates
@@ -78,9 +84,9 @@ mobiscroll.setOptions({
 
 Starting with Mobiscroll 6.0, we updated our `Sass` code to remove deprecated functions. The minimum supported `Sass` version is now [1.80.0.](https://www.npmjs.com/package/sass), and we no longer support [node-sass](https://www.npmjs.com/package/node-sass). If you're currently using `node-sass`, we recommend switching to the [sass](https://www.npmjs.com/package/sass) package, which is now the primary implementation. For help with the migration, refer to the official [Sass upgrade guide](https://sass-lang.com/blog/libsass-is-deprecated/#how-do-i-migrate).
 
-### HTML support in data strings 
+### HTML support in strings 
 
-We removed support for HTML in data strings. These are no longer supported outside of jQuery and JavaScript implementations.
+We dropped support for HTML markup in strings for improved security. It is only supported in jQuery and JavaScript render functions.
 
 
 ## Datepicker

@@ -51,11 +51,11 @@ $('#myDiv').mobiscroll().eventcalendar({
 Play with the slider below to see the differences.
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="1256" height="528" src={require('@site/static/img/normal-event-content-template-agenda.png').default} />
+    <img width="1256" height="528" src={require('@site/static/img/v6/normal-event-content-template-agenda.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="1256" height="528" src={require('@site/static/img/event-content-templating-agenda.png').default} />
+    <img width="1256" height="528" src={require('@site/static/img/v6/event-content-templating-agenda.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
@@ -76,7 +76,7 @@ In case of full event templating, whenever there is an event (in the agenda, sch
 Play with the slider below to see the differences.
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="1920" height="950" src={require('@site/static/img/normal-event-templating-scheduler.png').default} />
+    <img width="1920" height="950" src={require('@site/static/img/v6/normal-event-templating-scheduler.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
@@ -108,11 +108,11 @@ Play with the slider below to see the differences.
 
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="1480" height="753" src={require('@site/static/img/normal-resource-template-scheduler.png').default} />
+    <img width="1480" height="753" src={require('@site/static/img/v6/normal-resource-template-scheduler.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="1480" height="753" src={require('@site/static/img/resource-template-scheduler.png').default} />
+      <img width="1480" height="753" src={require('@site/static/img/v6/resource-template-scheduler.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
@@ -159,11 +159,11 @@ $('#myDiv').mobiscroll().eventcalendar({
 Play with the slider below to see the differences.
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
-    <img width="1256" height="547" src={require('@site/static/img/normal-header-calendar.png').default} />
+    <img width="1256" height="547" src={require('@site/static/img/v6/normal-header-calendar.png').default} />
     <figcaption>Default template</figcaption>
   </figure>
   <figure slot="second" className="after">
-    <img width="1256" height="547" src={require('@site/static/img/header-calendar.png').default} />
+    <img width="1256" height="547" src={require('@site/static/img/v6/header-calendar.png').default} />
     <figcaption>Custom template</figcaption>
   </figure>
   <svg slot="handle" className="custom-animated-handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">

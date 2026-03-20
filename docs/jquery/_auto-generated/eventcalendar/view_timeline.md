@@ -38,8 +38,10 @@ Days outside of the `startDay` and `endDay` range will not be visible.
 
 string
 
-Specifies the end time of scheduler column.
-Hours and minutes can be specified in the same string, example: &#039;18:30&#039;.
+Set the end time of timeline days.
+Hours, minutes and an optional positive day offset can be specified in the same string.
+  - Standard format: &#039;HH:MM&#039; (e.g., `'18:30'`).
+  - Offset format (extends the view N days after - supported only for single day view): &#039;HH:MM+N&#039; (e.g., `'08:00+1'`).
 
 **Default value**: `'24:00'`
 ### eventDisplay {#view-timeline-eventDisplay}
@@ -158,8 +160,10 @@ which sets the first day of the week, and, if not set, is defined by the [locali
 
 string
 
-Specifies the start time of scheduler column.
-Hours and minutes can be specified in the string, example: &#039;09:30&#039;.
+Set the start time of timeline days.
+Hours, minutes and an optional negative day offset can be specified in the same string.
+  - Standard format: &#039;HH:MM&#039; (e.g., `'09:30'`).
+  - Offset format (initiates the view N days prior - supported only for single day view): &#039;HH:MM-N&#039; (e.g., `'20:00-1'`).
 
 **Default value**: `'00:00'`
 ### timeCellStep {#view-timeline-timeCellStep}

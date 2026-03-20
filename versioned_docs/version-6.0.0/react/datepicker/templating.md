@@ -50,7 +50,7 @@ function App(props) {
   return <Datepicker renderCalendarHeader={myHeader} />
 }
 ```
-![Calendar header template](/img/calendar-header-template.png)
+  ![Calendar header template](/img/v6/calendar-header-template.png)
 
 ## Calendar cell template
 
@@ -68,5 +68,4 @@ function App() {
   return <Datepicker renderDay={day} />
 }
 ```
-![Calendar cell template](/img/calendar-cell-template.png)
-
+  ![Calendar cell template](/img/v6/calendar-cell-template.png)

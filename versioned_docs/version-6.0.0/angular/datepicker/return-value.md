@@ -26,13 +26,18 @@ Example on how to pass Moment.js to the Datepicker:
 <TabItem value="ts" label="app.component.ts">
 
 ```ts
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
 // highlight-next-line
 import * as moment from 'moment';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  standalone: true,
+  imports: [CommonModule, MbscModule]
 })
 export class AppComponent {
   // highlight-next-line

@@ -5,12 +5,6 @@
 
 
 
-### forceUpdate {#method-forceUpdate}
-
-() => void
-
-
-
 ### getEvents {#method-getEvents}
 
 (start: [MbscDateType](#type-MbscDateType), end: [MbscDateType](#type-MbscDateType)) => Array&lt;[MbscCalendarEvent](#type-MbscCalendarEvent)&gt;

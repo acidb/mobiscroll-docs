@@ -23,7 +23,7 @@ Starting with Mobiscroll 6.0, we dropped support for IE11. Additionally, we upda
 
 ## Frameworks
 
-Starting with Mobiscroll 6.0 we updated the minimum supported framework and language versions. Angular 8 is no longer supported — please upgrade to Angular 9+ to continue using Mobiscroll. Additionally, TypeScript 4+ is now required.
+Starting with Mobiscroll 6.0 we updated the minimum supported framework and language versions. Please upgrade to Angular 9+ to continue using Mobiscroll. Additionally, TypeScript 4+ is now required.
 
 ## Packages
 
@@ -31,6 +31,12 @@ To align with current ecosystem standards, we renamed the packages as follows:
 
 * We renamed `angular-ivy` to `angular` to reflect compatibility with Angular 13 and newer.
 * We renamed the original `angular` package to `angular-legacy`, now targeting Angular 9–12.
+
+To automatically handle the package updates and apply these changes, the simplest method is to re-run the [configuration command](/angular/getting-started/installation#installing-from-npm) in your project. Navigate to your project's root folder and run:
+
+```bash
+mobiscroll config angular
+```
 
 ## General
 
@@ -76,9 +82,9 @@ mobiscroll.setOptions({
 
 Starting with Mobiscroll 6.0, we updated our `Sass` code to remove deprecated functions. The minimum supported `Sass` version is now [1.80.0.](https://www.npmjs.com/package/sass), and we no longer support [node-sass](https://www.npmjs.com/package/node-sass). If you're currently using `node-sass`, we recommend switching to the [sass](https://www.npmjs.com/package/sass) package, which is now the primary implementation. For help with the migration, refer to the official [Sass upgrade guide](https://sass-lang.com/blog/libsass-is-deprecated/#how-do-i-migrate).
 
-### HTML support in data strings 
+### HTML support in strings 
 
-We removed support for HTML in data strings. These are no longer supported outside of jQuery and JavaScript implementations.
+We dropped support for HTML markup in strings for improved security. It is only supported in jQuery and JavaScript render functions.
 
 
 ## Datepicker

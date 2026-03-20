@@ -13,7 +13,7 @@ import ExclusiveEndDatesContent from '../../_shared/eventcalendar/exclusive-ends
 
 ## Overview
 
-By default the Eventcalendar uses the local timezone of the browser to show event data. If you want to show the data or interpret it in a different timezone, you will need an external library to handle the timezone conversions. There are two libraries that Mobiscroll supports: **moment-timezone** and **luxon**.
+By default the Eventcalendar uses the local timezone of the browser to show event data. If you want to show the data or interpret it in a different timezone, you will need an external library to handle the timezone conversions. There are three libraries that Mobiscroll supports: **moment-timezone**, **luxon** and **Day.js**.
 
 When using a timezone plugin with the Eventcalendar, the [`exclusiveEndDates`](api#opt-exclusiveEndDates) option defaults to `true`. Learn more about [exclusive end dates](#exclusive-end-dates)!
 

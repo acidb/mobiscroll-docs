@@ -310,6 +310,14 @@ number
 Specifies the steps in minutes for the scheduler and timeline events during drag.
 
 **Default value**: `15`
+### dragTimeStepBase {#opt-dragTimeStepBase}
+
+"viewStart" &#124; "dayStart"
+
+Specifies the base of the [dragTimeStep](#opt-dragTimeStep) calculation.
+If set to `'viewStart'` it takes the `startTime` property of the [view](#opt-view) option as reference.
+
+**Default value**: `'dayStart'`
 ### dragToCreate {#opt-dragToCreate}
 
 boolean
@@ -1085,9 +1093,13 @@ Configures the Eventcalendar view. Possible views:
   which sets the first day of the week, and, if not set, is defined by the [localization](#localization-locale).
 - `endDay`: *number* (default `6`) - Specifies the last visible weekday of the view. Sunday is 0, Monday is 1, etc.
 - `startTime`: *string* (default `'00:00'`) - Set the start time of scheduler column.
-  Hours and minutes can be specified in the same string, example: `'09:30'`.
+  Hours, minutes and an optional negative day offset can be specified in the same string.
+    - Standard format: &#039;HH:MM&#039; (e.g., `'09:30'`).
+    - Offset format (initiates the view N days prior): &#039;HH:MM-N&#039; (e.g., `'20:00-1'`).
 - `endTime`: *string* (default `'24:00'`) - Set the end time of scheduler column.
-  Hours and minutes can be specified in the same string, example: `'18:30'`.
+  Hours, minutes and an optional positive day offset can be specified in the same string.
+    - Standard format: &#039;HH:MM&#039; (e.g., `'18:30'`).
+    - Offset format (extends the view N days after): &#039;HH:MM+N&#039; (e.g., `'08:00+1'`).
 - `hideEmptyColumns`: *boolean* (default `false`) - Hide the empty columns in the scheduler view.
   If set to `true`, the scheduler will not display columns without events.
 - `hideInvalidColumns`: *boolean* (default `false`) - Hide the fully invalid columns in the scheduler view.
@@ -1117,6 +1129,7 @@ Configures the Eventcalendar view. Possible views:
      { timezone: 'America/New_York', label: 'NY'}
    ]
    ```
+- `virtualScroll`: *boolean* (default `true`) - Enable or disable virtual scroll.
 
 `timeline`: Configures the timeline view. Properties:
 - `type`: *&#039;day&#039; | &#039;week&#039; | &#039;month&#039; | &#039;year&#039;* (default `'week'`) - Sets the timeline type.
@@ -1147,9 +1160,13 @@ Configures the Eventcalendar view. Possible views:
     - If it is a `number`, it specifies how many events will be displayed before the &quot;more&quot; button appears.
     - If set to `'all'`, all events will be displayed.
 - `startTime`: *string* (default `'00:00'`) - Set the start time of the timeline days.
-  Hours and minutes can be specified in the same string, example: `'09:30'`.
+  Hours, minutes and an optional negative day offset can be specified in the same string.
+    - Standard format: &#039;HH:MM&#039; (e.g., `'09:30'`).
+    - Offset format (initiates the view N days prior - supported only for single day view): &#039;HH:MM-N&#039; (e.g., `'20:00-1'`).
 - `endTime`: *string* (default `'24:00'`) - Set the end time of the timeline days.
-  Hours and minutes can be specified in the same string, example: `'18:30'`.
+  Hours, minutes and an optional positive day offset can be specified in the same string.
+    - Standard format: &#039;HH:MM&#039; (e.g., `'18:30'`).
+    - Offset format (extends the view N days after - supported only for single day view): &#039;HH:MM+N&#039; (e.g., `'08:00+1'`).
 - `timeCellStep`: *number* (default `60`) - Set the step of the grid cells in minutes.
   Supported values: 1, 5, 10, 15, 20, 30, 60, 120, 180, 240, 360, 480, 720, 1440.
 - `timeLabelStep`: *number* (default `60`) - Set the step of the time labels in minutes.

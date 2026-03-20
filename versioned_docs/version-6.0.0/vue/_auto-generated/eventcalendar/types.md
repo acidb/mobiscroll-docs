@@ -73,6 +73,20 @@ If there is no slot defined, it will be displayed on every slot.
  - `title`: *string*  - The title of the event.
  - `tooltip`: *string*  - The tooltip text of the event.
 
+### MbscCalendarInvalid {#type-MbscCalendarInvalid}
+
+Interface
+
+Properties:
+ - `allDay`: *boolean*  - If true the specified invalid will cover the whole day.
+ - `end`: *[MbscDateType](#type-MbscDateType)*  - Specifies the end of the invalid range.
+ - `recurring`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)*  - Recurrence rule for recurring invalid ranges.
+ - `recurringException`: *[MbscDateType](#type-MbscDateType) &#124; Array&lt;[MbscDateType](#type-MbscDateType)&gt;*  - Specifies recurring exceptions.
+Useful when specific dates need to be skipped from the rule.
+ - `recurringExceptionRule`: *string &#124; [MbscRecurrenceRule](#type-MbscRecurrenceRule)*  - Specifies a recurrence exception rule.
+Useful when recurring dates need to be skipped from the rule.
+ - `start`: *[MbscDateType](#type-MbscDateType)*  - Specifies the start of the invalid range.
+
 ### MbscCalendarLabel {#type-MbscCalendarLabel}
 
 Interface
@@ -137,11 +151,11 @@ Possible values: `'fs'` - finish-to-start, `'sf'` - start-to-finish, `'ss'` - st
 Interface
 
 Properties:
- - `agenda`: *&#123;scrollable?: boolean, showEmptyDays?: boolean, size?: number, type?: "month" &#124; "day" &#124; "year" &#124; "week"&#125;*  - Configures the agenda view.
- - `calendar`: *&#123;count?: boolean, eventDisplay?: "fill" &#124; "exact", labels?: number &#124; boolean &#124; "all", outerDays?: boolean, popover?: boolean, popoverClass?: string, scroll?: "horizontal" &#124; "vertical", size?: number, type?: "month" &#124; "year" &#124; "week", weekNumbers?: boolean&#125;*  - Configures the calendar view.
- - `schedule`: *&#123;allDay?: boolean, currentTimeIndicator?: boolean, days?: boolean, endDay?: number, endTime?: string, maxEventStack?: number &#124; "auto" &#124; "all", minEventWidth?: number, size?: number, startDay?: number, startTime?: string, timeCellStep?: number, timeLabelStep?: number, timezones?: Array&lt;string &#124; MbscSchedulerTimezone&gt;, type?: "month" &#124; "day" &#124; "week"&#125;* 
- - `scheduler`: *&#123;allDay?: boolean, currentTimeIndicator?: boolean, days?: boolean, endDay?: number, endTime?: string, maxEventStack?: number &#124; "auto" &#124; "all", minEventWidth?: number, size?: number, startDay?: number, startTime?: string, timeCellStep?: number, timeLabelStep?: number, timezones?: Array&lt;string &#124; MbscSchedulerTimezone&gt;, type?: "month" &#124; "day" &#124; "week"&#125;*  - Configures the scheduler view.
- - `timeline`: *&#123;columnWidth?: MbscTimelineColumnWidth, currentTimeIndicator?: boolean, endDay?: number, endTime?: string, eventDisplay?: "fill" &#124; "exact", eventHeight?: "variable" &#124; "equal", eventList?: boolean, maxEventStack?: number &#124; "all", resolutionHorizontal?: "month" &#124; "day" &#124; "year" &#124; "week" &#124; "hour" &#124; "quarter", resolutionVertical?: "day", resourceReorder?: boolean, rowHeight?: "variable" &#124; "equal", size?: number, startDay?: number, startTime?: string, timeCellStep?: number, timeLabelStep?: number, type?: "month" &#124; "day" &#124; "year" &#124; "week", virtualScroll?: boolean, weekNumbers?: boolean, zoomLevels?: &#123; [key:string]: MbscTimelineZoomLevel &#125;&#125;*  - Configures the timeline view.
+ - `agenda`: *{scrollable?: boolean, showEmptyDays?: boolean, size?: number, type?: "month" &#124; "day" &#124; "year" &#124; "week"}*  - Configures the agenda view.
+ - `calendar`: *{count?: boolean, eventDisplay?: "fill" &#124; "exact", labels?: number &#124; boolean &#124; "all", outerDays?: boolean, popover?: boolean, popoverClass?: string, scroll?: "horizontal" &#124; "vertical", size?: number, type?: "month" &#124; "year" &#124; "week", weekNumbers?: boolean}*  - Configures the calendar view.
+ - `schedule`: *{allDay?: boolean, currentTimeIndicator?: boolean, days?: boolean, endDay?: number, endTime?: string, hideEmptyColumns?: boolean, hideInvalidColumns?: boolean, maxEventStack?: number &#124; "auto" &#124; "all", minEventWidth?: number, size?: number, startDay?: number, startTime?: string, timeCellStep?: number, timeLabelStep?: number, timezones?: Array&lt;string &#124; MbscSchedulerTimezone&gt;, type?: "month" &#124; "day" &#124; "week", virtualScroll?: boolean}* 
+ - `scheduler`: *{allDay?: boolean, currentTimeIndicator?: boolean, days?: boolean, endDay?: number, endTime?: string, hideEmptyColumns?: boolean, hideInvalidColumns?: boolean, maxEventStack?: number &#124; "auto" &#124; "all", minEventWidth?: number, size?: number, startDay?: number, startTime?: string, timeCellStep?: number, timeLabelStep?: number, timezones?: Array&lt;string &#124; MbscSchedulerTimezone&gt;, type?: "month" &#124; "day" &#124; "week", virtualScroll?: boolean}*  - Configures the scheduler view.
+ - `timeline`: *{columnWidth?: MbscTimelineColumnWidth, currentTimeIndicator?: boolean, endDay?: number, endTime?: string, eventDisplay?: "fill" &#124; "exact", eventHeight?: "variable" &#124; "equal", eventList?: boolean, hideEmptyRows?: boolean, hideInvalidRows?: boolean, maxEventStack?: number &#124; "all", resolutionHorizontal?: "month" &#124; "day" &#124; "year" &#124; "week" &#124; "hour" &#124; "quarter", resolutionVertical?: "day", resourceReorder?: boolean, rowHeight?: "variable" &#124; "equal", size?: number, startDay?: number, startTime?: string, timeCellStep?: number, timeLabelStep?: number, type?: "month" &#124; "day" &#124; "year" &#124; "week", virtualScroll?: boolean, weekNumbers?: boolean, zoomLevels?: { [key:string]: MbscTimelineZoomLevel }}*  - Configures the timeline view.
 
 ### MbscLocale {#type-MbscLocale}
 

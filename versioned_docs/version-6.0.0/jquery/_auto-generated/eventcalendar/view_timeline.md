@@ -38,8 +38,10 @@ Days outside of the `startDay` and `endDay` range will not be visible.
 
 string
 
-Specifies the end time of scheduler column.
-Hours and minutes can be specified in the same string, example: &#039;18:30&#039;.
+Set the end time of timeline days.
+Hours, minutes and an optional positive day offset can be specified in the same string.
+  - Standard format: &#039;HH:MM&#039; (e.g., `'18:30'`).
+  - Offset format (extends the view N days after - supported only for single day view): &#039;HH:MM+N&#039; (e.g., `'08:00+1'`).
 
 **Default value**: `'24:00'`
 ### eventDisplay {#view-timeline-eventDisplay}
@@ -57,8 +59,7 @@ Specifies how events are displayed.
 
 Specifies wether the height of the events is equal or variable.
 :::info
-Experimental feature: [learn more about variable
-event heights](https://mobiscroll.com/docs/eventcalendar/timeline#variable-event-height).
+[Learn more about variable event heights](https://mobiscroll.com/docs/eventcalendar/timeline#variable-event-height).
 :::
 
 **Default value**: `'equal'`
@@ -72,6 +73,26 @@ If `true`, transforms the layout into a summary view.
 The events are listed in the appropriate cell one after the other.
 
 **Default value**: `false`
+### hideEmptyRows {#view-timeline-hideEmptyRows}
+
+boolean
+
+Hide the empty rows.
+:::info
+Parent resources will always be displayed, even when empty.
+:::
+
+**Default value**: `false.`
+### hideInvalidRows {#view-timeline-hideInvalidRows}
+
+boolean
+
+Hide the fully invalid rows.
+:::info
+Parent resources will always be displayed, even when fully invalid, unless `resolutionVertical: 'day'` is used.
+:::
+
+**Default value**: `false.`
 ### maxEventStack {#view-timeline-maxEventStack}
 
 number &#124; "all"
@@ -139,8 +160,10 @@ which sets the first day of the week, and, if not set, is defined by the [locali
 
 string
 
-Specifies the start time of scheduler column.
-Hours and minutes can be specified in the string, example: &#039;09:30&#039;.
+Set the start time of timeline days.
+Hours, minutes and an optional negative day offset can be specified in the same string.
+  - Standard format: &#039;HH:MM&#039; (e.g., `'09:30'`).
+  - Offset format (initiates the view N days prior - supported only for single day view): &#039;HH:MM-N&#039; (e.g., `'20:00-1'`).
 
 **Default value**: `'00:00'`
 ### timeCellStep {#view-timeline-timeCellStep}

@@ -62,9 +62,20 @@
 }
 
 .defaultValue {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 0.9em;
-  color: var(--ifm-color-emphasis-700);
-  margin-bottom: 0.5rem;
+  color: var(--ifm-color-emphasis-800);
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-left: 3px solid var(--ifm-color-primary);
+  border-radius: 6px;
+  background: var(--ifm-color-emphasis-100);
+}
+
+.defaultValue strong {
+  color: var(--ifm-color-emphasis-900);
 }
 
 .defaultValue code {

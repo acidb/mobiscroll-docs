@@ -188,10 +188,13 @@ The following properties are available:
 
 ### renderResourceEmpty {#renderer-renderResourceEmpty}
 
-() => any
+(day: Date) => any
 
 
 Customize the content of the resource column in case of an empty resource array.
+
+It will receive the following parameter:
+- `day`: _Date_ - The date on which the resource is rendered in case of vertical day resolution.
 
 **Default value**: `undefined`
 
@@ -216,11 +219,15 @@ Customize the cell content above the resource column on the timeline view.
 
 ### renderSidebar {#renderer-renderSidebar}
 
-(resource: [MbscResource](#type-MbscResource)) => any
+(resource: [MbscResource](#type-MbscResource), day: Date) => any
 
 
 Add a custom sidebar on the right side of the timeline.
 The object of the rendered resource is available for use.
+
+It will receive the following parameters:
+- `resource`: _MbscResource_ - The rendered resource.
+- `day`: _Date_ - The date on which the resource is rendered in case of vertical day resolution in the timeline view.
 
 **Default value**: `undefined`
 

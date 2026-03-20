@@ -88,6 +88,6 @@ null &#124; HTMLElement
 The HTML element of the dragged item.
 ### type {#opt-type}
 
-"event" &#124; "resource"
+"resource" &#124; "event"
 
-Specify the type of the draggable element
+The type of the draggable element.

@@ -31,9 +31,25 @@ Days outside of the `startDay` and `endDay` range will not be visible.
 string
 
 Set the end time of scheduler column.
-Hours and minutes can be specified in the same string, example: `'18:30'`.
+Hours, minutes and an optional positive day offset can be specified in the same string.
+  - Standard format: &#039;HH:MM&#039; (e.g., `'18:30'`).
+  - Offset format (extends the view N days after): &#039;HH:MM+N&#039; (e.g., `'08:00+1'`).
 
 **Default value**: `'24:00'`
+### hideEmptyColumns {#view-scheduler-hideEmptyColumns}
+
+boolean
+
+Hide the empty columns.
+
+**Default value**: `false.`
+### hideInvalidColumns {#view-scheduler-hideInvalidColumns}
+
+boolean
+
+Hide the fully invalid columns.
+
+**Default value**: `false.`
 ### maxEventStack {#view-scheduler-maxEventStack}
 
 number &#124; "auto" &#124; "all"
@@ -73,7 +89,9 @@ which sets the first day of the week, and, if not set, is defined by the [locali
 string
 
 Set the start time of scheduler column.
-Hours and minutes can be specified in the same string, example: `'09:30'`.
+Hours, minutes and an optional negative day offset can be specified in the same string.
+  - Standard format: &#039;HH:MM&#039; (e.g., `'09:30'`).
+  - Offset format (initiates the view N days prior): &#039;HH:MM-N&#039; (e.g., `'20:00-1'`).
 
 **Default value**: `'00:00'`
 ### timeCellStep {#view-scheduler-timeCellStep}
@@ -118,3 +136,10 @@ timezones: [
 Sets the scheduler type.
 
 **Default value**: `'week'`
+### virtualScroll {#view-scheduler-virtualScroll}
+
+boolean
+
+Enable or disable virtual scroll.
+
+**Default value**: `true`

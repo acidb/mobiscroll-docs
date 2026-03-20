@@ -21,21 +21,21 @@ Install the package using your preferred package manager:
 <TabItem value="npm" label="npm">
 
 ```bash
-npm install @mobiscroll/connect-node
+npm install @mobiscroll/connect-sdk
 ```
 
 </TabItem>
 <TabItem value="yarn" label="yarn">
 
 ```bash
-yarn add @mobiscroll/connect-node
+yarn add @mobiscroll/connect-sdk
 ```
 
 </TabItem>
 <TabItem value="pnpm" label="pnpm">
 
 ```bash
-pnpm add @mobiscroll/connect-node
+pnpm add @mobiscroll/connect-sdk
 ```
 
 </TabItem>
@@ -67,7 +67,7 @@ Your application's redirect URI that matches the one configured in the dashboard
 **Usage:**
 
 ```typescript
-import { MobiscrollConnectClient } from "@mobiscroll/connect-node";
+import { MobiscrollConnectClient } from "@mobiscroll/connect-sdk";
 
 const client = new MobiscrollConnectClient({
   clientId: "YOUR_CLIENT_ID",

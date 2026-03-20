@@ -5,12 +5,6 @@
 
 
 
-### forceUpdate {#method-forceUpdate}
-
-() => void
-
-
-
 ### getEvents {#method-getEvents}
 
 (start: [MbscDateType](#type-MbscDateType), end: [MbscDateType](#type-MbscDateType)) => Array&lt;[MbscCalendarEvent](#type-MbscCalendarEvent)&gt;
@@ -60,15 +54,5 @@ Navigates to the specified event on the calendar.
 Parameters:
  - event - The event object. The `id`, `start` and `resource` properties (in case if resources
 are used in timeline or scheduler views) must be present in the object.
-
-
-
-
-
-### setState {#method-setState}
-
-(newState: any) => void
-
-
 
 

@@ -90,4 +90,4 @@ The HTML element of the dragged item.
 
 "event" &#124; "resource"
 
-Specify the type of the draggable element
+The type of the draggable element.

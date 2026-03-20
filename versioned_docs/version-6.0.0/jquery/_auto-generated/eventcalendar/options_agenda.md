@@ -75,6 +75,9 @@ If there is no slot defined, it will be displayed on every slot.
 The dates can be specified as JavaScript Date objects, ISO 8601 strings, or moment objects.
 :::
 :::info
+For Javascript Date objects the month numbers are zero based. Like: 0 - January, 1 - February ... 11 - December.
+:::
+:::info
 The event objects may have additional custom properties as well.
 The custom properties are not used by the event calendar, but they are kept and will be available anywhere the event objects are used.
 E.g. the [onEventClick](#event-onEventClick) event will receive the event object as argument, containing the custom properties as well.

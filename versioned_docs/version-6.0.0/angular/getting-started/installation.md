@@ -46,6 +46,51 @@ To test the installation, add the Eventcalendar component to your main component
 
 In case you installed the library from a downloaded package and did not include the Eventcalendar in the package, you can choose a different component as well.
 
+### With standalone components
+
+<Tabs>
+<TabItem value="html" label="app.component.html">
+
+```html
+{{title}}
+<mbsc-eventcalendar [view]="calView"></mbsc-eventcalendar>
+```
+</TabItem>
+<TabItem value="ts" label="app.component.ts">
+
+```ts
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+// highlight-next-line
+import { MbscEventcalendarView, MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'].
+  standalone: true,
+  // highlight-next-line
+  imports: [CommonModule, MbscModule]
+})
+export class AppComponent {
+  title = 'My Angular app';
+
+// highlight-start
+  calView: MbscEventcalendarView = {
+    schedule: {
+      type: 'day'
+    }
+  };
+// highlight-end
+}
+```
+
+</TabItem>
+</Tabs>
+
+
+### With modules
+
 <Tabs>
 <TabItem value="html" label="app.component.html">
 
@@ -64,7 +109,8 @@ import { MbscEventcalendarView } from '@mobiscroll/angular';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  standalone: false,
 })
 export class AppComponent {
   title = 'My Angular app';
@@ -77,6 +123,34 @@ export class AppComponent {
   };
 // highlight-end
 }
+```
+
+</TabItem>
+
+<TabItem value="module" label="app.module.ts">
+
+```ts
+import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+// highlight-next-line
+import { MbscModule } from '@mobiscroll/angular';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+  ],
+  imports: [
+    CommonModule,
+    // highlight-next-line
+    MbscModule,
+    FormsModule,
+    BrowserModule
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 ```
 
 </TabItem>

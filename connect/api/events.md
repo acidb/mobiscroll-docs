@@ -125,8 +125,25 @@ Array of calendar events from all providers, sorted chronologically by start tim
 Custom key-value pairs for additional event data (optional)
 </Parameter>
 
-<Parameter name="conference" type="string">
-Conference meeting link or identifier (optional)
+<Parameter name="conference" type="object" isObject>
+Conference metadata (optional). Contains:
+
+  <Parameter name="url" type="string">
+  Conference meeting URL
+  </Parameter>
+
+  <Parameter name="autoGenerate" type="boolean">
+  If `true`, provider should auto-generate an online meeting link when supported
+  </Parameter>
+
+  <Parameter name="provider" type="string">
+  Conference provider identifier (for example `google-meet` or `microsoft-teams`)
+  </Parameter>
+
+  <Parameter name="data" type="object">
+  Provider-specific conference payload
+  </Parameter>
+
 </Parameter>
 
 <Parameter name="availability" type="string">
@@ -253,6 +270,7 @@ const masters = await client.events.list({
 - The `nextPageToken` parameter is only included in the response when more events are available
 - Date strings are automatically normalized to handle malformed ISO 8601 formats before parsing
 - The `color` property contains the background color value directly (not an object)
+- Conference links are returned in the `conference` object (for example `conference.url`)
 - All event endpoints return events in the **unified CalendarEvent format** across all providers
 :::
 
@@ -341,6 +359,27 @@ Array of months (1-12)
 Custom key-value pairs for additional event data.
 </Parameter>
 
+<Parameter name="conference" type="object" defaultValue={<code>undefined</code>} id="create-conference" isObject>
+Conference metadata (optional). You can provide:
+
+<Parameter name="url" type="string">
+Use an existing conference link URL.
+</Parameter>
+
+<Parameter name="autoGenerate" type="boolean">
+Set to `true` to auto-generate a provider meeting link when supported.
+</Parameter>
+
+<Parameter name="provider" type="string">
+Conference provider identifier.
+</Parameter>
+
+<Parameter name="data" type="object">
+Provider-specific conference payload.
+</Parameter>
+
+</Parameter>
+
 :::info External IDs
 If you need to associate provider-generated event IDs with your own domain entities, store your external/business ID in `custom` (for example `custom.externalEventId = "icoll-rdv-123"`).
 :::
@@ -412,7 +451,11 @@ Content-Type: application/json
   "description": "Discuss project updates",
   "start": "2025-11-01T10:00:00Z",
   "end": "2025-11-01T11:00:00Z",
-  "location": "Conference Room A"
+  "location": "Conference Room A",
+  "conference": {
+    "url": "https://meet.google.com/abc-defg-hij",
+    "provider": "google-meet"
+  }
 }
 ```
 
@@ -426,6 +469,10 @@ Content-Type: application/json
   "end": "2025-11-01T11:00:00.000Z",
   "allDay": false,
   "location": "Conference Room A",
+  "conference": {
+    "url": "https://meet.google.com/abc-defg-hij",
+    "provider": "google-meet"
+  },
   "attendees": [],
   "color": "#9fc6e7",
   "availability": "busy",
@@ -494,7 +541,11 @@ const event = await client.events.create({
   description: 'Discuss project updates',
   start: '2025-11-01T10:00:00Z',
   end: '2025-11-01T11:00:00Z',
-  location: 'Conference Room A'
+  location: 'Conference Room A',
+  conference: {
+    url: 'https://meet.google.com/abc-defg-hij',
+    provider: 'google-meet'
+  }
 });
 
 // Create a recurring event
@@ -606,6 +657,27 @@ Array of attendee email addresses.
 Custom key-value pairs for additional event data.
 </Parameter>
 
+<Parameter name="conference" type="object" id="update-conference" isObject>
+Conference metadata update (optional). You can set:
+
+<Parameter name="url" type="string">
+Conference meeting URL.
+</Parameter>
+
+<Parameter name="autoGenerate" type="boolean">
+Set to `true` to auto-generate a provider meeting link when supported.
+</Parameter>
+
+<Parameter name="provider" type="string">
+Conference provider identifier.
+</Parameter>
+
+<Parameter name="data" type="object">
+Provider-specific conference payload.
+</Parameter>
+
+</Parameter>
+
 <Parameter name="availability" type="string" id="update-availability">
 Event availability: `'free'` or `'busy'`.
 </Parameter>
@@ -662,7 +734,11 @@ Content-Type: application/json
   "calendarId": "primary",
   "title": "Updated Team Meeting",
   "start": "2025-11-01T14:00:00Z",
-  "end": "2025-11-01T15:00:00Z"
+  "end": "2025-11-01T15:00:00Z",
+  "conference": {
+    "url": "https://meet.google.com/new-room-link",
+    "provider": "google-meet"
+  }
 }
 ```
 
@@ -710,7 +786,11 @@ const updatedEvent = await client.events.update({
   eventId: 'event123abc',
   title: 'Updated Team Meeting',
   start: '2025-11-01T14:00:00Z',
-  end: '2025-11-01T15:00:00Z'
+  end: '2025-11-01T15:00:00Z',
+  conference: {
+    url: 'https://meet.google.com/new-room-link',
+    provider: 'google-meet'
+  }
 });
 
 // Update a single instance of a recurring event

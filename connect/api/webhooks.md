@@ -311,8 +311,24 @@ Changed events list.
   Optional custom key-value pairs.
   </Parameter>
 
-  <Parameter name="conference" type="string">
-  Optional conference meeting URL or identifier.
+  <Parameter name="conference" type="object" isObject>
+  Optional conference metadata.
+
+    <Parameter name="url" type="string">
+    Conference meeting URL.
+    </Parameter>
+
+    <Parameter name="autoGenerate" type="boolean">
+    If `true`, provider may auto-generate an online meeting link.
+    </Parameter>
+
+    <Parameter name="provider" type="string">
+    Conference provider identifier.
+    </Parameter>
+
+    <Parameter name="data" type="object">
+    Provider-specific conference payload.
+    </Parameter>
   </Parameter>
 
   <Parameter name="availability" type="string">
@@ -391,7 +407,10 @@ Additional webhook metadata.
       "custom": {
         "yourCustomKey": "yourCustomValue"
       },
-      "conference": "https://meet.example.com/abc",
+      "conference": {
+        "url": "https://meet.example.com/abc",
+        "provider": "google-meet"
+      },
       "availability": "busy",
       "privacy": "private",
       "status": "confirmed",

@@ -61,7 +61,7 @@ Controls how recurring events are returned:
 Array of calendar events from all providers, sorted chronologically by start time. Each CalendarEvent object contains:
 
   <Parameter name="provider" type="string">
-  Provider name: `'google'`, `'microsoft'`, `'apple'`, or `'caldav'`
+  Provider name: <code>'google'</code>, <code>'microsoft'</code>, <code>'apple'</code>, or <code>'caldav'</code>
   </Parameter>
 
   <Parameter name="id" type="string">
@@ -112,7 +112,7 @@ Array of calendar events from all providers, sorted chronologically by start tim
   </Parameter>
 
   <Parameter name="status" type="string">
-  Response status: `'accepted'`, `'declined'`, `'tentative'`, or `'none'`
+  Response status: <code>'accepted'</code>, <code>'declined'</code>, <code>'tentative'</code>, or <code>'none'</code>
   </Parameter>
 
   <Parameter name="organizer" type="boolean">
@@ -133,25 +133,31 @@ Conference metadata (optional). Contains:
   </Parameter>
 
   <Parameter name="provider" type="string">
-  Conference provider identifier (for example `google-meet` or `microsoft-teams`)
+  Conference provider identifier (for example `google-meet` or `microsoft-teams`).
+  This can differ from the event calendar provider.
+  </Parameter>
+
+  <Parameter name="meetingProvider" type="string">
+  Conference system identifier (preferred field name). Same semantics as `provider`.
+  This can differ from the event calendar provider.
   </Parameter>
 
   <Parameter name="data" type="object">
-  Provider-specific conference payload
+  Provider-specific raw meeting metadata (for example Google `conferenceData` or Microsoft `onlineMeeting`).
   </Parameter>
 
 </Parameter>
 
 <Parameter name="availability" type="string">
-Event availability: `'busy'` or `'free'` (optional)
+Event availability: <code>'busy'</code> or <code>'free'</code> (optional)
 </Parameter>
 
 <Parameter name="privacy" type="string">
-Event privacy: `'public'`, `'private'`, or `'confidential'` (optional)
+Event privacy: <code>'public'</code>, <code>'private'</code>, or <code>'confidential'</code> (optional)
 </Parameter>
 
 <Parameter name="status" type="string">
-Event status: `'confirmed'`, `'tentative'`, or `'cancelled'` (optional)
+Event status: <code>'confirmed'</code>, <code>'tentative'</code>, or <code>'cancelled'</code> (optional)
 </Parameter>
 
 <Parameter name="lastModified" type="string">
@@ -270,6 +276,33 @@ const masters = await client.events.list({
 - All event endpoints return events in the **unified CalendarEvent format** across all providers
 :::
 
+:::info Conference raw data examples
+The `conference.data` field stores provider-specific raw meeting metadata.
+
+```json title="Google"
+{
+  "conferenceData": {
+    "conferenceId": "abc-defg-hij",
+    "entryPoints": [
+      {
+        "entryPointType": "video",
+        "uri": "https://meet.google.com/abc-defg-hij"
+      }
+    ]
+  }
+}
+```
+
+```json title="Microsoft"
+{
+  "onlineMeeting": {
+    "joinUrl": "https://teams.microsoft.com/l/meetup-join/...",
+    "conferenceId": "123456789"
+  }
+}
+```
+:::
+
 ---
 
 ## Create Event {#endpoint-create-event}
@@ -283,7 +316,7 @@ Supports creating single events or recurring events with recurrence rules. The e
 ### Request Body
 
 <Parameter name="provider" type="string" required id="create-provider">
-Calendar provider where the event will be created. One of: `'google'`, `'microsoft'`, `'apple'`, or `'caldav'`.
+Calendar provider where the event will be created. One of: <code>'google'</code>, <code>'microsoft'</code>, <code>'apple'</code>, or <code>'caldav'</code>.
 </Parameter>
 
 <Parameter name="calendarId" type="string" required id="create-calendarId">
@@ -322,7 +355,7 @@ Array of attendee email addresses.
 Recurrence rule for creating a recurring event series. Object with the following properties:
 
 <Parameter name="frequency" type="string" required>
-Recurrence frequency: `'DAILY'`, `'WEEKLY'`, `'MONTHLY'`, or `'YEARLY'`
+Recurrence frequency: <code>'DAILY'</code>, <code>'WEEKLY'</code>, <code>'MONTHLY'</code>, or <code>'YEARLY'</code>
 </Parameter>
 
 <Parameter name="interval" type="number">
@@ -338,7 +371,7 @@ End date in format `YYYYMMDDTHHMMSSZ` (mutually exclusive with `count`)
 </Parameter>
 
 <Parameter name="byDay" type="string[]">
-Array of weekday codes: `['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU']`
+Array of weekday codes: <code>['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU']</code>
 </Parameter>
 
 <Parameter name="byMonthDay" type="number[]">
@@ -355,8 +388,20 @@ Array of months (1-12)
 Custom key-value pairs for additional event data.
 </Parameter>
 
+:::info External IDs
+If you need to associate provider-generated event IDs with your own domain entities, store your external/business ID in `custom` (for example `custom.externalEventId = "icoll-rdv-123"`).
+:::
+
 <Parameter name="conference" type="object" defaultValue={<code>undefined</code>} id="create-conference" isObject>
-Conference metadata (optional). You can provide:
+Conference metadata (optional). You can provide this as an object or as a legacy string URL.
+
+Legacy string input example:
+
+```json
+{
+  "conference": "https://meet.example.com/room/abc123"
+}
+```
 
 <Parameter name="url" type="string">
 Use an existing conference link URL.
@@ -367,11 +412,16 @@ Set to `true` to auto-generate a provider meeting link when supported.
 </Parameter>
 
 <Parameter name="provider" type="string">
-Conference provider identifier.
+Conference provider identifier. This can differ from the event `provider`.
+</Parameter>
+
+<Parameter name="meetingProvider" type="string">
+Conference system identifier (preferred field name). Same semantics as `provider`.
+This can differ from the event `provider`.
 </Parameter>
 
 <Parameter name="data" type="object">
-Provider-specific conference payload.
+Provider-specific raw meeting metadata (for example Google `conferenceData` or Microsoft `onlineMeeting`).
 </Parameter>
 
 </Parameter>
@@ -380,23 +430,21 @@ Provider-specific conference payload.
 - `google`: supports `conference.url` and `conference.autoGenerate`
 - `microsoft`: supports `conference.autoGenerate` (Teams link generation); `conference.url` is ignored
 - `apple` and `caldav`: support `conference.url`; `conference.autoGenerate` is ignored
+- `conference.autoGenerate` takes precedence over `conference.url` when both are provided
+- `conference.meetingProvider` and `conference.provider` are aliases in requests
 - `conference.provider` and `conference.data` are accepted in the request shape but currently not used to control create behavior
 :::
 
-:::info External IDs
-If you need to associate provider-generated event IDs with your own domain entities, store your external/business ID in `custom` (for example `custom.externalEventId = "icoll-rdv-123"`).
-:::
-
 <Parameter name="availability" type="string" defaultValue={<code>undefined</code>} id="create-availability">
-Event availability: `'free'` or `'busy'`.
+Event availability: <code>'free'</code> or <code>'busy'</code>.
 </Parameter>
 
 <Parameter name="privacy" type="string" defaultValue={<code>undefined</code>} id="create-privacy">
-Event privacy: `'public'`, `'private'`, or `'confidential'`.
+Event privacy: <code>'public'</code>, <code>'private'</code>, or <code>'confidential'</code>.
 </Parameter>
 
 <Parameter name="status" type="string" defaultValue={<code>undefined</code>} id="create-status">
-Event status: `'confirmed'`, `'tentative'`, or `'cancelled'`.
+Event status: <code>'confirmed'</code>, <code>'tentative'</code>, or <code>'cancelled'</code>.
 </Parameter>
 
 ### Response
@@ -603,7 +651,7 @@ Supports updating single events, recurring event series, or individual instances
 ### Request Body
 
 <Parameter name="provider" type="string" required id="update-provider">
-Calendar provider where the event exists. One of: `'google'`, `'microsoft'`, `'apple'`, or `'caldav'`.
+Calendar provider where the event exists. One of: <code>'google'</code>, <code>'microsoft'</code>, <code>'apple'</code>, or <code>'caldav'</code>.
 </Parameter>
 
 <Parameter name="eventId" type="string" required id="update-eventId">
@@ -621,9 +669,9 @@ The ID of the recurring event series. Required when updating an instance of a re
 <Parameter name="updateMode" type="string" defaultValue={<code>undefined</code>} id="update-updateMode">
 Controls which events in a recurring series are updated:
 
-- `'this'` - Update only this specific instance
-- `'following'` - Update this and all following instances
-- `'all'` - Update all instances in the series
+- <code>'this'</code> - Update only this specific instance
+- <code>'following'</code> - Update this and all following instances
+- <code>'all'</code> - Update all instances in the series
 
 Only applicable for recurring events. If not specified, updates the single event or series master.
 </Parameter>
@@ -661,7 +709,15 @@ Custom key-value pairs for additional event data.
 </Parameter>
 
 <Parameter name="conference" type="object" id="update-conference" isObject>
-Conference metadata update (optional). You can set:
+Conference metadata update (optional). You can provide this as an object or as a legacy string URL.
+
+Legacy string input example:
+
+```json
+{
+  "conference": "https://meet.example.com/room/abc123"
+}
+```
 
 <Parameter name="url" type="string">
 Conference meeting URL.
@@ -672,11 +728,16 @@ Set to `true` to auto-generate a provider meeting link when supported.
 </Parameter>
 
 <Parameter name="provider" type="string">
-Conference provider identifier.
+Conference provider identifier. This can differ from the event `provider`.
+</Parameter>
+
+<Parameter name="meetingProvider" type="string">
+Conference system identifier (preferred field name). Same semantics as `provider`.
+This can differ from the event `provider`.
 </Parameter>
 
 <Parameter name="data" type="object">
-Provider-specific conference payload.
+Provider-specific raw meeting metadata (for example Google `conferenceData` or Microsoft `onlineMeeting`).
 </Parameter>
 
 </Parameter>
@@ -685,19 +746,21 @@ Provider-specific conference payload.
 - `google`: supports `conference.url` and `conference.autoGenerate`
 - `microsoft`: supports `conference.autoGenerate` (Teams link generation); `conference.url` is ignored
 - `apple` and `caldav`: support `conference.url`; `conference.autoGenerate` is ignored
+- `conference.autoGenerate` takes precedence over `conference.url` when both are provided
+- `conference.meetingProvider` and `conference.provider` are aliases in requests
 - `conference.provider` and `conference.data` are accepted in the request shape but currently not used to control update behavior
 :::
 
 <Parameter name="availability" type="string" id="update-availability">
-Event availability: `'free'` or `'busy'`.
+Event availability: <code>'free'</code> or <code>'busy'</code>.
 </Parameter>
 
 <Parameter name="privacy" type="string" id="update-privacy">
-Event privacy: `'public'`, `'private'`, or `'confidential'`.
+Event privacy: <code>'public'</code>, <code>'private'</code>, or <code>'confidential'</code>.
 </Parameter>
 
 <Parameter name="status" type="string" id="update-status">
-Event status: `'confirmed'`, `'tentative'`, or `'cancelled'`.
+Event status: <code>'confirmed'</code>, <code>'tentative'</code>, or <code>'cancelled'</code>.
 </Parameter>
 
 <Parameter name="recurrence" type="object" id="update-recurrence">
@@ -849,7 +912,7 @@ Supports deleting single events, recurring event series, or individual instances
 ### Request Body
 
 <Parameter name="provider" type="string" required id="delete-provider">
-Calendar provider where the event exists. One of: `'google'`, `'microsoft'`, `'apple'`, or `'caldav'`.
+Calendar provider where the event exists. One of: <code>'google'</code>, <code>'microsoft'</code>, <code>'apple'</code>, or <code>'caldav'</code>.
 </Parameter>
 
 <Parameter name="eventId" type="string" required id="delete-eventId">
@@ -867,9 +930,9 @@ The ID of the recurring event series. Required when deleting an instance of a re
 <Parameter name="deleteMode" type="string" defaultValue={<code>undefined</code>} id="delete-deleteMode">
 Controls which events in a recurring series are deleted:
 
-- `'this'` - Delete only this specific instance
-- `'following'` - Delete this and all following instances
-- `'all'` - Delete all instances in the series
+- <code>'this'</code> - Delete only this specific instance
+- <code>'following'</code> - Delete this and all following instances
+- <code>'all'</code> - Delete all instances in the series
 
 Only applicable for recurring events. If not specified, deletes the single event or entire series.
 </Parameter>

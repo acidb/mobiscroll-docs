@@ -143,7 +143,7 @@ Conference metadata (optional). Contains:
   </Parameter>
 
   <Parameter name="data" type="object">
-  Provider-specific raw meeting metadata (for example Google `conferenceData` or Microsoft `onlineMeeting`).
+  Extra meeting details from the provider that your app may want to keep for later (for example join options, conference IDs, dial-in info). Use this field when you need provider-specific meeting data that does not fit into the unified event fields.
   </Parameter>
 
 </Parameter>
@@ -421,7 +421,7 @@ This can differ from the event `provider`.
 </Parameter>
 
 <Parameter name="data" type="object">
-Provider-specific raw meeting metadata (for example Google `conferenceData` or Microsoft `onlineMeeting`).
+Extra meeting details from the provider that your app may want to keep for later (for example join options, conference IDs, dial-in info). Use this field when you need provider-specific meeting data that does not fit into the unified event fields.
 </Parameter>
 
 </Parameter>
@@ -737,7 +737,7 @@ This can differ from the event `provider`.
 </Parameter>
 
 <Parameter name="data" type="object">
-Provider-specific raw meeting metadata (for example Google `conferenceData` or Microsoft `onlineMeeting`).
+Extra meeting details from the provider that your app may want to keep for later (for example join options, conference IDs, dial-in info). Use this field when you need provider-specific meeting data that does not fit into the unified event fields.
 </Parameter>
 
 </Parameter>

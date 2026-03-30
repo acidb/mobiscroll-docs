@@ -132,10 +132,6 @@ Conference metadata (optional). Contains:
   Conference meeting URL
   </Parameter>
 
-  <Parameter name="autoGenerate" type="boolean">
-  If `true`, provider should auto-generate an online meeting link when supported
-  </Parameter>
-
   <Parameter name="provider" type="string">
   Conference provider identifier (for example `google-meet` or `microsoft-teams`)
   </Parameter>
@@ -379,6 +375,13 @@ Provider-specific conference payload.
 </Parameter>
 
 </Parameter>
+
+:::info Conference create behavior by provider
+- `google`: supports `conference.url` and `conference.autoGenerate`
+- `microsoft`: supports `conference.autoGenerate` (Teams link generation); `conference.url` is ignored
+- `apple` and `caldav`: support `conference.url`; `conference.autoGenerate` is ignored
+- `conference.provider` and `conference.data` are accepted in the request shape but currently not used to control create behavior
+:::
 
 :::info External IDs
 If you need to associate provider-generated event IDs with your own domain entities, store your external/business ID in `custom` (for example `custom.externalEventId = "icoll-rdv-123"`).
@@ -677,6 +680,13 @@ Provider-specific conference payload.
 </Parameter>
 
 </Parameter>
+
+:::info Conference update behavior by provider
+- `google`: supports `conference.url` and `conference.autoGenerate`
+- `microsoft`: supports `conference.autoGenerate` (Teams link generation); `conference.url` is ignored
+- `apple` and `caldav`: support `conference.url`; `conference.autoGenerate` is ignored
+- `conference.provider` and `conference.data` are accepted in the request shape but currently not used to control update behavior
+:::
 
 <Parameter name="availability" type="string" id="update-availability">
 Event availability: `'free'` or `'busy'`.

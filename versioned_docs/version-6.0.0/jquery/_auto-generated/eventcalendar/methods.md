@@ -1,9 +1,3 @@
-### _onScrollEnd {#method-_onScrollEnd}
-
-() => void
-
-
-
 ### addEvent {#method-addEvent}
 
 (events: [MbscCalendarEvent](#type-MbscCalendarEvent) &#124; Array&lt;[MbscCalendarEvent](#type-MbscCalendarEvent)&gt;) => Array&lt;string&gt;

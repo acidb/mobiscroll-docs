@@ -18,16 +18,16 @@ Mobiscroll Connect provides secure OAuth 2.0 authentication with JWT-based acces
 
 Beyond authentication, Connect acts as the infrastructure layer for calendar integrations, handling connectivity, normalization, and real-time updates.
 
-• Calendar connectivity & account linking
- Connect multiple calendars per user across Google Calendar, Microsoft Outlook (Office 365), Apple Calendar, and any CalDAV-compatible service.
-• Unified API & data normalization
- Work with a single, consistent data model while Connect handles provider differences (events, availability, time zones, recurrence).
-• Real-time sync & webhooks
- Stay in sync with external calendars and react to changes (create, update, delete) through webhook notifications.
-• Permissions & secure access
- Scoped access with OAuth ensures your app only interacts with data users explicitly authorize.
-• Conferencing integrations
- Add meeting links from providers like Google Meet, Zoom, and Microsoft Teams directly to scheduled events.
+- **Calendar connectivity & account linking**
+  Connect multiple calendars per user across Google Calendar, Microsoft Outlook (Office 365), Apple Calendar, and any CalDAV-compatible service.
+- **Unified API & data normalization**
+  Work with a single, consistent data model while Connect handles provider differences (events, availability, time zones, recurrence).
+- **Real-time sync & webhooks**
+  Stay in sync with external calendars and react to changes (create, update, delete) through webhook notifications.
+- **Permissions & secure access**
+  Scoped access with OAuth ensures your app only interacts with data users explicitly authorize.
+- **Conferencing integrations**
+  Add meeting links from providers like Google Meet, Zoom, and Microsoft Teams directly to scheduled events.
 
 ## Quick Overview
 

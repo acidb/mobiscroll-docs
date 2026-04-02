@@ -3,6 +3,7 @@ sidebar_position: 10
 sidebar_label: Customizing the input
 displayed_sidebar: vueSidebar
 title: Customizing the input
+description: 'Customize the input element used by the Mobiscroll Datepicker in Vue — custom triggers, inline rendering, and anchor elements.'
 ---
 
 ## Overview

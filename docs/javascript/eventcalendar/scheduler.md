@@ -2,6 +2,7 @@
 sidebar_position: 4
 sidebar_label: Scheduler
 displayed_sidebar: javascriptSidebar
+description: Configure the Mobiscroll Eventcalendar Scheduler view in JavaScript — a time-grid layout for daily, weekly, or multi-day slot-based scheduling.
 ---
 
 import ViewOptions from '../_auto-generated/eventcalendar/view_scheduler.md';

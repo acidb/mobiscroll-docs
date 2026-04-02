@@ -3,6 +3,7 @@ sidebar_position: 3
 sidebar_label: Instance
 displayed_sidebar: javascriptSidebar
 title: Instance
+description: Access and control a Mobiscroll component instance in JavaScript to call methods, update options, and listen to events programmatically.
 ---
 
 ## Overview

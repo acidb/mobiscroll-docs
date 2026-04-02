@@ -13,6 +13,9 @@ for(var i =0; i < links.length; i++) { // Older versions
   }
 }
 
+const llmsPlugin = require('./llms-plugin.config');
+const llmsConnectPlugin = require('./llms-connect-plugin.config');
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Mobiscroll Documentation',
@@ -51,6 +54,8 @@ const config = {
         sidebarPath: './sidebarsConnect.js',
       },
     ],
+    llmsPlugin,
+    llmsConnectPlugin,
   ],
 
   presets: [
@@ -61,14 +66,14 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
-          includeCurrentVersion: false,
-          lastVersion: '5.35.0',
+          includeCurrentVersion: true,
+          lastVersion: '6.0.0',
           versions: {
-            "5.35.0": {
+            "6.0.0": {
               badge: false,
             },
           },
-          onlyIncludeVersions: ['5.35.0', "5.34.0"]
+          onlyIncludeVersions: ['6.0.0', '5.35.0', '5.34.0'],
         },
         blog: false,
         theme: {

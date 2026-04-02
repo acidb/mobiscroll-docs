@@ -3,6 +3,7 @@ sidebar_position: 7
 sidebar_label: Unit testing
 displayed_sidebar: javascriptSidebar
 title: Unit testing Mobiscroll in JavaScript
+description: Write unit tests for Mobiscroll components in JavaScript projects using Jest or Vitest — mocking, assertions, and testing event handlers.
 ---
 
 ## Overview

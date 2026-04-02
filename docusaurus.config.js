@@ -5,6 +5,8 @@ const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 const navbar = require('./navbar.config');
+const llmsPlugin = require('./llms-plugin.config');
+const llmsConnectPlugin = require('./llms-connect-plugin.config');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -44,6 +46,8 @@ const config = {
         sidebarPath: './sidebarsConnect.js',
       },
     ],
+    llmsPlugin,
+    llmsConnectPlugin,
   ],
 
   presets: [

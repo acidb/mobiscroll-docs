@@ -2,6 +2,7 @@
 sidebar_position: 3
 sidebar_label: Agenda
 displayed_sidebar: vueSidebar
+description: 'Configure the Eventcalendar Agenda view in Vue — a scrollable list of upcoming events with customizable display options and grouping.'
 ---
 
 import ViewOptions from '../_auto-generated/eventcalendar/view_agenda.md';

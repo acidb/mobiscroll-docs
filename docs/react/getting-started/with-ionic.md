@@ -2,6 +2,7 @@
 sidebar_position: 3
 sidebar_label: Using with Ionic
 displayed_sidebar: reactSidebar
+description: Integrate Mobiscroll into an Ionic React app — installation, provider setup, and using Mobiscroll components inside Ionic pages.
 ---
 
 import InstallNpm from '../../_shared/getting-started/install_npm.mdx';

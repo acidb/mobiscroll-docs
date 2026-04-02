@@ -2,6 +2,7 @@
 sidebar_position: 2
 sidebar_label: Application Setup Guide
 slug: /application-setup
+description: Register your app, generate API credentials, and configure redirect URIs in the Mobiscroll Connect dashboard.
 ---
 
 # Application Setup Guide

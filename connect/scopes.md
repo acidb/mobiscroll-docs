@@ -2,6 +2,7 @@
 sidebar_position: 3
 title: Scopes & Permissions
 sidebar_label: Scopes
+description: Mobiscroll Connect permission scopes — free-busy, read, and read-write access levels for controlling calendar data visibility.
 ---
 
 # Scopes & Permissions

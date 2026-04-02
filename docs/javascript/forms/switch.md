@@ -2,6 +2,7 @@
 sidebar_position: 8
 sidebar_label: Switch
 displayed_sidebar: javascriptSidebar
+description: Mobiscroll Switch for JavaScript — a styled boolean toggle with configurable labels, disabled state, and onChange events.
 ---
 
 import Options from '../\_auto-generated/switch/options.md';

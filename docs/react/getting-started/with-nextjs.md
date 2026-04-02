@@ -2,6 +2,7 @@
 sidebar_position: 3
 sidebar_label: Using with Next.js
 displayed_sidebar: reactSidebar
+description: Integrate Mobiscroll into a Next.js app — SSR configuration, dynamic imports, and using Mobiscroll React components without hydration issues.
 ---
 
 import InstallNpm from '../../_shared/getting-started/install_npm.mdx';

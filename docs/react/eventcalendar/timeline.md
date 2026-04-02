@@ -2,6 +2,7 @@
 sidebar_position: 5
 sidebar_label: Timeline
 displayed_sidebar: reactSidebar
+description: 'Set up the Mobiscroll Eventcalendar Timeline view in React — horizontal resource scheduling with variable row heights and grouping.'
 ---
 
 import ViewOptions from '../_auto-generated/eventcalendar/view_timeline.md';

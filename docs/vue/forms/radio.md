@@ -2,6 +2,7 @@
 sidebar_position: 5
 sidebar_label: Radio button
 displayed_sidebar: vueSidebar
+description: 'Use the Mobiscroll Radio button form component in Vue — grouped options, checked states, and change event handling.'
 ---
 
 import Options from '../\_auto-generated/radio/options.md';

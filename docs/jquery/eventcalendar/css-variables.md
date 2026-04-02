@@ -3,6 +3,7 @@ sidebar_position: 16
 sidebar_label: CSS variables
 displayed_sidebar: jquerySidebar
 title: CSS variables
+description: 'Custom CSS variables for the Mobiscroll Eventcalendar (jQuery) — override colors, sizes, and layout tokens for deep visual customization.'
 ---
 
 import Content from '../../_shared/eventcalendar/css-variables.mdx';

@@ -2,6 +2,7 @@
 sidebar_position: 5
 sidebar_label: Custom themes
 displayed_sidebar: vueSidebar
+description: 'Create and compile fully custom Mobiscroll Sass/SCSS themes for Vue projects using the Mobiscroll theme builder or manual Sass customization.'
 ---
 
 import Methods from '../../_shared/theming/theming_methods.mdx';

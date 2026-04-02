@@ -2,6 +2,7 @@
 sidebar_position: 4
 sidebar_label: Events API
 slug: /events
+description: Retrieve, create, update, and delete calendar events across Google, Outlook, Apple, and CalDAV providers via the Mobiscroll Connect API.
 ---
 
 import Tabs from '@theme/Tabs';

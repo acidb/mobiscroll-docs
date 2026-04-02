@@ -2,6 +2,7 @@
 sidebar_position: 7
 sidebar_label: Stepper
 displayed_sidebar: javascriptSidebar
+description: Use the Mobiscroll Stepper component in JavaScript — increment/decrement numeric input with configurable min, max, and step values.
 ---
 
 import Options from '../\_auto-generated/stepper/options.md';

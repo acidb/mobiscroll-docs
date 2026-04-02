@@ -3,6 +3,7 @@ sidebar_position: 3
 sidebar_label: Using the source code
 displayed_sidebar: reactSidebar
 title: Using Mobiscroll with the source code
+description: 'Work with the Mobiscroll React source package (TypeScript) — available with a Complete or Source Code license, downloaded from the Mobiscroll download page and compiled locally.'
 ---
 
 ## Overview

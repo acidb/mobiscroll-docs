@@ -2,6 +2,7 @@
 sidebar_position: 8
 sidebar_label: Timezones
 displayed_sidebar: reactSidebar
+description: 'Handle timezone-aware date and time selection in the Mobiscroll Datepicker for React using moment-timezone, Luxon, or the Intl API.'
 ---
 
 import LibraryInstall from '../../_shared/timezones/library_install.mdx';

@@ -1,5 +1,24 @@
 # Algolia Search
 
+## Manual Crawling via Algolia Crawler (recommended)
+
+The recommended approach uses the [Algolia Crawler web interface](https://crawler.algolia.com/) with the official Docusaurus v3 template. No Docker or local tooling is required.
+
+### Steps
+
+1. Log in to [crawler.algolia.com](https://crawler.algolia.com/) with the Mobiscroll Algolia account.
+2. Select the **docs_mobiscroll** crawler (or create one if it does not exist).
+3. Go to the **Editor** tab.
+4. Paste the contents of [`crawler.config.js`](./crawler.config.js) into the editor, replacing `YOUR_WRITE_API_KEY` with the Algolia write API key (must have `addObject`, `editSettings`, `deleteIndex` ACLs).
+5. Click **Save**.
+6. To trigger a crawl immediately, click **Run a crawl** (top-right of the Overview page).
+
+> Note: If you update `initialIndexSettings` in the crawler config, Algolia recommends deleting the index via the Algolia dashboard and then triggering a new crawl so the index is fully re-initialized with the new settings.
+
+---
+
+## Legacy: Manual Crawling via Docker (old approach)
+
 ## Setup
 
 Indexing is done manually running a docker image. Requirements are the docker and jq installed from here:
@@ -24,6 +43,7 @@ docker run -it --env-file=.env -e "CONFIG=$(cat search-config.json | jq -r tostr
 
 However, this will not work on Windows (it would be too simple).
 There are 3 variables that the docker algolia/docsearch-scraper needs:
+
 1. Application ID - from the Algolia account
 2. API key - from the Algolia account for writing the index
 3. Config - a configuration json that configures the crawler

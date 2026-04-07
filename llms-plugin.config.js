@@ -21,7 +21,7 @@ const llmsOptions = {
   docsDir: 'docs',
 
   // Clean up MDX import statements and redundant headings for LLM consumption
-  excludeImports: true,
+  excludeImports: false,
   removeDuplicateHeadings: true,
 
   title: 'Mobiscroll Documentation',
@@ -67,8 +67,8 @@ const llmsOptions = {
     // ── Hub: llms.txt (general info + links to framework files) ─────────
     {
       filename: 'llms.txt',
-      includePatterns: ['getting-started.md'],
-      fullContent: false,
+      includePatterns: [''],
+      fullContent: true,
       title: 'Mobiscroll Documentation',
       description:
         'API reference and developer guides for Mobiscroll UI components — ' +
@@ -90,7 +90,7 @@ const llmsOptions = {
     // ── Hub: llms-full.txt (general content + links to full framework files)
     {
       filename: 'llms-full.txt',
-      includePatterns: ['getting-started.md'],
+      includePatterns: [''],
       fullContent: true,
       title: 'Mobiscroll Documentation',
       description:

@@ -16,7 +16,7 @@ Retrieves calendar events from all connected providers (Google Calendar, Microso
 
 Fetches events from multiple calendar providers simultaneously with support for pagination, filtering by date range and specific calendars, and handling of recurring events. Returns chronologically sorted events across all providers with "load more" functionality using nextPageToken tokens.
 
-**Endpoint:** `GET /events`
+**Endpoint:** <code>GET /events</code>
 
 ### Request Parameters
 
@@ -50,8 +50,8 @@ Base64 encoded JSON pagination state object containing token information for eac
 <Parameter name="singleEvents" type="boolean" defaultValue={<code>true</code>} id="param-singleEvents">
 Controls how recurring events are returned:
 
-- `true` - Expands recurring events into individual instances within the specified time range
-- `false` - Returns only the master recurring event (series definition) without individual occurrences
+- <code>true</code> - Expands recurring events into individual instances within the specified time range
+- <code>false</code> - Returns only the master recurring event (series definition) without individual occurrences
 
 </Parameter>
 
@@ -125,26 +125,22 @@ Array of calendar events from all providers, sorted chronologically by start tim
 Custom key-value pairs for additional event data (optional)
 </Parameter>
 
-<Parameter name="conference" type="object" isObject>
-Conference metadata (optional). Contains:
+<Parameter name="conference" type="string">
+Conference meeting URL (optional).
+</Parameter>
 
-  <Parameter name="url" type="string">
-  Conference meeting URL
-  </Parameter>
+<Parameter name="conferenceData" type="object" isObject>
+Provider-specific conference metadata returned by the API (optional). Use this when you need details beyond the <code>conference</code> link.
 
   <Parameter name="provider" type="string">
-  Conference provider identifier (for example `google-meet` or `microsoft-teams`).
-  This can differ from the event calendar provider.
+  Conference provider identifier. Typical values: <code>google-meet</code>, <code>microsoft-teams</code>, <code>zoom</code>, <code>webex</code>.
   </Parameter>
 
-  <Parameter name="meetingProvider" type="string">
-  Conference system identifier (preferred field name). Same semantics as `provider`.
-  This can differ from the event calendar provider.
-  </Parameter>
-
-  <Parameter name="data" type="object">
-  Extra meeting details from the provider that your app may want to keep for later (for example join options, conference IDs, dial-in info). Use this field when you need provider-specific meeting data that does not fit into the unified event fields.
-  </Parameter>
+  Additional fields vary by provider and are returned as-is when available.
+  Typical examples:
+  - Google: <code>entryPoints</code>, <code>conferenceSolution</code>, <code>conferenceId</code>
+  - Microsoft: provider meeting details from Graph (for example join URL-related fields)
+  - Apple/CalDAV: usually only <code>provider</code>
 
 </Parameter>
 
@@ -265,19 +261,19 @@ const masters = await client.events.list({
 
 :::info
 - Events are sorted chronologically by start time across all providers
-- The `pageSize` is distributed across all active providers (not per provider)
-- Maximum `pageSize` is capped at 1000 events
-- The `nextPageToken` token is Base64 encoded and should be passed as-is to subsequent requests
+- The <code>pageSize</code> is distributed across all active providers (not per provider)
+- Maximum <code>pageSize</code> is capped at 1000 events
+- The <code>nextPageToken</code> token is Base64 encoded and should be passed as-is to subsequent requests
 - Each provider (Google, Microsoft, Apple, CalDAV) tracks its own pagination state independently
-- The `nextPageToken` parameter is only included in the response when more events are available
+- The <code>nextPageToken</code> parameter is only included in the response when more events are available
 - Date strings are automatically normalized to handle malformed ISO 8601 formats before parsing
-- The `color` property contains the background color value directly (not an object)
-- Conference links are returned in the `conference` object (for example `conference.url`)
+- The <code>color</code> property contains the background color value directly (not an object)
+- Conference links are returned in the <code>conference</code> string field
 - All event endpoints return events in the **unified CalendarEvent format** across all providers
 :::
 
 :::info Conference raw data examples
-The `conference.data` field stores provider-specific raw meeting metadata.
+The <code>conferenceData</code> field stores provider-specific raw meeting metadata.
 
 ```json title="Google"
 {
@@ -311,7 +307,7 @@ Creates a new calendar event in the specified calendar for the authenticated use
 
 Supports creating single events or recurring events with recurrence rules. The event is created in the provider's calendar system (Google Calendar, Microsoft Outlook, Apple Calendar, or CalDAV) based on the calendar ID.
 
-**Endpoint:** `POST /event`
+**Endpoint:** <code>POST /event</code>
 
 ### Request Body
 
@@ -363,11 +359,11 @@ Interval between occurrences (e.g., 2 for every 2 weeks)
 </Parameter>
 
 <Parameter name="count" type="number">
-Number of occurrences (mutually exclusive with `until`)
+Number of occurrences (mutually exclusive with <code>until</code>)
 </Parameter>
 
 <Parameter name="until" type="string">
-End date in format `YYYYMMDDTHHMMSSZ` (mutually exclusive with `count`)
+End date in format <code>YYYYMMDDTHHMMSSZ</code> (mutually exclusive with <code>count</code>)
 </Parameter>
 
 <Parameter name="byDay" type="string[]">
@@ -389,51 +385,26 @@ Custom key-value pairs for additional event data.
 </Parameter>
 
 :::info External IDs
-If you need to associate provider-generated event IDs with your own domain entities, store your external/business ID in `custom` (for example `custom.externalEventId = "icoll-rdv-123"`).
+If you need to associate provider-generated event IDs with your own domain entities, store your external/business ID in <code>custom</code> (for example <code>custom.externalEventId = "icoll-rdv-123"</code>).
 :::
 
-<Parameter name="conference" type="object" defaultValue={<code>undefined</code>} id="create-conference" isObject>
-Conference metadata (optional). You can provide this as an object or as a legacy string URL.
+<Parameter name="conference" type="string" defaultValue={<code>undefined</code>} id="create-conference">
+Conference meeting URL (optional). Backward compatibility is preserved for legacy <code>conference</code> string usage.
+</Parameter>
 
-Legacy string input example:
+<Parameter name="conferenceData" type="object" defaultValue={<code>undefined</code>} id="create-conferenceData" isObject>
+Extra conference options and provider-specific metadata (optional).
 
-```json
-{
-  "conference": "https://meet.example.com/room/abc123"
-}
-```
-
-<Parameter name="url" type="string">
-Use an existing conference link URL.
+<Parameter name="provider" type="string">
+Conference provider identifier. Typical values: <code>google-meet</code>, <code>microsoft-teams</code>, <code>zoom</code>, <code>webex</code>.
 </Parameter>
 
 <Parameter name="autoGenerate" type="boolean">
-Set to `true` to auto-generate a provider meeting link when supported.
-</Parameter>
-
-<Parameter name="provider" type="string">
-Conference provider identifier. This can differ from the event `provider`.
-</Parameter>
-
-<Parameter name="meetingProvider" type="string">
-Conference system identifier (preferred field name). Same semantics as `provider`.
-This can differ from the event `provider`.
-</Parameter>
-
-<Parameter name="data" type="object">
-Extra meeting details from the provider that your app may want to keep for later (for example join options, conference IDs, dial-in info). Use this field when you need provider-specific meeting data that does not fit into the unified event fields.
+Set to <code>true</code> to auto-generate a provider meeting link when supported.
+When <code>autoGenerate</code> is <code>true</code>, <code>conference</code> and other <code>conferenceData</code> fields are ignored.
 </Parameter>
 
 </Parameter>
-
-:::info Conference create behavior by provider
-- `google`: supports `conference.url` and `conference.autoGenerate`
-- `microsoft`: supports `conference.autoGenerate` (Teams link generation); `conference.url` is ignored
-- `apple` and `caldav`: support `conference.url`; `conference.autoGenerate` is ignored
-- `conference.autoGenerate` takes precedence over `conference.url` when both are provided
-- `conference.meetingProvider` and `conference.provider` are aliases in requests
-- `conference.provider` and `conference.data` are accepted in the request shape but currently not used to control create behavior
-:::
 
 <Parameter name="availability" type="string" defaultValue={<code>undefined</code>} id="create-availability">
 Event availability: <code>'free'</code> or <code>'busy'</code>.
@@ -631,11 +602,11 @@ const allDayEvent = await client.events.create({
 </Tabs>
 
 :::info
-- The `provider` parameter must match the calendar provider of the `calendarId`
-- For recurring events, either `count` or `until` can be specified, but not both
-- The `byDay` property is typically used with `WEEKLY` frequency
+- The <code>provider</code> parameter must match the calendar provider of the <code>calendarId</code>
+- For recurring events, either <code>count</code> or <code>until</code> can be specified, but not both
+- The <code>byDay</code> property is typically used with <code>WEEKLY</code> frequency
 - All-day events should have start and end times at midnight (00:00:00)
-- The response `event` object format varies by provider (Google, Microsoft, Apple, CalDAV)
+- The response <code>event</code> object format varies by provider (Google, Microsoft, Apple, CalDAV)
 :::
 
 ---
@@ -646,7 +617,7 @@ Updates an existing calendar event.
 
 Supports updating single events, recurring event series, or individual instances of recurring events. For recurring events, you can specify whether to update only the current instance, all following instances, or the entire series.
 
-**Endpoint:** `PUT /event`
+**Endpoint:** <code>PUT /event</code>
 
 ### Request Body
 
@@ -708,47 +679,30 @@ Array of attendee email addresses.
 Custom key-value pairs for additional event data.
 </Parameter>
 
-<Parameter name="conference" type="object" id="update-conference" isObject>
-Conference metadata update (optional). You can provide this as an object or as a legacy string URL.
+<Parameter name="conference" type="string" id="update-conference">
+Conference meeting URL update (optional).
+</Parameter>
 
-Legacy string input example:
+<Parameter name="conferenceData" type="object" id="update-conferenceData" isObject>
+Extra conference options and provider-specific metadata update (optional).
 
-```json
-{
-  "conference": "https://meet.example.com/room/abc123"
-}
-```
-
-<Parameter name="url" type="string">
-Conference meeting URL.
+<Parameter name="provider" type="string">
+Conference provider identifier. Typical values: <code>google-meet</code>, <code>microsoft-teams</code>, <code>zoom</code>, <code>webex</code>.
 </Parameter>
 
 <Parameter name="autoGenerate" type="boolean">
-Set to `true` to auto-generate a provider meeting link when supported.
-</Parameter>
-
-<Parameter name="provider" type="string">
-Conference provider identifier. This can differ from the event `provider`.
-</Parameter>
-
-<Parameter name="meetingProvider" type="string">
-Conference system identifier (preferred field name). Same semantics as `provider`.
-This can differ from the event `provider`.
-</Parameter>
-
-<Parameter name="data" type="object">
-Extra meeting details from the provider that your app may want to keep for later (for example join options, conference IDs, dial-in info). Use this field when you need provider-specific meeting data that does not fit into the unified event fields.
+Set to <code>true</code> to auto-generate a provider meeting link when supported.
+When <code>autoGenerate</code> is <code>true</code>, <code>conference</code> and other <code>conferenceData</code> fields are ignored.
 </Parameter>
 
 </Parameter>
 
 :::info Conference update behavior by provider
-- `google`: supports `conference.url` and `conference.autoGenerate`
-- `microsoft`: supports `conference.autoGenerate` (Teams link generation); `conference.url` is ignored
-- `apple` and `caldav`: support `conference.url`; `conference.autoGenerate` is ignored
-- `conference.autoGenerate` takes precedence over `conference.url` when both are provided
-- `conference.meetingProvider` and `conference.provider` are aliases in requests
-- `conference.provider` and `conference.data` are accepted in the request shape but currently not used to control update behavior
+- <code>google</code>: supports <code>conference</code> and <code>conferenceData.autoGenerate</code>
+- <code>microsoft</code>: supports <code>conferenceData.autoGenerate</code> (Teams link generation); manual <code>conference</code> is ignored for online meeting generation
+- <code>apple</code> and <code>caldav</code>: support <code>conference</code>; <code>conferenceData.autoGenerate</code> is ignored
+- <code>conferenceData.autoGenerate</code> takes precedence over <code>conference</code> when both are provided
+- <code>conferenceData.provider</code> identifies the conference system (for example <code>google-meet</code>, <code>microsoft-teams</code>)
 :::
 
 <Parameter name="availability" type="string" id="update-availability">
@@ -892,11 +846,11 @@ const updatedFuture = await client.events.update({
 </Tabs>
 
 :::info
-- The `provider` parameter must match the calendar provider where the event exists
-- For recurring events, use `recurringEventId` and `updateMode` to control update scope
+- The <code>provider</code> parameter must match the calendar provider where the event exists
+- For recurring events, use <code>recurringEventId</code> and <code>updateMode</code> to control update scope
 - Only include fields you want to update; omitted fields remain unchanged
-- When using `updateMode: 'this'` on a recurring event, a new exception instance may be created
-- The `updateMode` parameter behavior may vary slightly between providers
+- When using <code>updateMode: 'this'</code> on a recurring event, a new exception instance may be created
+- The <code>updateMode</code> parameter behavior may vary slightly between providers
 :::
 
 ---
@@ -907,7 +861,7 @@ Deletes a calendar event.
 
 Supports deleting single events, recurring event series, or individual instances of recurring events. For recurring events, you can specify whether to delete only the current instance, all following instances, or the entire series.
 
-**Endpoint:** `DELETE /event`
+**Endpoint:** <code>DELETE /event</code>
 
 ### Request Body
 
@@ -1041,10 +995,10 @@ await client.events.delete({
 </Tabs>
 
 :::info
-- The `provider` parameter must match the calendar provider where the event exists
-- For recurring events, use `recurringEventId` and `deleteMode` to control deletion scope
-- Deleting with `deleteMode: 'this'` creates an exception (cancelled instance) in the series
-- Deleting with `deleteMode: 'all'` removes the entire recurring series
+- The <code>provider</code> parameter must match the calendar provider where the event exists
+- For recurring events, use <code>recurringEventId</code> and <code>deleteMode</code> to control deletion scope
+- Deleting with <code>deleteMode: 'this'</code> creates an exception (cancelled instance) in the series
+- Deleting with <code>deleteMode: 'all'</code> removes the entire recurring series
 - Deleted events cannot be recovered through the API
-- The `deleteMode` parameter behavior may vary slightly between providers
+- The <code>deleteMode</code> parameter behavior may vary slightly between providers
 :::

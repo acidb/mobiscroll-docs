@@ -46,6 +46,8 @@ The above components can be used inside of the custom header. The following exam
 ```
 
 ```ts
+import { Component } from '@angular/core';
+
 @Component(...)
 export class YourComponent {
   myTitle = 'My Custom Title';

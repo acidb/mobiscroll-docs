@@ -11,6 +11,10 @@ Invalid items are items that cannot be selected. They appear disabled on the whe
 Invalid items can be set using the `invalid` [option](/react/select/api#opt-invalid) or the `data` [option](/react/select/api#opt-data). The `invalid` [option](/react/select/api#opt-invalid) takes an array of values and disables those values. When using the `data` [option](/react/select/api#opt-data), each item can take a disables property, that `disables` that item.
 
 ```jsx title="Invalid example"
+import React from 'react';
+import { Select } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 function App() {
     // standard react magic...
     const [selectedExtra, setSelectedExtra] = React.useState();

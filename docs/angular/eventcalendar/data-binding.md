@@ -26,6 +26,7 @@ To bind local data to the event calendar, you can simply assign a JavaScript arr
 ```
 
 ```ts
+import { Component } from '@angular/core';
 import { MbscCalendarEvent } from '@mobiscroll/angular';
 
 @Component({...})
@@ -54,7 +55,7 @@ You can load the data through an external request and assign it to the data-boun
 ```
 
 ```ts
-import { AfterViewInit } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { MbscCalendarEvent, MbscEventcalendarView, getJson } from '@mobiscroll/angular';
 
 @Component({...})
@@ -91,6 +92,7 @@ You can pass the view variables - like month and year - in the URL and handle th
 ```
 
 ```ts
+import { Component } from '@angular/core';
 import { MbscCalendarEvent, MbscEventcalendarView, MbscPageLoadingEvent, getJson } from '@mobiscroll/angular';
 
 @Component({...})

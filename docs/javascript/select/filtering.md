@@ -19,6 +19,9 @@ When no items match the filter the Mobiscroll Select will show a "No results" me
 By defaut filtering is done client side on the dataset passed to the Select with the [data](./api#opt-data) option. The filter text is searched in the option items `text` property and if there is a match the item stays in the list - otherwise it's hidden.
 
 ```js
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 const countries = [
   { text: 'US - United States', value: 3 },
   { text: 'DE - Germany', value: 19 },
@@ -38,6 +41,9 @@ mobiscroll.select('#myInp', {
 Server side filtering can be implemented with the help of the [`onFilter`](./api#event-onFilter) event and using the [`data`](./api#opt-data) option dynamically. Returning `false` from the [`onFilter`](./api#event-onFilter) event handler will prevent the filtering of the option items locally. Then, a request can be made to the server with the `filterText` and the returned data can be set to the Select dynamically.
 
 ```js
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 function myCreateARequestMethod() {/*...*/}
 
 mobiscroll.select('#myInp', {

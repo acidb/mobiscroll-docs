@@ -21,6 +21,9 @@ and accessing the component instances are only needed in a few specific cases.
 A reference to the component instance is available in every Mobiscroll event as the second argument of the event handler.
 
 ```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 function App() {
   const myHandler = (args, inst) => {
     console.log('The Eventcalendar instance:', inst);
@@ -36,6 +39,7 @@ To get the instance of a component there is a special prop called `ref` and a ho
 ```jsx title="Getting the instance of a Mobiscroll Eventcalendar"
 import { useRef } from "react";
 import { Eventcalendar } from "@mobiscroll/react";
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const myRef = useRef(null);
@@ -74,6 +78,9 @@ const invalidsArray = [
 To get the actual invalid days for the month of November, you can call the [`getInvalids`](../eventcalendar/api#method-getInvalids) method of the Eventcalendar instance.
 
 ```jsx title="The invalids array needs to be passed to the eventcalendar"
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 <Eventcalendar ref={myCalRef} invalid={invalidsArray} />
 ```
 
@@ -91,6 +98,7 @@ Here's the example as a whole:
 ```jsx
 import { useRef, useState } from 'react';
 import { Button, Eventcalendar  } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const myCalRef = useRef(null);

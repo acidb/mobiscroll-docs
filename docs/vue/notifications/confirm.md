@@ -22,6 +22,7 @@ The following example displays a confirm dialog on button click.
 <script setup>
   import { ref } from 'vue';
   import { MbscConfirm, MbscButton } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const isConfirmOpen = ref(false);
 

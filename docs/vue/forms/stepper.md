@@ -22,6 +22,7 @@ Use the [`label`](#opt-label) option to provide a label to the stepper.
 ```html
 <script setup>
   import { MbscStepper } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 </script>
 
 <template>
@@ -37,6 +38,7 @@ Use the [v-model](https://vuejs.org/api/built-in-directives.html#v-model) direct
 <script setup>
   import { ref } from 'vue';
   import { MbscStepper } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const value = ref(0);
 </script>

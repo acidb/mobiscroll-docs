@@ -18,6 +18,7 @@ export const toc = [...recTOC, { value: 'Full example', level: 2, id: 'full-exam
 ```jsx title="Recurring events on the eventcalendar"
 import { useState } from 'react';
 import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [myEvents] = useState([{

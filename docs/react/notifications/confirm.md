@@ -21,6 +21,7 @@ The following example displays a confirm dialog on button click.
 ```jsx
 import { useState } from 'react';
 import { Confirm, Button } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [isOpen, setOpen] = useState(false);

@@ -74,6 +74,19 @@ createCustomTheme('my-happy-brand', 'ios');
 <mbsc-eventcalendar theme="my-happy-brand"></mbsc-eventcalendar>
 ```
 
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
+```
+
 </TabItem>
 </Tabs>
 

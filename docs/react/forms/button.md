@@ -22,6 +22,7 @@ Buttons can display text, icons, or both. They can be colored and styled with va
 
 ```jsx
 import { Button } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function ButtonVariations() {
   return <>
@@ -81,6 +82,7 @@ Clicks can be handled using the [`onClick`](#event-onClick) event.
 
 ```jsx
 import { Button } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const handleClick = () => {

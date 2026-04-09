@@ -9,6 +9,9 @@ description: 'Customize the input trigger for the Mobiscroll Select in React —
 By default the Mobsicroll Select component renders a Mobiscroll Input component. To customize this Input component, you can pass props to it using the `inputProps` [option](/react/select/api#opt-inputProps). Or you can change the rendered component using the `inputComponent` [option](/react/select/api#opt-inputComponent).
 
 ```jsx
+import { Select } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 function (props) {
     const data = [{ value: 'lon', text: 'London'}, { value: 'par', text: 'Paris'}, { value: 'ber', text: 'Berlin'}];
 

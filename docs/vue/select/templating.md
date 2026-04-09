@@ -21,6 +21,9 @@ The item data is accessible through the slot parameter `data` property.
 
 ```html title="Example for adding images to items"
 <script setup>
+  import { MbscSelect } from '@mobiscroll/select';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
+
   const countries = [{
         value: 'US',
         text: 'United States of America',

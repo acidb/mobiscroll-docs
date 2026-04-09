@@ -16,6 +16,10 @@ The [`controls`](./api#opt-controls) option specifies which control is rendered 
 
 * The **Calendar view** can be used for single or multiple date selection as well as date range selection. It is represented by the `'calendar'` string. It is the **default** of the controls option.
   ```js
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
   $('#myInput').mobiscroll().datepicker({
     controls: ['calendar'],
   });
@@ -23,6 +27,10 @@ The [`controls`](./api#opt-controls) option specifies which control is rendered 
 
 * The **Date scroller** can be used for single date selection or date range selection. It is represented by the `'date'` string.
   ```js
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
   $('#myInput').mobiscroll().datepicker({
     controls: ['date'],
   });
@@ -30,6 +38,10 @@ The [`controls`](./api#opt-controls) option specifies which control is rendered 
 
 * The **Time scroller** can be used for single time selection or time range selection. It can also be combined with other controls. It is represented by the `'time'` string.
   ```js
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
   $('#myInput').mobiscroll().datepicker({
     controls: ['time'],
   });
@@ -37,6 +49,10 @@ The [`controls`](./api#opt-controls) option specifies which control is rendered 
 
 * The **Date & Time scroller** can be used for single date & time selection as well as date & time range selection. It is represented by the `'datetime'` string.
   ```js
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
   $('#myInput').mobiscroll().datepicker({
     controls: ['datetime'],
   });
@@ -44,6 +60,10 @@ The [`controls`](./api#opt-controls) option specifies which control is rendered 
 
 * The **Timegrid** can be used for single time selection or time range selection. It can also be combined with the `'calendar'` or the `'date'` control. It is represented by the `'timegrid'` string.
   ```js
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
   $('#myInput').mobiscroll().datepicker({
     controls: ['timegrid'],
   });
@@ -56,6 +76,10 @@ Some controls can't be used in all situations. To have a better user experience,
 The Time scroller and the Timegrid controls can be combined with either the Calendar view or the Date scroller for extending the selection precision.
 
 ```js title="Combining controls"
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
 $('#myInput').mobiscroll().datepicker({
   controls: ['calendar', 'timegrid'],
 });

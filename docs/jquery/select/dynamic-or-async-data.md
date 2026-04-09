@@ -21,6 +21,10 @@ When updating the markup dynamically after the select component was initialized,
 When using the select with the `data` [option](/jquery/select/api#opt-data), updating the data can be done, with the `setOptions` [function](/jquery/select/api#method-setOptions) of the select instance.
 
 ```jsx
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
 $('#my-input').mobiscroll().select({
     data: [],
 });

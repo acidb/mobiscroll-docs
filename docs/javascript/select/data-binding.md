@@ -27,6 +27,9 @@ The Select component can be initialized on an input or a select html element.
 </select>
 ```
 ```js
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 mobiscroll.select('#mySelect', {
   // additional options here
 });
@@ -42,6 +45,9 @@ mobiscroll.select('#mySelect', {
 <input id="myInput" />
 ```
 ```js title="Department selection example"
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 mobiscroll.select('#myInput', {
   data: [
     { text: 'Marketing', value: 1 },
@@ -58,6 +64,9 @@ mobiscroll.select('#myInput', {
 <input id="myInput" />
 ```
 ```js title="User selection example"
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 mobiscroll.select('#myInput', {
   data: [
     { text: 'Alice', value: { id: 123, fullName: 'Alice Cooper' }},
@@ -75,6 +84,9 @@ mobiscroll.select('#myInput', {
 <input id="myInput" />
 ```
 ```js
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 mobiscroll.select('#myInput', {
   // highlight-next-line
   showGroupWheel: true,
@@ -105,6 +117,9 @@ The Mobiscroll Select component can be initialized on a `<select>` element, in w
 ```
 
 ```jsx
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 mobiscroll.select('#gender');
 ```
 
@@ -124,5 +139,8 @@ mobiscroll.select('#gender');
 ```
 
 ```jsx
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 mobiscroll.select('#countries');
 ```

@@ -62,6 +62,8 @@ In multiple selection mode segments can be selected and de-selected independentl
 ```
 
 ```ts
+import { Component } from '@angular/core';
+
 @Component({...})
 export class MyComponent {
   myGroupItems: Array<{ checked: boolean, text: string, value: string }> = [

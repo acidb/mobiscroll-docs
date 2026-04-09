@@ -42,6 +42,8 @@ The switch can be bound to a boolean value using either the `[(ngModel)]` or the
 ```
 
 ```ts
+import { Component } from '@angular/core';
+
 @Component({...})
 export class MyComponent {
   bedroomLight = false;

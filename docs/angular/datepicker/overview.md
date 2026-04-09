@@ -17,4 +17,17 @@ The following example will create a Datepicker with default options.
 <mbsc-datepicker></mbsc-datepicker>
 ```
 
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
+```
+
 For many more examples - simple and complex use-cases - check out the [date & time picker demos](https://demo.mobiscroll.com/calendar).

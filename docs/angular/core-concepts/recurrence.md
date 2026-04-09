@@ -71,5 +71,18 @@ export class AppComponent {
 <mbsc-eventcalendar [data]="myData"></mbsc-eventcalendar>
 ```
 
+```ts
+import { Component } from '@angular/core';
+import { MbscCalendarEvent, MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
+```
+
 </TabItem>
 </Tabs>

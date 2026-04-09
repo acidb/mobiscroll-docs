@@ -26,10 +26,36 @@ Use the [`label`](#opt-label) option to provide a label to the dropdown.
 </mbsc-dropdown>
 ```
 
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
+```
+
 ```html title="Dynamic options"
 <mbsc-dropdown label="Choose one">
     <option *ngFor="let opt of myOptions" [value]="opt.value" >{{opt.text}}</option>
 </mbsc-dropdown>
+```
+
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
 ```
 
 ## Value binding
@@ -42,6 +68,19 @@ The dropdown can be bound to a string value using either the `[(ngModel)]` or th
   <option value="opt2">Option 2</option>
   <option value="opt3">Option 3</option>
 </mbsc-dropdown>
+```
+
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
 ```
 
 <div className="option-list">

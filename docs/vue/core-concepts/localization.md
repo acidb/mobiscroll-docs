@@ -59,6 +59,7 @@ The `locale` option can be used to set the language of a component. It takes an 
 ```html title='Locale option usage'
 <script setup>
 import { MbscEventcalendar, localeDe } from '@mobiscroll/vue'
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 </script>
 
 <template>
@@ -71,6 +72,7 @@ Creating your own locale object is simple as creating an object in JavaScript. F
 ```html title='Creating a locale object'
 <script setup>
 import { MbscEventcalendar } from '@mobiscroll/vue'
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
 const myLocale = {
   cancelText: 'Mégse'
@@ -90,6 +92,7 @@ For typescript environments, the `MbscLocale` type can also be used as the base 
 <script setup lang="ts">
 import { MbscEventcalendar } from '@mobiscroll/vue'
 import type { MbscLocale } from '@mobiscroll/vue'
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
 const myLocale: MbscLocale = {
   cancelText: 'Mégse'

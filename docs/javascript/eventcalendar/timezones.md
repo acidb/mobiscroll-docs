@@ -29,8 +29,9 @@ When using a timezone plugin with the Eventcalendar, the [`exclusiveEndDates`](a
 **4.** After that, you can pass the `momentTimezone` object to the Eventcalendar's [`timezonePlugin`](./api#opt-timezonePlugin) option.
 
 ```js
-import { momentTimezone, eventcalendar } from '@mobiscroll/javascript';
 import moment from 'moment-timezone';
+import { momentTimezone, eventcalendar } from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
 
 momentTimezone.moment = moment;
 
@@ -47,6 +48,10 @@ eventcalendar('#myDiv', {
 If you are not using any script bundler and you have the mobiscroll and moment library scripts included on your web page, you can access the `momentTimezone` from the mobiscroll global namespace.
 
 ```js
+import moment from 'moment-timezone';
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 // highlight-next-line
 mobiscroll.momentTimezone = moment;
 
@@ -65,8 +70,9 @@ mobiscroll.eventcalendar('#myDiv', {
 **4.** After that, you can pass the `luxonTimezone` object to the Eventcalendar's `timezonePlugin` option.
 
 ```js
-import { luxonTimezone, eventcalendar } from '@mobiscroll/javascript';
 import * as luxon from 'luxon';
+import { luxonTimezone, eventcalendar } from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
 
 luxonTimezone.luxon = luxon;
 
@@ -83,6 +89,10 @@ eventcalendar('#myDiv', {
 If you are not using any script bundler and you have the mobiscroll and luxon library scripts included on your web page, you can access the `luxonTimezone` from the mobiscroll global namespace.
 
 ```js
+import * as luxon from 'luxon';
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 // highlight-next-line
 mobiscroll.luxonTimezone = luxon;
 
@@ -101,10 +111,11 @@ mobiscroll.eventcalendar('#myDiv', {
 **4.** After that, you can pass the `dayjsTimezone` object to the Eventcalendar's `timezonePlugin` option.
 
 ```js
-import { eventcalendar, dayjsTimezone } from '@mobiscroll/javascript';
 import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
+import { eventcalendar, dayjsTimezone } from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -123,6 +134,10 @@ eventcalendar('#myDiv', {
 If you are not using any script bundler and you have the mobiscroll and Day.js library scripts included on your web page, you can access the `dayjsTimezone` from the mobiscroll global namespace.
 
 ```js
+import dayjs from 'dayjs';
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 // highlight-next-line
 mobiscroll.dayjsTimezone = dayjs;
 
@@ -141,9 +156,10 @@ When working with timezones, you usually have your data stored in one timezone, 
 You can also store the timezone inside the event data, using the `timezone` property. If an event has the timezone specified, this will take precedence over the timezone set by `dataTimezone`. This is particularly useful for recurring events. Storing recurring events in UTC is not useful in most of the cases, since the occurrences will be generated in UTC time, which does not have daylight saving times. When converted to a displayTimezone which uses DST, the event times will be shifted with an hour when DST changes. Storing the timezone on the event makes it unambiguous, and will be correctly converted to `displayTimezone`.
 
 ```js title="Example"
-import { momentTimezone, eventcalendar } from "@mobiscroll/javascript";
 // highlight-next-line
 import moment from 'moment-timezone';
+import { momentTimezone, eventcalendar } from "@mobiscroll/javascript";
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
 
 // setup the reference to moment
 // highlight-next-line

@@ -19,6 +19,7 @@ Snackbars don't lock the app's main interface and are automatically dismissed af
 The following example displays a Snackbar message with a "Retry" button:
 
 ```ts
+import { Component } from '@angular/core';
 import { Notifications } from '@mobiscroll/angular';
 
 @Component({...})

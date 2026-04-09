@@ -24,6 +24,7 @@ const myItemTemplate = (args) => {
 ```jsx title="Example for adding images to items"
 import { useCallback, useState } from 'react';
 import { Select }  from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [countries] = useState([{

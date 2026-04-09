@@ -29,6 +29,19 @@ To define a template, create an `<ng-template>` tag with a variable reference an
 </mbsc-eventcalendar>
 ```
 
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
+```
+
 ### Event content templating
 
 In most cases you only want to customize the content section of the event. In this case your template will be used as the content of the event. Mobiscroll will position the event to the right place and will render essential information like the color of the event, the time and if it's an all day event or not. The title, description and any other fields you want to show (like participants, an avatar...) will be coming from your custom template.
@@ -45,6 +58,19 @@ In most cases you only want to customize the content section of the event. In th
     <!-- your content here -->
   </ng-template>
 </mbsc-eventcalendar>
+```
+
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
 ```
 
 Play with the slider below to see the differences.
@@ -99,6 +125,19 @@ To customize the display of the resources, the [`resourceTemplate`](api#template
 </mbsc-eventcalendar>
 ```
 
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
+```
+
 :::info
 In case of the timeline view there are other parts of the Eventcalendar that can be customized through templates. Check out the [timeline templating](timeline#templating) section for more details.
 :::
@@ -132,6 +171,19 @@ The header of the calendar can be fully customized to one's needs with the use o
 </mbsc-eventcalendar>
 ```
 
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
+```
+
 While fully customizing the header is very usefull, sometimes it's desireable to customize only parts of it. In this case you can take advantage of the default header's building blocks. These components let you put toghether the header you want, while you don't have to worry about the functionality behind them.
 
 For example you can leave out parts from the default header, change the order of the default buttons appearance or add custom components between them.
@@ -153,6 +205,19 @@ The above components can be used inside of the custom header. The following exam
     <div class="my-custom-title">{{myTitle}}</div>
   </ng-template>
 </mbsc-eventcalendar>
+```
+
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
 ```
 Play with the slider below to see the differences.
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">

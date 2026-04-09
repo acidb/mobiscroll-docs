@@ -15,6 +15,8 @@ Invalid items can be set using the `invalid` [option](/angular/select/api#opt-in
 ```
 
 ```ts
+import { Component } from '@angular/core';
+
 @Component(...)
 export class MyComponent {
     public extras = [

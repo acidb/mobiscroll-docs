@@ -19,6 +19,7 @@ The following example will create a popup with static content. When clicked or t
 <script setup>
   import { ref } from 'vue';
   import { MbscPopup } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const isPopupOpen = ref(true);
 

@@ -50,8 +50,8 @@ import '@bryntum/schedulerpro/schedulerpro.stockholm.css'
 
 ```html
 <script setup>
-import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
 import { MbscEventcalendar } from '@mobiscroll/vue'
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
 </script>
 
 <template>
@@ -167,9 +167,9 @@ Migrating resource data from Bryntum to Mobiscroll should be relatively straight
 
 ```html
 <script setup>
+import { ref } from 'vue'
 import { BryntumSchedulerPro } from '@bryntum/schedulerpro-vue-3'
 import '@bryntum/schedulerpro/schedulerpro.stockholm.css'
-import { ref } from 'vue'
 
 const myResources = ref([
   {
@@ -189,9 +189,9 @@ const myResources = ref([
 
 ```html
 <script setup>
-import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
-import { MbscEventcalendar } from '@mobiscroll/vue'
 import { ref } from 'vue'
+import { MbscEventcalendar } from '@mobiscroll/vue'
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
 
 const myResources = ref([
   {
@@ -221,9 +221,9 @@ As shown above, there are clear differences in how events are structured between
 
 ```html
 <script setup>
-import { BryntumSchedulerPro } from '@bryntum/schedulerpro-vue-3'
-import '@bryntum/scheduler/schedulerpro.stockholm.css'
 import { ref } from 'vue'
+import '@bryntum/scheduler/schedulerpro.stockholm.css'
+import { BryntumSchedulerPro } from '@bryntum/schedulerpro-vue-3'
 
 const myEvents = ref([
   {
@@ -246,9 +246,9 @@ const myEvents = ref([
 
 ```html
 <script setup>
+import { ref } from 'vue'
 import { MbscEventcalendar } from '@mobiscroll/vue'
 import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
-import { ref } from 'vue'
 
 const myEvents = ref([
   {
@@ -272,6 +272,8 @@ const myEvents = ref([
 Here’s a simple example of how to convert Bryntum-style events into the format used by Mobiscroll:
 
 ```js
+import { ref } from 'vue';
+
 const mobiscrollEvents = ref([])
 
 // ...
@@ -327,9 +329,9 @@ You can use the `events` option for passing the data inline.
 
 ```html
 <script setup>
+import { ref } from 'vue'
 import { BryntumSchedulerPro } from '@bryntum/schedulerpro-vue-3'
 import '@bryntum/schedulerpro/schedulerpro.stockholm.css'
-import { ref } from 'vue'
 
 const myEvents = ref([
   {
@@ -354,9 +356,9 @@ Pass the event array to the [`data`](/vue/eventcalendar/api#opt-data) option.
 
 ```html
 <script setup>
+import { ref } from 'vue'
 import { MbscEventcalendar } from '@mobiscroll/vue'
 import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
-import { ref } from 'vue'
 
 const myEvents = ref([
   {
@@ -410,16 +412,16 @@ In case of Mobiscroll, you can also use the [`page-loading`](/vue/eventcalendar/
 
 ```html
 <script setup>
+  import { ref } from 'vue'
   import { MbscEventcalendar, getJson } from '@mobiscroll/vue'
   import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
-  import { ref } from 'vue'
 
   const myEvents = ref([])
 
   const myView = {
     schedule: { type: 'day' }
   }
-  
+
   function handlePageLoading(args) {
     const year = args.month.getFullYear()
     const month = args.month.getMonth()
@@ -482,9 +484,9 @@ Example for saving, updating, and deleting an event through an API:
 
 ```html
 <script setup>
-  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
-  import { MbscEventcalendar } from "@mobiscroll/vue";
   import { ref } from "vue";
+  import { MbscEventcalendar } from "@mobiscroll/vue";
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myEvents = ref([]);
 
@@ -557,9 +559,9 @@ Example:
 
 ```html
 <script setup>
+import { ref } from 'vue';
 import { BryntumSchedulerPro } from '@bryntum/schedulerpro-vue-3';
 import '@bryntum/schedulerpro/schedulerpro.stockholm.css';
-import { ref } from 'vue';
 
 const schedulerRef = ref(null);
 
@@ -641,8 +643,8 @@ As a final step, let’s explore how core features from Bryntum can be replicate
 
 ```html
 <script setup>
-import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
 import { MbscEventcalendar } from '@mobiscroll/vue'
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
 
 </script>
 
@@ -688,7 +690,7 @@ In Mobiscroll, switching between views like Day, Week, or Month requires setting
 
 ```html
 <script setup>
-import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
+import { onMounted, ref } from 'vue'
 import {
   getJson,
   MbscCalendarNav,
@@ -699,7 +701,7 @@ import {
   MbscSegmented,
   MbscSegmentedGroup
 } from '@mobiscroll/vue'
-import { onMounted, ref } from 'vue'
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
 
 const myEvents = ref([])
 const view = ref('month')
@@ -822,11 +824,11 @@ So, let’s say you want to use the Day.js timezone library. After [installing](
 
 ```html
 <script setup>
-  import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
-  import { dayjsTimezone, MbscEventcalendar } from '@mobiscroll/vue';
   import dayjs from 'dayjs';
   import timezone from 'dayjs/plugin/timezone';
   import utc from 'dayjs/plugin/utc';
+  import { dayjsTimezone, MbscEventcalendar } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
 
   dayjs.extend(utc);
   dayjs.extend(timezone);
@@ -1170,8 +1172,8 @@ Bryntum supports localization by allowing developers to select from built-in loc
 ```html
 <script setup>
 import { BryntumSchedulerPro, LocaleManager } from '@bryntum/schedulerpro-vue';
-import '@bryntum/schedulerpro/schedulerpro.stockholm.css';
 import '@bryntum/schedulerpro/locales/schedulerpro.locale.FrFr';
+import '@bryntum/schedulerpro/schedulerpro.stockholm.css';
 
 LocaleManager.applyLocale('FrFr');
 </script>
@@ -1194,6 +1196,7 @@ Example setting the locale option globally:
 ```html
 <script setup>
 import { setOptions, localeFr } from '@mobiscroll/vue';
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
 setOptions({
   // ...other config...

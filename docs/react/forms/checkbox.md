@@ -21,6 +21,7 @@ The Checkbox can be positioned before or after the label using the [`position`](
 
 ```jsx
 import { Checkbox } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   return <>
@@ -38,6 +39,7 @@ Use the [`checked`](#opt-checked) and the [`onChange`](#events-onChange) props t
 ```jsx
 import { useState } from 'react';
 import { Checkbox } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [myIsChecked, setChecked] = useState(false);

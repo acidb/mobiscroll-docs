@@ -18,6 +18,7 @@ The following example will create a popup with static content. When clicked or t
 ```jsx
 import { useState } from 'react';
 import { Popup } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [isPopupOpen, setPopupOpen] = useState(true);

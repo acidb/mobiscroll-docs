@@ -22,6 +22,10 @@ function (args) {
 ```
 
 ```js title="Example for adding images to items"
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
 const countries = [{
   value: 'US',
   text: 'United States of America',

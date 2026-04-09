@@ -21,6 +21,9 @@ When updating the markup dynamically after the select component was initialized,
 When using the select with the `data` [option](/javascript/select/api#opt-data), updating the data can be done, with the `setOptions` [function](/javascript/select/api#method-setOptions) of the select instance.
 
 ```jsx
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 // the initialization function returns the instance of the select component
 const inst = mobiscroll.select('#my-input', {
     data: [],

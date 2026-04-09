@@ -22,6 +22,8 @@ The following example will create a popup with static content. When clicked or t
 </mbsc-popup>
 ```
 ```ts
+import { Component } from '@angular/core';
+
 @Component({...})
 export class MyComponent {
   isPopupOpen = true;

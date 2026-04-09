@@ -18,6 +18,7 @@ An Alert dialog notifies or warns the user about something. It displays a single
 The following example displays an Alert message:
 
 ```ts
+import { Component } from '@angular/core';
 import { Notifications } from '@mobiscroll/angular';
 
 @Component({...})

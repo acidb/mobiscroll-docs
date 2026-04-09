@@ -15,6 +15,7 @@ The following example will create a Select component with four options to choose
 
 ```jsx
 import { Select } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const myData = [

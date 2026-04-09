@@ -35,8 +35,9 @@ When using a timezone plugin with the Eventcalendar, the [`exclusiveEndDates`](a
 ```
 
 ```ts
-import { momentTimezone } from '@mobiscroll/angular';
+import { Component } from '@angular/core';
 import moment from 'moment-timezone';
+import { momentTimezone } from '@mobiscroll/angular';
 
 momentTimezone.moment = moment;
 
@@ -59,8 +60,9 @@ export class MyComponent {
 ```
 
 ```ts
-import { luxonTimezone } from '@mobiscroll/angular';
+import { Component } from '@angular/core';
 import * as luxon from 'luxon';
+import { luxonTimezone } from '@mobiscroll/angular';
 
 luxonTimezone.luxon = luxon;
 
@@ -83,10 +85,11 @@ export class MyComponent {
 ```
 
 ```ts
-import { dayjsTimezone, MbscTimezonePlugin } from '@mobiscroll/angular';
+import { Component } from '@angular/core';
 import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
+import { dayjsTimezone, MbscTimezonePlugin } from '@mobiscroll/angular';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -106,9 +109,10 @@ When working with timezones, you usually have your data stored in one timezone, 
 You can also store the timezone inside the event data, using the `timezone` property. If an event has the timezone specified, this will take precedence over the timezone set by `dataTimezone`. This is particularly useful for recurring events. Storing recurring events in UTC is not useful in most of the cases, since the occurrences will be generated in UTC time, which does not have daylight saving times. When converted to a displayTimezone which uses DST, the event times will be shifted with an hour when DST changes. Storing the timezone on the event makes it unambiguous, and will be correctly converted to `displayTimezone`.
 
 ```ts title="Example"
-import { momentTimezone } from "@mobiscroll/angular";
+import { Component } from '@angular/core';
 // highlight-next-line
 import moment from 'moment-timezone';
+import { momentTimezone } from "@mobiscroll/angular";
 
 // setup the reference to moment
 // highlight-next-line

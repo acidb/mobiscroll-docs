@@ -27,8 +27,9 @@ import General from '../../_shared/datepicker/timezones_general.mdx';
 
 ```html
 <script setup>
-  import { MbscDatepicker, momentTimezone } from '@mobiscroll/vue';
   import moment from 'moment-timezone';
+  import { MbscDatepicker, momentTimezone } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   momentTimezone.moment = moment;
 </script>
@@ -51,8 +52,10 @@ import General from '../../_shared/datepicker/timezones_general.mdx';
 
 ```html
 <script setup>
-  import { MbscDatepicker, luxonTimezone } from '@mobiscroll/vue';
   import * as luxon from 'luxon';
+  import { MbscDatepicker, luxonTimezone } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
+
   luxonTimezone.luxon = luxon;
 </script>
 
@@ -75,10 +78,11 @@ import General from '../../_shared/datepicker/timezones_general.mdx';
 
 ```html
 <script setup>
-  import { dayjsTimezone, MbscDatepicker } from '@mobiscroll/vue';
   import dayjs from 'dayjs';
   import timezone from 'dayjs/plugin/timezone';
   import utc from 'dayjs/plugin/utc';
+  import { dayjsTimezone, MbscDatepicker } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   dayjs.extend(utc);
   dayjs.extend(timezone);

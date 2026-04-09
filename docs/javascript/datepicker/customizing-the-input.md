@@ -19,6 +19,9 @@ The first choice of input customization is to have no inputs at all. In this cas
 ```
 
 ```jsx
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 mobiscroll.datepicker('#myAppointment', {
     display: 'inline'
 });
@@ -35,6 +38,9 @@ Having a custom input can be achived using the datepicker directive on the compo
 ```
 
 ```jsx
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 mobiscroll.datepicker('#myAppointment', {
     theme: 'ios',
 });
@@ -51,6 +57,9 @@ When selecting a range, you have basically two values to display: the start of t
 ```
 
 ```jsx
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 mobiscroll.datepicker('#picker', {
     select: 'range',
     startInput: '#start-input',

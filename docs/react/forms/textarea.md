@@ -20,6 +20,7 @@ Use the [`label`](#opt-label) option to provide a label to the textarea.
 
 ```jsx
 import { Textarea } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   return <Textarea label="Label" />
@@ -33,6 +34,7 @@ Use the `value` and the `onChange` props to set a value just as you would with a
 ```jsx
 import { useState } from 'react';
 import { Textarea } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [text, setText] = useState('');

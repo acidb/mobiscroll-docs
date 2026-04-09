@@ -31,6 +31,8 @@ The Checkbox can be bound to a boolean value using either the `[(ngModel)]` or t
 <mbsc-checkbox label="Bedroom lights" [(ngModel)]="bedroomLight"></mbsc-checkbox>
 ```
 ```ts
+import { Component } from '@angular/core';
+
 @Component({...})
 export class MyComponent {
   bedroomLight = false;

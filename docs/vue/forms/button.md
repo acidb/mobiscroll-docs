@@ -21,6 +21,7 @@ Buttons can display text, icons, or both. They can be colored and styled with va
 ```html
 <script setup>
   import { MbscButton } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 </script>
 
 <template>
@@ -50,6 +51,7 @@ Clicks can be handled using the standard `@click` event.
 ```html
 <script setup>
   import { MbscButton } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const handleClick = () => {
     alert('Button clicked!');

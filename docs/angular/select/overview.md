@@ -18,6 +18,7 @@ The following example will create a Select component with four options to choose
 ```
 
 ```ts
+import { Component } from '@angular/core';
 import { MbscSelectData } from '@mobiscroll/angular';
 
 @Component({...})

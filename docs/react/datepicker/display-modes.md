@@ -12,5 +12,8 @@ import Content from '../../_shared/display_modes.mdx';
 <Content />
 
 ```jsx title="Setting a display option"
+import { Datepicker } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 <Datepicker display="anchored" />
 ```

@@ -20,6 +20,10 @@ The instantiation (the creation of objects from a class) in case of the Mobiscro
 A reference to the component instance is available in every Mobiscroll event as the second argument of the event handler.
 
 ```javascript
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
 $('#my-div').mobiscroll().eventcalendar({
   onEventCreate: (args, inst) => {
     console.log('The Eventcalendar instance:', inst);
@@ -32,6 +36,10 @@ $('#my-div').mobiscroll().eventcalendar({
 A reference to the component instance is returned by the `getInst` function:
 
 ```js
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
 $('#my-div').mobiscroll().eventcalendar({ theme: 'ios' });
 
 const inst = $('#my-div').mobiscroll('getInst');
@@ -42,6 +50,10 @@ console.log('The Eventcalendar instance:', inst);
 The `getInst` function also receives a parameter. When true is passed to the parameter the form control instance will be returned. This is usefull when two components are initialized on the same element, for example: a mobiscroll input and a datepicker.
 
 ```js
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
 $('#my-inp').mobiscroll().input();
 $('#my-inp').mobiscroll().datepicker();
 
@@ -74,6 +86,10 @@ const invalidsArray = [
 To get the actual invalid days for the month of November, you can call the [`getInvalids`](../eventcalendar/api#method-getInvalids) method of the Eventcalendar instance.
 
 ```javascript
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
 // initialize the eventcalendar with the invalid rule
 $('#my-div').mobiscroll().eventcalendar({
     invalid: invalidsArray

@@ -39,6 +39,19 @@ Buttons can display text, icons, or both. They can be colored and styled with va
 <mbsc-button color="dark">Dark button</mbsc-button>
 ```
 
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
+```
+
 #### Button sizes and groups
 
 ```html
@@ -69,12 +82,38 @@ Buttons can display text, icons, or both. They can be colored and styled with va
 </div>
 ```
 
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
+```
+
 ## Handling clicks
 
 Clicks can be handled using the standard `click` event.
 
 ```html
 <mbsc-button (click)="myClickHandler()">Click me!</mbsc-button>
+```
+
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
 ```
 
 <div className="option-list">

@@ -15,6 +15,7 @@ The following example will create an Eventcalendar with the default options.
 
 ```jsx
 import { Eventcalendar } from "@mobiscroll/react";
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   return <>

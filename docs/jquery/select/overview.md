@@ -18,6 +18,10 @@ The following example will create a Select component with four options to choose
 ```
 
 ```js
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
 $('#myInp').mobiscroll().select({
   data: [
     { text: 'Atlanta', value: 1 },

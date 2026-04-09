@@ -15,6 +15,7 @@ The following example will create a Datepicker with default options.
 
 ```jsx
 import { Datepicker } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   return <>

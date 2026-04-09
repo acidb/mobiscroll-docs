@@ -19,6 +19,8 @@ When multiple days, weeks, months or years are displayed, the position of the sp
 ```
 
 ```ts
+import { Component } from '@angular/core';
+
 @Component({...})
 export class AppComponent {
   myDate = new Date(2020, 2, 18);

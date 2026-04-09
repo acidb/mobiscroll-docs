@@ -32,6 +32,7 @@ You can initialize the draggable containers by using the `<MbscDraggable />` com
 <script setup>
   import { ref } from 'vue'
   import { MbscEventcalendar, MbscDraggable } from '@mobiscroll/vue'
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const dragEl = ref();
   const myData = {
@@ -78,6 +79,7 @@ The options object can include the following properties:
 <script setup>
 import { onMounted } from 'vue'
 import { MbscEventcalendar, sortableJsDraggable } from '@mobiscroll/vue'
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
 onMounted(() => {
   const sortableList = document.getElementById("sortable-list");
@@ -132,6 +134,7 @@ The options object can include the following properties:
 <script setup>
 import { onMounted } from 'vue'
 import { MbscEventcalendar, dragulaDraggable } from '@mobiscroll/vue'
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
 onMounted(() => {
   const dragulaList = document.getElementById("dragula-list");
@@ -189,6 +192,7 @@ The Dropcontainer defines a container where events can be dragged from or droppe
 <script setup>
   import { ref } from 'vue'
   import { MbscEventcalendar, MbscDraggable, MbscDropcontainer } from '@mobiscroll/vue'
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const dragEls = ref([]);
   const dropContainerEl = ref();
@@ -247,6 +251,9 @@ Integration: enable dropping to third-party lists by setting `externalDrop` to `
 - `position` - *number* - the index where the clone is dropped.
 
 ```ts
+import { MbscExternalDropEvent } from '@mobiscroll/vue';
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
+
   // options object of the sortableJsDraggable or dragulaDraggable
   // enable drop from Eventcalendar to Dragula or SortableJS list 
   externalDrop: true,

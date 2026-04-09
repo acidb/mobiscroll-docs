@@ -31,6 +31,8 @@ The stepper can be bound to a number value using either the `[(ngModel)]` or the
 <mbsc-stepper label="My Age" [(ngModel)]="myAge"></mbsc-stepper>
 ```
 ```ts
+import { Component } from '@angular/core';
+
 @Component({...})
 export class MyComponent {
   myAge = 24;

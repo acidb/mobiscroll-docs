@@ -20,6 +20,7 @@ The following example displays an Alert message on button click.
 ```jsx
 import { useState } from 'react';
 import { Alert, Button } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [isAlertOpen, setAlertOpen] = useState(false);

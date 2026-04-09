@@ -18,6 +18,9 @@ The Popup component supports five display modes that specify where on the screen
 5. `'inline'` - will render the popup into the page embedded.
 
 ```js title="Setting a display option"
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 mobiscroll.popup('#myDiv', {
   display: 'anchored',
 });

@@ -17,6 +17,7 @@ When multiple days, weeks, months or years are displayed, the position of the sp
 <script setup>
   import { ref } from "vue";
   import { MbscEventcalendar, MbscButton } from "@mobiscroll/vue";
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myEvents = ref([...]);
   const myDate = ref(new Date(2020, 2, 18));

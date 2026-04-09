@@ -21,6 +21,10 @@ The Mobiscrol ESM bundle has all the components the regular bundle has, but it o
 All of the Mobiscroll components can be initialized manually using their initialization functions:
 
 ```javascript
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
 $('#my-element').mobiscroll().button();
 ```
 
@@ -63,6 +67,10 @@ registerComponent(Checkbox);
 After doing the registration the initialization functions can be called through the jquery selectors like this:
 
 ```javascript
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
 $('#my-div').mobiscroll().eventcalendar({
   view: {
     schedule: {
@@ -160,8 +168,9 @@ The above command will install the mobiscroll package inside `node_modules` unde
 
 ```javascript title='src\index.js'
 import $ from 'jquery';
-import { Datepicker, registerComponent, Input } from '@mobiscroll/jquery';
 import '@mobiscroll/jquery/dist/css/mobiscroll.jquery.min.css';
+import { Datepicker, registerComponent, Input } from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
 
 $(function() {
     registerComponent(Datepicker);

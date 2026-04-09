@@ -20,6 +20,7 @@ In single selection mode the functionality is similar to the [radio buttons](./r
 
 ```jsx
 import { SegmentedGroup, Segmented } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   return <SegmentedGroup name="settings">
@@ -39,6 +40,7 @@ Use the value and onChange props to set a value to the whole segmented group.
 ```jsx
 import { useState } from 'react';
 import { SegmentedGroup, Segmented } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [myRange, setMyRange] = useState(null);
@@ -62,6 +64,7 @@ In multiple selection mode segments can be selected and de-selected independentl
 ```jsx
 import { useState } from 'react';
 import { SegmentedGroup, Segmented } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [mySelectedList, setList] = useState([]);
@@ -86,6 +89,7 @@ The Segmented component's `checked` prop can also be used individually in a mult
 ```jsx
 import { useState } from 'react';
 import { SegmentedGroup, Segmented } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [users, setUsers] = useState([

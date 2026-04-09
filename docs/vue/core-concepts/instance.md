@@ -23,6 +23,7 @@ A reference to the component instance is available in every Mobiscroll event as 
 ```html
 <script setup>
   import { MbscEventcalendar } from "@mobiscroll/vue";
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   function myHandler(args, inst) {
     // highlight-next-line
@@ -49,6 +50,7 @@ Usually for Vue components the public methods and properties are on the Vue comp
 <script setup>
   import { ref } from "vue";
   import { MbscEventcalendar } from "@mobiscroll/vue";
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const instRef = ref(null);
 

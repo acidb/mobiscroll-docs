@@ -15,8 +15,9 @@ export const toc = [...instTOC,
 <InstallImport />
 
 ```jsx
-import { Eventcalendar } from "@mobiscroll/react";
 import { print } from '@mobiscroll/print';
+import { Eventcalendar } from "@mobiscroll/react";
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 const MY_MODULES = [print];
 
@@ -41,8 +42,9 @@ Popup blockers might block the created window, so you need to disable the blocke
 
 ```jsx
 import { useRef } from 'react';
-import { Eventcalendar } from "@mobiscroll/react";
 import { print } from '@mobiscroll/print';
+import { Eventcalendar } from "@mobiscroll/react";
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 const MY_MODULES = [print];
 

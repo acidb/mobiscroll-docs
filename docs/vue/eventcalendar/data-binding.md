@@ -24,6 +24,7 @@ To bind local data to the event calendar, you can simply assign a JavaScript arr
 ```html
 <script setup>
   import { MbscEventcalendar } from "@mobiscroll/vue";
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myData = [
     {
@@ -54,6 +55,7 @@ You can load the data through an external request and assign it to the data opti
 <script setup>
   import { ref, onMounted } from "vue";
   import { MbscEventcalendar, getJson } from "@mobiscroll/vue";
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myEvents = ref([]);
 
@@ -96,6 +98,7 @@ You can pass the view variables - like month and year - in the URL and handle th
 <script setup>
   import { ref } from 'vue'
   import { MbscEventcalendar, getJson } from '@mobiscroll/vue'
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myEvents = ref([])
 

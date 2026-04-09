@@ -38,6 +38,9 @@ The Timeline view can be configured through the `view` option. Below are listed 
 
 ```html title='Example'
 <script setup>
+import { MbscEventcalendar } from '@mobiscroll/vue'
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
+
 const myView = {
   timeline: {
     maxEventStack: 2,
@@ -467,6 +470,9 @@ The available width is queried from the container element of the component and n
 
 ```html title='Responsive configuration with the view option'
 <script setup>
+import { MbscEventcalendar } from '@mobiscroll/vue'
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
+
 const myResponsive = {
   xsmall: {
     view: { timeline: { type: 'day', size: 2 }}

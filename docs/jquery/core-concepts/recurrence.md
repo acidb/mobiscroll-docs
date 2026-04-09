@@ -20,6 +20,10 @@ export const toc = [...recTOC, { value: 'Full example', level: 2, id: 'full-exam
 ```
 
 ```javascript title="Recurring events on the eventcalendar"
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
 $('#my-div').mobiscroll().eventcalendar({
   data: [{
     start: new Date(2020, 2, 18, 9, 0),

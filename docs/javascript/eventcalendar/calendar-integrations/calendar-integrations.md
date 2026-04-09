@@ -39,6 +39,8 @@ Calling the `init` function will do the necessary initializations for the third 
 
 ```js
 import { googleCalendarSync } from "@mobiscroll/calendar-integration";
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
 
 const calInst = mobiscroll.eventcalendar('#myDiv'. {
   view: { schedule: { type: 'week' }},
@@ -105,6 +107,8 @@ Calling the `init` function will do the necessary initializations for the third 
 
 ```js
 import { googleCalendarSync } from "@mobiscroll/calendar-integration";
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
 
 const calInst = mobiscroll.eventcalendar('#myDiv'. {
   view: { schedule: { type: 'week' }},
@@ -158,6 +162,8 @@ Calling the `init` function will do the necessary initializations for the third 
 
 ```js
 import { outlookCalendarSync} from "@mobiscroll/calendar-integration";
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
 
 const calInst = mobiscroll.eventcalendar('#myDiv'. {
   view: { schedule: { type: 'week' }},

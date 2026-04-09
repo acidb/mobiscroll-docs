@@ -22,6 +22,7 @@ The following example displays a prompt dialog on button click.
 <script setup>
   import { ref } from 'vue';
   import { MbscPrompt, MbscButton } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const isPromptOpen = ref(false);
 

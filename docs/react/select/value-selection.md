@@ -17,6 +17,7 @@ By default the Select operates in single value selection mode, but can be used t
 ```jsx title="Selecting a single value"
 import { useState } from 'react';
 import { Select } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [drinks] = useState([
@@ -39,6 +40,7 @@ Multiselection can be enabled using the [`selectMultiple`](./api#opt-selectMulti
 ```jsx title="Selecting multiple items from a list"
 import { useState } from 'react';
 import { Select } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [bonuses] = useState(['Free ticket', 'Free Drink', 'Free Hug']);

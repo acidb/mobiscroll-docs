@@ -40,6 +40,7 @@ The Timeline view can be configured through the `view` option. Below are listed 
 <mbsc-eventcalendar [view]="myView"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscEventcalendarView } from '@mobiscroll/angular';
 
 @Component({...})
@@ -74,6 +75,7 @@ When [slots are used](https://demo.mobiscroll.com/timeline/employee-shifts) the 
 <mbsc-eventcalendar [slots]="myShifts"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscSlot } from '@mobiscroll/angular';
 
 @Component({...})
@@ -200,6 +202,7 @@ The Timeline view supports resource hierarchy. [Hierarchy groups](https://demo.m
 <mbsc-eventcalendar [resources]="myResources"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscResource } from '@mobiscroll/angular';
 
 @Component({...})
@@ -231,6 +234,7 @@ By default every resource group will be displayed and this can be modified with 
 <mbsc-eventcalendar [resources]="myResources"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscResource } from '@mobiscroll/angular';
 
 @Component({...})
@@ -271,6 +275,7 @@ Both parent and child rows can contain events and events can be moved between an
 <mbsc-eventcalendar [resources]="myResources" [data]="myEvents"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscResource, MbscCalendarEvent } from '@mobiscroll/angular';
 
 @Component({...})
@@ -302,6 +307,7 @@ Child or parent rows can be disabled by creating an [invalid rule](#opt-invalid)
 <mbsc-eventcalendar [invalid]="myInvalid"></mbsc-eventcalendar>
 ```
 ```jsx
+import { Component } from '@angular/core';
 import { MbscDateType } from '@mobiscroll/angular';
 
 @Component({...})
@@ -494,6 +500,7 @@ The available width is queried from the container element of the component and n
 <mbsc-eventcalendar [responsive]="myResponsive"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscEventcalendarView } from '@mobiscroll/angular';
 
 @Component({...})

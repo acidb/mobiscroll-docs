@@ -18,6 +18,8 @@ If an event interacts with an invalid range the event will be reverted to it's o
 If a newly created event collides with a blocked out date the event won't be created and the [`@event-create-failed`](./api#event-onEventCreateFailed) event will be fired. (If the [`dragToCreate`](./api#opt-dragToCreate) option was used)
 
 ```javascript title="Invalid array example with various properties"
+import moment from 'moment-timezone';
+
 const invalid = [
   /* Passing exact dates will block out the entire day */
   new Date(2021, 1, 7), // Date object

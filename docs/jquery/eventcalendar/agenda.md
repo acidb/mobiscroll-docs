@@ -34,6 +34,10 @@ The four views - [scheduler](./scheduler), [calendar](./calendar), [timeline](./
 For example, you can combine [a daily agenda with a weekly calendar](https://demo.mobiscroll.com/agenda/daily-agenda-with-week-calendar#) for listing the events for the selected day. The view option will look like the following:
 
 ```javascript title='Daily Agenda combined with Weekly Calendar'
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
 $('#agenda').mobiscroll().eventcalendar({
   view: {
     calendar: {
@@ -51,6 +55,10 @@ $('#agenda').mobiscroll().eventcalendar({
 The Agenda view can be configured through the `view` option. Below are listed the `agenda` object properties which can help you fine-tune this view.
 
 ```javascript title='Example'
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
 $('#agenda').mobiscroll().eventcalendar({
   view: {
     agenda: {
@@ -87,6 +95,10 @@ The available width is queried from the container element of the component and n
 :::
 
 ```javascript title='Responsive configuration with the view option'
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
 $('#agenda').mobiscroll().eventcalendar({
   responsive: {
     xsmall: {

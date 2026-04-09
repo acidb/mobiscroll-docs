@@ -21,6 +21,7 @@ The following example displays an Alert message on button click.
 <script setup>
   import { ref } from 'vue';
   import { MbscAlert, MbscButton } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const isAlertOpen = ref(false);
 </script>

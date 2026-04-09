@@ -29,8 +29,9 @@ When using a timezone plugin with the Eventcalendar, the [`exclusiveEndDates`](a
 **4.** After that, you can pass the `momentTimezone` object to the Eventcalendar's [`timezonePlugin`](./api#opt-timezonePlugin) option.
 
 ```jsx
-import { Eventcalendar, momentTimezone } from '@mobiscroll/react';
 import moment from 'moment-timezone';
+import { Eventcalendar, momentTimezone } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 momentTimezone.moment = moment;
 
@@ -51,8 +52,9 @@ function App() {
 **4.** After that, you can pass the `luxonTimezone` object to the Eventcalendar's `timezonePlugin` option.
 
 ```jsx
-import { Eventcalendar, luxonTimezone } from '@mobiscroll/react';
 import * as luxon from 'luxon';
+import { Eventcalendar, luxonTimezone } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 luxonTimezone.luxon = luxon;
 
@@ -73,10 +75,11 @@ function App() {
 **4.** After that, you can pass the `dayjsTimezone` object to the Eventcalendar's `timezonePlugin` option.
 
 ```jsx
-import { Eventcalendar, dayjsTimezone } from '@mobiscroll/react';
 import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
+import { Eventcalendar, dayjsTimezone } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -101,9 +104,10 @@ You can also store the timezone inside the event data, using the `timezone` prop
 
 ```jsx title="Example"
 import { useState } from "react";
-import { Eventcalendar, momentTimezone } from "@mobiscroll/react";
 // highlight-next-line
 import moment from 'moment-timezone';
+import { Eventcalendar, momentTimezone } from "@mobiscroll/react";
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 // setup the reference to moment
 // highlight-next-line

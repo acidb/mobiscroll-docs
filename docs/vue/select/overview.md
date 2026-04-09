@@ -15,6 +15,9 @@ The following example will create a Select component with four options to choose
 
 ```html
 <script setup>
+  import { MbscSelect } from '@mobiscroll/select';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
+  
   const myData = [
     { text: 'Atlanta', value: 1 },
     { text: 'Berlin', value: 2 },

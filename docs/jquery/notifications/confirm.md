@@ -19,6 +19,9 @@ It has two buttons, one of which confirms the action, and the other one rejects 
 The following example displays a confirm dialog:
 
 ```js
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
 mobiscroll.confirm({
   title: "Use location service?",
   message: "Help apps determine location. This means sending anonymous location data, even when no apps are running.",

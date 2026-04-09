@@ -61,7 +61,10 @@ For this to work, the `'use client'` directive has to be set on the top of the f
 
 ```tsx title="src/page.js"
 'use client'
+
 import { Datepicker } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 // ...
 ```
 
@@ -71,6 +74,9 @@ Read more on directives in the [React Documentation](https://react.dev/reference
 Add the datepicker to the page:
 
 ```tsx
+import { Datepicker } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 export default function Home() {
   return (
   <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">

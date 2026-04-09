@@ -15,6 +15,7 @@ export const toc = [...instTOC,
 <InstallImport />
 
 ```ts
+import { Component } from '@angular/core';
 import { print } from '@mobiscroll/print';
 
 @Component({...})
@@ -41,6 +42,7 @@ Popup blockers might block the created window, so you need to disable the blocke
 :::
 
 ```ts
+import { Component } from '@angular/core';
 import { print } from '@mobiscroll/print';
 
 @Component({...})

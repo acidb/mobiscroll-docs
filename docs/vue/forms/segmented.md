@@ -21,6 +21,7 @@ In single selection mode the functionality is similar to the [radio buttons](./r
 ```html
 <script setup>
   import { MbscSegmented, MbscSegmentedGroup } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 </script>
 
 <template>
@@ -37,6 +38,7 @@ In multiple selection mode segments can be selected and de-selected independentl
 ```html
 <script setup>
   import { MbscSegmented, MbscSegmentedGroup } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 </script>
 
 <template>
@@ -56,6 +58,7 @@ Use the [v-model](https://vuejs.org/api/built-in-directives.html#v-model) direct
 <script setup>
   import { ref } from 'vue';
   import { MbscSegmented, MbscSegmentedGroup } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const single = ref('1');
   const multiple = ref(['2']);

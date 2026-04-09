@@ -16,6 +16,9 @@ The [`controls`](./api#opt-controls) option specifies which control is rendered 
 
 * The **Calendar view** can be used for single or multiple date selection as well as date range selection. It is represented by the `'calendar'` string. It is the **default** of the controls option.
   ```jsx
+import { Datepicker } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
   const MY_CALENDAR_CTRL = ['calendar'];
 
   function App() {
@@ -25,6 +28,9 @@ The [`controls`](./api#opt-controls) option specifies which control is rendered 
 
 * The **Date scroller** can be used for single date selection or date range selection. It is represented by the `'date'` string.
   ```jsx
+import { Datepicker } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
   const MY_DATE_CTRL = ['date'];
 
   function App() {
@@ -34,6 +40,9 @@ The [`controls`](./api#opt-controls) option specifies which control is rendered 
 
 * The **Time scroller** can be used for single time selection or time range selection. It can also be combined with other controls. It is represented by the `'time'` string.
   ```jsx
+import { Datepicker } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
   const MY_TIME_CTRL = ['time'];
 
   function App() {
@@ -43,6 +52,9 @@ The [`controls`](./api#opt-controls) option specifies which control is rendered 
 
 * The **Date & Time scroller** can be used for single date & time selection as well as date & time range selection. It is represented by the `'datetime'` string.
   ```jsx
+import { Datepicker } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
   const MY_DATETIME_CTRL = ['datetime'];
 
   function App() {
@@ -52,6 +64,9 @@ The [`controls`](./api#opt-controls) option specifies which control is rendered 
 
 * The **Timegrid** can be used for single time selection or time range selection. It can also be combined with the `'calendar'` or the `'date'` control. It is represented by the `'timegrid'` string.
   ```jsx
+import { Datepicker } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
   const MY_TIMEGRID_CTRL = ['timegrid'];
 
   function App() {
@@ -66,6 +81,9 @@ Some controls can't be used in all situations. To have a better user experience,
 The Time scroller and the Timegrid controls can be combined with either the Calendar view or the Date scroller for extending the selection precision.
 
 ```jsx title="Combining controls"
+import { Datepicker } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 const MY_CALENDAR_TIMEGRID = ['calendar', 'timegrid'];
 const MY_CALENDAR_TIME = ['calendar', 'time'];
 const MY_DATE_TIME = ['date', 'time'];

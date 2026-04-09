@@ -35,6 +35,9 @@ For example, the daily Scheduler can also be combined with the Calendar week vie
 
 ```html title="Daily Scheduler combined with Weekly Calendar"
 <script setup>
+import { MbscEventcalendar } from '@mobiscroll/vue'
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
+
 const myView = {
   calendar: {
     type: 'week'
@@ -56,6 +59,9 @@ The Scheduler view can be configured through the `view` option. Below are listed
 
 ```html title='Example'
 <script setup>
+import { MbscEventcalendar } from '@mobiscroll/vue'
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
+
 const myView = {
   scheduler: {
     type: 'week',
@@ -306,6 +312,9 @@ The available width is queried from the container element of the component and n
 
 ```html title='Responsive configuration with the view option'
 <script setup>
+import { MbscEventcalendar } from '@mobiscroll/vue'
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
+
 const myResponsive = {
   xsmall: {
     view: { scheduler: { type: 'day' }}

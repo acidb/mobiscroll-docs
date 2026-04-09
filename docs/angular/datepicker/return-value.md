@@ -29,9 +29,9 @@ Example on how to pass Moment.js to the Datepicker:
 ```ts
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { MbscModule } from '@mobiscroll/angular';
 // highlight-next-line
 import * as moment from 'moment';
+import { MbscModule } from '@mobiscroll/angular';
 
 @Component({
   selector: 'app-root',

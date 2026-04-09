@@ -47,8 +47,8 @@ scheduler.init('scheduler_here');
 
 ```html
 <script setup>
-import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
 import { MbscEventcalendar } from '@mobiscroll/vue'
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
 </script>
 
 <template>
@@ -213,9 +213,9 @@ Mobiscroll uses the [`resources`](https://mobiscroll.com/docs/vue/eventcalendar
 
 ```html
 <script setup>
-import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
-import { MbscEventcalendar } from '@mobiscroll/vue'
 import { ref } from 'vue'
+import { MbscEventcalendar } from '@mobiscroll/vue'
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
 
 const myResources = ref([
   {
@@ -261,9 +261,9 @@ scheduler.parse([
 
 ```html
 <script setup>
+import { ref } from 'vue'
 import { MbscEventcalendar } from '@mobiscroll/vue'
 import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
-import { ref } from 'vue'
 
 const myEvents = ref([
   {
@@ -287,6 +287,8 @@ const myEvents = ref([
 Here’s a simple example of how to convert DHTMLX-style events into the format used by Mobiscroll:
 
 ```js
+import { ref } from 'vue';
+
 const mobiscrollEvents = ref([])
 
 // ...
@@ -359,9 +361,9 @@ Pass the event array to the [`data`](/vue/eventcalendar/api#opt-data) option.
 
 ```html
 <script setup>
+import { ref } from 'vue'
 import { MbscEventcalendar } from '@mobiscroll/vue'
 import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
-import { ref } from 'vue'
 
 const myEvents = ref([
   {
@@ -402,16 +404,16 @@ In case of Mobiscroll, you can also use the [`page-loading`](/vue/eventcalendar/
 
 ```html
 <script setup>
+  import { ref } from 'vue'
   import { MbscEventcalendar, getJson } from '@mobiscroll/vue'
   import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
-  import { ref } from 'vue'
 
   const myEvents = ref([])
 
   const myView = {
     schedule: { type: 'day' }
   }
-  
+
   function handlePageLoading(args) {
     const year = args.month.getFullYear()
     const month = args.month.getMonth()
@@ -466,9 +468,9 @@ Example for saving, updating, and deleting an event through an API:
 
 ```html
 <script setup>
-  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
-  import { MbscEventcalendar } from "@mobiscroll/vue";
   import { ref } from "vue";
+  import { MbscEventcalendar } from "@mobiscroll/vue";
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myEvents = ref([]);
 
@@ -601,8 +603,8 @@ As a final step, let’s explore how core features from DHTMLX can be replicated
 
 ```html
 <script setup>
-import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
 import { MbscEventcalendar } from '@mobiscroll/vue'
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
 
 </script>
 
@@ -636,7 +638,7 @@ In Mobiscroll, switching between views like Day, Week, or Month requires setting
 
 ```html
 <script setup>
-import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
+import { onMounted, ref } from 'vue'
 import {
   getJson,
   MbscCalendarNav,
@@ -647,7 +649,7 @@ import {
   MbscSegmented,
   MbscSegmentedGroup
 } from '@mobiscroll/vue'
-import { onMounted, ref } from 'vue'
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
 
 const myEvents = ref([])
 const view = ref('month')
@@ -752,11 +754,11 @@ So, let’s say you want to use the Day.js timezone library. After [installing](
 
 ```html
 <script setup>
-  import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
-  import { dayjsTimezone, MbscEventcalendar } from '@mobiscroll/vue';
   import dayjs from 'dayjs';
   import timezone from 'dayjs/plugin/timezone';
   import utc from 'dayjs/plugin/utc';
+  import { dayjsTimezone, MbscEventcalendar } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css'
 
   dayjs.extend(utc);
   dayjs.extend(timezone);
@@ -1126,6 +1128,7 @@ Example setting the locale option globally:
 ```html
 <script setup>
 import { setOptions, localeFr } from '@mobiscroll/vue';
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
 setOptions({
   // ...other config...

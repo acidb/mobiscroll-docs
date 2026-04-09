@@ -15,6 +15,7 @@ To set the initial date of the event calendar use the [`selectedDate`](./api#opt
 <script setup>
   import { ref } from "vue";
   import { MbscEventcalendar } from "@mobiscroll/vue";
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   // highlight-next-line
   const myDate = ref(new Date(2020, 2, 18));

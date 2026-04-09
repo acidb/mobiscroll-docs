@@ -14,6 +14,9 @@ This will navigate the calendar to the view containing the specified date. For v
 When multiple days, weeks, months or years are displayed, the position of the specified date on the view (first, second, third, etc. day/week/month/year) is determined by the [`refDate`](./api#opt-refDate) option.
 
 ```js
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 const inst = mobiscroll.eventcalendar('#myDiv', {
   data: [/*...*/],
   selectedDate: new Date(2020, 2, 18)

@@ -31,6 +31,7 @@ You can initialize the draggable containers by using the `<Draggable />` compone
 ```jsx
 import { useState } from 'react';
 import { Eventcalendar, Draggable } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [dragEl, setDragEl] = useState(null);
@@ -74,9 +75,10 @@ The options object can include the following properties:
 
 
 ```tsx
-import { Eventcalendar, sortableJsDraggable} from '@mobiscroll/react';
 import { useEffect } from 'react';
 import Sortable from 'sortablejs';
+import { Eventcalendar, sortableJsDraggable} from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   useEffect(() => {
@@ -124,9 +126,10 @@ The options object can include the following properties:
 - `onExternalDrop` - *(args: {container: HTMLElement, position: number, dragData: MbscCalendarEvent | MbscResource, afterElement?: HTMLElement}) => void* - function triggered on drop from Eventcalendar to Dragula list.
 
 ```tsx
+import { useEffect } from 'react';
 import dragula from 'dragula';
 import { Eventcalendar, dragulaDraggable} from '@mobiscroll/react';
-import { useEffect } from 'react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   useEffect(() => {
@@ -175,8 +178,9 @@ When an event leaves the Eventcalendar the [`onEventDragLeave`](./api#event-onEv
 
 The Dropcontainer defines a container where events can be dragged from or dropped to. The [`onItemDragLeave`](#event-onItemDragLeave) and [`onItemDragEnter`](#event-onItemDragEnter) life-cycle events can be used to track when an event exits or enters the Dropcontainer. When an item is dropped inside the container the [`onItemDrop`](#event-onItemDrop) event is triggered. This can be useful for unscheduling work or appointments that were already scheduled.
 ```jsx
-import { setState } from 'react';
-import { Draggable, Dropcontainer, Eventcalendar } from '@mobiscroll/react';
+import { setState, useState } from 'react';
+import { Draggable, Dropcontainer, Eventcalendar, MbscCalendarEvent } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function MyTask({ event }) {
   const [draggableEl, setDraggableEl] = useState(null);
@@ -240,6 +244,9 @@ Integration: enable dropping to third-party lists by setting `externalDrop` to `
 - `position` - *number* - the index where the clone is dropped.
 
 ```ts
+import { MbscExternalDropEvent } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
   // options object of the sortableJsDraggable or dragulaDraggable
   // enable drop from Eventcalendar to Dragula or SortableJS list 
   externalDrop: true,

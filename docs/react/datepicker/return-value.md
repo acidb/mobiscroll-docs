@@ -12,8 +12,9 @@ import Content from '../../_shared/datepicker/return_value.mdx';
 <Content />
 
 ```jsx title="Passing Moment.js to the Datepicker"
-import { Datepicker } from '@mobiscroll/react';
 import * as moment from 'moment';
+import { Datepicker } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   return <>

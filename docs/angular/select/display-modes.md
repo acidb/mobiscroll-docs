@@ -14,3 +14,16 @@ import Content from '../../_shared/display_modes.mdx';
 ```html title="Setting a display option"
 <mbsc-select display="anchored"></mbsc-select>
 ```
+
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
+```

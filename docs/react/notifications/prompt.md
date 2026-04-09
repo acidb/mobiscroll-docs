@@ -21,6 +21,7 @@ The following example displays a prompt dialog on button click.
 ```jsx
 import { useState } from 'react';
 import { Prompt, Button } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [isOpen, setOpen] = useState(false);

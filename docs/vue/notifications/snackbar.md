@@ -22,6 +22,7 @@ The following example displays a Snackbar message on button click.
 <script setup>
   import { ref } from 'vue';
   import { MbscSnackbar, MbscButton } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const isSnackbarOpen = ref(false);
 

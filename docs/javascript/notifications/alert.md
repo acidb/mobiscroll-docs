@@ -18,6 +18,9 @@ An Alert dialog notifies or warns the user about something. It displays a single
 The following example displays an Alert message:
 
 ```js
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 mobiscroll.alert({
   title: "Cellular Data is Turned Off for 'Safari'",
   message: "You can turn on cellular data for this app in Settings.",

@@ -22,3 +22,16 @@ The Popup component supports five display modes that specify where on the screen
   <p>Some content inside the popup!</p>
 </mbsc-popup>
 ```
+
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
+```

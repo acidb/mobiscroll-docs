@@ -139,8 +139,8 @@ export default function SchedulerView() {
 In the Mobiscroll Timeline view, the `timeline` object within the [`view`](/react/eventcalendar/timeline#configuring-the-view) option allows you to customize the visible days and the timeline’s scale. You can specify which days to display (e.g., weekdays), set the time scale (e.g., 30-minute intervals), and define the frequency of the labels shown (e.g., every 15 minutes).
 
 ```jsx
-import { Eventcalendar } from '@mobiscroll/react';
 import { useMemo } from 'react';
+import { Eventcalendar } from '@mobiscroll/react';
 import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
@@ -199,9 +199,9 @@ export default function SchedulerView() {
 You can customize the visible days and hours, as well as the time grid scale, using the `schedule` object under the [`view`](/react/eventcalendar/scheduler#configuring-the-view) option. This allows you to define which days are shown (e.g., weekdays), set the visible time range (e.g., 8 AM to 6 PM), adjust the time scale (e.g., 30-minute intervals), and control the frequency of the labels (e.g., every 15 minutes).
 
 ```jsx
+import { useMemo } from 'react';
 import { Eventcalendar } from '@mobiscroll/react';
 import '@mobiscroll/react/dist/css/mobiscroll.min.css';
-import { useMemo } from 'react';
 
 function App() {
 
@@ -322,9 +322,9 @@ export default function SchedulerView() {
 Mobiscroll uses the [`resources`](https://mobiscroll.com/docs/react/eventcalendar/timeline#opt-resources) array with `id` and `name` properties.
 
 ```jsx
+import { useMemo } from 'react';
 import { Eventcalendar } from '@mobiscroll/react';
 import '@mobiscroll/react/dist/css/mobiscroll.min.css';
-import { useMemo } from 'react';
 
 function App() {
   const myResources = useMemo(
@@ -396,9 +396,9 @@ export default function SchedulerView() {
 #### Mobiscroll:
 
 ```jsx
+import { useMemo } from 'react';
 import { Eventcalendar } from '@mobiscroll/react';
 import '@mobiscroll/react/dist/css/mobiscroll.min.css';
-import { useMemo } from 'react';
 
 function App() {
 
@@ -572,9 +572,9 @@ You can load the data through an external request and assign it to the data-boun
 In case of Mobiscroll, you can also use the [`onPageLoading`](/react/eventcalendar/api#event-onPageLoading) pevent to load the data (on demand) relevant to the currently active view. The event fires every time the date range of the view changes, for example, when someone navigates the event calendar. Getting the events in real time as the user interacts with the UI improves load performance and always serves the most recent data.
 
 ```jsx
+import { useCallback, useState } from 'react'
 import { Eventcalendar, getJson } from '@mobiscroll/react'
 import '@mobiscroll/react/dist/css/mobiscroll.min.css';
-import { useCallback, useState } from 'react'
 
 const myView = {
   schedule: { type: 'day' }
@@ -649,9 +649,9 @@ export default function SchedulerView() {
 Example for saving, updating, and deleting an event through an API:
 
 ```jsx
+import { useCallback, useState } from "react";
 import { Eventcalendar } from "@mobiscroll/react";
 import '@mobiscroll/react/dist/css/mobiscroll.min.css';
-import { useCallback, useState } from "react";
 
 const myView = {
   schedule: { type: "week" },
@@ -764,9 +764,9 @@ Mobiscroll components (e.g., Event Calendar, Scheduler, Timeline) expose a simil
 Example:
 
 ```jsx
+import { useCallback } from 'react';
 import { Eventcalendar } from '@mobiscroll/react';
 import '@mobiscroll/react/dist/css/mobiscroll.min.css';
-import { useCallback } from 'react';
 
 const App = () => {
 
@@ -809,8 +809,8 @@ As a final step, let’s explore how core features from DHTMLX can be replicated
 #### Enabling Drag & Drop in Mobiscroll:
 
 ```jsx
-import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
 
@@ -865,7 +865,7 @@ export default function SchedulerView() {
 In Mobiscroll, switching between views like Day, Week, or Month requires setting up a custom header along with event listeners to handle the view changes. You can see an example of this implementation [here](https://demo.mobiscroll.com/scheduler/switching-calendar-scheduler-agenda).
 
 ```jsx
-import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+import { useCallback, useEffect, useState } from 'react';
 import {
   CalendarNav,
   CalendarNext,
@@ -876,7 +876,7 @@ import {
   Segmented,
   SegmentedGroup,
 } from '@mobiscroll/react';
-import { useCallback, useEffect, useState } from 'react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [view, setView] = useState('month');
@@ -994,10 +994,11 @@ Mobiscroll exposes two configuration options to handle time zones:
 So, let’s say you want to use the Day.js timezone library. After [installing](/react/eventcalendar/timezones#the-dayjs-library) it into your project, you can pass the `dayjsTimezone` object to the Timeline’s [`timezonePlugin`](/react/eventcalendar/api#opt-timezonePlugin) option:
 
 ```jsx
-import { Eventcalendar, dayjsTimezone } from '@mobiscroll/react';
 import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
+import { Eventcalendar, dayjsTimezone } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -1109,9 +1110,9 @@ When you want to customize how the events look, depending on what your goal is, 
 To define a template, create an `<ng-template>` tag with a variable reference and pass it to the apropriate eventcalendar option:
 
 ```jsx
+import { useCallback, useMemo } from 'react';
 import { Eventcalendar } from '@mobiscroll/react';
 import '@mobiscroll/react/dist/css/mobiscroll.min.css';
-import { useCallback, useMemo } from 'react';
 
 const App = () => {
   const myView = useMemo(
@@ -1245,9 +1246,9 @@ In case of the Timeline view there are three places where you can customize the 
 Check out how you can style these resource parts in [this example](https://demo.mobiscroll.com/timeline/timeline-resource-details-side-panel-footer#).
 
 ```jsx
+import { useCallback, useMemo } from 'react';
 import { Eventcalendar } from '@mobiscroll/react';
 import '@mobiscroll/react/dist/css/mobiscroll.min.css';
-import { useCallback, useMemo } from 'react';
 
 const App = () => {
   const myView = useMemo(
@@ -1334,6 +1335,9 @@ Here's the list of the built in components of the default header. You can initia
 The following example will render the prev and next buttons and a custom title.
 
 ```jsx
+import { CalendarNext, CalendarPrev, Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 const myTitle = 'Awesome title';
 
 const myHeader = () => {
@@ -1433,6 +1437,7 @@ Example setting the locale option globally:
 
 ```jsx
 import { setOptions, localeFr } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 setOptions({
   // ...other config...
@@ -1444,6 +1449,7 @@ Example setting the locale at the component level:
 
 ```jsx
 import { Eventcalendar, localeFr } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 export function MyComponent() {
   return <Eventcalendar locale={localeFr} />;

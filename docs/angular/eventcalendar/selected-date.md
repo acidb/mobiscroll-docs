@@ -17,6 +17,8 @@ Use two-way binding on the property (using the "banana in the box" syntax), so t
 <mbsc-eventcalendar [(selectedDate)]="myDate"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
+
 @Component({...})
 export class AppComponent {
   myDate = new Date(2020, 2, 18);

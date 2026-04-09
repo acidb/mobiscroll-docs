@@ -19,6 +19,7 @@ It has two buttons, one of which confirms the action, and the other one rejects 
 The following example displays a confirm dialog:
 
 ```ts
+import { Component } from '@angular/core';
 import { Notifications } from '@mobiscroll/angular';
 
 @Component({...})

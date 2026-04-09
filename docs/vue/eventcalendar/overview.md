@@ -16,6 +16,7 @@ The following example will create an Eventcalendar with the default options.
 ```html
 <script setup>
   import { MbscEventcalendar } from "@mobiscroll/vue";
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 </script>
 
 <template>

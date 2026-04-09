@@ -17,6 +17,7 @@ import GroupOptionContent from '../../_shared/select/group-options.mdx';
 ```jsx title="Department selection example"
 import { useState } from 'react';
 import { Select } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [myData] =  useState([
@@ -40,6 +41,7 @@ function App() {
 ```jsx title="User selection example"
 import { useState } from 'react';
 import { Select } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [myUsers] =  useState([
@@ -64,6 +66,7 @@ function App() {
 ```jsx
 import { useState } from 'react';
 import { Select } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [myCountries] =  useState([{

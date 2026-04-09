@@ -22,6 +22,7 @@ The following example displays a toast message on button click.
 <script setup>
   import { ref } from 'vue';
   import { MbscToast, MbscButton } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const isToastOpen = ref(false);
 </script>

@@ -21,6 +21,7 @@ The following example displays a Snackbar message on button click.
 ```jsx
 import { useState, useMemo } from 'react';
 import { Snackbar, Button } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [isSnackOpen, setSnackOpen] = useState(false);

@@ -21,6 +21,9 @@ The [`select`](./api#opt-select) and [`selectMultiple`](./api#opt-selectMultiple
 This is the default behavior, and it can also be initialized with the `select: 'date'` option. Depending on the [controls](./controls) option, the Datepicker will select either a single date or a single time or both (a single datetime).
 
 ```js
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 mobiscroll.datepicker('#myInput', {
   // highlight-next-line
   select: 'date',
@@ -41,6 +44,9 @@ The type of the selected value depends on the [`returnFormat`](./api#opt-returnF
 The [`selectMultiple`](./api#opt-selectMultiple) option will enable the selection of multiple dates. It can be used with the calendar control only. The selected value in this case will be an array of dates instead of just a single date.
 
 ```js
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 mobiscroll.datepicker('#myInput', {
   selectMultiple: true,
 });
@@ -62,6 +68,9 @@ Depending on the [controls](./controls) passed to the datepicker, it will select
 Both the start and end value of the returned array will respect the [`returnFormat`](./api#opt-returnFormat) option. Learn more on how to work with ISO strings or date objects in the [Return value](./return-value) section.
 
 ```js title="Example for time range selection with ISO8601 strings"
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 mobiscroll.datepicker('#myInput', {
   select: 'range',
   returnFormat: 'iso8601',
@@ -83,6 +92,9 @@ When the preset-range selection mode is on, the start date will be fixed to a sp
 The length of the selection will be a set number of days (for example: 5 days) and can be controlled with the [`selectSize`](./api#opt-selectSize) option. By default it is set to 7 (will select the whole week), but can be reduced to even a single day.
 
 ```js title="Example for selecting a work week (Monday to Friday)"
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 mobiscroll.datepicker('#myInput', {
   select: 'preset-range',
   firstSelectDay: 1,

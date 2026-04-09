@@ -56,6 +56,8 @@ Radio button component can be bound to a string value using either the `[(ngMode
 ```
 
 ```ts
+import { Component } from '@angular/core';
+
 @Component({...})
 export class MyComponent {
   myAge = 'adult';

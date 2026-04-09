@@ -18,6 +18,9 @@ The following example will create a Select component with four options to choose
 ```
 
 ```js
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 mobiscroll.select('#myInp', {
   data: [
     { text: 'Atlanta', value: 1 },

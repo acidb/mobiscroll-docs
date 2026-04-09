@@ -11,6 +11,7 @@ By default the Mobsicroll Select component renders a Mobiscroll Input component.
 ```html
 <script setup>
   import { MbscSelect, MbscInput } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const inputPrs = {
     theme: "ios",

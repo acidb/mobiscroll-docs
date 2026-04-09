@@ -23,6 +23,7 @@ To bind local data to the event calendar, you can simply assign a JavaScript arr
 
 ```jsx
 import { Eventcalendar } from "@mobiscroll/react";
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 const myData = [
   {
@@ -51,6 +52,7 @@ You can load the data through an external request and assign it to the data opti
 ```jsx
 import { useEffect, useState } from "react";
 import { Eventcalendar, getJson } from "@mobiscroll/react";
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 const MYVIEW = {
   calendar: { type: "month" },
@@ -85,7 +87,8 @@ You can pass the view variables - like month and year - in the URL and handle th
 
 ```jsx
 import { useCallback, useState } from 'react'
-import { Eventcalendar, getJson } from '@mobiscroll/vue'
+import { Eventcalendar, getJson } from '@mobiscroll/react'
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 const MY_VIEW = {
   schedule: { type: 'day' }

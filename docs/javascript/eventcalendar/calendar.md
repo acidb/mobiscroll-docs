@@ -35,6 +35,9 @@ The four views - [scheduler](./scheduler), [calendar](./calendar), [timeline](./
 For example, you can choose to [render an agenda below the calendar](https://demo.mobiscroll.com/agenda/daily-agenda-with-week-calendar#) broken up into days ordered chronologically. The view option will look like the following:
 
 ```javascript title='Weekly Calendar combined with Daily Agenda'
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 mobiscroll.eventcalendar('#calendar', {
   view: {
     calendar: {
@@ -52,6 +55,9 @@ mobiscroll.eventcalendar('#calendar', {
 The Calendar view can be configured through the `view` option. Below are listed the `calendar` object properties which can help you fine-tune this view.
 
 ```javascript title='Example'
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 mobiscroll.eventcalendar('#calendar', {
   view: {
     calendar: {
@@ -89,6 +95,9 @@ The available width is queried from the container element of the component and n
 :::
 
 ```javascript title='Responsive configuration with the view option'
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 mobiscroll.eventcalendar('#calendar', {
   responsive: {
     xsmall: {

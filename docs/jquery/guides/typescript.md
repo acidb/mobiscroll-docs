@@ -24,11 +24,17 @@ After installation the package needs to be imported into the app with the needed
 
 ```jsx
 import { Datepicker, MbscDatepickerOptions, registerComponent } from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
 ```
 
 ## Usage
 
 ```jsx
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import { MbscDatepickerOptions } from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
 registerComponent(Datepicker);
 
 // Declaring the options with the type gives auto-suggest for the available options

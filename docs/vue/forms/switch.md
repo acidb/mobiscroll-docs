@@ -22,6 +22,7 @@ The switch can be positioned before or after the label using the [`position`](#o
 ```html
 <script setup>
   import { MbscSwitch } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 </script>
 
 <template>
@@ -39,6 +40,7 @@ Use the [v-model](https://vuejs.org/api/built-in-directives.html#v-model) direct
 <script setup>
   import { ref } from 'vue';
   import { MbscSwitch } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const checked = ref(false);
 </script>

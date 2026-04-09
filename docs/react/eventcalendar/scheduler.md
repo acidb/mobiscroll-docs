@@ -34,6 +34,9 @@ The four views - [scheduler](./scheduler), [calendar](./calendar), [timeline](./
 For example, the daily Scheduler can also be combined with the Calendar week view. The view option will look like the following:
 
 ```jsx title="Daily Scheduler combined with Weekly Calendar"
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 function App() {
   const myViewOption = {
     calendar: {
@@ -53,6 +56,9 @@ function App() {
 The Scheduler view can be configured through the `view` option. Below are listed the `scheduler` object properties which can help you fine-tune this view.
 
 ```jsx title='Example'
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 function App() {
   const myViewOptions = {
     scheduler: {
@@ -208,6 +214,9 @@ The Scheduler view can display multiple [resources](resources) inside a single i
 </div>
 
 ```jsx title="Grouping resources by date"
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 function App() {
   const myResources = [{
     id: 1,
@@ -232,6 +241,9 @@ The color property controls the default event color of the resource. If an event
 [Events](#opt-data), [colors](#opt-colors), [invalids](#opt-invalid) can be tied to a single or multiple resources. This can be done with the `resource` property of the objects, where the id of the resource should be passed. It can be a single value where the element would be linked to a single resource or in case of an array the element will show up at all of the specified resources. If no resource property is specified to the color/event/invalid object then the element will show up in every resource group.
 
 ```jsx title="Invalid rule tied to a single resource"
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 function App() {
   const myInvalidRules = [{
     // highlight-next-line
@@ -246,6 +258,9 @@ function App() {
 ```
 
 ```jsx title="Event tied to multiple resources"
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 function App() {
   const myEvents = [{
     // highlight-next-line
@@ -260,6 +275,9 @@ function App() {
 ```
 
 ```jsx title="Color rule for all the resources (resource not specified)"
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 function App() {
   const myColors = [{
     // highlight-next-line
@@ -303,6 +321,9 @@ The available width is queried from the container element of the component and n
 :::
 
 ```jsx title='Responsive configuration with the view option'
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 function App() {
   const myResponsive = {
     xsmall: {

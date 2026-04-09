@@ -22,6 +22,7 @@ By defaut filtering is done client side on the dataset passed to the Select with
 <mbsc-select [data]="countries" [filter]="true"></mbsc-select>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscSelectData } from '@mobiscroll/angular';
 
 @Component({...})
@@ -44,8 +45,9 @@ Server side filtering can be implemented with the help of the [`onFilter`](./api
 <mbsc-select [data]="countries" [options]="mySelectOptions"></mbsc-select>
 ```
 ```ts
-import { MbscSelectData, MbscSelectFilterEvent } from '@mobiscroll/angular';
+import { Component } from '@angular/core';
 import { myCreateARequestMethod } from 'any-library-i-want';
+import { MbscSelectData, MbscSelectFilterEvent, MbscSelectOptions } from '@mobiscroll/angular';
 
 @Component({...})
 export class MyComponent {

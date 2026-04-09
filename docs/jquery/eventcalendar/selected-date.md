@@ -12,6 +12,10 @@ By default the initial view of the calendar displays the current date. Depending
 To change the initial view to another date, the [`selectedDate`](./api#opt-selectedDate) option can be used.
 
 ```js
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
 $('#myDiv').mobiscroll().eventcalendar({
   data: [/*...*/],
   selectedDate: new Date(2020, 2, 18)

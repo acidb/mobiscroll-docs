@@ -41,6 +41,7 @@ Calling the `init` function will do the necessary initializations for the third 
 import { useState, useEffect } from "react";
 import { googleCalendarSync } from "@mobiscroll/calendar-integration";
 import { Eventcalendar } from "@mobiscroll/react";
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [myEvents, setMyEvents] = useState([]);
@@ -115,6 +116,7 @@ Calling the `init` function will do the necessary initializations for the third 
 import { useState, useEffect } from "react";
 import { googleCalendarSync } from "@mobiscroll/calendar-integration";
 import { Eventcalendar } from "@mobiscroll/react";
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [myEvents, setMyEvents] = useState([]);
@@ -174,6 +176,7 @@ Calling the `init` function will do the necessary initializations for the third 
 import { useState, useEffect } from "react";
 import { outlookCalendarSync} from "@mobiscroll/calendar-integration";
 import { Eventcalendar } from "@mobiscroll/react";
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [myEvents, setMyEvents] = useState([]);

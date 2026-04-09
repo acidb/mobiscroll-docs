@@ -35,6 +35,9 @@ For example, you can combine [a daily agenda with a weekly calendar](https://dem
 
 ```html title='Daily Agenda combined with Weekly Calendar'
 <script setup>
+import { MbscEventcalendar } from '@mobiscroll/vue';
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
+
 const myView = {
   calendar: {
     type: 'week'
@@ -56,6 +59,9 @@ The Agenda view can be configured through the `view` option. Below are listed th
 
 ```html title='Example'
 <script setup>
+import { MbscEventcalendar } from '@mobiscroll/vue';
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
+
 const myView = {
   agenda: {
     type: 'day',
@@ -96,6 +102,9 @@ The available width is queried from the container element of the component and n
 
 ```html title='Responsive configuration with the view option'
 <script setup>
+import { MbscEventcalendar } from '@mobiscroll/vue';
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
+
 const myResponsive = {
   xsmall: {
     view: {

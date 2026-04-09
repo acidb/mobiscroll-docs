@@ -13,6 +13,10 @@ The display of the Datepicker picker component can be customized with different 
 The header of the calendar can be fully customized to one's needs with the use of the [`renderCalendarHeader`](api#renderer-renderCalendarHeader) option.
 
 ```js
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
 $('#myInput').mobiscroll().datepicker({
   renderCalendarHeader: function() {
     return `<p>Any <strong>Title</strong> you want here</p>`;
@@ -34,6 +38,10 @@ The built in header components can be initialized with their respective attribut
 The above components can be used inside of the custom header. The following example will render the prev and next buttons and then a custom title that is set from a custom variable (myTitle variable).
 
 ```js title="Custom header with default buttons"
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
 var myTitle = 'My Awesome title';
 $('#myInput').mobiscroll().datepicker({
   renderCalendarHeader: function () {
@@ -54,6 +62,10 @@ The difference between the two is that the Datepicker will style the cells by de
 In the case of the `renderDay` option however, both the styling and the content (the dates too) will come from the custom template.
 
 ```js title="Example of custom cells"
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
 $('#myInput').mobiscroll().datepicker({
   renderDay: function (args) {
     return '**' + args.date.getDate() + '**';

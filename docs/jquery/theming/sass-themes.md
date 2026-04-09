@@ -57,6 +57,7 @@ $colors-my-happy-brand: (
 Before you can use the custom theme, you will also need to register it in your javascript code. This can be done after the mobiscroll resources has been loaded, but before using any of the components. Use the [`createCustomTheme`](#method-createCustomTheme) function. Make sure to use the same name which was specified to the Sass function, and specify the same base theme as second parameter.
 
 ```js
+import $ from 'jquery';
 import { createCustomTheme } from '@mobiscroll/jquery';
 
 createCustomTheme('my-happy-brand', 'ios'); // register the custom theme

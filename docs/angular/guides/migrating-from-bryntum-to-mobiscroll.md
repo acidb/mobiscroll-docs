@@ -286,6 +286,8 @@ myResources = [
 ### Mobiscroll Timeline view/ Scheduler – resource definition:
 
 ```ts
+import { MbscResource } from '@mobiscroll/angular';
+
 myResources: MbscResource[] = [
   { id: 'r1', name: 'Mike' },
   { id: 'r2', name: 'Linda' },
@@ -321,6 +323,8 @@ myEvents = [
 #### Mobiscroll:
 
 ```ts
+import { MbscCalendarEvent } from '@mobiscroll/angular';
+
 myEvents: MbscCalendarEvent[] = [
   {
       id: 1, 
@@ -471,6 +475,7 @@ In case of Mobiscroll, you can also use the [`onPageLoading`](/angular/eventcale
 <TabItem value="ts" label="app.component.ts">
 
 ```ts
+import { Component } from '@angular/core';
 import { MbscCalendarEvent, MbscEventcalendarView, MbscPageLoadingEvent, getJson } from '@mobiscroll/angular';
 
 @Component({...})
@@ -583,6 +588,7 @@ Example for saving, updating, and deleting an event through an API:
 <TabItem value="ts" label="app.component.ts">
 
 ```ts
+import { Component } from '@angular/core';
 import { MbscCalendarEvent, MbscEventcalendarView, MbscEventCreatedEvent, MbscEventUpdatedEvent, MbscEventDeletedEvent } from '@mobiscroll/angular';
 
 @Component({...})
@@ -664,6 +670,8 @@ Example:
 <TabItem value="ts" label="app.component.ts">
 
 ```ts
+import { Component } from '@angular/core';
+
 @Component({...});
 export class AppComponent {
   // ...
@@ -706,6 +714,9 @@ Example:
 <TabItem value="ts" label="app.component.ts">
 
 ```ts
+import { Component } from '@angular/core';
+import { MbscEventClickEvent } from '@mobiscroll/angular';
+
 @Component({...});
 export class AppComponent {
   // ...
@@ -955,10 +966,11 @@ So, let’s say you want to use the Day.js timezone library. After [installing](
 <TabItem value="ts" label="app.component.ts">
 
 ```ts
-import { dayjsTimezone, MbscTimezonePlugin } from '@mobiscroll/angular';
+import { Component } from '@angular/core';
 import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
+import { dayjsTimezone, MbscTimezonePlugin } from '@mobiscroll/angular';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -1087,6 +1099,9 @@ To define a template, create an `<ng-template>` tag with a variable reference an
 <TabItem value="ts" label="app.component.ts">
 
 ```ts
+import { Component } from '@angular/core';
+import { MbscCalendarEvent } from '@mobiscroll/angular';
+
 @Component({...});
 export class AppComponent {
   // ...
@@ -1249,6 +1264,9 @@ Check out how you can style these resource parts in [this example](https://demo.
 <TabItem value="ts" label="app.component.ts">
 
 ```ts
+import { Component } from '@angular/core';
+import { MbscResource } from '@mobiscroll/angular';
+
 @Component({...});
 export class AppComponent {
   // ...
@@ -1386,7 +1404,7 @@ Example setting the locale at the component level:
 
 ```ts
 import { Component } from '@angular/core';
-import { localeDe, MbscModule } from '@mobiscroll/angular';
+import { MbscModule, localeDe, localeFr } from '@mobiscroll/angular';
 
 @Component({
   selector: 'app-root',

@@ -58,6 +58,10 @@ We offer and support a number of translations for the Mobiscroll library. If you
 The `locale` option can be used to set the language of a component. It takes an object, that should contain the translations of the texts used in the component. The supported languages can be set directly from the mobiscroll bundle.
 
 ```javascript title='Locale option usage'
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
 $('#myexample').mobiscroll().eventcalendar({
   locale: mobiscroll.localeDe
 });
@@ -66,6 +70,10 @@ $('#myexample').mobiscroll().eventcalendar({
 Creating your own locale object is simple as creating an object in JavaScript. For example, the Cancel button on many Mobiscroll components uses the `cancelText` property. If you want to provide a translation for it, the locale object would look like this:
 
 ```javascript title='Creating a locale object'
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
 var myLocale = {
     cancelText: 'Mégse'
 }
@@ -80,7 +88,9 @@ The exact properties for each component can be found [above](#localization-optio
 For typescript environments, the `MbscLocale` type can also be used as the base type for the locale object.
 
 ```ts title='Example with types'
-import { MbscLocale } from 'path/to/mobiscroll';
+import $ from 'jquery';
+import { MbscLocale } from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
 
 const myLocale: MbscLocale = {
     setText: 'Ok',

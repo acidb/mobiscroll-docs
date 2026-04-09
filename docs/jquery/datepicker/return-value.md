@@ -14,6 +14,8 @@ import Content from '../../_shared/datepicker/return_value.mdx';
 ```js title="Passing Moment.js to the Datepicker"
 import $ from 'jquery';
 import * as moment from 'moment';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
 
 $('#myInput').mobiscroll().datepicker({
   moment: moment,

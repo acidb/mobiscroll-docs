@@ -20,6 +20,7 @@ export const toc = [...recTOC, { value: 'Full example', level: 2, id: 'full-exam
   import { ref } from 'vue';
   import { MbscEventcalendar } from '@mobiscroll/vue';
   import type { MbscCalendarEvent } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myEvents = ref<MbscCalendarEvent[]>([{
     start: new Date(2020, 2, 18, 9, 0),

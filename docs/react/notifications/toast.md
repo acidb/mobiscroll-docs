@@ -21,6 +21,7 @@ The following example displays a toast message on button click.
 ```jsx
 import { useState } from 'react';
 import { Toast, Button } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [isToastOpen, setToastOpen] = useState(false);

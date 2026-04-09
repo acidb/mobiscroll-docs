@@ -18,6 +18,7 @@ By default the Select operates in single value selection mode, but can be used t
 <mbsc-select [data]="drinks" [(ngModel)]="selected"></mbsc-select>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscSelectData } from '@mobiscroll/angular';
 
 @Component({...})
@@ -40,6 +41,7 @@ Multiselection can be enabled using the [`selectMultiple`](./api#opt-selectMulti
 <mbsc-select [data]="bonuses" [selectMultiple]="true" [(ngModel)]="selected"></mbsc-select>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscSelectData } from '@mobiscroll/angular';
 
 @Component({...})

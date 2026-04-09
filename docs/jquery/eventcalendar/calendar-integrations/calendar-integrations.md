@@ -38,7 +38,10 @@ The public google calendar integration allows you to load events from a public c
 Calling the `init` function will do the necessary initializations for the third party. After the init, you can list the events from the public calendar.
 
 ```js
+import $ from 'jquery';
 import { googleCalendarSync } from "@mobiscroll/calendar-integration";
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
 
 const calInst = $('#myDiv').mobiscroll().eventcalendar({
   view: { schedule: { type: 'week' }},
@@ -104,7 +107,10 @@ Follow these steps to set up and use the calendar integration correctly:
 Calling the `init` function will do the necessary initializations for the third party. For this step you need to use an API key and a client ID. After the `init`, you can sign in, list your calendars and events and create, update or delete the events on the calendars you have permission to.
 
 ```js
+import $ from 'jquery';
 import { googleCalendarSync } from "@mobiscroll/calendar-integration";
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
 
 const calInst = $('#myDiv').mobiscroll().eventcalendar({
   view: { schedule: { type: 'week' }},
@@ -157,7 +163,10 @@ The Outlook Calendar Integration is a part of the third party calendar integrati
 Calling the `init` function will do the necessary initializations for the third party. For this step you need to use a [client ID](https://docs.microsoft.com/en-us/graph/auth-v2-user). After the init, you can sign in, list your calendars and events and create, update or delete the events on the calendars you have permission to.
 
 ```js
+import $ from 'jquery';
 import { outlookCalendarSync} from "@mobiscroll/calendar-integration";
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
 
 const calInst = $('#myDiv').mobiscroll().eventcalendar({
   view: { schedule: { type: 'week' }},

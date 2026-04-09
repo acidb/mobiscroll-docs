@@ -12,6 +12,9 @@ Invalid items can be set using the `invalid` [option](/vue/select/api#opt-invali
 
 ```html title="Invalid example"
 <script setup>
+import { MbscSelect } from '@mobiscroll/select';
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
+
 const myData = [
   { text: 'Atlanta', value: 'atl' },
   { text: 'Berlin', value: 'ber' },

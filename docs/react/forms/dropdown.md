@@ -20,6 +20,7 @@ Use the [`label`](#opt-label) option to provide a label to the dropdown.
 
 ```jsx
 import { Dropdown } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   return <Dropdown label="Label">
@@ -38,6 +39,7 @@ Use the `value` and the `onChange` props to bind the selected value to dropdown.
 ```jsx
 import { useState } from 'react';
 import { Dropdown } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [selectedValue, setSelectedValue] = useState('3');

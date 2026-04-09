@@ -58,6 +58,9 @@ If you add more modules later, or decide that you need the mobiscroll components
 ```ts title="new-module.module.ts"
 // ...other imports of your module
 
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MbscModule } from '@mobiscroll/angular';
 
 @NgModule({
@@ -112,6 +115,8 @@ To test it let's add a simple input to the Tab1 component in the starter app. In
 <TabItem value="ts" label="src/app/tab1/tab1.page.ts">
 
 ```ts
+import { Component } from '@angular/core';
+
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -132,6 +137,9 @@ export class Tab1Page {
 <TabItem value="module" label="src/app/tab1/tab1.module.ts">
 
 ```ts
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 // highlight-next-line
 import { MbscModule } from '@mobiscroll/angular';
 
@@ -186,6 +194,9 @@ export class Tab1PageModule {}
 <TabItem value="ts" label="src/app/tab1/tab1.page.ts">
 
 ```ts
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 // highlight-next-line
 import { MbscModule } from '@mobiscroll/angular';
 

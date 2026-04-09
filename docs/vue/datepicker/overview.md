@@ -16,6 +16,7 @@ The following example will create a Datepicker with default options.
 ```html
 <script setup>
   import { MbscDatepicker } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 </script>
 
 <template>

@@ -17,6 +17,7 @@ export const toc = [...instTOC,
 ```js
 import { eventcalendar } from '@mobiscroll/javascript';
 import { print } from '@mobiscroll/print';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
 
 eventcalendar('#myDiv', {
   modules: [print]
@@ -55,6 +56,7 @@ Popup blockers might block the created window, so you need to disable the blocke
 ```js
 import { eventcalendar } from '@mobiscroll/javascript';
 import { print } from '@mobiscroll/print';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
 
 const inst = eventcalendar('#myDiv', {
   modules: [print],

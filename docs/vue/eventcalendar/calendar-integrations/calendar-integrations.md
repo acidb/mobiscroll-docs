@@ -41,6 +41,8 @@ Calling the `init` function will do the necessary initializations for the third 
 <script>
   import { ref } from "vue";
   import { googleCalendarSync} from "@mobiscroll/calendar-integration";
+  import { MbscEventcalendar } from '@mobiscroll/vue'
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myEvents = ref([]);
 
@@ -111,6 +113,8 @@ Calling the `init` function will do the necessary initializations for the third 
 <script>
   import { ref } from "vue";
   import { googleCalendarSync} from "@mobiscroll/calendar-integration";
+  import { MbscEventcalendar } from '@mobiscroll/vue'
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myEvents = ref([]);
 
@@ -168,6 +172,8 @@ Calling the `init` function will do the necessary initializations for the third 
 <script>
   import { ref } from "vue";
   import { outlookCalendarSync} from "@mobiscroll/calendar-integration";
+  import { MbscEventcalendar } from '@mobiscroll/vue'
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myEvents = ref([]);
 

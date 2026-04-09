@@ -35,6 +35,7 @@ The item data is accessible through the `data` property of the template paramete
 ```
 
 ```ts
+import { Component } from '@angular/core';
 import { MbscSelectData } from '@mobiscroll/angular';
 
 @Component({...})

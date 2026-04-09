@@ -24,6 +24,7 @@ When you want to create a recurring event through the Mobiscroll Eventcalendar, 
 <mbsc-eventcalendar (onEventCreate)="myHandler($event)"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscEventcalendarView } from '@mobiscroll/angular';
 
 @Component({...})

@@ -14,7 +14,9 @@ This will navigate the calendar to the view containing the specified date. For v
 When multiple days, weeks, months or years are displayed, the position of the specified date on the view (first, second, third, etc. day/week/month/year) is determined by the [`refDate`](./api#opt-refDate) option.
 
 ```jsx
+import { useCallback, useState } from 'react';
 import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 const App = () => {
   const [events, setEvents] = useState([/*...*/]);

@@ -34,6 +34,9 @@ To pass props to the custom component, you can use the `inputProps` [prop](/vue/
 
 ```html title="Using with one input"
 <script setup>
+import { ref } from 'vue';
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
+
 const isPickerOpen = ref(false)
 function openPicker() {
   isPickerOpen.value = true
@@ -62,6 +65,9 @@ When selecting a range, you have basically two values to display: the start of t
 
 ```html title="Two inputs for range selection"
 <script setup>
+import { ref } from 'vue';
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
+
 const startInput = ref(null)
 const endInput = ref(null)
 </script>

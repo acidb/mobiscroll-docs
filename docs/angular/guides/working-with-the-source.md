@@ -48,10 +48,10 @@ The installed package is a production ready package. After installing it, you ca
 ### Using standalone components
 
 ```ts title="app.component.ts"
-import { MbscEventcalendarModule, MbscDatepickerModule } from '@mobiscroll/angular';
+import { Component, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { MbscEventcalendarModule, MbscDatepickerModule } from '@mobiscroll/angular';
 
 @Component({
   selector: 'app-root',

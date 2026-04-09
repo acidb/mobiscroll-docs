@@ -22,6 +22,10 @@ export const toc = [...dataTOC,
 To bind local data to the event calendar, you can simply assign a JavaScript array of objects to the [`data`](api#opt-data) option of the component.
 
 ```js
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
 $('#myDiv').mobiscroll().eventcalendar({
   data: [{
     id: "event_id1",
@@ -43,6 +47,10 @@ $('#myDiv').mobiscroll().eventcalendar({
 You can load the data through an external request and use the [`setEvents`](./api#method-setEvents) method to update the eventcalendar with the newly received data.
 
 ```js
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
 const inst = $('#myDiv').mobiscroll().eventcalendar({
   view: {
     calendar: { type: "month" },
@@ -68,6 +76,10 @@ You can pass the view variables - like month and year - in the URL and handle th
 :::
 
 ```js
+import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
 $('#myDiv').mobiscroll().eventcalendar({
   view: {
     schedule: { type: 'day' }

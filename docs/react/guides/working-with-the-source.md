@@ -53,10 +53,9 @@ When you want to use the actual source code in your project, you will need to co
 When importing the components from their own files, the base theme files need to be loaded as well. The base themes and custom themes need to be loaded only once in the project.
 
 ```jsx title="Using the Datepicker from the source"
+import './my-mobiscroll-dir/core/custom-themes.scss';
 import './my-mobiscroll-dir/core/icons.scss';
 import './my-mobiscroll-dir/core/themes';
-import './my-mobiscroll-dir/core/custom-themes.scss';
-
 import { Datepicker } from './my-mobiscroll-dir/react/components/datepicker';
 
 function Example() {

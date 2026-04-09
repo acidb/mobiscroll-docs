@@ -16,7 +16,9 @@ export const toc = [...instTOC,
 
 ```js
 import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
 import { print } from '@mobiscroll/print';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
 
 $('#myDiv').mobiscroll().eventcalendar({
   modules: [print]
@@ -28,6 +30,8 @@ $('#myDiv').mobiscroll().eventcalendar({
 For projects whithout a script bundler and/or where the library is installed from a downloaded package instead of NPM, the print module can be references from the mobiscroll namespace. For mobiscroll packages built with the [download builder](https://download.mobiscroll.com), the print module will be bundled into the same package, so you don't have to include an additional package to your web page.
 
 ```js
+import $ from 'jquery';
+
 $('#myDiv').mobscroll().eventcalendar({
   modules: [mobiscroll.print],
 });
@@ -54,7 +58,9 @@ Popup blockers might block the created window, so you need to disable the blocke
 ```
 ```js
 import $ from 'jquery';
+import * as mobiscroll from '@mobiscroll/jquery';
 import { print } from '@mobiscroll/print';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
 
 const MY_MODULES = [print];
 

@@ -19,6 +19,7 @@ It has two buttons, one of which submits the entered data, the other one cancels
 The following example displays a prompt dialog:
 
 ```ts
+import { Component } from '@angular/core';
 import { Notifications } from '@mobiscroll/angular';
 
 @Component({...})

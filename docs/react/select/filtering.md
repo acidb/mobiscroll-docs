@@ -21,6 +21,7 @@ By defaut filtering is done client side on the dataset passed to the Select with
 ```jsx
 import { useState } from 'react';
 import { Select } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [countries] = useState([
@@ -41,8 +42,9 @@ Server side filtering can be implemented with the help of the [`onFilter`](./api
 
 ```jsx
 import { useState } from 'react';
-import { Select } from '@mobiscroll/select';
 import { myCreateARequestMethod } from 'any-library-i-want';
+import { Select } from '@mobiscroll/select';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [data, setData] = useState([]);

@@ -25,6 +25,8 @@ The datepicker component will render a Mobiscroll Input by default. This input w
 Having a custom input can be achived using the datepicker directive on the component you want.
 
 ```ts title="Using the datepicker on an IonInput"
+import { Component } from '@angular/core';
+
 @Component({...})
 export class AppComponent {
   // highlight-next-line

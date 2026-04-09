@@ -15,6 +15,9 @@ The Select component can be used to select one or multiple values from a list. T
 By default the Select operates in single value selection mode, but can be used to select multiple values from a list as well.
 
 ```js title="Selecting a single value"
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 mobiscroll.select('#myInput', {
   data: [
     { text: 'Mohito', value: 'mohito'},
@@ -29,6 +32,9 @@ mobiscroll.select('#myInput', {
 Multiselection can be enabled using the [`selectMultiple`](./api#opt-selectMultiple) option.
 
 ```js title="Selecting multiple items from a list"
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 mobiscroll.select('#myInput', {
   data: ['Free ticket', 'Free Drink', 'Free Hug'],
   selectMultiple: true,

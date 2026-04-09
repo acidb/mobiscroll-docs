@@ -13,8 +13,9 @@ import Content from '../../_shared/datepicker/return_value.mdx';
 
 ```html title="Passing Moment.js to the Datepicker"
 <script setup>
-  import { MbscDatepicker } from '@mobiscroll/vue';
   import * as moment from 'moment';
+  import { MbscDatepicker } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 </script>
 
 <template>

@@ -30,8 +30,9 @@ When using a timezone plugin with the Eventcalendar, the [`exclusiveEndDates`](a
 
 ```html
 <script setup>
-  import { MbscEventcalendar, momentTimezone } from '@mobiscroll/vue';
   import moment from 'moment-timezone';
+  import { MbscEventcalendar, momentTimezone } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   momentTimezone.moment = moment;
 </script>
@@ -54,8 +55,10 @@ When using a timezone plugin with the Eventcalendar, the [`exclusiveEndDates`](a
 
 ```html
 <script setup>
-  import { MbscEventcalendar, luxonTimezone } from '@mobiscroll/vue';
   import * as luxon from 'luxon';
+  import { MbscEventcalendar, luxonTimezone } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
+
   luxonTimezone.luxon = luxon;
 </script>
 
@@ -77,10 +80,11 @@ When using a timezone plugin with the Eventcalendar, the [`exclusiveEndDates`](a
 
 ```html
 <script setup>
-  import { dayjsTimezone, MbscEventcalendar } from '@mobiscroll/vue';
   import dayjs from 'dayjs';
   import timezone from 'dayjs/plugin/timezone';
   import utc from 'dayjs/plugin/utc';
+  import { dayjsTimezone, MbscEventcalendar } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   dayjs.extend(utc);
   dayjs.extend(timezone);
@@ -106,9 +110,10 @@ You can also store the timezone inside the event data, using the `timezone` prop
 ```html title="Example"
 <script setup>
   import { ref } from "vue";
-  import { MbscEventcalendar, momentTimezone } from "@mobiscroll/vue";
   // highlight-next-line
   import moment from 'moment-timezone';
+  import { MbscEventcalendar, momentTimezone } from "@mobiscroll/vue";
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   // setup the reference to moment
   // highlight-next-line

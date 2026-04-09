@@ -19,6 +19,7 @@ The Toast component don't lock the app's main interface and are automatically di
 The following example displays a toast message:
 
 ```ts
+import { Component } from '@angular/core';
 import { Notifications } from '@mobiscroll/angular';
 
 @Component({...})

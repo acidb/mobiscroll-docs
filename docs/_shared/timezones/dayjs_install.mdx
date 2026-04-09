@@ -13,6 +13,7 @@ import dayjs from 'dayjs';{'\n'}
 import timezone from 'dayjs/plugin/timezone';{'\n'}
 import utc from 'dayjs/plugin/utc';{'\n'}
 import {'\{'} dayjsTimezone {'\}'} from '@mobiscroll/{props.framework}';{'\n'}
+import '@mobiscroll/{props.framework}/dist/css/mobiscroll.min.css';{'\n'}
 {'\n'}
 dayjs.extend(utc);{'\n'}
 dayjs.extend(timezone);
@@ -21,5 +22,8 @@ dayjs.extend(timezone);
 **3.** Then set the mobiscroll's reference to the imported library:
 
 <CodeBlock language="javascript" title="Day.js library setup">
+import dayjs from 'dayjs';{'\n'}
+import {'\{'} dayjsTimezone {'\}'} from '@mobiscroll/{props.framework}';{'\n'}
+import '@mobiscroll/{props.framework}/dist/css/mobiscroll.min.css';{'\n'}
 dayjsTimezone.dayjs = dayjs;
 </CodeBlock>

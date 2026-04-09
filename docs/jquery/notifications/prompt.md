@@ -19,6 +19,9 @@ It has two buttons, one of which submits the entered data, the other one cancels
 The following example displays a prompt dialog:
 
 ```js
+import * as mobiscroll from '@mobiscroll/jquery';
+import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+
 mobiscroll.prompt({
   title: "Sign in to iTunes Store",
   message: "Enter the Apple ID password for 'hello@mobiscroll.com'.",

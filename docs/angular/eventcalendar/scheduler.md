@@ -37,6 +37,7 @@ For example, the daily Scheduler can also be combined with the Calendar week vie
 <mbsc-eventcalendar [view]="myView"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscEventcalendarView } from '@mobiscroll/angular';
 
 @Component({...})
@@ -56,6 +57,7 @@ The Scheduler view can be configured through the `view` option. Below are listed
 <mbsc-eventcalendar [view]="myView"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscEventcalendarView } from '@mobiscroll/angular';
 
 @Component({...})
@@ -216,6 +218,7 @@ The Scheduler view can display multiple [resources](resources) inside a single i
 <mbsc-eventcalendar [resources]="myResources" groupBy="date"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscResource } from '@mobiscroll/angular';
 
 @Component({...})
@@ -244,6 +247,7 @@ The color property controls the default event color of the resource. If an event
 <mbsc-eventcalendar [invalid]="myInvalid"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscDateType } from '@mobiscroll/angular';
 
 @Component({...})
@@ -263,6 +267,7 @@ export class MyComponent {
 <mbsc-eventcalendar [data]="myData"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscCalendarEvent } from '@mobiscroll/angular';
 
 @Component({...})
@@ -282,6 +287,7 @@ export class MyComponent {
 <mbsc-eventcalendar [colors]="myColors"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscCalendarColor } from '@mobiscroll/angular';
 
 @Component({...})
@@ -331,6 +337,7 @@ The available width is queried from the container element of the component and n
 ```
 
 ```ts
+import { Component } from '@angular/core';
 import { MbscEventcalendarView } from '@mobiscroll/angular';
 
 @Component({...})

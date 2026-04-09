@@ -17,6 +17,7 @@ The Eventcalendar is bound to an array of event objects as described in the [dat
 <script setup>
   import { ref } from "vue";
   import { MbscEventcalendar, MbscButton } from "@mobiscroll/vue";
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myEvents = ref([
     { id: 'id1' start: '2023-09-24', end: '2023-09-30', title: 'Short trip!'},
@@ -62,8 +63,9 @@ When an event is about to be created using click or drag on the Eventcalendar UI
 ```html title="Save a new event through an API"
 <script setup>
   import { ref } from "vue";
-  import { MbscEventcalendar } from "@mobiscroll/vue";
   import axios from 'axios';
+  import { MbscEventcalendar } from "@mobiscroll/vue";
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myEvents = ref([]);
 
@@ -99,8 +101,9 @@ When an event is about to be updated by dragging on the Eventcalendar UI, the [`
 ```html title="Send an updated event through an API"
 <script setup>
   import { ref } from "vue";
-  import { MbscEventcalendar } from "@mobiscroll/vue";
   import axios from 'axios';
+  import { MbscEventcalendar } from "@mobiscroll/vue";
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myEvents = ref([
     { id: 'id1' start: '2023-09-24', end: '2023-09-30', title: 'Short trip!'},
@@ -155,8 +158,9 @@ Either one of these events can be used to send the deletion through an API.
 ```html title="Notify a server of an event deletion"
 <script setup>
   import { ref } from "vue";
-  import { MbscEventcalendar } from "@mobiscroll/vue";
   import axios from 'axios';
+  import { MbscEventcalendar } from "@mobiscroll/vue";
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myEvents = ref([
     { id: 'id1' start: '2023-09-24', end: '2023-09-30', title: 'Short trip!'},

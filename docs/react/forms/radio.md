@@ -24,6 +24,7 @@ Use the [`label`](#opt-label) option to provide a label to the Radio button.
 
 ```jsx
 import { Radio, RadioGroup } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   return <RadioGroup name="gender">
@@ -41,6 +42,7 @@ Use the `checked` and the `onChange` props to set a value to the radio component
 ```jsx
 import { useState } from 'react';
 import { Radio, RadioGroup } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [gender, setGender] = useState('f');

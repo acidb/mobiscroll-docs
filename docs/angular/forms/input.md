@@ -26,6 +26,19 @@ Use the [`label`](#opt-label) option to provide a label to the input field.
 <mbsc-input label="Password" type="password" [passwordToggle]="true"></mbsc-input>
 ```
 
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
+```
+
 ## Input style
 
 With the [`inputStyle`](#opt-inputStyle) attribute you can customize the look of input. There are three styles to choose from:
@@ -39,6 +52,19 @@ With the [`inputStyle`](#opt-inputStyle) attribute you can customize the look of
 
 <!-- Outline input style -->
 <mbsc-input label="Label" inputStyle="outline"></mbsc-input>
+```
+
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
 ```
 
 ## Label style
@@ -56,12 +82,38 @@ With the [`labelStyle`](#opt-labelStyle) attribute you can define the position o
 <mbsc-input label="Label" labelStyle="floating"></mbsc-input>
 ```
 
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
+```
+
 ## Value binding
 
 The input can be bound to a string value using either the `[(ngModel)]` or the `formControlName` directives. In this case the input will update it's state according to the bound value.
 
 ```html
 <mbsc-input [(ngModel)]="username" label="Username" inputStyle="outline" labelStyle="floating"></mbsc-input>
+```
+
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
 ```
 
 <div className="option-list">

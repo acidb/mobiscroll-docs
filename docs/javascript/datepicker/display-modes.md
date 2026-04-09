@@ -12,6 +12,9 @@ import Content from '../../_shared/display_modes.mdx';
 <Content />
 
 ```js title="Setting a display option"
+import * as mobiscroll from '@mobiscroll/javascript';
+import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+
 mobiscroll.datepicker('#myInput', {
   display: 'anchored',
 });

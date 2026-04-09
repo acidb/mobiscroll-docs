@@ -2,10 +2,10 @@
 
 ## Documentation Source
 
-- **Primary (complete docs):** https://mobiscroll.com/docs/llms-vue-full.txt
-- **TOC (links to .md pages):** https://mobiscroll.com/docs/llms-vue.txt
-- **Individual pages:** `https://mobiscroll.com/docs/docs/vue/{section}/{page}.md`
-- **Connect API (server-side):** https://mobiscroll.com/docs/llms-connect-full.txt
+- **Primary (complete docs):** {{DOCS_BASE_URL}}/llms-vue-full.txt
+- **TOC (links to .md pages):** {{DOCS_BASE_URL}}/llms-vue.txt
+- **Individual pages:** `{{DOCS_BASE_URL}}/docs/vue/{section}/{page}.md`
+- **Connect API (server-side):** {{DOCS_BASE_URL}}/llms-connect-full.txt
 
 ## Scope
 

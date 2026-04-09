@@ -2,10 +2,10 @@
 
 ## Documentation Source
 
-- **Primary (complete docs):** https://mobiscroll.com/docs/llms-javascript-full.txt
-- **TOC (links to .md pages):** https://mobiscroll.com/docs/llms-javascript.txt
-- **Individual pages:** `https://mobiscroll.com/docs/docs/javascript/{section}/{page}.md`
-- **Connect API (server-side):** https://mobiscroll.com/docs/llms-connect-full.txt
+- **Primary (complete docs):** {{DOCS_BASE_URL}}/llms-javascript-full.txt
+- **TOC (links to .md pages):** {{DOCS_BASE_URL}}/llms-javascript.txt
+- **Individual pages:** `{{DOCS_BASE_URL}}/docs/javascript/{section}/{page}.md`
+- **Connect API (server-side):** {{DOCS_BASE_URL}}/llms-connect-full.txt
 
 ## Scope
 

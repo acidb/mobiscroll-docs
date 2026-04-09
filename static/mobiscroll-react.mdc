@@ -2,10 +2,10 @@
 
 ## Documentation Source
 
-- **Primary (complete docs):** https://mobiscroll.com/docs/llms-react-full.txt
-- **TOC (links to .md pages):** https://mobiscroll.com/docs/llms-react.txt
-- **Individual pages:** `https://mobiscroll.com/docs/docs/react/{section}/{page}.md`
-- **Connect API (server-side):** https://mobiscroll.com/docs/llms-connect-full.txt
+- **Primary (complete docs):** {{DOCS_BASE_URL}}/llms-react-full.txt
+- **TOC (links to .md pages):** {{DOCS_BASE_URL}}/llms-react.txt
+- **Individual pages:** `{{DOCS_BASE_URL}}/docs/react/{section}/{page}.md`
+- **Connect API (server-side):** {{DOCS_BASE_URL}}/llms-connect-full.txt
 
 ## Scope
 

@@ -2,7 +2,7 @@
 
 - **Product:** Mobiscroll UI Components + Mobiscroll Connect
 - **Version:** 6 (current)
-- **Base URL:** `https://mobiscroll.com/docs`
+- **Base URL:** `{{DOCS_BASE_URL}}`
 - **Frameworks:** React, Angular, Vue, JavaScript, jQuery
 - **Packages:** `@mobiscroll/react`, `@mobiscroll/angular`, `@mobiscroll/vue`, `@mobiscroll/javascript`, `@mobiscroll/jquery`
 
@@ -14,34 +14,34 @@
 
 Fetch ONE of these based on the detected framework. Each file contains the complete documentation for that framework.
 
-- **React:** https://mobiscroll.com/docs/llms-react-full.txt
-- **Angular:** https://mobiscroll.com/docs/llms-angular-full.txt
-- **Vue:** https://mobiscroll.com/docs/llms-vue-full.txt
-- **JavaScript:** https://mobiscroll.com/docs/llms-javascript-full.txt
-- **jQuery:** https://mobiscroll.com/docs/llms-jquery-full.txt
+- **React:** {{DOCS_BASE_URL}}/llms-react-full.txt
+- **Angular:** {{DOCS_BASE_URL}}/llms-angular-full.txt
+- **Vue:** {{DOCS_BASE_URL}}/llms-vue-full.txt
+- **JavaScript:** {{DOCS_BASE_URL}}/llms-javascript-full.txt
+- **jQuery:** {{DOCS_BASE_URL}}/llms-jquery-full.txt
 
 ### Secondary: Table of contents per framework (links to individual .md pages)
 
-- **React:** https://mobiscroll.com/docs/llms-react.txt
-- **Angular:** https://mobiscroll.com/docs/llms-angular.txt
-- **Vue:** https://mobiscroll.com/docs/llms-vue.txt
-- **JavaScript:** https://mobiscroll.com/docs/llms-javascript.txt
-- **jQuery:** https://mobiscroll.com/docs/llms-jquery.txt
+- **React:** {{DOCS_BASE_URL}}/llms-react.txt
+- **Angular:** {{DOCS_BASE_URL}}/llms-angular.txt
+- **Vue:** {{DOCS_BASE_URL}}/llms-vue.txt
+- **JavaScript:** {{DOCS_BASE_URL}}/llms-javascript.txt
+- **jQuery:** {{DOCS_BASE_URL}}/llms-jquery.txt
 
 ### Mobiscroll Connect (server-side calendar integration API — separate product)
 
-- **Full:** https://mobiscroll.com/docs/llms-connect-full.txt
-- **TOC:** https://mobiscroll.com/docs/llms-connect.txt
+- **Full:** {{DOCS_BASE_URL}}/llms-connect-full.txt
+- **TOC:** {{DOCS_BASE_URL}}/llms-connect.txt
 
 ### Hub
 
-- **Overview:** https://mobiscroll.com/docs/llms.txt
-- **All frameworks combined:** https://mobiscroll.com/docs/llms-full.txt
+- **Overview:** {{DOCS_BASE_URL}}/llms.txt
+- **All frameworks combined:** {{DOCS_BASE_URL}}/llms-full.txt
 
 ### Individual .md pages
 
-Pattern: `https://mobiscroll.com/docs/docs/{framework}/{section}/{page}.md`
-Example: `https://mobiscroll.com/docs/docs/react/eventcalendar/overview.md`
+Pattern: `{{DOCS_BASE_URL}}/docs/{framework}/{section}/{page}.md`
+Example: `{{DOCS_BASE_URL}}/docs/react/eventcalendar/overview.md`
 
 ---
 

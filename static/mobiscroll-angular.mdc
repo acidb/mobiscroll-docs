@@ -1,0 +1,62 @@
+# Mobiscroll for Angular — AI Rules
+
+## Documentation Source
+
+- **Primary (complete docs):** https://mobiscroll.com/docs/llms-angular-full.txt
+- **TOC (links to .md pages):** https://mobiscroll.com/docs/llms-angular.txt
+- **Individual pages:** `https://mobiscroll.com/docs/docs/angular/{section}/{page}.md`
+- **Connect API (server-side):** https://mobiscroll.com/docs/llms-connect-full.txt
+
+## Scope
+
+USE this file when:
+- Project has `@mobiscroll/angular` in package.json
+- Files use `.component.ts`, `.component.html`, or have `@Component` decorators
+- Imports contain `from '@mobiscroll/angular'`
+- User explicitly mentions Angular + Mobiscroll
+
+DO NOT use this file for React, Vue, JavaScript, or jQuery projects.
+
+## Component Mapping
+
+All scheduling views are ONE component: **Eventcalendar**, configured via the `view` option.
+
+| Intent | Component | Doc Path |
+|:---|:---|:---|
+| Event calendar / scheduling | Eventcalendar | `angular/eventcalendar/overview` |
+| Monthly/weekly/daily grid | Eventcalendar (calendar view) | `angular/eventcalendar/calendar` |
+| Event list / agenda | Eventcalendar (agenda view) | `angular/eventcalendar/agenda` |
+| Resource scheduler | Eventcalendar (scheduler view) | `angular/eventcalendar/scheduler` |
+| Horizontal timeline | Eventcalendar (timeline view) | `angular/eventcalendar/timeline` |
+| Drag & drop | Eventcalendar | `angular/eventcalendar/drag-and-drop` |
+| CRUD operations | Eventcalendar | `angular/eventcalendar/crud` |
+| Recurring events | Eventcalendar | `angular/core-concepts/recurrence` |
+| Date / time picker | Datepicker | `angular/datepicker/overview` |
+| Dropdown select | Select | `angular/select/overview` |
+| Modal / overlay | Popup | `angular/popup/overview` |
+| Input, textarea, button | Forms | `angular/forms/input` |
+| Toast, snackbar, alert | Notifications | `angular/notifications/toast` |
+| Theming | Theming | `angular/theming/sass-themes` |
+| Full API reference | Eventcalendar API | `angular/eventcalendar/api` |
+
+## Rules
+
+- Fetch `llms-angular-full.txt` for complete context
+- Prefer `.md` pages over HTML — `.md` files are optimized for AI
+- Use official docs examples only — docs are the source of truth
+- Package: `@mobiscroll/angular` — no other Mobiscroll package
+- Module: `MbscModule` must be in component `imports` (standalone) or NgModule
+- CSS: use `angular.json` `styles` array — NOT JS/TS import statements
+- Components use `mbsc-` prefix in templates (e.g., `<mbsc-eventcalendar>`)
+- Version: 6 (current). Do not use deprecated v5 APIs.
+- Types are prefixed `Mbsc` (e.g., `MbscEventcalendarView`, `MbscCalendarEvent`)
+
+## Constraints
+
+- NEVER import from `@mobiscroll/react`, `@mobiscroll/vue`, `@mobiscroll/javascript`, or `@mobiscroll/jquery`
+- NEVER use `import '@mobiscroll/angular/dist/css/mobiscroll.min.css'` in TS — use `angular.json` styles array
+- NEVER use React hooks, Vue composition API, or jQuery patterns in Angular code
+- NEVER invent API options, events, methods, or types — if not found in docs, say so
+- NEVER treat Scheduler/Timeline/Agenda as separate components — they are views of Eventcalendar
+- NEVER use Mobiscroll Connect docs for frontend UI (Connect = server-side REST API)
+- If the framework is unclear, ASK — do not default

@@ -111,6 +111,12 @@ Use the official Node.js SDK for a streamlined integration experience. The SDK p
 
 **[Get started with the Node.js SDK](/connect/node-sdk)**
 
+### PHP SDK
+
+Use the official PHP SDK for backend integrations in PHP applications. The SDK provides resource-based API access, typed models, and consistent exception handling.
+
+**[Get started with the PHP SDK](/connect/php-sdk)**
+
 ### Demo Application
 
 Start with our complete working example that demonstrates the full OAuth flow, calendar synchronization, and event management using the Node.js SDK out of the box.

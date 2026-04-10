@@ -1,6 +1,6 @@
 ---
 sidebar_label: REST API
-sidebar_position: 2
+sidebar_position: 3
 slug: /rest-api-integration
 ---
 

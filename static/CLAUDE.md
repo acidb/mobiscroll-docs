@@ -56,18 +56,43 @@ NEVER use HTML when `.md` is available. The `.md` files are optimized for AI con
 
 ---
 
-## 3. Framework Routing — CRITICAL
+## 3. Routing — CRITICAL
+
+**RULE: Resolve domain FIRST, then framework. Never mix domains or frameworks.**
+
+### Step 1 — Detect domain (Connect vs. UI)
+
+Check BEFORE detecting any framework. If the query is about:
+- API endpoints, REST, HTTP, webhooks
+- **Server-side** sync, backend integration with calendar providers
+- OAuth flows, authentication tokens, credentials managed on the server
+- `mobiscroll-connect`, Connect scopes, Connect credentials
+- Server-side event push/pull to/from Google Calendar, Outlook, or Apple Calendar
+
+→ **Route to Mobiscroll Connect.** Fetch `llms-connect-full.txt`. Stop — do NOT also load a UI framework file.
+
+→ If the query is about UI rendering, components, views, pickers, theming, CSS, or frontend code → proceed to Step 2.
+
+→ If the query is about **displaying** Google Calendar / Outlook / Apple Calendar events in the Eventcalendar UI (client-side data binding, `data` prop, event loading) — this is a **UI framework question**. Proceed to Step 2.
+
+⚠️ **Do NOT route to Connect** just because a third-party calendar (Google, Outlook, Apple) is mentioned. Route to Connect only when the integration is explicitly server-side, involves OAuth on the backend, or references the Mobiscroll Connect product.
+
+→ If the query explicitly mixes BOTH domains (Connect + UI component in the same request) → **respond with clarification:**
+
+> "This request mixes Mobiscroll UI components with Mobiscroll Connect. These are separate systems. Please clarify: do you need help with the **frontend UI** (Eventcalendar, Datepicker, etc.) or the **backend integration** (Connect REST API, sync, OAuth)?"
+
+### Step 2 — Detect UI framework (only if domain = UI)
 
 **RULE: Select exactly ONE framework. Never mix.**
 
-### Detection signals (check in order):
+#### Detection signals (check in order):
 
 1. User explicitly states the framework
 2. `package.json` dependencies: `@mobiscroll/react`, `@mobiscroll/angular`, `@mobiscroll/vue`, `@mobiscroll/javascript`, `@mobiscroll/jquery`
 3. File extensions: `.tsx`/`.jsx` → React, `.vue` → Vue, `.component.ts` / `@Component` → Angular
 4. Import patterns: `from '@mobiscroll/react'` etc.
 
-### Routing:
+#### Routing:
 
 - IF React → fetch `llms-react-full.txt` ONLY. Use `@mobiscroll/react` imports ONLY.
 - IF Angular → fetch `llms-angular-full.txt` ONLY. Use `@mobiscroll/angular` imports ONLY.
@@ -78,11 +103,13 @@ NEVER use HTML when `.md` is available. The `.md` files are optimized for AI con
 
 ### NEVER:
 
-- Combine APIs from different frameworks
+- Combine APIs from different UI frameworks
 - Use React hooks in Angular code
 - Use Angular decorators in Vue code
 - Show `@mobiscroll/react` imports in an Angular project
 - Fall back to a different framework's docs if the correct one is unclear
+- **Mix UI component APIs with Connect APIs in a single response**
+- **Treat Connect as a frontend framework or as a Mobiscroll UI component**
 
 ---
 
@@ -91,8 +118,10 @@ NEVER use HTML when `.md` is available. The `.md` files are optimized for AI con
 - User mentions `mobiscroll`, `@mobiscroll/*`, or `mbsc-` prefixed elements
 - Building scheduling, calendar, booking, or appointment UIs
 - Working with event calendars, date/time pickers, select dropdowns, popups
-- Integrating Google Calendar, Outlook, or Apple Calendar (→ Mobiscroll Connect)
+- Server-side sync with Google Calendar, Outlook, or Apple Calendar via Mobiscroll Connect → **Mobiscroll Connect** (`llms-connect-full.txt`)
+- Displaying Google Calendar / Outlook / Apple Calendar events inside the Eventcalendar UI component (client-side) → UI framework docs (`llms-{framework}-full.txt`)
 - Theming or styling `mbsc-` components
+- Mentions **sync**, **API**, **integration**, **backend**, **webhook**, **data source**, **OAuth**, **authentication** in a Mobiscroll context → **Mobiscroll Connect** (`llms-connect-full.txt`)
 
 ---
 
@@ -123,10 +152,14 @@ All scheduling views are part of ONE component: **Eventcalendar**. They are conf
 
 | Intent | Source |
 |:---|:---|
-| Google/Outlook/Apple Calendar sync | `llms-connect-full.txt` |
-| OAuth flow, calendar listing, event CRUD via REST | `llms-connect-full.txt` |
+| Server-side Google/Outlook/Apple Calendar sync | `llms-connect-full.txt` |
+| OAuth flow, calendar listing, event CRUD via REST (server) | `llms-connect-full.txt` |
+| Displaying Google Calendar events in Eventcalendar (client-side) | `llms-{framework}-full.txt` |
+| Webhooks, push/pull sync, backend data sources | `llms-connect-full.txt` |
+| Authentication, tokens, credentials, scopes | `llms-connect-full.txt` |
+| Any server-side or API-first integration question | `llms-connect-full.txt` |
 
-Connect is a **server-side** REST API. Eventcalendar is a **frontend** UI component. They complement each other but are documented separately.
+Connect is a **server-side** REST API. Eventcalendar is a **frontend** UI component. They complement each other but are documented separately and must NEVER be served together in a single routing decision.
 
 ---
 
@@ -149,6 +182,9 @@ Connect is a **server-side** REST API. Eventcalendar is a **frontend** UI compon
 | `import '@mobiscroll/angular/dist/css/mobiscroll.min.css'` in TS | Angular uses `angular.json` `styles` array for CSS |
 | Treating Scheduler as a separate component | Scheduler is a **view** of Eventcalendar: `view: { scheduler: { type: 'week' } }` |
 | Using Mobiscroll Connect docs for frontend UI | Connect = server REST API. Use Eventcalendar docs for UI. |
+| Using UI component docs to answer a Connect API question | Connect = server REST API. Fetch `llms-connect-full.txt`. |
+| Answering "Sync Eventcalendar using Connect in React" in one response | Mixed domain — ask the user to clarify: frontend UI or backend integration. |
+| Listing Connect as a UI component or framework | Connect is a separate backend product, not a framework. |
 | Guessing `MbscCalendarEventData` type name | Look up exact type in `eventcalendar/api` docs |
 | Mixing `useState` (React) with `@ViewChild` (Angular) | Use only the patterns from the detected framework's docs |
 | Defaulting to React when framework is unknown | ASK the user. Do not default. |

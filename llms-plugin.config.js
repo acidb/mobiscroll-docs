@@ -77,14 +77,15 @@ const llmsOptions = {
         'plus Mobiscroll Connect for unified calendar integration ' +
         '(Google, Outlook, Apple Calendar, CalDAV).',
       rootContent:
-        '## Framework-Specific Documentation\n\n' +
+        '## Table of contents\n\n' +
+        '### Framework-Specific Documentation\n\n' +
         'For detailed, framework-specific API references and guides, see:\n\n' +
         '- [Mobiscroll for JavaScript](llms-javascript.txt) — [Full docs](llms-javascript-full.txt)\n' +
         '- [Mobiscroll for React](llms-react.txt) — [Full docs](llms-react-full.txt)\n' +
         '- [Mobiscroll for Angular](llms-angular.txt) — [Full docs](llms-angular-full.txt)\n' +
         '- [Mobiscroll for Vue](llms-vue.txt) — [Full docs](llms-vue-full.txt)\n' +
         '- [Mobiscroll for jQuery](llms-jquery.txt) — [Full docs](llms-jquery-full.txt)\n\n' +
-        '## Mobiscroll Connect — Calendar Integration API\n\n' +
+        '### Mobiscroll Connect — Calendar Integration API\n\n' +
         '- [Mobiscroll Connect](llms-connect.txt) — [Full docs](llms-connect-full.txt)\n',
     },
     // ── Hub: llms-full.txt (general content + links to full framework files)
@@ -113,7 +114,7 @@ const llmsOptions = {
     // ── JavaScript ──────────────────────────────────────────────────────────
     {
       filename: 'llms-javascript.txt',
-      includePatterns: ['javascript/**/*.md', 'getting-started.md'],
+      includePatterns: ['javascript/**/*.md'],
       ignorePatterns: ['javascript/**/_auto-generated/**'],
       fullContent: false,
       title: 'Mobiscroll for JavaScript',
@@ -136,7 +137,7 @@ const llmsOptions = {
     },
     {
       filename: 'llms-javascript-full.txt',
-      includePatterns: ['javascript/**/*.md', 'getting-started.md'],
+      includePatterns: ['javascript/**/*.md'],
       ignorePatterns: ['javascript/**/_auto-generated/**'],
       fullContent: true,
       title: 'Mobiscroll for JavaScript — Full Documentation',
@@ -161,7 +162,7 @@ const llmsOptions = {
     // ── React ────────────────────────────────────────────────────────────────
     {
       filename: 'llms-react.txt',
-      includePatterns: ['react/**/*.md', 'getting-started.md'],
+      includePatterns: ['react/**/*.md'],
       ignorePatterns: ['react/**/_auto-generated/**'],
       fullContent: false,
       title: 'Mobiscroll for React',
@@ -184,7 +185,7 @@ const llmsOptions = {
     },
     {
       filename: 'llms-react-full.txt',
-      includePatterns: ['react/**/*.md', 'getting-started.md'],
+      includePatterns: ['react/**/*.md'],
       ignorePatterns: ['react/**/_auto-generated/**'],
       fullContent: true,
       title: 'Mobiscroll for React — Full Documentation',
@@ -209,7 +210,7 @@ const llmsOptions = {
     // ── Angular ──────────────────────────────────────────────────────────────
     {
       filename: 'llms-angular.txt',
-      includePatterns: ['angular/**/*.md', 'getting-started.md'],
+      includePatterns: ['angular/**/*.md'], 
       ignorePatterns: ['angular/**/_auto-generated/**'],
       fullContent: false,
       title: 'Mobiscroll for Angular',
@@ -232,7 +233,7 @@ const llmsOptions = {
     },
     {
       filename: 'llms-angular-full.txt',
-      includePatterns: ['angular/**/*.md', 'getting-started.md'],
+      includePatterns: ['angular/**/*.md'],
       ignorePatterns: ['angular/**/_auto-generated/**'],
       fullContent: true,
       title: 'Mobiscroll for Angular — Full Documentation',
@@ -257,7 +258,7 @@ const llmsOptions = {
     // ── Vue ──────────────────────────────────────────────────────────────────
     {
       filename: 'llms-vue.txt',
-      includePatterns: ['vue/**/*.md', 'getting-started.md'],
+      includePatterns: ['vue/**/*.md'],
       ignorePatterns: ['vue/**/_auto-generated/**'],
       fullContent: false,
       title: 'Mobiscroll for Vue',
@@ -280,7 +281,7 @@ const llmsOptions = {
     },
     {
       filename: 'llms-vue-full.txt',
-      includePatterns: ['vue/**/*.md', 'getting-started.md'],
+      includePatterns: ['vue/**/*.md'],
       ignorePatterns: ['vue/**/_auto-generated/**'],
       fullContent: true,
       title: 'Mobiscroll for Vue — Full Documentation',
@@ -305,7 +306,7 @@ const llmsOptions = {
     // ── jQuery ───────────────────────────────────────────────────────────────
     {
       filename: 'llms-jquery.txt',
-      includePatterns: ['jquery/**/*.md', 'getting-started.md'],
+      includePatterns: ['jquery/**/*.md'],
       ignorePatterns: ['jquery/**/_auto-generated/**'],
       fullContent: false,
       title: 'Mobiscroll for jQuery',
@@ -328,7 +329,7 @@ const llmsOptions = {
     },
     {
       filename: 'llms-jquery-full.txt',
-      includePatterns: ['jquery/**/*.md', 'getting-started.md'],
+      includePatterns: ['jquery/**/*.md'],
       ignorePatterns: ['jquery/**/_auto-generated/**'],
       fullContent: true,
       title: 'Mobiscroll for jQuery — Full Documentation',

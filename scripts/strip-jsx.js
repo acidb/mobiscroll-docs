@@ -173,6 +173,9 @@ function stripJsx(content) {
     // ── MDX imports → remove ────────────────────────────────────────
     if (isMdxImport(line)) continue;
 
+    // ── MDX toc exports → remove ────────────────────────────────────
+    if (/^\s*export\s+const\s+toc\b/.test(line)) continue;
+
     // ── table-hide UI wrapper block → remove ────────────────────────
     if (/^\s*<label\s+className="table-hide-wrapper">/.test(line)) {
       // Skip until </label>

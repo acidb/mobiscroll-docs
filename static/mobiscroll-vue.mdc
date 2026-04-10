@@ -5,7 +5,6 @@
 - **Primary (complete docs):** {{DOCS_BASE_URL}}/llms-vue-full.txt
 - **TOC (links to .md pages):** {{DOCS_BASE_URL}}/llms-vue.txt
 - **Individual pages:** `{{DOCS_BASE_URL}}/docs/vue/{section}/{page}.md`
-- **Connect API (server-side):** {{DOCS_BASE_URL}}/llms-connect-full.txt
 
 ## Scope
 

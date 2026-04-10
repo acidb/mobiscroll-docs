@@ -1,0 +1,54 @@
+# Mobiscroll Connect — AI Rules
+
+## Documentation Source
+
+- **Primary (complete docs):** {{DOCS_BASE_URL}}/llms-connect-full.txt
+- **TOC (links to .md pages):** {{DOCS_BASE_URL}}/llms-connect.txt
+- **Individual pages:** `{{DOCS_BASE_URL}}/connect/{section}/{page}.md`
+
+## Scope
+
+USE this file when:
+- User asks about calendar synchronization, OAuth, or external calendar integration
+- User references Google Calendar, Outlook, Apple Calendar, or CalDAV integration
+- User asks about Mobiscroll Connect API endpoints, webhooks, or authentication
+- Project uses `@mobiscroll/connect-sdk` or direct Connect REST API calls
+
+DO NOT use this file for Mobiscroll UI components (Eventcalendar, Datepicker, Select, Popup, etc.).
+
+## API Mapping
+
+Mobiscroll Connect is a REST API / SDK — not a UI framework. It has no components.
+
+| Intent | API / Resource | Doc Path |
+|:---|:---|:---|
+| Getting started / setup | Application setup | `connect/getting-started/application-setup` |
+| Overview of Connect | Getting started overview | `connect/getting-started/overview` |
+| Test endpoints without code | Postman collection | `connect/getting-started/postman-collection` |
+| List user calendars | Calendars API | `connect/api/calendars` |
+| Read / create / update / delete events | Events API | `connect/api/events` |
+| OAuth authorization flow | OAuth API | `connect/api/oauth` |
+| API overview, authentication, response format | API overview | `connect/api/overview` |
+| Real-time change notifications | Webhooks API | `connect/api/webhooks` |
+| Permission levels (free-busy, read, read-write) | Scopes & Permissions | `connect/scopes` |
+| Node.js integration | Node.js SDK | `connect/integration/node-sdk` |
+| Direct HTTP integration | REST API guide | `connect/integration/rest-api-integration` |
+
+## Rules
+
+- Fetch `llms-connect-full.txt` for complete context
+- Prefer `.md` pages over HTML — `.md` files are optimized for AI
+- Use official docs examples only — docs are the source of truth
+- Package (Node.js SDK): `@mobiscroll/connect-sdk`
+- Authentication: Bearer token via OAuth 2.0 authorization code flow
+- Base API URL is environment-specific — always check the API overview doc
+- Version: current. Do not invent endpoint paths or response shapes.
+
+## Constraints
+
+- NEVER import from `@mobiscroll/react`, `@mobiscroll/angular`, `@mobiscroll/vue`, `@mobiscroll/javascript`, or `@mobiscroll/jquery`
+- NEVER generate JSX, Angular templates, Vue SFCs, or DOM manipulation code
+- NEVER reference Eventcalendar, Datepicker, Select, Popup, or any other Mobiscroll UI component
+- NEVER invent API endpoints, request parameters, or response fields — if not found in docs, say so
+- NEVER treat Mobiscroll Connect as a frontend UI library — it is a backend/integration service
+- If the user mixes Connect with a UI framework question, respond: "Mobiscroll Connect is a backend/integration layer and does not use UI components. Please clarify if you are working with a frontend framework or with Connect APIs."

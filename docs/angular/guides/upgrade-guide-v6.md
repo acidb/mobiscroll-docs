@@ -72,7 +72,6 @@ Using SCSS:
 After loading the styles, reference one of the legacy themes:
 
 ```ts
-
 mobiscroll.setOptions({
   theme: 'ios-legacy',
   // theme: 'material-legacy'
@@ -134,37 +133,11 @@ We renamed the `dayTemplate` template to [agendaDayTemplate](/angular/eventcalen
 <mbsc-eventcalendar [eventTemplate]="myTemplate"></mbsc-eventcalendar>
 ```
 
-```ts
-import { Component } from '@angular/core';
-import { MbscModule } from '@mobiscroll/angular';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  standalone: true,
-  imports: [MbscModule],
-})
-export class AppComponent {}
-```
-
   </TabItem>
   <TabItem value="new" label="New code">
 
 ```html
 <mbsc-eventcalendar [agendaEventTemplate]="myTemplate"></mbsc-eventcalendar>
-```
-
-```ts
-import { Component } from '@angular/core';
-import { MbscModule } from '@mobiscroll/angular';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  standalone: true,
-  imports: [MbscModule],
-})
-export class AppComponent {}
 ```
 
   </TabItem>
@@ -194,37 +167,11 @@ We renamed the `dayContentTemplate` template to [calendarDayContentTemplate](/an
 <mbsc-eventcalendar [labelTemplate]="myTemplate"></mbsc-eventcalendar>
 ```
 
-```ts
-import { Component } from '@angular/core';
-import { MbscModule } from '@mobiscroll/angular';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  standalone: true,
-  imports: [MbscModule],
-})
-export class AppComponent {}
-```
-
   </TabItem>
   <TabItem value="new" label="New code">
 
 ```html
 <mbsc-eventcalendar [calendarEventTemplate]="myTemplate"></mbsc-eventcalendar>
-```
-
-```ts
-import { Component } from '@angular/core';
-import { MbscModule } from '@mobiscroll/angular';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  standalone: true,
-  imports: [MbscModule],
-})
-export class AppComponent {}
 ```
 
   </TabItem>
@@ -254,37 +201,11 @@ We renamed the `dayContentTemplate` template to [schedulerDayContentTemplate](/a
 <mbsc-eventcalendar [scheduleEventTemplate]="myTemplate"></mbsc-eventcalendar>
 ```
 
-```ts
-import { Component } from '@angular/core';
-import { MbscModule } from '@mobiscroll/angular';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  standalone: true,
-  imports: [MbscModule],
-})
-export class AppComponent {}
-```
-
   </TabItem>
   <TabItem value="new" label="New code">
 
 ```html
 <mbsc-eventcalendar [schedulerEventTemplate]="myTemplate"></mbsc-eventcalendar>
-```
-
-```ts
-import { Component } from '@angular/core';
-import { MbscModule } from '@mobiscroll/angular';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  standalone: true,
-  imports: [MbscModule],
-})
-export class AppComponent {}
 ```
 
   </TabItem>
@@ -299,37 +220,11 @@ We also renamed the `schedule` [view](/angular/eventcalendar/api#opt-view) to `s
 <mbsc-eventcalendar [view]="{ schedule: { type: 'day' }}"></mbsc-eventcalendar>
 ```
 
-```ts
-import { Component } from '@angular/core';
-import { MbscEventcalendarView, MbscModule } from '@mobiscroll/angular';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  standalone: true,
-  imports: [MbscModule],
-})
-export class AppComponent {}
-```
-
   </TabItem>
   <TabItem value="new" label="New code">
 
 ```html
 <mbsc-eventcalendar [view]="{ scheduler: { type: 'day' }}"></mbsc-eventcalendar>
-```
-
-```ts
-import { Component } from '@angular/core';
-import { MbscEventcalendarView, MbscModule } from '@mobiscroll/angular';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  standalone: true,
-  imports: [MbscModule],
-})
-export class AppComponent {}
 ```
 
   </TabItem>
@@ -352,37 +247,11 @@ We renamed the `dayTemplate` template to [timelineDayTemplate](/angular/eventcal
 <mbsc-eventcalendar [scheduleEventTemplate]="myTemplate"></mbsc-eventcalendar>
 ```
 
-```ts
-import { Component } from '@angular/core';
-import { MbscModule } from '@mobiscroll/angular';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  standalone: true,
-  imports: [MbscModule],
-})
-export class AppComponent {}
-```
-
   </TabItem>
   <TabItem value="new" label="New code">
 
 ```html
 <mbsc-eventcalendar [timelineEventTemplate]="myTemplate"></mbsc-eventcalendar>
-```
-
-```ts
-import { Component } from '@angular/core';
-import { MbscModule } from '@mobiscroll/angular';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  standalone: true,
-  imports: [MbscModule],
-})
-export class AppComponent {}
 ```
 
   </TabItem>
@@ -397,37 +266,11 @@ We added a new `eventDisplay` property to the [view](/angular/eventcalendar/api#
 <mbsc-eventcalendar [view]="{ timeline: { type: 'day', eventList: true }}"></mbsc-eventcalendar>
 ```
 
-```ts
-import { Component } from '@angular/core';
-import { MbscEventcalendarView, MbscModule } from '@mobiscroll/angular';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  standalone: true,
-  imports: [MbscModule],
-})
-export class AppComponent {}
-```
-
   </TabItem>
   <TabItem value="new" label="New code">
 
 ```html
 <mbsc-eventcalendar [view]="{ timeline: { type: 'day', eventDisplay: 'fill' }}"></mbsc-eventcalendar>
-```
-
-```ts
-import { Component } from '@angular/core';
-import { MbscEventcalendarView, MbscModule } from '@mobiscroll/angular';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  standalone: true,
-  imports: [MbscModule],
-})
-export class AppComponent {}
 ```
 
   </TabItem>
@@ -445,37 +288,11 @@ We removed the deprecated `resolution` property from the [view](/angular/eventca
 <mbsc-eventcalendar [view]="{ timeline: { type: 'day', resolution: 'hour' }}"></mbsc-eventcalendar>
 ```
 
-```ts
-import { Component } from '@angular/core';
-import { MbscEventcalendarView, MbscModule } from '@mobiscroll/angular';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  standalone: true,
-  imports: [MbscModule],
-})
-export class AppComponent {}
-```
-
   </TabItem>
   <TabItem value="new" label="New code">
 
 ```html
 <mbsc-eventcalendar [view]="{ timeline: { type: 'day', resolutionHorizontal: 'hour' }}"></mbsc-eventcalendar>
-```
-
-```ts
-import { Component } from '@angular/core';
-import { MbscEventcalendarView, MbscModule } from '@mobiscroll/angular';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  standalone: true,
-  imports: [MbscModule],
-})
-export class AppComponent {}
 ```
 
   </TabItem>

@@ -11,20 +11,20 @@ The select component supports dynamic data binding. For cases when the data is n
 To notify the select component of the change of data, you only have to pass a different array. This can be achieve in multiple ways, but using a simple spread operator is one of the easiest. Also using a state variable and calling its setter when the data becomes available is a best practice. Check out the example below:
 
 ```jsx title="Loading options from an API"
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { Select } from '@mobiscroll/react';
 import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
-    const [data, setData] = React.useState([]); // the initial array contains nothing
+    const [data, setData] = useState([]); // the initial array contains nothing
     // state for the selected item
-    const [selected, setSelected] = React.useState(null);
+    const [selected, setSelected] = useState(null);
     // selection handler
     const onSelected = (ev) => {
         setSelected(ev.value);
     };
 
-    React.useEffect(() => {
+    useEffect(() => {
         myGetDataFromAPI() // fetch the data from a remote API
             .then((fetchedData) => {
                 setData(fetchedData); // set the fetched data to the state

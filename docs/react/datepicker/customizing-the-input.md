@@ -15,12 +15,12 @@ The datepicker, as explained below, can be used with one, two or no inputs.
 The first choice of input customization is to have no inputs at all. In this case rendering the component in [inline display](/react/datepicker/display-modes) mode will leave out the use of inputs.
 
 ```jsx title="Inline picker"
-import React from 'react';
+import { useState } from 'react';
 import { Datepicker } from '@mobiscroll/react';
 import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 const App = () => {
-    const [myAppointment, setMyAppointment] = React.useState(null);
+    const [myAppointment, setMyAppointment] = useState(null);
     const myPickerChange = (ev) => {
         setMyAppointment(ev.value);
     }
@@ -58,13 +58,13 @@ const app = () => {
 When selecting a range, you have basically two values to display: the start of the range and the end of the range. These can be shown in different inputs using the [`startInput`](/react/datepicker/api#opt-startInput) and the [`endInput`](/react/datepicker/api#opt-endInput) options.
 
 ```jsx title="Two inputs for range selection"
-import React from 'react';
+import { useState } from 'react';
 import { Input, Datepicker } from '@mobiscroll/react';
 import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 const app = () => {
-  const [start, setStartInput] = React.useState(null);
-  const [end, setEndInput] = React.useState(null);
+  const [start, setStartInput] = useState(null);
+  const [end, setEndInput] = useState(null);
 
   return <>
       <Input ref={setStartInput} label="Start date" />

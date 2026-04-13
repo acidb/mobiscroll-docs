@@ -20,9 +20,6 @@ The instantiation (the creation of objects from a class) in case of the Mobiscro
 A reference to the component instance is returned by the initialization function:
 
 ```javascript
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 const inst = mobiscroll.eventcalendar('#my-div', { theme: 'ios' });
 
 console.log('The Eventcalendar instance:', inst);
@@ -33,9 +30,6 @@ console.log('The Eventcalendar instance:', inst);
 A reference to the component instance is available in every Mobiscroll event as the second argument of the event handler.
 
 ```javascript
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 mobiscroll.eventcalendar('#my-div', {
   onEventCreate: (args, inst) => {
     console.log('The Eventcalendar instance:', inst);
@@ -48,9 +42,6 @@ mobiscroll.eventcalendar('#my-div', {
 A reference to the component instance is also returned by the `getInst` function:
 
 ```js
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 mobiscroll.eventcalendar('#my-div', { theme: 'ios' });
 
 const inst = mobiscroll.getInst('#my-div');
@@ -67,9 +58,6 @@ The `getInst` function also receives a second parameter. When `true` is passed t
 </label>
 ```
 ```js
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 mobiscroll.datepicker('#my-inp');
 
 const instDatepicker = mobiscroll.getInst('#my-inp'); // the main component instance
@@ -101,9 +89,6 @@ const invalidsArray = [
 To get the actual invalid days for the month of November, you can call the [`getInvalids`](../eventcalendar/api#method-getInvalids) method of the Eventcalendar instance.
 
 ```javascript
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 // initialize the eventcalendar with the invalid rule
 // and get the instance
 const inst = mobiscroll.eventcalendar('#my-div', {

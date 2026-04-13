@@ -116,9 +116,6 @@ Mobiscroll includes several predefined color presets, each serving its own seman
 If the component is added later to the DOM, e.g. with an AJAX page load, a custom function named `enhance` needs to be called in order to initialize the dynamically added component. When the enhance function is called on a DOM element, all form elements will be initialized inside this element.
 
 ```js
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 var xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function() {
     if (xhr.readyState == XMLHttpRequest.DONE) {

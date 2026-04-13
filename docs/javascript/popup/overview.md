@@ -22,9 +22,6 @@ The following example will create a popup with static content. When clicked or t
 </div>
 ```
 ```js
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 const inst = mobiscroll.popup('#myDiv', {});
 inst.open();
 ```

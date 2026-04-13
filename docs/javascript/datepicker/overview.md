@@ -18,9 +18,6 @@ The following example will create a Datepicker with default options.
 ```
 
 ```js
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 mobiscroll.datepicker('#myInput', {});
 ```
 

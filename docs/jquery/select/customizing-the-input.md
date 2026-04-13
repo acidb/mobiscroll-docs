@@ -17,10 +17,6 @@ When initializing the Select component on a native select element, by default th
 ```
 
 ```jsx
-import $ from 'jquery';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $('#my-select').mobiscroll().select({ theme: 'ios' });
 ```
 
@@ -37,10 +33,6 @@ You can use any custom input with the select component using the `inputElement` 
 ```
 
 ```jsx
-import $ from 'jquery';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $('#my-select').mobiscroll().select({
     inputElement: document.getElementById('my-custom-input'),
     theme: 'ios',

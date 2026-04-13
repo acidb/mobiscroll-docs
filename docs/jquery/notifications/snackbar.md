@@ -19,9 +19,6 @@ Snackbars don't lock the app's main interface and are automatically dismissed af
 The following example displays a Snackbar message with a "Retry" button:
 
 ```js
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 mobiscroll.snackbar({
   message: "Connection timed out. Showing limited messages.",
   button: {

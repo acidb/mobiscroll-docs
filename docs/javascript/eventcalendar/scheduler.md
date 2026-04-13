@@ -34,9 +34,6 @@ The four views - [scheduler](./scheduler), [calendar](./calendar), [timeline](./
 For example, the daily Scheduler can also be combined with the Calendar week view. The view option will look like the following:
 
 ```javascript title="Daily Scheduler combined with Weekly Calendar"
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 mobiscroll.eventcalendar('#scheduler', {
   view: {
     calendar: {
@@ -54,9 +51,6 @@ mobiscroll.eventcalendar('#scheduler', {
 The Scheduler view can be configured through the `view` option. Below are listed the `scheduler` object properties which can help you fine-tune this view.
 
 ```javascript title='Example'
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 mobiscroll.eventcalendar('#scheduler', {
   view: {
     scheduler: {
@@ -210,9 +204,6 @@ The Scheduler view can display multiple [resources](resources) inside a single i
 </div>
 
 ```javascript title="Grouping resources by date"
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 mobiscroll.eventcalendar('#scheduler', {
   // highlight-next-line
   groupBy: 'date',
@@ -237,9 +228,6 @@ The color property controls the default event color of the resource. If an event
 [Events](#opt-data), [colors](#opt-colors), [invalids](#opt-invalids) can be tied to a single or multiple resources. This can be done with the `resource` property of the objects, where the id of the resource should be passed. It can be a single value where the element would be linked to a single resource or in case of an array the element will show up at all of the specified resources. If no resource property is specified to the color/event/invalid object then the element will show up in every resource group.
 
 ```javascript title="Invalid rule tied to a single resource"
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 mobiscroll.eventcalendar('#scheduler', {
   invalid: [{
     // highlight-next-line
@@ -253,9 +241,6 @@ mobiscroll.eventcalendar('#scheduler', {
 ```
 
 ```javascript title="Event tied to multiple resources"
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 mobiscroll.eventcalendar('#scheduler', {
   data: [{
     // highlight-next-line
@@ -269,9 +254,6 @@ mobiscroll.eventcalendar('#scheduler', {
 ```
 
 ```javascript title="Color rule for all the resources (resource not specified)"
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 mobiscroll.eventcalendar('#scheduler', {
   colors: [{
     // highlight-next-line
@@ -314,9 +296,6 @@ The available width is queried from the container element of the component and n
 :::
 
 ```javascript title='Responsive configuration with the view option'
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 mobiscroll.eventcalendar('#scheduler', {
   responsive: {
     xsmall: {

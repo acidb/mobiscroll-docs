@@ -22,10 +22,6 @@ The following example will create a popup with static content. When clicked or t
 </div>
 ```
 ```js
-import $ from 'jquery';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 const inst = $('#myDiv').mobiscroll().popup().mobiscroll('getInst');
 inst.open();
 ```

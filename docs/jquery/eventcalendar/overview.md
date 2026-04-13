@@ -14,10 +14,6 @@ The Eventcalendar component supports four highly configurable views: a [Calendar
 The following example will create an Eventcalendar with the default options.
 
 ```js
-import $ from 'jquery';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $('#myDiv').mobiscroll().eventcalendar();
 ```
 

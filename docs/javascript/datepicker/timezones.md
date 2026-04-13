@@ -26,9 +26,8 @@ import General from '../../_shared/datepicker/timezones_general.mdx';
 **4.** After that, you can pass the `momentTimezone` object to the Datepicker's [`timezonePlugin`](./api#opt-timezonePlugin) option.
 
 ```js
-import moment from 'moment-timezone';
 import { datepicker, momentTimezone } from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
+import moment from 'moment-timezone';
 
 momentTimezone.moment = moment;
 
@@ -47,10 +46,8 @@ datepicker('#myInput', {
 **4.** After that, you can pass the `luxonTimezone` object to the Datepicker's `timezonePlugin` option.
 
 ```js
-import * as luxon from 'luxon';
 import { datepicker, luxonTimezone } from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
+import * as luxon from 'luxon';
 luxonTimezone.luxon = luxon;
 
 datepicker('#myInput', {
@@ -68,11 +65,10 @@ datepicker('#myInput', {
 **4.** After that, you can pass the `dayjsTimezone` object to the Datepicker's `timezonePlugin` option.
 
 ```js
+import { datepicker, dayjsTimezone } from '@mobiscroll/javascript';
 import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
-import { datepicker, dayjsTimezone } from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);

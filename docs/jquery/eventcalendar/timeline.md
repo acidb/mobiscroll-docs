@@ -37,10 +37,6 @@ The capabilities like [recurring events](/jquery/core-concepts/recurrence), [all
 The Timeline view can be configured through the `view` option. Below are listed the `timeline` object properties which can help you fine-tune this view.
 
 ```javascript title='Example'
-import $ from 'jquery';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $('#timeline').mobiscroll().eventcalendar({
   view: {
     timeline: {
@@ -69,10 +65,6 @@ The [renderSlot](#renderer-renderSlot) function can be used to customize the slo
 When [slots are used](https://demo.mobiscroll.com/timeline/employee-shifts) the Timeline view will display in daily listing mode and only the [`dragToMove`](#opt-dragToMove) event iteraction will be available. The [`dragToCreate`](#opt-dragToCreate) and [`dragToResize`](#opt-dragToResize) interactions will be truned off.
 
 ```javascript title="Slots used for work shift management"
-import $ from 'jquery';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $('#timeline').mobiscroll().eventcalendar({
   slots: [
     {
@@ -193,10 +185,6 @@ The day-offset feature is strictly dependent on the <code>type: 'day'</code> and
 The Timeline view supports resource hierarchy. [Hierarchy groups](https://demo.mobiscroll.com/timeline/resource-grouping-hierarchy) can be defined with the `children` property of the `resource` [object](#opt-resources). Child objects are also resources and have the same properties, thus they can also have children.
 
 ```js title="Multi-level hierarchy groups"
-import $ from 'jquery';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $('#timeline').mobiscroll().eventcalendar({
   resources: [{
     name: 'Site 1',
@@ -222,10 +210,6 @@ $('#timeline').mobiscroll().eventcalendar({
 By default every resource group will be displayed and this can be modified with the `collapsed` attribute of the parent objects.
 
 ```js title="Collapsed groups"
-import $ from 'jquery';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $('#timeline').mobiscroll().eventcalendar({
   resources: [{
     name: 'Main Building',
@@ -257,10 +241,6 @@ $('#timeline').mobiscroll().eventcalendar({
 Both parent and child rows can contain events and events can be moved between any rows.
 
 ```js title="Resources & events"
-import $ from 'jquery';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $('#timeline').mobiscroll().eventcalendar({
   resources: [{
       name: 'Main Building',
@@ -285,10 +265,6 @@ $('#timeline').mobiscroll().eventcalendar({
 Child or parent rows can be disabled by creating an [invalid rule](#opt-invalid) which repeats daily and it is tied to the specific resources. Example:
 
 ```js title="Disable parent and/or child resources"
-import $ from 'jquery';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $('#timeline').mobiscroll().eventcalendar({
   invalid: [
     {
@@ -476,10 +452,6 @@ The available width is queried from the container element of the component and n
 :::
 
 ```javascript title='Responsive configuration with the view option'
-import $ from 'jquery';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $('#timeline').mobiscroll().eventcalendar({
   responsive: {
     xsmall: {

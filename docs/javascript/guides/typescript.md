@@ -24,7 +24,6 @@ After installation the package needs to be imported into the app with the needed
 
 ```jsx
 import { datepicker, Datepicker } from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
 ```
 
 ## Usage

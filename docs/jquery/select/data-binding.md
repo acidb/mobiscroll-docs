@@ -27,10 +27,6 @@ The Select component can be initialized on an input or a select html element.
 </select>
 ```
 ```js
-import $ from 'jquery';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $('#mySelect').mobiscroll().select();
 ```
 
@@ -44,10 +40,6 @@ $('#mySelect').mobiscroll().select();
 <input id="myInput" />
 ```
 ```js title="Department selection example"
-import $ from 'jquery';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $('#myInput').mobiscroll().select({
   data: [
     { text: 'Marketing', value: 1 },
@@ -64,10 +56,6 @@ $('#myInput').mobiscroll().select({
 <input id="myInput" />
 ```
 ```js title="User selection example"
-import $ from 'jquery';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $('#myInput').mobiscroll().select({
   data: [
     { text: 'Alice', value: { id: 123, fullName: 'Alice Cooper' }},
@@ -85,10 +73,6 @@ $('#myInput').mobiscroll().select({
 <input id="myInput" />
 ```
 ```js
-import $ from 'jquery';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $('#myInput').mobiscroll().select({
   // highlight-next-line
   showGroupWheel: true,
@@ -119,10 +103,6 @@ The Mobiscroll Select component can be initialized on a `<select>` element, in w
 ```
 
 ```jsx
-import $ from 'jquery';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $('#gender').mobiscroll().select();
 ```
 
@@ -142,9 +122,5 @@ $('#gender').mobiscroll().select();
 ```
 
 ```jsx
-import $ from 'jquery';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $('#countries').mobiscroll().select();
 ```

@@ -19,9 +19,6 @@ The Toast component don't lock the app's main interface and are automatically di
 The following example displays a toast message:
 
 ```js
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 mobiscroll.toast({
   message: "Message sent"
 });

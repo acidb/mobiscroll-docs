@@ -18,10 +18,6 @@ The following example will create a Datepicker with default options.
 ```
 
 ```js
-import $ from 'jquery';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $('#myInput').mobiscroll().datepicker();
 ```
 

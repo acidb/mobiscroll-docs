@@ -36,10 +36,6 @@ You can initialize the draggable containers by using the `draggable()` function 
 <div id="myDiv"></div>
 ```
 ```js
-import $ from 'jquery';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $('#myDraggableCont').mobiscroll().draggable({
   dragData: {
     title: "My new 3h long event",
@@ -98,10 +94,6 @@ The options object can include the following properties:
 ```
 
 ```ts
-import $ from 'jquery';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $('#myDiv').mobiscroll().eventcalendar({
   externalDrop: true,
 });
@@ -156,10 +148,6 @@ The options object can include the following properties:
 ```
 
 ```ts
-import $ from 'jquery';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $('#myDiv').mobiscroll().eventcalendar({
   externalDrop: true,
 });
@@ -205,10 +193,6 @@ The Dropcontainer defines a container where events can be dragged from or droppe
 <div id="myDiv"></div>
 ```
 ```js
-import $ from 'jquery';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $('#myDropcontainer').mobiscroll().dropcontainer({
   onItemDrop: function(dropEvent) {
     if (dropEvent.data) {

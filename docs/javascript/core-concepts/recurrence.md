@@ -20,9 +20,6 @@ export const toc = [...recTOC, { value: 'Full example', level: 2, id: 'full-exam
 ```
 
 ```javascript title="Recurring events on the eventcalendar"
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 mobiscroll.eventcalendar('#my-div', {
   data: [{
     start: new Date(2020, 2, 18, 9, 0),

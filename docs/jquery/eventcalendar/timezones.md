@@ -30,9 +30,8 @@ When using a timezone plugin with the Eventcalendar, the [`exclusiveEndDates`](a
 
 ```js
 import $ from 'jquery';
-import moment from 'moment-timezone';
 import { momentTimezone } from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+import moment from 'moment-timezone';
 
 momentTimezone.moment = moment;
 
@@ -49,11 +48,6 @@ $('#myDiv').mobiscroll().eventcalendar({
 If you are not using any script bundler and you have the mobiscroll and moment library scripts included on your web page, you can access the `momentTimezone` from the mobiscroll global namespace.
 
 ```js
-import $ from 'jquery';
-import moment from 'moment-timezone';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $(function() {
   // highlight-next-line
   mobiscroll.momentTimezone = moment;
@@ -75,9 +69,8 @@ $(function() {
 
 ```js
 import $ from 'jquery';
-import * as luxon from 'luxon';
 import { luxonTimezone } from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+import * as luxon from 'luxon';
 
 luxonTimezone.luxon = luxon;
 
@@ -100,12 +93,11 @@ If you are not using any script bundler and you have the mobiscroll and luxon li
 **4.** After that, you can pass the `dayjsTimezone` object to the Eventcalendar's `timezonePlugin` option.
 
 ```js
-import $ from 'jquery';
+import { dayjsTimezone } from '@mobiscroll/javascript';
 import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
-import { dayjsTimezone } from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
+import $ from 'jquery';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -124,12 +116,6 @@ $('#myDiv').mobiscroll().eventcalendar({
 If you are not using any script bundler and you have the mobiscroll and Day.js library scripts included on your web page, you can access the `dayjsTimezone` from the mobiscroll global namespace.
 
 ```js
-import $ from 'jquery';
-import dayjs from 'dayjs';
-import * as mobiscroll from '@mobiscroll/jquery';
-import { dayjsTimezone } from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $(function() {
   // highlight-next-line
   mobiscroll.dayjsTimezone = dayjs;
@@ -153,10 +139,9 @@ You can also store the timezone inside the event data, using the `timezone` prop
 
 ```js title="Example"
 import $ from "jquery";
+import { momentTimezone } from "@mobiscroll/jquery";
 // highlight-next-line
 import moment from 'moment-timezone';
-import { momentTimezone } from "@mobiscroll/jquery";
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
 
 // setup the reference to moment
 // highlight-next-line

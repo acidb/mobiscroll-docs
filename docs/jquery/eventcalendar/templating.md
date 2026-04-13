@@ -22,10 +22,6 @@ When you want to customize how the events look, depending on what your goal is, 
 To define a custom template, pass a functional to the apropriate option that returns the desired html:
 
 ```js title="Customizing the scheduler event contents"
-import $ from 'jquery';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $('#myDiv').mobiscroll().eventcalendar({
   renderSchedulerEventContent: function (theEvent) {
     return `<div>
@@ -47,10 +43,6 @@ In most cases you only want to customize the content section of the event. In th
 - For the timeline - use the [`renderTimelineEventContent`](api#renderer-renderTimelineEventContent) option for the custom template
 
 ```js
-import $ from 'jquery';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $('#myDiv').mobiscroll().eventcalendar({
   renderAgendaEventContent: function (theEvent) {
     // return your content here
@@ -102,10 +94,6 @@ Play with the slider below to see the differences.
 To customize the display of the resources, the [`renderResource`](api#renderer-renderResource) option can be used.
 
 ```js
-import $ from 'jquery';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $('#myDiv').mobiscroll().eventcalendar({
   renderResource: function (resource) {
     return "<div>" + resource.name + " - " + resource.location + "</div>";
@@ -138,10 +126,6 @@ Play with the slider below to see the differences.
 The header of the calendar can be fully customized to one's needs with the use of the [`renderHeader`](api#renderer-renderHeader) option.
 
 ```js
-import $ from 'jquery';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $('#myDiv').mobiscroll().eventcalendar({
   renderHeader: function () {
     return "<p>Any <strong>Title</strong> you want here</p>";
@@ -163,10 +147,6 @@ Here's the list of the built in components of the default header. You can initia
 The above components can be used inside of the custom header. The following example will render the prev and next buttons and then a custom title that is set from a custom variable (myTitle variable).
 
 ```js title="Custom header with default buttons"
-import $ from 'jquery';
-import * as mobiscroll from '@mobiscroll/jquery';
-import '@mobiscroll/jquery/dist/css/mobiscroll.min.css';
-
 $('#myDiv').mobiscroll().eventcalendar({
   renderHeader: function () {
     const myTitle = 'Awesome Title';

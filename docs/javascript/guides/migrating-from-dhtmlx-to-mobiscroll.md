@@ -42,9 +42,6 @@ scheduler.init('scheduler_here');
 ### Mobiscroll:
 
 ```js
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 mobiscroll.eventcalendar('#scheduler_here', {
     // ...
 });
@@ -90,9 +87,6 @@ scheduler.init('scheduler_here');
 In the Mobiscroll Timeline view, the `timeline` object within the [`view`](/javascript/eventcalendar/timeline#configuring-the-view) option allows you to customize the visible days and the timeline’s scale. You can specify which days to display (e.g., weekdays), set the time scale (e.g., 30-minute intervals), and define the frequency of the labels shown (e.g., every 15 minutes).
 
 ```js
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 mobiscroll.eventcalendar('#scheduler_here', {
     view: {
         timeline: {
@@ -120,9 +114,6 @@ scheduler.init('scheduler_here',new Date(2019,0,10),"week");
 You can customize the visible days and hours, as well as the time grid scale, using the `schedule` object under the [`view`](/javascript/eventcalendar/scheduler#configuring-the-view) option. This allows you to define which days are shown (e.g., weekdays), set the visible time range (e.g., 8 AM to 6 PM), adjust the time scale (e.g., 30-minute intervals), and control the frequency of the labels (e.g., every 15 minutes).
 
 ```js
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 mobiscroll.eventcalendar('#scheduler_here', {
     view: {
         schedule: {
@@ -342,9 +333,6 @@ You can load the data through an external request and use the [`setEvents`](/jav
 In case of Mobiscroll, you can also use the [`onPageLoading`](/javascript/eventcalendar/api#event-onPageLoading) pevent to load the data (on demand) relevant to the currently active view. The event fires every time the date range of the view changes, for example, when someone navigates the event calendar. Getting the events in real time as the user interacts with the UI improves load performance and always serves the most recent data.
 
 ```js
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 mobiscroll.eventcalendar('#scheduler_here', {
   view: {
     schedule: { type: 'day' }
@@ -395,9 +383,6 @@ const dp = scheduler.createDataProcessor({
 Example for saving, updating, and deleting an event through an API:
 
 ```js
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 mobiscroll.eventcalendar('#scheduler_here', {
     view: { schedule: { type: "week" } },
     data: [
@@ -479,9 +464,6 @@ Mobiscroll components (e.g., Event Calendar, Scheduler, Timeline) expose a simil
 Example:
 
 ```js
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 mobiscroll.eventcalendar('#scheduler_here', {
     // ...other options...
      events,
@@ -516,9 +498,6 @@ As a final step, let’s explore how core features from DHTMLX can be replicated
 #### Enabling Drag & Drop in Mobiscroll:
 
 ```js
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 mobiscroll.eventcalendar('#scheduler_here', {
     clickToCreate: true,
     dragToCreate: true,
@@ -546,9 +525,6 @@ scheduler.init('scheduler_here', new Date(2020,8,12), "week");
 In Mobiscroll, switching between views like Day, Week, or Month requires setting up a custom header along with event listeners to handle the view changes. You can see an example of this implementation [here](https://demo.mobiscroll.com/scheduler/switching-calendar-scheduler-agenda).
 
 ```js
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 var calendar = mobiscroll.eventcalendar('#scheduler_here', {
 
   view: {
@@ -644,11 +620,10 @@ Mobiscroll exposes two configuration options to handle time zones:
 So, let’s say you want to use the Day.js timezone library. After [installing](/javascript/eventcalendar/timezones#the-dayjs-library) it into your project, you can pass the `dayjsTimezone` object to the Timeline’s [`timezonePlugin`](/javascript/eventcalendar/api#opt-timezonePlugin) option:
 
 ```js
+import { eventcalendar, dayjsTimezone } from '@mobiscroll/javascript';
 import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
-import { eventcalendar, dayjsTimezone } from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -739,9 +714,6 @@ When you want to customize how the events look, depending on what your goal is, 
 To define a custom template, pass a functional to the appropriate option that returns the desired html:
 
 ```js
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 mobiscroll.eventcalendar('#container', {
     // ...other config...
 
@@ -828,9 +800,6 @@ In case of the Timeline view there are three places where you can customize the 
 Check out how you can style these resource parts in [this example](https://demo.mobiscroll.com/timeline/timeline-resource-details-side-panel-footer#).
 
 ```js
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 mobiscroll.eventcalendar('#scheduler_here', {
   // ... other config ...
   resources: [
@@ -895,9 +864,6 @@ Here's the list of the built in components of the default header. You can initia
 The following example will render the prev and next buttons and a custom title.
 
 ```js
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 var myTitle = 'Awesome title';
 
 mobiscroll.eventcalendar('#scheduler_here', {
@@ -995,9 +961,6 @@ Mobiscroll [enables localization](/javascript/core-concepts/localization) by let
 Example setting the locale option globally:
 
 ```js
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 mobiscroll.setOptions({
     // ...other config...
     locale: mobiscroll.localeFr // French locale applied globally
@@ -1007,9 +970,6 @@ mobiscroll.setOptions({
 Example setting the locale at the component level:
 
 ```js
-import * as mobiscroll from '@mobiscroll/javascript';
-import '@mobiscroll/javascript/dist/css/mobiscroll.min.css';
-
 mobiscroll.eventcalendar('#scheduler_here', {
     // ...other config...
     locale: mobiscroll.localeFr, // Switch to French locale

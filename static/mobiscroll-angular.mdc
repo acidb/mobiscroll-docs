@@ -44,7 +44,10 @@ All scheduling views are ONE component: **Eventcalendar**, configured via the `v
 - Prefer `.md` pages over HTML — `.md` files are optimized for AI
 - Use official docs examples only — docs are the source of truth
 - Package: `@mobiscroll/angular` — no other Mobiscroll package
-- Module: `MbscModule` must be in component `imports` (standalone) or NgModule
+- Module: `MbscModule` placement depends on architecture:
+  - **Standalone component:** add to the `imports` array of `@Component({ imports: [MbscModule, ...] })`
+  - **NgModule app:** add to the `imports` array of `@NgModule({ imports: [MbscModule, ...] })`
+  - Do NOT add to both at once
 - CSS: use `angular.json` `styles` array — NOT JS/TS import statements
 - Components use `mbsc-` prefix in templates (e.g., `<mbsc-eventcalendar>`)
 - Version: 6 (current). Do not use deprecated v5 APIs.

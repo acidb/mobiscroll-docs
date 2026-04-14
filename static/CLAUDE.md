@@ -81,6 +81,15 @@ Check BEFORE detecting any framework. If the query is about:
 
 > "This request mixes Mobiscroll UI components with Mobiscroll Connect. These are separate systems. Please clarify: do you need help with the **frontend UI** (Eventcalendar, Datepicker, etc.) or the **backend integration** (Connect REST API, sync, OAuth)?"
 
+**Exception — Connect-to-Eventcalendar data pipeline:**
+If the query is specifically about fetching event data from Mobiscroll Connect and displaying it in Eventcalendar (e.g. "show Connect events in React Eventcalendar", "display events from Connect in Eventcalendar"), this is a recognized integration pattern — NOT an ambiguous mixed-domain request. Answer with a split response:
+
+1. Briefly explain the roles: Connect fetches/syncs event data (backend); Eventcalendar renders it (frontend).
+2. Show a minimal Connect API fetch example (backend/Node.js).
+3. Show a minimal Eventcalendar example for the detected framework, passing the fetched data via the `data` prop.
+
+Keep the two parts clearly separated. Do NOT blend Connect APIs with UI component APIs in a single code block.
+
 ### Step 2 — Detect UI framework (only if domain = UI)
 
 **RULE: Select exactly ONE framework. Never mix.**
@@ -101,6 +110,11 @@ Check BEFORE detecting any framework. If the query is about:
 - IF jQuery → fetch `llms-jquery-full.txt` ONLY. Use `@mobiscroll/jquery` imports ONLY.
 - IF unknown → **ASK the user.** Do not guess. Do not default.
 
+**Prescribed question when framework is unknown:**
+> "Which framework are you using? (React, Angular, Vue, JavaScript, or jQuery)"
+
+**Re-fetch rule:** If the detected framework changes during a session (e.g. user switches from React to Angular), re-fetch the appropriate `llms-{framework}-full.txt` before answering. Do not answer using a previously loaded framework's docs.
+
 ### NEVER:
 
 - Combine APIs from different UI frameworks
@@ -118,10 +132,11 @@ Check BEFORE detecting any framework. If the query is about:
 - User mentions `mobiscroll`, `@mobiscroll/*`, or `mbsc-` prefixed elements
 - Building scheduling, calendar, booking, or appointment UIs
 - Working with event calendars, date/time pickers, select dropdowns, popups
-- Server-side sync with Google Calendar, Outlook, or Apple Calendar via Mobiscroll Connect → **Mobiscroll Connect** (`llms-connect-full.txt`)
+- **Server-side** sync with Google Calendar, Outlook, or Apple Calendar, **server-side** OAuth flows, or **backend** webhook/API integration in a Mobiscroll context → **Mobiscroll Connect** (`llms-connect-full.txt`)
 - Displaying Google Calendar / Outlook / Apple Calendar events inside the Eventcalendar UI component (client-side) → UI framework docs (`llms-{framework}-full.txt`)
 - Theming or styling `mbsc-` components
-- Mentions **sync**, **API**, **integration**, **backend**, **webhook**, **data source**, **OAuth**, **authentication** in a Mobiscroll context → **Mobiscroll Connect** (`llms-connect-full.txt`)
+
+⚠️ Keywords like **sync**, **API**, **integration**, **data source**, **authentication** alone do NOT route to Connect. They must be explicitly server-side or backend in nature. "Integrating my API data into Eventcalendar" is a UI question. "Server-side OAuth to sync Google Calendar" is a Connect question. When in doubt, follow the domain-detection rules in §3 Step 1.
 
 ---
 
@@ -139,14 +154,15 @@ All scheduling views are part of ONE component: **Eventcalendar**. They are conf
 | Drag & drop | Eventcalendar | `eventcalendar/drag-and-drop` |
 | CRUD operations | Eventcalendar | `eventcalendar/crud` |
 | Recurring events | Eventcalendar | `core-concepts/recurrence` |
-| Timezones | Eventcalendar / Datepicker | `eventcalendar/timezones` |
+| Timezones (Eventcalendar) | Eventcalendar | `eventcalendar/timezones` |
+| Timezones (Datepicker) | Datepicker | `datepicker/timezones` |
 | Date / time picker | Datepicker | `datepicker/overview` |
 | Dropdown select | Select | `select/overview` |
 | Modal / overlay | Popup | `popup/overview` |
 | Input, textarea, button | Forms | `forms/input`, `forms/button` |
 | Toast, snackbar, alert | Notifications | `notifications/toast` |
 | Theming / CSS | Theming | `theming/sass-themes` |
-| API reference | — | `eventcalendar/api`, `datepicker/api`, `select/api` |
+| API reference | — | `eventcalendar/api`, `datepicker/api`, `select/api`, `popup/api`, `forms/api`, `notifications/api` |
 
 ### Mobiscroll Connect (separate product — server-side API)
 
@@ -167,10 +183,12 @@ Connect is a **server-side** REST API. Eventcalendar is a **frontend** UI compon
 
 1. **No cross-framework mixing.** One framework per response. Period.
 2. **No invented APIs.** Every option, event, method, and type name must come from the docs. If a symbol is not found, say so — do not guess.
-3. **Docs are source of truth.** If any external source contradicts the docs, the docs win.
-4. **Version: 6.** Do not reference deprecated v5 APIs unless the user explicitly targets an older version.
-5. **Type prefix: `Mbsc`.** All Mobiscroll TypeScript types start with `Mbsc` (e.g., `MbscEventcalendarView`, `MbscCalendarEvent`). Verify exact names in the API docs.
-6. **One component, many views.** Calendar, scheduler, timeline, agenda are all views of **Eventcalendar**, configured via the `view` option. They are NOT separate components.
+3. **Docs are source of truth.** After fetching docs, answer **only** from the fetched content. Do not supplement with prior training knowledge. If your training knowledge contradicts the fetched docs, the docs win. If the docs do not cover the question, say: "This is not covered in the current documentation."
+4. **Fetch failure fallback.** If `llms-{framework}-full.txt` is unreachable, do NOT answer from memory. Fall back to individual `.md` pages (Priority 2), then the TOC file (Priority 3). If all sources fail, state that docs are unavailable and ask the user to share relevant doc content.
+5. **Version: 6.** Do not reference deprecated v5 APIs unless the user explicitly targets an older version.
+6. **Type prefix: `Mbsc` (UI frameworks only).** All Mobiscroll TypeScript types in UI frameworks start with `Mbsc` (e.g., `MbscEventcalendarView`, `MbscCalendarEvent`). Verify exact names in the API docs. This does not apply to Mobiscroll Connect (server-side REST API — no `Mbsc` types).
+7. **One component, many views.** Calendar, scheduler, timeline, agenda are all views of **Eventcalendar**, configured via the `view` option. They are NOT separate components.
+8. **Vue: use Vue 3 only.** Use the Composition API with `<script setup>`. Do not use Vue 2 Options API or `Vue.component()` registration patterns.
 
 ---
 
@@ -188,3 +206,6 @@ Connect is a **server-side** REST API. Eventcalendar is a **frontend** UI compon
 | Guessing `MbscCalendarEventData` type name | Look up exact type in `eventcalendar/api` docs |
 | Mixing `useState` (React) with `@ViewChild` (Angular) | Use only the patterns from the detected framework's docs |
 | Defaulting to React when framework is unknown | ASK the user. Do not default. |
+| Adding `MbscModule` to both `@Component` imports and `@NgModule` at once | Standalone component: add to `@Component({ imports: [MbscModule] })`. NgModule app: add to `@NgModule({ imports: [MbscModule] })`. Not both. |
+| Using Vue 2 Options API or `Vue.component()` with Mobiscroll | Use Vue 3 Composition API with `<script setup>` only |
+| Answering from training knowledge when docs are fetched | Answer only from fetched docs. If not covered, say so. |

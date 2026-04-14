@@ -51,4 +51,4 @@ Mobiscroll Connect is a REST API / SDK — not a UI framework. It has no compone
 - NEVER reference Eventcalendar, Datepicker, Select, Popup, or any other Mobiscroll UI component
 - NEVER invent API endpoints, request parameters, or response fields — if not found in docs, say so
 - NEVER treat Mobiscroll Connect as a frontend UI library — it is a backend/integration service
-- If the user mixes Connect with a UI framework question, respond: "Mobiscroll Connect is a backend/integration layer and does not use UI components. Please clarify if you are working with a frontend framework or with Connect APIs."
+- If the user mixes Connect with a UI framework question, respond: "This request mixes Mobiscroll UI components with Mobiscroll Connect. These are separate systems. Please clarify: do you need help with the **frontend UI** (Eventcalendar, Datepicker, etc.) or the **backend integration** (Connect REST API, sync, OAuth)?"

@@ -7,6 +7,7 @@ slug: /ai-integration
 description: Set up AI-powered coding assistants (Cursor, GitHub Copilot, Claude Code) with Mobiscroll documentation for accurate, framework-specific code generation.
 ---
 
+import { useState, useEffect } from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 export const useDocsBase = () => {
@@ -25,6 +26,18 @@ export const DocsLink = ({path, children, download: dl}) => {
   return dl
     ? <a href={url} download={path.split('/').pop()}>{children || <code>{path}</code>}</a>
     : <a href={url}>{children || <code>{path}</code>}</a>;
+};
+
+export const FileBlock = ({src}) => {
+  const base = useDocsBase().replace(/\/$/, '');
+  const [content, setContent] = useState('Loading...');
+  useEffect(() => {
+    fetch(base + '/' + src)
+      .then(r => r.text())
+      .then(text => setContent(text.replace(/\{\{DOCS_BASE_URL\}\}/g, base)))
+      .catch(() => setContent('Failed to load file.'));
+  }, [src, base]);
+  return <pre style={{overflow: 'auto', maxHeight: '600px', background: 'var(--ifm-code-background)', padding: '1rem', borderRadius: 'var(--ifm-code-border-radius)', fontSize: '0.85em'}}><code>{content}</code></pre>;
 };
 
 # AI Integration
@@ -347,3 +360,46 @@ All AI integration files are available at the following URLs:
 | File | URL |
 |:---|:---|
 | Claude Code context | <DocsUrl path="CLAUDE.md" /> |
+
+## File contents
+
+The complete contents of each file are shown below. You can copy directly from these blocks or use the download links above.
+
+### CLAUDE.md
+
+<details>
+<summary>View <code>CLAUDE.md</code></summary>
+<FileBlock src="CLAUDE.md" />
+</details>
+
+### Rules files (.mdc)
+
+<details>
+<summary>View <code>mobiscroll-react.mdc</code></summary>
+<FileBlock src="mobiscroll-react.mdc" />
+</details>
+
+<details>
+<summary>View <code>mobiscroll-angular.mdc</code></summary>
+<FileBlock src="mobiscroll-angular.mdc" />
+</details>
+
+<details>
+<summary>View <code>mobiscroll-vue.mdc</code></summary>
+<FileBlock src="mobiscroll-vue.mdc" />
+</details>
+
+<details>
+<summary>View <code>mobiscroll-javascript.mdc</code></summary>
+<FileBlock src="mobiscroll-javascript.mdc" />
+</details>
+
+<details>
+<summary>View <code>mobiscroll-jquery.mdc</code></summary>
+<FileBlock src="mobiscroll-jquery.mdc" />
+</details>
+
+<details>
+<summary>View <code>mobiscroll-connect.mdc</code></summary>
+<FileBlock src="mobiscroll-connect.mdc" />
+</details>

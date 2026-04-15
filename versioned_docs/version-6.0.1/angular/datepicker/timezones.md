@@ -1,0 +1,103 @@
+---
+sidebar_position: 8
+sidebar_label: Timezones
+displayed_sidebar: angularSidebar
+description: 'Handle timezone-aware date and time selection in the Mobiscroll Datepicker for Angular using moment-timezone, Luxon, or the Intl API.'
+---
+
+import LibraryInstall from '../../_shared/timezones/library_install.mdx';
+import DayjsInstall from '../../_shared/timezones/dayjs_install.mdx';
+import MomentInstall from '../../_shared/timezones/moment_install.mdx';
+import LuxonInstall from '../../_shared/timezones/luxon_install.mdx';
+import General from '../../_shared/datepicker/timezones_general.mdx';
+
+# Timezones
+
+<General />
+
+## Library Install
+
+<LibraryInstall />
+
+### The Moment-Timezone library
+
+<MomentInstall framework="angular" />
+
+**4.** After that, you can pass the `momentTimezone` object to the Datepicker's [`timezonePlugin`](./api#opt-timezonePlugin) option.
+
+
+```html
+<mbsc-datepicker [timezonePlugin]="myPlugin" [dataTimezone]="myDataTz" [displayTimezone]="myDisplayTz"></mbsc-datepicker>
+```
+
+```ts
+import { Component } from '@angular/core';
+import moment from 'moment-timezone';
+import { momentTimezone, MbscTimezonePlugin } from '@mobiscroll/angular';
+
+momentTimezone.moment = moment;
+
+@Component({...})
+export class AppComponent {
+  // highlight-next-line
+  myPlugin: MbscTimezonePlugin = momentTimezone;
+  myDataTz = 'utc';
+  myDisplayTz = 'Europe/Berlin';
+}
+```
+
+### The Luxon library
+
+<LuxonInstall framework="angular" />
+
+**4.** After that, you can pass the `luxonTimezone` object to the Datepicker's `timezonePlugin` option.
+
+```html
+<mbsc-datepicker [timezonePlugin]="myPlugin" [dataTimezone]="myDataTz" [displayTimezone]="myDisplayTz"></mbsc-datepicker>
+```
+
+```ts
+import { Component } from '@angular/core';
+import * as luxon from 'luxon';
+import { luxonTimezone, MbscTimezonePlugin } from '@mobiscroll/angular';
+
+luxonTimezone.luxon = luxon;
+
+@Component({...})
+export class AppComponent {
+  // highlight-next-line
+  myPlugin: MbscTimezonePlugin = luxonTimezone;
+  myDataTz = 'utc';
+  myDisplayTz = 'Europe/Berlin';
+}
+```
+
+### The Day.js library
+
+<DayjsInstall framework="angular" />
+
+**4.** After that, you can pass the `dayjsTimezone` object to the Datepicker's `timezonePlugin` option.
+
+```html
+<mbsc-datepicker [timezonePlugin]="myDayjsTimezone" [dataTimezone]="myDataTz" [displayTimezone]="myDisplayTz"></mbsc-datepicker>
+```
+
+```ts
+import { Component } from '@angular/core';
+import dayjs from 'dayjs';
+import timezone from 'dayjs/plugin/timezone';
+import utc from 'dayjs/plugin/utc';
+import { dayjsTimezone, MbscTimezonePlugin } from '@mobiscroll/angular';
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+dayjsTimezone.dayjs = dayjs;
+
+@Component({...})
+export class AppComponent {
+  // highlight-next-line
+  myDayjsTimezone: MbscTimezonePlugin = dayjsTimezone;
+  myDataTz = 'utc';
+  myDisplayTz = 'Europe/Berlin';
+}
+```

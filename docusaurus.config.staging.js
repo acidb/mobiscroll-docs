@@ -69,13 +69,13 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
           includeCurrentVersion: false,
-          lastVersion: '6.0.0',
+          lastVersion: '6.0.1',
           versions: {
-            "5.35.0": {
+            "6.0.1": {
               badge: false,
             },
           },
-          onlyIncludeVersions: ['6.0.0', '5.35.0', "5.34.0"],
+          onlyIncludeVersions: ['6.0.1', '6.0.0', '5.35.0'],
         },
         blog: false,
         theme: {

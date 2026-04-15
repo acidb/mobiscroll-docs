@@ -1,6 +1,8 @@
 ---
 sidebar_label: API
 displayed_sidebar: vueSidebar
+toc_min_heading_level: 2
+toc_max_heading_level: 2
 ---
 
 import Options from '../_auto-generated/popup/options.md';

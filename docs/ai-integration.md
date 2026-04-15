@@ -29,14 +29,16 @@ export const DocsLink = ({path, children, download: dl}) => {
 };
 
 export const FileBlock = ({src}) => {
+  const {siteConfig} = useDocusaurusContext();
   const base = useDocsBase().replace(/\/$/, '');
+  const fetchPath = siteConfig.baseUrl.replace(/\/?$/, '') + '/' + src;
   const [content, setContent] = useState('Loading...');
   useEffect(() => {
-    fetch(base + '/' + src)
+    fetch(fetchPath)
       .then(r => r.text())
       .then(text => setContent(text.replace(/\{\{DOCS_BASE_URL\}\}/g, base)))
       .catch(() => setContent('Failed to load file.'));
-  }, [src, base]);
+  }, [src, base, fetchPath]);
   return <pre style={{overflow: 'auto', maxHeight: '600px', background: 'var(--ifm-code-background)', padding: '1rem', borderRadius: 'var(--ifm-code-border-radius)', fontSize: '0.85em'}}><code>{content}</code></pre>;
 };
 
@@ -164,7 +166,7 @@ When asking Cursor about Mobiscroll, include `@docs` to ensure it reads the regi
 
 ### Step 1: Add the rules file
 
-Download the `.mdc` file for your framework and place it in your project's `.github/copilot/` directory:
+Download the `.mdc` file for your framework and place it at the root of your project or alternatively copy it's content to the rules files under the `.github/` directory:
 
 - React: <DocsLink path="mobiscroll-react.mdc"><code>mobiscroll-react.mdc</code></DocsLink>
 - Angular: <DocsLink path="mobiscroll-angular.mdc"><code>mobiscroll-angular.mdc</code></DocsLink>
@@ -175,9 +177,11 @@ Download the `.mdc` file for your framework and place it in your project's `.git
 
 ```
 your-project/
+├── mobiscroll-react.mdc
 ├── .github/
-│   └── copilot/
-│       └── mobiscroll-react.mdc
+|   ├── copilot-instructions.md       <-- Global repo rules
+|   └── instructions/
+|       └── react-logic.instructions.md <-- Specific rules
 ├── src/
 ├── package.json
 └── ...

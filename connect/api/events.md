@@ -257,6 +257,37 @@ const masters = await client.events.list({
 ```
 
 </TabItem>
+<TabItem value="php" label="PHP SDK">
+
+```php
+// Fetch initial events with date range filter
+$response = $client->events()->list([
+    'pageSize' => 50,
+    'start' => '2025-10-01T00:00:00Z',
+    'end' => '2025-10-31T23:59:59Z',
+]);
+$events = $response['events'];
+
+// Load more events using nextPageToken
+$nextResponse = $client->events()->list([
+    'pageSize' => 50,
+    'nextPageToken' => $response['nextPageToken'],
+]);
+
+// Filter by specific calendars
+$filteredEvents = $client->events()->list([
+    'pageSize' => 25,
+    'calendarIds' => ['google' => ['personal@gmail.com', 'work@company.com']],
+]);
+
+// Get recurring event series masters (not expanded)
+$masters = $client->events()->list([
+    'pageSize' => 50,
+    'singleEvents' => false,
+]);
+```
+
+</TabItem>
 </Tabs>
 
 :::info
@@ -599,6 +630,43 @@ const allDayEvent = await client.events.create({
 ```
 
 </TabItem>
+<TabItem value="php" label="PHP SDK">
+
+```php
+// Create a simple event
+$event = $client->events()->create([
+    'provider' => 'google',
+    'calendarId' => 'primary',
+    'title' => 'Team Meeting',
+    'description' => 'Discuss project updates',
+    'start' => '2025-11-01T10:00:00Z',
+    'end' => '2025-11-01T11:00:00Z',
+    'location' => 'Conference Room A',
+]);
+
+// Create a recurring event
+$recurringEvent = $client->events()->create([
+    'provider' => 'microsoft',
+    'calendarId' => 'AAMkAGVmMDEz...',
+    'title' => 'Weekly Standup',
+    'start' => '2025-11-01T09:00:00Z',
+    'end' => '2025-11-01T09:30:00Z',
+    'allDay' => false,
+]);
+
+// Create an all-day event
+$allDayEvent = $client->events()->create([
+    'provider' => 'apple',
+    'calendarId' => 'https://caldav.icloud.com/.../calendars/...',
+    'title' => 'Conference',
+    'start' => '2025-11-15T00:00:00Z',
+    'end' => '2025-11-16T00:00:00Z',
+    'allDay' => true,
+    'description' => 'Annual tech conference',
+]);
+```
+
+</TabItem>
 </Tabs>
 
 :::info
@@ -843,6 +911,40 @@ const updatedFuture = await client.events.update({
 ```
 
 </TabItem>
+<TabItem value="php" label="PHP SDK">
+
+```php
+// Update a simple event
+$updatedEvent = $client->events()->update([
+    'provider' => 'google',
+    'calendarId' => 'primary',
+    'eventId' => 'event123abc',
+    'title' => 'Updated Team Meeting',
+    'start' => '2025-11-01T14:00:00Z',
+    'end' => '2025-11-01T15:00:00Z',
+]);
+
+// Update a single instance of a recurring event
+$updatedInstance = $client->events()->update([
+    'provider' => 'microsoft',
+    'eventId' => 'instance456',
+    'recurringEventId' => 'series123',
+    'calendarId' => 'AAMkAGVmMDEz...',
+    'title' => 'Standup - Special Topic Today',
+    'start' => '2025-11-01T09:00:00Z',
+    'end' => '2025-11-01T10:00:00Z',
+]);
+
+// Update all future occurrences
+$updatedFuture = $client->events()->update([
+    'provider' => 'apple',
+    'eventId' => 'recurring-event-id',
+    'calendarId' => 'https://caldav.icloud.com/.../calendars/...',
+    'location' => 'New Conference Room B',
+]);
+```
+
+</TabItem>
 </Tabs>
 
 :::info
@@ -989,6 +1091,35 @@ await client.events.delete({
   eventId: 'recurring-event-id',
   deleteMode: 'all'
 });
+```
+
+</TabItem>
+<TabItem value="php" label="PHP SDK">
+
+```php
+// Delete a simple event
+$client->events()->delete([
+    'provider' => 'google',
+    'calendarId' => 'primary',
+    'eventId' => 'event123abc',
+]);
+
+// Delete a single instance of a recurring event
+$client->events()->delete([
+    'provider' => 'microsoft',
+    'calendarId' => 'AAMkAGVmMDEz...',
+    'eventId' => 'instance456',
+    'recurringEventId' => 'series123',
+    'deleteMode' => 'this',
+]);
+
+// Delete entire recurring series
+$client->events()->delete([
+    'provider' => 'apple',
+    'calendarId' => 'https://caldav.icloud.com/.../calendars/...',
+    'eventId' => 'recurring-event-id',
+    'deleteMode' => 'all',
+]);
 ```
 
 </TabItem>

@@ -37,15 +37,15 @@ To use the SDK, initialize `MobiscrollConnectClient` with your client credential
 Constructor arguments.
 
 <Parameter name="clientId" type="string">
-Your Client ID from the Mobiscroll Connect dashboard.
+Your Client ID obtained from the Mobiscroll Connect dashboard.
 </Parameter>
 
 <Parameter name="clientSecret" type="string">
-Your Client Secret from the Mobiscroll Connect dashboard.
+Your Client Secret obtained from the Mobiscroll Connect dashboard.
 </Parameter>
 
 <Parameter name="redirectUri" type="string">
-Your application's redirect URI that matches the dashboard configuration.
+Your application's redirect URI that matches the one configured in the Mobiscroll Connect dashboard.
 </Parameter>
 
 </Parameter>
@@ -66,38 +66,24 @@ $client = new MobiscrollConnectClient(
 
 ## Methods
 
-### auth {#client-auth}
-
-Returns the Auth resource used for OAuth operations.
-
-**Method:** `client->auth()`
-
-**Returns:** `Mobiscroll\Connect\Resources\Auth`
-
-### calendars {#client-calendars}
-
-Returns the Calendars resource used for calendar endpoints.
-
-**Method:** `client->calendars()`
-
-**Returns:** `Mobiscroll\Connect\Resources\Calendars`
-
-### events {#client-events}
-
-Returns the Events resource used for event endpoints.
-
-**Method:** `client->events()`
-
-**Returns:** `Mobiscroll\Connect\Resources\Events`
-
 ### setCredentials {#auth-set-credentials}
 
-Sets the access token for the client. This is required before making authenticated API calls.
+Sets the access token for the client. This is required before making any API calls that require authentication.
 
 **Method:** `client->auth()->setCredentials(tokens)`
 
 <Parameter name="tokens" type="TokenResponse" isObject>
 The token response object returned by `client->auth()->getToken(code)`.
+</Parameter>
+
+### onTokensRefreshed {#client-on-tokens-refreshed}
+
+Registers a callback to be invoked whenever the SDK automatically refreshes the access token. Use this to persist the updated tokens so they survive future requests.
+
+**Method:** `client->onTokensRefreshed(callback)`
+
+<Parameter name="callback" type="callable(TokenResponse): void">
+A callable that receives the updated `TokenResponse` after a successful automatic token refresh.
 </Parameter>
 
 ## API
@@ -106,7 +92,7 @@ The client exposes resources that map directly to the API endpoints.
 
 ### Auth
 
-The `client->auth()` resource handles the OAuth authorization flow, including generating authorization URLs, exchanging codes for tokens, and managing connection status.
+The `client->auth()` resource handles the OAuth authorization flow, including generating authorization URLs, exchanging codes for tokens, managing connection status, and disconnecting providers.
 
 <DocCardList items={[
   {
@@ -119,7 +105,7 @@ The `client->auth()` resource handles the OAuth authorization flow, including ge
 
 ### Calendars
 
-The `client->calendars()` resource lists calendars from connected providers.
+The `client->calendars()` resource allows you to list available calendars from all connected providers (Google, Outlook, etc.). It corresponds to the `/calendars` endpoints.
 
 <DocCardList items={[
   {
@@ -132,7 +118,7 @@ The `client->calendars()` resource lists calendars from connected providers.
 
 ### Events
 
-The `client->events()` resource provides methods to create, read, update, and delete calendar events across all connected accounts.
+The `client->events()` resource provides methods to create, read, update, and delete calendar events across all connected accounts. It corresponds to the `/events` endpoints.
 
 <DocCardList items={[
   {
@@ -142,3 +128,56 @@ The `client->events()` resource provides methods to create, read, update, and de
     icon: '📅'
   },
 ]} />
+
+## Token Refresh
+
+The PHP SDK handles token refresh automatically. When any API call returns a `401 Unauthorized` response and the client has a `refresh_token` stored, the SDK will silently exchange it for a new access token and retry the original request — with no action required from your application.
+
+When the refresh succeeds, the SDK invokes your `onTokensRefreshed` callback with the updated `TokenResponse`. You must register this callback and persist the new tokens, otherwise they will be lost between requests.
+
+```php
+$client->onTokensRefreshed(function (TokenResponse $updatedTokens) {
+    // Persist $updatedTokens in your database or session store
+    // so the new access_token and refresh_token survive future requests
+    $_SESSION['tokens'] = $updatedTokens->toArray();
+});
+```
+
+If the refresh token itself is invalid or has been revoked, the SDK throws an `AuthenticationError` and the user must re-authorize.
+
+## Error Handling
+
+All SDK methods throw exceptions that extend `Mobiscroll\Connect\Exceptions\MobiscrollConnectException`. You can catch the base exception or any of the specific subclasses.
+
+| Exception | HTTP Status | `getCodeString()` |
+|---|---|---|
+| `AuthenticationError` | 401, 403 | `AUTHENTICATION_ERROR` |
+| `ValidationError` | 400, 422 | `VALIDATION_ERROR` |
+| `NotFoundError` | 404 | `NOT_FOUND_ERROR` |
+| `RateLimitError` | 429 | `RATE_LIMIT_ERROR` |
+| `ServerError` | 5xx | `SERVER_ERROR` |
+| `NetworkError` | — | `NETWORK_ERROR` |
+
+`ValidationError` exposes a `getDetails()` method that returns field-level validation errors. `RateLimitError` exposes `getRetryAfter()` (seconds) and `ServerError` exposes `getStatusCode()`.
+
+```php
+use Mobiscroll\Connect\Exceptions\{
+    AuthenticationError,
+    ValidationError,
+    RateLimitError,
+    MobiscrollConnectException,
+};
+
+try {
+    $events = $client->events()->list(['start' => new DateTime('2024-01-01')]);
+} catch (AuthenticationError $e) {
+    // Token expired or invalid — refresh manually or re-authorize the user
+} catch (ValidationError $e) {
+    // Invalid request parameters
+    $details = $e->getDetails();
+} catch (RateLimitError $e) {
+    $retryAfter = $e->getRetryAfter(); // seconds
+} catch (MobiscrollConnectException $e) {
+    // Catch-all for any other SDK error
+}
+```

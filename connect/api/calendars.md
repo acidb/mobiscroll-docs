@@ -76,6 +76,13 @@ const calendars = await client.calendars.list();
 ```
 
 </TabItem>
+<TabItem value="php" label="PHP SDK">
+
+```php
+$calendars = $client->calendars()->list();
+```
+
+</TabItem>
 </Tabs>
 
 ```json title="Response"

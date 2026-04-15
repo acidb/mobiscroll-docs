@@ -51,15 +51,15 @@ To use the SDK, you need to initialize the `MobiscrollConnectClient` with your c
 Configuration object.
 
 <Parameter name="clientId" type="string">
-Your Client ID obtained from the Mobiscroll dashboard.
+Your Client ID obtained from the Mobiscroll Connect dashboard.
 </Parameter>
 
 <Parameter name="clientSecret" type="string">
-Your Client Secret obtained from the Mobiscroll dashboard.
+Your Client Secret obtained from the Mobiscroll Connect dashboard.
 </Parameter>
 
 <Parameter name="redirectUri" type="string">
-Your application's redirect URI that matches the one configured in the dashboard.
+Your application's redirect URI that matches the one configured in the Mobiscroll Connect dashboard.
 </Parameter>
 
 </Parameter>
@@ -109,6 +109,59 @@ Returns the current configuration of the client.
 **Method:** `client.getConfig()`
 
 **Returns:** `MobiscrollConnectConfig`
+
+## Token Refresh
+
+The Node.js SDK handles token refresh automatically. When any API call returns a `401 Unauthorized` response and the client has a `refresh_token` stored, the SDK will silently exchange it for a new access token and retry the original request — with no action required from your application.
+
+When the refresh succeeds, the SDK emits a `tokens` event with the updated `TokenResponse`. You must listen for this event and persist the new tokens, otherwise they will be lost when the process exits.
+
+```typescript
+client.on('tokens', (updatedTokens) => {
+  // Persist updatedTokens in your database or session store
+  // so the new access_token and refresh_token survive future requests
+});
+```
+
+If the refresh token itself is invalid or has been revoked, the SDK throws an `AuthenticationError` and the user must re-authorize.
+
+## Error Handling
+
+All SDK methods throw errors that extend `MobiscrollConnectError`. You can catch the base class or any specific subclass.
+
+| Error class | HTTP status | `error.code` |
+|---|---|---|
+| `AuthenticationError` | 401, 403 | `AUTHENTICATION_ERROR` |
+| `ValidationError` | 400, 422 | `VALIDATION_ERROR` |
+| `NotFoundError` | 404 | `NOT_FOUND_ERROR` |
+| `RateLimitError` | 429 | `RATE_LIMIT_ERROR` |
+| `ServerError` | 5xx | `SERVER_ERROR` |
+| `NetworkError` | — | `NETWORK_ERROR` |
+
+`ValidationError` exposes a `details` property with field-level validation errors. `RateLimitError` exposes `retryAfter` (seconds) and `ServerError` exposes `status` (the actual HTTP status code).
+
+```typescript
+import {
+  AuthenticationError,
+  ValidationError,
+  RateLimitError,
+  MobiscrollConnectError,
+} from '@mobiscroll/connect-sdk';
+
+try {
+  const response = await client.events.list({ start: '2024-01-01' });
+} catch (error) {
+  if (error instanceof AuthenticationError) {
+    // Token expired and refresh failed — re-authorize the user
+  } else if (error instanceof ValidationError) {
+    console.log(error.details);
+  } else if (error instanceof RateLimitError) {
+    console.log(`Retry after ${error.retryAfter}s`);
+  } else if (error instanceof MobiscrollConnectError) {
+    // Catch-all for any other SDK error
+  }
+}
+```
 
 ## API
 

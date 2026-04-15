@@ -10,7 +10,7 @@ import { Parameter } from '@site/src/components/Connect';
 
 Use webhooks to receive near real-time event change notifications from connected calendar providers.
 
-When a user modifies an event in Google, Microsoft, or Apple, Connect can forward the normalized change payload to your configured project webhook URL after you subscribe the calendar via `POST /subscribe-webhook`.
+When a user modifies an event in Google, Microsoft, Apple, or CalDAV, Connect can forward the normalized change payload to your configured project webhook URL after you subscribe the calendar via `POST /subscribe-webhook`.
 
 This API lets you:
 - Subscribe a calendar to provider notifications
@@ -22,12 +22,7 @@ This API lets you:
 - **Google Calendar** (`google`)
 - **Microsoft Outlook** (`microsoft`)
 - **Apple Calendar** (`apple`)
-
-:::info
-CalDAV does not support provider-native push webhooks in Connect.
-
-CalDAV polling-based webhook delivery is not currently supported and is planned for upcoming versions.
-:::
+- **CalDAV** (`caldav`)
 
 ## Subscribe webhook {#endpoint-subscribe-webhook}
 
@@ -46,7 +41,7 @@ Authorization: Bearer YOUR_ACCESS_TOKEN
 ### Request parameters
 
 <Parameter name="provider" type="string" required id="subscribe-provider">
-Provider name. Supported values: `google`, `microsoft`, `apple`.
+Provider name. Supported values: `google`, `microsoft`, `apple`, `caldav`.
 </Parameter>
 
 <Parameter name="calendarId" type="string" required id="subscribe-calendarId">
@@ -148,7 +143,7 @@ Requires Bearer token authentication.
 ### Request parameters
 
 <Parameter name="provider" type="string" required id="unsubscribe-provider">
-Provider name. Supported values: `google`, `microsoft`, `apple`.
+Provider name. Supported values: `google`, `microsoft`, `apple`, `caldav`.
 </Parameter>
 
 <Parameter name="channelId" type="string" required id="unsubscribe-channelId">
@@ -194,29 +189,6 @@ curl -X POST "https://connect.mobiscroll.com/api/unsubscribe-webhook" \
   "message": "Webhook unsubscribed successfully"
 }
 ```
-
----
-
-## Provider callback endpoint {#endpoint-webhook-receiver}
-
-Mobiscroll Connect exposes this endpoint for provider notifications:
-
-**Endpoint:** `POST /webhook-receiver/:provider`
-
-This endpoint is intended for provider callback traffic and should not be called directly by client applications.
-
-### Microsoft validation flow
-
-During initial Microsoft subscription validation, Microsoft sends a `validationToken` query parameter.
-Mobiscroll Connect responds with HTTP `200` and the raw token string.
-
-### Callback processing response codes
-
-- **200** - Notification accepted (Google and Apple flows)
-- **202** - Notification accepted (Microsoft notification flow)
-- **400** - Invalid callback payload or unsupported provider
-- **404** - Unknown subscription/channel mapping
-- **500** - Project webhook URL not configured or unexpected processing failure
 
 ---
 
@@ -311,8 +283,24 @@ Changed events list.
   Optional custom key-value pairs.
   </Parameter>
 
-  <Parameter name="conference" type="string">
-  Optional conference meeting URL or identifier.
+  <Parameter name="conference" type="object" isObject>
+  Optional conference metadata.
+
+    <Parameter name="url" type="string">
+    Conference meeting URL.
+    </Parameter>
+
+    <Parameter name="autoGenerate" type="boolean">
+    If `true`, provider may auto-generate an online meeting link.
+    </Parameter>
+
+    <Parameter name="provider" type="string">
+    Conference provider identifier.
+    </Parameter>
+
+    <Parameter name="data" type="object">
+    Provider-specific conference payload.
+    </Parameter>
   </Parameter>
 
   <Parameter name="availability" type="string">
@@ -391,7 +379,10 @@ Additional webhook metadata.
       "custom": {
         "yourCustomKey": "yourCustomValue"
       },
-      "conference": "https://meet.example.com/abc",
+      "conference": {
+        "url": "https://meet.example.com/abc",
+        "provider": "google-meet"
+      },
       "availability": "busy",
       "privacy": "private",
       "status": "confirmed",
@@ -427,5 +418,6 @@ Additional webhook metadata.
 - Connect applies built-in echo/loop filtering for very recent API-originated changes (short-lived in-memory dedup window, currently 30 seconds), so webhook echoes for your own immediate `POST /event` / `PUT /event` updates are suppressed in the common case.
 - In distributed or multi-instance setups, add an application-level origin marker in `custom` (for example `custom.source = "my-system"`) and ignore matching webhook events as an additional loop-prevention safeguard.
 - For Apple, event change detection is based on periodic synchronization rather than provider-native push.
+- For CalDAV, event change detection is based on periodic synchronization rather than provider-native push.
 - A single delivery may contain multiple event changes and return `changeType: "mixed"`.
 - When notifications are filtered out, no events may be delivered in that callback cycle.

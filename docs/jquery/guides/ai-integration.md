@@ -1,10 +1,7 @@
 ---
-sidebar_position: 2
+sidebar_position: 0
 sidebar_label: AI Integration
-displayed_sidebar: homeSidebar
 title: AI Integration
-slug: /ai-integration
-description: Set up AI-powered coding assistants (Cursor, GitHub Copilot, Claude Code) with Mobiscroll documentation for accurate, framework-specific code generation.
 ---
 
 import { useState, useEffect } from 'react';
@@ -67,20 +64,8 @@ Machine-readable documentation files containing the complete Mobiscroll API refe
 
 | File | Description |
 |:---|:---|
-| `llms-react-full.txt` | Complete React documentation |
-| `llms-angular-full.txt` | Complete Angular documentation |
-| `llms-vue-full.txt` | Complete Vue documentation |
-| `llms-javascript-full.txt` | Complete JavaScript documentation |
 | `llms-jquery-full.txt` | Complete jQuery documentation |
-| `llms-react.txt` | React table of contents (links to individual pages) |
-| `llms-angular.txt` | Angular table of contents |
-| `llms-vue.txt` | Vue table of contents |
-| `llms-javascript.txt` | JavaScript table of contents |
-| `llms-jquery.txt` | jQuery table of contents |
-| `llms.txt` | Hub file — links to all framework docs |
-| `llms-full.txt` | All frameworks combined in one file |
-| `llms-connect-full.txt` | Complete Mobiscroll Connect documentation |
-| `llms-connect.txt` | Connect table of contents (links to individual pages) |
+| `llms-jquery.txt` | jQuery table of contents (links to individual pages) |
 
 ### Rules layer — .mdc files
 
@@ -88,12 +73,7 @@ Per-framework behavior rule files that tell AI assistants which package to use, 
 
 | File | Framework |
 |:---|:---|
-| `mobiscroll-react.mdc` | React |
-| `mobiscroll-angular.mdc` | Angular |
-| `mobiscroll-vue.mdc` | Vue |
-| `mobiscroll-javascript.mdc` | JavaScript |
 | `mobiscroll-jquery.mdc` | jQuery |
-| `mobiscroll-connect.mdc` | Mobiscroll Connect (backend / API) |
 
 ### Routing layer — CLAUDE.md
 
@@ -120,31 +100,19 @@ Open **Cursor Settings → Indexing & Docs** and add the documentation source fo
 
 | Framework | Name | URL |
 |:---|:---|:---|
-| React | Mobiscroll React | <DocsUrl path="llms-react-full.txt" /> |
-| Angular | Mobiscroll Angular | <DocsUrl path="llms-angular-full.txt" /> |
-| Vue | Mobiscroll Vue | <DocsUrl path="llms-vue-full.txt" /> |
-| JavaScript | Mobiscroll JavaScript | <DocsUrl path="llms-javascript-full.txt" /> |
 | jQuery | Mobiscroll jQuery | <DocsUrl path="llms-jquery-full.txt" /> |
-| Connect | Mobiscroll Connect | <DocsUrl path="llms-connect-full.txt" /> |
 
 Only register the source matching your use case. Do not register multiple sources — this prevents cross-domain contamination.
 
 ### Step 2: Add the rules file
 
-Download the `.mdc` file for your framework and place it in your project's `.cursor/rules/` directory:
-
-- React: <DocsLink path="mobiscroll-react.mdc" download><code>mobiscroll-react.mdc</code></DocsLink>
-- Angular: <DocsLink path="mobiscroll-angular.mdc" download><code>mobiscroll-angular.mdc</code></DocsLink>
-- Vue: <DocsLink path="mobiscroll-vue.mdc" download><code>mobiscroll-vue.mdc</code></DocsLink>
-- JavaScript: <DocsLink path="mobiscroll-javascript.mdc" download><code>mobiscroll-javascript.mdc</code></DocsLink>
-- jQuery: <DocsLink path="mobiscroll-jquery.mdc" download><code>mobiscroll-jquery.mdc</code></DocsLink>
-- Connect: <DocsLink path="mobiscroll-connect.mdc" download><code>mobiscroll-connect.mdc</code></DocsLink>
+Download the <DocsLink path="mobiscroll-jquery.mdc" download><code>mobiscroll-jquery.mdc</code></DocsLink> file for your framework and place it in your project's `.cursor/rules/` directory:
 
 ```
 your-project/
 ├── .cursor/
 │   └── rules/
-│       └── mobiscroll-react.mdc
+│       └── mobiscroll-jquery.mdc
 ├── src/
 ├── package.json
 └── ...
@@ -166,22 +134,15 @@ When asking Cursor about Mobiscroll, include `@docs` to ensure it reads the regi
 
 ### Step 1: Add the rules file
 
-Download the `.mdc` file for your framework and place it at the root of your project or alternatively copy it's content to the rules files under the `.github/` directory:
-
-- React: <DocsLink path="mobiscroll-react.mdc" download><code>mobiscroll-react.mdc</code></DocsLink>
-- Angular: <DocsLink path="mobiscroll-angular.mdc" download><code>mobiscroll-angular.mdc</code></DocsLink>
-- Vue: <DocsLink path="mobiscroll-vue.mdc" download><code>mobiscroll-vue.mdc</code></DocsLink>
-- JavaScript: <DocsLink path="mobiscroll-javascript.mdc" download><code>mobiscroll-javascript.mdc</code></DocsLink>
-- jQuery: <DocsLink path="mobiscroll-jquery.mdc" download><code>mobiscroll-jquery.mdc</code></DocsLink>
-- Connect: <DocsLink path="mobiscroll-connect.mdc" download><code>mobiscroll-connect.mdc</code></DocsLink>
+Download the <DocsLink path="mobiscroll-jquery.mdc" download><code>mobiscroll-jquery.mdc</code></DocsLink> file for your framework and place it at the root of your project or alternatively copy it's content to the rules files under the `.github/` directory:
 
 ```
 your-project/
-├── mobiscroll-react.mdc
+├── mobiscroll-jquery.mdc
 ├── .github/
 |   ├── copilot-instructions.md       <-- Global repo rules
 |   └── instructions/
-|       └── react-logic.instructions.md <-- Specific rules
+|       └── jquery-logic.instructions.md <-- Specific rules
 ├── src/
 ├── package.json
 └── ...
@@ -255,54 +216,10 @@ Each `.mdc` file and documentation source targets exactly **one** framework or d
 
 These examples show the kind of questions the AI integration is designed to handle correctly.
 
-### React
-
-```
-How do I create an Eventcalendar with a weekly scheduler view?
-Add drag and drop support to my Mobiscroll timeline.
-What is the type for calendar events in Mobiscroll React?
-```
-
-### Angular
-
-```
-How do I import MbscModule into my standalone component?
-Set up a monthly calendar view with mbsc-eventcalendar.
-Where do I add the Mobiscroll CSS in angular.json?
-```
-
-### Vue
-
-```
-How do I use MbscEventcalendar in a script setup component?
-Create a timeline view with resource grouping.
-What props does the Datepicker component accept?
-```
-
-### JavaScript
-
-```
-How do I initialize a Mobiscroll eventcalendar on a DOM element?
-Set up an agenda view with mobiscroll.eventcalendar().
-How do I load events from a remote URL?
-```
-
-### jQuery
-
 ```
 How do I create an eventcalendar with the jQuery plugin pattern?
 Set up recurring events with $('#calendar').mobiscroll().eventcalendar().
 What options are available for the scheduler view?
-```
-
-### Mobiscroll Connect
-
-```
-How do I authenticate a user with the Mobiscroll Connect OAuth flow?
-How do I list all calendars for a connected Google account?
-How do I create an event in an Outlook calendar via the Connect API?
-How do I subscribe to webhook notifications for calendar changes?
-What scopes are required for read-write calendar access?
 ```
 
 ## Troubleshooting
@@ -333,31 +250,14 @@ All AI integration files are available at the following URLs:
 
 | File | URL |
 |:---|:---|
-| Hub (overview) | <DocsUrl path="llms.txt" /> |
-| React | <DocsUrl path="llms-react.txt" /> |
-| Angular | <DocsUrl path="llms-angular.txt" /> |
-| Vue | <DocsUrl path="llms-vue.txt" /> |
-| JavaScript | <DocsUrl path="llms-javascript.txt" /> |
 | jQuery | <DocsUrl path="llms-jquery.txt" /> |
-| Hub (overview) | <DocsUrl path="llms-full.txt" /> |
-| React (full) | <DocsUrl path="llms-react-full.txt" /> |
-| Angular (full) | <DocsUrl path="llms-angular-full.txt" /> |
-| Vue (full) | <DocsUrl path="llms-vue-full.txt" /> |
-| JavaScript (full) | <DocsUrl path="llms-javascript-full.txt" /> |
 | jQuery (full) | <DocsUrl path="llms-jquery-full.txt" /> |
-| Connect | <DocsUrl path="llms-connect.txt" /> |
-| Connect (full) | <DocsUrl path="llms-connect-full.txt" /> |
 
 ### Rules files
 
 | File | URL |
 |:---|:---|
-| React rules | <DocsUrl path="mobiscroll-react.mdc" /> |
-| Angular rules | <DocsUrl path="mobiscroll-angular.mdc" /> |
-| Vue rules | <DocsUrl path="mobiscroll-vue.mdc" /> |
-| JavaScript rules | <DocsUrl path="mobiscroll-javascript.mdc" /> |
 | jQuery rules | <DocsUrl path="mobiscroll-jquery.mdc" /> |
-| Connect rules | <DocsUrl path="mobiscroll-connect.mdc" /> |
 
 ### Routing file
 
@@ -379,31 +279,6 @@ The complete contents of each file are shown below. You can copy directly from t
 ### Rules files (.mdc)
 
 <details>
-<summary>View <code>mobiscroll-react.mdc</code></summary>
-<FileBlock src="mobiscroll-react.mdc" />
-</details>
-
-<details>
-<summary>View <code>mobiscroll-angular.mdc</code></summary>
-<FileBlock src="mobiscroll-angular.mdc" />
-</details>
-
-<details>
-<summary>View <code>mobiscroll-vue.mdc</code></summary>
-<FileBlock src="mobiscroll-vue.mdc" />
-</details>
-
-<details>
-<summary>View <code>mobiscroll-javascript.mdc</code></summary>
-<FileBlock src="mobiscroll-javascript.mdc" />
-</details>
-
-<details>
 <summary>View <code>mobiscroll-jquery.mdc</code></summary>
 <FileBlock src="mobiscroll-jquery.mdc" />
-</details>
-
-<details>
-<summary>View <code>mobiscroll-connect.mdc</code></summary>
-<FileBlock src="mobiscroll-connect.mdc" />
 </details>

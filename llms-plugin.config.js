@@ -67,7 +67,7 @@ const llmsOptions = {
     // ── Hub: llms.txt (general info + links to framework files) ─────────
     {
       filename: 'llms.txt',
-      includePatterns: ['_doNotInclude_'],
+      includePatterns: ['empty.md'],
       fullContent: true,
       title: 'Mobiscroll Documentation',
       description:
@@ -91,7 +91,7 @@ const llmsOptions = {
     // ── Hub: llms-full.txt (general content + links to full framework files)
     {
       filename: 'llms-full.txt',
-      includePatterns: ['_doNotInclude_'],
+      includePatterns: ['empty.md'],
       fullContent: true,
       title: 'Mobiscroll Documentation',
       description:

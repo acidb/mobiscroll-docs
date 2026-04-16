@@ -3,10 +3,6 @@
     {
       "type": "doc",
       "id": "getting-started"
-    },
-    {
-      "type": "doc",
-      "id": "ai-integration"
     }
   ],
   "javascriptSidebar": [

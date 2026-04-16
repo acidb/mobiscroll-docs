@@ -10,7 +10,6 @@ description: Entry point for Mobiscroll docs — choose your framework (JavaScri
 import DocCardList from "@theme/DocCardList";
 import { frameworkLinks } from "./frameworkLinks.js";
 import { connectLinks } from "./connectLinks.js";
-import { aiLink } from "./aiLink.js"
 
 # Welcome to the Mobiscroll Docs
 
@@ -27,9 +26,3 @@ Mobiscroll can be integrated into many ecosystems, all of which might fall into 
 Mobiscroll Connect is an API service and sync engine that acts as a bridge between users' calendars (Google, Outlook, iCloud) and your app. It acts as a full-fledged OAuth 2.0 provider, enabling seamless integration with multiple calendar providers through a unified interface. Mobiscroll Connect handles authentication, provider selection, and consent management, exposing a standardized API for securely accessing calendar data.
 
 <DocCardList items={connectLinks} />
-
-## AI integration
-
-Set up AI-powered coding assistants (Cursor, GitHub Copilot, Claude Code) with Mobiscroll documentation for accurate, framework-specific code generation.
-
-<DocCardList items={aiLink} />

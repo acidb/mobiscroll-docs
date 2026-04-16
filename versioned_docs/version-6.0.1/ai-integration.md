@@ -133,12 +133,12 @@ Only register the source matching your use case. Do not register multiple source
 
 Download the `.mdc` file for your framework and place it in your project's `.cursor/rules/` directory:
 
-- React: <DocsLink path="mobiscroll-react.mdc"><code>mobiscroll-react.mdc</code></DocsLink>
-- Angular: <DocsLink path="mobiscroll-angular.mdc"><code>mobiscroll-angular.mdc</code></DocsLink>
-- Vue: <DocsLink path="mobiscroll-vue.mdc"><code>mobiscroll-vue.mdc</code></DocsLink>
-- JavaScript: <DocsLink path="mobiscroll-javascript.mdc"><code>mobiscroll-javascript.mdc</code></DocsLink>
-- jQuery: <DocsLink path="mobiscroll-jquery.mdc"><code>mobiscroll-jquery.mdc</code></DocsLink>
-- Connect: <DocsLink path="mobiscroll-connect.mdc"><code>mobiscroll-connect.mdc</code></DocsLink>
+- React: <DocsLink path="mobiscroll-react.mdc" download><code>mobiscroll-react.mdc</code></DocsLink>
+- Angular: <DocsLink path="mobiscroll-angular.mdc" download><code>mobiscroll-angular.mdc</code></DocsLink>
+- Vue: <DocsLink path="mobiscroll-vue.mdc" download><code>mobiscroll-vue.mdc</code></DocsLink>
+- JavaScript: <DocsLink path="mobiscroll-javascript.mdc" download><code>mobiscroll-javascript.mdc</code></DocsLink>
+- jQuery: <DocsLink path="mobiscroll-jquery.mdc" download><code>mobiscroll-jquery.mdc</code></DocsLink>
+- Connect: <DocsLink path="mobiscroll-connect.mdc" download><code>mobiscroll-connect.mdc</code></DocsLink>
 
 ```
 your-project/
@@ -168,12 +168,12 @@ When asking Cursor about Mobiscroll, include `@docs` to ensure it reads the regi
 
 Download the `.mdc` file for your framework and place it at the root of your project or alternatively copy it's content to the rules files under the `.github/` directory:
 
-- React: <DocsLink path="mobiscroll-react.mdc"><code>mobiscroll-react.mdc</code></DocsLink>
-- Angular: <DocsLink path="mobiscroll-angular.mdc"><code>mobiscroll-angular.mdc</code></DocsLink>
-- Vue: <DocsLink path="mobiscroll-vue.mdc"><code>mobiscroll-vue.mdc</code></DocsLink>
-- JavaScript: <DocsLink path="mobiscroll-javascript.mdc"><code>mobiscroll-javascript.mdc</code></DocsLink>
-- jQuery: <DocsLink path="mobiscroll-jquery.mdc"><code>mobiscroll-jquery.mdc</code></DocsLink>
-- Connect: <DocsLink path="mobiscroll-connect.mdc"><code>mobiscroll-connect.mdc</code></DocsLink>
+- React: <DocsLink path="mobiscroll-react.mdc" download><code>mobiscroll-react.mdc</code></DocsLink>
+- Angular: <DocsLink path="mobiscroll-angular.mdc" download><code>mobiscroll-angular.mdc</code></DocsLink>
+- Vue: <DocsLink path="mobiscroll-vue.mdc" download><code>mobiscroll-vue.mdc</code></DocsLink>
+- JavaScript: <DocsLink path="mobiscroll-javascript.mdc" download><code>mobiscroll-javascript.mdc</code></DocsLink>
+- jQuery: <DocsLink path="mobiscroll-jquery.mdc" download><code>mobiscroll-jquery.mdc</code></DocsLink>
+- Connect: <DocsLink path="mobiscroll-connect.mdc" download><code>mobiscroll-connect.mdc</code></DocsLink>
 
 ```
 your-project/

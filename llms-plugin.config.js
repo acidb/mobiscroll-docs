@@ -9,8 +9,8 @@
 /** @type {import('docusaurus-plugin-llms').PluginOptions} */
 const llmsOptions = {
   // Hub files are generated as customLLMFiles below (llms.txt / llms-full.txt)
-  generateLLMsTxt: false,
-  generateLLMsFullTxt: false,
+  generateLLMsTxt: true,
+  generateLLMsFullTxt: true,
   processingBatchSize: 50,
 
   // Emit individual .md files so AI tools can link to canonical .md URLs

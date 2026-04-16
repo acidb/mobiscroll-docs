@@ -116,7 +116,7 @@ Mobiscroll Connect is a backend integration layer (OAuth, REST API, webhooks). I
 
 ### Step 1: Register documentation sources
 
-Open **Cursor Settings → Features → Docs** and add the documentation source for your framework:
+Open **Cursor Settings → Indexing & Docs** and add the documentation source for your framework:
 
 | Framework | Name | URL |
 |:---|:---|:---|

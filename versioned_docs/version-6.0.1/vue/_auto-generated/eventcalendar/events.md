@@ -771,7 +771,7 @@ Parameters:
    - `oldParent`: *Resource* - The old parent resource.
    - `parent`: *Resource* - The parent resource.
    - `resource`: *Resource* - The updated resource.
-   - `resources`: Array<*Resource*> - The entire resources array with the new order.
+   - `resources`: Array&lt;*Resource*&gt; - The entire resources array with the new order.
 
  - inst - The component instance.
 

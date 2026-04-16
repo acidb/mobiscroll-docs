@@ -3,10 +3,10 @@ sidebar_label: Button
 displayed_sidebar: vueSidebar
 ---
 
-import Options from '../\_auto-generated/button/options.md';
-import Events from '../\_auto-generated/button/events.md';
-import Localizations from '../\_auto-generated/button/localizations.md';
-import Types from '../\_auto-generated/button/types.md';
+import Options from '../_auto-generated/button/options.md';
+import Events from '../_auto-generated/button/events.md';
+import Localizations from '../_auto-generated/button/localizations.md';
+import Types from '../_auto-generated/button/types.md';
 
 # Button
 

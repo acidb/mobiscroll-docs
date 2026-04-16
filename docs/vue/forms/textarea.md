@@ -2,12 +2,13 @@
 sidebar_position: 9
 sidebar_label: Textarea
 displayed_sidebar: vueSidebar
+description: 'Use the Mobiscroll Textarea form component in Vue — multiline input with floating labels, auto-grow, and validation styles.'
 ---
 
-import Options from '../\_auto-generated/textarea/options.md';
-import Events from '../\_auto-generated/textarea/events.md';
-import Localizations from '../\_auto-generated/textarea/localizations.md';
-import Types from '../\_auto-generated/textarea/types.md';
+import Options from '../_auto-generated/textarea/options.md';
+import Events from '../_auto-generated/textarea/events.md';
+import Localizations from '../_auto-generated/textarea/localizations.md';
+import Types from '../_auto-generated/textarea/types.md';
 
 # Textarea
 
@@ -20,6 +21,7 @@ Use the [`label`](#opt-label) option to provide a label to the textarea.
 ```html
 <script setup>
   import { MbscTextarea } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 </script>
 
 <template>
@@ -35,6 +37,7 @@ Use the [v-model](https://vuejs.org/api/built-in-directives.html#v-model) direct
 <script setup>
   import { ref } from 'vue';
   import { MbscTextarea } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const value = ref('');
 </script>

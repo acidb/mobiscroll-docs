@@ -2,12 +2,13 @@
 sidebar_position: 5
 sidebar_label: Radio button
 displayed_sidebar: angularSidebar
+description: 'Use the Mobiscroll Radio button form component in Angular — grouped options, checked states, and change event handling.'
 ---
 
-import Options from '../\_auto-generated/radio/options.md';
-import Events from '../\_auto-generated/radio/events.md';
-import Localizations from '../\_auto-generated/radio/localizations.md';
-import Types from '../\_auto-generated/radio/types.md';
+import Options from '../_auto-generated/radio/options.md';
+import Events from '../_auto-generated/radio/events.md';
+import Localizations from '../_auto-generated/radio/localizations.md';
+import Types from '../_auto-generated/radio/types.md';
 
 # Radio button
 
@@ -55,6 +56,8 @@ Radio button component can be bound to a string value using either the `[(ngMode
 ```
 
 ```ts
+import { Component } from '@angular/core';
+
 @Component({...})
 export class MyComponent {
   myAge = 'adult';

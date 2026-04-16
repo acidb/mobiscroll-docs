@@ -2,13 +2,14 @@
 sidebar_position: 5
 sidebar_label: Timeline
 displayed_sidebar: reactSidebar
+description: 'Set up the Mobiscroll Eventcalendar Timeline view in React — horizontal resource scheduling with variable row heights and grouping.'
 ---
 
 import ViewOptions from '../_auto-generated/eventcalendar/view_timeline.md';
-import VariableEventHeight from '../../\_shared/eventcalendar/variable-event-height.mdx';
-import Options from '../\_auto-generated/eventcalendar/options_timeline.md';
-import Events from '../\_auto-generated/eventcalendar/events_timeline.md';
-import Localizations from '../\_auto-generated/eventcalendar/localizations_timeline.md';
+import VariableEventHeight from '../../_shared/eventcalendar/variable-event-height.mdx';
+import Options from '../_auto-generated/eventcalendar/options_timeline.md';
+import Events from '../_auto-generated/eventcalendar/events_timeline.md';
+import Localizations from '../_auto-generated/eventcalendar/localizations_timeline.md';
 import Slots from '../_auto-generated/eventcalendar/renderers_timeline.md';
 import Types from '../_auto-generated/eventcalendar/types_timeline.md';
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
@@ -36,6 +37,9 @@ The capabilities like [recurring events](/react/core-concepts/recurrence), [all-
 The Timeline view can be configured through the `view` option. Below are listed the `timeline` object properties which can help you fine-tune this view.
 
 ```jsx title='Example'
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 function App() {
   const myViewOptions = {
     timeline: {
@@ -66,6 +70,9 @@ The [renderSlot](#renderer-renderSlot) function can be used to customize the slo
 When [slots are used](https://demo.mobiscroll.com/timeline/employee-shifts) the Timeline view will display in daily listing mode and only the [`dragToMove`](#opt-dragToMove) event iteraction will be available. The [`dragToCreate`](#opt-dragToCreate) and [`dragToResize`](#opt-dragToResize) interactions will be truned off.
 
 ```javascript title="Slots used for work shift management"
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 function App() {
   const myShifts: [
     {
@@ -188,6 +195,9 @@ The day-offset feature is strictly dependent on the <code>type: 'day'</code> and
 The Timeline view supports resource hierarchy. [Hierarchy groups](https://demo.mobiscroll.com/timeline/resource-grouping-hierarchy) can be defined with the `children` property of the `resource` [object](#opt-resources). Child objects are also resources and have the same properties, thus they can also have children.
 
 ```jsx title="Multi-level hierarchy groups"
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 function App() {
   const myResources = [{
     name: 'Site 1',
@@ -215,6 +225,9 @@ function App() {
 By default every resource group will be displayed and this can be modified with the `collapsed` attribute of the parent objects.
 
 ```jsx title="Collapsed groups"
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 function App() {
   const myResources = [{
     name: 'Main Building',
@@ -248,6 +261,9 @@ function App() {
 Both parent and child rows can contain events and events can be moved between any rows.
 
 ```jsx title="Resources & events"
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 function App() {
   const myResources = [{
     name: 'Main Building',
@@ -274,6 +290,9 @@ function App() {
 Child or parent rows can be disabled by creating an [invalid rule](#opt-invalid) which repeats daily and it is tied to the specific resources. Example:
 
 ```jsx title="Disable parent and/or child resources"
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 function App() {
   const myInvalid = [
     {
@@ -462,6 +481,9 @@ The available width is queried from the container element of the component and n
 :::
 
 ```jsx title='Responsive configuration with the view option'
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 function App() {
   const myResponsive = {
     xsmall: {

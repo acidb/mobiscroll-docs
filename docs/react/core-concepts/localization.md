@@ -4,6 +4,7 @@ sidebar_label: Localization
 displayed_sidebar: reactSidebar
 title: Localization
 toc_max_heading_level: 2
+description: 'Localize Mobiscroll React components — configure locale, date/time formats, RTL direction, and custom text labels.'
 ---
 
 import AllLocalizations from '../_auto-generated/localizations.md';
@@ -57,6 +58,7 @@ The `locale` option can be used to set the language of a component. It takes an 
 
 ```jsx title='Locale option usage'
 import { Eventcalendar, localeDe } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 export function MyComponent() {
   return <Eventcalendar locale={localeDe} />;
@@ -67,6 +69,7 @@ Creating your own locale object is simple as creating an object in JavaScript. F
 
 ```jsx title='Creating a locale object'
 import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 const myLocale = {
   cancelText: 'Mégse'
@@ -83,6 +86,7 @@ For typescript environments, the `MbscLocale` type can also be used as the base 
 
 ```tsx title='Example with types'
 import { Eventcalendar, MbscLocale } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 const myLocale: MbscLocale = {
   cancelText: 'Mégse'

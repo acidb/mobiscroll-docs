@@ -4,9 +4,9 @@ sidebar_label: Confirm
 displayed_sidebar: reactSidebar
 ---
 
-import Options from '../\_auto-generated/confirm/options.md';
-import Events from '../\_auto-generated/confirm/events.md';
-import Localizations from '../\_auto-generated/confirm/localizations.md';
+import Options from '../_auto-generated/confirm/options.md';
+import Events from '../_auto-generated/confirm/events.md';
+import Localizations from '../_auto-generated/confirm/localizations.md';
 
 # Confirm
 

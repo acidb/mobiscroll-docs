@@ -2,12 +2,13 @@
 sidebar_position: 4
 sidebar_label: Input
 displayed_sidebar: vueSidebar
+description: 'Use the Mobiscroll Input form component in Vue — text inputs with floating labels, validation states, icons, and password toggle.'
 ---
 
-import Options from '../\_auto-generated/input/options.md';
-import Events from '../\_auto-generated/input/events.md';
-import Localizations from '../\_auto-generated/input/localizations.md';
-import Types from '../\_auto-generated/input/types.md';
+import Options from '../_auto-generated/input/options.md';
+import Events from '../_auto-generated/input/events.md';
+import Localizations from '../_auto-generated/input/localizations.md';
+import Types from '../_auto-generated/input/types.md';
 
 # Input
 
@@ -20,6 +21,7 @@ Use the [`label`](#opt-label) option to provide a label to the input field.
 ```html
 <script setup>
   import { MbscInput } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 </script>
 
 <template>
@@ -35,6 +37,7 @@ Use the [v-model](https://vuejs.org/api/built-in-directives.html#v-model) direct
 <script setup>
   import { ref } from 'vue';
   import { MbscInput } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const value = ref('');
 </script>

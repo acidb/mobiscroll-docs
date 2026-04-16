@@ -2,12 +2,13 @@
 sidebar_position: 8
 sidebar_label: Switch
 displayed_sidebar: jquerySidebar
+description: 'Mobiscroll Switch for jQuery — a styled boolean toggle with configurable labels, disabled state, and onChange events.'
 ---
 
-import Options from '../\_auto-generated/switch/options.md';
-import Events from '../\_auto-generated/switch/events.md';
-import Localizations from '../\_auto-generated/switch/localizations.md';
-import Types from '../\_auto-generated/switch/types.md';
+import Options from '../_auto-generated/switch/options.md';
+import Events from '../_auto-generated/switch/events.md';
+import Localizations from '../_auto-generated/switch/localizations.md';
+import Types from '../_auto-generated/switch/types.md';
 
 # Switch
 

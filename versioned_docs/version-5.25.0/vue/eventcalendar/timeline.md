@@ -4,9 +4,9 @@ sidebar_label: Timeline
 displayed_sidebar: vueSidebar
 ---
 
-import Options from '../\_auto-generated/eventcalendar/options_timeline.md';
-import Events from '../\_auto-generated/eventcalendar/events_timeline.md';
-import Localizations from '../\_auto-generated/eventcalendar/localizations_timeline.md';
+import Options from '../_auto-generated/eventcalendar/options_timeline.md';
+import Events from '../_auto-generated/eventcalendar/events_timeline.md';
+import Localizations from '../_auto-generated/eventcalendar/localizations_timeline.md';
 
 # Timeline
 

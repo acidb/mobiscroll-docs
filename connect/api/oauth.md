@@ -2,6 +2,7 @@
 sidebar_position: 2
 sidebar_label: OAuth API
 slug: /oauth
+description: OAuth 2.0 endpoints for Mobiscroll Connect — authorize users, exchange codes for tokens, check connection status, and revoke access.
 ---
 
 import Tabs from '@theme/Tabs';

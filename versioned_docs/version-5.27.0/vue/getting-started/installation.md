@@ -4,7 +4,7 @@ sidebar_label: Installation
 displayed_sidebar: vueSidebar
 ---
 
-import CliInstall from '../../\_shared/cliinstall.mdx';
+import CliInstall from '../../_shared/cliinstall.mdx';
 
 # Getting started with Mobiscroll for Vue
 

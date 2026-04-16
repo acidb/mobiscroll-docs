@@ -5,10 +5,10 @@ toc_min_heading_level: 2
 toc_max_heading_level: 2
 ---
 
-import Options from '../\_auto-generated/datepicker/options.md';
-import Events from '../\_auto-generated/datepicker/events.md';
-import Localizations from '../\_auto-generated/datepicker/localizations.md';
-import Methods from '../\_auto-generated/datepicker/methods.md';
+import Options from '../_auto-generated/datepicker/options.md';
+import Events from '../_auto-generated/datepicker/events.md';
+import Localizations from '../_auto-generated/datepicker/localizations.md';
+import Methods from '../_auto-generated/datepicker/methods.md';
 import Slots from '../_auto-generated/datepicker/renderers.md';
 import Interfaces from '../_auto-generated/datepicker/types.md';
 

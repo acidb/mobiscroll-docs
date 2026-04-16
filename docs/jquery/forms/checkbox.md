@@ -2,12 +2,13 @@
 sidebar_position: 2
 sidebar_label: Checkbox
 displayed_sidebar: jquerySidebar
+description: 'Use the Mobiscroll Checkbox component in jQuery — standard and indeterminate states, label placement, and change event handling.'
 ---
 
-import Options from '../\_auto-generated/checkbox/options.md';
-import Events from '../\_auto-generated/checkbox/events.md';
-import Localizations from '../\_auto-generated/checkbox/localizations.md';
-import Types from '../\_auto-generated/checkbox/types.md';
+import Options from '../_auto-generated/checkbox/options.md';
+import Events from '../_auto-generated/checkbox/events.md';
+import Localizations from '../_auto-generated/checkbox/localizations.md';
+import Types from '../_auto-generated/checkbox/types.md';
 
 # Checkbox
 

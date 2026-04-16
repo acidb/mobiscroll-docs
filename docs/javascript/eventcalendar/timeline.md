@@ -2,13 +2,14 @@
 sidebar_position: 5
 sidebar_label: Timeline
 displayed_sidebar: javascriptSidebar
+description: Set up the Mobiscroll Eventcalendar Timeline view in JavaScript — horizontal resource scheduling with variable row heights and grouping.
 ---
 
 import ViewOptions from '../_auto-generated/eventcalendar/view_timeline.md';
-import VariableEventHeight from '../../\_shared/eventcalendar/variable-event-height.mdx';
-import Options from '../\_auto-generated/eventcalendar/options_timeline.md';
-import Events from '../\_auto-generated/eventcalendar/events_timeline.md';
-import Localizations from '../\_auto-generated/eventcalendar/localizations_timeline.md';
+import VariableEventHeight from '../../_shared/eventcalendar/variable-event-height.mdx';
+import Options from '../_auto-generated/eventcalendar/options_timeline.md';
+import Events from '../_auto-generated/eventcalendar/events_timeline.md';
+import Localizations from '../_auto-generated/eventcalendar/localizations_timeline.md';
 import Slots from '../_auto-generated/eventcalendar/renderers_timeline.md';
 import Types from '../_auto-generated/eventcalendar/types_timeline.md';
 import { ImgComparisonSlider } from '@img-comparison-slider/react';

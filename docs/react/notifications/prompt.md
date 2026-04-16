@@ -2,11 +2,12 @@
 sidebar_position: 3
 sidebar_label: Prompt
 displayed_sidebar: reactSidebar
+description: 'Show a Mobiscroll Prompt dialog in React — a Promise-based, styleable input dialog as an alternative to window.prompt.'
 ---
 
-import Options from '../\_auto-generated/prompt/options.md';
-import Events from '../\_auto-generated/prompt/events.md';
-import Localizations from '../\_auto-generated/prompt/localizations.md';
+import Options from '../_auto-generated/prompt/options.md';
+import Events from '../_auto-generated/prompt/events.md';
+import Localizations from '../_auto-generated/prompt/localizations.md';
 
 # Prompt
 
@@ -20,6 +21,7 @@ The following example displays a prompt dialog on button click.
 ```jsx
 import { useState } from 'react';
 import { Prompt, Button } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [isOpen, setOpen] = useState(false);

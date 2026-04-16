@@ -2,6 +2,7 @@
 sidebar_position: 1
 sidebar_label: Overview
 slug: /
+description: Mobiscroll Connect — a unified OAuth 2.0 API service for integrating Google Calendar, Outlook, Apple Calendar, and CalDAV into your app.
 ---
 
 # Getting Started

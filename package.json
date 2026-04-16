@@ -3,12 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "docs:fix-mdx": "python3 scripts/fix-mdx-issues.py",
+    "docs:fix-mdx:dry": "python3 scripts/fix-mdx-issues.py --dry-run",
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "docusaurus build",
-    "build-staging": "docusaurus build --config docusaurus.config.staging.js",
-    "build-dev": "docusaurus build --config docusaurus.config.dev.js",
-    "build-localdev": "docusaurus build --config docusaurus.config.localdev.js",
+    "build": "docusaurus build && node scripts/strip-jsx.js",
+    "build-staging": "docusaurus build --config docusaurus.config.staging.js && node scripts/strip-jsx.js",
+    "build-dev": "docusaurus build --config docusaurus.config.dev.js && node scripts/strip-jsx.js",
+    "build-localdev": "docusaurus build --config docusaurus.config.localdev.js && node scripts/strip-jsx.js",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -17,7 +19,9 @@
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
     "dev": "docusaurus start --config docusaurus.config.localhost.js",
-    "check": "npm run build && npm run serve"
+    "check": "npm run build && npm run serve",
+    "descriptions:add": "node scripts/add-descriptions.js",
+    "descriptions:validate": "node scripts/validate-descriptions.js"
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",

@@ -2,12 +2,13 @@
 sidebar_position: 6
 sidebar_label: Segmented
 displayed_sidebar: reactSidebar
+description: 'Use the Mobiscroll Segmented control in React — a button-group for exclusive single or multiple option selection.'
 ---
 
-import Options from '../\_auto-generated/segmented/options.md';
-import Events from '../\_auto-generated/segmented/events.md';
-import Localizations from '../\_auto-generated/segmented/localizations.md';
-import Types from '../\_auto-generated/segmented/types.md';
+import Options from '../_auto-generated/segmented/options.md';
+import Events from '../_auto-generated/segmented/events.md';
+import Localizations from '../_auto-generated/segmented/localizations.md';
+import Types from '../_auto-generated/segmented/types.md';
 
 # Segmented
 
@@ -19,6 +20,7 @@ In single selection mode the functionality is similar to the [radio buttons](./r
 
 ```jsx
 import { SegmentedGroup, Segmented } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   return <SegmentedGroup name="settings">
@@ -38,6 +40,7 @@ Use the value and onChange props to set a value to the whole segmented group.
 ```jsx
 import { useState } from 'react';
 import { SegmentedGroup, Segmented } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [myRange, setMyRange] = useState(null);
@@ -61,6 +64,7 @@ In multiple selection mode segments can be selected and de-selected independentl
 ```jsx
 import { useState } from 'react';
 import { SegmentedGroup, Segmented } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [mySelectedList, setList] = useState([]);
@@ -85,6 +89,7 @@ The Segmented component's `checked` prop can also be used individually in a mult
 ```jsx
 import { useState } from 'react';
 import { SegmentedGroup, Segmented } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [users, setUsers] = useState([

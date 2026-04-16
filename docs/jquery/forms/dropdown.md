@@ -2,12 +2,13 @@
 sidebar_position: 3
 sidebar_label: Dropdown
 displayed_sidebar: jquerySidebar
+description: 'Mobiscroll Dropdown for jQuery — themed wrapper for native HTML select with floating labels and validation states.'
 ---
 
-import Options from '../\_auto-generated/dropdown/options.md';
-import Events from '../\_auto-generated/dropdown/events.md';
-import Localizations from '../\_auto-generated/dropdown/localizations.md';
-import Types from '../\_auto-generated/dropdown/types.md';
+import Options from '../_auto-generated/dropdown/options.md';
+import Events from '../_auto-generated/dropdown/events.md';
+import Localizations from '../_auto-generated/dropdown/localizations.md';
+import Types from '../_auto-generated/dropdown/types.md';
 
 # Dropdown
 

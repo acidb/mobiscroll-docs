@@ -2,6 +2,7 @@
 sidebar_position: 2
 sidebar_label: Data binding
 displayed_sidebar: angularSidebar
+description: 'Bind option data to the Mobiscroll Select in Angular — static arrays, grouped options, and object-based data structures.'
 ---
 
 import DataOptionContent from '../../_shared/select/data-option.mdx';
@@ -19,6 +20,7 @@ import GroupOptionContent from '../../_shared/select/group-options.mdx';
 <mbsc-select [data]="myData" [(ngModel)]="selectedValue"></mbsc-select>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscSelectData } from '@mobiscroll/angular';
 
 @Component({...})
@@ -40,6 +42,7 @@ export class MyComponent {
 <mbsc-select [data]="myData" [(ngModel)]="mySelectedUser"></mbsc-select>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscSelectData } from '@mobiscroll/angular';
 
 @Component({...})
@@ -66,6 +69,7 @@ The select component supports dynamic data binding. For cases when the data is n
 <mbsc-select [data]="myCountries" [showGroupWheel]="true" [(ngModel)]="selected"></mbsc-select>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscSelectData } from '@mobiscroll/angular';
 
 @Component({...})

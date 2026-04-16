@@ -4,9 +4,9 @@ sidebar_label: Scheduler
 displayed_sidebar: vueSidebar
 ---
 
-import Options from '../\_auto-generated/eventcalendar/options_scheduler.md';
-import Events from '../\_auto-generated/eventcalendar/events_scheduler.md';
-import Localizations from '../\_auto-generated/eventcalendar/localizations_scheduler.md';
+import Options from '../_auto-generated/eventcalendar/options_scheduler.md';
+import Events from '../_auto-generated/eventcalendar/events_scheduler.md';
+import Localizations from '../_auto-generated/eventcalendar/localizations_scheduler.md';
 
 # Scheduler
 

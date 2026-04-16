@@ -3,10 +3,10 @@ sidebar_label: Stepper
 displayed_sidebar: jquerySidebar
 ---
 
-import Options from '../\_auto-generated/stepper/options.md';
-import Events from '../\_auto-generated/stepper/events.md';
-import Localizations from '../\_auto-generated/stepper/localizations.md';
-import Types from '../\_auto-generated/stepper/types.md';
+import Options from '../_auto-generated/stepper/options.md';
+import Events from '../_auto-generated/stepper/events.md';
+import Localizations from '../_auto-generated/stepper/localizations.md';
+import Types from '../_auto-generated/stepper/types.md';
 
 # Stepper
 

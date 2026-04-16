@@ -4,9 +4,9 @@ sidebar_label: Alert
 displayed_sidebar: angularSidebar
 ---
 
-import Options from '../\_auto-generated/alert/options.md';
-import Events from '../\_auto-generated/alert/events.md';
-import Localizations from '../\_auto-generated/alert/localizations.md';
+import Options from '../_auto-generated/alert/options.md';
+import Events from '../_auto-generated/alert/events.md';
+import Localizations from '../_auto-generated/alert/localizations.md';
 
 # Alert
 

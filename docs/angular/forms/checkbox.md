@@ -2,12 +2,13 @@
 sidebar_position: 2
 sidebar_label: Checkbox
 displayed_sidebar: angularSidebar
+description: 'Use the Mobiscroll Checkbox component in Angular — standard and indeterminate states, label placement, and change event handling.'
 ---
 
-import Options from '../\_auto-generated/checkbox/options.md';
-import Events from '../\_auto-generated/checkbox/events.md';
-import Localizations from '../\_auto-generated/checkbox/localizations.md';
-import Types from '../\_auto-generated/checkbox/types.md';
+import Options from '../_auto-generated/checkbox/options.md';
+import Events from '../_auto-generated/checkbox/events.md';
+import Localizations from '../_auto-generated/checkbox/localizations.md';
+import Types from '../_auto-generated/checkbox/types.md';
 
 # Checkbox
 
@@ -30,6 +31,8 @@ The Checkbox can be bound to a boolean value using either the `[(ngModel)]` or t
 <mbsc-checkbox label="Bedroom lights" [(ngModel)]="bedroomLight"></mbsc-checkbox>
 ```
 ```ts
+import { Component } from '@angular/core';
+
 @Component({...})
 export class MyComponent {
   bedroomLight = false;

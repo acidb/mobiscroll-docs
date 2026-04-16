@@ -2,12 +2,13 @@
 sidebar_position: 9
 sidebar_label: Textarea
 displayed_sidebar: angularSidebar
+description: 'Use the Mobiscroll Textarea form component in Angular — multiline input with floating labels, auto-grow, and validation styles.'
 ---
 
-import Options from '../\_auto-generated/textarea/options.md';
-import Events from '../\_auto-generated/textarea/events.md';
-import Localizations from '../\_auto-generated/textarea/localizations.md';
-import Types from '../\_auto-generated/textarea/types.md';
+import Options from '../_auto-generated/textarea/options.md';
+import Events from '../_auto-generated/textarea/events.md';
+import Localizations from '../_auto-generated/textarea/localizations.md';
+import Types from '../_auto-generated/textarea/types.md';
 
 # Textarea
 
@@ -19,6 +20,19 @@ Use the [`label`](#opt-label) option to provide a label to the textarea.
 
 ```html
 <mbsc-textarea label="About"></mbsc-textarea>
+```
+
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
 ```
 
 ## Input style
@@ -36,6 +50,19 @@ With the [`inputStyle`](#opt-inputStyle) attribute you can customize the look of
 <mbsc-textarea label="Label" inputStyle="outline"></mbsc-textarea>
 ```
 
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
+```
+
 ## Label style
 
 With the [`labelStyle`](#opt-labelStyle) attribute you can define the position of the label.
@@ -51,12 +78,38 @@ With the [`labelStyle`](#opt-labelStyle) attribute you can define the position o
 <mbsc-textarea label="Label" labelStyle="floating"></mbsc-textarea>
 ```
 
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
+```
+
 ## Value binding
 
 The textarea can be bound to a string value using either the `[(ngModel)]` or the `formControlName` directives. In this case the textarea will update it's state according to the bound value.
 
 ```html
 <mbsc-textarea [(ngModel)]="myBio" label="Bio" inputStyle="outline" labelStyle="floating"></mbsc-textarea>
+```
+
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
 ```
 
 <div className="option-list">

@@ -4,8 +4,8 @@ sidebar_label: Snackbar
 displayed_sidebar: angularSidebar
 ---
 
-import Options from '../\_auto-generated/snackbar/options.md';
-import Events from '../\_auto-generated/snackbar/events.md';
+import Options from '../_auto-generated/snackbar/options.md';
+import Events from '../_auto-generated/snackbar/events.md';
 
 # Snackbar
 

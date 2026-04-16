@@ -2,12 +2,13 @@
 sidebar_position: 2
 sidebar_label: Checkbox
 displayed_sidebar: reactSidebar
+description: 'Use the Mobiscroll Checkbox component in React — standard and indeterminate states, label placement, and change event handling.'
 ---
 
-import Options from '../\_auto-generated/checkbox/options.md';
-import Events from '../\_auto-generated/checkbox/events.md';
-import Localizations from '../\_auto-generated/checkbox/localizations.md';
-import Types from '../\_auto-generated/checkbox/types.md';
+import Options from '../_auto-generated/checkbox/options.md';
+import Events from '../_auto-generated/checkbox/events.md';
+import Localizations from '../_auto-generated/checkbox/localizations.md';
+import Types from '../_auto-generated/checkbox/types.md';
 
 # Checkbox
 
@@ -20,6 +21,7 @@ The Checkbox can be positioned before or after the label using the [`position`](
 
 ```jsx
 import { Checkbox } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   return <>
@@ -37,6 +39,7 @@ Use the [`checked`](#opt-checked) and the [`onChange`](#event-onChange) props to
 ```jsx
 import { useState } from 'react';
 import { Checkbox } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [myIsChecked, setChecked] = useState(false);

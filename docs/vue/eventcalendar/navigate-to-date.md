@@ -2,6 +2,7 @@
 sidebar_position: 10
 sidebar_label: Navigation
 displayed_sidebar: vueSidebar
+description: 'Programmatically navigate the Mobiscroll Eventcalendar to a specific date or time at runtime in Vue.'
 ---
 
 # Navigating to a date and time
@@ -16,6 +17,7 @@ When multiple days, weeks, months or years are displayed, the position of the sp
 <script setup>
   import { ref } from "vue";
   import { MbscEventcalendar, MbscButton } from "@mobiscroll/vue";
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myEvents = ref([...]);
   const myDate = ref(new Date(2020, 2, 18));

@@ -17,6 +17,7 @@ Common issues fixed:
     2. Nested { [key:string]: Type } braces inside inline type strings.
     3. Unescaped {args: {...}} callback signatures in prose.
     4. Duplicate `export const toc = [...TOC]` (identifier already declared).
+    5. Escaped underscore import paths (../\\_auto-generated, ../../\\_shared).
 """
 
 import argparse
@@ -59,7 +60,7 @@ def fix_file(path, transforms, dry_run=False):
 def fix_property_brace_lines(path, dry_run=False):
     """
     For lines starting with ' - ' (property list items), escape outer *{...}*
-    braces to prevent MDX 3 from treating them as JSX expressions.
+    and _{...}_ braces to prevent MDX 3 from treating them as JSX expressions.
 
     Only targets property description lines — heading anchors like
     {#type-MbscFoo} are left untouched.
@@ -78,6 +79,8 @@ def fix_property_brace_lines(path, dry_run=False):
         if not in_code and line.startswith(" - "):
             new_line = re.sub(r"\*\{", r"*&#123;", line)
             new_line = re.sub(r"\}(\*)", r"&#125;\1", new_line)
+            new_line = re.sub(r"_\{", r"_&#123;", new_line)
+            new_line = re.sub(r"\}(_)", r"&#125;\1", new_line)
             if new_line != line:
                 count += 1
                 line = new_line
@@ -89,6 +92,48 @@ def fix_property_brace_lines(path, dry_run=False):
             with open(path, "w", encoding="utf-8") as f:
                 f.writelines(new_lines)
         return True, count
+
+    return False, 0
+
+
+def fix_escaped_underscore_import_paths(path, dry_run=False):
+    """
+    Normalize escaped underscore paths inside ES module import/export lines.
+
+        Auto-generated docs sometimes contain imports like:
+            import X from '../\\_auto-generated/foo.md';
+            import Y from '../../\\_shared/bar.mdx';
+
+    Some tooling resolves these literally (with the backslash), causing ENOENT.
+    This fix rewrites only import/export-from source strings to unescaped `_`.
+    """
+    with open(path, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+
+    module_line = re.compile(
+        r'^(\s*(?:import|export)\s+[^\'\"]*from\s+[\'\"])([^\'\"]+)([\'\"]\s*;?\s*)$'
+    )
+
+    changed = 0
+    new_lines = []
+    for line in lines:
+        match = module_line.match(line)
+        if match:
+            prefix, source_path, suffix = match.groups()
+            if "\\_" in source_path:
+                had_newline = line.endswith("\n")
+                source_path = source_path.replace("\\_", "_")
+                line = f"{prefix}{source_path}{suffix.rstrip()}"
+                if had_newline:
+                    line += "\n"
+                changed += 1
+        new_lines.append(line)
+
+    if changed > 0:
+        if not dry_run:
+            with open(path, "w", encoding="utf-8") as f:
+                f.writelines(new_lines)
+        return True, changed
 
     return False, 0
 
@@ -129,6 +174,27 @@ def run_fixes(root, dry_run):
                         )
                     report.append((rel, entry_changes))
 
+    # ── Fix 1c: general property brace escaping in docs/versioned docs ────────
+    # Covers patterns like _{ ... }_ that can appear in auto-generated renderers
+    # and cause MDX/acorn parse errors.
+    for dirpath, _, files in os.walk(root):
+        for fname in files:
+            if not (fname.endswith(".md") or fname.endswith(".mdx")):
+                continue
+
+            fpath = os.path.join(dirpath, fname)
+            rel = os.path.relpath(fpath, BASE)
+
+            in_docs_scope = rel.startswith("docs" + os.sep) or rel.startswith(
+                "versioned_docs" + os.sep
+            )
+            if not in_docs_scope:
+                continue
+
+            changed, count = fix_property_brace_lines(fpath, dry_run)
+            if changed:
+                report.append((rel, [f"  [outer-property-braces] {count} line(s)"]))
+
     # ── Fix 2: unescaped {args: {...}} in drag-and-drop.md ────────────────────
     ARGS_PATTERN = (
         r"\*\(args: \{(container: HTMLElement, position: number, "
@@ -165,6 +231,26 @@ def run_fixes(root, dry_run):
                 )
                 if changed:
                     report.append((rel, changes))
+
+    # ── Fix 4: escaped underscore import/export paths ────────────────────────
+    for dirpath, _, files in os.walk(root):
+        for fname in files:
+            if not (fname.endswith(".md") or fname.endswith(".mdx")):
+                continue
+
+            fpath = os.path.join(dirpath, fname)
+            rel = os.path.relpath(fpath, BASE)
+
+            # Keep scope to docs content, including versioned docs.
+            in_docs_scope = rel.startswith("docs" + os.sep) or rel.startswith(
+                "versioned_docs" + os.sep
+            )
+            if not in_docs_scope:
+                continue
+
+            changed, count = fix_escaped_underscore_import_paths(fpath, dry_run)
+            if changed:
+                report.append((rel, [f"  [escaped-underscore-imports] {count} line(s)"]))
 
     return report
 

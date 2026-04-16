@@ -3,9 +3,9 @@ sidebar_label: Radio button
 displayed_sidebar: jquerySidebar
 ---
 
-import Options from '../\_auto-generated/radio/options.md';
-import Events from '../\_auto-generated/radio/events.md';
-import Localizations from '../\_auto-generated/radio/localizations.md';
+import Options from '../_auto-generated/radio/options.md';
+import Events from '../_auto-generated/radio/events.md';
+import Localizations from '../_auto-generated/radio/localizations.md';
 
 # Radio button
 

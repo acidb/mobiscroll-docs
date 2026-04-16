@@ -3,6 +3,7 @@ sidebar_position: 3
 sidebar_label: Instance
 displayed_sidebar: vueSidebar
 title: Instance
+description: 'Access and control a Mobiscroll component instance in Vue to call methods, update options, and listen to events programmatically.'
 ---
 
 ## Overview
@@ -22,6 +23,7 @@ A reference to the component instance is available in every Mobiscroll event as 
 ```html
 <script setup>
   import { MbscEventcalendar } from "@mobiscroll/vue";
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   function myHandler(args, inst) {
     // highlight-next-line
@@ -48,6 +50,7 @@ Usually for Vue components the public methods and properties are on the Vue comp
 <script setup>
   import { ref } from "vue";
   import { MbscEventcalendar } from "@mobiscroll/vue";
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const instRef = ref(null);
 

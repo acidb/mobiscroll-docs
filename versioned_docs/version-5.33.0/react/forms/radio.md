@@ -3,10 +3,10 @@ sidebar_label: Radio button
 displayed_sidebar: reactSidebar
 ---
 
-import Options from '../\_auto-generated/radio/options.md';
-import Events from '../\_auto-generated/radio/events.md';
-import Localizations from '../\_auto-generated/radio/localizations.md';
-import Types from '../\_auto-generated/radio/types.md';
+import Options from '../_auto-generated/radio/options.md';
+import Events from '../_auto-generated/radio/events.md';
+import Localizations from '../_auto-generated/radio/localizations.md';
+import Types from '../_auto-generated/radio/types.md';
 
 # Radio button
 

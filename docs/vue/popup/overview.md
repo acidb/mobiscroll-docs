@@ -2,6 +2,7 @@
 sidebar_position: 1
 sidebar_label: Overview
 displayed_sidebar: vueSidebar
+description: 'Mobiscroll Popup for Vue — a configurable modal, bottom-sheet, or popover container for custom overlay content.'
 ---
 
 # Popup
@@ -18,6 +19,7 @@ The following example will create a popup with static content. When clicked or t
 <script setup>
   import { ref } from 'vue';
   import { MbscPopup } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const isPopupOpen = ref(true);
 

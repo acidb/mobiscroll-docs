@@ -3,10 +3,10 @@ sidebar_label: Checkbox
 displayed_sidebar: reactSidebar
 ---
 
-import Options from '../\_auto-generated/checkbox/options.md';
-import Events from '../\_auto-generated/checkbox/events.md';
-import Localizations from '../\_auto-generated/checkbox/localizations.md';
-import Types from '../\_auto-generated/checkbox/types.md';
+import Options from '../_auto-generated/checkbox/options.md';
+import Events from '../_auto-generated/checkbox/events.md';
+import Localizations from '../_auto-generated/checkbox/localizations.md';
+import Types from '../_auto-generated/checkbox/types.md';
 
 # Checkbox
 

@@ -2,10 +2,11 @@
 sidebar_position: 5
 sidebar_label: Toast
 displayed_sidebar: angularSidebar
+description: 'Show brief Toast notifications in Mobiscroll Angular — auto-dismiss success, warning, error, and info messages.'
 ---
 
-import Options from '../\_auto-generated/toast/options.md';
-import Events from '../\_auto-generated/toast/events.md';
+import Options from '../_auto-generated/toast/options.md';
+import Events from '../_auto-generated/toast/events.md';
 
 # Toast
 
@@ -18,6 +19,7 @@ The Toast component don't lock the app's main interface and are automatically di
 The following example displays a toast message:
 
 ```ts
+import { Component } from '@angular/core';
 import { Notifications } from '@mobiscroll/angular';
 
 @Component({...})

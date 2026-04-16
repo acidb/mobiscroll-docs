@@ -3,6 +3,7 @@ sidebar_position: 9
 sidebar_label: Drag & drop
 displayed_sidebar: angularSidebar
 title: Drag & drop
+description: 'Enable drag-and-drop event creation, moving, and resizing in the Mobiscroll Eventcalendar and Timeline views for Angular.'
 ---
 
 import DropcontainerEvents from '../_auto-generated/dropcontainer/events.md';
@@ -35,6 +36,7 @@ You can initialize the draggable containers by using the `mbsc-draggable` direct
 <mbsc-eventcalendar [externalDrop]="true"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscCalendarEvent } from '@mobiscroll/angular';
 
 @Component({...})
@@ -96,8 +98,8 @@ The options object can include the following properties:
 
 ```ts
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { sortableJsDraggable } from '@mobiscroll/angular';
 import Sortable from 'sortablejs';
+import { sortableJsDraggable } from '@mobiscroll/angular';
 
 @Component({...})
 export class MyComponent implements AfterViewInit {
@@ -209,6 +211,7 @@ The Dropcontainer defines a container where events can be dragged from or droppe
   (onEventCreate)="scheduleEvent($event)"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscCalendarEvent, MbscEventCreateEvent, MbscItemDragEvent } from '@mobiscroll/angular';
 
 @Component({...})
@@ -250,6 +253,8 @@ Integration: enable dropping to third-party lists by setting `externalDrop` to `
 - `position` - *number* - the index where the clone is dropped.
 
 ```ts
+import { MbscExternalDropEvent } from '@mobiscroll/angular';
+
   // options object of the sortableJsDraggable or dragulaDraggable
   // enable drop from Eventcalendar to Dragula or SortableJS list 
   externalDrop: true,

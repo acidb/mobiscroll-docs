@@ -1,0 +1,25 @@
+Through the [`data`](./api#opt-data) option, with each item can be passed an optional `group` property. This `group` property is a string, that defines the group of the item. When the group is passed to any of the items, the whole data is treated as grouped and a header will be rendered above each group on the Select wheels. The header will contain the group name as specified in the group property.
+
+```javascript title="Assigning groups to items"
+const myCountries = [{
+    text: 'United Kingdom',
+    value: 'GB',
+}, {
+    text: 'France',
+    value: 'FR',
+    // highlight-next-line
+    group: 'Europe'
+}, {
+    text: 'Hungary',
+    value: 'HU',
+    // highlight-next-line
+    group: 'Europe'
+}, {
+    text: 'United States of America',
+    value: 'US',
+    // highlight-next-line
+    group: 'America'
+}];
+```
+
+Furthermore an additional "group wheel" can be also rendered with the [`showGroupWheel`](./api#opt-showGroupWheel) option set to `true`. The group wheel items will be the group property values or the optgroup label attributes, and will help in navigating the option wheel.

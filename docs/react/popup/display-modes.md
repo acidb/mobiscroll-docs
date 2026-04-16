@@ -2,6 +2,7 @@
 sidebar_position: 2
 sidebar_label: Display modes
 displayed_sidebar: reactSidebar
+description: 'Control how the Mobiscroll Popup appears in React — modal dialog, anchored popover, bottom sheet, or inline display mode.'
 ---
 
 import Content from '../../_shared/display_modes.mdx';
@@ -17,6 +18,9 @@ The Popup component supports five display modes that specify where on the screen
 5. `'inline'` - will render the popup into the page embedded.
 
 ```jsx title="Setting a display option"
+import { Popup } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 <Popup display="anchored" isOpen={myOpenState}>
   <p>Some content inside the popup!</p>
 </Popup>

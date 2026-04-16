@@ -2,12 +2,13 @@
 sidebar_position: 3
 sidebar_label: Dropdown
 displayed_sidebar: vueSidebar
+description: 'Mobiscroll Dropdown for Vue — themed wrapper for native HTML select with floating labels and validation states.'
 ---
 
-import Options from '../\_auto-generated/dropdown/options.md';
-import Events from '../\_auto-generated/dropdown/events.md';
-import Localizations from '../\_auto-generated/dropdown/localizations.md';
-import Types from '../\_auto-generated/dropdown/types.md';
+import Options from '../_auto-generated/dropdown/options.md';
+import Events from '../_auto-generated/dropdown/events.md';
+import Localizations from '../_auto-generated/dropdown/localizations.md';
+import Types from '../_auto-generated/dropdown/types.md';
 
 # Dropdown
 
@@ -20,6 +21,7 @@ Use the [`label`](#opt-label) option to provide a label to the dropdown.
 ```html
 <script setup>
   import { MbscDropdown } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 </script>
 
 <template>
@@ -40,6 +42,7 @@ Use the [v-model](https://vuejs.org/api/built-in-directives.html#v-model) direct
 <script setup>
   import { ref } from 'vue';
   import { MbscDropdown } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const value = ref(3);
 </script>

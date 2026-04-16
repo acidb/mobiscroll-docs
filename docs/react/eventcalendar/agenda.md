@@ -2,12 +2,13 @@
 sidebar_position: 3
 sidebar_label: Agenda
 displayed_sidebar: reactSidebar
+description: 'Configure the Eventcalendar Agenda view in React — a scrollable list of upcoming events with customizable display options and grouping.'
 ---
 
 import ViewOptions from '../_auto-generated/eventcalendar/view_agenda.md';
-import Options from '../\_auto-generated/eventcalendar/options_agenda.md';
-import Events from '../\_auto-generated/eventcalendar/events_agenda.md';
-import Localizations from '../\_auto-generated/eventcalendar/localizations_agenda.md';
+import Options from '../_auto-generated/eventcalendar/options_agenda.md';
+import Events from '../_auto-generated/eventcalendar/events_agenda.md';
+import Localizations from '../_auto-generated/eventcalendar/localizations_agenda.md';
 import Slots from '../_auto-generated/eventcalendar/renderers_agenda.md';
 import Types from '../_auto-generated/eventcalendar/types_agenda.md';
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
@@ -33,6 +34,9 @@ The four views - [scheduler](./scheduler), [calendar](./calendar), [timeline](./
 For example, you can combine [a daily agenda with a weekly calendar](https://demo.mobiscroll.com/agenda/daily-agenda-with-week-calendar#) for listing the events for the selected day. The view option will look like the following:
 
 ```jsx title='Daily Agenda combined with Weekly Calendar'
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 function App() {
   const myViewOptions = {
     calendar: { type: 'week' },
@@ -48,6 +52,9 @@ function App() {
 The Agenda view can be configured through the `view` option. Below are listed the `agenda` object properties which can help you fine-tune this view.
 
 ```jsx title='Example'
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 function App() {
   const myViewOptions = {
     agenda: {
@@ -86,6 +93,9 @@ The available width is queried from the container element of the component and n
 :::
 
 ```jsx title='Responsive configuration with the view option'
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 function App() {
   const myResponsive = {
     xsmall: {

@@ -3,9 +3,9 @@ sidebar_label: Input
 displayed_sidebar: angularSidebar
 ---
 
-import Options from '../\_auto-generated/input/options.md';
-import Events from '../\_auto-generated/input/events.md';
-import Localizations from '../\_auto-generated/input/localizations.md';
+import Options from '../_auto-generated/input/options.md';
+import Events from '../_auto-generated/input/events.md';
+import Localizations from '../_auto-generated/input/localizations.md';
 
 # Input
 

@@ -2,6 +2,7 @@
 sidebar_label: Value Selection
 displayed_sidebar: reactSidebar
 sidebar_position: 2
+description: 'Configure date value selection behavior in the Mobiscroll Datepicker — set min/max, disabled dates, pre-selected values, and selection constraints.'
 ---
 
 # Value Selection
@@ -20,6 +21,10 @@ The [`select`](./api#opt-select) and [`selectMultiple`](./api#opt-selectMultiple
 This is the default behavior, and it can also be initialized with the `select="date"` option. Depending on the [controls](./controls) option, the Datepicker will select either a single date or a single time or both (a single datetime).
 
 ```jsx
+import { useState } from 'react';
+import { Datepicker } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 function App() {
   const [myValue, setMyValue] = useState(null);
   const changeMyValue = (ev) => setMyValue(ev.value);
@@ -45,6 +50,10 @@ The type of the selected value depends on the [`returnFormat`](./api#opt-returnF
 The [`selectMultiple`](./api#opt-selectMultiple) option will enable the selection of multiple dates. It can be used with the calendar control only. The selected value in this case will be an array of dates instead of just a single date.
 
 ```jsx
+import { useState } from 'react';
+import { Datepicker } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 function App() {
   const [myValue, setMyValue] = useState([]);
   const changeMyValue = (ev) => setMyValue(ev.value);
@@ -75,6 +84,10 @@ Depending on the [controls](./controls) passed to the datepicker, it will select
 Both the start and end value of the returned array will respect the [`returnFormat`](./api#opt-returnFormat) option. Learn more on how to work with ISO strings or date objects in the [Return value](./return-value) section.
 
 ```jsx title="Example for time range selection with ISO8601 strings"
+import { useState } from 'react';
+import { Datepicker } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 const TIME_CONTROL = ['time'];
 
 function App() {
@@ -106,6 +119,10 @@ When the preset-range selection mode is on, the start date will be fixed to a sp
 The length of the selection will be a set number of days (for example: 5 days) and can be controlled with the [`selectSize`](./api#opt-selectSize) option. By default it is set to 7 (will select the whole week), but can be reduced to even a single day.
 
 ```jsx title="Example for selecting a work week (Monday to Friday)"
+import { useState } from 'react';
+import { Datepicker } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 function App() {
   const [myWeek, setMyWeek] = useState([]);
   const changeMyWeek = (ev) => setMyWeek(ev.value);

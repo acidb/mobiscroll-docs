@@ -2,11 +2,12 @@
 sidebar_position: 1
 sidebar_label: Alert
 displayed_sidebar: vueSidebar
+description: 'Show a styled alert dialog with the Mobiscroll Alert component in Vue — a Promise-based replacement for the native window.alert.'
 ---
 
-import Options from '../\_auto-generated/alert/options.md';
-import Events from '../\_auto-generated/alert/events.md';
-import Localizations from '../\_auto-generated/alert/localizations.md';
+import Options from '../_auto-generated/alert/options.md';
+import Events from '../_auto-generated/alert/events.md';
+import Localizations from '../_auto-generated/alert/localizations.md';
 
 # Alert
 
@@ -20,6 +21,7 @@ The following example displays an Alert message on button click.
 <script setup>
   import { ref } from 'vue';
   import { MbscAlert, MbscButton } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const isAlertOpen = ref(false);
 </script>

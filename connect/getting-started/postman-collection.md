@@ -2,6 +2,7 @@
 sidebar_label: Postman Collection
 sidebar_position: 3
 slug: /postman-collection
+description: Explore and test Mobiscroll Connect API endpoints with the official Postman collection — validate OAuth flows without writing code.
 ---
 
 import { PostmanRunButton } from '@site/src/components/Connect/PostmanRunButton';

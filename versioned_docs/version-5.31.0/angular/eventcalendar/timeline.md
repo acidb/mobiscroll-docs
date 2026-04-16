@@ -4,10 +4,10 @@ sidebar_label: Timeline
 displayed_sidebar: angularSidebar
 ---
 
-import VariableEventHeight from '../../\_shared/eventcalendar/variable-event-height.mdx';
-import Options from '../\_auto-generated/eventcalendar/options_timeline.md';
-import Events from '../\_auto-generated/eventcalendar/events_timeline.md';
-import Localizations from '../\_auto-generated/eventcalendar/localizations_timeline.md';
+import VariableEventHeight from '../../_shared/eventcalendar/variable-event-height.mdx';
+import Options from '../_auto-generated/eventcalendar/options_timeline.md';
+import Events from '../_auto-generated/eventcalendar/events_timeline.md';
+import Localizations from '../_auto-generated/eventcalendar/localizations_timeline.md';
 import Templates from '../_auto-generated/eventcalendar/renderers_timeline.md';
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
 

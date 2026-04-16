@@ -3,8 +3,8 @@ sidebar_label: Toast
 displayed_sidebar: jquerySidebar
 ---
 
-import Options from '../\_auto-generated/toast/options.md';
-import Events from '../\_auto-generated/toast/events.md';
+import Options from '../_auto-generated/toast/options.md';
+import Events from '../_auto-generated/toast/events.md';
 
 # Toast
 

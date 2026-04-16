@@ -2,10 +2,11 @@
 sidebar_position: 4
 sidebar_label: Snackbar
 displayed_sidebar: reactSidebar
+description: 'Display transient Snackbar notifications with the Mobiscroll Snackbar in React — auto-dismiss messages with optional action buttons.'
 ---
 
-import Options from '../\_auto-generated/snackbar/options.md';
-import Events from '../\_auto-generated/snackbar/events.md';
+import Options from '../_auto-generated/snackbar/options.md';
+import Events from '../_auto-generated/snackbar/events.md';
 
 # Snackbar
 
@@ -20,6 +21,7 @@ The following example displays a Snackbar message on button click.
 ```jsx
 import { useState, useMemo } from 'react';
 import { Snackbar, Button } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [isSnackOpen, setSnackOpen] = useState(false);

@@ -2,11 +2,12 @@
 sidebar_position: 8
 sidebar_label: Switch
 displayed_sidebar: reactSidebar
+description: 'Mobiscroll Switch for React — a styled boolean toggle with configurable labels, disabled state, and onChange events.'
 ---
 
-import Options from '../\_auto-generated/switch/options.md';
-import Events from '../\_auto-generated/switch/events.md';
-import Localizations from '../\_auto-generated/switch/localizations.md';
+import Options from '../_auto-generated/switch/options.md';
+import Events from '../_auto-generated/switch/events.md';
+import Localizations from '../_auto-generated/switch/localizations.md';
 
 # Switch
 
@@ -19,6 +20,7 @@ The switch can be positioned before or after the label using the [`position`](#o
 
 ```jsx
 import { Switch } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   return <>
@@ -36,6 +38,7 @@ Use the `checked` and the `onChange` props to set the switch on and off state ju
 ```jsx
 import { useState } from 'react';
 import { Switch } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [isOn, setSwitch] = useState(false);

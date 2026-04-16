@@ -6,6 +6,9 @@ const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
 
 const navbar = require('./navbar.config');
+const llmsPlugin = require('./llms-plugin.config');
+const llmsConnectPlugin = require('./llms-connect-plugin.config');
+const replaceBaseUrlPlugin = require('./replace-base-url-plugin.config');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -50,6 +53,9 @@ const config = {
         sidebarPath: './sidebarsConnect.js',
       },
     ],
+    llmsPlugin,
+    llmsConnectPlugin,
+    replaceBaseUrlPlugin,
   ],
 
   presets: [

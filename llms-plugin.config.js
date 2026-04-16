@@ -9,8 +9,8 @@
 /** @type {import('docusaurus-plugin-llms').PluginOptions} */
 const llmsOptions = {
   // Hub files are generated as customLLMFiles below (llms.txt / llms-full.txt)
-  generateLLMsTxt: true,
-  generateLLMsFullTxt: true,
+  generateLLMsTxt: false,
+  generateLLMsFullTxt: false,
   processingBatchSize: 50,
 
   // Emit individual .md files so AI tools can link to canonical .md URLs
@@ -67,7 +67,7 @@ const llmsOptions = {
     // ── Hub: llms.txt (general info + links to framework files) ─────────
     {
       filename: 'llms.txt',
-      includePatterns: ['empty.md'],
+      includePatterns: [''],
       fullContent: true,
       title: 'Mobiscroll Documentation',
       description:
@@ -91,7 +91,7 @@ const llmsOptions = {
     // ── Hub: llms-full.txt (general content + links to full framework files)
     {
       filename: 'llms-full.txt',
-      includePatterns: ['empty.md'],
+      includePatterns: [''],
       fullContent: true,
       title: 'Mobiscroll Documentation',
       description:

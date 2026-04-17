@@ -19,28 +19,49 @@ module.exports = function replaceBaseUrlPlugin() {
       // double slashes in the output URLs.
       const docsBaseUrl = (siteConfig.url + siteConfig.baseUrl).replace(/\/+$/, '');
 
-      // Find target files at the build root (not recursive).
-      const entries = fs.readdirSync(outDir);
-      const targets = entries.filter(
-        (name) => name === 'CLAUDE.md' || name.endsWith('.mdc'),
-      );
-
-      if (targets.length === 0) {
-        console.log('[replace-base-url] No AI context files found in build output.');
-        return;
+      /** Scan a single directory (non-recursive) for AI context files and replace placeholders. */
+      function processDir(dir) {
+        if (!fs.existsSync(dir)) return 0;
+        const entries = fs.readdirSync(dir);
+        const targets = entries.filter(
+          (name) => name.startsWith('CLAUDE') || name.endsWith('.mdc'),
+        );
+        let count = 0;
+        for (const name of targets) {
+          const filePath = path.join(dir, name);
+          const original = fs.readFileSync(filePath, 'utf-8');
+          if (!original.includes(PLACEHOLDER)) continue;
+          const replaced = original.replaceAll(PLACEHOLDER, docsBaseUrl);
+          fs.writeFileSync(filePath, replaced, 'utf-8');
+          const rel = path.relative(outDir, filePath);
+          console.log(`[replace-base-url] ${rel}: replaced with ${docsBaseUrl}`);
+          count++;
+        }
+        return count;
       }
 
-      for (const name of targets) {
-        const filePath = path.join(outDir, name);
-        const original = fs.readFileSync(filePath, 'utf-8');
+      // Directories to scan: build root, each framework under docs/, and connect/
+      const dirsToScan = [outDir];
 
-        if (!original.includes(PLACEHOLDER)) {
-          continue;
+      const docsDir = path.join(outDir, 'docs');
+      if (fs.existsSync(docsDir)) {
+        for (const entry of fs.readdirSync(docsDir)) {
+          const full = path.join(docsDir, entry);
+          if (fs.statSync(full).isDirectory()) {
+            dirsToScan.push(full);
+          }
         }
+      }
 
-        const replaced = original.replaceAll(PLACEHOLDER, docsBaseUrl);
-        fs.writeFileSync(filePath, replaced, 'utf-8');
-        console.log(`[replace-base-url] ${name}: replaced with ${docsBaseUrl}`);
+      dirsToScan.push(path.join(outDir, 'connect'));
+
+      let total = 0;
+      for (const dir of dirsToScan) {
+        total += processDir(dir);
+      }
+
+      if (total === 0) {
+        console.log('[replace-base-url] No AI context files needed replacement.');
       }
     },
   };

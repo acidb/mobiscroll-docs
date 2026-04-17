@@ -44,6 +44,7 @@ const llmsOptions = {
     '**/links.js',
     '**/connectLinks.js',
     '**/frameworkLinks.js',
+    '**/ai-integration.md',
   ],
 
   // Section ordering for the combined llms.txt / llms-full.txt
@@ -67,7 +68,7 @@ const llmsOptions = {
     // ── Hub: llms.txt (general info + links to framework files) ─────────
     {
       filename: 'llms.txt',
-      includePatterns: [''],
+      includePatterns: ['llms-content.md'],
       fullContent: true,
       title: 'Mobiscroll Documentation',
       description:
@@ -77,21 +78,12 @@ const llmsOptions = {
         'plus Mobiscroll Connect for unified calendar integration ' +
         '(Google, Outlook, Apple Calendar, CalDAV).',
       rootContent:
-        '## Table of contents\n\n' +
-        '### Framework-Specific Documentation\n\n' +
-        'For detailed, framework-specific API references and guides, see:\n\n' +
-        '- [Mobiscroll for JavaScript](llms-javascript.txt) — [Full docs](llms-javascript-full.txt)\n' +
-        '- [Mobiscroll for React](llms-react.txt) — [Full docs](llms-react-full.txt)\n' +
-        '- [Mobiscroll for Angular](llms-angular.txt) — [Full docs](llms-angular-full.txt)\n' +
-        '- [Mobiscroll for Vue](llms-vue.txt) — [Full docs](llms-vue-full.txt)\n' +
-        '- [Mobiscroll for jQuery](llms-jquery.txt) — [Full docs](llms-jquery-full.txt)\n\n' +
-        '### Mobiscroll Connect — Calendar Integration API\n\n' +
-        '- [Mobiscroll Connect](llms-connect.txt) — [Full docs](llms-connect-full.txt)\n',
+        '## Table of contents\n\n'   
     },
     // ── Hub: llms-full.txt (general content + links to full framework files)
     {
       filename: 'llms-full.txt',
-      includePatterns: [''],
+      includePatterns: ['llms-content-full.md'],
       fullContent: true,
       title: 'Mobiscroll Documentation',
       description:
@@ -100,15 +92,6 @@ const llmsOptions = {
         'available for JavaScript, React, Angular, Vue, and jQuery, ' +
         'plus Mobiscroll Connect for unified calendar integration ' +
         '(Google, Outlook, Apple Calendar, CalDAV).',
-      rootContent:
-        '## Framework-Specific Full Documentation\n\n' +
-        '- [Mobiscroll for JavaScript — Full](llms-javascript-full.txt)\n' +
-        '- [Mobiscroll for React — Full](llms-react-full.txt)\n' +
-        '- [Mobiscroll for Angular — Full](llms-angular-full.txt)\n' +
-        '- [Mobiscroll for Vue — Full](llms-vue-full.txt)\n' +
-        '- [Mobiscroll for jQuery — Full](llms-jquery-full.txt)\n\n' +
-        '## Mobiscroll Connect — Calendar Integration API\n\n' +
-        '- [Mobiscroll Connect — Full](llms-connect-full.txt)\n',
     },
 
     // ── JavaScript ──────────────────────────────────────────────────────────

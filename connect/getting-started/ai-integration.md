@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 sidebar_label: AI Integration
 title: AI Integration
 ---
@@ -67,13 +67,17 @@ Machine-readable documentation files containing the complete Mobiscroll Connect 
 | `llms-connect-full.txt` | Complete Mobiscroll Connect documentation |
 | `llms-connect.txt` | Connect table of contents (links to individual pages) |
 
+:::info
+You don't need to download or host these files — the rules and routing layers reference them directly and fetch their content automatically.
+:::
+
 ### Rules layer — .mdc files
 
 Behavior rule files that tell AI assistants which package to use, which APIs are available, and what to avoid.
 
 | File | Domain |
 |:---|:---|
-| `mobiscroll-connect.mdc` | Mobiscroll Connect (backend / API) |
+| <DocsLink path="mobiscroll-connect.mdc" download /> | Mobiscroll Connect (backend / API) |
 
 ### Routing layer — CLAUDE.md
 
@@ -83,14 +87,9 @@ A context file specifically for Claude Code that provides domain detection signa
 
 | AI Tool | Documentation Source | Behavior Rules | Routing |
 |:---|:---|:---|:---|
-| **Cursor** (UI frameworks) | `llms-{framework}-full.txt` via @docs | `.mdc` file | — |
-| **Cursor** (Connect) | `llms-connect-full.txt` via @docs | `mobiscroll-connect.mdc` | — |
+| **Cursor** | `llms-connect-full.txt` via @docs | `mobiscroll-connect.mdc` | — |
 | **GitHub Copilot** | `.mdc` file (contains doc URLs) | `.mdc` file | — |
-| **Claude Code** | `llms-{framework}-full.txt` or `llms-connect-full.txt` | `CLAUDE.md` | `CLAUDE.md` |
-
-:::note
-Mobiscroll Connect is a backend integration layer (OAuth, REST API, webhooks). It uses its own data source and `.mdc` file, completely separate from UI framework docs.
-:::
+| **Claude Code** | `llms-connect-full.txt` | `CLAUDE.md` | `CLAUDE.md` |
 
 ## Cursor setup
 
@@ -134,7 +133,7 @@ When asking Cursor about Mobiscroll Connect, include `@docs` to ensure it reads 
 
 ### Step 1: Add the rules file
 
-Download the <DocsLink path="mobiscroll-connect.mdc" download><code>mobiscroll-connect.mdc</code></DocsLink> file and place it at the root of your project or alternatively copy it's content to the rules files under the `.github/` directory:
+Download the <DocsLink path="mobiscroll-connect.mdc" download><code>mobiscroll-connect.mdc</code></DocsLink> file and place it at the root of your project or alternatively [copy it's content](#rules-files-mdc) to the rules files under the `.github/` directory:
 
 ```
 your-project/
@@ -163,7 +162,7 @@ The `.mdc` file contains:
 
 ### Step 1: Add CLAUDE.md
 
-Download <DocsLink path="CLAUDE.md" download><code>CLAUDE.md</code></DocsLink> and place it in your project root:
+If you don't already have a `CLAUDE.md` in your project root, download <DocsLink path="connect/CLAUDE.md" download><code>CLAUDE.md</code></DocsLink> and place it there. If you already have one, copy the contents into your existing file instead — see [File contents](#file-contents) below.
 
 ```
 your-project/
@@ -250,15 +249,15 @@ All AI integration files are available at the following URLs:
 
 | File | URL |
 |:---|:---|
-| Connect rules | <DocsUrl path="mobiscroll-connect.mdc" /> |
+| Connect rules | <DocsLink path="mobiscroll-connect.mdc" download /> |
 
 ### Routing file
 
 | File | URL |
 |:---|:---|
-| Claude Code context | <DocsUrl path="CLAUDE.md" /> |
+| Claude Code context | <DocsLink path="connect/CLAUDE.md" download /> |
 
-## File contents
+## File contents {#file-contents}
 
 The complete contents of each file are shown below. You can copy directly from these blocks or use the download links above.
 
@@ -266,10 +265,10 @@ The complete contents of each file are shown below. You can copy directly from t
 
 <details>
 <summary>View <code>CLAUDE.md</code></summary>
-<FileBlock src="CLAUDE.md" />
+<FileBlock src="connect/CLAUDE.md" />
 </details>
 
-### Rules files (.mdc)
+### Rules files (.mdc) {#rules-files-mdc}
 
 <details>
 <summary>View <code>mobiscroll-connect.mdc</code></summary>

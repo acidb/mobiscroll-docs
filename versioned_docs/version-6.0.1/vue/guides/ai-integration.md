@@ -48,9 +48,9 @@ Mobiscroll provides a set of machine-readable documentation files and AI behavio
 AI coding assistants work best when they have access to structured, authoritative documentation. Without it, they often:
 
 - **Hallucinate APIs** — invent option names, events, or types that don't exist
-- **Mix frameworks** — use React hooks in Angular code, or jQuery patterns in Vue
+- **Mix frameworks** — use React hooks or Angular dependency injection instead of Vue composition API
 - **Reference outdated versions** — generate v5 code when the current version is v6
-- **Ignore framework conventions** — skip `MbscModule` imports in Angular, or use wrong CSS loading patterns
+- **Ignore framework conventions** — skip component registration or omit the CSS import
 
 The Mobiscroll AI integration solves these problems by providing documentation optimized for AI consumption, combined with behavior rules that enforce framework isolation and correct API usage.
 
@@ -67,13 +67,17 @@ Machine-readable documentation files containing the complete Mobiscroll API refe
 | `llms-vue-full.txt` | Complete Vue documentation |
 | `llms-vue.txt` | Vue table of contents (links to individual pages) |
 
+:::info
+You don't need to download or host these files — the rules and routing layers reference them directly and fetch their content automatically.
+:::
+
 ### Rules layer — .mdc files
 
 Per-framework behavior rule files that tell AI assistants which package to use, how to import CSS, which APIs are available, and what to avoid. Each `.mdc` file targets exactly one framework.
 
 | File | Framework |
 |:---|:---|
-| `mobiscroll-vue.mdc` | Vue |
+| <DocsLink path="mobiscroll-vue.mdc" download /> | Vue |
 
 ### Routing layer — CLAUDE.md
 
@@ -83,14 +87,9 @@ A context file specifically for Claude Code that provides framework detection si
 
 | AI Tool | Documentation Source | Behavior Rules | Routing |
 |:---|:---|:---|:---|
-| **Cursor** (UI frameworks) | `llms-{framework}-full.txt` via @docs | `.mdc` file | — |
-| **Cursor** (Connect) | `llms-connect-full.txt` via @docs | `mobiscroll-connect.mdc` | — |
+| **Cursor** | `llms-vue-full.txt` via @docs | `.mdc` file | — |
 | **GitHub Copilot** | `.mdc` file (contains doc URLs) | `.mdc` file | — |
-| **Claude Code** | `llms-{framework}-full.txt` or `llms-connect-full.txt` | `CLAUDE.md` | `CLAUDE.md` |
-
-:::note
-Mobiscroll Connect is a backend integration layer (OAuth, REST API, webhooks). It uses its own data source and `.mdc` file, completely separate from UI framework docs.
-:::
+| **Claude Code** | `llms-vue-full.txt` | `CLAUDE.md` | `CLAUDE.md` |
 
 ## Cursor setup
 
@@ -134,7 +133,7 @@ When asking Cursor about Mobiscroll, include `@docs` to ensure it reads the regi
 
 ### Step 1: Add the rules file
 
-Download the <DocsLink path="mobiscroll-vue.mdc" download><code>mobiscroll-vue.mdc</code></DocsLink> file for your framework and place it at the root of your project or alternatively copy it's content to the rules files under the `.github/` directory:
+Download the <DocsLink path="mobiscroll-vue.mdc" download><code>mobiscroll-vue.mdc</code></DocsLink> file for your framework and place it at the root of your project or alternatively [copy it's content](#rules-files-mdc) to the rules files under the `.github/` directory:
 
 ```
 your-project/
@@ -163,7 +162,7 @@ The `.mdc` file contains:
 
 ### Step 1: Add CLAUDE.md
 
-Download <DocsLink path="CLAUDE.md" download><code>CLAUDE.md</code></DocsLink> and place it in your project root:
+If you don't already have a `CLAUDE.md` in your project root, download <DocsLink path="docs/vue/CLAUDE.md" download><code>CLAUDE.md</code></DocsLink> and place it there. If you already have one, copy the contents into your existing file instead — see [File contents](#file-contents) below.
 
 ```
 your-project/
@@ -182,7 +181,7 @@ When Claude Code opens your project, it automatically reads `CLAUDE.md` from the
 - **Component mapping** — translates user intents like "scheduler" or "timeline" to the correct Eventcalendar view configuration
 - **Anti-patterns** — explicit WRONG → RIGHT examples that prevent common mistakes
 
-Claude Code will fetch the correct `llms-{framework}-full.txt` file automatically based on the detected framework. No manual registration is needed.
+Claude Code will fetch `llms-vue-full.txt` automatically based on the detected framework. No manual registration is needed.
 
 ## Framework isolation
 
@@ -226,9 +225,9 @@ What props does the Datepicker component accept?
 
 ### AI generates code with the wrong framework
 
-**Symptom:** You are using Angular but the AI generates React code with `import { Eventcalendar } from '@mobiscroll/react'`.
+**Symptom:** You are using Vue but the AI generates code for a different framework (e.g. `import { Eventcalendar } from '@mobiscroll/react'`).
 
-**Fix:** Verify that you have the correct `.mdc` file in place. For Angular, use `mobiscroll-angular.mdc`, not `mobiscroll-react.mdc`. In Cursor, check that the registered @docs source points to `llms-angular-full.txt`.
+**Fix:** Verify that you have the correct `.mdc` file in place. For Vue, use `mobiscroll-vue.mdc`, not a different framework's `.mdc` file. In Cursor, check that the registered @docs source points to `llms-vue-full.txt`.
 
 ### AI invents non-existent APIs
 
@@ -257,15 +256,15 @@ All AI integration files are available at the following URLs:
 
 | File | URL |
 |:---|:---|
-| Vue rules | <DocsUrl path="mobiscroll-vue.mdc" /> |
+| Vue rules | <DocsLink path="mobiscroll-vue.mdc" download /> |
 
 ### Routing file
 
 | File | URL |
 |:---|:---|
-| Claude Code context | <DocsUrl path="CLAUDE.md" /> |
+| Claude Code context | <DocsLink path="docs/vue/CLAUDE.md" download /> |
 
-## File contents
+## File contents {#file-contents}
 
 The complete contents of each file are shown below. You can copy directly from these blocks or use the download links above.
 
@@ -273,10 +272,10 @@ The complete contents of each file are shown below. You can copy directly from t
 
 <details>
 <summary>View <code>CLAUDE.md</code></summary>
-<FileBlock src="CLAUDE.md" />
+<FileBlock src="docs/vue/CLAUDE.md" />
 </details>
 
-### Rules files (.mdc)
+### Rules files (.mdc) {#rules-files-mdc}
 
 <details>
 <summary>View <code>mobiscroll-vue.mdc</code></summary>

@@ -67,13 +67,17 @@ Machine-readable documentation files containing the complete Mobiscroll API refe
 | `llms-angular-full.txt` | Complete Angular documentation |
 | `llms-angular.txt` | Angular table of contents (links to individual pages) |
 
+:::info
+You don't need to download or host these files — the rules and routing layers reference them directly and fetch their content automatically.
+:::
+
 ### Rules layer — .mdc files
 
 Per-framework behavior rule files that tell AI assistants which package to use, how to import CSS, which APIs are available, and what to avoid. Each `.mdc` file targets exactly one framework.
 
 | File | Framework |
 |:---|:---|
-| `mobiscroll-angular.mdc` | Angular |
+| <DocsLink path="mobiscroll-angular.mdc" download /> | Angular |
 
 ### Routing layer — CLAUDE.md
 
@@ -83,14 +87,9 @@ A context file specifically for Claude Code that provides framework detection si
 
 | AI Tool | Documentation Source | Behavior Rules | Routing |
 |:---|:---|:---|:---|
-| **Cursor** (UI frameworks) | `llms-{framework}-full.txt` via @docs | `.mdc` file | — |
-| **Cursor** (Connect) | `llms-connect-full.txt` via @docs | `mobiscroll-connect.mdc` | — |
+| **Cursor** | `llms-angular-full.txt` via @docs | `.mdc` file | — |
 | **GitHub Copilot** | `.mdc` file (contains doc URLs) | `.mdc` file | — |
-| **Claude Code** | `llms-{framework}-full.txt` or `llms-connect-full.txt` | `CLAUDE.md` | `CLAUDE.md` |
-
-:::note
-Mobiscroll Connect is a backend integration layer (OAuth, REST API, webhooks). It uses its own data source and `.mdc` file, completely separate from UI framework docs.
-:::
+| **Claude Code** | `llms-angular-full.txt` | `CLAUDE.md` | `CLAUDE.md` |
 
 ## Cursor setup
 
@@ -134,7 +133,7 @@ When asking Cursor about Mobiscroll, include `@docs` to ensure it reads the regi
 
 ### Step 1: Add the rules file
 
-Download the <DocsLink path="mobiscroll-angular.mdc" download><code>mobiscroll-angular.mdc</code></DocsLink> file for your framework and place it at the root of your project or alternatively copy it's content to the rules files under the `.github/` directory:
+Download the <DocsLink path="mobiscroll-angular.mdc" download><code>mobiscroll-angular.mdc</code></DocsLink> file for your framework and place it at the root of your project or alternatively [copy it's content](#rules-files-mdc) to the rules files under the `.github/` directory:
 
 ```
 your-project/
@@ -163,7 +162,7 @@ The `.mdc` file contains:
 
 ### Step 1: Add CLAUDE.md
 
-Download <DocsLink path="CLAUDE.md" download><code>CLAUDE.md</code></DocsLink> and place it in your project root:
+If you don't already have a `CLAUDE.md` in your project root, download <DocsLink path="docs/angular/CLAUDE.md" download><code>CLAUDE.md</code></DocsLink> and place it there. If you already have one, copy the contents into your existing file instead — see [File contents](#file-contents) below.
 
 ```
 your-project/
@@ -182,7 +181,7 @@ When Claude Code opens your project, it automatically reads `CLAUDE.md` from the
 - **Component mapping** — translates user intents like "scheduler" or "timeline" to the correct Eventcalendar view configuration
 - **Anti-patterns** — explicit WRONG → RIGHT examples that prevent common mistakes
 
-Claude Code will fetch the correct `llms-{framework}-full.txt` file automatically based on the detected framework. No manual registration is needed.
+Claude Code will fetch `llms-angular-full.txt` automatically based on the detected framework. No manual registration is needed.
 
 ## Framework isolation
 
@@ -257,15 +256,15 @@ All AI integration files are available at the following URLs:
 
 | File | URL |
 |:---|:---|
-| Angular rules | <DocsUrl path="mobiscroll-angular.mdc" /> |
+| Angular rules | <DocsLink path="mobiscroll-angular.mdc" download /> |
 
 ### Routing file
 
 | File | URL |
 |:---|:---|
-| Claude Code context | <DocsUrl path="CLAUDE.md" /> |
+| Claude Code context | <DocsLink path="docs/angular/CLAUDE.md" download /> |
 
-## File contents
+## File contents {#file-contents}
 
 The complete contents of each file are shown below. You can copy directly from these blocks or use the download links above.
 
@@ -273,10 +272,10 @@ The complete contents of each file are shown below. You can copy directly from t
 
 <details>
 <summary>View <code>CLAUDE.md</code></summary>
-<FileBlock src="CLAUDE.md" />
+<FileBlock src="docs/angular/CLAUDE.md" />
 </details>
 
-### Rules files (.mdc)
+### Rules files (.mdc) {#rules-files-mdc}
 
 <details>
 <summary>View <code>mobiscroll-angular.mdc</code></summary>

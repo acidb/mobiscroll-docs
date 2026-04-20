@@ -2,6 +2,7 @@
 sidebar_position: 9
 sidebar_label: Templating
 displayed_sidebar: angularSidebar
+description: 'Customize Datepicker cell and day rendering in Angular with slot templates — mark dates, add tooltips, or render custom calendar content.'
 ---
 
 # Templating
@@ -45,6 +46,8 @@ The above components can be used inside of the custom header. The following exam
 ```
 
 ```ts
+import { Component } from '@angular/core';
+
 @Component(...)
 export class YourComponent {
   myTitle = 'My Custom Title';

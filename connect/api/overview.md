@@ -2,6 +2,7 @@
 sidebar_label: Overview
 sidebar_position: 1
 slug: /overview
+description: Mobiscroll Connect API overview — authentication flow, available endpoints, and response format for calendar data access.
 ---
 
 # Overview

@@ -43,7 +43,8 @@ function skipUrls(pathname) {
   const patterns = [
     '/docs/?$',
     '/search/?$',
-    '(/[0-9]+\.[0-9]+\.[0-9]+)/?$'
+    '(/[0-9]+\.[0-9]+\.[0-9]+)/?$',
+    '/ai-integration/?$'
   ];
   const reg = patterns.map((pattern) => `(${pattern})`).join('|');
   const skip = new RegExp(reg).test(pathname);

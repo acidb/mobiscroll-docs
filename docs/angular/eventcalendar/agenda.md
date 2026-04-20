@@ -2,6 +2,7 @@
 sidebar_position: 3
 sidebar_label: Agenda
 displayed_sidebar: angularSidebar
+description: 'Configure the Eventcalendar Agenda view in Angular — a scrollable list of upcoming events with customizable display options and grouping.'
 ---
 
 import ViewOptions from '../_auto-generated/eventcalendar/view_agenda.md';
@@ -36,6 +37,7 @@ For example, you can combine [a daily agenda with a weekly calendar](https://dem
 <mbsc-eventcalendar [view]="myView"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscEventcalendarView } from '@mobiscroll/angular';
 
 @Component({...})
@@ -55,6 +57,7 @@ The Agenda view can be configured through the `view` option. Below are listed th
 <mbsc-eventcalendar [view]="myView"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscEventcalendarView } from '@mobiscroll/angular';
 
 @Component({...})
@@ -95,6 +98,7 @@ The available width is queried from the container element of the component and n
 ```
 
 ```ts
+import { Component } from '@angular/core';
 import { MbscEventcalendarOptions } from '@mobiscroll/angular';
 
 @Component({...})

@@ -2,6 +2,7 @@
 sidebar_position: 2
 sidebar_label: Installation
 displayed_sidebar: angularSidebar
+description: 'Install Mobiscroll for Angular via npm, CDN download, or the Mobiscroll CLI — includes trial and licensed setup instructions.'
 ---
 
 import Tabs from '@theme/Tabs';
@@ -130,10 +131,11 @@ export class AppComponent {
 <TabItem value="module" label="app.module.ts">
 
 ```ts
-import { AppComponent } from './app.component';
-import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from './app.component';
 // highlight-next-line
 import { MbscModule } from '@mobiscroll/angular';
 

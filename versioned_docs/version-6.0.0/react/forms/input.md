@@ -2,6 +2,7 @@
 sidebar_position: 4
 sidebar_label: Input
 displayed_sidebar: reactSidebar
+description: 'Use the Mobiscroll Input form component in React — text inputs with floating labels, validation states, icons, and password toggle.'
 ---
 
 import Options from '../\_auto-generated/input/options.md';
@@ -19,6 +20,7 @@ Use the [`label`](#opt-label) option to provide a label to the input field.
 
 ```jsx
 import { Input } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   return <Input label="Label" />;
@@ -32,6 +34,7 @@ Use the `value` and the `onChange` props to set a value just as you would with a
 ```jsx
 import { useState } from 'react';
 import { Input } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [text, setText] = useState('');

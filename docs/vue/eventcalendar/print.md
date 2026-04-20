@@ -3,6 +3,7 @@ sidebar_position: 14
 sidebar_label: Print
 displayed_sidebar: vueSidebar
 title: Print
+description: 'Print the Mobiscroll Eventcalendar in Vue using the `@mobiscroll/print` add-on package — generates a print-optimized snapshot of any calendar, scheduler, or timeline view.'
 ---
 
 import InstallImport from '../../_shared/eventcalendar/print-install-import.mdx';
@@ -15,8 +16,9 @@ export const toc = [...instTOC,
 
 ```html
 <script setup>
-  import { MbscEventcalendar } from "@mobiscroll/vue";
   import { print } from '@mobiscroll/print';
+  import { MbscEventcalendar } from "@mobiscroll/vue";
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myModules = [print];
 </script>
@@ -43,8 +45,9 @@ Popup blockers might block the created window, so you need to disable the blocke
 ```html
 <script setup>
   import { ref } from 'vue';
-  import { MbscEventcalendar } from "@mobiscroll/vue";
   import { print } from '@mobiscroll/print';
+  import { MbscEventcalendar } from "@mobiscroll/vue";
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myModules = [print];
   const calInstance = ref(null);

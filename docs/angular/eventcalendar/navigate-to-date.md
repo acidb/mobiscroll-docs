@@ -2,6 +2,7 @@
 sidebar_position: 10
 sidebar_label: Navigation
 displayed_sidebar: angularSidebar
+description: 'Programmatically navigate the Mobiscroll Eventcalendar to a specific date or time at runtime in Angular.'
 ---
 
 # Navigating to a date and time
@@ -18,6 +19,8 @@ When multiple days, weeks, months or years are displayed, the position of the sp
 ```
 
 ```ts
+import { Component } from '@angular/core';
+
 @Component({...})
 export class AppComponent {
   myDate = new Date(2020, 2, 18);

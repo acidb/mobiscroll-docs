@@ -3,6 +3,7 @@ sidebar_position: 9
 sidebar_label: Drag & drop
 displayed_sidebar: jquerySidebar
 title: Drag & drop
+description: 'Enable drag-and-drop event creation, moving, and resizing in the Mobiscroll Eventcalendar and Timeline views for jQuery.'
 ---
 
 import DropcontainerEvents from '../_auto-generated/dropcontainer/events.md';

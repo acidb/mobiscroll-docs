@@ -3,6 +3,7 @@ sidebar_position: 3
 sidebar_label: Using the source code
 displayed_sidebar: javascriptSidebar
 title: Using Mobiscroll with the source code
+description: Work with the Mobiscroll JavaScript source package (TypeScript) — available with a Complete or Source Code license, downloaded from the Mobiscroll download page and compiled locally.
 ---
 
 ## Overview

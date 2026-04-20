@@ -3,6 +3,7 @@ sidebar_position: 5
 sidebar_label: Upgrade guide v6
 displayed_sidebar: angularSidebar
 title: Mobiscroll 6 upgrade guide
+description: 'Upgrade from Mobiscroll 5 to version 6 in Angular — breaking changes, removed features, renamed options, and migration examples.'
 ---
 
 import Tabs from '@theme/Tabs';

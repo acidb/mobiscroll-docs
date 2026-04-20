@@ -2,6 +2,7 @@
 sidebar_position: 2
 sidebar_label: Installation
 displayed_sidebar: javascriptSidebar
+description: Install Mobiscroll for JavaScript via npm, CDN download, or the Mobiscroll CLI — includes trial and licensed setup instructions.
 ---
 
 import CliInstall from '../../\_shared/getting-started/cliinstall.mdx';

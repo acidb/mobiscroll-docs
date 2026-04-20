@@ -2,6 +2,7 @@
 sidebar_position: 1
 sidebar_label: Overview
 displayed_sidebar: reactSidebar
+description: 'Mobiscroll Popup for React — a configurable modal, bottom-sheet, or popover container for custom overlay content.'
 ---
 
 # Popup
@@ -17,6 +18,7 @@ The following example will create a popup with static content. When clicked or t
 ```jsx
 import { useState } from 'react';
 import { Popup } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [isPopupOpen, setPopupOpen] = useState(true);

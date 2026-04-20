@@ -2,6 +2,7 @@
 sidebar_position: 7
 sidebar_label: Filtering
 displayed_sidebar: reactSidebar
+description: 'Enable search filtering in the Mobiscroll Select for React — built-in filter input and custom filter functions for large option lists.'
 ---
 
 # Filtering
@@ -20,6 +21,7 @@ By defaut filtering is done client side on the dataset passed to the Select with
 ```jsx
 import { useState } from 'react';
 import { Select } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [countries] = useState([
@@ -40,8 +42,9 @@ Server side filtering can be implemented with the help of the [`onFilter`](./api
 
 ```jsx
 import { useState } from 'react';
-import { Select } from '@mobiscroll/select';
 import { myCreateARequestMethod } from 'any-library-i-want';
+import { Select } from '@mobiscroll/select';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [data, setData] = useState([]);

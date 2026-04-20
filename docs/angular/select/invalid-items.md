@@ -3,6 +3,7 @@ sidebar_position: 9
 sidebar_label: Invalid items
 displayed_sidebar: angularSidebar
 title: Invalid items
+description: 'Mark specific options as disabled or invalid in the Mobiscroll Select for Angular to prevent them from being selected.'
 ---
 
 Invalid items are items that cannot be selected. They appear disabled on the wheels and when clicked, a selection will not happen.
@@ -14,6 +15,8 @@ Invalid items can be set using the `invalid` [option](/angular/select/api#opt-in
 ```
 
 ```ts
+import { Component } from '@angular/core';
+
 @Component(...)
 export class MyComponent {
     public extras = [

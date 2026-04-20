@@ -2,6 +2,7 @@
 sidebar_position: 8
 sidebar_label: CRUD
 displayed_sidebar: angularSidebar
+description: 'Implement create, read, update, and delete (CRUD) operations for events in the Mobiscroll Eventcalendar using JavaScript.'
 ---
 
 import HelperOptions from '../_auto-generated/utils/options.md';
@@ -13,6 +14,7 @@ import HelperOptions from '../_auto-generated/utils/options.md';
 The Eventcalendar is bound to an array of event objects as described in the [data binding](data-binding) section. To update a single event with new event data, it's not enough to update the particular event object. A new event array reference is also needed otherwise the change won't be picked up by the eventcalendar.
 
 ```ts title="Updating an event title"
+import { Component } from '@angular/core';
 import { MbscCalendarEvent, MbscEventcalendarView } from '@mobiscroll/angular';
 
 @Component({...})
@@ -57,6 +59,7 @@ To enable the creation of events on the Eventcalendar you can use the [`dragToCr
 When an event is about to be created using click or drag on the Eventcalendar UI, the [`onEventCreate`](api#event-onEventCreate) event is fired. If not canceled by returning `false` a temporary event is created on the Eventcalendar followed by the [`onEventCreated`](api#event-onEventCreated). Any of these two events are passed the event properties that can be used to save the event to a persistent storage or to send it through an API.
 
 ```ts title="Save a new event through an API"
+import { Component } from '@angular/core';
 import axios from 'axios';
 import { MbscCalendarEvent, MbscEventcalendarView, MbscEventCreateEvent } from '@mobiscroll/angular';
 
@@ -89,6 +92,7 @@ Similar to [event creation](#event-create) above, to enable event editing you ca
 When an event is about to be updated by dragging on the Eventcalendar UI, the [`onEventUpdate`](api#event-onEventUpdate) event is fired. If not canceled by returning `false` the calendar event is updated on the calendar. This update is followed by the [`onEventUpdated`](api#event-onEventUpdated). Any of these two events are passed the calendar event previous and new properties that can be used to save the event to a persistent storage or to send it through an API.
 
 ```ts title="Send an updated event through an API"
+import { Component } from '@angular/core';
 import axios from 'axios';
 import { MbscCalendarEvent, MbscEventcalendarView, MbscEventUpdatedEvent } from '@mobiscroll/angular';
 
@@ -138,6 +142,7 @@ Just before the event is deleted, the [`onEventDelete`](./api#event-onEventDelet
 Either one of these events can be used to send the deletion through an API.
 
 ```ts title="Notify a server of an event deletion"
+import { Component } from '@angular/core';
 import axios from 'axios';
 import { MbscCalendarEvent, MbscEventcalendarView, MbscEventDeletedEvent } from '@mobiscroll/angular';
 

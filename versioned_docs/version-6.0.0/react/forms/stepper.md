@@ -2,6 +2,7 @@
 sidebar_position: 7
 sidebar_label: Stepper
 displayed_sidebar: reactSidebar
+description: 'Use the Mobiscroll Stepper component in React — increment/decrement numeric input with configurable min, max, and step values.'
 ---
 
 import Options from '../\_auto-generated/stepper/options.md';
@@ -20,6 +21,7 @@ Use the [`label`](#opt-label) option to provide a label to the stepper.
 
 ```jsx
 import { Stepper } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   return <Stepper label="Label" />;
@@ -33,6 +35,7 @@ Use the `value` and the `onChange` props to set a value just as you would with a
 ```jsx
 import { useState } from 'react';
 import { Stepper } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [myStep, setMyStep] = useState(0);

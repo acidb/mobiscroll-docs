@@ -3,6 +3,7 @@ sidebar_position: 1
 sidebar_label: CLI
 displayed_sidebar: javascriptSidebar
 title: Mobiscroll CLI
+description: Use the Mobiscroll CLI to scaffold, install, and configure Mobiscroll packages in JavaScript projects with a single command.
 ---
 
 ## Overview

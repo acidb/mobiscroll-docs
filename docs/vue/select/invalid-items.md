@@ -3,6 +3,7 @@ sidebar_position: 9
 sidebar_label: Invalid items
 displayed_sidebar: vueSidebar
 title: Invalid items
+description: 'Mark specific options as disabled or invalid in the Mobiscroll Select for Vue to prevent them from being selected.'
 ---
 
 Invalid items are items that cannot be selected. They appear disabled on the wheels and when clicked, a selection will not happen.
@@ -11,6 +12,9 @@ Invalid items can be set using the `invalid` [option](/vue/select/api#opt-invali
 
 ```html title="Invalid example"
 <script setup>
+import { MbscSelect } from '@mobiscroll/select';
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
+
 const myData = [
   { text: 'Atlanta', value: 'atl' },
   { text: 'Berlin', value: 'ber' },

@@ -2,6 +2,7 @@
 sidebar_position: 2
 sidebar_label: Confirm
 displayed_sidebar: reactSidebar
+description: 'Show a Mobiscroll Confirm dialog in React — a Promise-based, styleable alternative to the native window.confirm with OK/Cancel actions.'
 ---
 
 import Options from '../\_auto-generated/confirm/options.md';
@@ -20,6 +21,7 @@ The following example displays a confirm dialog on button click.
 ```jsx
 import { useState } from 'react';
 import { Confirm, Button } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [isOpen, setOpen] = useState(false);

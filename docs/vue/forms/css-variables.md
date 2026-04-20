@@ -3,6 +3,7 @@ sidebar_position: 16
 sidebar_label: CSS variables
 displayed_sidebar: vueSidebar
 title: CSS variables
+description: 'CSS custom properties for Mobiscroll form components (Vue) to customize colors, spacing, and visual tokens globally.'
 ---
 
 import Content from '../../_shared/forms/css-variables.mdx';

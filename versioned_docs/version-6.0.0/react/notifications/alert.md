@@ -2,6 +2,7 @@
 sidebar_position: 1
 sidebar_label: Alert
 displayed_sidebar: reactSidebar
+description: 'Show a styled alert dialog with the Mobiscroll Alert component in React — a Promise-based replacement for the native window.alert.'
 ---
 
 import Options from '../\_auto-generated/alert/options.md';
@@ -19,6 +20,7 @@ The following example displays an Alert message on button click.
 ```jsx
 import { useState } from 'react';
 import { Alert, Button } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [isAlertOpen, setAlertOpen] = useState(false);

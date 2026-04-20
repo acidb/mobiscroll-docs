@@ -2,6 +2,7 @@
 sidebar_position: 1
 sidebar_label: Overview
 displayed_sidebar: reactSidebar
+description: 'Mobiscroll Select for React — a touch-optimized dropdown and picker for single or multiple option selection.'
 ---
 
 # Select
@@ -14,6 +15,7 @@ The following example will create a Select component with four options to choose
 
 ```jsx
 import { Select } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const myData = [

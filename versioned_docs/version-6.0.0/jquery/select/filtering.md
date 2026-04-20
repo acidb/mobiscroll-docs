@@ -2,6 +2,7 @@
 sidebar_position: 7
 sidebar_label: Filtering
 displayed_sidebar: jquerySidebar
+description: 'Enable search filtering in the Mobiscroll Select for jQuery — built-in filter input and custom filter functions for large option lists.'
 ---
 
 # Filtering

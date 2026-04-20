@@ -3,6 +3,7 @@ sidebar_position: 11
 sidebar_label: Templating
 displayed_sidebar: reactSidebar
 title: Templating
+description: 'Customize Eventcalendar event rendering in React with templating — override event bubbles, slot content, header, and more.'
 ---
 
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
@@ -21,6 +22,9 @@ When you want to customize how the events look, depending on what your goal is, 
 To define a custom template, pass a functional component to the apropriate option:
 
 ```jsx title="Customizing the scheduler event contents"
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 const myScheduleEventContent = (theEvent) => {
   return <div>
       {theEvent.title}
@@ -42,6 +46,9 @@ In most cases you only want to customize the content section of the event. In th
 - For the timeline - use the [`renderTimelineEventContent`](api#renderer-renderTimelineEventContent) option for the custom template
 
 ```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 const myContent = (theEvent) => {
   // your content here
 }
@@ -94,6 +101,9 @@ Play with the slider below to see the differences.
 To customize the display of the resources, the [`renderResource`](api#renderer-renderResource) option can be used.
 
 ```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 const myResourceRenderer = (resource) => (<div>{resource.name} - {resource.location}</div>);
 
 <Eventcalendar renderResource={myResourceRenderer} />
@@ -124,6 +134,9 @@ Play with the slider below to see the differences.
 The header of the calendar can be fully customized to one's needs with the use of the [`renderHeader`](api#renderer-renderHeader) option.
 
 ```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 const myHeader = () => {
   return <>
     <p>Any <strong>Title</strong> you want here or</p>
@@ -148,6 +161,9 @@ Here's the list of the built in components of the default header:
 The above components can be used inside of the custom header. The following example will render the prev and next buttons and then a custom title that is set from a custom variable (myTitle variable).
 
 ```jsx title="Custom header with default buttons"
+import { CalendarNext, CalendarPrev, Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 const myTitle = 'Awesome title';
 const myHeader = () => {
   return <>

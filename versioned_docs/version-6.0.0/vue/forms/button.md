@@ -2,6 +2,7 @@
 sidebar_position: 1
 sidebar_label: Button
 displayed_sidebar: vueSidebar
+description: 'Use the Mobiscroll Button component in Vue — styles, variants, icons, loading states, and API for handling click events.'
 ---
 
 import Options from '../\_auto-generated/button/options.md';
@@ -20,6 +21,7 @@ Buttons can display text, icons, or both. They can be colored and styled with va
 ```html
 <script setup>
   import { MbscButton } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 </script>
 
 <template>
@@ -49,6 +51,7 @@ Clicks can be handled using the standard `@click` event.
 ```html
 <script setup>
   import { MbscButton } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const handleClick = () => {
     alert('Button clicked!');

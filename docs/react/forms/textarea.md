@@ -2,6 +2,7 @@
 sidebar_position: 9
 sidebar_label: Textarea
 displayed_sidebar: reactSidebar
+description: 'Use the Mobiscroll Textarea form component in React — multiline input with floating labels, auto-grow, and validation styles.'
 ---
 
 import Options from '../\_auto-generated/textarea/options.md';
@@ -19,6 +20,7 @@ Use the [`label`](#opt-label) option to provide a label to the textarea.
 
 ```jsx
 import { Textarea } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   return <Textarea label="Label" />
@@ -32,6 +34,7 @@ Use the `value` and the `onChange` props to set a value just as you would with a
 ```jsx
 import { useState } from 'react';
 import { Textarea } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [text, setText] = useState('');

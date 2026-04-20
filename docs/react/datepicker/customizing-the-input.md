@@ -3,6 +3,7 @@ sidebar_position: 10
 sidebar_label: Customizing the input
 displayed_sidebar: reactSidebar
 title: Customizing the input
+description: 'Customize the input element used by the Mobiscroll Datepicker in React — custom triggers, inline rendering, and anchor elements.'
 ---
 
 ## Overview
@@ -14,8 +15,12 @@ The datepicker, as explained below, can be used with one, two or no inputs.
 The first choice of input customization is to have no inputs at all. In this case rendering the component in [inline display](/react/datepicker/display-modes) mode will leave out the use of inputs.
 
 ```jsx title="Inline picker"
+import { useState } from 'react';
+import { Datepicker } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 const App = () => {
-    const [myAppointment, setMyAppointment] = React.useState(null);
+    const [myAppointment, setMyAppointment] = useState(null);
     const myPickerChange = (ev) => {
         setMyAppointment(ev.value);
     }
@@ -33,6 +38,8 @@ To pass props to the custom component, you can use the `inputProps` [prop](/reac
 
 ```jsx title="Using IonInput as a Custom Input"
 import { IonInput, IonItem } from '@ionic/react';
+import { Datepicker } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 const app = () => {
   const ionInputProps = {
@@ -51,11 +58,13 @@ const app = () => {
 When selecting a range, you have basically two values to display: the start of the range and the end of the range. These can be shown in different inputs using the [`startInput`](/react/datepicker/api#opt-startInput) and the [`endInput`](/react/datepicker/api#opt-endInput) options.
 
 ```jsx title="Two inputs for range selection"
+import { useState } from 'react';
 import { Input, Datepicker } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 const app = () => {
-  const [start, setStartInput] = React.useState(null);
-  const [end, setEndInput] = React.useState(null);
+  const [start, setStartInput] = useState(null);
+  const [end, setEndInput] = useState(null);
 
   return <>
       <Input ref={setStartInput} label="Start date" />

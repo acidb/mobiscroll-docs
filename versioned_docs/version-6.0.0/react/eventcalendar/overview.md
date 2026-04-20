@@ -2,6 +2,7 @@
 sidebar_position: 1
 sidebar_label: Overview
 displayed_sidebar: reactSidebar
+description: 'Mobiscroll Eventcalendar for React — Calendar, Scheduler, Timeline, and Agenda views for building scheduling UIs.'
 ---
 
 # Eventcalendar
@@ -14,6 +15,7 @@ The following example will create an Eventcalendar with the default options.
 
 ```jsx
 import { Eventcalendar } from "@mobiscroll/react";
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   return <>

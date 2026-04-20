@@ -2,6 +2,7 @@
 sidebar_position: 5
 sidebar_label: Webhooks API
 slug: /webhooks
+description: Subscribe to real-time calendar change notifications from Google, Outlook, and Apple via Mobiscroll Connect webhook channels.
 ---
 
 import { Parameter } from '@site/src/components/Connect';

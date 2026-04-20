@@ -4,6 +4,7 @@ sidebar_label: Utility functions
 displayed_sidebar: reactSidebar
 title: Utility functions
 toc_max_heading_level: 2
+description: 'Mobiscroll React utility functions for date formatting, parsing, timezone conversion, and calendar math — API reference and examples.'
 ---
 
 ## Utils

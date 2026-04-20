@@ -2,6 +2,7 @@
 sidebar_position: 3
 sidebar_label: Prompt
 displayed_sidebar: angularSidebar
+description: 'Show a Mobiscroll Prompt dialog in Angular — a Promise-based, styleable input dialog as an alternative to window.prompt.'
 ---
 
 import Options from '../\_auto-generated/prompt/options.md';
@@ -18,6 +19,7 @@ It has two buttons, one of which submits the entered data, the other one cancels
 The following example displays a prompt dialog:
 
 ```ts
+import { Component } from '@angular/core';
 import { Notifications } from '@mobiscroll/angular';
 
 @Component({...})

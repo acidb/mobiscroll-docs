@@ -3,6 +3,7 @@ sidebar_position: 6
 sidebar_label: Data binding
 displayed_sidebar: vueSidebar
 title: Data binding
+description: 'Bind event data to the Mobiscroll Eventcalendar in Vue — data structure, dynamic loading, and runtime event list updates.'
 ---
 
 import EventDataStructure from '../../_shared/eventcalendar/event-data-structure.mdx';
@@ -23,6 +24,7 @@ To bind local data to the event calendar, you can simply assign a JavaScript arr
 ```html
 <script setup>
   import { MbscEventcalendar } from "@mobiscroll/vue";
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myData = [
     {
@@ -53,6 +55,7 @@ You can load the data through an external request and assign it to the data opti
 <script setup>
   import { ref, onMounted } from "vue";
   import { MbscEventcalendar, getJson } from "@mobiscroll/vue";
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myEvents = ref([]);
 
@@ -95,6 +98,7 @@ You can pass the view variables - like month and year - in the URL and handle th
 <script setup>
   import { ref } from 'vue'
   import { MbscEventcalendar, getJson } from '@mobiscroll/vue'
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myEvents = ref([])
 

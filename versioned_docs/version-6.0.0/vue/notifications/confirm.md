@@ -2,6 +2,7 @@
 sidebar_position: 2
 sidebar_label: Confirm
 displayed_sidebar: vueSidebar
+description: 'Show a Mobiscroll Confirm dialog in Vue — a Promise-based, styleable alternative to the native window.confirm with OK/Cancel actions.'
 ---
 
 import Options from '../\_auto-generated/confirm/options.md';
@@ -21,6 +22,7 @@ The following example displays a confirm dialog on button click.
 <script setup>
   import { ref } from 'vue';
   import { MbscConfirm, MbscButton } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const isConfirmOpen = ref(false);
 

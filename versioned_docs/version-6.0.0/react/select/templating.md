@@ -2,6 +2,7 @@
 sidebar_position: 8
 sidebar_label: Templating
 displayed_sidebar: reactSidebar
+description: 'Customize Select option rendering in Mobiscroll React — render custom HTML per option, group headers, and footer content.'
 ---
 
 # Templating
@@ -23,6 +24,7 @@ const myItemTemplate = (args) => {
 ```jsx title="Example for adding images to items"
 import { useCallback, useState } from 'react';
 import { Select }  from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [countries] = useState([{

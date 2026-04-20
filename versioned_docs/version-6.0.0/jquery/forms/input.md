@@ -2,6 +2,7 @@
 sidebar_position: 4
 sidebar_label: Input
 displayed_sidebar: jquerySidebar
+description: 'Use the Mobiscroll Input form component in jQuery — text inputs with floating labels, validation states, icons, and password toggle.'
 ---
 
 import Options from '../\_auto-generated/input/options.md';

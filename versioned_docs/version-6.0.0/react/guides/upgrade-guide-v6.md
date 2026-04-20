@@ -3,6 +3,7 @@ sidebar_position: 5
 sidebar_label: Upgrade guide v6
 displayed_sidebar: reactSidebar
 title: Mobiscroll 6 upgrade guide
+description: 'Upgrade from Mobiscroll 5 to version 6 in React — breaking changes, removed features, renamed options, and migration examples.'
 ---
 
 import Tabs from '@theme/Tabs';
@@ -103,6 +104,9 @@ We removed the `weeks` option. Use [calendarSize](/react/datepicker/api#opt-cale
   <TabItem value="old" label="Old code" default>
 
 ```jsx
+import { Datepicker } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 <Datepicker
   weeks={6}
 />
@@ -112,6 +116,9 @@ We removed the `weeks` option. Use [calendarSize](/react/datepicker/api#opt-cale
   <TabItem value="new" label="New code">
 
 ```jsx
+import { Datepicker } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 <Datepicker
   calendarSize={2}
 />
@@ -136,12 +143,18 @@ We renamed the `renderDay` option to [renderAgendaDay](/react/eventcalendar/api#
   <TabItem value="old" label="Old code" default>
 
 ```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 <Eventcalendar renderEvent={myRender} />
 ```
   </TabItem>
   <TabItem value="new" label="New code">
 
 ```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 <Eventcalendar renderAgendaEvent={myRender} />
 ```
   </TabItem>
@@ -168,6 +181,9 @@ We renamed the `renderDayContent` option to [renderCalendarDayContent](/react/ev
   <TabItem value="old" label="Old code" default>
 
 ```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 <Eventcalendar renderLabel={myRender} />
 ```
 
@@ -175,6 +191,9 @@ We renamed the `renderDayContent` option to [renderCalendarDayContent](/react/ev
   <TabItem value="new" label="New code">
 
 ```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 <Eventcalendar renderCalendarEvent={myRender} />
 ```
 
@@ -203,6 +222,9 @@ We renamed the `renderDayContent` option to [renderSchedulerDayContent](/react/e
   <TabItem value="old" label="Old code" default>
 
 ```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 <Eventcalendar renderScheduleEvent={myRender} />
 ```
 
@@ -210,6 +232,9 @@ We renamed the `renderDayContent` option to [renderSchedulerDayContent](/react/e
   <TabItem value="new" label="New code">
 
 ```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 <Eventcalendar renderSchedulerEvent={myRender} />
 ```
 
@@ -222,6 +247,9 @@ We also renamed the `schedule` [view](/react/eventcalendar/api#opt-view) to `sch
   <TabItem value="old" label="Old code" default>
 
 ```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 <Eventcalendar view={{ schedule: { type: 'day' } }} />
 ```
 
@@ -229,6 +257,9 @@ We also renamed the `schedule` [view](/react/eventcalendar/api#opt-view) to `sch
   <TabItem value="new" label="New code">
 
 ```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 <Eventcalendar view={{ scheduler: { type: 'day' } }} />
 ```
 
@@ -250,6 +281,9 @@ We renamed the `renderDay` option to [renderTimelineDay](/react/eventcalendar/ap
   <TabItem value="old" label="Old code" default>
 
 ```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 <Eventcalendar renderScheduleEvent={myRender} />
 ```
 
@@ -257,6 +291,9 @@ We renamed the `renderDay` option to [renderTimelineDay](/react/eventcalendar/ap
   <TabItem value="new" label="New code">
 
 ```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 <Eventcalendar renderTimelineEvent={myRender} />
 ```
 
@@ -269,6 +306,9 @@ We added a new `eventDisplay` property to the [view](/react/eventcalendar/api#op
   <TabItem value="old" label="Old code" default>
 
 ```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 <Eventcalendar view={{ timeline: { type: 'day', eventList: true } }} />
 ```
 
@@ -276,6 +316,9 @@ We added a new `eventDisplay` property to the [view](/react/eventcalendar/api#op
   <TabItem value="new" label="New code">
 
 ```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 <Eventcalendar view={{ timeline: { type: 'day', eventDisplay: 'fill' } }} />
 ```
 
@@ -290,6 +333,9 @@ We removed the deprecated `resolution` property from the [view](/react/eventcale
   <TabItem value="old" label="Old code" default>
 
 ```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 <Eventcalendar view={{ timeline: { type: 'day', resolutiuon: 'hour' } }} />
 ```
 
@@ -297,6 +343,9 @@ We removed the deprecated `resolution` property from the [view](/react/eventcale
   <TabItem value="new" label="New code">
 
 ```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 <Eventcalendar view={{ timeline: { type: 'day', resolutiuonHorizontal: 'hour' } }} />
 ```
 

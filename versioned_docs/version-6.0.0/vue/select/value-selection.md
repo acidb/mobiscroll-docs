@@ -2,6 +2,7 @@
 sidebar_label: Value Selection
 displayed_sidebar: vueSidebar
 sidebar_position: 4
+description: 'Control value selection behavior in the Mobiscroll Select for Vue — single, multiple, pre-selected values, and programmatic value updates.'
 ---
 
 # Value Selection
@@ -17,6 +18,7 @@ By default the Select operates in single value selection mode, but can be used t
 <script setup>
   import { ref } from 'vue';
   import { MbscSelect } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const drinks = [
     { text: 'Mohito', value: 'mohito'},
@@ -40,6 +42,7 @@ Multiselection can be enabled using the [`selectMultiple`](./api#opt-selectMulti
 <script setup>
   import { ref } from 'vue';
   import { MbscSelect } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const bonuses = ['Free ticket', 'Free Drink', 'Free Hug'];
 

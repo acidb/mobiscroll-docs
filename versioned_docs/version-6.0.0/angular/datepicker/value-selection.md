@@ -2,6 +2,7 @@
 sidebar_label: Value Selection
 displayed_sidebar: angularSidebar
 sidebar_position: 2
+description: 'Configure date value selection behavior in the Mobiscroll Datepicker — set min/max, disabled dates, pre-selected values, and selection constraints.'
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,6 +26,19 @@ This is the default behavior, and it can also be initialized with the `select="d
 ```html
 <mbsc-datepicker select="date" [(ngModel)]="myValue"></mbsc-datepicker>
 <mbsc-datepicker [(ngModel)]="myValue"></mbsc-datepicker>
+```
+
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
 ```
 
 The `myValue` in the above example will hold the selected value.

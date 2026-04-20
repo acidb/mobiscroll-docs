@@ -3,6 +3,7 @@ sidebar_position: 13
 sidebar_label: Calendar integrations
 displayed_sidebar: javascriptSidebar
 title: Third party calendar integration
+description: Sync the Mobiscroll Eventcalendar with Google Calendar, Outlook, or Apple Calendar using API integration in JavaScript.
 ---
 
 import GoogleMethods from '../../_auto-generated/googlecalendar/methods.md';

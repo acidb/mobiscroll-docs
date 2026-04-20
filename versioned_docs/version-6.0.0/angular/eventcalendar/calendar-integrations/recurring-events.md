@@ -1,6 +1,7 @@
 ---
 displayed_sidebar: angularSidebar
 sidebar_label: Recurring events
+description: 'Work with recurring events in the Mobiscroll Eventcalendar for Angular — display, edit single occurrences, and delete recurrence series.'
 ---
 
 
@@ -23,6 +24,7 @@ When you want to create a recurring event through the Mobiscroll Eventcalendar, 
 <mbsc-eventcalendar (onEventCreate)="myHandler($event)"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscEventcalendarView } from '@mobiscroll/angular';
 
 @Component({...})

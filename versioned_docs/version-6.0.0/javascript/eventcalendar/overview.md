@@ -2,9 +2,8 @@
 sidebar_position: 1
 sidebar_label: Overview
 displayed_sidebar: javascriptSidebar
+description: Mobiscroll Eventcalendar for JavaScript — Calendar, Scheduler, Timeline, and Agenda views for building scheduling UIs.
 ---
-
-# Eventcalendar
 
 The Eventcalendar component supports four highly configurable views: a [Calendar view](/javascript/eventcalendar/calendar), a [Scheduler with time grid](/javascript/eventcalendar/scheduler), a [Timeline](/javascript/eventcalendar/timeline) and an [Agenda view](/javascript/eventcalendar/agenda).
 

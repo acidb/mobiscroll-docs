@@ -2,6 +2,7 @@
 sidebar_position: 9
 sidebar_label: Templating
 displayed_sidebar: reactSidebar
+description: 'Customize Datepicker cell and day rendering in React with slot templates — mark dates, add tooltips, or render custom calendar content.'
 ---
 
 # Templating
@@ -13,6 +14,9 @@ The display of the Datepicker component can be customized with different [render
 The header of the calendar can be fully customized to one's needs with the use of the [`renderCalendarHeader`](api#renderer-renderCalendarHeader) option.
 
 ```jsx
+import { Datepicker } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 function myHeader() {
   return <>
     <p>Any <strong>Title</strong> you want here or</p>
@@ -39,6 +43,9 @@ Here's the list of the built in components of the default header:
 The above components can be used inside of the custom header. The following example will render the prev and next buttons and then a custom title that is set from a custom variable (myTitle variable).
 
 ```jsx title="Custom header with default buttons"
+import { CalendarNext, CalendarPrev, Datepicker } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 function App(props) {
   const myHeader = () => {
     return <>
@@ -61,6 +68,9 @@ The difference between the two is that the Datepicker will style the cells by de
 In the case of the `renderDay` option however, both the styling and the content (the dates too) will come from the custom template.
 
 ```jsx title="Example of custom cells"
+import { Datepicker } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 function App() {
   const day = (args) => {
     return <>**{args.date.getDate()}**</>

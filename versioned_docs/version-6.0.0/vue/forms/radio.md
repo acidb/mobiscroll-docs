@@ -2,6 +2,7 @@
 sidebar_position: 5
 sidebar_label: Radio button
 displayed_sidebar: vueSidebar
+description: 'Use the Mobiscroll Radio button form component in Vue — grouped options, checked states, and change event handling.'
 ---
 
 import Options from '../\_auto-generated/radio/options.md';
@@ -24,6 +25,7 @@ Use the [`label`](#opt-label) option to provide a label to the Radio button.
 ```html
 <script setup>
   import { MbscRadio, MbscRadioGroup } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 </script>
 
 <template>
@@ -43,6 +45,7 @@ Use the [v-model](https://vuejs.org/api/built-in-directives.html#v-model) direct
 <script setup>
   import { ref } from 'vue';
   import { MbscRadio, MbscRadioGroup } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const radio = ref('1');
 </script>

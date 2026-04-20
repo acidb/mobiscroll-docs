@@ -2,6 +2,7 @@
 sidebar_position: 1
 sidebar_label: Overview
 displayed_sidebar: angularSidebar
+description: 'Mobiscroll Select for Angular — a touch-optimized dropdown and picker for single or multiple option selection.'
 ---
 
 # Select
@@ -17,6 +18,7 @@ The following example will create a Select component with four options to choose
 ```
 
 ```ts
+import { Component } from '@angular/core';
 import { MbscSelectData } from '@mobiscroll/angular';
 
 @Component({...})

@@ -3,6 +3,7 @@ sidebar_position: 14
 sidebar_label: Print
 displayed_sidebar: angularSidebar
 title: Print
+description: 'Print the Mobiscroll Eventcalendar in Angular using the `@mobiscroll/print` add-on package — generates a print-optimized snapshot of any calendar, scheduler, or timeline view.'
 ---
 
 import InstallImport from '../../_shared/eventcalendar/print-install-import.mdx';
@@ -14,6 +15,7 @@ export const toc = [...instTOC,
 <InstallImport />
 
 ```ts
+import { Component } from '@angular/core';
 import { print } from '@mobiscroll/print';
 
 @Component({...})
@@ -40,6 +42,7 @@ Popup blockers might block the created window, so you need to disable the blocke
 :::
 
 ```ts
+import { Component } from '@angular/core';
 import { print } from '@mobiscroll/print';
 
 @Component({...})

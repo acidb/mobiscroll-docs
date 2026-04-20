@@ -2,6 +2,7 @@
 sidebar_position: 8
 sidebar_label: Templating
 displayed_sidebar: vueSidebar
+description: 'Customize Select option rendering in Mobiscroll Vue — render custom HTML per option, group headers, and footer content.'
 ---
 
 # Templating
@@ -20,6 +21,9 @@ The item data is accessible through the slot parameter `data` property.
 
 ```html title="Example for adding images to items"
 <script setup>
+  import { MbscSelect } from '@mobiscroll/select';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
+
   const countries = [{
         value: 'US',
         text: 'United States of America',

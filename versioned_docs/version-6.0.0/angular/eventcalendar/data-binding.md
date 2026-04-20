@@ -3,6 +3,7 @@ sidebar_position: 6
 sidebar_label: Data binding
 displayed_sidebar: angularSidebar
 title: Data binding
+description: 'Bind event data to the Mobiscroll Eventcalendar in Angular — data structure, dynamic loading, and runtime event list updates.'
 ---
 
 import EventDataStructure from '../../_shared/eventcalendar/event-data-structure.mdx';
@@ -25,6 +26,7 @@ To bind local data to the event calendar, you can simply assign a JavaScript arr
 ```
 
 ```ts
+import { Component } from '@angular/core';
 import { MbscCalendarEvent } from '@mobiscroll/angular';
 
 @Component({...})
@@ -53,7 +55,7 @@ You can load the data through an external request and assign it to the data-boun
 ```
 
 ```ts
-import { AfterViewInit } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { MbscCalendarEvent, MbscEventcalendarView, getJson } from '@mobiscroll/angular';
 
 @Component({...})
@@ -90,6 +92,7 @@ You can pass the view variables - like month and year - in the URL and handle th
 ```
 
 ```ts
+import { Component } from '@angular/core';
 import { MbscCalendarEvent, MbscEventcalendarView, MbscPageLoadingEvent, getJson } from '@mobiscroll/angular';
 
 @Component({...})

@@ -3,6 +3,7 @@ sidebar_position: 13
 sidebar_label: Calendar integrations
 displayed_sidebar: angularSidebar
 title: Third party calendar integration
+description: 'Sync the Mobiscroll Eventcalendar with Google Calendar, Outlook, or Apple Calendar using API integration in Angular.'
 ---
 
 import GoogleMethods from '../../_auto-generated/googlecalendar/methods.md';
@@ -37,8 +38,9 @@ The public google calendar integration allows you to load events from a public c
 Calling the `init` function will do the necessary initializations for the third party. After the init, you can list the events from the public calendar.
 
 ```ts
-import { googleCalendarSync } from "@mobiscroll/calendar-integration";
+import { Component, OnInit } from '@angular/core';
 import { MbscCalendarEvent } from '@mobiscroll/angular';
+import { googleCalendarSync } from "@mobiscroll/calendar-integration";
 
 @Component({...})
 export class MyComponent implements OnInit {
@@ -107,8 +109,9 @@ Follow these steps to set up and use the calendar integration correctly:
 Calling the `init` function will do the necessary initializations for the third party. For this step you need to use an API key and a client ID. After the `init`, you can sign in, list your calendars and events and create, update or delete the events on the calendars you have permission to.
 
 ```js
-import { googleCalendarSync } from "@mobiscroll/calendar-integration";
+import { Component, OnInit } from '@angular/core';
 import { MbscCalendarEvent } from '@mobiscroll/angular';
+import { googleCalendarSync } from "@mobiscroll/calendar-integration";
 
 @Component({...})
 export class MyComponent implements OnInit {
@@ -164,8 +167,9 @@ The Outlook Calendar Integration is a part of the third party calendar integrati
 Calling the `init` function will do the necessary initializations for the third party. For this step you need to use a [client ID](https://docs.microsoft.com/en-us/graph/auth-v2-user). After the init, you can sign in, list your calendars and events and create, update or delete the events on the calendars you have permission to.
 
 ```js
-import { outlookCalendarSync} from "@mobiscroll/calendar-integration";
+import { Component, OnInit } from '@angular/core';
 import { MbscCalendarEvent } from '@mobiscroll/angular';
+import { outlookCalendarSync} from "@mobiscroll/calendar-integration";
 
 @Component({...})
 export class MyComponent implements OnInit {

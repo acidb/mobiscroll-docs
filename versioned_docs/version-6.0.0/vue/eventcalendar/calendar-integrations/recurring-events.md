@@ -1,6 +1,7 @@
 ---
 displayed_sidebar: vueSidebar
 sidebar_label: Recurring events
+description: 'Work with recurring events in the Mobiscroll Eventcalendar for Vue — display, edit single occurrences, and delete recurrence series.'
 ---
 
 

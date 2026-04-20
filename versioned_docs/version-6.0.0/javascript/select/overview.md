@@ -2,6 +2,7 @@
 sidebar_position: 1
 sidebar_label: Overview
 displayed_sidebar: javascriptSidebar
+description: Mobiscroll Select for JavaScript — a touch-optimized dropdown and picker for single or multiple option selection.
 ---
 
 # Select

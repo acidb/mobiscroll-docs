@@ -77,8 +77,6 @@ const llmsOptions = {
         'available for JavaScript, React, Angular, Vue, and jQuery, ' +
         'plus Mobiscroll Connect for unified calendar integration ' +
         '(Google, Outlook, Apple Calendar, CalDAV).',
-      rootContent:
-        '## Table of contents\n\n'   
     },
     // ── Hub: llms-full.txt (general content + links to full framework files)
     {

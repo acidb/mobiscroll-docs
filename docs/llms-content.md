@@ -1,3 +1,9 @@
+---
+title: Table of contents
+---
+
+## Table of contents   
+
 ### Framework-Specific Documentation
 
 For detailed, framework-specific API references and guides, see:

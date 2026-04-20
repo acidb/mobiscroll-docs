@@ -1,3 +1,7 @@
+---
+title: Framework-Specific Full Documentation
+---
+
 ## Framework-Specific Full Documentation
 
 [Mobiscroll for JavaScript — Full](llms-javascript-full.txt)

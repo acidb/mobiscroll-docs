@@ -196,6 +196,56 @@ Removed the `export const toc = [...TOC];` line from all 30 affected files.
 
 ---
 
+### Issue 4 — Unindented `import` Lines Inside List-Item Code Fences in `datepicker/controls.md`
+
+**Symptom:**
+
+```
+Error: MDX compilation failed for file "…/react/datepicker/controls.md"
+Cause: Could not parse import/exports with acorn
+  "line": 43, "column": 9
+```
+
+**Root cause:**  
+The `controls.md` file for the React framework lists each datepicker control as a bullet point, with a fenced code block (` ```jsx `) indented 2 spaces inside each list item. The `import` lines at the top of every code block had **no indentation**, breaking out of the list item context in micromark. MDX 3 therefore treated them as top-level ES module imports and tried to parse them with acorn, which failed because the surrounding content (variable declarations, JSX) is not valid at the module level.
+
+The other frameworks (Angular, JavaScript, jQuery, Vue) were not affected — their list-item code blocks already had properly indented `import` lines.
+
+**Fix applied:**
+
+Added 2-space indentation to the two `import` lines at the top of each list-item code block, matching the indentation of the fence and the rest of the block content.
+
+**Before:**
+
+```markdown
+* The **Calendar view** ...
+  ```jsx
+import { Datepicker } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
+  const MY_CALENDAR_CTRL = ['calendar'];
+```
+
+**After:**
+
+```markdown
+* The **Calendar view** ...
+  ```jsx
+  import { Datepicker } from '@mobiscroll/react';
+  import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
+  const MY_CALENDAR_CTRL = ['calendar'];
+```
+
+**Files modified (2 files):**
+
+| File                                                                              | Occurrences fixed |
+| --------------------------------------------------------------------------------- | ----------------- |
+| `docs/react/datepicker/controls.md`                                               | 5 code blocks     |
+| `versioned_docs/version-6.0.0/react/datepicker/controls.md`                      | 5 code blocks     |
+
+---
+
 ## Summary of All Files Modified in Part 2
 
 | Category                                                 | Files changed |
@@ -261,3 +311,111 @@ When the API generator produces new content, verify the following before merging
 4. **`export const toc`** must NOT appear in `.md` files — Docusaurus 3.x auto-generates it. Remove any manual re-exports.
 5. **Code blocks** with TypeScript/JavaScript content are safe — MDX does not parse content inside fenced ` ``` ` blocks as JSX.
 6. **Heading anchors** (`{#type-...}`) are Docusaurus-specific syntax and should NOT be escaped.
+
+---
+
+## Part 3 — Remaining Build Warnings (April 2026)
+
+After the build-breaking errors were resolved, `npm run build` still emits two categories of **warnings** (not errors). The site builds and all links function correctly in a browser. This section explains why each warning is raised and why it is a false positive or a known acceptable issue.
+
+---
+
+### Warning Category 1 — Broken Links: `.txt` files on `llms-content` pages
+
+**Affected source pages:**
+- `/docs/llms-content`
+- `/docs/llms-content-full`
+
+**Example warning:**
+
+```
+Broken link on source page path = /docs/llms-content:
+  -> linking to llms-javascript.txt (resolved as: /docs/llms-javascript.txt)
+```
+
+**Root cause:**
+`docs/llms-content.md` and `docs/llms-content-full.md` use **relative links** to the LLM context `.txt` files, e.g.:
+
+```markdown
+[Mobiscroll for JavaScript](llms-javascript.txt)
+```
+
+Docusaurus resolves these relative to the page's URL path (`/docs/`), producing `/docs/llms-javascript.txt`. However, the `.txt` files are generated at the **site root** (e.g., `/llms-javascript.txt`), not under `/docs/`.
+
+**Why they work in the browser:** The files exist at the root URL and load correctly when visited directly. The broken-link checker cannot find them because it looks under `/docs/`.
+
+**Fix:** Change the relative links to absolute root-relative paths:
+
+```markdown
+[Mobiscroll for JavaScript](/llms-javascript.txt)
+```
+
+---
+
+### Warning Category 2 — Broken Anchors: Anchors Defined in MDX-Imported Partials
+
+This is the **largest group** of warnings, covering the vast majority of broken-anchor entries. All affected pages import auto-generated partial files as MDX components (e.g. `<Options />`, `<Types />`, `<Methods />`), and those partials define anchors via standard Markdown headings:
+
+```markdown
+### MbscCalendarEvent {#type-MbscCalendarEvent}
+### resources {#opt-resources}
+### getEvents {#method-getEvents}
+```
+
+Docusaurus v3's anchor validator scans the **source `.md` file** for anchor definitions. It does **not** follow `import` statements to discover anchors defined in imported partials. From its perspective the anchor does not exist on the page — even though the fully rendered HTML contains it.
+
+**Why they work in the browser:** At runtime the imported MDX components are fully rendered, and all `{#id}` headings produce proper `id` attributes in the DOM. Clicking any such link works correctly.
+
+**Sub-types within this category:**
+
+#### 2a — API reference pages (agenda, calendar, scheduler, timeline, crud, drag-and-drop, resources, data-binding, …)
+
+All five frameworks (Angular, JavaScript, jQuery, React, Vue), across both the current docs and versioned `5.34.0` / `5.35.0` snapshots. The options, types, methods, and renderers are each imported from `_auto-generated/` partials, so every cross-reference to `#opt-*`, `#method-*`, `#type-*`, `#renderer-*`, `#template-*`, or `#event-*` anchors appears broken to the checker.
+
+#### 2b — `export const toc` pattern pages (print, icons, data-binding, drag-and-drop, recurrence)
+
+Pages such as `print.md`, `icons.md`, `data-binding.md`, and `drag-and-drop.md` use:
+
+```js
+export const toc = [{ value: 'Printing', level: 2, id: 'printing' }, ...instTOC];
+```
+
+This pattern (inherited from Docusaurus v2) injects TOC entries for sections that come from imported partials. Docusaurus v3 validates those TOC navigation entries against its known-anchor list. Entries sourced from `...importedTOC` reference anchors inside imported partials, which the checker cannot see — triggering false-positive warnings. Anchors defined in the main file itself (e.g. `## Printing {#printing}`) are also sometimes flagged because the custom `toc` export can interfere with v3's own heading collection.
+
+**Why they work in the browser:** The headings with `{#id}` render proper `id` attributes; clicking the TOC links works fine.
+
+#### 2c — Connect API pages: custom `<Parameter>` React component
+
+The `/docs/connect/events` and `/docs/connect/postman-collection` pages use a custom `<Parameter id="param-nextPageToken">` component (see `src/components/Connect/index.tsx`). Docusaurus v3's anchor checker only recognises Markdown heading anchors — it cannot introspect `id` props on arbitrary React components.
+
+**Why they work in the browser:** The component renders a `<div id="...">` element that the browser resolves normally.
+
+---
+
+### Warning Category 3 — Genuine Broken Anchors: Removed API Options in Versioned Guide Pages
+
+**Affected pages (all under `5.34.0` and `5.35.0` versioned docs):**
+
+- `*/guides/upgrade-guide-v5` — links to `/docs/{framework}/eventcalendar/api#opt-label`, `#opt-color`, `/docs/{framework}/select/api#opt-showOnOverlayClick`, `#template-itemTemplate`
+- `*/select/customizing-the-input` — links to `/docs/{framework}/select/api#opt-inputElement`
+- `5.34.0/react/forms/button` — links to `#event-onClick`
+- `5.34.0/react/forms/checkbox` — links to `#opt-checked`, `#event-onChange`, `#opt-defaultChecked`
+
+**Root cause:**
+These versioned pages cross-link into the **current (latest) docs** using absolute paths. The target anchors (`#opt-label`, `#opt-color`, `#opt-inputElement`, `#opt-showOnOverlayClick`, `#template-itemTemplate`, `#event-onClick`, etc.) were **removed or renamed** as part of the v5 → v6 API redesign. The versioned guide pages were never updated to reflect those removals.
+
+**These are genuine broken anchors** — unlike the other categories, these links will lead users to a page that does not contain the expected section.
+
+**Recommended fix:** Update each affected versioned guide to either remove the dead anchor links, update them to the correct v6 anchor, or point them to the appropriate versioned API page instead of the current one.
+
+---
+
+### Summary of Warning Categories
+
+| Category | Scope | Root cause | Works in browser? | Action needed |
+| --- | --- | --- | --- | --- |
+| `.txt` relative paths | 2 pages | Wrong base path (missing `/`) | Yes | Change to absolute path |
+| MDX import anchors (API refs) | ~90% of anchor warnings | v3 checker does not follow imports | Yes — false positive | None (or suppress with `onBrokenAnchors: 'warn'`) |
+| `export const toc` TOC entries | ~10 pages | v3 TOC/anchor validation change | Yes — false positive | None (or remove custom `toc` export) |
+| Custom React component `id` props (Connect) | 2 pages | Checker only scans MD headings | Yes — false positive | None |
+| Removed API anchors in versioned guides | ~6 pages | Anchors genuinely removed in v6 | **No** — truly broken | Update or remove the dead links |

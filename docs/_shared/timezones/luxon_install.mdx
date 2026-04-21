@@ -15,6 +15,7 @@ npm install --save-dev @types/luxon
 ```javascript title="Luxon library import"
 import * as luxon from 'luxon';
 import { luxonTimezone } from '@mobiscroll/{props.framework}';
+import '@mobiscroll/{props.framework}/dist/css/mobiscroll.min.css';
 ```
 
 **3.** Then set the mobiscroll's reference to the imported library:
@@ -22,6 +23,7 @@ import { luxonTimezone } from '@mobiscroll/{props.framework}';
 ```javascript title="Luxon library setup"
 import * as luxon from 'luxon';
 import { luxonTimezone } from '@mobiscroll/{props.framework}';
+import '@mobiscroll/{props.framework}/dist/css/mobiscroll.min.css';
 // highlight-next-line
 luxonTimezone.luxon = luxon;
 ```

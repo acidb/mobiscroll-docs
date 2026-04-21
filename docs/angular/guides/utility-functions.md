@@ -4,6 +4,7 @@ sidebar_label: Utility functions
 displayed_sidebar: angularSidebar
 title: Utility functions
 toc_max_heading_level: 2
+description: 'Mobiscroll Angular utility functions for date formatting, parsing, timezone conversion, and calendar math — API reference and examples.'
 ---
 
 ## Utils
@@ -56,6 +57,8 @@ import { formatDate } from '@mobiscroll/angular';
 Format a date into a string value with a specified format.
 
 ```jsx title="Example"
+import { formatDate } from '@mobiscroll/angular';
+
 formatDate('yy-mm-dd', new Date(2015, 1, 19)); // Produces '2015-02-19'
 ```
 
@@ -124,6 +127,8 @@ import { parseDate } from '@mobiscroll/angular';
 Extract a date from a string value with a specified format.
 
 ```jsx title="Example"
+import { parseDate } from '@mobiscroll/angular';
+
 parseDate('yy-mm-dd', '2015-02-19')); // returns date object
 ```
 

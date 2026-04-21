@@ -2,6 +2,7 @@
 sidebar_position: 5
 sidebar_label: Toast
 displayed_sidebar: vueSidebar
+description: 'Show brief Toast notifications in Mobiscroll Vue — auto-dismiss success, warning, error, and info messages.'
 ---
 
 import Options from '../\_auto-generated/toast/options.md';
@@ -21,6 +22,7 @@ The following example displays a toast message on button click.
 <script setup>
   import { ref } from 'vue';
   import { MbscToast, MbscButton } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const isToastOpen = ref(false);
 </script>

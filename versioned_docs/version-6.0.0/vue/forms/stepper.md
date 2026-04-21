@@ -2,6 +2,7 @@
 sidebar_position: 7
 sidebar_label: Stepper
 displayed_sidebar: vueSidebar
+description: 'Use the Mobiscroll Stepper component in Vue — increment/decrement numeric input with configurable min, max, and step values.'
 ---
 
 import Options from '../\_auto-generated/stepper/options.md';
@@ -21,6 +22,7 @@ Use the [`label`](#opt-label) option to provide a label to the stepper.
 ```html
 <script setup>
   import { MbscStepper } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 </script>
 
 <template>
@@ -36,6 +38,7 @@ Use the [v-model](https://vuejs.org/api/built-in-directives.html#v-model) direct
 <script setup>
   import { ref } from 'vue';
   import { MbscStepper } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const value = ref(0);
 </script>

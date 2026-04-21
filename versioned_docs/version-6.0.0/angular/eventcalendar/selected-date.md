@@ -2,6 +2,7 @@
 sidebar_position: 9
 sidebar_label: Setting the initial view
 displayed_sidebar: angularSidebar
+description: 'Set the initially displayed date or date range when the Mobiscroll Eventcalendar mounts in Angular using the `selectedDate` option.'
 ---
 
 # Setting the initial view
@@ -16,6 +17,8 @@ Use two-way binding on the property (using the "banana in the box" syntax), so t
 <mbsc-eventcalendar [(selectedDate)]="myDate"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
+
 @Component({...})
 export class AppComponent {
   myDate = new Date(2020, 2, 18);

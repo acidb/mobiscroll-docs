@@ -2,6 +2,7 @@
 sidebar_position: 3
 sidebar_label: Prompt
 displayed_sidebar: vueSidebar
+description: 'Show a Mobiscroll Prompt dialog in Vue — a Promise-based, styleable input dialog as an alternative to window.prompt.'
 ---
 
 import Options from '../\_auto-generated/prompt/options.md';
@@ -21,6 +22,7 @@ The following example displays a prompt dialog on button click.
 <script setup>
   import { ref } from 'vue';
   import { MbscPrompt, MbscButton } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const isPromptOpen = ref(false);
 

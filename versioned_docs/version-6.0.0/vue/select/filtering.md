@@ -2,6 +2,7 @@
 sidebar_position: 7
 sidebar_label: Filtering
 displayed_sidebar: vueSidebar
+description: 'Enable search filtering in the Mobiscroll Select for Vue — built-in filter input and custom filter functions for large option lists.'
 ---
 
 # Filtering
@@ -19,7 +20,9 @@ By defaut filtering is done client side on the dataset passed to the Select with
 
 ```html
 <script setup>
+  import { ref } from 'vue';
   import { MbscSelect } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const countries = ref([
     { text: 'US - United States', value: 3 },
@@ -41,8 +44,10 @@ Server side filtering can be implemented with the help of the [`@filter`](./api#
 
 ```html
 <script setup>
-  import { MbscSelect } from '@mobiscroll/select';
+  import { ref } from 'vue';
   import { myCreateARequestMethod } from 'any-library-i-want';
+  import { MbscSelect } from '@mobiscroll/select';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const data = ref([]);
 

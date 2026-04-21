@@ -2,6 +2,7 @@
 sidebar_position: 4
 sidebar_label: Snackbar
 displayed_sidebar: angularSidebar
+description: 'Display transient Snackbar notifications with the Mobiscroll Snackbar in Angular — auto-dismiss messages with optional action buttons.'
 ---
 
 import Options from '../\_auto-generated/snackbar/options.md';
@@ -18,6 +19,7 @@ Snackbars don't lock the app's main interface and are automatically dismissed af
 The following example displays a Snackbar message with a "Retry" button:
 
 ```ts
+import { Component } from '@angular/core';
 import { Notifications } from '@mobiscroll/angular';
 
 @Component({...})

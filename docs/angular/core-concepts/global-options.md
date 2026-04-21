@@ -2,6 +2,7 @@
 sidebar_position: 2
 sidebar_label: Global options
 displayed_sidebar: angularSidebar
+description: 'Set global default options for all Mobiscroll components in Angular using `setOptions` to avoid repeating configuration across instances.'
 ---
 
 import Tabs from '@theme/Tabs';
@@ -45,6 +46,9 @@ The Mobiscroll options service can be provided from the root module to pass the 
 
 ```ts
 // ...
+
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 // highlight-next-line
 import { MbscModule, MbscOptionsService } from '@mobiscroll/angular';
 
@@ -125,6 +129,10 @@ When using the (relatively) new standalone components, there are no modules defi
 
 ```ts title="app.component.ts"
 // ...
+
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { MbscModule, MbscOptionsService } from '@mobiscroll/angular';
 
 @Component({

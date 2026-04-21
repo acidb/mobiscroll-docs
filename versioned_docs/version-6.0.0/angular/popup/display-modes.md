@@ -2,6 +2,7 @@
 sidebar_position: 2
 sidebar_label: Display modes
 displayed_sidebar: angularSidebar
+description: 'Control how the Mobiscroll Popup appears in Angular — modal dialog, anchored popover, bottom sheet, or inline display mode.'
 ---
 
 import Content from '../../_shared/display_modes.mdx';
@@ -20,4 +21,17 @@ The Popup component supports five display modes that specify where on the screen
 <mbsc-popup display="anchored">
   <p>Some content inside the popup!</p>
 </mbsc-popup>
+```
+
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
 ```

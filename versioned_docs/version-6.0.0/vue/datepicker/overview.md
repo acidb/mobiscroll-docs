@@ -2,6 +2,7 @@
 sidebar_position: 1
 sidebar_label: Overview
 displayed_sidebar: vueSidebar
+description: 'Mobiscroll Datepicker for Vue — pick single dates, times, multiple dates, or date ranges with calendar and scroller controls.'
 ---
 
 # Date & Time picker
@@ -15,6 +16,7 @@ The following example will create a Datepicker with default options.
 ```html
 <script setup>
   import { MbscDatepicker } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 </script>
 
 <template>

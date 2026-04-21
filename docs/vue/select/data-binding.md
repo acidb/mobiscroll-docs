@@ -2,6 +2,7 @@
 sidebar_position: 2
 sidebar_label: Data binding
 displayed_sidebar: vueSidebar
+description: 'Bind option data to the Mobiscroll Select in Vue — static arrays, grouped options, and object-based data structures.'
 ---
 
 import DataOptionContent from '../../_shared/select/data-option.mdx';
@@ -17,6 +18,7 @@ import GroupOptionContent from '../../_shared/select/group-options.mdx';
 <script setup>
   import { ref } from 'vue';
   import { MbscSelect } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myData = [
     { text: 'Marketing', value: 1 },
@@ -39,6 +41,7 @@ import GroupOptionContent from '../../_shared/select/group-options.mdx';
 <script setup>
   import { ref } from 'vue';
   import { MbscSelect } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myData = [
     { text: 'Alice', value: { id: 123, fullName: 'Alice Cooper' }},

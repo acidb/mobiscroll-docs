@@ -2,6 +2,7 @@
 sidebar_position: 8
 sidebar_label: Timezones
 displayed_sidebar: reactSidebar
+description: 'Handle timezone-aware date and time selection in the Mobiscroll Datepicker for React using moment-timezone, Luxon, or the Intl API.'
 ---
 
 import LibraryInstall from '../../_shared/timezones/library_install.mdx';
@@ -25,8 +26,9 @@ import General from '../../_shared/datepicker/timezones_general.mdx';
 **4.** After that, you can pass the `momentTimezone` object to the Datepicker's [`timezonePlugin`](./api#opt-timezonePlugin) option.
 
 ```jsx
-import { Datepicker, momentTimezone } from '@mobiscroll/react';
 import moment from 'moment-timezone';
+import { Datepicker, momentTimezone } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 momentTimezone.moment = moment;
 
@@ -47,8 +49,10 @@ function App() {
 **4.** After that, you can pass the `luxonTimezone` object to the Datepicker's `timezonePlugin` option.
 
 ```jsx
-import { Datepicker, luxonTimezone } from '@mobiscroll/react';
 import * as luxon from 'luxon';
+import { Datepicker, luxonTimezone } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 luxonTimezone.luxon = luxon;
 
 function App() {
@@ -68,10 +72,11 @@ function App() {
 **4.** After that, you can pass the `dayjsTimezone` object to the Datepicker's `timezonePlugin` option.
 
 ```jsx
-import { Datepicker, dayjsTimezone } from '@mobiscroll/react';
 import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
+import { Datepicker, dayjsTimezone } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);

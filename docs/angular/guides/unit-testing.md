@@ -3,6 +3,7 @@ sidebar_position: 7
 sidebar_label: Unit testing
 displayed_sidebar: angularSidebar
 title: Unit testing Mobiscroll in Angular
+description: 'Write unit tests for Mobiscroll components in Angular projects using Jest or Vitest — mocking, assertions, and testing event handlers.'
 ---
 
 ## Overview
@@ -47,14 +48,13 @@ After the package is installed, it has to be imported in the setup file (e.g. `s
 
 ```ts title="src/setup.ts"
 import "@angular/compiler";
-import "@analogjs/vitest-angular/setup-zone";
-import "vitest-canvas-mock"; // required for Mobiscroll Components
-
+import { getTestBed } from "@angular/core/testing";
 import {
   BrowserTestingModule,
   platformBrowserTesting,
 } from "@angular/platform-browser/testing";
-import { getTestBed } from "@angular/core/testing";
+import "@analogjs/vitest-angular/setup-zone";
+import "vitest-canvas-mock"; // required for Mobiscroll Components
 
 getTestBed().initTestEnvironment(
   BrowserTestingModule,
@@ -167,7 +167,7 @@ In the example below we use two different selected dates to illustrate this beha
 
 ```ts title="Eventcalendar navigation and rendering event"
 import { render, screen } from "@testing-library/angular";
-import { EventcalendarModule } from "@mobiscroll/angular";
+import { EventcalendarModule, MbscEventcalendarModule } from '@mobiscroll/angular';
 
 describe("Eventcalendar with navigation", () => {
   const viewOption = { timeline: { type: "day" } };

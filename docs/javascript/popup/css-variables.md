@@ -3,6 +3,7 @@ sidebar_position: 4
 sidebar_label: CSS variables
 displayed_sidebar: javascriptSidebar
 title: CSS variables
+description: CSS custom properties for the Mobiscroll Popup (JavaScript) to adjust overlay colors, border radius, and z-index.
 ---
 
 import Content from '../../_shared/popup/css-variables.mdx';

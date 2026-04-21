@@ -3,6 +3,7 @@ sidebar_position: 7
 sidebar_label: CSS variables
 displayed_sidebar: javascriptSidebar
 title: CSS variables
+description: CSS custom properties for Mobiscroll notification components in JavaScript — override colors, buttons, and overlay styles for Toast, Snackbar, Alert, and Confirm.
 ---
 
 import Content from '../../_shared/alerts&notifications/css-variables.mdx';

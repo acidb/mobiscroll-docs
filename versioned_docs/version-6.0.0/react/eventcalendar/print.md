@@ -3,6 +3,7 @@ sidebar_position: 14
 sidebar_label: Print
 displayed_sidebar: reactSidebar
 title: Print
+description: 'Print the Mobiscroll Eventcalendar in React using the `@mobiscroll/print` add-on package — generates a print-optimized snapshot of any calendar, scheduler, or timeline view.'
 ---
 
 import InstallImport from '../../_shared/eventcalendar/print-install-import.mdx';
@@ -14,8 +15,9 @@ export const toc = [...instTOC,
 <InstallImport />
 
 ```jsx
-import { Eventcalendar } from "@mobiscroll/react";
 import { print } from '@mobiscroll/print';
+import { Eventcalendar } from "@mobiscroll/react";
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 const MY_MODULES = [print];
 
@@ -40,8 +42,9 @@ Popup blockers might block the created window, so you need to disable the blocke
 
 ```jsx
 import { useRef } from 'react';
-import { Eventcalendar } from "@mobiscroll/react";
 import { print } from '@mobiscroll/print';
+import { Eventcalendar } from "@mobiscroll/react";
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 const MY_MODULES = [print];
 

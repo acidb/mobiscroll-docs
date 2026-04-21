@@ -3,6 +3,7 @@ sidebar_position: 3
 sidebar_label: Instance
 displayed_sidebar: angularSidebar
 title: Instance
+description: 'Access and control a Mobiscroll component instance in Angular to call methods, update options, and listen to events programmatically.'
 ---
 
 import Tabs from '@theme/Tabs';

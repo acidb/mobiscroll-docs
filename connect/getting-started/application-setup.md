@@ -2,6 +2,7 @@
 sidebar_position: 2
 sidebar_label: Application Setup Guide
 slug: /application-setup
+description: Register your app, generate API credentials, and configure redirect URIs in the Mobiscroll Connect dashboard.
 ---
 
 # Application Setup Guide
@@ -110,6 +111,12 @@ Build your integration directly using HTTP requests to the Mobiscroll Connect AP
 Use the official Node.js SDK for a streamlined integration experience. The SDK provides typed methods, automatic token management, and simplified error handling.
 
 **[Get started with the Node.js SDK](/connect/node-sdk)**
+
+### PHP SDK
+
+Use the official PHP SDK for backend integrations in PHP applications. The SDK provides resource-based API access, typed models, and consistent exception handling.
+
+**[Get started with the PHP SDK](/connect/php-sdk)**
 
 ### Demo Application
 

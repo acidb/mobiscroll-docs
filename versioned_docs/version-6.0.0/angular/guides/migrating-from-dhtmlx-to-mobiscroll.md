@@ -4,6 +4,7 @@ sidebar_label: Migrating from DHTMLX
 displayed_sidebar: angularSidebar
 title: Migrating from DHTMLX to Mobiscroll
 toc_max_heading_level: 2
+description: 'Step-by-step guide for migrating from DHTMLX Scheduler to Mobiscroll Eventcalendar in Angular — API mapping, event model, and config comparison.'
 ---
 
 import Tabs from '@theme/Tabs';
@@ -261,6 +262,8 @@ scheduler.init('scheduler_here');
 Mobiscroll uses the [`resources`](https://mobiscroll.com/docs/angular/eventcalendar/timeline#opt-resources) array with `id` and `name` properties.
 
 ```ts
+import { MbscResource } from '@mobiscroll/angular';
+
 myResources: MbscResource[] = [
   { id: 'r1', name: 'Mike' },
   { id: 'r2', name: 'Linda' },
@@ -297,6 +300,8 @@ scheduler.parse([
 #### Mobiscroll:
 
 ```ts
+import { MbscCalendarEvent } from '@mobiscroll/angular';
+
 myEvents: MbscCalendarEvent[] = [
   {
       id: 1,
@@ -415,6 +420,7 @@ In case of Mobiscroll, you can also use the [`onPageLoading`](/angular/eventcale
 <TabItem value="ts" label="app.component.ts">
 
 ```ts
+import { Component } from '@angular/core';
 import { MbscCalendarEvent, MbscEventcalendarView, MbscPageLoadingEvent, getJson } from '@mobiscroll/angular';
 
 @Component({...})
@@ -488,6 +494,7 @@ Example for saving, updating, and deleting an event through an API:
 <TabItem value="ts" label="app.component.ts">
 
 ```ts
+import { Component } from '@angular/core';
 import { MbscCalendarEvent, MbscEventcalendarView, MbscEventCreatedEvent, MbscEventUpdatedEvent, MbscEventDeletedEvent } from '@mobiscroll/angular';
 
 @Component({...})
@@ -589,6 +596,9 @@ Example:
 <TabItem value="ts" label="app.component.ts">
 
 ```ts
+import { Component } from '@angular/core';
+import { MbscEventClickEvent } from '@mobiscroll/angular';
+
 @Component({...});
 export class AppComponent {
   // ...other options...
@@ -633,6 +643,19 @@ As a final step, let’s explore how core features from DHTMLX can be replicated
     [dragToResize]="true"
     [eventDelete]="true">
 </mbsc-eventcalendar>
+```
+
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
 ```
 
 This configuration allows users to create, move, resize, and delete events in Mobiscroll.
@@ -782,10 +805,11 @@ So, let’s say you want to use the Day.js timezone library. After [installing](
 <TabItem value="ts" label="app.component.ts">
 
 ```ts
-import { dayjsTimezone, MbscTimezonePlugin } from '@mobiscroll/angular';
+import { Component } from '@angular/core';
 import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
+import { dayjsTimezone, MbscTimezonePlugin } from '@mobiscroll/angular';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -894,6 +918,9 @@ To define a template, create an `<ng-template>` tag with a variable reference an
 <TabItem value="ts" label="app.component.ts">
 
 ```ts
+import { Component } from '@angular/core';
+import { MbscCalendarEvent } from '@mobiscroll/angular';
+
 @Component({...});
 export class AppComponent {
   // ...
@@ -1014,6 +1041,9 @@ Check out how you can style these resource parts in [this example](https://demo.
 <TabItem value="ts" label="app.component.ts">
 
 ```ts
+import { Component } from '@angular/core';
+import { MbscResource } from '@mobiscroll/angular';
+
 @Component({...});
 export class AppComponent {
   // ...
@@ -1070,6 +1100,19 @@ The following example will render the prev and next buttons and a custom title.
     <div class="my-custom-title">{{myTitle}}</div>
   </ng-template>
 </mbsc-eventcalendar>
+```
+
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
 ```
 
 Also, feel free to explore live examples to see how header templating work in action:
@@ -1178,7 +1221,7 @@ Example setting the locale at the component level:
 
 ```ts
 import { Component } from '@angular/core';
-import { localeDe, MbscModule } from '@mobiscroll/angular';
+import { MbscModule, localeDe, localeFr } from '@mobiscroll/angular';
 
 @Component({
   selector: 'app-root',

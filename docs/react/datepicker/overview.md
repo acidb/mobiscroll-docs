@@ -2,6 +2,7 @@
 sidebar_position: 1
 sidebar_label: Overview
 displayed_sidebar: reactSidebar
+description: 'Mobiscroll Datepicker for React — pick single dates, times, multiple dates, or date ranges with calendar and scroller controls.'
 ---
 
 # Date & Time picker
@@ -14,6 +15,7 @@ The following example will create a Datepicker with default options.
 
 ```jsx
 import { Datepicker } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   return <>

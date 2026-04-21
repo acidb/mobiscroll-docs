@@ -2,6 +2,7 @@
 sidebar_position: 5
 sidebar_label: Custom themes
 displayed_sidebar: angularSidebar
+description: 'Create and compile fully custom Mobiscroll Sass/SCSS themes for Angular projects using the Mobiscroll theme builder or manual Sass customization.'
 ---
 
 import Tabs from '@theme/Tabs';
@@ -71,6 +72,19 @@ createCustomTheme('my-happy-brand', 'ios');
 ```html
 <mbsc-datepicker theme="my-happy-brand"></mbsc-datepicker>
 <mbsc-eventcalendar theme="my-happy-brand"></mbsc-eventcalendar>
+```
+
+```ts
+import { Component } from '@angular/core';
+import { MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
 ```
 
 </TabItem>

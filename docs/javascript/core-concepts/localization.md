@@ -4,6 +4,7 @@ sidebar_label: Localization
 displayed_sidebar: javascriptSidebar
 title: Localization
 toc_max_heading_level: 2
+description: Localize Mobiscroll JavaScript components — configure locale, date/time formats, RTL direction, and custom text labels.
 ---
 
 import AllLocalizations from '../_auto-generated/localizations.md';

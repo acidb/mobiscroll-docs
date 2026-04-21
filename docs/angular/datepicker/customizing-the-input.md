@@ -3,6 +3,7 @@ sidebar_position: 10
 sidebar_label: Customizing the input
 displayed_sidebar: angularSidebar
 title: Customizing the input
+description: 'Customize the input element used by the Mobiscroll Datepicker in Angular — custom triggers, inline rendering, and anchor elements.'
 ---
 
 ## Overview
@@ -24,6 +25,8 @@ The datepicker component will render a Mobiscroll Input by default. This input w
 Having a custom input can be achived using the datepicker directive on the component you want.
 
 ```ts title="Using the datepicker on an IonInput"
+import { Component } from '@angular/core';
+
 @Component({...})
 export class AppComponent {
   // highlight-next-line

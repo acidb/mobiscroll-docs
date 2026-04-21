@@ -3,6 +3,7 @@ sidebar_position: 3
 sidebar_label: Using the source code
 displayed_sidebar: reactSidebar
 title: Using Mobiscroll with the source code
+description: 'Work with the Mobiscroll React source package (TypeScript) — available with a Complete or Source Code license, downloaded from the Mobiscroll download page and compiled locally.'
 ---
 
 ## Overview
@@ -52,10 +53,9 @@ When you want to use the actual source code in your project, you will need to co
 When importing the components from their own files, the base theme files need to be loaded as well. The base themes and custom themes need to be loaded only once in the project.
 
 ```jsx title="Using the Datepicker from the source"
+import './my-mobiscroll-dir/core/custom-themes.scss';
 import './my-mobiscroll-dir/core/icons.scss';
 import './my-mobiscroll-dir/core/themes';
-import './my-mobiscroll-dir/core/custom-themes.scss';
-
 import { Datepicker } from './my-mobiscroll-dir/react/components/datepicker';
 
 function Example() {

@@ -3,6 +3,7 @@ sidebar_label: API
 displayed_sidebar: vueSidebar
 toc_min_heading_level: 2
 toc_max_heading_level: 2
+description: 'Complete API reference for the Mobiscroll Datepicker in Vue — all options, events, methods, and template slots.'
 ---
 
 import Options from '../\_auto-generated/datepicker/options.md';

@@ -2,6 +2,7 @@
 sidebar_position: 9
 sidebar_label: Setting the initial view
 displayed_sidebar: reactSidebar
+description: 'Set the initially displayed date or date range when the Mobiscroll Eventcalendar mounts in React using the `selectedDate` option.'
 ---
 
 # Setting the initial view
@@ -15,7 +16,9 @@ Changing the initial view to another date can be done either in a controlled or 
 To set the initial date of the event calendar in a [controlled](https://react.dev/learn/sharing-state-between-components#controlled-and-uncontrolled-components) way (meaning that your component, which renders the calendar controls its selected date), use the [`selectedDate`](./api#opt-selectedDate) option to pass the date and the [`onSelectedDateChange`](./api#event-onSelectedDateChange) handler to update the state when the date is changed from the calendar, e.g. using the navigation arrows.
 
 ```jsx
+import { useCallback, useState } from 'react';
 import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 const App = () => {
   const [events, setEvents] = useState([/*...*/]);
@@ -36,7 +39,9 @@ const App = () => {
 To only set the inital selected date, without the need of tracking later changes to the selected date, you can use it in an [uncontrolled](https://react.dev/learn/sharing-state-between-components#controlled-and-uncontrolled-components) way (meaning that the calendar tracks the selected date in its own internal state) with the help of the [`defaultSelectedDate`](./api#opt-defaultSelectedDate) option.
 
 ```jsx
+import { useMemo, useState } from 'react';
 import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 const App = () => {
   const [events, setEvents] = useState([/*...*/]);

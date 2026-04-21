@@ -2,6 +2,7 @@
 sidebar_position: 2
 sidebar_label: OAuth API
 slug: /oauth
+description: OAuth 2.0 endpoints for Mobiscroll Connect — authorize users, exchange codes for tokens, check connection status, and revoke access.
 ---
 
 import Tabs from '@theme/Tabs';
@@ -114,6 +115,22 @@ const authUrl = client.auth.generateAuthUrl({
 
 // Redirect the user to authUrl
 // res.redirect(authUrl);
+```
+
+</TabItem>
+<TabItem value="php" label="PHP SDK">
+
+```php
+// Generate the authorization URL
+$authUrl = $client->auth()->generateAuthUrl(
+    userId: 'user-456',
+    // Optional parameters:
+    // scope: 'read-write',
+    // state: 'xyz789',
+);
+
+// Redirect the user to $authUrl
+header('Location: ' . $authUrl);
 ```
 
 </TabItem>
@@ -361,6 +378,18 @@ const tokenResponse = await client.auth.getToken(code);
 ```
 
 </TabItem>
+<TabItem value="php" label="PHP SDK">
+
+```php
+// Exchange authorization code for access token
+$code = $_GET['code'];
+$tokenResponse = $client->auth()->getToken($code);
+
+// Store the token and authenticate the client
+$client->auth()->setCredentials($tokenResponse);
+```
+
+</TabItem>
 </Tabs>
 
 ```json title="Error Response - Client Mismatch"
@@ -482,6 +511,18 @@ grant_type=refresh_token&refresh_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 ```
 
 </TabItem>
+<TabItem value="php" label="PHP SDK">
+
+```php
+// Token refresh is handled automatically by the SDK.
+// Register a callback to persist the new tokens whenever a refresh occurs.
+$client->onTokensRefreshed(function (TokenResponse $updatedTokens) {
+    // Persist in your database or session store
+    $_SESSION['tokens'] = $updatedTokens->toArray();
+});
+```
+
+</TabItem>
 </Tabs>
 
 :::info
@@ -542,6 +583,11 @@ Content-Type: application/json
   "success": true
 }
 ```
+
+</TabItem>
+<TabItem value="php" label="PHP SDK">
+
+The PHP SDK does not include a built-in revoke method. Use the REST endpoint directly to revoke tokens.
 
 </TabItem>
 </Tabs>

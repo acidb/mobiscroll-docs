@@ -4,6 +4,7 @@ sidebar_label: Getting Started
 displayed_sidebar: null
 hide_table_of_contents: true
 slug: /
+description: Entry point for Mobiscroll docs — choose your framework (JavaScript, React, Angular, Vue, jQuery) to start integrating UI components.
 ---
 
 import DocCardList from "@theme/DocCardList";

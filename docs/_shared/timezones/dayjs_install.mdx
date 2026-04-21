@@ -6,11 +6,13 @@ npm install dayjs
 
 **2.** After installing the library, the `utc` and `timezone` plugins need to be included. You'll also need to import the `dayjsTimezone` plugin from mobiscroll:
 
+
 ```javascript title="Day.js library import"
 import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
 import { dayjsTimezone } from '@mobiscroll/{props.framework}';
+import '@mobiscroll/{props.framework}/dist/css/mobiscroll.min.css';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -18,7 +20,12 @@ dayjs.extend(timezone);
 
 **3.** Then set the mobiscroll's reference to the imported library:
 
+
 ```javascript title="Day.js library setup"
+import dayjs from 'dayjs';{'\n'}
+import {'\{'} dayjsTimezone {'\}'} from '@mobiscroll/{props.framework}';{'\n'}
+import '@mobiscroll/{props.framework}/dist/css/mobiscroll.min.css';{'\n'}
+// highlight-next-line 
 dayjsTimezone.dayjs = dayjs;
 ```
 

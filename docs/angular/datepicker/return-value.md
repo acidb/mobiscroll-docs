@@ -2,6 +2,7 @@
 sidebar_position: 3
 sidebar_label: Return value
 displayed_sidebar: angularSidebar
+description: 'Datepicker return value formats in Mobiscroll Angular — date objects, ISO strings, and range output structures.'
 ---
 
 import Tabs from '@theme/Tabs';
@@ -28,9 +29,9 @@ Example on how to pass Moment.js to the Datepicker:
 ```ts
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { MbscModule } from '@mobiscroll/angular';
 // highlight-next-line
 import * as moment from 'moment';
+import { MbscModule } from '@mobiscroll/angular';
 
 @Component({
   selector: 'app-root',

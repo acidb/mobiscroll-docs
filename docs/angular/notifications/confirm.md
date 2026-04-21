@@ -2,6 +2,7 @@
 sidebar_position: 2
 sidebar_label: Confirm
 displayed_sidebar: angularSidebar
+description: 'Show a Mobiscroll Confirm dialog in Angular — a Promise-based, styleable alternative to the native window.confirm with OK/Cancel actions.'
 ---
 
 import Options from '../\_auto-generated/confirm/options.md';
@@ -18,6 +19,7 @@ It has two buttons, one of which confirms the action, and the other one rejects 
 The following example displays a confirm dialog:
 
 ```ts
+import { Component } from '@angular/core';
 import { Notifications } from '@mobiscroll/angular';
 
 @Component({...})

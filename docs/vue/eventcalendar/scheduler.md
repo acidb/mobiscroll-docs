@@ -2,6 +2,7 @@
 sidebar_position: 4
 sidebar_label: Scheduler
 displayed_sidebar: vueSidebar
+description: 'Configure the Mobiscroll Eventcalendar Scheduler view in Vue — a time-grid layout for daily, weekly, or multi-day slot-based scheduling.'
 ---
 
 import ViewOptions from '../_auto-generated/eventcalendar/view_scheduler.md';
@@ -34,6 +35,9 @@ For example, the daily Scheduler can also be combined with the Calendar week vie
 
 ```html title="Daily Scheduler combined with Weekly Calendar"
 <script setup>
+import { MbscEventcalendar } from '@mobiscroll/vue'
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
+
 const myView = {
   calendar: {
     type: 'week'
@@ -55,6 +59,9 @@ The Scheduler view can be configured through the `view` option. Below are listed
 
 ```html title='Example'
 <script setup>
+import { MbscEventcalendar } from '@mobiscroll/vue'
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
+
 const myView = {
   scheduler: {
     type: 'week',
@@ -305,6 +312,9 @@ The available width is queried from the container element of the component and n
 
 ```html title='Responsive configuration with the view option'
 <script setup>
+import { MbscEventcalendar } from '@mobiscroll/vue'
+import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
+
 const myResponsive = {
   xsmall: {
     view: { scheduler: { type: 'day' }}

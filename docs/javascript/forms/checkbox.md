@@ -2,6 +2,7 @@
 sidebar_position: 2
 sidebar_label: Checkbox
 displayed_sidebar: javascriptSidebar
+description: Use the Mobiscroll Checkbox component in JavaScript — standard and indeterminate states, label placement, and change event handling.
 ---
 
 import Options from '../\_auto-generated/checkbox/options.md';

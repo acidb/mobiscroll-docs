@@ -4,6 +4,7 @@ sidebar_label: Utility functions
 displayed_sidebar: javascriptSidebar
 title: Utility functions
 toc_max_heading_level: 2
+description: Mobiscroll JavaScript utility functions for date formatting, parsing, timezone conversion, and calendar math — API reference and examples.
 ---
 
 ## Utils

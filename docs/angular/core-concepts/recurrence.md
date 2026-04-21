@@ -3,6 +3,7 @@ sidebar_position: 4
 sidebar_label: Recurrence
 displayed_sidebar: angularSidebar
 title: Recurrence
+description: 'Define repeating events in Mobiscroll using RRULE-compatible recurrence rules for daily, weekly, monthly, and custom patterns.'
 ---
 
 import Tabs from '@theme/Tabs';
@@ -68,6 +69,19 @@ export class AppComponent {
 
 ```html
 <mbsc-eventcalendar [data]="myData"></mbsc-eventcalendar>
+```
+
+```ts
+import { Component } from '@angular/core';
+import { MbscCalendarEvent, MbscModule } from '@mobiscroll/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [MbscModule],
+})
+export class AppComponent {}
 ```
 
 </TabItem>

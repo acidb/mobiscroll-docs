@@ -2,6 +2,7 @@
 sidebar_position: 9
 sidebar_label: Textarea
 displayed_sidebar: jquerySidebar
+description: 'Use the Mobiscroll Textarea form component in jQuery — multiline input with floating labels, auto-grow, and validation styles.'
 ---
 
 import Options from '../\_auto-generated/textarea/options.md';

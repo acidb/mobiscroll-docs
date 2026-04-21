@@ -2,6 +2,7 @@
 sidebar_position: 8
 sidebar_label: CRUD
 displayed_sidebar: reactSidebar
+description: 'Implement create, read, update, and delete (CRUD) operations for events in the Mobiscroll Eventcalendar using JavaScript.'
 ---
 
 import HelperOptions from '../_auto-generated/utils/options.md';
@@ -15,6 +16,7 @@ The Eventcalendar is bound to an array of event objects as described in the [dat
 ```jsx title="Updating an event title"
 import { useState } from 'react';
 import { Eventcalendar, Button } from "@mobiscroll/react";
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 const MY_VIEW = {
   calendar: { type: "month" },
@@ -61,8 +63,9 @@ When an event is about to be created using click or drag on the Eventcalendar UI
 
 ```jsx title="Save a new event through an API"
 import { useState } from "react";
-import { Eventcalendar } from "@mobiscroll/react";
 import axios from 'axios';
+import { Eventcalendar } from "@mobiscroll/react";
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 const MY_VIEW = {
   schedule: { type: "week" },
@@ -95,8 +98,9 @@ When an event is about to be updated by dragging on the Eventcalendar UI, the [`
 
 ```jsx title="Send an updated event through an API"
 import { useState } from "react";
-import { Eventcalendar } from "@mobiscroll/react";
 import axios from 'axios';
+import { Eventcalendar } from "@mobiscroll/react";
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 const MY_VIEW = {
   schedule: { type: "week" },
@@ -149,8 +153,9 @@ Either one of these events can be used to send the deletion through an API.
 
 ```jsx title="Notify a server of an event deletion"
 import { useState } from "react";
-import { Eventcalendar } from "@mobiscroll/react";
 import axios from 'axios';
+import { Eventcalendar } from "@mobiscroll/react";
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 const MY_VIEW = {
   schedule: { type: "week" },

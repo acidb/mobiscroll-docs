@@ -1,6 +1,7 @@
 ---
 sidebar_label: API
 displayed_sidebar: jquerySidebar
+description: 'Complete API reference for the Mobiscroll Select in jQuery — all options, events, methods, and template slots.'
 ---
 
 import Options from '../\_auto-generated/select/options.md';

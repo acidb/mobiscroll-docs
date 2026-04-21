@@ -2,6 +2,7 @@
 sidebar_position: 2
 sidebar_label: Checkbox
 displayed_sidebar: vueSidebar
+description: 'Use the Mobiscroll Checkbox component in Vue — standard and indeterminate states, label placement, and change event handling.'
 ---
 
 import Options from '../\_auto-generated/checkbox/options.md';
@@ -21,6 +22,7 @@ The Checkbox can be positioned before or after the label using the [`position`](
 ```html
 <script setup>
   import { MbscCheckbox } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 </script>
 
 <template>
@@ -38,6 +40,7 @@ Use the [v-model](https://vuejs.org/api/built-in-directives.html#v-model) direct
 <script setup>
   import { ref } from 'vue';
   import { MbscCheckbox } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const checked = ref(false);
 </script>

@@ -2,6 +2,7 @@
 sidebar_position: 6
 sidebar_label: Segmented
 displayed_sidebar: angularSidebar
+description: 'Use the Mobiscroll Segmented control in Angular — a button-group for exclusive single or multiple option selection.'
 ---
 
 import Options from '../\_auto-generated/segmented/options.md';
@@ -61,6 +62,8 @@ In multiple selection mode segments can be selected and de-selected independentl
 ```
 
 ```ts
+import { Component } from '@angular/core';
+
 @Component({...})
 export class MyComponent {
   myGroupItems: Array<{ checked: boolean, text: string, value: string }> = [

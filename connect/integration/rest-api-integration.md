@@ -1,7 +1,8 @@
 ---
 sidebar_label: REST API
-sidebar_position: 2
+sidebar_position: 3
 slug: /rest-api-integration
+description: Integrate Mobiscroll Connect via direct HTTP requests — base URL, authentication, and endpoint examples for the REST API.
 ---
 
 import DocCardList from '@theme/DocCardList';

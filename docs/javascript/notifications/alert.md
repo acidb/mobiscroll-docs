@@ -2,6 +2,7 @@
 sidebar_position: 1
 sidebar_label: Alert
 displayed_sidebar: javascriptSidebar
+description: Show a styled alert dialog with the Mobiscroll Alert component in JavaScript — a Promise-based replacement for the native window.alert.
 ---
 
 import Options from '../\_auto-generated/alert/options.md';

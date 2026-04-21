@@ -2,6 +2,7 @@
 sidebar_position: 3
 sidebar_label: Calendars API
 slug: /calendars
+description: List all calendars from connected providers (Google, Outlook, Apple, CalDAV) for the authenticated user via the Mobiscroll Connect API.
 ---
 
 import Tabs from '@theme/Tabs';
@@ -73,6 +74,13 @@ GET /calendars
 
 ```typescript
 const calendars = await client.calendars.list();
+```
+
+</TabItem>
+<TabItem value="php" label="PHP SDK">
+
+```php
+$calendars = $client->calendars()->list();
 ```
 
 </TabItem>

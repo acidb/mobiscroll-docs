@@ -3,6 +3,7 @@ sidebar_position: 3
 sidebar_label: Using the source code
 displayed_sidebar: angularSidebar
 title: Using Mobiscroll with the source code
+description: 'Work with the Mobiscroll Angular source package (TypeScript) — available with a Complete or Source Code license, downloaded from the Mobiscroll download page and compiled locally.'
 ---
 
 ## Overview
@@ -47,10 +48,10 @@ The installed package is a production ready package. After installing it, you ca
 ### Using standalone components
 
 ```ts title="app.component.ts"
-import { MbscEventcalendarModule, MbscDatepickerModule } from '@mobiscroll/angular';
+import { Component, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { MbscEventcalendarModule, MbscDatepickerModule } from '@mobiscroll/angular';
 
 @Component({
   selector: 'app-root',

@@ -3,6 +3,7 @@ sidebar_position: 13
 sidebar_label: Calendar integrations
 displayed_sidebar: vueSidebar
 title: Third party calendar integration
+description: 'Sync the Mobiscroll Eventcalendar with Google Calendar, Outlook, or Apple Calendar using API integration in Vue.'
 ---
 
 import GoogleMethods from '../../_auto-generated/googlecalendar/methods.md';
@@ -40,6 +41,8 @@ Calling the `init` function will do the necessary initializations for the third 
 <script>
   import { ref } from "vue";
   import { googleCalendarSync} from "@mobiscroll/calendar-integration";
+  import { MbscEventcalendar } from '@mobiscroll/vue'
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myEvents = ref([]);
 
@@ -110,6 +113,8 @@ Calling the `init` function will do the necessary initializations for the third 
 <script>
   import { ref } from "vue";
   import { googleCalendarSync} from "@mobiscroll/calendar-integration";
+  import { MbscEventcalendar } from '@mobiscroll/vue'
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myEvents = ref([]);
 
@@ -167,6 +172,8 @@ Calling the `init` function will do the necessary initializations for the third 
 <script>
   import { ref } from "vue";
   import { outlookCalendarSync} from "@mobiscroll/calendar-integration";
+  import { MbscEventcalendar } from '@mobiscroll/vue'
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myEvents = ref([]);
 

@@ -2,6 +2,7 @@
 sidebar_position: 2
 sidebar_label: Calendar
 displayed_sidebar: angularSidebar
+description: 'Set up the Mobiscroll Eventcalendar Calendar view in Angular with monthly/weekly/daily grid display, event dots, popover, and navigation.'
 ---
 
 import ViewOptions from '../_auto-generated/eventcalendar/view_calendar.md';
@@ -37,6 +38,7 @@ For example, you can choose to [render an agenda below the calendar](https://dem
 <mbsc-eventcalendar [view]="myView"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscEventcalendarView } from '@mobiscroll/angular';
 
 @Component({...})
@@ -56,6 +58,7 @@ The Calendar view can be configured through the `view` option. Below are listed 
 <mbsc-eventcalendar [view]="myView"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscEventcalendarView } from '@mobiscroll/angular';
 
 @Component({...})
@@ -100,6 +103,7 @@ The available width is queried from the container element of the component and n
 ```
 
 ```ts
+import { Component } from '@angular/core';
 import { MbscEventcalendarOptions } from '@mobiscroll/angular';
 
 @Component({...})

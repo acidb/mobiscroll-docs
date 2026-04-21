@@ -3,6 +3,7 @@ sidebar_position: 4
 sidebar_label: Recurrence
 displayed_sidebar: vueSidebar
 title: Recurrence
+description: 'Define repeating events in Mobiscroll using RRULE-compatible recurrence rules for daily, weekly, monthly, and custom patterns.'
 ---
 
 import Recurrence from '../../_shared/core-concepts/recurrence.mdx';
@@ -19,6 +20,7 @@ export const toc = [...recTOC, { value: 'Full example', level: 2, id: 'full-exam
   import { ref } from 'vue';
   import { MbscEventcalendar } from '@mobiscroll/vue';
   import type { MbscCalendarEvent } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myEvents = ref<MbscCalendarEvent[]>([{
     start: new Date(2020, 2, 18, 9, 0),

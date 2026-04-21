@@ -2,6 +2,7 @@
 sidebar_position: 4
 sidebar_label: Events API
 slug: /events
+description: Retrieve, create, update, and delete calendar events across Google, Outlook, Apple, and CalDAV providers via the Mobiscroll Connect API.
 ---
 
 import Tabs from '@theme/Tabs';
@@ -16,7 +17,7 @@ Retrieves calendar events from all connected providers (Google Calendar, Microso
 
 Fetches events from multiple calendar providers simultaneously with support for pagination, filtering by date range and specific calendars, and handling of recurring events. Returns chronologically sorted events across all providers with "load more" functionality using nextPageToken tokens.
 
-**Endpoint:** `GET /events`
+**Endpoint:** <code>GET /events</code>
 
 ### Request Parameters
 
@@ -50,8 +51,8 @@ Base64 encoded JSON pagination state object containing token information for eac
 <Parameter name="singleEvents" type="boolean" defaultValue={<code>true</code>} id="param-singleEvents">
 Controls how recurring events are returned:
 
-- `true` - Expands recurring events into individual instances within the specified time range
-- `false` - Returns only the master recurring event (series definition) without individual occurrences
+- <code>true</code> - Expands recurring events into individual instances within the specified time range
+- <code>false</code> - Returns only the master recurring event (series definition) without individual occurrences
 
 </Parameter>
 
@@ -61,7 +62,7 @@ Controls how recurring events are returned:
 Array of calendar events from all providers, sorted chronologically by start time. Each CalendarEvent object contains:
 
   <Parameter name="provider" type="string">
-  Provider name: `'google'`, `'microsoft'`, `'apple'`, or `'caldav'`
+  Provider name: <code>'google'</code>, <code>'microsoft'</code>, <code>'apple'</code>, or <code>'caldav'</code>
   </Parameter>
 
   <Parameter name="id" type="string">
@@ -112,7 +113,7 @@ Array of calendar events from all providers, sorted chronologically by start tim
   </Parameter>
 
   <Parameter name="status" type="string">
-  Response status: `'accepted'`, `'declined'`, `'tentative'`, or `'none'`
+  Response status: <code>'accepted'</code>, <code>'declined'</code>, <code>'tentative'</code>, or <code>'none'</code>
   </Parameter>
 
   <Parameter name="organizer" type="boolean">
@@ -126,19 +127,34 @@ Custom key-value pairs for additional event data (optional)
 </Parameter>
 
 <Parameter name="conference" type="string">
-Conference meeting link or identifier (optional)
+Conference meeting URL (optional).
+</Parameter>
+
+<Parameter name="conferenceData" type="object" isObject>
+Provider-specific conference metadata returned by the API (optional). Use this when you need details beyond the <code>conference</code> link.
+
+  <Parameter name="provider" type="string">
+  Conference provider identifier. Typical values: <code>google-meet</code>, <code>microsoft-teams</code>, <code>zoom</code>, <code>webex</code>.
+  </Parameter>
+
+  Additional fields vary by provider and are returned as-is when available.
+  Typical examples:
+  - Google: <code>entryPoints</code>, <code>conferenceSolution</code>, <code>conferenceId</code>
+  - Microsoft: provider meeting details from Graph (for example join URL-related fields)
+  - Apple/CalDAV: usually only <code>provider</code>
+
 </Parameter>
 
 <Parameter name="availability" type="string">
-Event availability: `'busy'` or `'free'` (optional)
+Event availability: <code>'busy'</code> or <code>'free'</code> (optional)
 </Parameter>
 
 <Parameter name="privacy" type="string">
-Event privacy: `'public'`, `'private'`, or `'confidential'` (optional)
+Event privacy: <code>'public'</code>, <code>'private'</code>, or <code>'confidential'</code> (optional)
 </Parameter>
 
 <Parameter name="status" type="string">
-Event status: `'confirmed'`, `'tentative'`, or `'cancelled'` (optional)
+Event status: <code>'confirmed'</code>, <code>'tentative'</code>, or <code>'cancelled'</code> (optional)
 </Parameter>
 
 <Parameter name="lastModified" type="string">
@@ -242,18 +258,77 @@ const masters = await client.events.list({
 ```
 
 </TabItem>
+<TabItem value="php" label="PHP SDK">
+
+```php
+// Fetch initial events with date range filter
+$response = $client->events()->list([
+    'pageSize' => 50,
+    'start' => '2025-10-01T00:00:00Z',
+    'end' => '2025-10-31T23:59:59Z',
+]);
+$events = $response['events'];
+
+// Load more events using nextPageToken
+$nextResponse = $client->events()->list([
+    'pageSize' => 50,
+    'nextPageToken' => $response['nextPageToken'],
+]);
+
+// Filter by specific calendars
+$filteredEvents = $client->events()->list([
+    'pageSize' => 25,
+    'calendarIds' => ['google' => ['personal@gmail.com', 'work@company.com']],
+]);
+
+// Get recurring event series masters (not expanded)
+$masters = $client->events()->list([
+    'pageSize' => 50,
+    'singleEvents' => false,
+]);
+```
+
+</TabItem>
 </Tabs>
 
 :::info
 - Events are sorted chronologically by start time across all providers
-- The `pageSize` is distributed across all active providers (not per provider)
-- Maximum `pageSize` is capped at 1000 events
-- The `nextPageToken` token is Base64 encoded and should be passed as-is to subsequent requests
+- The <code>pageSize</code> is distributed across all active providers (not per provider)
+- Maximum <code>pageSize</code> is capped at 1000 events
+- The <code>nextPageToken</code> token is Base64 encoded and should be passed as-is to subsequent requests
 - Each provider (Google, Microsoft, Apple, CalDAV) tracks its own pagination state independently
-- The `nextPageToken` parameter is only included in the response when more events are available
+- The <code>nextPageToken</code> parameter is only included in the response when more events are available
 - Date strings are automatically normalized to handle malformed ISO 8601 formats before parsing
-- The `color` property contains the background color value directly (not an object)
+- The <code>color</code> property contains the background color value directly (not an object)
+- Conference links are returned in the <code>conference</code> string field
 - All event endpoints return events in the **unified CalendarEvent format** across all providers
+:::
+
+:::info Conference raw data examples
+The <code>conferenceData</code> field stores provider-specific raw meeting metadata.
+
+```json title="Google"
+{
+  "conferenceData": {
+    "conferenceId": "abc-defg-hij",
+    "entryPoints": [
+      {
+        "entryPointType": "video",
+        "uri": "https://meet.google.com/abc-defg-hij"
+      }
+    ]
+  }
+}
+```
+
+```json title="Microsoft"
+{
+  "onlineMeeting": {
+    "joinUrl": "https://teams.microsoft.com/l/meetup-join/...",
+    "conferenceId": "123456789"
+  }
+}
+```
 :::
 
 ---
@@ -264,12 +339,12 @@ Creates a new calendar event in the specified calendar for the authenticated use
 
 Supports creating single events or recurring events with recurrence rules. The event is created in the provider's calendar system (Google Calendar, Microsoft Outlook, Apple Calendar, or CalDAV) based on the calendar ID.
 
-**Endpoint:** `POST /event`
+**Endpoint:** <code>POST /event</code>
 
 ### Request Body
 
 <Parameter name="provider" type="string" required id="create-provider">
-Calendar provider where the event will be created. One of: `'google'`, `'microsoft'`, `'apple'`, or `'caldav'`.
+Calendar provider where the event will be created. One of: <code>'google'</code>, <code>'microsoft'</code>, <code>'apple'</code>, or <code>'caldav'</code>.
 </Parameter>
 
 <Parameter name="calendarId" type="string" required id="create-calendarId">
@@ -308,7 +383,7 @@ Array of attendee email addresses.
 Recurrence rule for creating a recurring event series. Object with the following properties:
 
 <Parameter name="frequency" type="string" required>
-Recurrence frequency: `'DAILY'`, `'WEEKLY'`, `'MONTHLY'`, or `'YEARLY'`
+Recurrence frequency: <code>'DAILY'</code>, <code>'WEEKLY'</code>, <code>'MONTHLY'</code>, or <code>'YEARLY'</code>
 </Parameter>
 
 <Parameter name="interval" type="number">
@@ -316,15 +391,15 @@ Interval between occurrences (e.g., 2 for every 2 weeks)
 </Parameter>
 
 <Parameter name="count" type="number">
-Number of occurrences (mutually exclusive with `until`)
+Number of occurrences (mutually exclusive with <code>until</code>)
 </Parameter>
 
 <Parameter name="until" type="string">
-End date in format `YYYYMMDDTHHMMSSZ` (mutually exclusive with `count`)
+End date in format <code>YYYYMMDDTHHMMSSZ</code> (mutually exclusive with <code>count</code>)
 </Parameter>
 
 <Parameter name="byDay" type="string[]">
-Array of weekday codes: `['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU']`
+Array of weekday codes: <code>['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU']</code>
 </Parameter>
 
 <Parameter name="byMonthDay" type="number[]">
@@ -342,19 +417,37 @@ Custom key-value pairs for additional event data.
 </Parameter>
 
 :::info External IDs
-If you need to associate provider-generated event IDs with your own domain entities, store your external/business ID in `custom` (for example `custom.externalEventId = "icoll-rdv-123"`).
+If you need to associate provider-generated event IDs with your own domain entities, store your external/business ID in <code>custom</code> (for example <code>custom.externalEventId = "icoll-rdv-123"</code>).
 :::
 
+<Parameter name="conference" type="string" defaultValue={<code>undefined</code>} id="create-conference">
+Conference meeting URL (optional). Backward compatibility is preserved for legacy <code>conference</code> string usage.
+</Parameter>
+
+<Parameter name="conferenceData" type="object" defaultValue={<code>undefined</code>} id="create-conferenceData" isObject>
+Extra conference options and provider-specific metadata (optional).
+
+<Parameter name="provider" type="string">
+Conference provider identifier. Typical values: <code>google-meet</code>, <code>microsoft-teams</code>, <code>zoom</code>, <code>webex</code>.
+</Parameter>
+
+<Parameter name="autoGenerate" type="boolean">
+Set to <code>true</code> to auto-generate a provider meeting link when supported.
+When <code>autoGenerate</code> is <code>true</code>, <code>conference</code> and other <code>conferenceData</code> fields are ignored.
+</Parameter>
+
+</Parameter>
+
 <Parameter name="availability" type="string" defaultValue={<code>undefined</code>} id="create-availability">
-Event availability: `'free'` or `'busy'`.
+Event availability: <code>'free'</code> or <code>'busy'</code>.
 </Parameter>
 
 <Parameter name="privacy" type="string" defaultValue={<code>undefined</code>} id="create-privacy">
-Event privacy: `'public'`, `'private'`, or `'confidential'`.
+Event privacy: <code>'public'</code>, <code>'private'</code>, or <code>'confidential'</code>.
 </Parameter>
 
 <Parameter name="status" type="string" defaultValue={<code>undefined</code>} id="create-status">
-Event status: `'confirmed'`, `'tentative'`, or `'cancelled'`.
+Event status: <code>'confirmed'</code>, <code>'tentative'</code>, or <code>'cancelled'</code>.
 </Parameter>
 
 ### Response
@@ -412,7 +505,11 @@ Content-Type: application/json
   "description": "Discuss project updates",
   "start": "2025-11-01T10:00:00Z",
   "end": "2025-11-01T11:00:00Z",
-  "location": "Conference Room A"
+  "location": "Conference Room A",
+  "conference": {
+    "url": "https://meet.google.com/abc-defg-hij",
+    "provider": "google-meet"
+  }
 }
 ```
 
@@ -426,6 +523,10 @@ Content-Type: application/json
   "end": "2025-11-01T11:00:00.000Z",
   "allDay": false,
   "location": "Conference Room A",
+  "conference": {
+    "url": "https://meet.google.com/abc-defg-hij",
+    "provider": "google-meet"
+  },
   "attendees": [],
   "color": "#9fc6e7",
   "availability": "busy",
@@ -494,7 +595,11 @@ const event = await client.events.create({
   description: 'Discuss project updates',
   start: '2025-11-01T10:00:00Z',
   end: '2025-11-01T11:00:00Z',
-  location: 'Conference Room A'
+  location: 'Conference Room A',
+  conference: {
+    url: 'https://meet.google.com/abc-defg-hij',
+    provider: 'google-meet'
+  }
 });
 
 // Create a recurring event
@@ -526,14 +631,51 @@ const allDayEvent = await client.events.create({
 ```
 
 </TabItem>
+<TabItem value="php" label="PHP SDK">
+
+```php
+// Create a simple event
+$event = $client->events()->create([
+    'provider' => 'google',
+    'calendarId' => 'primary',
+    'title' => 'Team Meeting',
+    'description' => 'Discuss project updates',
+    'start' => '2025-11-01T10:00:00Z',
+    'end' => '2025-11-01T11:00:00Z',
+    'location' => 'Conference Room A',
+]);
+
+// Create a recurring event
+$recurringEvent = $client->events()->create([
+    'provider' => 'microsoft',
+    'calendarId' => 'AAMkAGVmMDEz...',
+    'title' => 'Weekly Standup',
+    'start' => '2025-11-01T09:00:00Z',
+    'end' => '2025-11-01T09:30:00Z',
+    'allDay' => false,
+]);
+
+// Create an all-day event
+$allDayEvent = $client->events()->create([
+    'provider' => 'apple',
+    'calendarId' => 'https://caldav.icloud.com/.../calendars/...',
+    'title' => 'Conference',
+    'start' => '2025-11-15T00:00:00Z',
+    'end' => '2025-11-16T00:00:00Z',
+    'allDay' => true,
+    'description' => 'Annual tech conference',
+]);
+```
+
+</TabItem>
 </Tabs>
 
 :::info
-- The `provider` parameter must match the calendar provider of the `calendarId`
-- For recurring events, either `count` or `until` can be specified, but not both
-- The `byDay` property is typically used with `WEEKLY` frequency
+- The <code>provider</code> parameter must match the calendar provider of the <code>calendarId</code>
+- For recurring events, either <code>count</code> or <code>until</code> can be specified, but not both
+- The <code>byDay</code> property is typically used with <code>WEEKLY</code> frequency
 - All-day events should have start and end times at midnight (00:00:00)
-- The response `event` object format varies by provider (Google, Microsoft, Apple, CalDAV)
+- The response <code>event</code> object format varies by provider (Google, Microsoft, Apple, CalDAV)
 :::
 
 ---
@@ -544,12 +686,12 @@ Updates an existing calendar event.
 
 Supports updating single events, recurring event series, or individual instances of recurring events. For recurring events, you can specify whether to update only the current instance, all following instances, or the entire series.
 
-**Endpoint:** `PUT /event`
+**Endpoint:** <code>PUT /event</code>
 
 ### Request Body
 
 <Parameter name="provider" type="string" required id="update-provider">
-Calendar provider where the event exists. One of: `'google'`, `'microsoft'`, `'apple'`, or `'caldav'`.
+Calendar provider where the event exists. One of: <code>'google'</code>, <code>'microsoft'</code>, <code>'apple'</code>, or <code>'caldav'</code>.
 </Parameter>
 
 <Parameter name="eventId" type="string" required id="update-eventId">
@@ -567,9 +709,9 @@ The ID of the recurring event series. Required when updating an instance of a re
 <Parameter name="updateMode" type="string" defaultValue={<code>undefined</code>} id="update-updateMode">
 Controls which events in a recurring series are updated:
 
-- `'this'` - Update only this specific instance
-- `'following'` - Update this and all following instances
-- `'all'` - Update all instances in the series
+- <code>'this'</code> - Update only this specific instance
+- <code>'following'</code> - Update this and all following instances
+- <code>'all'</code> - Update all instances in the series
 
 Only applicable for recurring events. If not specified, updates the single event or series master.
 </Parameter>
@@ -606,16 +748,42 @@ Array of attendee email addresses.
 Custom key-value pairs for additional event data.
 </Parameter>
 
+<Parameter name="conference" type="string" id="update-conference">
+Conference meeting URL update (optional).
+</Parameter>
+
+<Parameter name="conferenceData" type="object" id="update-conferenceData" isObject>
+Extra conference options and provider-specific metadata update (optional).
+
+<Parameter name="provider" type="string">
+Conference provider identifier. Typical values: <code>google-meet</code>, <code>microsoft-teams</code>, <code>zoom</code>, <code>webex</code>.
+</Parameter>
+
+<Parameter name="autoGenerate" type="boolean">
+Set to <code>true</code> to auto-generate a provider meeting link when supported.
+When <code>autoGenerate</code> is <code>true</code>, <code>conference</code> and other <code>conferenceData</code> fields are ignored.
+</Parameter>
+
+</Parameter>
+
+:::info Conference update behavior by provider
+- <code>google</code>: supports <code>conference</code> and <code>conferenceData.autoGenerate</code>
+- <code>microsoft</code>: supports <code>conferenceData.autoGenerate</code> (Teams link generation); manual <code>conference</code> is ignored for online meeting generation
+- <code>apple</code> and <code>caldav</code>: support <code>conference</code>; <code>conferenceData.autoGenerate</code> is ignored
+- <code>conferenceData.autoGenerate</code> takes precedence over <code>conference</code> when both are provided
+- <code>conferenceData.provider</code> identifies the conference system (for example <code>google-meet</code>, <code>microsoft-teams</code>)
+:::
+
 <Parameter name="availability" type="string" id="update-availability">
-Event availability: `'free'` or `'busy'`.
+Event availability: <code>'free'</code> or <code>'busy'</code>.
 </Parameter>
 
 <Parameter name="privacy" type="string" id="update-privacy">
-Event privacy: `'public'`, `'private'`, or `'confidential'`.
+Event privacy: <code>'public'</code>, <code>'private'</code>, or <code>'confidential'</code>.
 </Parameter>
 
 <Parameter name="status" type="string" id="update-status">
-Event status: `'confirmed'`, `'tentative'`, or `'cancelled'`.
+Event status: <code>'confirmed'</code>, <code>'tentative'</code>, or <code>'cancelled'</code>.
 </Parameter>
 
 <Parameter name="recurrence" type="object" id="update-recurrence">
@@ -662,7 +830,11 @@ Content-Type: application/json
   "calendarId": "primary",
   "title": "Updated Team Meeting",
   "start": "2025-11-01T14:00:00Z",
-  "end": "2025-11-01T15:00:00Z"
+  "end": "2025-11-01T15:00:00Z",
+  "conference": {
+    "url": "https://meet.google.com/new-room-link",
+    "provider": "google-meet"
+  }
 }
 ```
 
@@ -710,7 +882,11 @@ const updatedEvent = await client.events.update({
   eventId: 'event123abc',
   title: 'Updated Team Meeting',
   start: '2025-11-01T14:00:00Z',
-  end: '2025-11-01T15:00:00Z'
+  end: '2025-11-01T15:00:00Z',
+  conference: {
+    url: 'https://meet.google.com/new-room-link',
+    provider: 'google-meet'
+  }
 });
 
 // Update a single instance of a recurring event
@@ -736,14 +912,48 @@ const updatedFuture = await client.events.update({
 ```
 
 </TabItem>
+<TabItem value="php" label="PHP SDK">
+
+```php
+// Update a simple event
+$updatedEvent = $client->events()->update([
+    'provider' => 'google',
+    'calendarId' => 'primary',
+    'eventId' => 'event123abc',
+    'title' => 'Updated Team Meeting',
+    'start' => '2025-11-01T14:00:00Z',
+    'end' => '2025-11-01T15:00:00Z',
+]);
+
+// Update a single instance of a recurring event
+$updatedInstance = $client->events()->update([
+    'provider' => 'microsoft',
+    'eventId' => 'instance456',
+    'recurringEventId' => 'series123',
+    'calendarId' => 'AAMkAGVmMDEz...',
+    'title' => 'Standup - Special Topic Today',
+    'start' => '2025-11-01T09:00:00Z',
+    'end' => '2025-11-01T10:00:00Z',
+]);
+
+// Update all future occurrences
+$updatedFuture = $client->events()->update([
+    'provider' => 'apple',
+    'eventId' => 'recurring-event-id',
+    'calendarId' => 'https://caldav.icloud.com/.../calendars/...',
+    'location' => 'New Conference Room B',
+]);
+```
+
+</TabItem>
 </Tabs>
 
 :::info
-- The `provider` parameter must match the calendar provider where the event exists
-- For recurring events, use `recurringEventId` and `updateMode` to control update scope
+- The <code>provider</code> parameter must match the calendar provider where the event exists
+- For recurring events, use <code>recurringEventId</code> and <code>updateMode</code> to control update scope
 - Only include fields you want to update; omitted fields remain unchanged
-- When using `updateMode: 'this'` on a recurring event, a new exception instance may be created
-- The `updateMode` parameter behavior may vary slightly between providers
+- When using <code>updateMode: 'this'</code> on a recurring event, a new exception instance may be created
+- The <code>updateMode</code> parameter behavior may vary slightly between providers
 :::
 
 ---
@@ -754,12 +964,12 @@ Deletes a calendar event.
 
 Supports deleting single events, recurring event series, or individual instances of recurring events. For recurring events, you can specify whether to delete only the current instance, all following instances, or the entire series.
 
-**Endpoint:** `DELETE /event`
+**Endpoint:** <code>DELETE /event</code>
 
 ### Request Body
 
 <Parameter name="provider" type="string" required id="delete-provider">
-Calendar provider where the event exists. One of: `'google'`, `'microsoft'`, `'apple'`, or `'caldav'`.
+Calendar provider where the event exists. One of: <code>'google'</code>, <code>'microsoft'</code>, <code>'apple'</code>, or <code>'caldav'</code>.
 </Parameter>
 
 <Parameter name="eventId" type="string" required id="delete-eventId">
@@ -777,9 +987,9 @@ The ID of the recurring event series. Required when deleting an instance of a re
 <Parameter name="deleteMode" type="string" defaultValue={<code>undefined</code>} id="delete-deleteMode">
 Controls which events in a recurring series are deleted:
 
-- `'this'` - Delete only this specific instance
-- `'following'` - Delete this and all following instances
-- `'all'` - Delete all instances in the series
+- <code>'this'</code> - Delete only this specific instance
+- <code>'following'</code> - Delete this and all following instances
+- <code>'all'</code> - Delete all instances in the series
 
 Only applicable for recurring events. If not specified, deletes the single event or entire series.
 </Parameter>
@@ -885,13 +1095,42 @@ await client.events.delete({
 ```
 
 </TabItem>
+<TabItem value="php" label="PHP SDK">
+
+```php
+// Delete a simple event
+$client->events()->delete([
+    'provider' => 'google',
+    'calendarId' => 'primary',
+    'eventId' => 'event123abc',
+]);
+
+// Delete a single instance of a recurring event
+$client->events()->delete([
+    'provider' => 'microsoft',
+    'calendarId' => 'AAMkAGVmMDEz...',
+    'eventId' => 'instance456',
+    'recurringEventId' => 'series123',
+    'deleteMode' => 'this',
+]);
+
+// Delete entire recurring series
+$client->events()->delete([
+    'provider' => 'apple',
+    'calendarId' => 'https://caldav.icloud.com/.../calendars/...',
+    'eventId' => 'recurring-event-id',
+    'deleteMode' => 'all',
+]);
+```
+
+</TabItem>
 </Tabs>
 
 :::info
-- The `provider` parameter must match the calendar provider where the event exists
-- For recurring events, use `recurringEventId` and `deleteMode` to control deletion scope
-- Deleting with `deleteMode: 'this'` creates an exception (cancelled instance) in the series
-- Deleting with `deleteMode: 'all'` removes the entire recurring series
+- The <code>provider</code> parameter must match the calendar provider where the event exists
+- For recurring events, use <code>recurringEventId</code> and <code>deleteMode</code> to control deletion scope
+- Deleting with <code>deleteMode: 'this'</code> creates an exception (cancelled instance) in the series
+- Deleting with <code>deleteMode: 'all'</code> removes the entire recurring series
 - Deleted events cannot be recovered through the API
-- The `deleteMode` parameter behavior may vary slightly between providers
+- The <code>deleteMode</code> parameter behavior may vary slightly between providers
 :::

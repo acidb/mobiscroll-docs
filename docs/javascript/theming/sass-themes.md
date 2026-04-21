@@ -2,6 +2,7 @@
 sidebar_position: 5
 sidebar_label: Custom themes
 displayed_sidebar: javascriptSidebar
+description: Create and compile fully custom Mobiscroll Sass/SCSS themes for JavaScript projects using the Mobiscroll theme builder or manual Sass customization.
 ---
 
 import Methods from '../../_shared/theming/theming_methods.mdx';

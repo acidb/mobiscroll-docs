@@ -2,6 +2,7 @@
 sidebar_position: 4
 sidebar_label: Scheduler
 displayed_sidebar: angularSidebar
+description: 'Configure the Mobiscroll Eventcalendar Scheduler view in Angular — a time-grid layout for daily, weekly, or multi-day slot-based scheduling.'
 ---
 
 import ViewOptions from '../_auto-generated/eventcalendar/view_scheduler.md';
@@ -36,6 +37,7 @@ For example, the daily Scheduler can also be combined with the Calendar week vie
 <mbsc-eventcalendar [view]="myView"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscEventcalendarView } from '@mobiscroll/angular';
 
 @Component({...})
@@ -55,6 +57,7 @@ The Scheduler view can be configured through the `view` option. Below are listed
 <mbsc-eventcalendar [view]="myView"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscEventcalendarView } from '@mobiscroll/angular';
 
 @Component({...})
@@ -215,6 +218,7 @@ The Scheduler view can display multiple [resources](resources) inside a single i
 <mbsc-eventcalendar [resources]="myResources" groupBy="date"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscResource } from '@mobiscroll/angular';
 
 @Component({...})
@@ -243,6 +247,7 @@ The color property controls the default event color of the resource. If an event
 <mbsc-eventcalendar [invalid]="myInvalid"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscDateType } from '@mobiscroll/angular';
 
 @Component({...})
@@ -262,6 +267,7 @@ export class MyComponent {
 <mbsc-eventcalendar [data]="myData"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscCalendarEvent } from '@mobiscroll/angular';
 
 @Component({...})
@@ -281,6 +287,7 @@ export class MyComponent {
 <mbsc-eventcalendar [colors]="myColors"></mbsc-eventcalendar>
 ```
 ```ts
+import { Component } from '@angular/core';
 import { MbscCalendarColor } from '@mobiscroll/angular';
 
 @Component({...})
@@ -330,6 +337,7 @@ The available width is queried from the container element of the component and n
 ```
 
 ```ts
+import { Component } from '@angular/core';
 import { MbscEventcalendarView } from '@mobiscroll/angular';
 
 @Component({...})

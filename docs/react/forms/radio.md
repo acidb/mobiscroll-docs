@@ -2,6 +2,7 @@
 sidebar_position: 5
 sidebar_label: Radio button
 displayed_sidebar: reactSidebar
+description: 'Use the Mobiscroll Radio button form component in React — grouped options, checked states, and change event handling.'
 ---
 
 import Options from '../\_auto-generated/radio/options.md';
@@ -23,6 +24,7 @@ Use the [`label`](#opt-label) option to provide a label to the Radio button.
 
 ```jsx
 import { Radio, RadioGroup } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   return <RadioGroup name="gender">
@@ -40,6 +42,7 @@ Use the `checked` and the `onChange` props to set a value to the radio component
 ```jsx
 import { useState } from 'react';
 import { Radio, RadioGroup } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
   const [gender, setGender] = useState('f');

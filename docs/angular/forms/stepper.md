@@ -2,6 +2,7 @@
 sidebar_position: 7
 sidebar_label: Stepper
 displayed_sidebar: angularSidebar
+description: 'Use the Mobiscroll Stepper component in Angular — increment/decrement numeric input with configurable min, max, and step values.'
 ---
 
 import Options from '../\_auto-generated/stepper/options.md';
@@ -30,6 +31,8 @@ The stepper can be bound to a number value using either the `[(ngModel)]` or the
 <mbsc-stepper label="My Age" [(ngModel)]="myAge"></mbsc-stepper>
 ```
 ```ts
+import { Component } from '@angular/core';
+
 @Component({...})
 export class MyComponent {
   myAge = 24;

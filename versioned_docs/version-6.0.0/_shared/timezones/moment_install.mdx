@@ -9,6 +9,7 @@ npm install moment-timezone
 ```javascript title="Moment library import"
 import moment from 'moment-timezone';
 import { momentTimezone } from '@mobiscroll/{props.framework}';
+import '@mobiscroll/{props.framework}/dist/css/mobiscroll.min.css';
 ```
 
 **3.** Then set the mobiscroll's reference to the imported library:
@@ -16,7 +17,9 @@ import { momentTimezone } from '@mobiscroll/{props.framework}';
 ```javascript title="Moment library setup"
 import moment from 'moment-timezone';
 import { momentTimezone } from '@mobiscroll/{props.framework}';
+import '@mobiscroll/{props.framework}/dist/css/mobiscroll.min.css';
 // highlight-next-line
+
 momentTimezone.moment = moment;
 ```
 

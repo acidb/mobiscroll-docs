@@ -2,6 +2,7 @@
 sidebar_label: Value Selection
 displayed_sidebar: vueSidebar
 sidebar_position: 2
+description: 'Configure date value selection behavior in the Mobiscroll Datepicker — set min/max, disabled dates, pre-selected values, and selection constraints.'
 ---
 
 # Value Selection
@@ -23,6 +24,7 @@ This is the default behavior, and it can also be initialized with the `select: '
 <script setup>
   import { ref } from 'vue';
   import { MbscDatepicker } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myValue = ref();
 </script>
@@ -49,6 +51,7 @@ The [`selectMultiple`](./api#opt-selectMultiple) option will enable the selectio
 <script setup>
   import { ref } from 'vue';
   import { MbscDatepicker } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myValues = ref();
 </script>
@@ -79,6 +82,7 @@ Both the start and end value of the returned array will respect the [`returnForm
 <script setup>
   import { ref } from 'vue';
   import { MbscDatepicker } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myTimeRange = ref();
   const timeControls = ['time'];
@@ -111,6 +115,7 @@ The length of the selection will be a set number of days (for example: 5 days) a
 <script setup>
   import { ref } from 'vue';
   import { MbscDatepicker } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
 
   const myDateRange = ref();
 </script>

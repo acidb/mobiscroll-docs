@@ -77,7 +77,7 @@ function ButtonVariations() {
 
 ## Handling clicks
 
-Clicks can be handled using the [`onClick`](#event-onClick) event.
+Clicks can be handled using the `onClick` event.
 
 ```jsx
 import { Button } from '@mobiscroll/react';

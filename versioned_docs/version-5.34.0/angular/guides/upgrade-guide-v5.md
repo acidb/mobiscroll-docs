@@ -302,7 +302,7 @@ We improved our recurring event support. More complex [recurrence rules](/angula
 
 We slightly changed the structure of [event objects](/angular/eventcalendar/api#opt-data). Instead of `text`, `title` should be used, and instead of the `d` property use the `recurring` property to create recurring events.
 
-We slightly changed the structure of the [marked](/angular/eventcalendar/api#opt-marked), [label](/angular/eventcalendar/api#opt-label) and [color](/angular/eventcalendar/api#opt-color) objects. To specify the date, use the `date` property, or the `start` and `end` properties for multiple days, and use the `recurring` property to specify multiple occurrences.
+We slightly changed the structure of the [marked](/angular/eventcalendar/api#opt-marked), [labels](/angular/eventcalendar/api#opt-labels) and [colors](/angular/eventcalendar/api#opt-colors) objects. To specify the date, use the `date` property, or the `start` and `end` properties for multiple days, and use the `recurring` property to specify multiple occurrences.
 
 We updated the format of the [dateFormat](/angular/eventcalendar/api#localization-dateFormat) and [timeFormat](/angular/eventcalendar/api#localization-timeFormat) options to avoid some common confusions we met. See the API docs for the new formatting tokens.
 
@@ -354,7 +354,7 @@ We removed the `showScrollArrows` option, wheel scroll arrows are currently not 
 
 We renamed the `animate` option to [animation](/angular/select/api#opt-animation) to specify the show / hide animation of the picker.
 
-The `data` option only supports an array of items with the `text`, `value`, `group` and `disabled` properties. HTML content for options is supported from version 5.12.0 using the [itemTemplate](/angular/select/api#template-itemTemplate) option. Read the [Templating](/angular/select/templating) section for more details.
+The `data` option only supports an array of items with the `text`, `value`, `group` and `disabled` properties. HTML content for options is supported from version 5.12.0 using the [itemTemplate](/5.34.0/angular/select/api#template-itemTemplate) option. Read the [Templating](/angular/select/templating) section for more details.
 Remote data source is not supported out of the box in v5. You will have to manually get the remote data and pass that to the select.
 For remote filtering the [onFilter](/angular/select/api#event-onFilter) event can be used to get the filter text. By returning false in the onFilter handler, the filtering is left for the developer to be carried out. Then the text can be used to query the filtered data in any way you see fit and update the select.
 
@@ -372,7 +372,7 @@ We changed the `input` option to `inputElement` option, which accepts a HTMLElem
 
 We renamed the `select` option to [selectMultiple](/angular/select/api#opt-selectMultiple), which became a boolean indicating multiple select when true. We no longer support a fix number of selected items.
 
-We renamed the `showOnTap` option to [showOnClick](/angular/select/api#opt-showOnClick) and the `showOnOverlayTap` option to [showOnOverlayClick](/angular/select/api#opt-showOnOverlayClick) for the sake of simplicity and to make it more obvious.
+We renamed the `showOnTap` option to [showOnClick](/angular/select/api#opt-showOnClick) and the `showOnOverlayTap` option to [showOnOverlayClick](/5.34.0/angular/select/api#opt-showOnOverlayClick) for the sake of simplicity and to make it more obvious.
 
 ## Popup
 
@@ -433,7 +433,7 @@ We removed the `iconAlign` option, and added the [startIcon](/angular/forms/drop
 
 ## Image
 
-There is no Image component in v5, instead the functionality can be achieved with the select component by customizing the select items. Starting from version 5.12.0 the select component items can be customized to any custom markup using the [itemTemplate](/angular/select/api#template-itemTemplate) option. Please refer to the [Templating](/angular/select/templating) section for more details.
+There is no Image component in v5, instead the functionality can be achieved with the select component by customizing the select items. Starting from version 5.12.0 the select component items can be customized to any custom markup using the [itemTemplate](/5.34.0/angular/select/api#template-itemTemplate) option. Please refer to the [Templating](/angular/select/templating) section for more details.
 
 ## Input
 

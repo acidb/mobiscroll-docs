@@ -15,7 +15,7 @@ When initializing the Select component on a native select element, by default th
 </select>
 ```
 
-You can use any custom input with the select component using the `inputElement` [option](/angular/select/api#opt-inputElement). Passing another element to it, the default input won't be rendered. The passed element will get the event handlers to open the picker, and also the selected value's text will be written to it as well. This option will only work with the directive version of the component.
+You can use any custom input with the select component using the `inputElement` [option](/5.35.0/angular/select/api#opt-inputElement). Passing another element to it, the default input won't be rendered. The passed element will get the event handlers to open the picker, and also the selected value's text will be written to it as well. This option will only work with the directive version of the component.
 
 ```jsx
 <input id="my-custom-input" placeholder="Click to select..." #myInput />

@@ -12,11 +12,11 @@
 
 ### Primary: Full JavaScript v5 docs (single file, all content inline)
 
-- **JavaScript v5:** {{DOCS_BASE_URL}}/5.35.0/llms-v5-javascript-full.txt
+- **JavaScript v5:** {{DOCS_BASE_URL}}/5.35.0/llms-javascript-full.txt
 
 ### Secondary: JavaScript v5 table of contents (links to individual .md pages)
 
-- **JavaScript v5:** {{DOCS_BASE_URL}}/5.35.0/llms-v5-javascript.txt
+- **JavaScript v5:** {{DOCS_BASE_URL}}/5.35.0/llms-javascript.txt
 
 ### Individual .md pages
 
@@ -36,9 +36,9 @@ Example: `{{DOCS_BASE_URL}}/javascript/eventcalendar/overview.md`
 
 ## 2. Content Selection Priority
 
-1. `5.35.0/llms-v5-javascript-full.txt` — complete v5 docs in one file (best for full context)
+1. `5.35.0/llms-javascript-full.txt` — complete v5 docs in one file (best for full context)
 2. Individual `.md` pages — for targeted lookups
-3. `5.35.0/llms-v5-javascript.txt` — table of contents with links to .md pages
+3. `5.35.0/llms-javascript.txt` — table of contents with links to .md pages
 4. HTML pages — **last resort only**
 
 NEVER use HTML when `.md` is available. The `.md` files are optimized for AI consumption.
@@ -47,7 +47,7 @@ NEVER use HTML when `.md` is available. The `.md` files are optimized for AI con
 
 ## 3. Routing — CRITICAL
 
-**This project uses plain JavaScript and Mobiscroll v5. Do not detect or switch frameworks. Always use `5.35.0/llms-v5-javascript-full.txt`.**
+**This project uses plain JavaScript and Mobiscroll v5. Do not detect or switch frameworks. Always use `5.35.0/llms-javascript-full.txt`.**
 
 **RULE: Resolve domain FIRST. Never mix domains.**
 
@@ -62,9 +62,9 @@ Check BEFORE loading any documentation. If the query is about:
 
 → **Route to Mobiscroll Connect.** Fetch `llms-connect-full.txt`. Stop — do NOT also load JavaScript docs.
 
-→ If the query is about UI rendering, components, views, pickers, theming, CSS, or frontend code → fetch `5.35.0/llms-v5-javascript-full.txt`.
+→ If the query is about UI rendering, components, views, pickers, theming, CSS, or frontend code → fetch `5.35.0/llms-javascript-full.txt`.
 
-→ If the query is about **displaying** Google Calendar / Outlook / Apple Calendar events in the Eventcalendar UI (client-side data binding, `data` option, event loading) — this is a **UI question**. Fetch `5.35.0/llms-v5-javascript-full.txt`.
+→ If the query is about **displaying** Google Calendar / Outlook / Apple Calendar events in the Eventcalendar UI (client-side data binding, `data` option, event loading) — this is a **UI question**. Fetch `5.35.0/llms-javascript-full.txt`.
 
 ⚠️ **Do NOT route to Connect** just because a third-party calendar (Google, Outlook, Apple) is mentioned. Route to Connect only when the integration is explicitly server-side, involves OAuth on the backend, or references the Mobiscroll Connect product.
 
@@ -98,7 +98,7 @@ Keep the two parts clearly separated. Do NOT blend Connect APIs with UI componen
 - Building scheduling, calendar, booking, or appointment UIs
 - Working with event calendars, date/time pickers, select dropdowns, popups
 - **Server-side** sync with Google Calendar, Outlook, or Apple Calendar, **server-side** OAuth flows, or **backend** webhook/API integration in a Mobiscroll context → **Mobiscroll Connect** (`llms-connect-full.txt`)
-- Displaying Google Calendar / Outlook / Apple Calendar events inside the Eventcalendar UI component (client-side) → JavaScript v5 docs (`5.35.0/llms-v5-javascript-full.txt`)
+- Displaying Google Calendar / Outlook / Apple Calendar events inside the Eventcalendar UI component (client-side) → JavaScript v5 docs (`5.35.0/llms-javascript-full.txt`)
 - Theming or styling Mobiscroll components
 
 ⚠️ Keywords like **sync**, **API**, **integration**, **data source**, **authentication** alone do NOT route to Connect. They must be explicitly server-side or backend in nature.
@@ -137,7 +137,7 @@ _Note: component names are lowercase in the JavaScript API (e.g., `mobiscroll.ev
 |:---|:---|
 | Server-side Google/Outlook/Apple Calendar sync | `llms-connect-full.txt` |
 | OAuth flow, calendar listing, event CRUD via REST (server) | `llms-connect-full.txt` |
-| Displaying Google Calendar events in Eventcalendar (client-side) | `5.35.0/llms-v5-javascript-full.txt` |
+| Displaying Google Calendar events in Eventcalendar (client-side) | `5.35.0/llms-javascript-full.txt` |
 | Webhooks, push/pull sync, backend data sources | `llms-connect-full.txt` |
 | Authentication, tokens, credentials, scopes | `llms-connect-full.txt` |
 | Any server-side or API-first integration question | `llms-connect-full.txt` |
@@ -151,7 +151,7 @@ Connect is a **server-side** REST API. Eventcalendar is a **frontend** UI compon
 1. **JavaScript (plain/vanilla) only.** This project uses `@mobiscroll/javascript`. Never generate code for React, Angular, Vue, or jQuery. No framework bindings — this is pure DOM API.
 2. **No invented APIs.** Every option, event, method, and type name must come from the docs. If a symbol is not found, say so — do not guess.
 3. **Docs are source of truth.** After fetching docs, answer **only** from the fetched content. Do not supplement with prior training knowledge. If the fetched docs contradict training knowledge, the docs win. If the docs do not cover the question, say: "This is not covered in the current documentation."
-4. **Fetch failure fallback.** If `5.35.0/llms-v5-javascript-full.txt` is unreachable, fall back to individual `.md` pages (Priority 2), then the TOC file (Priority 3). If all sources fail, state that docs are unavailable and ask the user to share relevant doc content.
+4. **Fetch failure fallback.** If `5.35.0/llms-javascript-full.txt` is unreachable, fall back to individual `.md` pages (Priority 2), then the TOC file (Priority 3). If all sources fail, state that docs are unavailable and ask the user to share relevant doc content.
 5. **Version: 5 (5.35.0).** This file covers Mobiscroll v5 only. Do not reference v6-only APIs. If the user asks about a feature not found in the v5 docs, do not invent it — it may be a v6 addition.
 6. **Version mismatch detection.** If the user mentions "v6", "version 6", "latest version", or requests an API not found in the v5 docs, respond: "⚠️ This context is configured for Mobiscroll **v5 (5.35.0)**. The feature you asked about may only exist in v6. Do you want to switch to the v6 documentation instead?" Never silently fall back to v6 documentation.
 7. **TypeScript types.** When using TypeScript, all Mobiscroll types are prefixed `Mbsc` (e.g., `MbscEventcalendarView`, `MbscCalendarEvent`). Verify exact names in the API docs.
@@ -172,7 +172,7 @@ Connect is a **server-side** REST API. Eventcalendar is a **frontend** UI compon
 | Using Vue `<script setup>` or `ref()` | Plain JS variables and event handlers |
 | Using jQuery `$('#el').mobiscroll()` plugin pattern | `mobiscroll.eventcalendar('#el', { ... })` |
 | Treating Scheduler as a separate component | Scheduler is a **view** of eventcalendar: `view: { scheduler: { type: 'week' } }` |
-| Using Mobiscroll Connect docs for frontend UI | Connect = server REST API. Use `5.35.0/llms-v5-javascript-full.txt` for UI. |
+| Using Mobiscroll Connect docs for frontend UI | Connect = server REST API. Use `5.35.0/llms-javascript-full.txt` for UI. |
 | Using UI component docs to answer a Connect API question | Connect = server REST API. Fetch `llms-connect-full.txt`. |
 | Answering from training knowledge when docs are fetched | Answer only from fetched docs. If not covered, say so. |
 | Answering a v6 API question without warning | Respond: "⚠️ This context is v5. That API may be v6-only. Switch to v6 docs?" |

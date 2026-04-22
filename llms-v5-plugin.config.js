@@ -40,7 +40,7 @@ const llmsV5Options = {
   removeDuplicateHeadings: true,
 
   // llmsTxtFilename: '5.35.0/llms-v5.txt',
-  // llmsFullTxtFilename: '5.35.0/llms-v5-full.txt',
+  // llmsFullTxtFilename: '5.35.0/llms-full.txt',
 
   version: '5.35.0',
   title: 'Mobiscroll v5 Documentation',
@@ -85,7 +85,7 @@ const llmsV5Options = {
   customLLMFiles: [
     // ── JavaScript ──────────────────────────────────────────────────────────
     {
-      filename: '5.35.0/llms-v5-javascript.txt',
+      filename: '5.35.0/llms-javascript.txt',
       includePatterns: ['javascript/**/*.md'],
       ignorePatterns: ['javascript/**/_auto-generated/**'],
       fullContent: false,
@@ -96,7 +96,7 @@ const llmsV5Options = {
       orderPatterns: ORDER_PATTERNS('javascript'),
     },
     {
-      filename: '5.35.0/llms-v5-javascript-full.txt',
+      filename: '5.35.0/llms-javascript-full.txt',
       includePatterns: ['javascript/**/*.md'],
       ignorePatterns: ['javascript/**/_auto-generated/**'],
       fullContent: true,
@@ -109,7 +109,7 @@ const llmsV5Options = {
 
     // ── React ────────────────────────────────────────────────────────────────
     {
-      filename: '5.35.0/llms-v5-react.txt',
+      filename: '5.35.0/llms-react.txt',
       includePatterns: ['react/**/*.md'],
       ignorePatterns: ['react/**/_auto-generated/**'],
       fullContent: false,
@@ -120,7 +120,7 @@ const llmsV5Options = {
       orderPatterns: ORDER_PATTERNS('react'),
     },
     {
-      filename: '5.35.0/llms-v5-react-full.txt',
+      filename: '5.35.0/llms-react-full.txt',
       includePatterns: ['react/**/*.md'],
       ignorePatterns: ['react/**/_auto-generated/**'],
       fullContent: true,
@@ -133,7 +133,7 @@ const llmsV5Options = {
 
     // ── Angular ──────────────────────────────────────────────────────────────
     {
-      filename: '5.35.0/llms-v5-angular.txt',
+      filename: '5.35.0/llms-angular.txt',
       includePatterns: ['angular/**/*.md'],
       ignorePatterns: ['angular/**/_auto-generated/**'],
       fullContent: false,
@@ -144,7 +144,7 @@ const llmsV5Options = {
       orderPatterns: ORDER_PATTERNS('angular'),
     },
     {
-      filename: '5.35.0/llms-v5-angular-full.txt',
+      filename: '5.35.0/llms-angular-full.txt',
       includePatterns: ['angular/**/*.md'],
       ignorePatterns: ['angular/**/_auto-generated/**'],
       fullContent: true,
@@ -157,7 +157,7 @@ const llmsV5Options = {
 
     // ── Vue ──────────────────────────────────────────────────────────────────
     {
-      filename: '5.35.0/llms-v5-vue.txt',
+      filename: '5.35.0/llms-vue.txt',
       includePatterns: ['vue/**/*.md'],
       ignorePatterns: ['vue/**/_auto-generated/**'],
       fullContent: false,
@@ -168,7 +168,7 @@ const llmsV5Options = {
       orderPatterns: ORDER_PATTERNS('vue'),
     },
     {
-      filename: '5.35.0/llms-v5-vue-full.txt',
+      filename: '5.35.0/llms-vue-full.txt',
       includePatterns: ['vue/**/*.md'],
       ignorePatterns: ['vue/**/_auto-generated/**'],
       fullContent: true,
@@ -181,7 +181,7 @@ const llmsV5Options = {
 
     // ── jQuery ───────────────────────────────────────────────────────────────
     {
-      filename: '5.35.0/llms-v5-jquery.txt',
+      filename: '5.35.0/llms-jquery.txt',
       includePatterns: ['jquery/**/*.md'],
       ignorePatterns: ['jquery/**/_auto-generated/**'],
       fullContent: false,
@@ -192,7 +192,7 @@ const llmsV5Options = {
       orderPatterns: ORDER_PATTERNS('jquery'),
     },
     {
-      filename: '5.35.0/llms-v5-jquery-full.txt',
+      filename: '5.35.0/llms-jquery-full.txt',
       includePatterns: ['jquery/**/*.md'],
       ignorePatterns: ['jquery/**/_auto-generated/**'],
       fullContent: true,

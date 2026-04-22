@@ -64,8 +64,8 @@ Machine-readable documentation files containing the complete Mobiscroll API refe
 
 | File | Description |
 |:---|:---|
-| `llms-v5-react-full.txt` | Complete React documentation |
-| `llms-v5-react.txt` | React table of contents (links to individual pages) |
+| `llms-react-full.txt` | Complete React documentation |
+| `llms-react.txt` | React table of contents (links to individual pages) |
 
 :::info
 You don't need to download or host these files — the rules and routing layers reference them directly and fetch their content automatically.
@@ -77,7 +77,7 @@ Per-framework behavior rule files that tell AI assistants which package to use, 
 
 | File | Framework |
 |:---|:---|
-| <DocsLink path="5.35.0/mobiscroll-react-v5.mdc" download /> | React |
+| <DocsLink path="5.35.0/mobiscroll-react.mdc" download /> | React |
 
 ### Routing layer — CLAUDE.md
 
@@ -87,9 +87,9 @@ A context file specifically for Claude Code that provides framework detection si
 
 | AI Tool | Documentation Source | Behavior Rules | Routing |
 |:---|:---|:---|:---|
-| **Cursor** | `llms-v5-react-full.txt` via @docs | `.mdc` file | — |
+| **Cursor** | `llms-react-full.txt` via @docs | `.mdc` file | — |
 | **GitHub Copilot** | `.mdc` file (contains doc URLs) | `.mdc` file | — |
-| **Claude Code** | `llms-v5-react-full.txt` | `CLAUDE.md` | `CLAUDE.md` |
+| **Claude Code** | `llms-react-full.txt` | `CLAUDE.md` | `CLAUDE.md` |
 
 ## Cursor setup
 
@@ -99,13 +99,13 @@ Open **Cursor Settings → Indexing & Docs** and add the documentation source fo
 
 | Framework | Name | URL |
 |:---|:---|:---|
-| React | Mobiscroll React | <DocsUrl path="5.35.0/llms-v5-react-full.txt" /> |
+| React | Mobiscroll React | <DocsUrl path="5.35.0/llms-react-full.txt" /> |
 
 Only register the source matching your use case. Do not register multiple sources — this prevents cross-domain contamination.
 
 ### Step 2: Add the rules file
 
-Download the <DocsLink path="5.35.0/mobiscroll-react-v5.mdc" download><code>mobiscroll-react-v5.mdc</code></DocsLink> file for your framework and place it in your project's `.cursor/rules/` directory:
+Download the <DocsLink path="5.35.0/mobiscroll-react.mdc" download><code>mobiscroll-react.mdc</code></DocsLink> file for your framework and place it in your project's `.cursor/rules/` directory:
 
 ```
 your-project/
@@ -133,7 +133,7 @@ When asking Cursor about Mobiscroll, include `@docs` to ensure it reads the regi
 
 ### Step 1: Add the rules file
 
-Download the <DocsLink path="5.35.0/mobiscroll-react-v5.mdc" download><code>mobiscroll-react-v5.mdc</code></DocsLink> file for your framework and place it at the root of your project or alternatively [copy it's content](#rules-files-mdc) to the rules files under the `.github/` directory:
+Download the <DocsLink path="5.35.0/mobiscroll-react.mdc" download><code>mobiscroll-react.mdc</code></DocsLink> file for your framework and place it at the root of your project or alternatively [copy it's content](#rules-files-mdc) to the rules files under the `.github/` directory:
 
 ```
 your-project/
@@ -181,7 +181,7 @@ When Claude Code opens your project, it automatically reads `CLAUDE.md` from the
 - **Component mapping** — translates user intents like "scheduler" or "timeline" to the correct Eventcalendar view configuration
 - **Anti-patterns** — explicit WRONG → RIGHT examples that prevent common mistakes
 
-Claude Code will fetch `llms-v5-react-full.txt` automatically based on the detected framework. No manual registration is needed.
+Claude Code will fetch `llms-react-full.txt` automatically based on the detected framework. No manual registration is needed.
 
 ## Framework isolation
 
@@ -227,7 +227,7 @@ What is the type for calendar events in Mobiscroll React?
 
 **Symptom:** You are using React but the AI generates code for a different framework (e.g. `import { Eventcalendar } from '@mobiscroll/angular'`).
 
-**Fix:** Verify that you have the correct `.mdc` file in place. For React, use `mobiscroll-react.mdc`, not a different framework's `.mdc` file. In Cursor, check that the registered @docs source points to `5.35.0/llms-v5-react-full.txt`.
+**Fix:** Verify that you have the correct `.mdc` file in place. For React, use `mobiscroll-react.mdc`, not a different framework's `.mdc` file. In Cursor, check that the registered @docs source points to `5.35.0/llms-react-full.txt`.
 
 ### AI invents non-existent APIs
 
@@ -249,14 +249,14 @@ All AI integration files are available at the following URLs:
 
 | File | URL |
 |:---|:---|
-| React | <DocsUrl path="5.35.0/llms-v5-react.txt" /> |
-| React (full) | <DocsUrl path="5.35.0/llms-v5-react-full.txt" /> |
+| React | <DocsUrl path="5.35.0/llms-react.txt" /> |
+| React (full) | <DocsUrl path="5.35.0/llms-react-full.txt" /> |
 
 ### Rules files
 
 | File | URL |
 |:---|:---|
-| React rules | <DocsLink path="5.35.0/mobiscroll-react-v5.mdc" download /> |
+| React rules | <DocsLink path="5.35.0/mobiscroll-react.mdc" download /> |
 
 ### Routing file
 
@@ -279,5 +279,5 @@ The complete contents of each file are shown below. You can copy directly from t
 
 <details>
 <summary>View <code>mobiscroll-react.mdc</code></summary>
-<FileBlock src="5.35.0/mobiscroll-react-v5.mdc" />
+<FileBlock src="5.35.0/mobiscroll-react.mdc" />
 </details>

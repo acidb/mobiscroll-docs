@@ -18,11 +18,11 @@ For detailed, framework-specific API references and guides, see:
 
 For detailed, framework-specific v5 API references and guides, see:
 
-[Mobiscroll v5 for JavaScript](5.35.0/llms-v5-javascript.txt) — [Full v5 docs for JavaScript](5.35.0/llms-v5-javascript-full.txt)
-[Mobiscroll v5 for React](5.35.0/llms-v5-react.txt) — [Full v5 docs for React](5.35.0/llms-v5-react-full.txt)
-[Mobiscroll v5 for Angular](5.35.0/llms-v5-angular.txt) — [Full v5 docs for Angular](5.35.0/llms-v5-angular-full.txt)
-[Mobiscroll v5 for Vue](5.35.0/llms-v5-vue.txt) — [Full v5 docs for Vue](5.35.0/llms-v5-vue-full.txt)
-[Mobiscroll v5 for jQuery](5.35.0/llms-v5-jquery.txt) — [Full v5 docs for jQuery](5.35.0/llms-v5-jquery-full.txt)
+[Mobiscroll v5 for JavaScript](5.35.0/llms-javascript.txt) — [Full v5 docs for JavaScript](5.35.0/llms-javascript-full.txt)
+[Mobiscroll v5 for React](5.35.0/llms-react.txt) — [Full v5 docs for React](5.35.0/llms-react-full.txt)
+[Mobiscroll v5 for Angular](5.35.0/llms-angular.txt) — [Full v5 docs for Angular](5.35.0/llms-angular-full.txt)
+[Mobiscroll v5 for Vue](5.35.0/llms-vue.txt) — [Full v5 docs for Vue](5.35.0/llms-vue-full.txt)
+[Mobiscroll v5 for jQuery](5.35.0/llms-jquery.txt) — [Full v5 docs for jQuery](5.35.0/llms-jquery-full.txt)
 
 ### Mobiscroll Connect — Calendar Integration API
 

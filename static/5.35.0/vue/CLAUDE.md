@@ -12,11 +12,11 @@
 
 ### Primary: Full Vue v5 docs (single file, all content inline)
 
-- **Vue v5:** {{DOCS_BASE_URL}}/5.35.0/llms-v5-vue-full.txt
+- **Vue v5:** {{DOCS_BASE_URL}}/5.35.0/llms-vue-full.txt
 
 ### Secondary: Vue v5 table of contents (links to individual .md pages)
 
-- **Vue v5:** {{DOCS_BASE_URL}}/5.35.0/llms-v5-vue.txt
+- **Vue v5:** {{DOCS_BASE_URL}}/5.35.0/llms-vue.txt
 
 ### Individual .md pages
 
@@ -36,9 +36,9 @@ Example: `{{DOCS_BASE_URL}}/vue/eventcalendar/overview.md`
 
 ## 2. Content Selection Priority
 
-1. `5.35.0/llms-v5-vue-full.txt` — complete v5 docs in one file (best for full context)
+1. `5.35.0/llms-vue-full.txt` — complete v5 docs in one file (best for full context)
 2. Individual `.md` pages — for targeted lookups
-3. `5.35.0/llms-v5-vue.txt` — table of contents with links to .md pages
+3. `5.35.0/llms-vue.txt` — table of contents with links to .md pages
 4. HTML pages — **last resort only**
 
 NEVER use HTML when `.md` is available. The `.md` files are optimized for AI consumption.
@@ -47,7 +47,7 @@ NEVER use HTML when `.md` is available. The `.md` files are optimized for AI con
 
 ## 3. Routing — CRITICAL
 
-**This project uses Vue 3 and Mobiscroll v5. Do not detect or switch frameworks. Always use `5.35.0/llms-v5-vue-full.txt`.**
+**This project uses Vue 3 and Mobiscroll v5. Do not detect or switch frameworks. Always use `5.35.0/llms-vue-full.txt`.**
 
 **RULE: Resolve domain FIRST. Never mix domains.**
 
@@ -62,9 +62,9 @@ Check BEFORE loading any documentation. If the query is about:
 
 → **Route to Mobiscroll Connect.** Fetch `llms-connect-full.txt`. Stop — do NOT also load Vue docs.
 
-→ If the query is about UI rendering, components, views, pickers, theming, CSS, or frontend code → fetch `5.35.0/llms-v5-vue-full.txt`.
+→ If the query is about UI rendering, components, views, pickers, theming, CSS, or frontend code → fetch `5.35.0/llms-vue-full.txt`.
 
-→ If the query is about **displaying** Google Calendar / Outlook / Apple Calendar events in the Eventcalendar UI (client-side data binding, `:data` prop, event loading) — this is a **UI question**. Fetch `5.35.0/llms-v5-vue-full.txt`.
+→ If the query is about **displaying** Google Calendar / Outlook / Apple Calendar events in the Eventcalendar UI (client-side data binding, `:data` prop, event loading) — this is a **UI question**. Fetch `5.35.0/llms-vue-full.txt`.
 
 ⚠️ **Do NOT route to Connect** just because a third-party calendar (Google, Outlook, Apple) is mentioned. Route to Connect only when the integration is explicitly server-side, involves OAuth on the backend, or references the Mobiscroll Connect product.
 
@@ -98,7 +98,7 @@ Keep the two parts clearly separated. Do NOT blend Connect APIs with UI componen
 - Building scheduling, calendar, booking, or appointment UIs
 - Working with event calendars, date/time pickers, select dropdowns, popups
 - **Server-side** sync with Google Calendar, Outlook, or Apple Calendar, **server-side** OAuth flows, or **backend** webhook/API integration in a Mobiscroll context → **Mobiscroll Connect** (`llms-connect-full.txt`)
-- Displaying Google Calendar / Outlook / Apple Calendar events inside the Eventcalendar UI component (client-side) → Vue v5 docs (`5.35.0/llms-v5-vue-full.txt`)
+- Displaying Google Calendar / Outlook / Apple Calendar events inside the Eventcalendar UI component (client-side) → Vue v5 docs (`5.35.0/llms-vue-full.txt`)
 - Theming or styling Mobiscroll components
 
 ⚠️ Keywords like **sync**, **API**, **integration**, **data source**, **authentication** alone do NOT route to Connect. They must be explicitly server-side or backend in nature.
@@ -135,7 +135,7 @@ All scheduling views are part of ONE component: **Eventcalendar**. They are conf
 |:---|:---|
 | Server-side Google/Outlook/Apple Calendar sync | `llms-connect-full.txt` |
 | OAuth flow, calendar listing, event CRUD via REST (server) | `llms-connect-full.txt` |
-| Displaying Google Calendar events in Eventcalendar (client-side) | `5.35.0/llms-v5-vue-full.txt` |
+| Displaying Google Calendar events in Eventcalendar (client-side) | `5.35.0/llms-vue-full.txt` |
 | Webhooks, push/pull sync, backend data sources | `llms-connect-full.txt` |
 | Authentication, tokens, credentials, scopes | `llms-connect-full.txt` |
 | Any server-side or API-first integration question | `llms-connect-full.txt` |
@@ -149,7 +149,7 @@ Connect is a **server-side** REST API. Eventcalendar is a **frontend** UI compon
 1. **Vue 3 only.** This project uses `@mobiscroll/vue`. Never generate code for React, Angular, JavaScript, or jQuery. Use Vue 3 Composition API with `<script setup>` only — never Vue 2 Options API or `Vue.component()`.
 2. **No invented APIs.** Every option, event, method, and type name must come from the docs. If a symbol is not found, say so — do not guess.
 3. **Docs are source of truth.** After fetching docs, answer **only** from the fetched content. Do not supplement with prior training knowledge. If the fetched docs contradict training knowledge, the docs win. If the docs do not cover the question, say: "This is not covered in the current documentation."
-4. **Fetch failure fallback.** If `5.35.0/llms-v5-vue-full.txt` is unreachable, fall back to individual `.md` pages (Priority 2), then the TOC file (Priority 3). If all sources fail, state that docs are unavailable and ask the user to share relevant doc content.
+4. **Fetch failure fallback.** If `5.35.0/llms-vue-full.txt` is unreachable, fall back to individual `.md` pages (Priority 2), then the TOC file (Priority 3). If all sources fail, state that docs are unavailable and ask the user to share relevant doc content.
 5. **Version: 5 (5.35.0).** This file covers Mobiscroll v5 only. Do not reference v6-only APIs. If the user asks about a feature not found in the v5 docs, do not invent it — it may be a v6 addition.
 6. **Version mismatch detection.** If the user mentions "v6", "version 6", "latest version", or requests an API not found in the v5 docs, respond: "⚠️ This context is configured for Mobiscroll **v5 (5.35.0)**. The feature you asked about may only exist in v6. Do you want to switch to the v6 documentation instead?" Never silently fall back to v6 documentation.
 7. **Type prefix: `Mbsc`.** All Mobiscroll TypeScript types start with `Mbsc` (e.g., `MbscEventcalendarView`, `MbscCalendarEvent`). Verify exact names in the API docs.
@@ -168,7 +168,7 @@ Connect is a **server-side** REST API. Eventcalendar is a **frontend** UI compon
 | Using Angular `@Component` decorators or `MbscModule` in Vue | Vue uses SFC `<script setup>` with direct imports |
 | Using jQuery `$()` plugin pattern in Vue code | Vue uses `<MbscEventcalendar :data="events" />` |
 | Treating Scheduler as a separate component | Scheduler is a **view** of Eventcalendar: `view: { scheduler: { type: 'week' } }` |
-| Using Mobiscroll Connect docs for frontend UI | Connect = server REST API. Use `5.35.0/llms-v5-vue-full.txt` for UI. |
+| Using Mobiscroll Connect docs for frontend UI | Connect = server REST API. Use `5.35.0/llms-vue-full.txt` for UI. |
 | Using UI component docs to answer a Connect API question | Connect = server REST API. Fetch `llms-connect-full.txt`. |
 | Guessing `MbscCalendarEventData` type name | Look up exact type in `vue/eventcalendar/api` docs |
 | Answering from training knowledge when docs are fetched | Answer only from fetched docs. If not covered, say so. |

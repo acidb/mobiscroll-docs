@@ -2,8 +2,8 @@
 
 ## Documentation Source
 
-- **Primary (complete v5 docs):** {{DOCS_BASE_URL}}/5.35.0/llms-v5-jquery-full.txt
-- **TOC (links to .md pages):** {{DOCS_BASE_URL}}/5.35.0/llms-v5-jquery.txt
+- **Primary (complete v5 docs):** {{DOCS_BASE_URL}}/5.35.0/llms-jquery-full.txt
+- **TOC (links to .md pages):** {{DOCS_BASE_URL}}/5.35.0/llms-jquery.txt
 - **Individual pages:** `{{DOCS_BASE_URL}}/jquery/{section}/{page}.md`
 
 ## Scope
@@ -51,7 +51,7 @@ All scheduling views are ONE component: **Eventcalendar**, configured via the `v
 
 ## Rules
 
-- Fetch `5.35.0/llms-v5-jquery-full.txt` for complete v5 context
+- Fetch `5.35.0/llms-jquery-full.txt` for complete v5 context
 - Prefer `.md` pages over HTML — `.md` files are optimized for AI
 - Use official v5 docs examples only — docs are the source of truth
 - Package: `@mobiscroll/jquery` — no other Mobiscroll package

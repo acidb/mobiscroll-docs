@@ -2,6 +2,7 @@
 sidebar_position: 4
 sidebar_label: Controls
 displayed_sidebar: javascriptSidebar
+description: 'Choose which controls appear in the Mobiscroll Datepicker — calendar picker, time grid, date scroller, time scroller, or combinations thereof.'
 ---
 
 # Controls

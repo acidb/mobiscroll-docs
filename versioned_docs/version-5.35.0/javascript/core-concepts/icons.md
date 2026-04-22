@@ -3,6 +3,7 @@ sidebar_position: 7
 sidebar_label: Icons
 displayed_sidebar: javascriptSidebar
 title: Icons
+description: 'Browse and use the built-in Mobiscroll icon set in JavaScript components, or register custom icon fonts and SVGs.'
 ---
 
 import Icons from '../../_shared/core-concepts/all_icons.mdx';

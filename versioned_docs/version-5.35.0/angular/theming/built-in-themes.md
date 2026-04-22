@@ -3,6 +3,7 @@ sidebar_position: 1
 sidebar_label: Built-in themes
 displayed_sidebar: angularSidebar
 title: Theming
+description: 'Apply and switch Mobiscroll built-in themes (iOS, Material, Windows) and light/dark variants in your Angular projects.'
 ---
 
 import Content from '../../_shared/theming/built_in_themes.mdx';

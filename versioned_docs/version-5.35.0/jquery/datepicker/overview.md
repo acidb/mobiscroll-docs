@@ -2,6 +2,7 @@
 sidebar_position: 1
 sidebar_label: Overview
 displayed_sidebar: jquerySidebar
+description: 'Mobiscroll Datepicker for jQuery — pick single dates, times, multiple dates, or date ranges with calendar and scroller controls.'
 ---
 
 # Date & Time picker

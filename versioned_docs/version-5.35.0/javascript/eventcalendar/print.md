@@ -3,6 +3,7 @@ sidebar_position: 14
 sidebar_label: Print
 displayed_sidebar: javascriptSidebar
 title: Print
+description: 'Print the Mobiscroll Eventcalendar in JavaScript using the `@mobiscroll/print` add-on package — generates a print-optimized snapshot of any calendar, scheduler, or timeline view.'
 ---
 
 import InstallImport from '../../_shared/eventcalendar/print-install-import.mdx';

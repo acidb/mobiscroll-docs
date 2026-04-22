@@ -1,0 +1,72 @@
+# Mobiscroll for Vue — AI Rules (v5)
+
+## Documentation Source
+
+- **Primary (complete v5 docs):** {{DOCS_BASE_URL}}/5.35.0/llms-v5-vue-full.txt
+- **TOC (links to .md pages):** {{DOCS_BASE_URL}}/5.35.0/llms-v5-vue.txt
+- **Individual pages:** `{{DOCS_BASE_URL}}/vue/{section}/{page}.md`
+
+## Scope
+
+USE this file when:
+- Project has `@mobiscroll/vue` in package.json **and is on Mobiscroll v5**
+- Files use `.vue` extension
+- Imports contain `from '@mobiscroll/vue'`
+- User explicitly mentions Vue + Mobiscroll v5
+
+DO NOT use this file for React, Angular, JavaScript, or jQuery projects.
+DO NOT use this file for Mobiscroll v6 projects — use `mobiscroll-vue.mdc` instead.
+
+**Version: 5.35.0.** Do not use v6-only APIs. Do not use this file for v6 projects.
+
+## Version Mismatch
+
+If the user mentions "v6", "version 6", "latest version", or asks about an API not found in the v5 docs, respond:
+
+> "⚠️ This context is configured for Mobiscroll **v5 (5.35.0)**. The feature you asked about may only exist in v6. Do you want to switch to the v6 documentation instead?"
+
+Never silently fall back to v6 documentation.
+
+## Component Mapping
+
+All scheduling views are ONE component: **Eventcalendar**, configured via the `view` option.
+
+| Intent | Component | Doc Path |
+|:---|:---|:---|
+| Event calendar / scheduling | Eventcalendar | `vue/eventcalendar/overview` |
+| Monthly/weekly/daily grid | Eventcalendar (calendar view) | `vue/eventcalendar/calendar` |
+| Event list / agenda | Eventcalendar (agenda view) | `vue/eventcalendar/agenda` |
+| Resource scheduler | Eventcalendar (scheduler view) | `vue/eventcalendar/scheduler` |
+| Horizontal timeline | Eventcalendar (timeline view) | `vue/eventcalendar/timeline` |
+| Drag & drop | Eventcalendar | `vue/eventcalendar/drag-and-drop` |
+| CRUD operations | Eventcalendar | `vue/eventcalendar/crud` |
+| Recurring events | Eventcalendar | `vue/core-concepts/recurrence` |
+| Date / time picker | Datepicker | `vue/datepicker/overview` |
+| Dropdown select | Select | `vue/select/overview` |
+| Modal / overlay | Popup | `vue/popup/overview` |
+| Input, textarea, button | Forms | `vue/forms/input` |
+| Toast, snackbar, alert | Notifications | `vue/notifications/toast` |
+| Theming | Theming | `vue/theming/sass-themes` |
+| Full API reference | Eventcalendar API | `vue/eventcalendar/api` |
+
+## Rules
+
+- Fetch `5.35.0/llms-v5-vue-full.txt` for complete v5 context
+- Prefer `.md` pages over HTML — `.md` files are optimized for AI
+- Use official v5 docs examples only — docs are the source of truth
+- Package: `@mobiscroll/vue` — no other Mobiscroll package
+- CSS: `import '@mobiscroll/vue/dist/css/mobiscroll.min.css'`
+- Use Vue 3 Composition API with `<script setup>` as shown in docs
+- Components use `MbscEventcalendar`, `MbscDatepicker`, etc. in templates
+- Version: 5 (5.35.0). Do not reference v6-only APIs.
+- Types are prefixed `Mbsc` (e.g., `MbscEventcalendarView`, `MbscCalendarEvent`)
+
+## Constraints
+
+- NEVER import from `@mobiscroll/react`, `@mobiscroll/angular`, `@mobiscroll/javascript`, or `@mobiscroll/jquery`
+- NEVER use React hooks, Angular decorators, or jQuery patterns in Vue code
+- NEVER invent API options, events, methods, or types — if not found in v5 docs, say so
+- NEVER treat Scheduler/Timeline/Agenda as separate components — they are views of Eventcalendar
+- NEVER use Mobiscroll Connect docs for frontend UI (Connect = server-side REST API)
+- NEVER use v6 documentation or v6-only APIs for this context
+- If the framework is unclear, ASK — do not default

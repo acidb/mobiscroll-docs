@@ -1,0 +1,76 @@
+# Mobiscroll for Angular — AI Rules (v5)
+
+## Documentation Source
+
+- **Primary (complete v5 docs):** {{DOCS_BASE_URL}}/5.35.0/llms-v5-angular-full.txt
+- **TOC (links to .md pages):** {{DOCS_BASE_URL}}/5.35.0/llms-v5-angular.txt
+- **Individual pages:** `{{DOCS_BASE_URL}}/angular/{section}/{page}.md`
+
+## Scope
+
+USE this file when:
+- Project has `@mobiscroll/angular` in package.json **and is on Mobiscroll v5**
+- Files use `.component.ts`, `.component.html`, or have `@Component` decorators
+- Imports contain `from '@mobiscroll/angular'`
+- User explicitly mentions Angular + Mobiscroll v5
+
+DO NOT use this file for React, Vue, JavaScript, or jQuery projects.
+DO NOT use this file for Mobiscroll v6 projects — use `mobiscroll-angular.mdc` instead.
+
+**Version: 5.35.0.** Do not use v6-only APIs. Do not use this file for v6 projects.
+
+## Version Mismatch
+
+If the user mentions "v6", "version 6", "latest version", or asks about an API not found in the v5 docs, respond:
+
+> "⚠️ This context is configured for Mobiscroll **v5 (5.35.0)**. The feature you asked about may only exist in v6. Do you want to switch to the v6 documentation instead?"
+
+Never silently fall back to v6 documentation.
+
+## Component Mapping
+
+All scheduling views are ONE component: **Eventcalendar**, configured via the `view` option.
+
+| Intent | Component | Doc Path |
+|:---|:---|:---|
+| Event calendar / scheduling | Eventcalendar | `angular/eventcalendar/overview` |
+| Monthly/weekly/daily grid | Eventcalendar (calendar view) | `angular/eventcalendar/calendar` |
+| Event list / agenda | Eventcalendar (agenda view) | `angular/eventcalendar/agenda` |
+| Resource scheduler | Eventcalendar (scheduler view) | `angular/eventcalendar/scheduler` |
+| Horizontal timeline | Eventcalendar (timeline view) | `angular/eventcalendar/timeline` |
+| Drag & drop | Eventcalendar | `angular/eventcalendar/drag-and-drop` |
+| CRUD operations | Eventcalendar | `angular/eventcalendar/crud` |
+| Recurring events | Eventcalendar | `angular/core-concepts/recurrence` |
+| Date / time picker | Datepicker | `angular/datepicker/overview` |
+| Dropdown select | Select | `angular/select/overview` |
+| Modal / overlay | Popup | `angular/popup/overview` |
+| Input, textarea, button | Forms | `angular/forms/input` |
+| Toast, snackbar, alert | Notifications | `angular/notifications/toast` |
+| Theming | Theming | `angular/theming/sass-themes` |
+| Full API reference | Eventcalendar API | `angular/eventcalendar/api` |
+
+## Rules
+
+- Fetch `5.35.0/llms-v5-angular-full.txt` for complete v5 context
+- Prefer `.md` pages over HTML — `.md` files are optimized for AI
+- Use official v5 docs examples only — docs are the source of truth
+- Package: `@mobiscroll/angular` — no other Mobiscroll package
+- Module: `MbscModule` placement depends on architecture:
+  - **Standalone component:** add to the `imports` array of `@Component({ imports: [MbscModule, ...] })`
+  - **NgModule app:** add to the `imports` array of `@NgModule({ imports: [MbscModule, ...] })`
+  - Do NOT add to both at once
+- CSS: use `angular.json` `styles` array — NOT JS/TS import statements
+- Components use `mbsc-` prefix in templates (e.g., `<mbsc-eventcalendar>`)
+- Version: 5 (5.35.0). Do not reference v6-only APIs.
+- Types are prefixed `Mbsc` (e.g., `MbscEventcalendarView`, `MbscCalendarEvent`)
+
+## Constraints
+
+- NEVER import from `@mobiscroll/react`, `@mobiscroll/vue`, `@mobiscroll/javascript`, or `@mobiscroll/jquery`
+- NEVER use `import '@mobiscroll/angular/dist/css/mobiscroll.min.css'` in TS — use `angular.json` styles array
+- NEVER use React hooks, Vue composition API, or jQuery patterns in Angular code
+- NEVER invent API options, events, methods, or types — if not found in v5 docs, say so
+- NEVER treat Scheduler/Timeline/Agenda as separate components — they are views of Eventcalendar
+- NEVER use Mobiscroll Connect docs for frontend UI (Connect = server-side REST API)
+- NEVER use v6 documentation or v6-only APIs for this context
+- If the framework is unclear, ASK — do not default

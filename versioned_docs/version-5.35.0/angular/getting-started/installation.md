@@ -2,6 +2,7 @@
 sidebar_position: 2
 sidebar_label: Installation
 displayed_sidebar: angularSidebar
+description: 'Install Mobiscroll for Angular via npm, CDN download, or the Mobiscroll CLI — includes trial and licensed setup instructions.'
 ---
 
 import Tabs from '@theme/Tabs';

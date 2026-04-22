@@ -2,6 +2,7 @@
 sidebar_position: 8
 sidebar_label: CRUD
 displayed_sidebar: angularSidebar
+description: 'Implement create, read, update, and delete (CRUD) operations for events in the Mobiscroll Eventcalendar using JavaScript.'
 ---
 
 import HelperOptions from '../_auto-generated/utils/options.md';

@@ -2,6 +2,7 @@
 sidebar_position: 5
 sidebar_label: Toast
 displayed_sidebar: reactSidebar
+description: 'Show brief Toast notifications in Mobiscroll React — auto-dismiss success, warning, error, and info messages.'
 ---
 
 import Options from '../\_auto-generated/toast/options.md';

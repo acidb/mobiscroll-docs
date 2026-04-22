@@ -3,6 +3,7 @@ sidebar_position: 1
 sidebar_label: Overview
 displayed_sidebar: vueSidebar
 slug: /vue
+description: 'Mobiscroll for Vue — a standalone UI component library for scheduling, date picking, forms, and notifications with no framework dependency.'
 ---
 
 import DocCardList from "@theme/DocCardList";

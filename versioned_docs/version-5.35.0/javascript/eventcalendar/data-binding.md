@@ -3,6 +3,7 @@ sidebar_position: 6
 sidebar_label: Data binding
 displayed_sidebar: javascriptSidebar
 title: Data binding
+description: 'Bind event data to the Mobiscroll Eventcalendar in JavaScript — data structure, dynamic loading, and runtime event list updates.'
 ---
 
 import EventDataStructure from '../../_shared/eventcalendar/event-data-structure.mdx';

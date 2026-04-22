@@ -2,6 +2,7 @@
 sidebar_position: 4
 sidebar_label: Custom themes
 displayed_sidebar: reactSidebar
+description: 'Create and compile fully custom Mobiscroll Sass/SCSS themes for React projects using the Mobiscroll theme builder or manual Sass customization.'
 ---
 
 import Methods from '../../_shared/theming/theming_methods.mdx';

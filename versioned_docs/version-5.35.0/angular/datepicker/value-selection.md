@@ -2,6 +2,7 @@
 sidebar_label: Value Selection
 displayed_sidebar: angularSidebar
 sidebar_position: 2
+description: 'Configure date value selection behavior in the Mobiscroll Datepicker — set min/max, disabled dates, pre-selected values, and selection constraints.'
 ---
 
 import Tabs from '@theme/Tabs';

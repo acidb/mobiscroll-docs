@@ -3,6 +3,7 @@ sidebar_position: 11
 sidebar_label: Templating
 displayed_sidebar: javascriptSidebar
 title: Templating
+description: 'Customize Eventcalendar event rendering in JavaScript with templating — override event bubbles, slot content, header, and more.'
 ---
 
 import { ImgComparisonSlider } from '@img-comparison-slider/react';

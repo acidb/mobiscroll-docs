@@ -2,6 +2,7 @@
 sidebar_position: 2
 sidebar_label: Data binding
 displayed_sidebar: angularSidebar
+description: 'Bind option data to the Mobiscroll Select in Angular — static arrays, grouped options, and object-based data structures.'
 ---
 
 import DataOptionContent from '../../_shared/select/data-option.mdx';

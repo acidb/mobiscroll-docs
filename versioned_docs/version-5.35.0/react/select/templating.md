@@ -2,6 +2,7 @@
 sidebar_position: 8
 sidebar_label: Templating
 displayed_sidebar: reactSidebar
+description: 'Customize Select option rendering in Mobiscroll React — render custom HTML per option, group headers, and footer content.'
 ---
 
 # Templating

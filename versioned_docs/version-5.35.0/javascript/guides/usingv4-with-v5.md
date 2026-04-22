@@ -3,6 +3,7 @@ sidebar_position: 6
 sidebar_label: Using Mobiscroll v4 alongside v5
 displayed_sidebar: javascriptSidebar
 title: Using Mobiscroll v4 alongside v5
+description: 'Using Mobiscroll v4 alongside v5 — Guides documentation for Mobiscroll v5 JavaScript. This documentation refers to Mobiscroll version 5.35.0.'
 ---
 
 import Usingv4Withv5 from '../../_shared/guides/usingv4-with-v5.mdx';

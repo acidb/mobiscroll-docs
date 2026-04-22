@@ -6,12 +6,12 @@ toc_max_heading_level: 2
 description: 'Complete API reference for the Mobiscroll Select in jQuery — all options, events, methods, and template slots.'
 ---
 
-import Options from '../\_auto-generated/select/options.md';
-import Events from '../\_auto-generated/select/events.md';
-import Localizations from '../\_auto-generated/select/localizations.md';
-import Methods from '../\_auto-generated/select/methods.md';
-import Slots from '../\_auto-generated/select/renderers.md';
-import Types from '../\_auto-generated/select/types.md';
+import Options from '../_auto-generated/select/options.md';
+import Events from '../_auto-generated/select/events.md';
+import Localizations from '../_auto-generated/select/localizations.md';
+import Methods from '../_auto-generated/select/methods.md';
+import Slots from '../_auto-generated/select/renderers.md';
+import Types from '../_auto-generated/select/types.md';
 
 # Select API
 

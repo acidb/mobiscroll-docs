@@ -6,9 +6,9 @@ description: 'Configure the Eventcalendar Agenda view in React — a scrollable 
 ---
 
 import ViewOptions from '../_auto-generated/eventcalendar/view_agenda.md';
-import Options from '../\_auto-generated/eventcalendar/options_agenda.md';
-import Events from '../\_auto-generated/eventcalendar/events_agenda.md';
-import Localizations from '../\_auto-generated/eventcalendar/localizations_agenda.md';
+import Options from '../_auto-generated/eventcalendar/options_agenda.md';
+import Events from '../_auto-generated/eventcalendar/events_agenda.md';
+import Localizations from '../_auto-generated/eventcalendar/localizations_agenda.md';
 import Slots from '../_auto-generated/eventcalendar/renderers_agenda.md';
 import Types from '../_auto-generated/eventcalendar/types_agenda.md';
 import { ImgComparisonSlider } from '@img-comparison-slider/react';

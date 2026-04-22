@@ -5,10 +5,10 @@ displayed_sidebar: vueSidebar
 description: 'Use the Mobiscroll Textarea form component in Vue — multiline input with floating labels, auto-grow, and validation styles.'
 ---
 
-import Options from '../\_auto-generated/textarea/options.md';
-import Events from '../\_auto-generated/textarea/events.md';
-import Localizations from '../\_auto-generated/textarea/localizations.md';
-import Types from '../\_auto-generated/textarea/types.md';
+import Options from '../_auto-generated/textarea/options.md';
+import Events from '../_auto-generated/textarea/events.md';
+import Localizations from '../_auto-generated/textarea/localizations.md';
+import Types from '../_auto-generated/textarea/types.md';
 
 # Textarea
 

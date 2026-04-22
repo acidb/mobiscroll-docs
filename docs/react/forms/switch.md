@@ -5,9 +5,9 @@ displayed_sidebar: reactSidebar
 description: 'Mobiscroll Switch for React — a styled boolean toggle with configurable labels, disabled state, and onChange events.'
 ---
 
-import Options from '../\_auto-generated/switch/options.md';
-import Events from '../\_auto-generated/switch/events.md';
-import Localizations from '../\_auto-generated/switch/localizations.md';
+import Options from '../_auto-generated/switch/options.md';
+import Events from '../_auto-generated/switch/events.md';
+import Localizations from '../_auto-generated/switch/localizations.md';
 
 # Switch
 

@@ -5,10 +5,10 @@ displayed_sidebar: javascriptSidebar
 description: Use the Mobiscroll Segmented control in JavaScript — a button-group for exclusive single or multiple option selection.
 ---
 
-import Options from '../\_auto-generated/segmented/options.md';
-import Events from '../\_auto-generated/segmented/events.md';
-import Localizations from '../\_auto-generated/segmented/localizations.md';
-import Types from '../\_auto-generated/segmented/types.md';
+import Options from '../_auto-generated/segmented/options.md';
+import Events from '../_auto-generated/segmented/events.md';
+import Localizations from '../_auto-generated/segmented/localizations.md';
+import Types from '../_auto-generated/segmented/types.md';
 
 # Segmented
 

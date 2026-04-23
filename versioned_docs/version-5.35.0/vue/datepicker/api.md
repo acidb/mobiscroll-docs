@@ -6,10 +6,10 @@ toc_max_heading_level: 2
 description: 'Complete API reference for the Mobiscroll Datepicker in Vue — all options, events, methods, and template slots.'
 ---
 
-import Options from '../\_auto-generated/datepicker/options.md';
-import Events from '../\_auto-generated/datepicker/events.md';
-import Localizations from '../\_auto-generated/datepicker/localizations.md';
-import Methods from '../\_auto-generated/datepicker/methods.md';
+import Options from '../_auto-generated/datepicker/options.md';
+import Events from '../_auto-generated/datepicker/events.md';
+import Localizations from '../_auto-generated/datepicker/localizations.md';
+import Methods from '../_auto-generated/datepicker/methods.md';
 import Slots from '../_auto-generated/datepicker/renderers.md';
 import Types from '../_auto-generated/datepicker/types.md';
 

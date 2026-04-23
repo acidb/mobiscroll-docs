@@ -5,8 +5,8 @@ displayed_sidebar: vueSidebar
 description: 'Show brief Toast notifications in Mobiscroll Vue — auto-dismiss success, warning, error, and info messages.'
 ---
 
-import Options from '../\_auto-generated/toast/options.md';
-import Events from '../\_auto-generated/toast/events.md';
+import Options from '../_auto-generated/toast/options.md';
+import Events from '../_auto-generated/toast/events.md';
 
 # Toast
 

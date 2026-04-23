@@ -5,9 +5,9 @@ displayed_sidebar: reactSidebar
 description: 'Show a styled alert dialog with the Mobiscroll Alert component in React — a Promise-based replacement for the native window.alert.'
 ---
 
-import Options from '../\_auto-generated/alert/options.md';
-import Events from '../\_auto-generated/alert/events.md';
-import Localizations from '../\_auto-generated/alert/localizations.md';
+import Options from '../_auto-generated/alert/options.md';
+import Events from '../_auto-generated/alert/events.md';
+import Localizations from '../_auto-generated/alert/localizations.md';
 
 # Alert
 

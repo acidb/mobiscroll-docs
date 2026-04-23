@@ -5,10 +5,10 @@ displayed_sidebar: angularSidebar
 description: 'Use the Mobiscroll Stepper component in Angular — increment/decrement numeric input with configurable min, max, and step values.'
 ---
 
-import Options from '../\_auto-generated/stepper/options.md';
-import Events from '../\_auto-generated/stepper/events.md';
-import Localizations from '../\_auto-generated/stepper/localizations.md';
-import Types from '../\_auto-generated/stepper/types.md';
+import Options from '../_auto-generated/stepper/options.md';
+import Events from '../_auto-generated/stepper/events.md';
+import Localizations from '../_auto-generated/stepper/localizations.md';
+import Types from '../_auto-generated/stepper/types.md';
 
 # Stepper
 

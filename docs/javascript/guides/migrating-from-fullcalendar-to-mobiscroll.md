@@ -56,7 +56,7 @@ Key Differences:
 
 ### FullCalendar Timeline view:
 
-In FullCalendar, the Timeline view is configured through the [`initialView`](https://fullcalendar.io/docs/initialView), `slotMinTime`, and `slotMaxTime`options. Resource-based timeline scheduling also requires the `resourceTimelinePlugin` and a `resources` array.
+In FullCalendar, the Timeline view is configured through the [`initialView`](https://fullcalendar.io/docs/initialView), `slotMinTime`, and `slotMaxTime` options. Resource-based timeline scheduling also requires the `resourceTimelinePlugin` and a `resources` array.
 
 ```js
 const calendar = new Calendar(container, {
@@ -475,7 +475,7 @@ This configuration allows users to create, move, resize, and delete events in Mo
 
 ### Switching Views
 
-- FullCalendar includes a built-in header toolbar. You can switch between views by declaring them in [`headerToolbar`](https://fullcalendar.io/docs/headerToolbar). An object can be supplied with properties `start/center/end` or `left/center/right`. These properties contain strings with comma/space separated values. Values separated by a comma will be displayed adjacently. Values separated by a space will be displayed with a small gap in between. Strings can contain any of the following values:
+- FullCalendar includes a built-in header toolbar. You can switch between views by declaring them in [`headerToolbar`](https://fullcalendar.io/docs/headerToolbar). An object can be supplied with properties `start/center/end` or `left/center/right`. These properties contain strings with comma/space separated values. Values separated by a comma will be displayed adjacently. Values separated by a space will be displayed with a small gap in between.
 - Mobiscroll doesn’t include a built-in view-switching UI by default. However, it offers greater flexibility by allowing you to implement a custom header where you can design the view-switching experience to fit your needs. For example, you can use a [dropdown menu](https://demo.mobiscroll.com/select) or [segmented controls](https://demo.mobiscroll.com/forms/segmented) to let users switch between views like Calendar, Scheduler, Agenda, or any other layout that fits your use case.
 
 #### FullCalendar:

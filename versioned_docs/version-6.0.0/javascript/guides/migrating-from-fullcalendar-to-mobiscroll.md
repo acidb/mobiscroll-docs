@@ -56,7 +56,7 @@ Key Differences:
 
 ### FullCalendar Timeline view:
 
-In FullCalendar, the Timeline view is configured through the [`initialView`](https://fullcalendar.io/docs/initialView), `slotMinTime`, and `slotMaxTime`options. Resource-based timeline scheduling also requires the `resourceTimelinePlugin` and a `resources` array.
+In FullCalendar, the Timeline view is configured through the [`initialView`](https://fullcalendar.io/docs/initialView), `slotMinTime`, and `slotMaxTime` options. Resource-based timeline scheduling also requires the `resourceTimelinePlugin` and a `resources` array.
 
 ```js
 const calendar = new Calendar(container, {

@@ -65,4 +65,3 @@ Parameters:
    - `data`: *MbscCalendarEvent | MbscResource * - The dragged data.
    - `dataType`: *&#039;event&#039; | &#039;resource&#039;* - The type of the dragged item.
 
-

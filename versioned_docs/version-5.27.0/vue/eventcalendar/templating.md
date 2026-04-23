@@ -112,4 +112,3 @@ The above components can be used inside of the custom header. The following exam
   </template>
 </MbscEventcalendar>
 ```
-

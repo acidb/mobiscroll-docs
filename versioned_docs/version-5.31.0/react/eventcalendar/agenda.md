@@ -265,4 +265,3 @@ The display of the Agenda can be customized with different render functions.
 <Slots />
 
 </div>
-

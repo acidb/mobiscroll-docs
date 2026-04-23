@@ -86,4 +86,3 @@ $('#myDiv').mobiscroll().eventcalendar({
   }
 });
 ```
-

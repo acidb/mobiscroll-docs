@@ -40,4 +40,3 @@ The [`MbscTimezonePlugin`](#type-MbscTimezonePlugin) type has the following prop
  - `parse`: *(date: string &#124; number, s: any) => MbscTimezonedDate* - 
 
 
-

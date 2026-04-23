@@ -46,4 +46,3 @@ The display of the Datepicker component can be customized with differentÂ slotsÂ
 <Types />
 
 </div>
-

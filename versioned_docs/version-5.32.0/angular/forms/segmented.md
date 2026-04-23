@@ -96,4 +96,3 @@ The Segmented component is fully localized. This covers date and time format, bu
 <Types />
 
 </div>
-

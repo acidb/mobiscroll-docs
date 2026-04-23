@@ -61,4 +61,3 @@ invalid: [
 :::tip
 Check out the [recurrence section](../core-concepts/recurrence) for more details on recurring rules
 :::
-

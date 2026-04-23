@@ -104,4 +104,3 @@ The length of the selection will be a set number of days (for example: 5 days) a
   [(ngModel)]="myWeek">
 </mbsc-datepicer>
 ```
-

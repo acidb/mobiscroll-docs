@@ -102,4 +102,3 @@ A render function to customize the header of the event calendar. It takes a func
 In the returned markup, you can use custom html as well as the built in header components of the calendar.
 
 **Default value**: `undefined`
-

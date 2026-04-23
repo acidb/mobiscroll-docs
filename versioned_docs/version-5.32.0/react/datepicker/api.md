@@ -47,4 +47,3 @@ The display of the Datepicker component can be customized with different render
 <Interfaces />
 
 </div>
-

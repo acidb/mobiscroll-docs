@@ -41,4 +41,3 @@ The following example displays a toast message on button click.
 <Events />
 
 </div>
-

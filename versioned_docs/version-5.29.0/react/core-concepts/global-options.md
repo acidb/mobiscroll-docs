@@ -62,4 +62,3 @@ export function App() {
 ```
 
 In the above example both the Datepicker and the Eventcalendar component will get the same theme automatically from the `GLOBAL_OPTIONS` object through context.
-

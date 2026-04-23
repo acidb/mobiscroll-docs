@@ -37,4 +37,3 @@ Parameters:
  - active - Specifies the active selection: start or end.
 
 
-

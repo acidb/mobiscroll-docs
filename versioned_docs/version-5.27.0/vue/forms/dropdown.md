@@ -68,4 +68,3 @@ Use the [v-model](https://vuejs.org/api/built-in-directives.html#v-model) direct
 <Localizations />
 
 </div>
-

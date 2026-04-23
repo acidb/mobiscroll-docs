@@ -48,4 +48,3 @@ function App() {
   return <Select selectMultiple={true} data={bonuses} value={selectedValues} onChange={myChange} />
 }
 ```
-

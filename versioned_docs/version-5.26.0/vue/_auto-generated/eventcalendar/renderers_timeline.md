@@ -299,4 +299,3 @@ is left to you.
 The following year specific properties are available:
 - `date`: _Date_ - The specific date as a Date object.
 - `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events of the year.
-

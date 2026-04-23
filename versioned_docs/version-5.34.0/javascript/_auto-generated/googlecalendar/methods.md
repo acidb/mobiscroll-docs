@@ -136,4 +136,3 @@ The rest of custom properties will be passed to the `extendedProperties` field.
 
  - callback - Callback function which is executed then the request is complete. Receives the updated event.
 
-

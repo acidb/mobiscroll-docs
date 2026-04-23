@@ -24,4 +24,3 @@ import UpdateVersionDownload from '../../_shared/guides/update_version_download.
 ## Updating from a downloaded package {#download-update}
 
 <UpdateVersionDownload framework="react" />
-

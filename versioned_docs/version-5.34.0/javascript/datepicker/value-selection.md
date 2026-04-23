@@ -88,4 +88,3 @@ mobiscroll.datepicker('#myInput', {
   selectSize: 5,
 });
 ```
-

@@ -52,4 +52,3 @@ The item data is accessible through the slot parameter `data` property.
 Every item on the Select must have the same height. For styles that go beyond the default height, the [`itemHeight`](./api#opt-itemHeight) option can be used to adjust the styling.
 :::
 
-

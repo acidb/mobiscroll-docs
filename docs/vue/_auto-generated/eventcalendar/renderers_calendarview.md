@@ -126,4 +126,3 @@ The following event specific properties are available:
 - `original`: _MbscCalendarEvent_ - The original event object. Any custom property on the event can be accessed through this property.
 - `start`: _string_ - The formatted start time, if the event is not all day.
 - `title`: _string_ - The title of the event.
-

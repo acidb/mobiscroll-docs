@@ -80,4 +80,3 @@ datepicker('#myInput', {
   displayTimezone: 'Europe/Berlin',
 });
 ```
-

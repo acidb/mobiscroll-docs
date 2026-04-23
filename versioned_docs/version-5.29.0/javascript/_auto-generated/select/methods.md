@@ -66,4 +66,3 @@ Sets the picker value and also writes it to the input.
 Parameters:
  - value - The value to set.
 
-

@@ -35,4 +35,3 @@ With these properties both hours and minutes can be specified.
 <Localizations />
 
 </div>
-

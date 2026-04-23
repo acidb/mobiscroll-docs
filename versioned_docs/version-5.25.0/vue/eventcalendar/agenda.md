@@ -29,4 +29,3 @@ The agenda calendar displays a list of events for a given period of time (year, 
 <Localizations />
 
 </div>
-

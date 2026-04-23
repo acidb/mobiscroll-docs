@@ -89,4 +89,3 @@ To use custom themes together with the `themeVariant` option (which controls whe
 <Methods />
 
 </div>
-

@@ -60,4 +60,3 @@ $('#myInput').mobiscroll().datepicker({
 });
 ```
 ![Calendar cell template](/img/calendar-cell-template.png)
-

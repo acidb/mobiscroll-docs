@@ -116,4 +116,3 @@ You can pass the view variables - like month and year - in the URL and handle th
   <MbscEventcalendar :data="myEvents" @page-loading="handlePageLoading" />
 </template>
 ```
-

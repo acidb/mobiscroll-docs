@@ -105,4 +105,3 @@ export class AppComponent {
   myControlCombo4: MbscDatepickerControl[] = ['date', 'timegrid'];
 }
 ```
-

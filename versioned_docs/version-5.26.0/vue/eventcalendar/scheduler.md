@@ -161,4 +161,3 @@ You can use the following CSS classes for changing column widths of the schedule
 <Slots />
 
 </div>
-

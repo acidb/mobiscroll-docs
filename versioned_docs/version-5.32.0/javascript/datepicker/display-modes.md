@@ -15,4 +15,3 @@ mobiscroll.datepicker('#myInput', {
   display: 'anchored',
 });
 ```
-

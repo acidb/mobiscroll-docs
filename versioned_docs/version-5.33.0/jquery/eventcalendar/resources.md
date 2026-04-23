@@ -10,4 +10,3 @@ import Content from '../../_shared/eventcalendar/resources.mdx';
 
 <Content />
 
-

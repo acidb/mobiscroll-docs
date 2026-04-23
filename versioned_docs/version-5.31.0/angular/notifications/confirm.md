@@ -55,4 +55,3 @@ The Confirm component ships with different event hooks for deep customization. E
 <Events />
 
 </div>
-

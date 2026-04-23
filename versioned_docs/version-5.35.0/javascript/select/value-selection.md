@@ -33,4 +33,3 @@ mobiscroll.select('#myInput', {
   selectMultiple: true,
 });
 ```
-

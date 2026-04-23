@@ -44,4 +44,3 @@ mobiscroll.eventcalendar('#my-div', {
   }],
 });
 ```
-

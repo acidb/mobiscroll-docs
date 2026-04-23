@@ -49,4 +49,3 @@ Parameters:
 - selected: Boolean - True if the date is selected.
 - events: Array - The list of events of the day.
 
-

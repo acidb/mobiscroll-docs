@@ -82,4 +82,3 @@ There are five predefined breakpoints:
 - `large` - min-width: 992px
 - `xlarge` - min-width: 1200px
 
-

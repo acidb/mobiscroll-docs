@@ -19,4 +19,3 @@ datepicker('#myInput', {
   returnFormat: 'moment'
 });
 ```
-

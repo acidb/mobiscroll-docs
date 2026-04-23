@@ -24,4 +24,3 @@ The following example will create a popup with static content. When clicked or t
 const inst = mobiscroll.popup('#myDiv', {});
 inst.open();
 ```
-

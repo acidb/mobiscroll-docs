@@ -438,4 +438,3 @@ The display of the Scheduler can be customized with different slot functions.
 <Types />
 
 </div>
-

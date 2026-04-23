@@ -32,4 +32,3 @@ Recalculates the position of the component.
 
 
 Sets or updates options of the component.
-

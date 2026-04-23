@@ -103,4 +103,3 @@ If you are using Yarn or Docker, check out the [setup instructions here](./insta
 
 Congratulations! You've successfully integrated Mobiscroll React into your Next.js app. For more components and advanced configuration options, visit the [Component's documentation](https://mobiscroll.com/docs/react#ui-components) or check out our [demo pages](https://demo.mobiscroll.com).
 
-

@@ -166,4 +166,3 @@ Play with the slider below to see the differences.
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
-

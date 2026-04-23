@@ -86,4 +86,3 @@ mobiscroll.eventcalendar('#myDiv', {
   }
 });
 ```
-

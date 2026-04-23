@@ -46,4 +46,3 @@ The display of the Select component can be customized with different render fu
 <Types />
 
 </div>
-

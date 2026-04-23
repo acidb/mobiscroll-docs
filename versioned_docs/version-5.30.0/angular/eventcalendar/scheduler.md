@@ -416,4 +416,3 @@ The display of the Scheduler can be customized with different templating funct
 </div>
 
 </div>
-

@@ -52,4 +52,3 @@ The Checkbox component is fully localized. This covers date and time format, but
 <Localizations />
 
 </div>
-

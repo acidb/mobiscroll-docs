@@ -62,4 +62,3 @@ Parameters:
    - `domEvent`: *Event* - The DOM event of the drag.
    - `data`: *MbscCalendarEvent* - The dragged calendar event.
 
-

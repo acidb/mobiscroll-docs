@@ -18,4 +18,3 @@ Callback executed when the user signed in.
 
 
 Callback executed when the user signed out.
-

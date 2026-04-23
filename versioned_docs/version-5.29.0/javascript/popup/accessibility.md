@@ -11,4 +11,3 @@ import Content from '../../_shared/popup/keyboard-support.mdx';
 ## Keyboard Support
 
 <Content />
-

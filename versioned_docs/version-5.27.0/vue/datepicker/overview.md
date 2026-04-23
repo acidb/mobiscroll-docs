@@ -21,4 +21,3 @@ The following example will create a Datepicker with default options.
   <MbscDatepicker />
 </template>
 ```
-

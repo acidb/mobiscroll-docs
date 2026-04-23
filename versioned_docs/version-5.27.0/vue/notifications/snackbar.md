@@ -53,4 +53,3 @@ The following example displays a snackbar message on button click.
 <Events />
 
 </div>
-

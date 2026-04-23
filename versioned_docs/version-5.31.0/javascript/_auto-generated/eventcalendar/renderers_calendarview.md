@@ -137,4 +137,3 @@ The following event specific properties are available:
 - `start`: _string_ - The formatted start time, if the event is not all day.
 
 **Default value**: `undefined`
-

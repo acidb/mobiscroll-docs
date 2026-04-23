@@ -48,4 +48,3 @@ export class MyComponent {
   selected: string[] = [];
 }
 ```
-

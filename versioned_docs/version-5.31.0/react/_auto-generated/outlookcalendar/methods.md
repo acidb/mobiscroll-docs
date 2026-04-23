@@ -109,4 +109,3 @@ Parameters:
 
  - callback - Callback function which is executed then the request is complete. Receives the updated event.
 
-

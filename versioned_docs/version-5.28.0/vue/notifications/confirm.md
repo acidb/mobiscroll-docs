@@ -57,4 +57,3 @@ The following example displays a confirm dialog on button click.
 <Events />
 
 </div>
-

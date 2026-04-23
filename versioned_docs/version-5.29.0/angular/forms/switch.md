@@ -63,4 +63,3 @@ The Switch component is fully localized. This covers date and time format, butto
 <Localizations />
 
 </div>
-

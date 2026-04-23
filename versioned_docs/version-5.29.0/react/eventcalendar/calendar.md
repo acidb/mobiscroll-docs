@@ -238,4 +238,3 @@ The display of the Event Calendar can be customized with different render funct
 <Slots />
 
 </div>
-

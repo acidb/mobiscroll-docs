@@ -228,4 +228,3 @@ A footer can be rendered as well for each day using the [dayFooter](#slot-dayFoo
 <Slots />
 
 </div>
-

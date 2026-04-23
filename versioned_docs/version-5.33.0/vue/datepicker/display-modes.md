@@ -13,4 +13,3 @@ import Content from '../../_shared/display_modes.mdx';
 ```html title="Setting a display option"
 <MbscDatepicker display="anchored" />
 ```
-

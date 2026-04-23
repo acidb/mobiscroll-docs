@@ -4,4 +4,3 @@
 
 
 Triggered when the component is closed.
-

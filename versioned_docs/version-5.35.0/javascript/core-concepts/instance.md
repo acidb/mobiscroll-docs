@@ -99,4 +99,3 @@ const occurences = inst.getInvalids('2023-11-01', '2023-12-01');
 ```
 
 The result in this case will be an array of objects, each of them being an occurence of an invalid day in November.
-

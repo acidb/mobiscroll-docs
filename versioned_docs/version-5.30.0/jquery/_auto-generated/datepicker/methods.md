@@ -74,4 +74,3 @@ since in these cases there&#039;s no temporary value.
 Parameters:
  - value - The value to set to the Datepicker as temporary value
 
-

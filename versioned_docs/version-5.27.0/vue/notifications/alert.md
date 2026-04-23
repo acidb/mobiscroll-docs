@@ -49,4 +49,3 @@ The following example displays an alert message on button click.
 <Events />
 
 </div>
-

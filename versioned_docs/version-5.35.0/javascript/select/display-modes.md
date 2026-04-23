@@ -15,4 +15,3 @@ mobiscroll.select('#myInput', {
   display: 'anchored',
 });
 ```
-

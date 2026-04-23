@@ -46,4 +46,3 @@ In case you installed the library from a downloaded package and did not include 
     return <Eventcalendar locale={localeEnGB} theme="ios" />
   }
 ```
-

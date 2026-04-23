@@ -240,4 +240,3 @@ describe("Mobiscroll Datepicker events", () => {
 :::info
 Here we are using Vitest’s `vi.fn()` to create a mock function and assert that it was called after the Datepicker was opened.
 :::
-

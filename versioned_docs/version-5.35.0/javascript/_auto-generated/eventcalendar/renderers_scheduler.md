@@ -180,4 +180,3 @@ The following event specific properties are available:
 - `currentResource`: _string | number_ - The resource of the row or column where the event is being rendered.
 
 **Default value**: `undefined`
-

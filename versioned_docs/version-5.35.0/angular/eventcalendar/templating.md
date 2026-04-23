@@ -3,6 +3,7 @@ sidebar_position: 11
 sidebar_label: Templating
 displayed_sidebar: angularSidebar
 title: Templating
+description: 'Customize Eventcalendar event rendering in Angular with templating — override event bubbles, slot content, header, and more.'
 ---
 
 import { ImgComparisonSlider } from '@img-comparison-slider/react';

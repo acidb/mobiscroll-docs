@@ -3,6 +3,7 @@ sidebar_position: 11
 sidebar_label: Accessibility
 displayed_sidebar: angularSidebar
 title: Accessibility
+description: 'Accessibility support for the Mobiscroll Select component in Angular — ARIA roles, keyboard navigation, and screen reader guidance.'
 ---
 
 import Content from '../../_shared/select/accessibility.mdx';

@@ -2,6 +2,7 @@
 sidebar_position: 1
 sidebar_label: Overview
 displayed_sidebar: reactSidebar
+description: 'Mobiscroll Datepicker for React — pick single dates, times, multiple dates, or date ranges with calendar and scroller controls.'
 ---
 
 # Date & Time picker

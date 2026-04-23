@@ -2,6 +2,7 @@
 sidebar_position: 3
 sidebar_label: Return value
 displayed_sidebar: jquerySidebar
+description: 'Datepicker return value formats in Mobiscroll jQuery — date objects, ISO strings, and range output structures.'
 ---
 
 import Content from '../../_shared/datepicker/return_value.mdx';

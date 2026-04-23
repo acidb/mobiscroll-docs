@@ -2,6 +2,7 @@
 sidebar_label: Value Selection
 displayed_sidebar: javascriptSidebar
 sidebar_position: 2
+description: 'Configure date value selection behavior in the Mobiscroll Datepicker — set min/max, disabled dates, pre-selected values, and selection constraints.'
 ---
 
 # Value Selection

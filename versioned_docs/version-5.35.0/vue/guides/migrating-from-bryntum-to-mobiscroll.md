@@ -4,6 +4,7 @@ sidebar_label: Migrating from Bryntum
 displayed_sidebar: vueSidebar
 title: Migrating from Bryntum to Mobiscroll
 toc_max_heading_level: 2
+description: 'Step-by-step guide for migrating a JavaScript scheduling app from Bryntum Scheduler to Mobiscroll Eventcalendar — API mapping and config equivalents.'
 ---
 
 ## Overview

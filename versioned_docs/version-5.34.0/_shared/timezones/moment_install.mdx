@@ -1,3 +1,5 @@
+import CodeBlock from '@theme/CodeBlock';
+
 **1.** To install the moment-timezone library with npm you will need to run the following commands:
 
 ```bash
@@ -6,17 +8,16 @@ npm install moment-timezone
 
 **2.** After the library is installed, you will have to import it with the `momentTimezone` object from mobiscroll:
 
-```javascript title="Moment library import"
-import moment from 'moment-timezone';
-import { momentTimezone } from '@mobiscroll/{props.framework}';
-```
+<CodeBlock language="javascript" title="Moment library import">{
+`import moment from 'moment-timezone';
+import { momentTimezone } from '@mobiscroll/${props.framework}';`
+}</CodeBlock>
 
 **3.** Then set the mobiscroll's reference to the imported library:
 
-```javascript title="Moment library setup"
-import moment from 'moment-timezone';
-import { momentTimezone } from '@mobiscroll/{props.framework}';
+<CodeBlock language="javascript" title="Moment library setup">{
+`import moment from 'moment-timezone';
+import { momentTimezone } from '@mobiscroll/${props.framework}';
 // highlight-next-line
-momentTimezone.moment = moment;
-```
-
+momentTimezone.moment = moment;`
+}</CodeBlock>

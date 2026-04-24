@@ -60,7 +60,7 @@ All scheduling views are ONE component: **Eventcalendar**, configured via the `v
 
 ## Version Mismatch
 
-If the user mentions "v5", "version 5", or uses a v5-only pattern (e.g. `mobiscroll.settings`, `mobiscroll.theme`, `data-role` attributes, or a global `mobiscroll` namespace API not present in v6), respond:
+If the user mentions "v5", "version 5", or uses a v5-only pattern, respond:
 
 > "⚠️ This looks like Mobiscroll v5 syntax or API usage. This file is configured for Mobiscroll **v6 (latest)**. Would you like: 1) the v6 equivalent of what you're asking about, or 2) guidance using the v5 documentation instead?"
 

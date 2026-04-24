@@ -4,6 +4,7 @@ sidebar_label: Migrating from FullCalendar
 displayed_sidebar: javascriptSidebar
 title: Migrating from FullCalendar to Mobiscroll
 toc_max_heading_level: 2
+description: 'Step-by-step guide for migrating from FullCalendar to Mobiscroll Eventcalendar in JavaScript — API mapping, event model, and config comparison.'
 ---
 
 ## Overview

@@ -42,3 +42,19 @@ export const toc = [...dataTOC,
 ```
 
 In this case other headers on the page need to be changed to header tags, like `h2` or `h3`. The exported `toc` will take precedence this way.
+
+### Description in frontmatter for llms plugin
+
+Every Markdown file (.md) that is rendered as a documentation page (i.e. not shared partials or auto-generated content) must include a description field in its frontmatter.
+
+This description is required by the llms plugin and is used when generating the llms.txt and related files, helping AI tools understand when the page is relevant.
+
+```js
+---
+sidebar_position: 6
+sidebar_label: Accessibility
+displayed_sidebar: javascriptSidebar
+title: Accessibility
+description: Keyboard navigation, screen reader support, and ARIA conventions shared across all Mobiscroll JavaScript components.
+---
+```

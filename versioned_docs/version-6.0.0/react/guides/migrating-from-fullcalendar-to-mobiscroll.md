@@ -1,19 +1,23 @@
 ---
-sidebar_position: 8
-sidebar_label: Migrating from Bryntum
+sidebar_position: 10
+sidebar_label: Migrating from FullCalendar
 displayed_sidebar: reactSidebar
-title: Migrating from Bryntum to Mobiscroll
+title: Migrating from FullCalendar to Mobiscroll
 toc_max_heading_level: 2
-description: Step-by-step guide for migrating from Bryntum to Mobiscroll in React — API mapping, event model, and config comparison.
+description: Step-by-step guide for migrating from FullCalendar to Mobiscroll in React — API mapping, event model, and config comparison.
 ---
 
 ## Overview
 
-This article provides a comprehensive guide for migrating your scheduling solution from Bryntum to Mobiscroll. It highlights the key differences between the two libraries and outlines step-by-step instructions, covering installation, configuration, resources, events, and features, ensuring a smooth and informed transition.
+This article provides a comprehensive guide for migrating your scheduling solution from FullCalendar to Mobiscroll in React. It highlights the key differences between the two libraries and outlines step-by-step instructions, covering installation, configuration, resources, events, and features, ensuring a smooth and informed transition.
+
+FullCalendar integrates with React through its official `<FullCalendar />` component, while Mobiscroll provides native React components that plug directly into JSX through standard bindings.
+
+If you are currently using FullCalendar in React and planning to migrate to Mobiscroll’s React components, the following guide outlines the steps required for a smooth transition.
 
 ## Installation
 
-Migrating from Bryntum to Mobiscroll starts with a different approach to installation, especially regarding package access and tooling.
+Migrating from FullCalendar to Mobiscroll starts with a different approach to installation, especially regarding package access and tooling.
 
 ### Mobiscroll installation steps:
 
@@ -33,19 +37,20 @@ Alternatively, Mobiscroll also supports [manual installation](/react/getting-sta
 
 ## Initialization
 
-### Bryntum:
+### FullCalendar:
 
 ```jsx
-import { BryntumSchedulerPro } from '@bryntum/schedulerpro-react';
-import '@bryntum/schedulerpro/schedulerpro.stockholm.css';
-   
-const App = () => {
-  return (
-      <BryntumSchedulerPro />
-  );
-};
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
 
-export default App;
+export default function App() {
+  return (
+    <FullCalendar
+      plugins={[dayGridPlugin]}
+      initialView="dayGridMonth"
+    />
+  );
+}
 ```
 
 ### Mobiscroll:
@@ -67,36 +72,33 @@ export default App;
 
 Key Differences:
 - With Mobiscroll, you get precise control over time ranges on [Scheduler](https://demo.mobiscroll.com/scheduler/show-hide-hours-days) and [Timeline](https://demo.mobiscroll.com/timeline/daily-weekly-monthly-yearly-timeline) views, plus feature-rich [Event Calendar](https://demo.mobiscroll.com/eventcalendar) and [Agenda](https://demo.mobiscroll.com/agenda) views for seamless scheduling.
-- Bryntum provides built-in view presets.
+- FullCalendar uses plugins and view-specific options. Standard calendar layouts such as month, week, day, and list are available through separate packages, while timeline and resource-based scheduling require Premium plugins.
 
-### Bryntum Scheduler Pro:
+### FullCalendar Timeline view:
 
-For the Bryntum Scheduler, the time axis is configured using three settings: `startDate`, `endDate`, and `viewPreset`. The `startDate` and `endDate` define the overall date range visible on the axis, while the `viewPreset` controls its visual layout and determines which specific dates are displayed.
+In FullCalendar, the Timeline view is configured through the [`initialView`](https://fullcalendar.io/docs/initialView), `slotMinTime`, and `slotMaxTime` options. Resource-based timeline scheduling also requires the `resourceTimelinePlugin` and a `resources` array.
 
 ```jsx
-import { BryntumSchedulerPro } from '@bryntum/schedulerpro-react';
-import '@bryntum/schedulerpro/schedulerpro.stockholm.css';
+import FullCalendar from '@fullcalendar/react';
+import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
 
-const schedulerproProps = {
-  startDate  : new Date(2017, 0, 1, 6),
-  endDate    : new Date(2017, 0, 1, 20),
-  viewPreset : 'hourAndDay'
-};
-
-const App = () => {
+export default function App() {
   return (
-    <BryntumSchedulerPro
-      {...schedulerproProps}
+    <FullCalendar
+      schedulerLicenseKey="YOUR_LICENSE_KEY"
+      plugins={[resourceTimelinePlugin]}
+      initialView="resourceTimelineDay"
+      initialDate="2017-01-01"
+      slotMinTime="06:00:00"
+      slotMaxTime="20:00:00"
     />
   );
-};
-
-export default App; 
+}
 ```
 
 ### Mobiscroll Timeline view:
 
-In the Mobiscroll Timeline view, the `timeline` object within the [`view`](/react/eventcalendar/timeline#configuring-the-view) option allows you to customize the visible days and the timeline’s scale. You can specify which days to display (e.g., weekdays), set the time scale (e.g., 30-minute intervals), and define the frequency of the labels shown (e.g., every 15 minutes).
+In the Mobiscroll Timeline view, the `timeline` object within the [`view`](/react/eventcalendar/timeline#configuring-the-view) option allows you to customize the visible days and the timeline’s scale. You can specify which days to display (e.g., weekdays), set the time scale (e.g., 30-minute intervals), and define the frequency of the labels shown.
 
 ```jsx
 import { useMemo } from 'react';
@@ -104,7 +106,6 @@ import { Eventcalendar } from '@mobiscroll/react';
 import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
-
   const myView = useMemo(
     () => ({
       timeline: {
@@ -112,48 +113,46 @@ function App() {
         size: 1,
         startTime: '06:00',
         endTime: '20:00',
-      }
+      },
     }),
     [],
   );
 
   return (
-    <Eventcalendar view={myView} defaultSelectedDate="2017-01-01" /> // if you want to set the initial view to a specific date
+    <Eventcalendar
+      view={myView}
+      defaultSelectedDate="2017-01-01"
+    />
   );
 }
 
 export default App;
 ```
 
-Check out how you can configure the Timeline view in [this live example](https://demo.mobiscroll.com/timeline/daily-weekly-monthly-yearly-timeline#).
+Check out how you can configure the Timeline view in [this live example](https://demo.mobiscroll.com/timeline/daily-weekly-monthly-yearly-timeline#).
 
-### Bryntum Calendar view config:
+### FullCalendar TimeGrid view:
 
-In the Bryntum Calendar, the `date` option sets the initial date that the Calendar, its sidebar date picker, and the active view should center around upon initialization. The `mode` option determines which of the built-in views (such as day, week, or month) is active by default.
+For a scheduler-style week layout in FullCalendar, the most common setup is `timeGridWeek` and this need to be specified with the [`initialView`](https://fullcalendar.io/docs/initialView). You choose the initial date with `initialDate`.
 
 ```jsx
-import { BryntumCalendar } from '@bryntum/calendar-react';
-@import "@bryntum/calendar/calendar.stockholm.css";
+import FullCalendar from '@fullcalendar/react';
+import timeGridPlugin from '@fullcalendar/timegrid';
 
-const calendarProps = {
-  date : new Date(2020, 9, 12),
-  mode : 'week',
-};
-
-const App = () => {
+export default function App() {
   return (
-    <BryntumCalendar
-      {...calendarProps}
+    <FullCalendar
+      plugins={[timeGridPlugin]}
+      initialView="timeGridWeek"
+      initialDate="2020-09-12"
     />
   );
-};
-
-export default App;
+}
 ```
 
 ### Mobiscroll Scheduler:
 
-You can customize the visible days and hours, as well as the time grid scale, using the `schedule` object under the [`view`](/react/eventcalendar/scheduler#configuring-the-view) option. This allows you to define which days are shown (e.g., weekdays), set the visible time range (e.g., 8 AM to 6 PM), adjust the time scale (e.g., 30-minute intervals), and control the frequency of the labels (e.g., every 15 minutes).
+You can customize the visible days and hours, as well as the time grid scale, using the `schedule` object under the [`view`](/react/eventcalendar/scheduler#configuring-the-view) option. This allows you to define which days are shown, set the visible time range, adjust the time scale, and control the frequency of the labels.
 
 ```jsx
 import { useMemo } from 'react';
@@ -161,58 +160,43 @@ import { Eventcalendar } from '@mobiscroll/react';
 import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
-
   const myView = useMemo(
     () => ({
       schedule: {
         type: 'week',
-      }
+      },
     }),
     [],
   );
 
   return (
-    <Eventcalendar view={myView} defaultSelectedDate="2020-09-12" />
+    <Eventcalendar
+      view={myView}
+      defaultSelectedDate="2020-09-12"
+    />
   );
 }
 
 export default App;
 ```
 
-Check out how you can configure the Scheduler view in [this live example](https://demo.mobiscroll.com/scheduler/show-hide-hours-days#).
+Check out how you can configure the Scheduler view in [this live example](https://demo.mobiscroll.com/scheduler/show-hide-hours-days#).
 
 ## Resource configuration
 
-Migrating resource data from Bryntum to Mobiscroll should be relatively straightforward.
+Migrating resource data from FullCalendar to Mobiscroll should be relatively straightforward.
 
-### Bryntum Scheduler Pro – resource definition:
+### FullCalendar - resource definition:
 
 ```jsx
-import { useMemo } from 'react';
-import { BryntumSchedulerPro } from '@bryntum/schedulerpro-react';
-import '@bryntum/schedulerpro/schedulerpro.stockholm.css';
-
-const App = () => {
-  const myResources = useMemo(
-    () => [
-      { id: 'r1', name: 'Mike' },
-      { id: 'r2', name: 'Linda' },
-      // ...
-    ],
-    [],
-  );
-
-  return (
-    <BryntumSchedulerPro
-      resources={myResources}
-    />
-  );
-};
-
-export default App; 
+const myResources = [
+  { id: 'r1', title: 'Mike' },
+  { id: 'r2', title: 'Linda' },
+  // ...
+];
 ```
 
-### Mobiscroll Timeline view/ Scheduler – resource definition:
+### Mobiscroll Timeline view/ Scheduler - resource definition:
 
 ```jsx
 import { useMemo } from 'react';
@@ -239,47 +223,30 @@ function App() {
 export default App;
 ```
 
-As shown above, both Bryntum and Mobiscroll use similar structures for defining resources, typically including `id` and `name` [properties](/react/eventcalendar/timeline#opt-resources). Like Bryntum, Mobiscroll also supports a wide range of additional properties, as demonstrated in [this example](https://demo.mobiscroll.com/timeline/resource-data-structure#).
+Both FullCalendar and Mobiscroll use similar structures for defining resources, typically including an `id` and a label-like field. In FullCalendar this is usually `title`, while in Mobiscroll it is usually `name` in the [resources](/react/eventcalendar/timeline#opt-resources) array. Like FullCalendar’s resource objects, Mobiscroll also supports a wide range of additional properties, as demonstrated in [this example](https://demo.mobiscroll.com/timeline/resource-data-structure#).
 
 For more advanced use cases, refer to the [Mobiscroll documentation](/react/eventcalendar/resources) for additional options, including [custom rendering and templating of resources](/react/eventcalendar/timeline#the-resource-their-header-and-footer). You can also explore our demo page for [detailed resource configuration](https://demo.mobiscroll.com/timeline/timeline-resource-details-side-panel-footer) examples.
 
+Compared to FullCalendar, Mobiscroll provides a more resource-focused user experience, including features such as fixed rows, reordering, and external drag-and-drop.
+
 ## Event migration
 
-As shown above, there are clear differences in how events are structured between Bryntum and Mobiscroll. Bryntum defines an event inside the `events` option using a `startDate`, along with a `duration` and `durationUnit` to determine the end time. In contrast, Mobiscroll uses the [`data`](/react/eventcalendar/timeline#opt-data) option and explicit `start` and `end` [properties](https://demo.mobiscroll.com/timeline/event-data-structure#) for defining the event period.
+FullCalendar defines an event inside the [`events`](https://fullcalendar.io/docs/event-parsing) option using explicit `start` and `end` values, together with fields like `title`, `allDay`, and `extendedProps`. Mobiscroll uses the [`data`](/javascript/eventcalendar/timeline#opt-data) option and explicit `start` and `end` [properties](https://demo.mobiscroll.com/timeline/event-data-structure#) for defining the event period.
 
 ### Event structure comparison
 
-#### Bryntum:
+#### FullCalendar:
 
 ```jsx
-import { useMemo } from 'react';
-import { BryntumSchedulerPro } from '@bryntum/schedulerpro-react';
-import '@bryntum/schedulerpro/schedulerpro.stockholm.css';
-
-const App = () => {
-
-  const myEvents = useMemo(
-    () => [
-      {
-        id: 1,
-        resourceId: 'r1',
-        startDate: new Date(2017, 0, 1, 10),
-        duration: 2,
-        durationUnit: 'h',
-        name: 'Click me'
-      }
-    ],
-    [],
-  );
-
-  return (
-    <BryntumSchedulerPro
-      events={myEvents}
-    />
-  );
-};
-
-export default App;
+const myEvents = [
+  {
+    id: '1',
+    resourceId: 'r1',
+    start: '2017-01-01T10:00:00',
+    end: '2017-01-01T12:00:00',
+    title: 'Click me',
+  },
+];
 ```
 
 #### Mobiscroll:
@@ -290,16 +257,15 @@ import { Eventcalendar } from '@mobiscroll/react';
 import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
-
   const myEvents = useMemo(
     () => [
       {
-        id: 1, 
+        id: '1',
         resource: 'r1',
         start: '2017-01-01T10:00',
         end: '2017-01-01T12:00',
-        title: 'Click me'
-      }
+        title: 'Click me',
+      },
     ],
     [],
   );
@@ -314,31 +280,15 @@ function App() {
 export default App;
 ```
 
-### Converting Bryntum events to Mobiscroll format
+### Converting FullCalendar events to Mobiscroll format
 
-Here’s a simple example of how to convert Bryntum-style events into the format used by Mobiscroll:
+Here’s a simple example of how to convert FullCalendar-style events into the format used by Mobiscroll:
 
 ```jsx
-import { useEffect } from 'react';
-
-useEffect(() => {
-  if (bryntumEvents && bryntumEvents.length) {
-    const convertedEvents = bryntumEvents.map(event => {
-      const start = new Date(event.startDate);
-      const end = new Date(start.getTime() + event.duration * 60 * 60 * 1000);
-
-      return {
-        id: event.id,
-        title: event.name,
-        start,
-        end,
-        resource: event.resourceId
-      };
-    });
-
-    setMobiscrollEvents(convertedEvents);
-  }
-}, [bryntumEvents]);
+const mobiscrollEvents = fullcalendarEvents.map(({ resourceId, resourceIds, ...event }) => ({
+  ...event,
+  resource: resourceId || resourceIds,
+}));
 ```
 
 Every project may have its own unique data format and requirements, so this script serves only as a basic starting point. You’ll likely need to adapt your transformation logic to fit your application’s specific needs.
@@ -353,42 +303,44 @@ We will examine how each framework handles:
 
 ### Loading data
 
-Bryntum:
-- Bryntum components use stores, structured data collections that manage entities such as resources, events, and project details.
-- Data is typically loaded from remote REST endpoints (e.g., /load, /read-resources) that return JSON. These endpoints can support filtering and chunking to optimize handling of large datasets.
-- Lazy loading (or paginated loading) is supported, allowing data to be fetched on demand as the user scrolls or navigates, minimizing initial load times and memory usage.
-- The backend layer is fully decoupled, enabling the use of any technology stack (Node.js, PHP, Java, etc.) to deliver JSON payloads to the Bryntum frontend.
+FullCalendar:
+- FullCalendar accepts [local arrays](https://fullcalendar.io/docs/events-array) through the `events` option.
+- It can also [load data from JSON](https://fullcalendar.io/docs/events-json-feed) feeds or from an `events` callback function, which receives the visible date range and lets you fetch only the events needed for the current view.
+- If needed, you can refresh remote sources programmatically with `refetchEvents()`.
 
 Mobiscroll:
-- Mobiscroll components accept static arrays, which can be [inline](/react/eventcalendar/data-binding#local-data) (preloaded in memory) or [dynamically fetched](/react/eventcalendar/data-binding#remote-data) from remote APIs.
-- The [`onPageLoading`](/react/eventcalendar/api#event-onPageLoading) event plays a central role in incremental data loading, enabling applications to [request only the events needed](https://demo.mobiscroll.com/timeline/load-events-on-demand) for the current view (e.g., the current month or week) as the user navigates.
+- Mobiscroll components accept static arrays, which can be [inline](/react/eventcalendar/data-binding#local-data) or [dynamically fetched](/react/eventcalendar/data-binding#remote-data) from remote APIs.
+- The [`onPageLoading`](/react/eventcalendar/api#event-onPageLoading) event plays a central role in incremental data loading, enabling applications to [request only the events needed](https://demo.mobiscroll.com/timeline/load-events-on-demand) for the current view as the user navigates.
 - Mobiscroll also offers [integration with external calendar services](/react/eventcalendar/calendar-integrations/) ([Google Calendar](https://demo.mobiscroll.com/eventcalendar/sync-events-google-calendar#), [Outlook](https://demo.mobiscroll.com/eventcalendar/sync-events-outlook-calendar#)) via plugins, handling data retrieval and format conversion internally.
 
 Let’s see an example for each case:
 
 ### Local data
 
-#### Bryntum:
+#### FullCalendar:
 
-You can use the `events` option for passing the data inline.
+You can pass the event data inline through the `events` option.
 
 ```jsx
-import { BryntumSchedulerPro } from '@bryntum/schedulerpro-react';
-import '@bryntum/schedulerpro/schedulerpro.stockholm.css';
+import FullCalendar from '@fullcalendar/react';
+import timeGridPlugin from '@fullcalendar/timegrid';
 
-const myData = [
-  {
-    id: 1,
-    resourceId: 'r1',
-    startDate: new Date(2017, 0, 1, 10),
-    duration: 2,
-    durationUnit: 'h',
-    name: 'Click me'
-  }
-];
-
-function App() {
-  return <BryntumSchedulerPro events={myData} />
+export default function App() {
+  return (
+    <FullCalendar
+      plugins={[timeGridPlugin]}
+      initialView="timeGridWeek"
+      events={[
+        {
+          id: '1',
+          resourceId: 'r1',
+          start: '2017-01-01T10:00:00',
+          end: '2017-01-01T12:00:00',
+          title: 'Click me',
+        },
+      ]}
+    />
+  );
 }
 ```
 
@@ -397,68 +349,65 @@ function App() {
 Pass the event array to the [`data`](/react/eventcalendar/api#opt-data) option.
 
 ```jsx
-import { Eventcalendar } from "@mobiscroll/react";
+import { Eventcalendar } from '@mobiscroll/react';
 import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 const myData = [
   {
-    id: 1, 
+    id: '1',
     resource: 'r1',
     start: '2017-01-01T10:00',
     end: '2017-01-01T12:00',
-    title: 'Click me'
-  }
+    title: 'Click me',
+  },
 ];
 
 function App() {
-  return <Eventcalendar data={myData} />
+  return <Eventcalendar data={myData} />;
 }
+
+export default App;
 ```
 
 ### Remote data
 
-#### Bryntum
+#### FullCalendar
 
-You can use a project definition that solves the loading of the events from the backend.
+FullCalendar can fetch remote data through an `events` function or by using a JSON feed URL. The callback receives the currently visible date range, which makes it suitable for loading only the events that belong to the active view.
 
 ```jsx
-import { BryntumSchedulerPro } from '@bryntum/schedulerpro-react';
-import '@bryntum/schedulerpro/schedulerpro.stockholm.css';
+import FullCalendar from '@fullcalendar/react';
+import timeGridPlugin from '@fullcalendar/timegrid';
 
-const schedulerproProps = {
-  // ... other configs
-  project : {
-    autoLoad : true
-    transport : {
-      load : {
-        url : 'data/data.json'
-       }
-    },
-  }
-};
-
-const App = () => {
+export default function App() {
   return (
-    <BryntumSchedulerPro
-      {...schedulerproProps}
+    <FullCalendar
+      plugins={[timeGridPlugin]}
+      initialView="timeGridWeek"
+      events={(fetchInfo, successCallback, failureCallback) => {
+        fetch(`/api/events?start=${fetchInfo.startStr}&end=${fetchInfo.endStr}`)
+          .then((response) => response.json())
+          .then((events) => successCallback(events))
+          .catch((error) => failureCallback(error));
+      }}
     />
   );
-};
-
-export default App; 
+}
 ```
 
 #### Mobiscroll
 
-In case of Mobiscroll, you can also use the [`onPageLoading`](/react/eventcalendar/api#event-onPageLoading) pevent to load the data (on demand) relevant to the currently active view. The event fires every time the date range of the view changes, for example, when someone navigates the event calendar. Getting the events in real time as the user interacts with the UI improves load performance and always serves the most recent data.
+You can load the data through an external request and assign it to the data-bound variable to update the event calendar with the newly received data.
+
+In case of Mobiscroll, you can also use the [`onPageLoading`](/react/eventcalendar/api#event-onPageLoading) event to load the data on demand for the currently active view. The event fires every time the date range of the view changes, for example, when someone navigates the event calendar.
 
 ```jsx
-import { useCallback, useState } from 'react'
-import { Eventcalendar, getJson } from '@mobiscroll/react'
+import { useCallback, useState } from 'react';
+import { Eventcalendar, getJson } from '@mobiscroll/react';
 import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 const myView = {
-  schedule: { type: 'day' }
+  schedule: { type: 'day' },
 };
 
 function App() {
@@ -474,45 +423,68 @@ function App() {
       (data) => {
         setEvents(data);
       },
-      'jsonp'
-    )
+      'jsonp',
+    );
   }, []);
 
-  return <Eventcalendar data={myEvents} onPageLoading={handlePageLoading} view={myView} />
+  return (
+    <Eventcalendar
+      data={myEvents}
+      onPageLoading={handlePageLoading}
+      view={myView}
+    />
+  );
 }
+
+export default App;
 ```
 
 In case of the timeline view, data can also be [loaded dynamically during scrolling](/react/eventcalendar/timeline#load-data-on-scroll). Scrolling vertically or horizontally triggers the [`onVirtualLoading`](/react/eventcalendar/api#event-onVirtualLoading) lifecycle event, which can be used to [load data incrementally during scrolling](https://demo.mobiscroll.com/timeline/load-resources-on-scroll).
 
 ### Saving data
 
-#### Bryntum
+#### FullCalendar
 
-- By enabling `autoSync: true` in the project configuration, local changes automatically trigger API requests to persist modifications without additional boilerplate.
+- Persistence in FullCalendar is typically implemented by listening to lifecycle callbacks and sending the relevant changes to your backend API.
+- Typical hooks include [`eventAdd`](https://fullcalendar.io/docs/eventAdd), [`eventChange`](https://fullcalendar.io/docs/eventChange), and [`eventRemove`](https://fullcalendar.io/docs/eventRemove).
+- This gives you full control over how changes are saved, but the data layer must be implemented by your application.
 
 Example:
 
 ```jsx
-import { BryntumSchedulerPro } from '@bryntum/schedulerpro-react';
-import '@bryntum/schedulerpro/schedulerpro.stockholm.css';
+import FullCalendar from '@fullcalendar/react';
+import interactionPlugin from '@fullcalendar/interaction';
+import timeGridPlugin from '@fullcalendar/timegrid';
 
-const schedulerproProps = {
-  // ... other configs
-  project : {
-    autoSync  : true,
-    syncUrl   : 'save.php',
-  }
-};
-
-const App = () => {
+export default function App({ events }) {
   return (
-    <BryntumSchedulerPro
-      {...schedulerproProps}
+    <FullCalendar
+      plugins={[interactionPlugin, timeGridPlugin]}
+      initialView="timeGridWeek"
+      editable={true}
+      events={events}
+      eventAdd={async ({ event }) => {
+        await fetch('/api/events', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(event.toPlainObject()),
+        });
+      }}
+      eventChange={async ({ event }) => {
+        await fetch(`/api/events/${event.id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(event.toPlainObject()),
+        });
+      }}
+      eventRemove={async ({ event }) => {
+        await fetch(`/api/events/${event.id}`, {
+          method: 'DELETE',
+        });
+      }}
     />
   );
-};
-
-export default App; 
+}
 ```
 
 #### Mobiscroll
@@ -523,22 +495,22 @@ export default App;
 Example for saving, updating, and deleting an event through an API:
 
 ```jsx
-import { useCallback, useState } from "react";
-import { Eventcalendar } from "@mobiscroll/react";
+import { useCallback, useState } from 'react';
+import { Eventcalendar } from '@mobiscroll/react';
 import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 const myView = {
-  schedule: { type: "week" },
+  schedule: { type: 'week' },
 };
 
 function App() {
   const [myEvents] = useState([]);
-  
+
   const saveEvent = useCallback((args) => {
     fetch('add.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(args.event)
+      body: JSON.stringify(args.event),
     });
   }, []);
 
@@ -546,7 +518,7 @@ function App() {
     fetch('update.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(args.event)
+      body: JSON.stringify(args.event),
     });
   }, []);
 
@@ -554,18 +526,22 @@ function App() {
     fetch('delete.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(args.event)
+      body: JSON.stringify(args.event),
     });
   }, []);
 
-  return <Eventcalendar
-    view={myView}
-    onEventCreated={saveEvent}
-    onEventUpdated={updateEvent}
-    onEventDeleted={deleteEvent}
-    data={myEvents}
-  />
+  return (
+    <Eventcalendar
+      view={myView}
+      onEventCreated={saveEvent}
+      onEventUpdated={updateEvent}
+      onEventDeleted={deleteEvent}
+      data={myEvents}
+    />
+  );
 }
+
+export default App;
 ```
 
 Mobiscroll offers a flexible, event-driven approach suitable for both lightweight client-side setups and API-driven applications. Developers are responsible for implementing their own persistence logic, allowing for high adaptability but requiring more manual integration effort.
@@ -574,97 +550,70 @@ Both libraries are capable of handling modern scheduling needs, but the choice d
 
 ## Lifecycle events
 
-Both libraries, Bryntum and Mobiscroll, provide a comprehensive set of lifecycle event hooks, enabling deep customization and integration with your application logic. These events are emitted at various stages of a component’s lifecycle, offering developers full control to inject custom behavior and extend default functionality.
+Both libraries, FullCalendar and Mobiscroll, provide a comprehensive set of lifecycle event hooks, enabling deep customization and integration with your application logic. These events are emitted at various stages of a component’s lifecycle, offering developers full control to inject custom behavior and extend default functionality.
 
 Whether you’re looking to manipulate data before rendering, respond to user interactions, or perform cleanup tasks, Mobiscroll’s event system offers the flexibility to tailor components to your specific needs.
 
-When migrating between Bryntum and Mobiscroll, it’s important to note that most lifecycle events follow similar patterns across both libraries. This alignment minimizes friction during the transition process and helps preserve custom behaviors with minimal adjustments.
+When migrating between FullCalendar and Mobiscroll, it’s important to note that many lifecycle events follow similar patterns across both libraries. One such example is how each library handles event updates.
 
-One such example is how each library handles a double-click on a cell. Below is a comparison of the respective event handlers and their parameters.
+### FullCalendar
 
-### Bryntum
-
-In Bryntum, the `onCellDblClick` event is triggered when a user double-clicks a grid cell. This event provides access to several key objects that describe the interaction and context:
-- `event`: Object - The Bryntum event object
-- `grid`: Grid - The grid instance
-- `record`: Model - The record representing the row
-- `column`: Column - The column to which the cell belongs
-- `cellElement`: HTMLElement - The cell HTML element
-- `target`: HTMLElement - The target element
-- `event`: MouseEvent - The native DOM event
+In FullCalendar, the [`eventChange`](https://fullcalendar.io/docs/eventChange) callback is triggered after an event has been modified, for example after a drag, resize, or programmatic update. The callback provides access to the updated event, the previous version, related events, and a `revert` function.
 
 Example:
 
 ```jsx
-import { useRef } from 'react';
-import { BryntumSchedulerPro } from '@bryntum/schedulerpro-react';
-import '@bryntum/schedulerpro/schedulerpro.stockholm.css';
+import FullCalendar from '@fullcalendar/react';
+import interactionPlugin from '@fullcalendar/interaction';
+import timeGridPlugin from '@fullcalendar/timegrid';
 
-const App = () => {
-  const schedulerRef = useRef(null);
-
-  const handleCellDblClick = (event) => {
-    console.log('Cell double-clicked:', event.date, event.resourceRecord);
-
-    // Example: open the event editor dialog
-    // const scheduler = schedulerRef.current.instance;
-    // scheduler.editEventDialog.show({
-    //   startDate: event.date,
-    //   resourceRecord: event.resourceRecord
-    // });
-  };
-
+export default function App({ events }) {
   return (
-    <BryntumSchedulerPro
-      ref={schedulerRef}
-      onCellDblClick={handleCellDblClick}
+    <FullCalendar
+      plugins={[interactionPlugin, timeGridPlugin]}
+      initialView="timeGridWeek"
+      editable={true}
+      events={events}
+      eventChange={(changeInfo) => {
+        console.log('Event changed:', changeInfo.event);
+        // changeInfo.oldEvent contains the previous state
+        // changeInfo.revert() can be used if saving fails
+      }}
     />
   );
-};
-
-export default App;
+}
 ```
 
 ### Mobiscroll
 
-Mobiscroll components (e.g., Event Calendar, Scheduler, Timeline) expose a similar [`onCellDoubleClick`](/react/eventcalendar/api#event-onCellDoubleClick) event, which is fired when a cell is double-clicked. It includes contextual information that allows for granular control over the interaction:
-- `args` - The event argument with the following properties:
-  - `date`: Date - The date of the clicked cell.
-  - `domEvent`: Event - The DOM event of the click.
-  - `events`: Array - The events for the clicked date.
-  - `resource`: string | number - The id of the resource where the cell was clicked, if resources are set.
-  - `selected`: boolean - Specifies if the day is currently selected or not (before it was clicked).
-  - `source`: 'calendar' | 'schedule' | 'timeline' - The view where the cell was clicked.
-  - `target`: HTMLElement - The DOM element of the clicked cell.
-- `inst` - The component instance.
+Mobiscroll components (e.g., Event Calendar, Scheduler, Timeline) expose a similar [`onEventUpdated`](/react/eventcalendar/api#event-onEventUpdated) event, which is fired when an event is edited. It includes contextual information that allows for granular control over the interaction.
 
 Example:
 
 ```jsx
-import { useCallback } from 'react';
+import { useState } from 'react';
 import { Eventcalendar } from '@mobiscroll/react';
 import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
-const App = () => {
+function App() {
+  const [myEvents] = useState([]);
 
-  const handleCellDblClick = useCallback((args) => {
-    console.log('Cell double-clicked:', args.date, args.resource);
-
-    // Example: open a custom dialog to create a new event
-    // showCreateEventDialog(args.date, args.resource);
-  }, []);
+  const handleEventUpdated = (args) => {
+    console.log('Event updated:', args.event);
+  };
 
   return (
     <Eventcalendar
-      onCellDoubleClick={handleCellDblClick}
+      data={myEvents}
+      onEventUpdated={handleEventUpdated}
     />
   );
-};
+}
 
 export default App;
 ```
 
-Although the naming conventions and parameter structures differ slightly between Bryntum and Mobiscroll, the overall event purpose and customization potential remain aligned. Developers familiar with Bryntum’s event model will find it straightforward to adapt similar functionality in Mobiscroll, ensuring a smooth migration path with minimal overhead.
+Although the naming conventions and parameter structures differ between FullCalendar and Mobiscroll, many common integration scenarios can be implemented in both libraries. During migration, each event handler should be validated separately to account for differences in payload structure, lifecycle timing, and supported behaviors.
 
 To explore the full list of available Mobiscroll lifecycle events and understand how they can be leveraged, please refer to the [documentation](/react/eventcalendar/api#events).
 
@@ -678,25 +627,43 @@ These examples provide hands-on insights into how lifecycle events work in pract
 
 ## Feature migration
 
-As a final step, let’s explore how core features from Bryntum can be replicated using Mobiscroll. While some capabilities are available out of the box in Bryntum, Mobiscroll often requires more explicit setup but offers much more flexibility.
+As a final step, let’s explore how core features from FullCalendar can be replicated using Mobiscroll. While some capabilities are available out of the box in FullCalendar, Mobiscroll often requires more explicit setup but offers much more flexibility across touch and desktop interactions.
 
 ### Drag & Drop functionality
 
-- Bryntum enables drag-and-drop operations by default with no extra configuration needed.
-- In Mobiscroll, the D&D features must be enabled explicitly via [configuration options](/react/eventcalendar/drag-and-drop).
+- In FullCalendar, drag-and-drop editing is enabled with `editable: true`. To [support](https://fullcalendar.io/docs/editable) date clicking, selection, and advanced interactions, the [`interaction` plugin](https://fullcalendar.io/docs/editable) is commonly added as well.
+- In Mobiscroll, the [D&D features](https://demo.mobiscroll.com/timeline/move-resize-drag-drop-to-create-events#) must be enabled explicitly via [configuration options](/react/eventcalendar/drag-and-drop).
 
-#### Enabling Drag & Drop in Mobiscroll:
+#### FullCalendar:
+
+```jsx
+import FullCalendar from '@fullcalendar/react';
+import interactionPlugin from '@fullcalendar/interaction';
+import timeGridPlugin from '@fullcalendar/timegrid';
+
+export default function App() {
+  return (
+    <FullCalendar
+      plugins={[interactionPlugin, timeGridPlugin]}
+      initialView="timeGridWeek"
+      editable={true}
+      selectable={true}
+    />
+  );
+}
+```
+
+#### Mobiscroll:
 
 ```jsx
 import { Eventcalendar } from '@mobiscroll/react';
 import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 function App() {
-
   return (
     <Eventcalendar
       clickToCreate={true}
-      dragToCreat={true}
+      dragToCreate={true}
       dragToMove={true}
       dragToResize={true}
       eventDelete={true}
@@ -711,29 +678,31 @@ This configuration allows users to create, move, resize, and delete events in Mo
 
 ### Switching Views (Calendar/Scheduler/Agenda)
 
-- Bryntum enables switching views by default with no extra configuration needed.
+- FullCalendar includes a built-in header toolbar. You can switch between views by declaring them in [`headerToolbar`](https://fullcalendar.io/docs/headerToolbar). An object can be supplied with properties `start/center/end` or `left/center/right`. These properties contain strings with comma/space separated values. Values separated by a comma will be displayed adjacently. Values separated by a space will be displayed with a small gap in between.
 - Mobiscroll doesn’t include a built-in view-switching UI by default. However, it offers greater flexibility by allowing you to implement a custom header where you can design the view-switching experience to fit your needs. For example, you can use a [dropdown menu](https://demo.mobiscroll.com/select) or [segmented controls](https://demo.mobiscroll.com/forms/segmented) to let users switch between views like Calendar, Scheduler, Agenda, or any other layout that fits your use case.
 
-#### Bryntum:
+#### FullCalendar:
 
 ```jsx
-import { BryntumCalendar } from '@bryntum/calendar-react';
-@import "@bryntum/calendar/calendar.stockholm.css";
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import listPlugin from '@fullcalendar/list';
+import timeGridPlugin from '@fullcalendar/timegrid';
 
-const calendarProps = {
-  date : new Date(2020, 9, 12),
-  mode : 'week',
-};
-
-const App = () => {
+export default function App() {
   return (
-    <BryntumCalendar
-      {...calendarProps}
+    <FullCalendar
+      plugins={[dayGridPlugin, timeGridPlugin, listPlugin]}
+      initialView="timeGridWeek"
+      initialDate="2020-09-12"
+      headerToolbar={{
+        left: 'title',
+        center: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek',
+        right: 'prev,today,next',
+      }}
     />
   );
-};
-
-export default App;
+}
 ```
 
 #### Mobiscroll:
@@ -763,39 +732,44 @@ function App() {
   });
 
   const changeView = useCallback((event) => {
-    let calView;
+    let nextView;
 
     switch (event.target.value) {
       case 'year':
-        calView = {
+        nextView = {
           calendar: { type: 'year' },
         };
         break;
       case 'month':
-        calView = {
+        nextView = {
           calendar: { labels: true },
         };
         break;
       case 'week':
-        calView = {
+        nextView = {
           schedule: { type: 'week' },
         };
         break;
       case 'day':
-        calView = {
+        nextView = {
           schedule: { type: 'day' },
         };
         break;
       case 'agenda':
-        calView = {
+        nextView = {
           calendar: { type: 'week' },
           agenda: { type: 'week' },
+        };
+        break;
+      default:
+        nextView = {
+          calendar: { labels: true },
         };
         break;
     }
 
     setView(event.target.value);
-    setCalView(calView);
+    setCalView(nextView);
   }, []);
 
   const customWithNavButtons = useCallback(
@@ -850,46 +824,48 @@ export default App;
 
 ### Timezones
 
-Handling time zones accurately is crucial in calendar and scheduling applications, especially when working across regions or coordinating international events. Both Bryntum and Mobiscroll offer support for working with time zones, though they approach it differently in terms of configuration and underlying technology. So, let’s see a simple example of how this scenario is handled in the case of Bryntum and Mobiscroll.
+Handling time zones correctly is essential in calendar and scheduling applications, especially when users work across multiple regions. Both FullCalendar and Mobiscroll support timezone-related workflows, but they do so through different configuration models and plugin integrations.
 
-#### Bryntum
+#### FullCalendar
 
-Bryntum provides built-in time zone support across all of its scheduling products. This allows you to configure components to operate in a specific time zone, independent of the browser or system time.
-
-To enable time zone conversion in Bryntum, simply set the [`timeZone`](https://bryntum.com/products/schedulerpro/docs/api/Scheduler/model/ProjectModel#config-timeZone) configuration on the project object. You can use either:
-- an IANA time zone identifier (e.g., 'Europe/Stockholm'), or
-- a UTC offset in minutes (e.g., -120)
-
-This configuration automatically adjusts the timeline headers, event/task start and end times, and all other time-based calculations to match the configured zone.
+FullCalendar supports `local`, `UTC`, and named time zones through the [`timeZone`](https://fullcalendar.io/docs/timeZone) option. Using `UTC` ensures consistent cross-browser display. Named time zones are also supported, but depending on the setup they may require a timezone implementation.
 
 ```jsx
-import { BryntumSchedulerPro } from '@bryntum/schedulerpro-react';
-import '@bryntum/schedulerpro/schedulerpro.stockholm.css';
+import FullCalendar from '@fullcalendar/react';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import momentTimezonePlugin from '@fullcalendar/moment-timezone';
 
-const App = () => {
-
+export default function App() {
   return (
-      <BryntumSchedulerPro
-        timeZone="Europe/Stockholm"
-      />
+    <FullCalendar
+      plugins={[timeGridPlugin, momentTimezonePlugin]}
+      initialView="timeGridWeek"
+      timeZone="Europe/Stockholm"
+      events={[
+        {
+          id: '1',
+          title: 'Meeting',
+          start: '2025-08-27T09:00:00Z',
+          end: '2025-08-27T11:00:00Z',
+        },
+      ]}
+    />
   );
-};
-
-export default App;
+}
 ```
 
 #### Mobiscroll
 
-By default, Mobiscroll will not do any timezone conversion, will display the dates without modification, handling them as timezone-less. If your use case requires interpreting or displaying data in a different time zone, you can achieve this by using one of the supported third-party libraries for time zone conversion:
+By default, Mobiscroll will not do any timezone conversion and will display the dates without modification, handling them as timezone-less. If your use case requires interpreting or displaying data in a different time zone, you can achieve this by using one of the supported third-party libraries for time zone conversion:
 - [Moment-Timezone](/react/eventcalendar/timezones#the-moment-timezone-library)
 - [Luxon](/react/eventcalendar/timezones#the-luxon-library)
 - [Day.js](/react/eventcalendar/timezones#the-dayjs-library)
 
 Mobiscroll exposes two configuration options to handle time zones:
-- `dataTimezone` [option](/react/eventcalendar/api#opt-dataTimezone) – the time zone in which your event data is stored (e.g., 'utc')
-- `displayTimezone` [option](/react/eventcalendar/api#opt-displayTimezone) – the time zone in which you want the data to be presented (e.g., 'Europe/Stockholm')
+- `dataTimezone` [option](/react/eventcalendar/api#opt-dataTimezone) - the time zone in which your event data is stored (e.g., 'utc')
+- `displayTimezone` [option](/react/eventcalendar/api#opt-displayTimezone) - the time zone in which you want the data to be presented (e.g., 'Europe/Stockholm')
 
-So, let’s say you want to use the Day.js timezone library. After [installing](/react/eventcalendar/timezones#the-dayjs-library) it into your project, you can pass the `dayjsTimezone` object to the Timeline’s [`timezonePlugin`](/react/eventcalendar/api#opt-timezonePlugin) option:
+So, let’s say you want to use the Day.js timezone library. After [installing](/react/eventcalendar/timezones#the-dayjs-library) it into your project, you can pass the `dayjsTimezone` object to the Event Calendar’s [`timezonePlugin`](/react/eventcalendar/api#opt-timezonePlugin) option:
 
 ```jsx
 import dayjs from 'dayjs';
@@ -903,12 +879,16 @@ dayjs.extend(timezone);
 dayjsTimezone.dayjs = dayjs;
 
 function App() {
-  return <Eventcalendar
-    timezonePlugin={dayjsTimezone}
-    dataTimezone="utc"
-    displayTimezone="Europe/Stockholm"
-  />
+  return (
+    <Eventcalendar
+      timezonePlugin={dayjsTimezone}
+      dataTimezone="utc"
+      displayTimezone="Europe/Stockholm"
+    />
+  );
 }
+
+export default App;
 ```
 
 Also, feel free to explore live examples to see how time zones work in action:
@@ -924,79 +904,67 @@ Or you can also check advanced demos such as:
 
 You can also store the timezone inside the event data, using the [`timezone`](/react/eventcalendar/api#opt-data) property.
 
-As a conclusion, both libraries, Bryntum and Mobiscroll, provide timezone support. Mobiscroll supports multiple timezone libraries ([Moment-Timezone](/react/eventcalendar/timezones#the-moment-timezone-library), [Luxon](/react/eventcalendar/timezones#the-luxon-library), and [Day.js](/react/eventcalendar/timezones#the-dayjs-library)), while Bryntum relies on react Date, which may introduce DST inconsistencies.
-
 #### Conclusion
 
-While Bryntum offers more built-in functionality out of the box, Mobiscroll provides greater flexibility, enabling tailored behavior through configuration and custom UI components:
+FullCalendar offers a familiar plugin-based API and built-in toolbar-based navigation, while Mobiscroll provides a more unified scheduling product line with highly configurable scheduler and timeline experiences:
 - Feel free to explore our demo page for [Timeline](https://demo.mobiscroll.com/timeline), [Scheduler](https://demo.mobiscroll.com/scheduler), [Event Calendar](https://demo.mobiscroll.com/eventcalendar), and [Agenda](https://demo.mobiscroll.com/agenda) views - featuring grouped examples, including [common use cases](https://demo.mobiscroll.com/timeline/employee-shifts), [view configuration](https://demo.mobiscroll.com/scheduler/custom-range-view), [event](https://demo.mobiscroll.com/timeline/timeline-custom-event-rendering) and [resource](https://demo.mobiscroll.com/scheduler/custom-resource-header-template) templating, and [lifecycle event handling](https://demo.mobiscroll.com/timeline/event-hooks).
 - We also offer comprehensive documentation for the [Timeline](/react/eventcalendar/timeline), [Scheduler](/react/eventcalendar/scheduler), [Event Calendar](/react/eventcalendar/calendar), and [Agenda](/react/eventcalendar/agenda) views. It covers [usage](/react/eventcalendar/timezones), [APIs](/react/eventcalendar/api), [customization options](/react/eventcalendar/templating), and more in detail.
 
 In addition to drag & drop and custom view-switching, Mobiscroll also supports [timezone handling](https://demo.mobiscroll.com/scheduler/setting-the-timezone) and [zooming levels](https://demo.mobiscroll.com/timeline/calendar-zoom). All of our views work seamlessly across both [mobile](https://demo.mobiscroll.com/scheduler/mobile-day-view) and [desktop](https://demo.mobiscroll.com/scheduler/desktop-day-view) environments, with full support for touch interactions.
 
-As mentioned above, with some additional setup, most —if not all— features can be effectively replicated when migrating from Bryntum to Mobiscroll.
-If you have any specific questions or run into any issues, don’t hesitate to [reach out](https://mobiscroll.com#get-help) — we’re happy to help.
+As mentioned above, with some additional setup, most - if not all - features can be effectively replicated when migrating from FullCalendar to Mobiscroll.
+If you have any specific questions or run into any issues, don’t hesitate to [reach out](https://mobiscroll.com#get-help) - we’re happy to help.
 
 ## Templating and renderers
 
 ### Event templating
 
-#### Bryntum
+#### FullCalendar
 
-Bryntum handles templating for events, resources, and other UI elements through a flexible system that allows developers to customize content rendering using template functions or strings.
-
-In case of Bryntum you can show any HTML structure inside an event bar using the [`eventRenderer`](https://bryntum.com/products/schedulerpro/docs/api/Scheduler/view/mixin/SchedulerEventRendering#config-eventRenderer).
+FullCalendar customizes event rendering through [event render hooks](https://fullcalendar.io/docs/event-render-hooks). In React projects, `eventContent` can return JSX directly.
 
 ```jsx
-import { useMemo } from 'react';
-import { BryntumSchedulerPro } from '@bryntum/schedulerpro-react';
-import '@bryntum/schedulerpro/schedulerpro.stockholm.css';
+import FullCalendar from '@fullcalendar/react';
+import timeGridPlugin from '@fullcalendar/timegrid';
 
-const App = () => {
-
-  const myEvents = useMemo(() => [
-    {
-      id: 10,
-      resourceId: 'r1',
-      name: 'Custom Meeting',
-      startDate: '2017-01-01 09:00',
-      endDate: '2017-01-01 11:00',
-      duration: 2
-    }
-  ], []);
-
-  const customEventRenderer = ({ eventRecord }) => {
-    return (
-      <div style={{ background: '#a8d8ea', borderRadius: '4px', padding: '4px' }}>
-        <strong>${eventRecord.name}</strong>
-        <div style={{ fontSize: '12px', color: '#444' }}>Duration: ${eventRecord.duration}h</div>
-      </div>
-    );
-  };
-
+export default function App() {
   return (
-    <BryntumSchedulerPro
-      startDate="2017-01-01"
-      endDate="2017-01-02"
-      viewPreset="hourAndDay"
-      events={myEvents}
-      eventRenderer={customEventRenderer}
+    <FullCalendar
+      plugins={[timeGridPlugin]}
+      initialView="timeGridWeek"
+      eventContent={(arg) => (
+        <div style={{ background: '#a8d8ea', borderRadius: '4px', padding: '4px' }}>
+          <strong>{arg.event.title}</strong>
+          <div style={{ fontSize: '12px', color: '#444' }}>
+            Location: {arg.event.extendedProps.location || ''}
+          </div>
+        </div>
+      )}
+      events={[
+        {
+          id: '10',
+          title: 'Custom Meeting',
+          start: '2025-08-27T09:00:00',
+          end: '2025-08-27T11:00:00',
+          extendedProps: {
+            location: 'Room 203',
+          },
+        },
+      ]}
     />
   );
-};
-
-export default App;
+}
 ```
 
 #### Mobiscroll
 
-You can customize many parts of the Event Calendar by writing custom templates. In the context of plain react these templates are functions that return a string containing the html markup. You will find a comprehensive list of all the available render functions for the Event Calendar in the [API templates](/react/eventcalendar/api#renderers) section.
+You can customize many parts of the Event Calendar by writing custom templates. In the context of plain React these templates are functions that return JSX. You will find a comprehensive list of all the available render functions for the Event Calendar in the [API templates](/react/eventcalendar/api#renderers) section.
 
 When you want to customize how the events look, depending on what your goal is, you have two options:
 - [Customize the event content](/react/eventcalendar/templating#event-content-templating) - Mobiscroll takes care of rendering the events in the correct order and also prints basic fields, like `start`/`end`, whether it is an `allDay` event or not and also takes care of coloring the event appropriately. Everything else comes from the custom template.
-- [Customize the full event](/react/eventcalendar/templating#full-event-templating) - Mobiscroll takes care of rendering the events in the correct order, but everything else comes form the template you write.
+- [Customize the full event](/react/eventcalendar/templating#full-event-templating) - Mobiscroll takes care of rendering the events in the correct order, but everything else comes from the template you write.
 
-To define a custom template, pass a functional to the appropriate option that returns the desired html:
+To define a custom template, pass a function to the appropriate option that returns the desired JSX:
 
 ```jsx
 import { useCallback, useMemo } from 'react';
@@ -1008,51 +976,55 @@ const App = () => {
     () => ({
       timeline: {
         type: 'week',
-      }
+      },
     }),
     [],
   );
-  
-  const myEvents = useMemo(() => [
-    {
-      id: 10,
-      resourceId: 'r1',
-      name: 'Custom Meeting',
-      start: '2017-01-01T09:00',
-      end: '2017-01-01T11:00',
-      duration: 2
-    }
-  ], []);
+
+  const myEvents = useMemo(
+    () => [
+      {
+        id: '10',
+        resource: 'r1',
+        title: 'Custom Meeting',
+        start: '2017-01-01T09:00',
+        end: '2017-01-01T11:00',
+        location: 'Room 203',
+      },
+    ],
+    [],
+  );
 
   const customEventRenderer = useCallback((event) => {
-    const { name, duration } = event;
     return (
       <div style={{ background: '#a8d8ea', borderRadius: '4px', padding: '4px' }}>
-        <strong>{name}</strong>
-        <div style={{ fontSize: '12px', color: '#444' }}>Duration: {duration}h</div>
+        <strong>{event.title}</strong>
+        <div style={{ fontSize: '12px', color: '#444' }}>
+          Location: {event.original.location}
+        </div>
       </div>
     );
   }, []);
 
   return (
-      <Eventcalendar
-        view={myView}
-        data={myEvents}
-        renderScheduleEvent={customEventRenderer}
-      />
+    <Eventcalendar
+      view={myView}
+      data={myEvents}
+      renderScheduleEvent={customEventRenderer}
+    />
   );
 };
 
 export default App;
 ```
 
-Feel free to explore live examples to see how event content templating work in action:
+Feel free to explore live examples to see how event content templating works in action:
 - [Event Calendar](https://demo.mobiscroll.com/eventcalendar/customize-label-look-and-feel#)
 - [Scheduler](https://demo.mobiscroll.com/scheduler/customizing-events#)
 - [Timeline](https://demo.mobiscroll.com/timeline/meal-planner#)
 - [Agenda](https://demo.mobiscroll.com/agenda/event-content-customization#)
 
-Feel free to explore live examples to see how full event templating work in action:
+Feel free to explore live examples to see how full event templating works in action:
 - [Event Calendar](https://demo.mobiscroll.com/eventcalendar/customize-event-popover#)
 - [Scheduler](https://demo.mobiscroll.com/scheduler/customizing-events#)
 - [Timeline](https://demo.mobiscroll.com/timeline/timeline-custom-event-rendering#)
@@ -1060,65 +1032,42 @@ Feel free to explore live examples to see how full event templating work in acti
 
 ### Resource templating
 
-#### Bryntum
+#### FullCalendar
 
-You can customize cell content and styling in a column using a [renderer](https://bryntum.com/products/scheduler/docs/api/Grid/column/Column#config-renderer) function.
-
-To customize the column header, use the [`headerRenderer`](https://bryntum.com/products/scheduler/docs/api/Grid/column/Column#config-headerRenderer) option.
+In FullCalendar, there are two common approaches for customizing the resource area:
+- Use [`resourceAreaColumns`](https://fullcalendar.io/docs/resourceAreaColumns) to turn the resource sidebar into a grid with multiple columns.
+- Use resource render hooks such as [`resourceLabelContent`](https://fullcalendar.io/docs/resource-render-hooks#label-hooks) for custom label rendering.
 
 ```jsx
-import { useMemo } from 'react';
-import { BryntumSchedulerPro } from '@bryntum/schedulerpro-react';
-import '@bryntum/schedulerpro/schedulerpro.stockholm.css';
+import FullCalendar from '@fullcalendar/react';
+import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
 
-const schedulerProProps = {
-  columns: [
-    {
-      text: 'Name',
-      field: 'name',
-      width: 130,
-      headerRenderer: () => <strong>Name</strong>,
-      renderer: ({ record }) => <strong>{record.name}</strong>,
-    },
-    {
-      text: 'City',
-      field: 'city',
-      width: 90,
-      headerRenderer: () => <i>City</i>,
-      renderer: ({ record }) => <i>{record.city}</i>,
-    },
-  ],
-  startDate: new Date(2017, 0, 1, 6),
-  endDate: new Date(2017, 0, 1, 20),
-  viewPreset: 'hourAndDay',
-};
-
-const App = () => {
-  const myResources = useMemo(() => [
-    { id: 1, name: 'Adam', city: 'Washington' },
-    { id: 2, name: 'Eva', city: 'New York' }
-  ], []);
-
+export default function App() {
   return (
-    <div style={{ height: '100vh' }}>
-      <BryntumSchedulerPro
-        {...schedulerProProps}
-        resources={myResources}
-      />
-    </div>
+    <FullCalendar
+      schedulerLicenseKey="YOUR_LICENSE_KEY"
+      plugins={[resourceTimelinePlugin]}
+      initialView="resourceTimelineDay"
+      resourceAreaColumns={[
+        { field: 'name', headerContent: 'Name' },
+        { field: 'city', headerContent: 'City' },
+      ]}
+      resources={[
+        { id: '1', title: 'Adam', name: 'Adam', city: 'Washington' },
+        { id: '2', title: 'Eva', name: 'Eva', city: 'New York' },
+      ]}
+    />
   );
-};
-
-export default App;
+}
 ```
 
 #### Mobiscroll
 
-In the case of Mobiscroll, we take a different approach. We provide various templating options (listed below), which allow you to customize the resources. This is unlike Bryntum, where customization requires modifying the columns with different renderers.
+In the case of Mobiscroll, we take a different approach. We provide various templating options, which allow you to customize the resources.
 
 #### Scheduler
 
-Use the [`renderResource`](/react/eventcalendar/scheduler#renderer-renderResource) option to customize the resource template of the Scheduler. Customize how the resource headers look and what they show. Utilize properties passed in the [resources](/react/eventcalendar/scheduler#opt-resources) array. It takes a function that should return the desired markup.
+Use the [`renderResource`](/react/eventcalendar/scheduler#renderer-renderResource) option to customize the resource template of the Scheduler. Customize how the resource headers look and what they show. Utilize properties passed in the [resources](/react/eventcalendar/scheduler#opt-resources) array.
 
 Check out how you can style the resources in [this example](https://demo.mobiscroll.com/scheduler/custom-resource-header-template#).
 
@@ -1141,15 +1090,18 @@ const App = () => {
     () => ({
       timeline: {
         type: 'week',
-      }
+      },
     }),
     [],
   );
 
-  const myResources = useMemo(() => [
-    { id: 1, name: 'Adam', city: 'Washington' },
-    { id: 2, name: 'Eva', city: 'New York' }
-  ], []);
+  const myResources = useMemo(
+    () => [
+      { id: 1, name: 'Adam', city: 'Washington' },
+      { id: 2, name: 'Eva', city: 'New York' },
+    ],
+    [],
+  );
 
   const renderResourceHeader = useCallback(() => (
     <>
@@ -1162,7 +1114,7 @@ const App = () => {
     </>
   ), []);
 
-  const renderResource= useCallback((resource) => (
+  const renderResource = useCallback((resource) => (
     <>
       <div className="my-resource-cell">
         <strong>{resource.name}</strong>
@@ -1174,12 +1126,12 @@ const App = () => {
   ), []);
 
   return (
-      <Eventcalendar
-        view={myView}
-        resources={myResources}
-        renderResource={renderResource}
-        renderResourceHeader={renderResourceHeader}
-      />
+    <Eventcalendar
+      view={myView}
+      resources={myResources}
+      renderResource={renderResource}
+      renderResourceHeader={renderResourceHeader}
+    />
   );
 };
 
@@ -1187,6 +1139,37 @@ export default App;
 ```
 
 ### Header templating
+
+#### FullCalendar
+
+FullCalendar comes with a built-in toolbar system through `headerToolbar` and `customButtons`. You can reorder, hide, or extend the header, but unlike Mobiscroll, you do not fully template the entire header as markup.
+
+```jsx
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
+
+export default function App() {
+  return (
+    <FullCalendar
+      plugins={[dayGridPlugin]}
+      initialView="dayGridMonth"
+      customButtons={{
+        myButton: {
+          text: 'Today +',
+          click: () => console.log('Custom button clicked'),
+        },
+      }}
+      headerToolbar={{
+        start: 'title',
+        center: '',
+        end: 'today prev,next myButton',
+      }}
+    />
+  );
+}
+```
+
+#### Mobiscroll
 
 The header of the Mobiscroll calendar can be fully customized to one's needs with the use of the [`renderHeader`](/react/eventcalendar/api#renderer-renderHeader) option.
 
@@ -1205,17 +1188,23 @@ import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 const myTitle = 'Awesome title';
 
 const myHeader = () => {
-  return <>
-    <CalendarPrev />
-    <CalendarNext />
-    <div class="my-custom-title">{myTitle}</div>
-  </>
+  return (
+    <>
+      <CalendarPrev />
+      <CalendarNext />
+      <div className="my-custom-title">{myTitle}</div>
+    </>
+  );
+};
+
+function App() {
+  return <Eventcalendar renderHeader={myHeader} />;
 }
 
-<Eventcalendar renderHeader={myHeader} />
+export default App;
 ```
 
-Also, feel free to explore live examples to see how header templating work in action:
+Also, feel free to explore live examples to see how header templating works in action:
 - [Event Calendar](https://demo.mobiscroll.com/eventcalendar/customizing-header#)
 - [Scheduler](https://demo.mobiscroll.com/scheduler/customizing-header#)
 - [Timeline](https://demo.mobiscroll.com/timeline/switching-day-week-work-week-timeline)
@@ -1270,27 +1259,32 @@ Also, feel free to explore live examples to see how header templating work in ac
 
 ## Localization
 
-### Bryntum
+### FullCalendar
 
-Bryntum supports localization by allowing developers to select from built-in locales or define custom ones. Key aspects include:
-- Locale files translate UI text, date formats, and number formats to the target language.
-- Custom locales can be created or modified using their locale structure.
-- Right-to-left (RTL) layout support is included
+FullCalendar supports localization through the `locale` option. These settings affect button text, month and weekday names, date formatting, week calculations, and the first day of the week.
 
 ```jsx
-import { BryntumSchedulerPro, LocaleManager } from '@bryntum/schedulerpro-react';
-import '@bryntum/schedulerpro/locales/schedulerpro.locale.FrFr';
-import '@bryntum/schedulerpro/schedulerpro.stockholm.css';
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import frLocale from '@fullcalendar/core/locales/fr';
 
-LocaleManager.applyLocale('FrFr');
+export default function App() {
+  return (
+    <FullCalendar
+      plugins={[dayGridPlugin]}
+      initialView="dayGridMonth"
+      locale={frLocale}
+    />
+  );
+}
 ```
 
 ### Mobiscroll
 
-Mobiscroll [enables localization](/react/core-concepts/localization) by letting developers set language, date, and time formats both globally (across the entire application) and locally (on individual components). Highlights:
-- Global settings object lets developers set locale, theme, and format across the app (first example).
-- Each component (e.g., Date Picker, Event Calendar) supports locale switching and custom translations with simple configuration (second example).
-- RTL and calendar system support (Gregorian, Jalali, Hijri)
+Mobiscroll [enables localization](/react/core-concepts/localization) by letting developers set language, date, and time formats both globally and locally on individual components. Highlights:
+- Global settings object lets developers set locale, theme, and format across the app.
+- Each component supports locale switching and custom translations with simple configuration.
+- RTL and calendar system support (Gregorian, Jalali, Hijri).
 - Quick override ability for localized formats ensures that adaptations can be made case-by-case or via global settings.
 
 Example setting the locale option globally:
@@ -1300,8 +1294,7 @@ import { setOptions, localeFr } from '@mobiscroll/react';
 import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 setOptions({
-  // ...other config...
-  locale: localeFr // French locale applied globally
+  locale: localeFr,
 });
 ```
 
@@ -1318,7 +1311,7 @@ export function MyComponent() {
 
 ## Conclusion
 
-Migrating from Bryntum Scheduler to Mobiscroll Scheduler involves rethinking certain configurations, especially around views, events, and feature toggles. While Bryntum comes with richer built-in functionality out of the box (like zooming, vertical timelines, and infinite scrolling), Mobiscroll shines in flexibility, responsive design, and easier timeline and calendar customizations.
+For teams building customer-facing schedulers - whether for appointments, reservations, healthcare, or mobile apps - Mobiscroll offers a faster, more focused path to production. It combines a complete feature set with strong performance and specialized UX capabilities like fixed resources and multi-calendar support. Instead of combining multiple FullCalendar plugins and premium add-ons, you get a unified scheduling product line with native React components and responsive interactions out of the box.
 
 The overall migration process includes:
 - Adjusting initialization patterns
@@ -1328,7 +1321,7 @@ The overall migration process includes:
 
 With a clear understanding of both libraries’ capabilities and structures, you can migrate efficiently and take full advantage of Mobiscroll’s modern UI and feature-rich environment.
 
-#### Considering migrating from Bryntum to Mobiscroll?
+#### Considering migrating from FullCalendar to Mobiscroll?
 
 [Schedule a call](https://calendly.com/mobiscroll/30min) and let's chat about how we can help.
 We're here to support you in the migration process.

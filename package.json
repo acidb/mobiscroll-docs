@@ -50,6 +50,13 @@
       "last 1 safari version"
     ]
   },
+
+"overrides": {
+    "@docusaurus/bundler": {
+       "webpackbar": "^7.0.0"
+     }
+  },
+
   "engines": {
     "node": ">=16.14"
   }

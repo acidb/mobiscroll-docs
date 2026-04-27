@@ -2,6 +2,7 @@
 sidebar_position: 4
 sidebar_label: Snackbar
 displayed_sidebar: angularSidebar
+description: 'Display transient Snackbar notifications with the Mobiscroll Snackbar in Angular — auto-dismiss messages with optional action buttons.'
 ---
 
 import Options from '../\_auto-generated/snackbar/options.md';

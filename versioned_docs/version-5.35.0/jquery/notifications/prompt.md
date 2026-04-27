@@ -2,6 +2,7 @@
 sidebar_position: 3
 sidebar_label: Prompt
 displayed_sidebar: jquerySidebar
+description: 'Show a Mobiscroll Prompt dialog in jQuery — a Promise-based, styleable input dialog as an alternative to window.prompt.'
 ---
 
 import Options from '../\_auto-generated/prompt/options.md';

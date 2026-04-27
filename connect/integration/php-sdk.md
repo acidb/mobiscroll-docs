@@ -2,6 +2,7 @@
 sidebar_label: PHP SDK
 sidebar_position: 2
 slug: /php-sdk
+description: Use the mobiscroll/connect-php Composer package to interact with Mobiscroll Connect — setup, authentication, and API method reference.
 ---
 
 import Tabs from '@theme/Tabs';

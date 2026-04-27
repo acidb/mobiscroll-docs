@@ -1,6 +1,7 @@
 ---
 sidebar_label: API
 displayed_sidebar: javascriptSidebar
+description: 'Complete API reference for the Mobiscroll Datepicker in JavaScript — all options, events, methods, and template slots.'
 ---
 
 import Options from '../\_auto-generated/datepicker/options.md';

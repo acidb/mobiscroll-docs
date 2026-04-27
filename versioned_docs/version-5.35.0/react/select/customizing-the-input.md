@@ -3,6 +3,7 @@ sidebar_position: 10
 sidebar_label: Customizing the input
 displayed_sidebar: reactSidebar
 title: Customizing the input
+description: 'Customize the input trigger for the Mobiscroll Select in React — use custom anchors, inline rendering, or custom value display.'
 ---
 
 By default the Mobsicroll Select component renders a Mobiscroll Input component. To customize this Input component, you can pass props to it using the `inputProps` [option](/react/select/api#opt-inputProps). Or you can change the rendered component using the `inputComponent` [option](/react/select/api#opt-inputComponent).

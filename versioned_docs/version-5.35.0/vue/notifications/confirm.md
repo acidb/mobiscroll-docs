@@ -2,6 +2,7 @@
 sidebar_position: 2
 sidebar_label: Confirm
 displayed_sidebar: vueSidebar
+description: 'Show a Mobiscroll Confirm dialog in Vue — a Promise-based, styleable alternative to the native window.confirm with OK/Cancel actions.'
 ---
 
 import Options from '../\_auto-generated/confirm/options.md';

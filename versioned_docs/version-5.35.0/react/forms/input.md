@@ -2,6 +2,7 @@
 sidebar_position: 4
 sidebar_label: Input
 displayed_sidebar: reactSidebar
+description: 'Use the Mobiscroll Input form component in React — text inputs with floating labels, validation states, icons, and password toggle.'
 ---
 
 import Options from '../\_auto-generated/input/options.md';

@@ -2,6 +2,7 @@
 sidebar_position: 2
 sidebar_label: Global options
 displayed_sidebar: reactSidebar
+description: 'Set global default options for all Mobiscroll components in React using `setOptions` to avoid repeating configuration across instances.'
 ---
 
 import SetOptionsDescription from '../../_shared/core-concepts/global_setoptions.mdx';

@@ -55,6 +55,17 @@ module.exports = function replaceBaseUrlPlugin() {
 
       dirsToScan.push(path.join(outDir, 'connect'));
 
+      const v5Dir = path.join(outDir, '5.35.0');
+      if (fs.existsSync(v5Dir)) {
+        dirsToScan.push(v5Dir); // catches .mdc files at build/5.35.0/
+        for (const entry of fs.readdirSync(v5Dir)) {
+          const full = path.join(v5Dir, entry);
+          if (fs.statSync(full).isDirectory()) {
+            dirsToScan.push(full); // catches CLAUDE.md at build/5.35.0/{fw}/
+          }
+        }
+      }
+
       let total = 0;
       for (const dir of dirsToScan) {
         total += processDir(dir);

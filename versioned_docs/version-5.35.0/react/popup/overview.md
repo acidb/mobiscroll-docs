@@ -2,6 +2,7 @@
 sidebar_position: 1
 sidebar_label: Overview
 displayed_sidebar: reactSidebar
+description: 'Mobiscroll Popup for React — a configurable modal, bottom-sheet, or popover container for custom overlay content.'
 ---
 
 # Popup

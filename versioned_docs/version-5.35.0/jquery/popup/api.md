@@ -1,6 +1,7 @@
 ---
 sidebar_label: API
 displayed_sidebar: jquerySidebar
+description: 'Complete API reference for the Mobiscroll Popup in jQuery — all options, methods, lifecycle events, and types.'
 ---
 
 import Options from '../_auto-generated/popup/options.md';

@@ -2,6 +2,7 @@
 sidebar_position: 8
 sidebar_label: Templating
 displayed_sidebar: angularSidebar
+description: 'Customize Select option rendering in Mobiscroll Angular — render custom HTML per option, group headers, and footer content.'
 ---
 
 # Templating

@@ -2,6 +2,7 @@
 sidebar_position: 2
 sidebar_label: Global options
 displayed_sidebar: javascriptSidebar
+description: 'Set global default options for all Mobiscroll components in JavaScript using `setOptions` to avoid repeating configuration across instances.'
 ---
 
 import SetOptionsDescription from '../../_shared/core-concepts/global_setoptions.mdx';

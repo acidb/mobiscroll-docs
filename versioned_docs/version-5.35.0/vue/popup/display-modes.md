@@ -2,6 +2,7 @@
 sidebar_position: 2
 sidebar_label: Display modes
 displayed_sidebar: vueSidebar
+description: 'Control how the Mobiscroll Popup appears in Vue — modal dialog, anchored popover, bottom sheet, or inline display mode.'
 ---
 
 # Display modes

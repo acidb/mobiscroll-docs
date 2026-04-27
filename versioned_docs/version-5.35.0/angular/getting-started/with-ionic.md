@@ -2,6 +2,7 @@
 sidebar_position: 3
 sidebar_label: Using with Ionic
 displayed_sidebar: angularSidebar
+description: 'Integrate Mobiscroll into an Ionic Angular app — installation, module setup, and using Mobiscroll components inside Ionic pages.'
 ---
 
 import InstallNpm from '../../_shared/getting-started/install_npm.mdx';

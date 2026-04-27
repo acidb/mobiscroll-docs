@@ -70,13 +70,6 @@ const llmsOptions = {
       filename: 'llms.txt',
       includePatterns: ['llms-content.md'],
       fullContent: true,
-      title: 'Mobiscroll Documentation',
-      description:
-        'API reference and developer guides for Mobiscroll UI components — ' +
-        'Eventcalendar, Datepicker, Select, Popup, Forms, and more — ' +
-        'available for JavaScript, React, Angular, Vue, and jQuery, ' +
-        'plus Mobiscroll Connect for unified calendar integration ' +
-        '(Google, Outlook, Apple Calendar, CalDAV).',
     },
     // ── Hub: llms-full.txt (general content + links to full framework files)
     {
@@ -84,12 +77,6 @@ const llmsOptions = {
       includePatterns: ['llms-content-full.md'],
       fullContent: true,
       title: 'Mobiscroll Documentation',
-      description:
-        'API reference and developer guides for Mobiscroll UI components — ' +
-        'Eventcalendar, Datepicker, Select, Popup, Forms, and more — ' +
-        'available for JavaScript, React, Angular, Vue, and jQuery, ' +
-        'plus Mobiscroll Connect for unified calendar integration ' +
-        '(Google, Outlook, Apple Calendar, CalDAV).',
     },
 
     // ── JavaScript ──────────────────────────────────────────────────────────

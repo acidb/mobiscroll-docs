@@ -3,6 +3,7 @@ sidebar_position: 12
 sidebar_label: Timezones
 displayed_sidebar: reactSidebar
 title: Timezones
+description: 'Handle timezone-aware events in the Mobiscroll Eventcalendar for React using moment-timezone, Luxon, or the Intl API.'
 ---
 
 import LibraryInstall from '../../_shared/timezones/library_install.mdx';

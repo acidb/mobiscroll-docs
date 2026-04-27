@@ -2,6 +2,7 @@
 sidebar_position: 1
 sidebar_label: Overview
 displayed_sidebar: jquerySidebar
+description: 'Mobiscroll Select for jQuery — a touch-optimized dropdown and picker for single or multiple option selection.'
 ---
 
 # Select

@@ -3,6 +3,7 @@ sidebar_position: 7
 sidebar_label: Unit testing
 displayed_sidebar: angularSidebar
 title: Unit testing Mobiscroll in Angular
+description: 'Write unit tests for Mobiscroll components in Angular projects using Jest or Vitest — mocking, assertions, and testing event handlers.'
 ---
 
 ## Overview

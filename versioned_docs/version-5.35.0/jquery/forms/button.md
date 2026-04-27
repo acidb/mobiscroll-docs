@@ -2,6 +2,7 @@
 sidebar_position: 1
 sidebar_label: Button
 displayed_sidebar: jquerySidebar
+description: 'Use the Mobiscroll Button component in jQuery — styles, variants, icons, loading states, and API for handling click events.'
 ---
 
 import Options from '../\_auto-generated/button/options.md';

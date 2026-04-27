@@ -3,6 +3,7 @@ sidebar_position: 10
 sidebar_label: Customizing the input
 displayed_sidebar: angularSidebar
 title: Customizing the input
+description: 'Customize the input trigger for the Mobiscroll Select in Angular — use custom anchors, inline rendering, or custom value display.'
 ---
 
 When initializing the Select component on a native select element, by default that element will be hidden and an input element is rendered that will hold the selection text. Also this input element gets the focus and click handlers that will open the picker.

@@ -2,6 +2,7 @@
 sidebar_position: 2
 sidebar_label: Display modes
 displayed_sidebar: javascriptSidebar
+description: 'Control how the Mobiscroll Popup appears in JavaScript — modal dialog, anchored popover, bottom sheet, or inline display mode.'
 ---
 
 import Content from '../../_shared/display_modes.mdx';

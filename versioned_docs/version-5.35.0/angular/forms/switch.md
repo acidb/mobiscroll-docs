@@ -2,6 +2,7 @@
 sidebar_position: 8
 sidebar_label: Switch
 displayed_sidebar: angularSidebar
+description: 'Mobiscroll Switch for Angular — a styled boolean toggle with configurable labels, disabled state, and onChange events.'
 ---
 
 import Options from '../\_auto-generated/switch/options.md';

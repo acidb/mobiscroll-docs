@@ -2,6 +2,7 @@
 sidebar_position: 3
 sidebar_label: Dropdown
 displayed_sidebar: vueSidebar
+description: 'Mobiscroll Dropdown for Vue — themed wrapper for native HTML select with floating labels and validation states.'
 ---
 
 import Options from '../\_auto-generated/dropdown/options.md';

@@ -2,6 +2,7 @@
 sidebar_position: 7
 sidebar_label: Filtering
 displayed_sidebar: angularSidebar
+description: 'Enable search filtering in the Mobiscroll Select for Angular — built-in filter input and custom filter functions for large option lists.'
 ---
 
 # Filtering

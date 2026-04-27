@@ -2,6 +2,7 @@
 sidebar_position: 3
 sidebar_label: Using with Ionic
 displayed_sidebar: vueSidebar
+description: 'Integrate Mobiscroll into an Ionic Vue app — installation, plugin setup, and using Mobiscroll components inside Ionic pages.'
 ---
 
 import InstallNpm from '../../_shared/getting-started/install_npm.mdx';

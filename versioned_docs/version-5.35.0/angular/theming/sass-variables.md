@@ -3,6 +3,7 @@ sidebar_position: 3
 sidebar_label: Sass variables
 displayed_sidebar: angularSidebar
 title: Sass variables
+description: 'Customize Mobiscroll at the Sass source level for Angular projects — override design tokens like $mbsc-ios-background or $mbsc-font-size before compiling your own stylesheet.'
 ---
 
 import Content from '../../_shared/theming/sass_variables.mdx';

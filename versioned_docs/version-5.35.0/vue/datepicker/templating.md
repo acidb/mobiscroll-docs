@@ -2,6 +2,7 @@
 sidebar_position: 9
 sidebar_label: Templating
 displayed_sidebar: vueSidebar
+description: 'Customize Datepicker cell and day rendering in Vue with slot templates — mark dates, add tooltips, or render custom calendar content.'
 ---
 
 # Templating

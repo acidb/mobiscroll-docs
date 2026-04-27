@@ -2,6 +2,7 @@
 sidebar_position: 2
 sidebar_label: Calendar
 displayed_sidebar: jquerySidebar
+description: 'Set up the Mobiscroll Eventcalendar Calendar view in jQuery with monthly/weekly/daily grid display, event dots, popover, and navigation.'
 ---
 
 import ViewOptions from '../_auto-generated/eventcalendar/view_calendar.md';

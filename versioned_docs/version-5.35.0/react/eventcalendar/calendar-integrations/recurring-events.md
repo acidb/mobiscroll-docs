@@ -1,6 +1,7 @@
 ---
 displayed_sidebar: reactSidebar
 sidebar_label: Recurring events
+description: 'Work with recurring events in the Mobiscroll Eventcalendar for React — display, edit single occurrences, and delete recurrence series.'
 ---
 
 

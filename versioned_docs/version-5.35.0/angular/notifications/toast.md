@@ -2,6 +2,7 @@
 sidebar_position: 5
 sidebar_label: Toast
 displayed_sidebar: angularSidebar
+description: 'Show brief Toast notifications in Mobiscroll Angular — auto-dismiss success, warning, error, and info messages.'
 ---
 
 import Options from '../\_auto-generated/toast/options.md';

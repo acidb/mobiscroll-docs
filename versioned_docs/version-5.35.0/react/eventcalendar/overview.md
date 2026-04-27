@@ -2,6 +2,7 @@
 sidebar_position: 1
 sidebar_label: Overview
 displayed_sidebar: reactSidebar
+description: 'Mobiscroll Eventcalendar for React — Calendar, Scheduler, Timeline, and Agenda views for building scheduling UIs.'
 ---
 
 # Eventcalendar

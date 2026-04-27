@@ -2,6 +2,7 @@
 sidebar_position: 6
 sidebar_label: Segmented
 displayed_sidebar: reactSidebar
+description: 'Use the Mobiscroll Segmented control in React — a button-group for exclusive single or multiple option selection.'
 ---
 
 import Options from '../\_auto-generated/segmented/options.md';

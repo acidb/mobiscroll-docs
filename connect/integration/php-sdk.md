@@ -87,49 +87,6 @@ Registers a callback to be invoked whenever the SDK automatically refreshes the 
 A callable that receives the updated `TokenResponse` after a successful automatic token refresh.
 </Parameter>
 
-## API
-
-The client exposes resources that map directly to the API endpoints.
-
-### Auth
-
-The `client->auth()` resource handles the OAuth authorization flow, including generating authorization URLs, exchanging codes for tokens, managing connection status, and disconnecting providers.
-
-<DocCardList items={[
-  {
-    type: 'link',
-    label: 'OAuth API Reference',
-    href: '/connect/oauth',
-    icon: '🔐'
-  },
-]} />
-
-### Calendars
-
-The `client->calendars()` resource allows you to list available calendars from all connected providers (Google, Outlook, etc.). It corresponds to the `/calendars` endpoints.
-
-<DocCardList items={[
-  {
-    type: 'link',
-    label: 'Calendars API Reference',
-    href: '/connect/calendars',
-    icon: '📅'
-  },
-]} />
-
-### Events
-
-The `client->events()` resource provides methods to create, read, update, and delete calendar events across all connected accounts. It corresponds to the `/events` endpoints.
-
-<DocCardList items={[
-  {
-    type: 'link',
-    label: 'Events API Reference',
-    href: '/connect/events',
-    icon: '📅'
-  },
-]} />
-
 ## Token Refresh
 
 The PHP SDK handles token refresh automatically. When any API call returns a `401 Unauthorized` response and the client has a `refresh_token` stored, the SDK will silently exchange it for a new access token and retry the original request — with no action required from your application.
@@ -182,3 +139,46 @@ try {
     // Catch-all for any other SDK error
 }
 ```
+
+## API
+
+The client exposes resources that map directly to the API endpoints.
+
+### Auth
+
+The `client->auth()` resource handles the OAuth authorization flow, including generating authorization URLs, exchanging codes for tokens, managing connection status, and disconnecting providers.
+
+<DocCardList items={[
+  {
+    type: 'link',
+    label: 'OAuth API Reference',
+    href: '/connect/oauth',
+    icon: '🔐'
+  },
+]} />
+
+### Calendars
+
+The `client->calendars()` resource allows you to list available calendars from all connected providers (Google, Outlook, etc.). It corresponds to the `/calendars` endpoints.
+
+<DocCardList items={[
+  {
+    type: 'link',
+    label: 'Calendars API Reference',
+    href: '/connect/calendars',
+    icon: '📅'
+  },
+]} />
+
+### Events
+
+The `client->events()` resource provides methods to create, read, update, and delete calendar events across all connected accounts. It corresponds to the `/events` endpoints.
+
+<DocCardList items={[
+  {
+    type: 'link',
+    label: 'Events API Reference',
+    href: '/connect/events',
+    icon: '📅'
+  },
+]} />

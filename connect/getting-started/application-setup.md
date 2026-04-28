@@ -118,6 +118,12 @@ Use the official PHP SDK for backend integrations in PHP applications. The SDK p
 
 **[Get started with the PHP SDK](/connect/php-sdk)**
 
+### .NET SDK
+
+Use the official .NET SDK for backend integrations in .NET 6+ applications. The SDK runs on .NET Core and provides async methods, typed models, and consistent exception handling.
+
+**[Get started with the .NET SDK](/connect/dotnet-sdk)**
+
 ### Demo Application
 
 Start with our complete working example that demonstrates the full OAuth flow, calendar synchronization, and event management using the Node.js SDK out of the box.

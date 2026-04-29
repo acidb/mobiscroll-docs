@@ -134,6 +134,39 @@ header('Location: ' . $authUrl);
 ```
 
 </TabItem>
+<TabItem value="dotnet" label=".NET SDK">
+
+```csharp
+// Generate the authorization URL
+var authUrl = client.Auth.GenerateAuthUrl(new AuthorizeParams
+{
+    UserId = "user-456",
+    // Optional parameters:
+    // Scope = "read-write",
+    // State = "xyz789",
+});
+
+// Redirect the user to authUrl
+// return Redirect(authUrl);
+```
+
+</TabItem>
+<TabItem value="python" label="Python SDK">
+
+```python
+# Generate the authorization URL
+auth_url = client.auth.generate_auth_url(
+    user_id='user-456',
+    # Optional parameters:
+    # scope='read-write',
+    # state='xyz789',
+)
+
+# Redirect the user to auth_url
+# return redirect(auth_url)
+```
+
+</TabItem>
 </Tabs>
 
 :::info
@@ -390,6 +423,30 @@ $client->auth()->setCredentials($tokenResponse);
 ```
 
 </TabItem>
+<TabItem value="dotnet" label=".NET SDK">
+
+```csharp
+// Exchange authorization code for access token
+var tokenResponse = await client.Auth.GetTokenAsync(code);
+
+// The client is automatically authenticated with the new token
+client.Auth.SetCredentials(tokenResponse);
+```
+
+</TabItem>
+<TabItem value="python" label="Python SDK">
+
+```python
+# Exchange authorization code for access token
+# The client is automatically authenticated after get_token()
+token_response = client.auth.get_token(code)
+
+# Persist tokens for future requests
+session['access_token'] = token_response.access_token
+session['refresh_token'] = token_response.refresh_token
+```
+
+</TabItem>
 </Tabs>
 
 ```json title="Error Response - Client Mismatch"
@@ -523,6 +580,36 @@ $client->onTokensRefreshed(function (TokenResponse $updatedTokens) {
 ```
 
 </TabItem>
+<TabItem value="dotnet" label=".NET SDK">
+
+```csharp
+// Token refresh is handled automatically by the SDK.
+// Register a callback to persist the new tokens whenever a refresh occurs.
+client.OnTokensRefreshed(updatedTokens =>
+{
+    // Persist in your database or session store
+    HttpContext.Session.SetString("access_token", updatedTokens.AccessToken);
+    HttpContext.Session.SetString("refresh_token", updatedTokens.RefreshToken ?? "");
+});
+```
+
+</TabItem>
+<TabItem value="python" label="Python SDK">
+
+```python
+# Token refresh is handled automatically by the SDK.
+# Register a callback to persist the new tokens whenever a refresh occurs.
+from mobiscroll_connect import TokenResponse
+
+def persist_tokens(tokens: TokenResponse) -> None:
+    # Persist in your database or session store
+    session['access_token'] = tokens.access_token
+    session['refresh_token'] = tokens.refresh_token
+
+client.on_tokens_refreshed(persist_tokens)
+```
+
+</TabItem>
 </Tabs>
 
 :::info
@@ -588,6 +675,16 @@ Content-Type: application/json
 <TabItem value="php" label="PHP SDK">
 
 The PHP SDK does not include a built-in revoke method. Use the REST endpoint directly to revoke tokens.
+
+</TabItem>
+<TabItem value="dotnet" label=".NET SDK">
+
+The .NET SDK does not include a built-in revoke method. Use the REST endpoint directly to revoke tokens.
+
+</TabItem>
+<TabItem value="python" label="Python SDK">
+
+The Python SDK does not include a built-in revoke method. Use the REST endpoint directly to revoke tokens.
 
 </TabItem>
 </Tabs>

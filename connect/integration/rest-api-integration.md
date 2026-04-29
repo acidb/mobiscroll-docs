@@ -1,6 +1,6 @@
 ---
 sidebar_label: REST API
-sidebar_position: 3
+sidebar_position: 5
 slug: /rest-api-integration
 description: Integrate Mobiscroll Connect via direct HTTP requests — base URL, authentication, and endpoint examples for the REST API.
 ---

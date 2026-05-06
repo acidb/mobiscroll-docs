@@ -2,6 +2,7 @@
 sidebar_position: 1
 sidebar_label: Overview
 displayed_sidebar: javascriptSidebar
+description: 'Mobiscroll Eventcalendar for JavaScript — Calendar, Scheduler, Timeline, and Agenda views for building scheduling UIs.'
 ---
 
 # Eventcalendar

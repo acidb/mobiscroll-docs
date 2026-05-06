@@ -5,9 +5,9 @@ displayed_sidebar: reactSidebar
 description: 'Show a Mobiscroll Confirm dialog in React — a Promise-based, styleable alternative to the native window.confirm with OK/Cancel actions.'
 ---
 
-import Options from '../\_auto-generated/confirm/options.md';
-import Events from '../\_auto-generated/confirm/events.md';
-import Localizations from '../\_auto-generated/confirm/localizations.md';
+import Options from '../_auto-generated/confirm/options.md';
+import Events from '../_auto-generated/confirm/events.md';
+import Localizations from '../_auto-generated/confirm/localizations.md';
 
 # Confirm
 

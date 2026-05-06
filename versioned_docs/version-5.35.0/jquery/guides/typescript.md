@@ -3,6 +3,7 @@ sidebar_position: 7
 sidebar_label: Using with Typescript
 displayed_sidebar: jquerySidebar
 title: Using with Typescript
+description: 'Use Mobiscroll with TypeScript in jQuery projects — type definitions, typed options, and event handler type safety.'
 ---
 
 ## Overview

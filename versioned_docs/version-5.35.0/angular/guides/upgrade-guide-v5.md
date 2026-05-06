@@ -3,6 +3,7 @@ sidebar_position: 5
 sidebar_label: Upgrade guide v5
 displayed_sidebar: angularSidebar
 title: Mobiscroll 5 upgrade guide
+description: 'Introducing Mobiscroll 5 - a complete rewrite and retooling that enables better extensibility and performance (Mobiscroll v5).'
 ---
 
 import Tabs from '@theme/Tabs';

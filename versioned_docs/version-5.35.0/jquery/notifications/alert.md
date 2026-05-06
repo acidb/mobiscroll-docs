@@ -2,11 +2,12 @@
 sidebar_position: 1
 sidebar_label: Alert
 displayed_sidebar: jquerySidebar
+description: 'Show a styled alert dialog with the Mobiscroll Alert component in jQuery — a Promise-based replacement for the native window.alert.'
 ---
 
-import Options from '../\_auto-generated/alert/options.md';
-import Events from '../\_auto-generated/alert/events.md';
-import Localizations from '../\_auto-generated/alert/localizations.md';
+import Options from '../_auto-generated/alert/options.md';
+import Events from '../_auto-generated/alert/events.md';
+import Localizations from '../_auto-generated/alert/localizations.md';
 
 # Alert
 

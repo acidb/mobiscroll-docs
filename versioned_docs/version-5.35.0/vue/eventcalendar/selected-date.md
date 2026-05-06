@@ -2,6 +2,7 @@
 sidebar_position: 9
 sidebar_label: Setting the initial view
 displayed_sidebar: vueSidebar
+description: 'Set the initially displayed date or date range when the Mobiscroll Eventcalendar mounts in Vue using the `selectedDate` option.'
 ---
 
 # Setting the initial view

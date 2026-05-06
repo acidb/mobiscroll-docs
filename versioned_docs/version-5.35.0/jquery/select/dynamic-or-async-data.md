@@ -3,6 +3,7 @@ sidebar_position: 3
 sidebar_label: Dynamic or async data
 displayed_sidebar: jquerySidebar
 title: Dynamic or async data
+description: 'Load Select options asynchronously in Mobiscroll jQuery — fetch from an API, lazy-load on open, or update options dynamically.'
 ---
 
 ## Overview

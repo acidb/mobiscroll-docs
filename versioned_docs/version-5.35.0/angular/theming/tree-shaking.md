@@ -3,6 +3,7 @@ sidebar_position: 2
 sidebar_label: Tree shaking for styles
 displayed_sidebar: angularSidebar
 title: Tree shaking for styles
+description: 'Reduce CSS bundle size in Mobiscroll Angular projects by importing only the component styles you use instead of the full stylesheet.'
 ---
 
 ## Overview

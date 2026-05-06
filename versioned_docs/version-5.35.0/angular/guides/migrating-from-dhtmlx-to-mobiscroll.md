@@ -4,6 +4,7 @@ sidebar_label: Migrating from DHTMLX
 displayed_sidebar: angularSidebar
 title: Migrating from DHTMLX to Mobiscroll
 toc_max_heading_level: 2
+description: 'Step-by-step guide for migrating from DHTMLX Scheduler to Mobiscroll Eventcalendar in Angular — API mapping, event model, and config comparison.'
 ---
 
 import Tabs from '@theme/Tabs';

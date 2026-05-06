@@ -3,6 +3,7 @@ sidebar_position: 3
 sidebar_label: Instance
 displayed_sidebar: jquerySidebar
 title: Instance
+description: 'Access and control a Mobiscroll component instance in jQuery to call methods, update options, and listen to events programmatically.'
 ---
 
 ## Overview

@@ -2,6 +2,7 @@
 sidebar_label: Value Selection
 displayed_sidebar: angularSidebar
 sidebar_position: 4
+description: 'Control value selection behavior in the Mobiscroll Select for Angular — single, multiple, pre-selected values, and programmatic value updates.'
 ---
 
 # Value Selection

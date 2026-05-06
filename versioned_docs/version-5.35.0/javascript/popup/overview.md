@@ -2,6 +2,7 @@
 sidebar_position: 1
 sidebar_label: Overview
 displayed_sidebar: javascriptSidebar
+description: 'Mobiscroll Popup for JavaScript — a configurable modal, bottom-sheet, or popover container for custom overlay content.'
 ---
 
 # Popup

@@ -2,6 +2,7 @@
 sidebar_position: 11
 sidebar_label: Blocked out dates
 displayed_sidebar: angularSidebar
+description: 'Block out specific dates, date ranges, or recurring periods on the Mobiscroll Eventcalendar to prevent event creation or display unavailability.'
 ---
 
 import Content from '../../_shared/eventcalendar/blocked-out-dates-nonvue.mdx';

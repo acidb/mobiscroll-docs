@@ -5,10 +5,10 @@ displayed_sidebar: angularSidebar
 description: 'Use the Mobiscroll Input form component in Angular — text inputs with floating labels, validation states, icons, and password toggle.'
 ---
 
-import Options from '../\_auto-generated/input/options.md';
-import Events from '../\_auto-generated/input/events.md';
-import Localizations from '../\_auto-generated/input/localizations.md';
-import Types from '../\_auto-generated/input/types.md';
+import Options from '../_auto-generated/input/options.md';
+import Events from '../_auto-generated/input/events.md';
+import Localizations from '../_auto-generated/input/localizations.md';
+import Types from '../_auto-generated/input/types.md';
 
 # Input
 

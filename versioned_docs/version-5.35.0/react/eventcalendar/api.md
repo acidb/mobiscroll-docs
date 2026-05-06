@@ -3,6 +3,7 @@ sidebar_label: API
 displayed_sidebar: reactSidebar
 toc_min_heading_level: 2
 toc_max_heading_level: 2
+description: 'Complete API reference for the Mobiscroll Eventcalendar in React — all options, events, methods, and template slots.'
 ---
 
 import Options from '../_auto-generated/eventcalendar/options.md';

@@ -3,6 +3,7 @@ sidebar_position: 8
 sidebar_label: ESM Bundle
 displayed_sidebar: javascriptSidebar
 title: ESM Bundle
+description: 'Use Mobiscroll''s ESM bundle with Rollup or Webpack to enable tree-shaking and reduce JavaScript bundle size to only the components you use.'
 ---
 
 ## Overview

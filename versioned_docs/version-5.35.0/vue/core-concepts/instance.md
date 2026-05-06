@@ -3,6 +3,7 @@ sidebar_position: 3
 sidebar_label: Instance
 displayed_sidebar: vueSidebar
 title: Instance
+description: 'Access and control a Mobiscroll component instance in Vue to call methods, update options, and listen to events programmatically.'
 ---
 
 ## Overview

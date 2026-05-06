@@ -8,6 +8,7 @@ const darkCodeTheme = themes.dracula;
 const navbar = require('./navbar.config');
 const llmsPlugin = require('./llms-plugin.config');
 const llmsConnectPlugin = require('./llms-connect-plugin.config');
+const llmsV5Plugin = require('./llms-v5-plugin.config');
 const replaceBaseUrlPlugin = require('./replace-base-url-plugin.config');
 
 /** @type {import('@docusaurus/types').Config} */
@@ -55,6 +56,7 @@ const config = {
     ],
     llmsPlugin,
     llmsConnectPlugin,
+    llmsV5Plugin,
     replaceBaseUrlPlugin,
   ],
 
@@ -68,6 +70,14 @@ const config = {
           routeBasePath: '/',
           includeCurrentVersion: false,
           lastVersion: '6.0.0',
+          exclude: [
+            '**/_*.{js,jsx,ts,tsx,md,mdx}',
+            '**/_*/**',
+            '**/*.test.{js,jsx,ts,tsx}',
+            '**/__tests__/**',
+            'llms-content.md',
+            'llms-content-full.md',
+          ],
           versions: {
             "6.0.0": {
               badge: false,

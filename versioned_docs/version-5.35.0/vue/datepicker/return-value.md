@@ -2,6 +2,7 @@
 sidebar_position: 3
 sidebar_label: Return value
 displayed_sidebar: vueSidebar
+description: 'Datepicker return value formats in Mobiscroll Vue — date objects, ISO strings, and range output structures.'
 ---
 
 import Content from '../../_shared/datepicker/return_value.mdx';

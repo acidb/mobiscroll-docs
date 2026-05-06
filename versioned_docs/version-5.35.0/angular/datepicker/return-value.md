@@ -2,6 +2,7 @@
 sidebar_position: 3
 sidebar_label: Return value
 displayed_sidebar: angularSidebar
+description: 'Datepicker return value formats in Mobiscroll Angular — date objects, ISO strings, and range output structures.'
 ---
 
 import Tabs from '@theme/Tabs';

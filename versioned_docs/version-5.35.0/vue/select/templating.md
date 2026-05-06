@@ -2,6 +2,7 @@
 sidebar_position: 8
 sidebar_label: Templating
 displayed_sidebar: vueSidebar
+description: 'Customize Select option rendering in Mobiscroll Vue — render custom HTML per option, group headers, and footer content.'
 ---
 
 # Templating

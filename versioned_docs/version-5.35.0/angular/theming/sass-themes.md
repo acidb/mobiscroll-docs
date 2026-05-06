@@ -2,6 +2,7 @@
 sidebar_position: 4
 sidebar_label: Custom themes
 displayed_sidebar: angularSidebar
+description: 'Create and compile fully custom Mobiscroll Sass/SCSS themes for Angular projects using the Mobiscroll theme builder or manual Sass customization.'
 ---
 
 import Tabs from '@theme/Tabs';

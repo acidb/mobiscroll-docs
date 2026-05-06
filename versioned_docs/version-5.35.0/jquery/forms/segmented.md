@@ -2,12 +2,13 @@
 sidebar_position: 6
 sidebar_label: Segmented
 displayed_sidebar: jquerySidebar
+description: 'Use the Mobiscroll Segmented control in jQuery — a button-group for exclusive single or multiple option selection.'
 ---
 
-import Options from '../\_auto-generated/segmented/options.md';
-import Events from '../\_auto-generated/segmented/events.md';
-import Localizations from '../\_auto-generated/segmented/localizations.md';
-import Types from '../\_auto-generated/segmented/types.md';
+import Options from '../_auto-generated/segmented/options.md';
+import Events from '../_auto-generated/segmented/events.md';
+import Localizations from '../_auto-generated/segmented/localizations.md';
+import Types from '../_auto-generated/segmented/types.md';
 
 # Segmented
 

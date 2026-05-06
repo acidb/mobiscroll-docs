@@ -5,10 +5,10 @@ displayed_sidebar: angularSidebar
 description: 'Mobiscroll Switch for Angular — a styled boolean toggle with configurable labels, disabled state, and onChange events.'
 ---
 
-import Options from '../\_auto-generated/switch/options.md';
-import Events from '../\_auto-generated/switch/events.md';
-import Localizations from '../\_auto-generated/switch/localizations.md';
-import Types from '../\_auto-generated/switch/types.md';
+import Options from '../_auto-generated/switch/options.md';
+import Events from '../_auto-generated/switch/events.md';
+import Localizations from '../_auto-generated/switch/localizations.md';
+import Types from '../_auto-generated/switch/types.md';
 
 # Switch
 

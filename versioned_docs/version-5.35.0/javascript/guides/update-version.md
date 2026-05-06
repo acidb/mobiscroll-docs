@@ -2,6 +2,7 @@
 sidebar_position: 2
 sidebar_label: Update version
 displayed_sidebar: javascriptSidebar
+description: 'Update Mobiscroll to the latest version in your JavaScript project — npm update instructions and changelog reference.'
 ---
 
 import UpdateVersionMain from '../../_shared/guides/update_version.mdx';

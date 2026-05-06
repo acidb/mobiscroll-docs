@@ -3,6 +3,7 @@ sidebar_position: 9
 sidebar_label: Invalid items
 displayed_sidebar: javascriptSidebar
 title: Invalid items
+description: 'Mark specific options as disabled or invalid in the Mobiscroll Select for JavaScript to prevent them from being selected.'
 ---
 
 Invalid items are items that cannot be selected. They appear disabled on the wheels and when clicked, a selection will not happen.

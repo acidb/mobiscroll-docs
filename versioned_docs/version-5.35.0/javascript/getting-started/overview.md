@@ -3,11 +3,12 @@ sidebar_position: 1
 sidebar_label: Overview
 displayed_sidebar: javascriptSidebar
 slug: /javascript
+description: 'Mobiscroll for JavaScript — a standalone UI component library for scheduling, date picking, forms, and notifications with no framework dependency.'
 ---
 
 import DocCardList from "@theme/DocCardList";
 import { introLinks, componentLinks } from "../links.js";
-import SupportedPlatforms from '../../\_shared/getting-started/supported_platforms.mdx';
+import SupportedPlatforms from '../../_shared/getting-started/supported_platforms.mdx';
 
 # Mobiscroll for JavaScript
 

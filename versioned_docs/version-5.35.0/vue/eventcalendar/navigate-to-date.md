@@ -2,6 +2,7 @@
 sidebar_position: 10
 sidebar_label: Navigation
 displayed_sidebar: vueSidebar
+description: 'Programmatically navigate the Mobiscroll Eventcalendar to a specific date or time at runtime in Vue.'
 ---
 
 # Navigating to a date and time

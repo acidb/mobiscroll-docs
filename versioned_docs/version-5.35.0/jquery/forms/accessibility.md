@@ -3,6 +3,7 @@ sidebar_position: 10
 sidebar_label: Accessibility
 displayed_sidebar: jquerySidebar
 title: Accessibility
+description: 'Keyboard navigation, ARIA roles, and label pairing for Mobiscroll form components in jQuery.'
 ---
 
 import Content from '../../_shared/forms/accessibility.mdx';

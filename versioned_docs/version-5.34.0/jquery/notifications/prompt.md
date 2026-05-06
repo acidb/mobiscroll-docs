@@ -4,9 +4,9 @@ sidebar_label: Prompt
 displayed_sidebar: jquerySidebar
 ---
 
-import Options from '../\_auto-generated/prompt/options.md';
-import Events from '../\_auto-generated/prompt/events.md';
-import Localizations from '../\_auto-generated/prompt/localizations.md';
+import Options from '../_auto-generated/prompt/options.md';
+import Events from '../_auto-generated/prompt/events.md';
+import Localizations from '../_auto-generated/prompt/localizations.md';
 
 # Prompt
 

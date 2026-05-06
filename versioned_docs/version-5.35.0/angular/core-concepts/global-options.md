@@ -2,6 +2,7 @@
 sidebar_position: 2
 sidebar_label: Global options
 displayed_sidebar: angularSidebar
+description: 'Set global default options for all Mobiscroll components in Angular using `setOptions` to avoid repeating configuration across instances.'
 ---
 
 import Tabs from '@theme/Tabs';

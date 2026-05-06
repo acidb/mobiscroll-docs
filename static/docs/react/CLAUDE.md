@@ -149,7 +149,9 @@ Connect is a **server-side** REST API. Eventcalendar is a **frontend** UI compon
 2. **No invented APIs.** Every option, event, method, and type name must come from the docs. If a symbol is not found, say so — do not guess.
 3. **Docs are source of truth.** After fetching docs, answer **only** from the fetched content. Do not supplement with prior training knowledge. If the fetched docs contradict training knowledge, the docs win. If the docs do not cover the question, say: "This is not covered in the current documentation."
 4. **Fetch failure fallback.** If `llms-react-full.txt` is unreachable, fall back to individual `.md` pages (Priority 2), then the TOC file (Priority 3). If all sources fail, state that docs are unavailable and ask the user to share relevant doc content.
-5. **Version: 6.** Do not reference deprecated v5 APIs unless the user explicitly targets an older version.
+5. **Version: 6 (latest).** This context is for Mobiscroll v6. If the user explicitly mentions "v5", "version 5", uses a v5-only pattern (e.g. `mobiscroll.settings`, `mobiscroll.theme`, `data-role` attributes), or asks about an API not found in the v6 docs, respond:
+   > "⚠️ This looks like Mobiscroll v5 syntax or API usage. This context is configured for Mobiscroll **v6 (latest)**. Would you like: 1) the v6 equivalent of what you're asking about, or 2) guidance using the [v5 documentation]({{DOCS_BASE_URL}}/5.35.0/react/guides/ai-integration) instead?"
+   Do not silently translate v5 patterns to v6 — always ask first. Do not reference removed v5 APIs in v6 answers.
 6. **Type prefix: `Mbsc`.** All Mobiscroll TypeScript types start with `Mbsc` (e.g., `MbscEventcalendarView`, `MbscCalendarEvent`). Verify exact names in the API docs.
 7. **One component, many views.** Calendar, scheduler, timeline, agenda are all views of **Eventcalendar**, configured via the `view` option. They are NOT separate components.
 8. **Package:** `@mobiscroll/react`. CSS: `import '@mobiscroll/react/dist/css/mobiscroll.min.css'`.
@@ -169,3 +171,4 @@ Connect is a **server-side** REST API. Eventcalendar is a **frontend** UI compon
 | Using UI component docs to answer a Connect API question | Connect = server REST API. Fetch `llms-connect-full.txt`. |
 | Guessing `MbscCalendarEventData` type name | Look up exact type in `react/eventcalendar/api` docs |
 | Answering from training knowledge when docs are fetched | Answer only from fetched docs. If not covered, say so. |
+| Silently translating v5 syntax to v6 without informing the user | Detect v5 signal → ask if user wants the v6 equivalent or v5 docs guidance |

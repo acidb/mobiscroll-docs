@@ -3,6 +3,7 @@ sidebar_position: 13
 sidebar_label: Calendar integrations
 displayed_sidebar: reactSidebar
 title: Third party calendar integration
+description: 'Sync the Mobiscroll Eventcalendar with Google Calendar, Outlook, or Apple Calendar using API integration in React.'
 ---
 
 import GoogleMethods from '../../_auto-generated/googlecalendar/methods.md';

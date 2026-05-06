@@ -3,6 +3,7 @@ sidebar_position: 4
 sidebar_label: Recurrence
 displayed_sidebar: reactSidebar
 title: Recurrence
+description: 'Define repeating events in Mobiscroll using RRULE-compatible recurrence rules for daily, weekly, monthly, and custom patterns.'
 ---
 
 import Recurrence from '../../_shared/core-concepts/recurrence.mdx';

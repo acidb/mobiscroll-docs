@@ -5,9 +5,9 @@ displayed_sidebar: reactSidebar
 description: 'Show a Mobiscroll Prompt dialog in React — a Promise-based, styleable input dialog as an alternative to window.prompt.'
 ---
 
-import Options from '../\_auto-generated/prompt/options.md';
-import Events from '../\_auto-generated/prompt/events.md';
-import Localizations from '../\_auto-generated/prompt/localizations.md';
+import Options from '../_auto-generated/prompt/options.md';
+import Events from '../_auto-generated/prompt/events.md';
+import Localizations from '../_auto-generated/prompt/localizations.md';
 
 # Prompt
 

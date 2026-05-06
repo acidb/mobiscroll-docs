@@ -4,7 +4,7 @@ sidebar_label: Migrating from DHTMLX
 displayed_sidebar: javascriptSidebar
 title: Migrating from DHTMLX to Mobiscroll
 toc_max_heading_level: 2
-description: Step-by-step guide for migrating from DHTMLX Scheduler to Mobiscroll Eventcalendar in JavaScript — API mapping, event model, and config comparison.
+description: Step-by-step guide for migrating a JavaScript scheduling app from DHTMLX to Mobiscroll — API mapping and config equivalents.
 ---
 
 ## Overview

@@ -1,10 +1,10 @@
 ---
-sidebar_position: 9
-sidebar_label: Migrating from DHTMLX
+sidebar_position: 10
+sidebar_label: Migrating from FullCalendar
 displayed_sidebar: angularSidebar
-title: Migrating from DHTMLX to Mobiscroll
+title: Migrating from FullCalendar to Mobiscroll
 toc_max_heading_level: 2
-description: Step-by-step guide for migrating from DHTMLX to Mobiscroll in Angular — API mapping, event model, and config comparison.
+description: Step-by-step guide for migrating from FullCalendar to Mobiscroll in Angular — API mapping, event model, and config comparison.
 ---
 
 import Tabs from '@theme/Tabs';
@@ -12,15 +12,15 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-This article provides a comprehensive guide for migrating your scheduling solution from DHTMLX to Mobiscroll. 
+This article provides a comprehensive guide for migrating your scheduling solution from FullCalendar to Mobiscroll in Angular. It highlights the key differences between the two libraries and outlines step-by-step instructions, covering installation, configuration, resources, events, and features, ensuring a smooth and informed transition.
 
-DHTMLX Scheduler can be integrated into Angular by using a custom wrapper component around the plain Javascript scheduler instance, whereas Mobiscroll provides native Angular components that plug directly into templates through standard bindings.
+FullCalendar integrates with Angular through its official `<full-calendar>` component, while Mobiscroll provides native Angular components that plug directly into templates through standard bindings.
 
-If you are currently using DHTMLX Scheduler in Angular via a custom wrapper, or using it within another framework and planning to migrate to Mobiscroll’s Angular components, the following guide outlines the steps required for a smooth transition.
+If you are currently using FullCalendar in Angular and planning to migrate to Mobiscroll’s Angular components, the following guide outlines the steps required for a smooth transition.
 
 ## Installation
 
-Migrating from DHTMLX Scheduler to Mobiscroll starts with a different approach to installation, especially regarding package access and tooling.
+Migrating from FullCalendar to Mobiscroll starts with a different approach to installation, especially regarding package access and tooling.
 
 ### Mobiscroll installation steps:
 
@@ -40,11 +40,41 @@ Alternatively, Mobiscroll also supports [manual installation](/angular/getting-s
 
 ## Initialization
 
-### DHTMLX Scheduler:
+### FullCalendar:
 
-```js
-scheduler.init('scheduler_here');
+<Tabs>
+<TabItem value="html" label="app.component.html">
+
+```html
+<full-calendar [options]="calendarOptions"></full-calendar>
 ```
+</TabItem>
+<TabItem value="ts" label="app.component.ts">
+
+```ts
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { CalendarOptions } from '@fullcalendar/core';
+import dayGridPlugin from '@fullcalendar/daygrid';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, FullCalendarModule],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss',
+})
+export class AppComponent {
+  calendarOptions: CalendarOptions = {
+    plugins: [dayGridPlugin],
+    initialView: 'dayGridMonth',
+  };
+}
+```
+
+</TabItem>
+</Tabs>
 
 ### Mobiscroll:
 
@@ -63,12 +93,13 @@ import { MbscModule } from '@mobiscroll/angular';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [MbscModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-}   
+}
 ```
 
 </TabItem>
@@ -78,36 +109,49 @@ export class AppComponent {
 
 Key Differences:
 - With Mobiscroll, you get precise control over time ranges on [Scheduler](https://demo.mobiscroll.com/scheduler/show-hide-hours-days) and [Timeline](https://demo.mobiscroll.com/timeline/daily-weekly-monthly-yearly-timeline) views, plus feature-rich [Event Calendar](https://demo.mobiscroll.com/eventcalendar) and [Agenda](https://demo.mobiscroll.com/agenda) views for seamless scheduling.
-- DHTMLX uses deeply nested angular objects or HTML for defining views, layouts, templates, and event sources. Views like “Day,” “Week,” “Month,” and custom configurations are declared in the scheduler initialization with specific settings for each widget, often grouped into sections and requiring manual wiring for advanced customization.
+- FullCalendar uses plugins and view-specific options. Standard calendar layouts such as month, week, day, and list are available through separate packages, while timeline and resource-based scheduling require Premium plugins.
 
-### DHTMLX Scheduler - Timeline view:
+### FullCalendar Timeline view:
 
-For the DHTMLX you have to use the [`createTimelineView`](https://docs.dhtmlx.com/scheduler/api__scheduler_createtimelineview.html) method for customizing the Timeline view
+In FullCalendar, the Timeline view is configured through the [`initialView`](https://fullcalendar.io/docs/initialView), `slotMinTime`, and `slotMaxTime` options. Resource-based timeline scheduling also requires the `resourceTimelinePlugin` and a `resources` array.
 
-```js
-scheduler.plugins({
-  timeline: true,
-});
+<Tabs>
+<TabItem value="html" label="app.component.html">
 
-scheduler.createTimelineView({
-  name: 'timeline',
-  x_unit: 'minute', // measuring unit of the X-Axis.
-  x_date: '%H:%i', // date format of the X-Axis
-  x_step: 30, // X-Axis step in 'x_unit's
-  x_size: 24, // X-Axis length specified as the total number of 'x_step's
-  x_start: 16, // X-Axis offset in 'x_unit's
-  x_length: 48, // number of 'x_step's that will be scrolled at a time
-  y_unit: [
-    { key: 1, label: 'Resource 1' },
-    { key: 2, label: 'Resource 2' },
-    { key: 3, label: 'Resource 3' },
-    { key: 4, label: 'Resource 4' },
-  ],
-  render: 'bar', // view mode
-});
-
-scheduler.init('scheduler_here');
+```html
+<full-calendar [options]="calendarOptions"></full-calendar>
 ```
+</TabItem>
+<TabItem value="ts" label="app.component.ts">
+
+```ts
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { CalendarOptions } from '@fullcalendar/core';
+import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, FullCalendarModule],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss',
+})
+export class AppComponent {
+  calendarOptions: CalendarOptions = {
+    schedulerLicenseKey: 'YOUR_LICENSE_KEY',
+    plugins: [resourceTimelinePlugin],
+    initialView: 'resourceTimelineDay',
+    initialDate: '2017-01-01',
+    slotMinTime: '06:00:00',
+    slotMaxTime: '20:00:00'
+  };
+}
+```
+
+</TabItem>
+</Tabs>
 
 ### Mobiscroll Timeline view:
 
@@ -131,6 +175,7 @@ import { MbscDate, MbscEventcalendarView, MbscModule } from '@mobiscroll/angular
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [MbscModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -144,25 +189,58 @@ export class AppComponent {
       endTime: '20:00',
     }
   };
-}        
+
+  mySelectedDate: MbscDate = '2017-01-01'; // if you want to set the initial view to a specific date
+}
 ```
 
 </TabItem>
 </Tabs>
 
-Check out how you can configure the Timeline view in [this live example](https://demo.mobiscroll.com/timeline/daily-weekly-monthly-yearly-timeline#).
+Check out how you can configure the Timeline view in [this live example](https://demo.mobiscroll.com/timeline/daily-weekly-monthly-yearly-timeline#).
 
-### DHTMLX Scheduler view:
+### FullCalendar TimeGrid view:
 
-In case of DHTMLX Scheduler the Week view is added to the [basic scheduler's markup](https://docs.dhtmlx.com/scheduler/scheduler_markup.html) by default. That's why you don't need to provide any extra code for adding the view to the scheduler.
+For a scheduler-style week layout in FullCalendar, the most common setup is `timeGridWeek` and this need to be specified with the [`initialView`](https://fullcalendar.io/docs/initialView). You choose the initial date with `initialDate`.
 
-```js
-scheduler.init('scheduler_here',new Date(2019,0,10),"week");
+<Tabs>
+<TabItem value="html" label="app.component.html">
+
+```html
+<full-calendar [options]="calendarOptions"></full-calendar>
 ```
+</TabItem>
+<TabItem value="ts" label="app.component.ts">
+
+```ts
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { CalendarOptions } from '@fullcalendar/core';
+import timeGridPlugin from '@fullcalendar/timegrid';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, FullCalendarModule],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss',
+})
+export class AppComponent {
+  calendarOptions: CalendarOptions = {
+    plugins: [timeGridPlugin],
+    initialView: 'timeGridWeek',
+    initialDate: '2020-09-12'
+  };
+}
+```
+
+</TabItem>
+</Tabs>
 
 ### Mobiscroll Scheduler:
 
-You can customize the visible days and hours, as well as the time grid scale, using the `schedule` object under the [`view`](/angular/eventcalendar/scheduler#configuring-the-view) option. This allows you to define which days are shown (e.g., weekdays), set the visible time range (e.g., 8 AM to 6 PM), adjust the time scale (e.g., 30-minute intervals), and control the frequency of the labels (e.g., every 15 minutes).
+You can customize the visible days and hours, as well as the time grid scale, using the `schedule` object under the [`view`](/angular/eventcalendar/scheduler#configuring-the-view) option. This allows you to define which days are shown (e.g., weekdays), set the visible time range (e.g., 8 AM to 6 PM), adjust the time scale (e.g., 30-minute intervals), and control the frequency of the labels (e.g., every 15 minutes).
 
 <Tabs>
 <TabItem value="html" label="app.component.html">
@@ -182,88 +260,44 @@ import { MbscDate, MbscEventcalendarView, MbscModule } from '@mobiscroll/angular
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [MbscModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
   myView: MbscEventcalendarView = {
-    scheduler: {
+    schedule: {
       type: 'week'
     }
   };
-  
-  mySelectedDate: MbscDate = '2019-01-10'; // if you want to set the initial view to a specific date
-}        
+
+  mySelectedDate: MbscDate = '2020-09-12'; // if you want to set the initial view to a specific date
+}
 ```
 
 </TabItem>
 </Tabs>
 
-Check out how you can configure the Scheduler view in [this live example](https://demo.mobiscroll.com/scheduler/show-hide-hours-days#).
+Check out how you can configure the Scheduler view in [this live example](https://demo.mobiscroll.com/scheduler/show-hide-hours-days#).
 
 ## Resource configuration
 
-Both DHTMLX Scheduler and Mobiscroll support resource-based scheduling (e.g., rooms, employees, assets), but they use different configuration models and event data structures.
+Migrating resource data from FullCalendar to Mobiscroll should be relatively straightforward.
 
-In DHTMLX Scheduler, resource assignment depends on the view you use:
-- Timeline view uses `y_property` to decide which row an event belongs to.
-- Unit view uses `property` to decide which column an event belongs to. You pick the event field name yourself (e.g. `room_id`, `employee_id`), and Scheduler groups events accordingly.
-
-In Mobiscroll, resources are defined once in a global `resources` array. Mobiscroll can handle multiple resources inside a single instance. Mobiscroll also supports multi-resource assignment out of the box.
-
-### DHTMLX Scheduler - Timeline view – resource definition:
+### FullCalendar - resource definition:
 
 ```js
-scheduler.plugins({
-  timeline: true,
-});
-
-scheduler.createTimelineView({
-  name: 'timeline',
-  y_property: 'section_id', // mapped data property
-  y_unit: [
-    { key: 1, label: 'Mike' },
-    { key: 2, label: 'Linda' },
-    // ...
-  ],
-});
-
-scheduler.init('scheduler_here');
+myResources = [
+  { id: 'r1', title: 'Mike' },
+  { id: 'r2', title: 'Linda' },
+  // ...
+];
 ```
 
-### DHTMLX Scheduler - Units view – resource definition:
-
-The DHTMLX Units view uses the `list` parameter of the [`createUnitsView`](https://docs.dhtmlx.com/scheduler/api__scheduler_createunitsview.html) option to set values/ units for the X-Axis. To be correctly processed, `list` items must have 2 mandatory properties:
-- `key` - the item's id
-- `label` - the item's label
+### Mobiscroll Timeline view/ Scheduler - resource definition:
 
 ```js
-scheduler.plugins({
-  units: true,
-});
-
-scheduler.createUnitsView({
-  name: 'unit',
-  property: 'unit_id', //the mapped data property
-  list: [
-    //defines the units of the view
-    { key: 1, label: 'Mike' },
-    { key: 2, label: 'Linda' },
-    // ...
-  ],
-});
-
-scheduler.init('scheduler_here');
-```
-
-### Mobiscroll Timeline view/ Scheduler – resource definition
-
-Mobiscroll uses the [`resources`](https://mobiscroll.com/docs/angular/eventcalendar/timeline#opt-resources) array with `id` and `name` properties.
-
-```ts
-import { MbscResource } from '@mobiscroll/angular';
-
 myResources: MbscResource[] = [
   { id: 'r1', name: 'Mike' },
   { id: 'r2', name: 'Linda' },
@@ -271,65 +305,55 @@ myResources: MbscResource[] = [
 ];
 ```
 
-Mobiscroll offers significantly more resource manipulation flexibility, including fixed rows, reorder, and external drag & drop.
+Both FullCalendar and Mobiscroll use similar structures for defining resources, typically including an `id` and a label-like field. In FullCalendar this is usually `title`, while in Mobiscroll it is usually `name` in the [resources](/javascript/eventcalendar/timeline#opt-resources) array. Like FullCalendar's resource objects, Mobiscroll also supports a wide range of additional properties, as demonstrated in [this example](https://demo.mobiscroll.com/timeline/resource-data-structure#).
 
 For more advanced use cases, refer to the [Mobiscroll documentation](/angular/eventcalendar/resources) for additional options, including [custom rendering and templating of resources](/angular/eventcalendar/timeline#the-resource-their-header-and-footer). You can also explore our demo page for [detailed resource configuration](https://demo.mobiscroll.com/timeline/timeline-resource-details-side-panel-footer) examples.
 
+Compared to FullCalendar, Mobiscroll provides a more resource-focused user experience, including features such as fixed rows, reordering, and external drag-and-drop.
+
 ## Event migration
 
-As shown below, there are clear differences in how events are structured between DHTMLX and Mobiscroll:
-- The basic DHTMLX event structure is a JSON object with a unique event `id`, `start_date` and `end_date` (that defines the event period), an event title defined by `text` property, and optional custom properties like `room_id` to link to resources - this defines how events are internally represented and loaded in the scheduler.
-- In contrast, Mobiscroll uses the [`data`](https://demo.mobiscroll.com/timeline/event-data-structure#) option in which `start` and `end` define the event period, the `title` property represents the event’s title, and an event `id` property is also available. Additionally, you can use the `resource` property to specify which resource the event should be assigned to.
+FullCalendar defines an event inside the [`events`](https://fullcalendar.io/docs/event-parsing) option using explicit `start` and `end` values, together with fields like `title`, `allDay`, and `extendedProps`. Mobiscroll uses the [`data`](/javascript/eventcalendar/timeline#opt-data) option and explicit `start` and `end` [properties](https://demo.mobiscroll.com/timeline/event-data-structure#) for defining the event period.
 
 ### Event structure comparison
 
-#### DHTMLX Scheduler:
+#### FullCalendar:
 
 ```js
-scheduler.parse([
+myEvents = [
   {
-    id: 1,
-    text: 'Conference',
-    start_date: '2012-09-17 12:00',
-    end_date: '2012-09-28 21:00',
-    room_id: 1, // Custom property to associate event with a resource (e.g., room)
-  },
-]);
-```
-
-#### Mobiscroll:
-
-```ts
-import { MbscCalendarEvent } from '@mobiscroll/angular';
-
-myEvents: MbscCalendarEvent[] = [
-  {
-      id: 1,
-      resource: 'r1',
-      start: '2012-09-17T12:00',
-      end: '2012-09-18T21:00',
-      title: 'Conference'
+    id: '1',
+    resourceId: 'r1',
+    start: '2017-01-01T10:00:00',
+    end: '2017-01-01T12:00:00',
+    title: 'Click me'
   }
 ];
 ```
 
-### Converting DHTMLX Scheduler events to Mobiscroll Format
+#### Mobiscroll:
 
-Here’s a simple example of how to convert DHTMLX-style events into the format used by Mobiscroll:
+```js
+myEvents: MbscCalendarEvent[] = [
+  {
+    id: '1',
+    resource: 'r1',
+    start: '2017-01-01T10:00',
+    end: '2017-01-01T12:00',
+    title: 'Click me'
+  }
+];
+```
+
+### Converting FullCalendar events to Mobiscroll format
+
+Here’s a simple example of how to convert FullCalendar-style events into the format used by Mobiscroll:
 
 ```ts
-this.mobiscrollEvents = this.dhtmlxEvents.map(event => {
-  const start = new Date(event.start_date);
-  const end = new Date(event.end_date);
-
-  return {
-    id: event.id,
-    title: event.text,
-    start,
-    end,
-    resource: event.room_id // based on `property` option
-  };
-});
+this.mobiscrollEvents = this.fullcalendarEvents.map(({ resourceId, ...event }) => ({
+  ...event,
+  resource: resourceId,
+}));
 ```
 
 Every project may have its own unique data format and requirements, so this script serves only as a basic starting point. You’ll likely need to adapt your transformation logic to fit your application’s specific needs.
@@ -344,14 +368,12 @@ We will examine how each framework handles:
 
 ### Loading data
 
-DHTMLX:
-
-In DHTMLX Scheduler, loading data works by calling `scheduler.parse()` or `scheduler.load()` after initialization:
-- `scheduler.load(url, format)` - fetches events from a server (JSON, XML, or iCal).
-- `scheduler.parse(data, format)` - loads events directly from a angular object. Once loaded, Scheduler automatically renders the events into the current view.
+FullCalendar:
+- FullCalendar accepts [local arrays](https://fullcalendar.io/docs/events-array) through the `events` option.
+- It can also [load data from JSON](https://fullcalendar.io/docs/events-json-feed) feeds or from an `events` callback function, which receives the visible date range and lets you fetch only the events needed for the current view.
+- If needed, you can refresh remote sources programmatically with `refetchEvents()`.
 
 Mobiscroll:
-
 - Mobiscroll components accept static arrays, which can be [inline](/angular/eventcalendar/data-binding#local-data) (preloaded in memory) or [dynamically fetched](/angular/eventcalendar/data-binding#remote-data) from remote APIs.
 - The [`onPageLoading`](/angular/eventcalendar/api#event-onPageLoading) event plays a central role in incremental data loading, enabling applications to [request only the events needed](https://demo.mobiscroll.com/timeline/load-events-on-demand) for the current view (e.g., the current month or week) as the user navigates.
 - Mobiscroll also offers [integration with external calendar services](/angular/eventcalendar/calendar-integrations/) ([Google Calendar](https://demo.mobiscroll.com/eventcalendar/sync-events-google-calendar#), [Outlook](https://demo.mobiscroll.com/eventcalendar/sync-events-outlook-calendar#)) via plugins, handling data retrieval and format conversion internally.
@@ -360,21 +382,40 @@ Let’s see an example for each case:
 
 ### Local data
 
-#### DHTMLX Scheduler:
+#### FullCalendar:
 
-```js
-scheduler.init('scheduler_here');
+You can pass the event data inline through the `events` option.
 
-scheduler.parse([
-  {
-    id: 1,
-    text: 'Conference',
-    start_date: '2012-09-17 12:00',
-    end_date: '2012-09-28 21:00',
-    room_id: 1, // Custom property to associate event with a resource (e.g., room)
-  },
-]);
+<Tabs>
+<TabItem value="html" label="app.component.html">
+
+```html
+<full-calendar [options]="calendarOptions"></full-calendar>
 ```
+</TabItem>
+<TabItem value="ts" label="app.component.ts">
+
+```ts
+import { CalendarOptions } from '@fullcalendar/core';
+import timeGridPlugin from '@fullcalendar/timegrid';
+
+calendarOptions: CalendarOptions = {
+  plugins: [timeGridPlugin],
+  initialView: 'timeGridWeek',
+  events: [
+    {
+      id: '1',
+      resourceId: 'r1',
+      start: '2017-01-01T10:00:00',
+      end: '2017-01-01T12:00:00',
+      title: 'Click me'
+    }
+  ]
+};
+```
+
+</TabItem>
+</Tabs>
 
 #### Mobiscroll:
 
@@ -386,25 +427,45 @@ Pass the event array to the [`data`](/angular/eventcalendar/api#opt-data) option
 
 ### Remote data
 
-#### DHTMLX Scheduler
+#### FullCalendar
 
-In case of DHTMLX, `scheduler.init` initializes the scheduler in the specified HTML element, then `scheduler.load` fetches event data as a JSON array from a remote URL for display in the scheduler.
+FullCalendar can fetch remote data through an `events` function or by using a JSON feed URL. The callback receives the currently visible date range, which makes it suitable for loading only the events that belong to the active view.
 
-```js
-scheduler.init('scheduler_here', new Date(), 'day');
+<Tabs>
+<TabItem value="html" label="app.component.html">
 
-// enable dynamic loading BEFORE load()
-scheduler.setLoadMode('day'); // "day" | "week" | "month" | "year"
-
-// initial fetch for current range
-scheduler.load('/api/events');
+```html
+<full-calendar [options]="calendarOptions"></full-calendar>
 ```
+</TabItem>
+<TabItem value="ts" label="app.component.ts">
+
+```ts
+import { CalendarOptions } from '@fullcalendar/core';
+import timeGridPlugin from '@fullcalendar/timegrid';
+
+calendarOptions: CalendarOptions = {
+  plugins: [timeGridPlugin],
+  initialView: 'timeGridWeek',
+  events: (fetchInfo, successCallback, failureCallback) => {
+    fetch(
+      `/api/events?start=${fetchInfo.startStr}&end=${fetchInfo.endStr}`
+    )
+      .then((response) => response.json())
+      .then((events) => successCallback(events))
+      .catch((error) => failureCallback(error));
+  }
+};
+```
+
+</TabItem>
+</Tabs>
 
 #### Mobiscroll
 
-You can load the data through an external request and assign it to the data-bound variable to update the eventcalendar with the newly received data.
+You can load the data through an external request and assign it to the data-bound variable to update the event calendar with the newly received data.
 
-In case of Mobiscroll, you can also use the [`onPageLoading`](/angular/eventcalendar/api#event-onPageLoading) pevent to load the data (on demand) relevant to the currently active view. The event fires every time the date range of the view changes, for example, when someone navigates the event calendar. Getting the events in real time as the user interacts with the UI improves load performance and always serves the most recent data.
+In case of Mobiscroll, you can also use the [`onPageLoading`](/angular/eventcalendar/api#event-onPageLoading) event to load the data (on demand) relevant to the currently active view. The event fires every time the date range of the view changes, for example, when someone navigates the event calendar. Getting the events in real time as the user interacts with the UI improves load performance and always serves the most recent data.
 
 <Tabs>
 <TabItem value="html" label="app.component.html">
@@ -420,7 +481,6 @@ In case of Mobiscroll, you can also use the [`onPageLoading`](/angular/eventcale
 <TabItem value="ts" label="app.component.ts">
 
 ```ts
-import { Component } from '@angular/core';
 import { MbscCalendarEvent, MbscEventcalendarView, MbscPageLoadingEvent, getJson } from '@mobiscroll/angular';
 
 @Component({...})
@@ -441,35 +501,73 @@ export class MyComponent {
       (events) => {
         this.myData = events;
       },
-      "jsonp"
+      'jsonp'
     );
   }
-}   
+}
 ```
 
 </TabItem>
 </Tabs>
 
-In case of the timeline view, data can also be [loaded dynamically during scrolling](/angular/eventcalendar/timeline#load-data-on-scroll). Scrolling vertically or horizontally triggers the [`onVirtualLoading`](/angular/eventcalendar/api#event-onVirtualLoading) lifecycle event, which can be used to [load data incrementally during scrolling](https://demo.mobiscroll.com/timeline/load-resources-on-scroll).
+In case of the Timeline view, data can also be [loaded dynamically during scrolling](/angular/eventcalendar/timeline#load-data-on-scroll). Scrolling vertically or horizontally triggers the [`onVirtualLoading`](/angular/eventcalendar/api#event-onVirtualLoading) lifecycle event, which can be used to [load data incrementally during scrolling](https://demo.mobiscroll.com/timeline/load-resources-on-scroll).
 
 ### Saving data
 
-#### DHTMLX
+#### FullCalendar
 
-In DHTMLX Scheduler, saving data works by attaching a `dataProcessor` to the scheduler that handles CRUD operations by sending changes (adds, updates, deletes) to a server-side script which updates the database accordingly.
+- Persistence in FullCalendar is typically implemented by listening to lifecycle callbacks and sending the relevant changes to your backend API.
+- Typical hooks include [`eventAdd`](https://fullcalendar.io/docs/eventAdd), [`eventChange`](https://fullcalendar.io/docs/eventChange), and [`eventRemove`](https://fullcalendar.io/docs/eventRemove).
+- This gives you full control over how changes are saved, but the data layer must be implemented by your application.
 
 Example:
 
-```js
-scheduler.init('scheduler_here');
+<Tabs>
+<TabItem value="html" label="app.component.html">
 
-scheduler.load('/api/events');
-
-const dp = scheduler.createDataProcessor({
-  url: '/api/events',
-  mode: 'REST',
-});
+```html
+<full-calendar [options]="calendarOptions"></full-calendar>
 ```
+</TabItem>
+<TabItem value="ts" label="app.component.ts">
+
+```ts
+import { CalendarOptions } from '@fullcalendar/core';
+import interactionPlugin from '@fullcalendar/interaction';
+import timeGridPlugin from '@fullcalendar/timegrid';
+
+calendarOptions: CalendarOptions = {
+  plugins: [interactionPlugin, timeGridPlugin],
+  initialView: 'timeGridWeek',
+  editable: true,
+  events: this.events,
+
+  eventAdd: async ({ event }) => {
+    await fetch('/api/events', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(event.toPlainObject())
+    });
+  },
+
+  eventChange: async ({ event }) => {
+    await fetch(`/api/events/${event.id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(event.toPlainObject())
+    });
+  },
+
+  eventRemove: async ({ event }) => {
+    await fetch(`/api/events/${event.id}`, {
+      method: 'DELETE'
+    });
+  }
+};
+```
+
+</TabItem>
+</Tabs>
 
 #### Mobiscroll
 
@@ -494,17 +592,16 @@ Example for saving, updating, and deleting an event through an API:
 <TabItem value="ts" label="app.component.ts">
 
 ```ts
-import { Component } from '@angular/core';
 import { MbscCalendarEvent, MbscEventcalendarView, MbscEventCreatedEvent, MbscEventUpdatedEvent, MbscEventDeletedEvent } from '@mobiscroll/angular';
 
 @Component({...})
 export class MyComponent {
   myView: MbscEventcalendarView = {
-    schedule: { type: "week" },
+    schedule: { type: 'week' },
   };
 
   myEvents: MbscCalendarEvent[] = [
-    { id: 'id1' start: '2023-09-24', end: '2023-09-30', title: 'Short trip!'},
+    { id: 'id1', start: '2023-09-24', end: '2023-09-30', title: 'Short trip!' },
   ];
 
   saveEvent(args: MbscEventCreatedEvent) {
@@ -513,15 +610,15 @@ export class MyComponent {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(args.event)
     });
-  },
-    
+  }
+
   updateEvent(args: MbscEventUpdatedEvent) {
     fetch('update.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(args.event)
     });
-  },
+  }
 
   deleteEvent(args: MbscEventDeletedEvent) {
     fetch('delete.php', {
@@ -530,7 +627,7 @@ export class MyComponent {
       body: JSON.stringify(args.event)
     });
   }
-});   
+}
 ```
 
 </TabItem>
@@ -542,45 +639,53 @@ Both libraries are capable of handling modern scheduling needs, but the choice d
 
 ## Lifecycle events
 
-Both libraries, DHTMLX and Mobiscroll, provide a comprehensive set of lifecycle event hooks, enabling deep customization and integration with your application logic. These events are emitted at various stages of a component’s lifecycle, offering developers full control to inject custom behavior and extend default functionality.
+Both libraries, FullCalendar and Mobiscroll, provide a comprehensive set of lifecycle event hooks, enabling deep customization and integration with your application logic. These events are emitted at various stages of a component’s lifecycle, offering developers full control to inject custom behavior and extend default functionality.
 
 Whether you’re looking to manipulate data before rendering, respond to user interactions, or perform cleanup tasks, Mobiscroll’s event system offers the flexibility to tailor components to your specific needs.
 
-When migrating between DHTMLX and Mobiscroll, it’s important to note that most lifecycle events follow similar patterns across both libraries. This alignment minimizes friction during the transition process and helps preserve custom behaviors with minimal adjustments.
+When migrating between FullCalendar and Mobiscroll, it’s important to note that most lifecycle events follow similar patterns across both libraries. This alignment minimizes friction during the transition process and helps preserve custom behaviors with minimal adjustments.
 
-One such example is how each library handles a double-click on a cell. Below is a comparison of the respective event handlers and their parameters.
+One such example is how each library handles event updates. Below is a comparison of the respective event handlers and their parameters.
 
-### DHTMLX
+### FullCalendar
 
-In DHTMLX Scheduler, lifecycle events such as creating, updating, or deleting an event are handled through the `scheduler.attachEvent()` method. This API allows you to subscribe to internal scheduler callbacks — for example: `onEventAdded`, `onEventChanged`, or `onEventDeleted` — and execute custom logic when these actions occur.
-
-For example the `onXScaleDblClick` event is triggered when the user makes a double click on a cell on the x-axis (the Timeline view only). This event provides access to several key objects that describe the interaction and `contextDblClick`:
-- `index`: number - the column index of the clicked cell (zero-based numbering)
-- `value`: object - Date object of the start time stamp of the clicked cell
-- `e`: event - native event object
+In FullCalendar, the [`eventChange`](https://fullcalendar.io/docs/eventChange) callback is triggered after an event has been modified, for example after a drag, resize, or programmatic update. The callback provides access to the updated event, the previous version, related events, and a `revert` function.
 
 Example:
 
-```js
-scheduler.attachEvent('onCellDblClick', function (x_ind, y_ind, x_val, y_val, e) {
-  console.log('Cell double-clicked:', x_ind, y_ind, x_val, y_val, e);
-  // Example: open a new event creation dialog
-  // showCreateEventDialog(x_val, y_val);
-});
+<Tabs>
+<TabItem value="html" label="app.component.html">
+
+```html
+<full-calendar [options]="calendarOptions"></full-calendar>
 ```
+</TabItem>
+<TabItem value="ts" label="app.component.ts">
+
+```ts
+import { CalendarOptions } from '@fullcalendar/core';
+import interactionPlugin from '@fullcalendar/interaction';
+import timeGridPlugin from '@fullcalendar/timegrid';
+
+calendarOptions: CalendarOptions = {
+  plugins: [interactionPlugin, timeGridPlugin],
+  initialView: 'timeGridWeek',
+  editable: true,
+  events: this.events,
+  eventChange: (changeInfo) => {
+    console.log('Event changed:', changeInfo.event);
+    // changeInfo.oldEvent contains the previous state
+    // changeInfo.revert() can be used if saving fails
+  }
+};
+```
+
+</TabItem>
+</Tabs>
 
 ### Mobiscroll
 
-Mobiscroll components (e.g., Event Calendar, Scheduler, Timeline) expose a similar [`onCellDoubleClick`](/angular/eventcalendar/api#event-onCellDoubleClick) event, which is fired when a cell is double-clicked. It includes contextual information that allows for granular control over the interaction:
-- `args` - The event argument with the following properties:
-  - `date`: Date - The date of the clicked cell.
-  - `domEvent`: Event - The DOM event of the click.
-  - `events`: Array - The events for the clicked date.
-  - `resource`: string | number - The id of the resource where the cell was clicked, if resources are set.
-  - `selected`: boolean - Specifies if the day is currently selected or not (before it was clicked).
-  - `source`: 'calendar' | 'schedule' | 'timeline' - The view where the cell was clicked.
-  - `target`: HTMLElement - The DOM element of the clicked cell.
-- `inst` - The component instance.
+Mobiscroll components (e.g., Event Calendar, Scheduler, Timeline) expose a similar [`onEventUpdated`](/angular/eventcalendar/api#event-onEventUpdated) event, which is fired when an event is edited. It includes contextual information that allows for granular control over the interaction.
 
 Example:
 
@@ -589,30 +694,30 @@ Example:
 
 ```html
 <mbsc-eventcalendar
-  (onCellDoubleClick)="handleCellDblClick($event)"
+  [data]="myEvents"
+  (onEventUpdated)="handleEventUpdated($event)"
 ></mbsc-eventcalendar>
 ```
 </TabItem>
 <TabItem value="ts" label="app.component.ts">
 
 ```ts
-import { Component } from '@angular/core';
-import { MbscEventClickEvent } from '@mobiscroll/angular';
+import { MbscCalendarEvent, MbscEventUpdatedEvent } from '@mobiscroll/angular';
 
-@Component({...});
+@Component({...})
 export class AppComponent {
-  // ...other options...
+  myEvents: MbscCalendarEvent[] = [];
 
-  handleCellDblClick(args: MbscEventClickEvent) {
-    console.log('Cell double-clicked:', args.date, args);
-        // Example: open a new event creation dialog
-        // showCreateEventDialog(args.date, args.resource);
+  handleEventUpdated(args: MbscEventUpdatedEvent) {
+    console.log('Event updated:', args.event);
   }
-}   
+}
 ```
 
 </TabItem>
 </Tabs>
+
+Although the naming conventions and parameter structures differ between FullCalendar and Mobiscroll, many common integration scenarios can be implemented in both libraries. During migration, each event handler should be validated separately to account for differences in payload structure, lifecycle timing, and supported behaviors
 
 To explore the full list of available Mobiscroll lifecycle events and understand how they can be leveraged, please refer to the [documentation](/angular/eventcalendar/api#events).
 
@@ -626,50 +731,90 @@ These examples provide hands-on insights into how lifecycle events work in pract
 
 ## Feature migration
 
-As a final step, let’s explore how core features from DHTMLX can be replicated using Mobiscroll. While some capabilities are available out of the box in DHTMLX, Mobiscroll often requires more explicit setup but offers much more flexibility.
+As a final step, let’s explore how core features from FullCalendar can be replicated using Mobiscroll. While some capabilities are available out of the box in FullCalendar, Mobiscroll often requires more explicit setup but offers much more flexibility across touch and desktop interactions.
 
 ### Drag & Drop functionality
 
-- DHTMLX Scheduler enables drag-and-drop operations by default with no extra configuration needed.
-- In Mobiscroll, the [D&D features](https://demo.mobiscroll.com/timeline/move-resize-drag-drop-to-create-events#) must be enabled explicitly via [configuration options](/angular/eventcalendar/drag-and-drop).
+- In FullCalendar, drag-and-drop editing is enabled with `editable: true`. To [support](https://fullcalendar.io/docs/editable) date clicking, selection, and advanced interactions, the [`interaction` plugin](https://fullcalendar.io/docs/editable) is commonly added as well.
+- In Mobiscroll, the D&D features must be enabled explicitly via [configuration options](/javascript/eventcalendar/drag-and-drop).
 
-#### Enabling Drag & Drop in Mobiscroll:
+#### FullCalendar:
+
+<Tabs>
+<TabItem value="html" label="app.component.html">
+
+```html
+<full-calendar [options]="calendarOptions"></full-calendar>
+```
+</TabItem>
+<TabItem value="ts" label="app.component.ts">
+
+```ts
+import { CalendarOptions } from '@fullcalendar/core';
+import interactionPlugin from '@fullcalendar/interaction';
+import timeGridPlugin from '@fullcalendar/timegrid';
+
+calendarOptions: CalendarOptions = {
+  plugins: [interactionPlugin, timeGridPlugin],
+  initialView: 'timeGridWeek',
+  editable: true,
+  selectable: true
+};
+```
+
+</TabItem>
+</Tabs>
+
+#### Mobiscroll:
 
 ```html
 <mbsc-eventcalendar
-    [clickToCreate]="true"
-    [dragToCreate]="true"
-    [dragToMove]="true"
-    [dragToResize]="true"
-    [eventDelete]="true">
+  [clickToCreate]="true"
+  [dragToCreate]="true"
+  [dragToMove]="true"
+  [dragToResize]="true"
+  [eventDelete]="true">
 </mbsc-eventcalendar>
-```
-
-```ts
-import { Component } from '@angular/core';
-import { MbscModule } from '@mobiscroll/angular';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  standalone: true,
-  imports: [MbscModule],
-})
-export class AppComponent {}
 ```
 
 This configuration allows users to create, move, resize, and delete events in Mobiscroll.
 
 ### Switching Views (Calendar/Scheduler/Agenda)
 
-- DHTMLX Scheduler enables switching views by default with no extra configuration needed.
+- FullCalendar includes a built-in header toolbar. You can switch between views by declaring them in [`headerToolbar`](https://fullcalendar.io/docs/headerToolbar). An object can be supplied with properties `start/center/end` or `left/center/right`. These properties contain strings with comma/space separated values. Values separated by a comma will be displayed adjacently. Values separated by a space will be displayed with a small gap in between.
 - Mobiscroll doesn’t include a built-in view-switching UI by default. However, it offers greater flexibility by allowing you to implement a custom header where you can design the view-switching experience to fit your needs. For example, you can use a [dropdown menu](https://demo.mobiscroll.com/select) or [segmented controls](https://demo.mobiscroll.com/forms/segmented) to let users switch between views like Calendar, Scheduler, Agenda, or any other layout that fits your use case.
 
-#### DHTMLX Scheduler:
+#### FullCalendar:
 
-```js
-scheduler.init('scheduler_here', new Date(2020,8,12), "week");
+<Tabs>
+<TabItem value="html" label="app.component.html">
+
+```html
+<full-calendar [options]="calendarOptions"></full-calendar>
 ```
+</TabItem>
+<TabItem value="ts" label="app.component.ts">
+
+```ts
+import { CalendarOptions } from '@fullcalendar/core';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import listPlugin from '@fullcalendar/list';
+import timeGridPlugin from '@fullcalendar/timegrid';
+
+calendarOptions: CalendarOptions = {
+  plugins: [dayGridPlugin, timeGridPlugin, listPlugin],
+  initialView: 'timeGridWeek',
+  initialDate: '2020-09-12',
+  headerToolbar: {
+    left: 'title',
+    center: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek',
+    right: 'prev,today,next'
+  }
+};
+```
+
+</TabItem>
+</Tabs>
 
 #### Mobiscroll:
 
@@ -712,7 +857,7 @@ setOptions({
 });
 
 @Component({
-  selector: 'app-root', 
+  selector: 'app-root',
   templateUrl: './app.component.html',
   standalone: true,
   imports: [CommonModule, FormsModule, MbscModule],
@@ -764,7 +909,7 @@ export class AppComponent implements OnInit {
       }
     });
   }
-}  
+}
 ```
 
 </TabItem>
@@ -772,22 +917,54 @@ export class AppComponent implements OnInit {
 
 ### Timezones
 
-Handling time zones accurately is crucial in calendar and scheduling applications, especially when working across regions or coordinating international events. Mobiscroll and DHTMLX take significantly different approaches. Mobiscroll is clearly superior in timezone management, while DHTMLX only operates with native JS Date objects, which limits its ability to handle complex timezone scenarios. 
+Handling time zones correctly is essential in calendar and scheduling applications, especially when users work across multiple regions. Both FullCalendar and Mobiscroll support timezone-related workflows, but they do so through different configuration models and plugin integrations.
 
-#### DHTMLX
+#### FullCalendar
 
-DHTMLX Scheduler only operates with native JS Date objects.
+FullCalendar supports `local`, `UTC`, and named time zones through the [`timeZone`](https://fullcalendar.io/docs/timeZone) option. Using `UTC` ensures consistent cross-browser display. Named time zones are also supported, but depending on the setup they may require a timezone implementation.
+
+<Tabs>
+<TabItem value="html" label="app.component.html">
+
+```html
+<full-calendar [options]="calendarOptions"></full-calendar>
+```
+</TabItem>
+<TabItem value="ts" label="app.component.ts">
+
+```ts
+import { CalendarOptions } from '@fullcalendar/core';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import momentTimezonePlugin from '@fullcalendar/moment-timezone';
+
+calendarOptions: CalendarOptions = {
+  plugins: [timeGridPlugin, momentTimezonePlugin],
+  initialView: 'timeGridWeek',
+  timeZone: 'Europe/Stockholm',
+  events: [
+    {
+      id: '1',
+      title: 'Meeting',
+      start: '2025-08-27T09:00:00Z',
+      end: '2025-08-27T11:00:00Z'
+    }
+  ]
+};
+```
+
+</TabItem>
+</Tabs>
 
 #### Mobiscroll
 
-By default, Mobiscroll will not do any timezone conversion, will display the dates without modification, handling them as timezone-less. If your use case requires interpreting or displaying data in a different time zone, you can achieve this by using one of the supported third-party libraries for time zone conversion:
+By default, Mobiscroll will not do any timezone conversion and will display the dates without modification, handling them as timezone-less. If your use case requires interpreting or displaying data in a different time zone, you can achieve this by using one of the supported third-party libraries for time zone conversion:
 - [Moment-Timezone](/angular/eventcalendar/timezones#the-moment-timezone-library)
 - [Luxon](/angular/eventcalendar/timezones#the-luxon-library)
 - [Day.js](/angular/eventcalendar/timezones#the-dayjs-library)
 
 Mobiscroll exposes two configuration options to handle time zones:
-- `dataTimezone` [option](/angular/eventcalendar/api#opt-dataTimezone) – the time zone in which your event data is stored (e.g., 'utc')
-- `displayTimezone` [option](/angular/eventcalendar/api#opt-displayTimezone) – the time zone in which you want the data to be presented (e.g., 'Europe/Stockholm')
+- `dataTimezone` [option](/angular/eventcalendar/api#opt-dataTimezone) - the time zone in which your event data is stored (e.g., 'utc')
+- `displayTimezone` [option](/angular/eventcalendar/api#opt-displayTimezone) - the time zone in which you want the data to be presented (e.g., 'Europe/Stockholm')
 
 So, let’s say you want to use the Day.js timezone library. After [installing](/angular/eventcalendar/timezones#the-dayjs-library) it into your project, you can pass the `dayjsTimezone` object to the Timeline’s [`timezonePlugin`](/angular/eventcalendar/api#opt-timezonePlugin) option:
 
@@ -805,11 +982,10 @@ So, let’s say you want to use the Day.js timezone library. After [installing](
 <TabItem value="ts" label="app.component.ts">
 
 ```ts
-import { Component } from '@angular/core';
+import { dayjsTimezone, MbscTimezonePlugin } from '@mobiscroll/angular';
 import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
-import { dayjsTimezone, MbscTimezonePlugin } from '@mobiscroll/angular';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -818,7 +994,7 @@ dayjsTimezone.dayjs = dayjs;
 @Component({...})
 export class MyComponent {
   myDayjsTimezone: MbscTimezonePlugin = dayjsTimezone;
-}  
+}
 ```
 
 </TabItem>
@@ -837,79 +1013,89 @@ Or you can also check advanced demos such as:
 
 You can also store the timezone inside the event data, using the [`timezone`](/angular/eventcalendar/api#opt-data) property.
 
-As a conclusion, Mobiscroll is clearly superior in timezone management, DHTMLX only operates with native JS Date objects.
-
 #### Conclusion
 
-DHTMLX Scheduler offers stronger server-side capabilities and export options, while Mobiscroll excels in multi-calendar systems and flexible component design:
+FullCalendar offers a familiar plugin-based API and built-in toolbar-based navigation, while Mobiscroll provides a more unified scheduling product line with highly configurable scheduler and timeline experiences:
 - Feel free to explore our demo page for [Timeline](https://demo.mobiscroll.com/timeline), [Scheduler](https://demo.mobiscroll.com/scheduler), [Event Calendar](https://demo.mobiscroll.com/eventcalendar), and [Agenda](https://demo.mobiscroll.com/agenda) views - featuring grouped examples, including [common use cases](https://demo.mobiscroll.com/timeline/employee-shifts), [view configuration](https://demo.mobiscroll.com/scheduler/custom-range-view), [event](https://demo.mobiscroll.com/timeline/timeline-custom-event-rendering) and [resource](https://demo.mobiscroll.com/scheduler/custom-resource-header-template) templating, and [lifecycle event handling](https://demo.mobiscroll.com/timeline/event-hooks).
 - We also offer comprehensive documentation for the [Timeline](/angular/eventcalendar/timeline), [Scheduler](/angular/eventcalendar/scheduler), [Event Calendar](/angular/eventcalendar/calendar), and [Agenda](/angular/eventcalendar/agenda) views. It covers [usage](/angular/eventcalendar/timezones), [APIs](/angular/eventcalendar/api), [customization options](/angular/eventcalendar/templating), and more in detail.
 
 In addition to drag & drop and custom view-switching, Mobiscroll also supports [timezone handling](https://demo.mobiscroll.com/scheduler/setting-the-timezone) and [zooming levels](https://demo.mobiscroll.com/timeline/calendar-zoom). All of our views work seamlessly across both [mobile](https://demo.mobiscroll.com/scheduler/mobile-day-view) and [desktop](https://demo.mobiscroll.com/scheduler/desktop-day-view) environments, with full support for touch interactions.
 
-As mentioned above, with some additional setup, most —if not all— features can be effectively replicated when migrating from DHTMLX to Mobiscroll.
-If you have any specific questions or run into any issues, don’t hesitate to [reach out](https://mobiscroll.com#get-help) — we’re happy to help.
+As mentioned above, with some additional setup, most - if not all - features can be effectively replicated when migrating from FullCalendar to Mobiscroll.
+If you have any specific questions or run into any issues, don’t hesitate to [reach out](https://mobiscroll.com#get-help) - we’re happy to help.
 
 ## Templating and renderers
 
 ### Event templating
 
-#### DHTMLX
+#### FullCalendar
 
-In DHTMLX Scheduler, you can customize the content of events and define which data should be displayed by using templates. Each view relies on its own set of templates, so to determine which templates a particular view uses, refer to the article [Formatting Labels, Dates, Styles](https://docs.dhtmlx.com/scheduler/templates.html) article. 
-
-Most views use the following two templates for customizing event text:
-- [`event_header`](https://docs.dhtmlx.com/scheduler/api__scheduler_event_header_template.html) - defines the text shown in the event header
-- [`event_text`](https://docs.dhtmlx.com/scheduler/api__scheduler_event_text_template.html) - defines the main text displayed inside the event
-
-DHTMLX also recommends redefining templates inside the `onTemplatesReady` event handler. Doing so ensures that your custom templates are not overwritten by the default ones.
-
-Below is an example of how to display the event location together with the event text in the event box:
-
-```js
-scheduler.attachEvent('onTemplatesReady', function () {
-  scheduler.templates.event_text = function (start, end, event) {
-    return `
-      <div style="background:#a8d8ea; border-radius:4px; padding:4px;">
-          <strong>${event.text}</strong>
-          <div style="font-size:12px; color:#444;">Location: ${event.location} </div>
-      </div>
-  `;
-  };
-});
-
-scheduler.init('scheduler_here', new Date(2019, 5, 5), 'week');
-
-scheduler.parse([
-  {
-    id: 1,
-    text: 'Custom Meeting',
-    start_date: '2019-06-05 09:00',
-    end_date: '2019-06-05 11:00',
-    location: 'Room 1',
-  },
-]);
-```
-
-#### Mobiscroll
-
-You can customize many parts of the Event Calendar by writing custom templates. In the context of plain angular these templates are functions that return a string containing the html markup. You will find a comprehensive list of all the available render functions for the Event Calendar in the [API templates](/angular/eventcalendar/api#renderers) section.
-
-When you want to customize how the events look, depending on what your goal is, you have two options:
-- [Customize the event content](/angular/eventcalendar/templating#event-content-templating) - Mobiscroll takes care of rendering the events in the correct order and also prints basic fields, like `start`/`end`, whether it is an `allDay` event or not and also takes care of coloring the event appropriately. Everything else comes from the custom template.
-- [Customize the full event](/angular/eventcalendar/templating#full-event-templating) - Mobiscroll takes care of rendering the events in the correct order, but everything else comes form the template you write.
-
-To define a template, create an `<ng-template>` tag with a variable reference and pass it to the apropriate eventcalendar option:
+FullCalendar customizes event rendering through [event render hooks](https://fullcalendar.io/docs/event-render-hooks). The most commonly used option is `eventContent`, which allows custom content to be injected into the rendered event. In Angular projects, these rendering areas should be implemented according to the Angular wrapper's supported templating approach.
 
 <Tabs>
 <TabItem value="html" label="app.component.html">
 
 ```html
-<mbsc-eventcalendar [scheduleEventTemplate]="myTemplate">
-  <ng-template #myTemplate let-eventRecord>
+<full-calendar [options]="calendarOptions"></full-calendar>
+```
+</TabItem>
+<TabItem value="ts" label="app.component.ts">
+
+```ts
+import { CalendarOptions } from '@fullcalendar/core';
+import timeGridPlugin from '@fullcalendar/timegrid';
+
+calendarOptions: CalendarOptions = {
+  plugins: [timeGridPlugin],
+  initialView: 'timeGridWeek',
+  eventContent: (arg) => {
+    return {
+      html: `
+        <div style="background:#a8d8ea; border-radius:4px; padding:4px;">
+          <strong>${arg.event.title}</strong>
+          <div style="font-size:12px; color:#444;">
+            Location: ${arg.event.extendedProps['location'] || ''}
+          </div>
+        </div>
+        `,
+      };
+    },
+    events: [
+      {
+        id: '10',
+        title: 'Custom Meeting',
+        start: '2025-08-27T09:00:00',
+        end: '2025-08-27T11:00:00',
+        extendedProps: {
+        location: 'Room 203',
+      },
+      },
+    ],
+};
+```
+
+</TabItem>
+</Tabs>
+
+#### Mobiscroll
+
+You can customize many parts of the Event Calendar by writing custom templates. In the context of Angular these templates are `<ng-template>` blocks that can be passed to the appropriate Event Calendar template input.
+
+When you want to customize how the events look, depending on what your goal is, you have two options:
+- [Customize the event content](/angular/eventcalendar/templating#event-content-templating) - Mobiscroll takes care of rendering the events in the correct order and also prints basic fields, like `start`/`end`, whether it is an `allDay` event or not and also takes care of coloring the event appropriately. Everything else comes from the custom template.
+- [Customize the full event](/angular/eventcalendar/templating#full-event-templating) - Mobiscroll takes care of rendering the events in the correct order, but everything else comes form the template you write.
+
+To define a template, create an `<ng-template>` tag with a variable reference and pass it to the appropriate event calendar option:
+
+<Tabs>
+<TabItem value="html" label="app.component.html">
+
+```html
+<mbsc-eventcalendar [scheduleEventTemplate]="myTemplate" [data]="myEvents">
+  <ng-template #myTemplate let-event>
     <div style="background:#a8d8ea; border-radius:4px; padding:4px;">
-      <strong>{{eventRecord.name}}</strong>
-      <div style="font-size:12px; color:#444;">Duration: {{eventRecord.duration}}h</div>
+      <strong>{{ event.title }}</strong>
+      <div style="font-size:12px; color:#444;">Location: {{ event.location }}</div>
     </div>
   </ng-template>
 </mbsc-eventcalendar>
@@ -918,36 +1104,32 @@ To define a template, create an `<ng-template>` tag with a variable reference an
 <TabItem value="ts" label="app.component.ts">
 
 ```ts
-import { Component } from '@angular/core';
 import { MbscCalendarEvent } from '@mobiscroll/angular';
 
-@Component({...});
+@Component({...})
 export class AppComponent {
-  // ...
-
   myEvents: MbscCalendarEvent[] = [
     {
-      id: 10,
-      resourceId: 'r1',
-      name: 'Custom Meeting',
-      startDate: '2017-01-01 09:00',
-      endDate: '2017-01-01 11:00',
-      duration: 2
+      id: '10',
+      title: 'Custom Meeting',
+      start: '2025-08-27T09:00',
+      end: '2025-08-27T11:00',
+      location: 'Room 203'
     },
   ];
-}   
+}
 ```
 
 </TabItem>
 </Tabs>
 
-Feel free to explore live examples to see how event content templating work in action:
+Feel free to explore live examples to see how event content templating works in action:
 - [Event Calendar](https://demo.mobiscroll.com/eventcalendar/customize-label-look-and-feel#)
 - [Scheduler](https://demo.mobiscroll.com/scheduler/customizing-events#)
 - [Timeline](https://demo.mobiscroll.com/timeline/meal-planner#)
 - [Agenda](https://demo.mobiscroll.com/agenda/event-content-customization#)
 
-Feel free to explore live examples to see how full event templating work in action:
+Feel free to explore live examples to see how full event templating works in action:
 - [Event Calendar](https://demo.mobiscroll.com/eventcalendar/customize-event-popover#)
 - [Scheduler](https://demo.mobiscroll.com/scheduler/customizing-events#)
 - [Timeline](https://demo.mobiscroll.com/timeline/timeline-custom-event-rendering#)
@@ -955,41 +1137,42 @@ Feel free to explore live examples to see how full event templating work in acti
 
 ### Resource templating
 
-#### DHTMLX
+#### FullCalendar
 
-In case of DHTMLX Scheduler - Timeline view the resources can be customized through the columns property of the timeline configuration object:
+In FullCalendar, there are two common approaches for customizing the resource area:
+- Use [`resourceAreaColumns`](https://fullcalendar.io/docs/resourceAreaColumns) to turn the resource sidebar into a grid with multiple columns.
+- Use resource render hooks such as [`resourceLabelContent`](https://fullcalendar.io/docs/resource-render-hooks#label-hooks) for custom label rendering.
 
-```js
-scheduler.plugins({
-  timeline: true,
-});
+<Tabs>
+<TabItem value="html" label="app.component.html">
 
-scheduler.createTimelineView({
-  name: 'timeline',
-  y_unit: [
-    { key: 1, label: 'Adam', city: 'Washington' },
-    { key: 2, label: 'Eva', city: 'New York' },
-  ],
-  columns: [
-    {
-      label: '<strong>Name</strong>',
-      width: 130,
-      template: function (obj) {
-        return '<strong>' + obj.label + '<strong>';
-      },
-    },
-    {
-      label: '<i>City</i>',
-      width: 90,
-      template: function (obj) {
-        return '<i>' + obj.city + '<i>';
-      },
-    },
-  ],
-});
-
-scheduler.init('scheduler_here');
+```html
+<full-calendar [options]="calendarOptions"></full-calendar>
 ```
+</TabItem>
+<TabItem value="ts" label="app.component.ts">
+
+```ts
+import { CalendarOptions } from '@fullcalendar/core';
+import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
+
+calendarOptions: CalendarOptions = {
+  schedulerLicenseKey: 'YOUR_LICENSE_KEY',
+  plugins: [resourceTimelinePlugin],
+  initialView: 'resourceTimelineDay',
+  resourceAreaColumns: [
+    { field: 'name', headerContent: 'Name' },
+    { field: 'city', headerContent: 'City' }
+  ],
+  resources: [
+    { id: '1', title: 'Adam', name: 'Adam', city: 'Washington' },
+    { id: '2', title: 'Eva', name: 'Eva', city: 'New York' },
+  ]
+};
+```
+
+</TabItem>
+</Tabs>
 
 #### Mobiscroll
 
@@ -997,7 +1180,7 @@ In the case of Mobiscroll, we take a different approach. We provide various temp
 
 #### Scheduler
 
-Use the [`resourceTemplate`](/angular/eventcalendar/scheduler#template-resourceTemplate) option to customize the resource template of the Scheduler. Customize how the resource headers look and what they show. Utilize properties passed in the [resources](/angular/eventcalendar/scheduler#opt-resources) array. It takes a function that should return the desired markup.
+Use the [`resourceTemplate`](/angular/eventcalendar/scheduler#template-resourceTemplate) option to customize the resource template of the Scheduler. Customize how the resource headers look and what they show. Utilize properties passed in the [resources](/angular/eventcalendar/scheduler#opt-resources) array.
 
 Check out how you can style the resources in [this example](https://demo.mobiscroll.com/scheduler/custom-resource-header-template#).
 
@@ -1029,10 +1212,10 @@ Check out how you can style these resource parts in [this example](https://demo.
   </ng-template>
   <ng-template #myResourceTemplate let-resource>
     <div class="my-resource-cell">
-      <strong>{{record.name}}</strong>
+      <strong>{{ resource.name }}</strong>
     </div>
     <div class="my-resource-cell">
-      <i>{{record.city}}</i>
+      <i>{{ resource.city }}</i>
     </div>
   </ng-template>
 </mbsc-eventcalendar>
@@ -1041,18 +1224,15 @@ Check out how you can style these resource parts in [this example](https://demo.
 <TabItem value="ts" label="app.component.ts">
 
 ```ts
-import { Component } from '@angular/core';
 import { MbscResource } from '@mobiscroll/angular';
 
-@Component({...});
+@Component({...})
 export class AppComponent {
-  // ...
-
   myResources: MbscResource[] = [
     { id: 1, name: 'Adam', city: 'Washington' },
     { id: 2, name: 'Eva', city: 'New York' },
   ];
-}    
+}
 ```
 
 </TabItem>
@@ -1060,25 +1240,42 @@ export class AppComponent {
 
 ### Header templating
 
-#### DHTMLX
+#### FullCalendar
 
-In DHTMLX Scheduler, the header (the top navigation area containing the date, navigation buttons, and view tabs) is generated from a combination of HTML markup and Scheduler’s template system.
+FullCalendar comes with a built-in toolbar system through `headerToolbar` and `customButtons`. You can reorder, hide, or extend the header, but unlike Mobiscroll, you do not fully template the entire header as markup.
 
-The header area corresponds to this block in your code:
+<Tabs>
+<TabItem value="html" label="app.component.html">
 
-```js
-<div class="dhx_cal_navline">
-  <div class="dhx_cal_prev_button">&nbsp;</div>
-  <div class="dhx_cal_next_button">&nbsp;</div>
-  <div class="dhx_cal_today_button"></div>
-  <div class="dhx_cal_date"></div>
-  <div class="dhx_cal_tab" data-tab="day"></div>
-  <div class="dhx_cal_tab" data-tab="week" ></div>
-  <div class="dhx_cal_tab" data-tab="month"></div>
-</div>
+```html
+<full-calendar [options]="calendarOptions"></full-calendar>
+```
+</TabItem>
+<TabItem value="ts" label="app.component.ts">
+
+```ts
+import { CalendarOptions } from '@fullcalendar/core';
+import dayGridPlugin from '@fullcalendar/daygrid';
+
+calendarOptions: CalendarOptions = {
+  plugins: [dayGridPlugin],
+  initialView: 'dayGridMonth',
+  customButtons: {
+    myButton: {
+      text: 'Today +',
+      click: () => console.log('Custom button clicked')
+    }
+  },
+  headerToolbar: {
+    start: 'title',
+    center: '',
+    end: 'today prev,next myButton'
+  }
+};
 ```
 
-Scheduler fills these elements using built-in templates, which you can override to control what appears in the header.
+</TabItem>
+</Tabs>
 
 #### Mobiscroll
 
@@ -1097,25 +1294,12 @@ The following example will render the prev and next buttons and a custom title.
   <ng-template #header>
     <mbsc-calendar-prev></mbsc-calendar-prev>
     <mbsc-calendar-next></mbsc-calendar-next>
-    <div class="my-custom-title">{{myTitle}}</div>
+    <div class="my-custom-title">{{ myTitle }}</div>
   </ng-template>
 </mbsc-eventcalendar>
 ```
 
-```ts
-import { Component } from '@angular/core';
-import { MbscModule } from '@mobiscroll/angular';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  standalone: true,
-  imports: [MbscModule],
-})
-export class AppComponent {}
-```
-
-Also, feel free to explore live examples to see how header templating work in action:
+Also, feel free to explore live examples to see how header templating works in action:
 - [Event Calendar](https://demo.mobiscroll.com/eventcalendar/customizing-header#)
 - [Scheduler](https://demo.mobiscroll.com/scheduler/customizing-header#)
 - [Timeline](https://demo.mobiscroll.com/timeline/switching-day-week-work-week-timeline)
@@ -1164,30 +1348,39 @@ Also, feel free to explore live examples to see how header templating work in ac
 
   Check out how you can style the day headers in [this example](https://demo.mobiscroll.com/agenda/customizing-day-header#).
 
-- [Empty state templating](/angular/eventcalendar/agenda#the-agenda-empty-state) - Customize the look of the empty state through [`agendaEmptyTemplate`](/angular/eventcalendar/agenda#template-agendaEmptyTemplate) function.
+- [Empty state templating](/angular/eventcalendar/agenda#the-agenda-empty-state) - Customize the look of the empty state through [`agendaEmptyTemplate`](/angular/eventcalendar/agenda#template-agendaEmptyTemplate).
 
   Check out how you can style the empty state in [this example](https://demo.mobiscroll.com/agenda/empty-state#).
 
 ## Localization
 
-### DHTMLX
+### FullCalendar
 
-DHTMLX Scheduler supports scheduler's localization by providing a number of predefined locales and means of creating custom ones. By default, DHTMLX Scheduler uses [English locale](https://docs.dhtmlx.com/scheduler/api__scheduler_locale_other.html).
+FullCalendar supports localization through the `locale` option. These settings affect button text, month and weekday names, date formatting, week calculations, and the first day of the week.
 
-To set the desired language for the scheduler, you need to activate the necessary locale via the `setLocale` method of the [`scheduler.i18n`](https://docs.dhtmlx.com/scheduler/api__scheduler_i18n_other.html) object.
+<Tabs>
+<TabItem value="html" label="app.component.html">
 
-```js
-scheduler.i18n.setLocale("fr");
+```html
+<full-calendar [options]="calendarOptions"></full-calendar>
+```
+</TabItem>
+<TabItem value="ts" label="app.component.ts">
+
+```ts
+import { CalendarOptions } from '@fullcalendar/core';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import frLocale from '@fullcalendar/core/locales/fr';
+
+calendarOptions: CalendarOptions = {
+  plugins: [dayGridPlugin],
+  initialView: 'dayGridMonth',
+  locale: frLocale
+};
 ```
 
-You can use and update any of the [predefined locales](https://docs.dhtmlx.com/scheduler/localization.html#includedlocales) that are bundled with the `dhtmlxscheduler.js` file or define a custom locale.
-
-The locale can be switched dynamically but the changes will be applied only after a complete redrawing of the Scheduler either with the `scheduler.render()` or `scheduler.init()` call.
-
-```js
-scheduler.i18n.setLocale("fr");
-scheduler.init("scheduler_here");
-```
+</TabItem>
+</Tabs>
 
 ### Mobiscroll
 
@@ -1221,7 +1414,7 @@ Example setting the locale at the component level:
 
 ```ts
 import { Component } from '@angular/core';
-import { MbscModule, localeDe, localeFr } from '@mobiscroll/angular';
+import { localeFr, MbscModule } from '@mobiscroll/angular';
 
 @Component({
   selector: 'app-root',
@@ -1230,8 +1423,8 @@ import { MbscModule, localeDe, localeFr } from '@mobiscroll/angular';
   imports: [MbscModule]
 })
 export class AppComponent {
-    myLocale = localeFr; // French locale applied globally
-}   
+  myLocale = localeFr;
+}
 ```
 
 </TabItem>
@@ -1239,7 +1432,7 @@ export class AppComponent {
 
 ## Conclusion
 
-Migrating from DHTMLX Scheduler to Mobiscroll involves rethinking certain configurations, especially around views, events, and feature toggles. While DHTMLX Scheduler offers strong server-side capabilities and comprehensive export options, Mobiscroll stands out as a modern, developer-friendly, and highly adaptable calendar and scheduling solution. Its superior framework support, refined UX, accessibility readiness, and deep customization make it the better long-term choice for teams building maintainable and scalable scheduling experiences.
+For teams building customer-facing schedulers - whether for appointments, reservations, healthcare, or mobile apps - Mobiscroll offers a faster, more focused path to production. It combines a complete feature set with strong performance and specialized UX capabilities like fixed resources and multi-calendar support. Instead of combining multiple FullCalendar plugins and premium add-ons, you get a unified scheduling product line with native Angular components and responsive interactions out of the box.
 
 The overall migration process includes:
 - Adjusting initialization patterns
@@ -1249,7 +1442,7 @@ The overall migration process includes:
 
 With a clear understanding of both libraries’ capabilities and structures, you can migrate efficiently and take full advantage of Mobiscroll’s modern UI and feature-rich environment.
 
-#### Considering migrating from DHTMLX Scheduler to Mobiscroll?
+#### Considering migrating from FullCalendar to Mobiscroll?
 
 [Schedule a call](https://calendly.com/mobiscroll/30min) and let's chat about how we can help.
 We're here to support you in the migration process.

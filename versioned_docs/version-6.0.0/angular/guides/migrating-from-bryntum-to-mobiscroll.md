@@ -4,7 +4,7 @@ sidebar_label: Migrating from Bryntum
 displayed_sidebar: angularSidebar
 title: Migrating from Bryntum to Mobiscroll
 toc_max_heading_level: 2
-description: 'Step-by-step guide for migrating a JavaScript scheduling app from Bryntum Scheduler to Mobiscroll Eventcalendar — API mapping and config equivalents.'
+description: Step-by-step guide for migrating from Bryntum to Mobiscroll in Angular — API mapping, event model, and config comparison.
 ---
 
 import Tabs from '@theme/Tabs';

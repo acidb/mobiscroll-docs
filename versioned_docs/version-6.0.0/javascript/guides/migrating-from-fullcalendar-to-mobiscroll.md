@@ -4,6 +4,7 @@ sidebar_label: Migrating from FullCalendar
 displayed_sidebar: javascriptSidebar
 title: Migrating from FullCalendar to Mobiscroll
 toc_max_heading_level: 2
+description: Step-by-step guide for migrating a JavaScript scheduling app from FullCalendar to Mobiscroll — API mapping and config equivalents.
 ---
 
 ## Overview
@@ -56,7 +57,7 @@ Key Differences:
 
 ### FullCalendar Timeline view:
 
-In FullCalendar, the Timeline view is configured through the [`initialView`](https://fullcalendar.io/docs/initialView), `slotMinTime`, and `slotMaxTime`options. Resource-based timeline scheduling also requires the `resourceTimelinePlugin` and a `resources` array.
+In FullCalendar, the Timeline view is configured through the [`initialView`](https://fullcalendar.io/docs/initialView), `slotMinTime`, and `slotMaxTime` options. Resource-based timeline scheduling also requires the `resourceTimelinePlugin` and a `resources` array.
 
 ```js
 const calendar = new Calendar(container, {

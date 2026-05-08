@@ -6,24 +6,20 @@ Let's say your branding uses a nice red accent color, and you'd like that color 
 while still using platform specific themes (e.g. `ios` on iOS devices, `material` on Android devices).
 You can override the accent color for every theme:
 
-<CodeBlock language="scss">
-@use '@mobiscroll/{props.framework}/dist/css/mobiscroll.scss' with ({'\n'}
-{'  '}$mbsc-ios-accent: #e61d2a;{'\n'}
-{'  '}$mbsc-material-accent: #e61d2a;{'\n'}
-{'  '}$mbsc-windows-accent: #e61d2a;{'\n'}
-);
-</CodeBlock>
+<CodeBlock language="scss">{`@use '@mobiscroll/${props.framework}/dist/css/mobiscroll.scss' with (
+  $mbsc-ios-accent: #e61d2a;
+  $mbsc-material-accent: #e61d2a;
+  $mbsc-windows-accent: #e61d2a;
+);`}</CodeBlock>
 
 When using the deprecated [Ruby Sass](https://sass-lang.com/ruby-sass/) or [LibSass](https://sass-lang.com/libsass/) implementations, use the following syntax:
 
-<CodeBlock language="scss">
-// Override the variables BEFORE the scss file import, otherwise they won't take effect{'\n'}
-$mbsc-ios-accent: #e61d2a;{'\n'}
-$mbsc-material-accent: #e61d2a;{'\n'}
-$mbsc-windows-accent: #e61d2a;{'\n'}
-{'\n'}
-@import '@mobiscroll/{props.framework}/dist/css/mobiscroll.scss';
-</CodeBlock>
+<CodeBlock language="scss">{`// Override the variables BEFORE the scss file import, otherwise they won't take effect
+$mbsc-ios-accent: #e61d2a;
+$mbsc-material-accent: #e61d2a;
+$mbsc-windows-accent: #e61d2a;
+
+@import '@mobiscroll/${props.framework}/dist/css/mobiscroll.scss';`}</CodeBlock>
 
 Here's the complete list of the Sass color variables available grouped by themes:
 

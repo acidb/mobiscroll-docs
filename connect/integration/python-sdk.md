@@ -2,7 +2,7 @@
 sidebar_label: Python SDK
 sidebar_position: 4
 slug: /python-sdk
-description: Use the mobiscroll-connect PyPI package to interact with Mobiscroll Connect — setup, authentication, and API method reference.
+description: Use the mobiscroll-connect-sdk PyPI package to interact with Mobiscroll Connect — setup, authentication, and API method reference.
 ---
 
 import Tabs from '@theme/Tabs';
@@ -22,21 +22,21 @@ Install the package using pip:
 <TabItem value="pip" label="pip">
 
 ```bash
-pip install mobiscroll-connect
+pip install mobiscroll-connect-sdk
 ```
 
 </TabItem>
 <TabItem value="poetry" label="Poetry">
 
 ```bash
-poetry add mobiscroll-connect
+poetry add mobiscroll-connect-sdk
 ```
 
 </TabItem>
 <TabItem value="uv" label="uv">
 
 ```bash
-uv add mobiscroll-connect
+uv add mobiscroll-connect-sdk
 ```
 
 </TabItem>

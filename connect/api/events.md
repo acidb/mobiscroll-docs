@@ -289,6 +289,73 @@ $masters = $client->events()->list([
 ```
 
 </TabItem>
+<TabItem value="dotnet" label=".NET SDK">
+
+```csharp
+// Fetch initial events with date range filter
+var response = await client.Events.ListAsync(new EventListParams
+{
+    PageSize = 50,
+    Start = DateTime.Parse("2025-10-01T00:00:00Z"),
+    End = DateTime.Parse("2025-10-31T23:59:59Z"),
+});
+
+// Load more events using nextPageToken
+var nextResponse = await client.Events.ListAsync(new EventListParams
+{
+    PageSize = 50,
+    NextPageToken = response.NextPageToken,
+});
+
+// Filter by specific calendars
+var filteredEvents = await client.Events.ListAsync(new EventListParams
+{
+    PageSize = 25,
+    CalendarIds = new Dictionary<string, List<string>>
+    {
+        { "google", new List<string> { "personal@gmail.com", "work@company.com" } }
+    },
+});
+
+// Get recurring event series masters (not expanded)
+var masters = await client.Events.ListAsync(new EventListParams
+{
+    PageSize = 50,
+    SingleEvents = false,
+});
+```
+
+</TabItem>
+<TabItem value="python" label="Python SDK">
+
+```python
+# Fetch initial events with date range filter
+response = client.events.list(
+    page_size=50,
+    start='2025-10-01T00:00:00Z',
+    end='2025-10-31T23:59:59Z',
+)
+
+# Load more events using next_page_token
+next_response = client.events.list(
+    page_size=50,
+    next_page_token=response.next_page_token,
+)
+
+# Filter by specific calendars
+filtered_events = client.events.list(
+    page_size=25,
+    calendar_ids={'google': ['personal@gmail.com', 'work@company.com']},
+)
+
+# Get recurring event series masters (not expanded)
+masters = client.events.list(
+    page_size=50,
+    single_events=False,
+)
+```
+
+</TabItem>
 </Tabs>
 
 :::info
@@ -668,6 +735,96 @@ $allDayEvent = $client->events()->create([
 ```
 
 </TabItem>
+<TabItem value="dotnet" label=".NET SDK">
+
+```csharp
+// Create a simple event
+var event = await client.Events.CreateAsync(new CreateEventParams
+{
+    Provider = "google",
+    CalendarId = "primary",
+    Title = "Team Meeting",
+    Description = "Discuss project updates",
+    Start = DateTime.Parse("2025-11-01T10:00:00Z"),
+    End = DateTime.Parse("2025-11-01T11:00:00Z"),
+    Location = "Conference Room A",
+});
+
+// Create a recurring event
+var recurringEvent = await client.Events.CreateAsync(new CreateEventParams
+{
+    Provider = "microsoft",
+    CalendarId = "AAMkAGVmMDEz...",
+    Title = "Weekly Standup",
+    Start = DateTime.Parse("2025-11-01T09:00:00Z"),
+    End = DateTime.Parse("2025-11-01T09:30:00Z"),
+    AllDay = false,
+    Recurrence = new RecurrenceRule
+    {
+        Frequency = "WEEKLY",
+        Interval = 1,
+        Count = 10,
+        ByDay = new[] { "MO", "WE", "FR" },
+    },
+});
+
+// Create an all-day event
+var allDayEvent = await client.Events.CreateAsync(new CreateEventParams
+{
+    Provider = "apple",
+    CalendarId = "https://caldav.icloud.com/.../calendars/...",
+    Title = "Conference",
+    Start = DateTime.Parse("2025-11-15T00:00:00Z"),
+    End = DateTime.Parse("2025-11-16T00:00:00Z"),
+    AllDay = true,
+    Description = "Annual tech conference",
+});
+```
+
+</TabItem>
+<TabItem value="python" label="Python SDK">
+
+```python
+# Create a simple event
+event = client.events.create({
+    'provider': 'google',
+    'calendarId': 'primary',
+    'title': 'Team Meeting',
+    'description': 'Discuss project updates',
+    'start': '2025-11-01T10:00:00Z',
+    'end': '2025-11-01T11:00:00Z',
+    'location': 'Conference Room A',
+})
+
+# Create a recurring event
+recurring_event = client.events.create({
+    'provider': 'microsoft',
+    'calendarId': 'AAMkAGVmMDEz...',
+    'title': 'Weekly Standup',
+    'start': '2025-11-01T09:00:00Z',
+    'end': '2025-11-01T09:30:00Z',
+    'allDay': False,
+    'recurrence': {
+        'frequency': 'WEEKLY',
+        'interval': 1,
+        'count': 10,
+        'byDay': ['MO', 'WE', 'FR'],
+    },
+})
+
+# Create an all-day event
+all_day_event = client.events.create({
+    'provider': 'apple',
+    'calendarId': 'https://caldav.icloud.com/.../calendars/...',
+    'title': 'Conference',
+    'start': '2025-11-15T00:00:00Z',
+    'end': '2025-11-16T00:00:00Z',
+    'allDay': True,
+    'description': 'Annual tech conference',
+})
+```
+
+</TabItem>
 </Tabs>
 
 :::info
@@ -946,6 +1103,81 @@ $updatedFuture = $client->events()->update([
 ```
 
 </TabItem>
+<TabItem value="dotnet" label=".NET SDK">
+
+```csharp
+// Update a simple event
+var updatedEvent = await client.Events.UpdateAsync(new UpdateEventParams
+{
+    Provider = "google",
+    CalendarId = "primary",
+    EventId = "event123abc",
+    Title = "Updated Team Meeting",
+    Start = DateTime.Parse("2025-11-01T14:00:00Z"),
+    End = DateTime.Parse("2025-11-01T15:00:00Z"),
+});
+
+// Update a single instance of a recurring event
+var updatedInstance = await client.Events.UpdateAsync(new UpdateEventParams
+{
+    Provider = "microsoft",
+    EventId = "instance456",
+    RecurringEventId = "series123",
+    CalendarId = "AAMkAGVmMDEz...",
+    UpdateMode = "this",
+    Title = "Standup - Special Topic Today",
+    Start = DateTime.Parse("2025-11-01T09:00:00Z"),
+    End = DateTime.Parse("2025-11-01T10:00:00Z"),
+});
+
+// Update all future occurrences
+var updatedFuture = await client.Events.UpdateAsync(new UpdateEventParams
+{
+    Provider = "apple",
+    EventId = "recurring-event-id",
+    CalendarId = "https://caldav.icloud.com/.../calendars/...",
+    UpdateMode = "following",
+    Location = "New Conference Room B",
+});
+```
+
+</TabItem>
+<TabItem value="python" label="Python SDK">
+
+```python
+# Update a simple event
+updated_event = client.events.update({
+    'provider': 'google',
+    'calendarId': 'primary',
+    'eventId': 'event123abc',
+    'title': 'Updated Team Meeting',
+    'start': '2025-11-01T14:00:00Z',
+    'end': '2025-11-01T15:00:00Z',
+})
+
+# Update a single instance of a recurring event
+updated_instance = client.events.update({
+    'provider': 'microsoft',
+    'eventId': 'instance456',
+    'recurringEventId': 'series123',
+    'calendarId': 'AAMkAGVmMDEz...',
+    'updateMode': 'this',
+    'title': 'Standup - Special Topic Today',
+    'start': '2025-11-01T09:00:00Z',
+    'end': '2025-11-01T10:00:00Z',
+})
+
+# Update all future occurrences
+updated_future = client.events.update({
+    'provider': 'apple',
+    'eventId': 'recurring-event-id',
+    'calendarId': 'https://caldav.icloud.com/.../calendars/...',
+    'updateMode': 'following',
+    'location': 'New Conference Room B',
+})
+```
+
+</TabItem>
 </Tabs>
 
 :::info
@@ -1121,6 +1353,67 @@ $client->events()->delete([
     'eventId' => 'recurring-event-id',
     'deleteMode' => 'all',
 ]);
+```
+
+</TabItem>
+<TabItem value="dotnet" label=".NET SDK">
+
+```csharp
+// Delete a simple event
+await client.Events.DeleteAsync(new DeleteEventParams
+{
+    Provider = "google",
+    CalendarId = "primary",
+    EventId = "event123abc",
+});
+
+// Delete a single instance of a recurring event
+await client.Events.DeleteAsync(new DeleteEventParams
+{
+    Provider = "microsoft",
+    CalendarId = "AAMkAGVmMDEz...",
+    EventId = "instance456",
+    RecurringEventId = "series123",
+    DeleteMode = "this",
+});
+
+// Delete entire recurring series
+await client.Events.DeleteAsync(new DeleteEventParams
+{
+    Provider = "apple",
+    CalendarId = "https://caldav.icloud.com/.../calendars/...",
+    EventId = "recurring-event-id",
+    DeleteMode = "all",
+});
+```
+
+</TabItem>
+<TabItem value="python" label="Python SDK">
+
+```python
+# Delete a simple event
+client.events.delete({
+    'provider': 'google',
+    'calendarId': 'primary',
+    'eventId': 'event123abc',
+})
+
+# Delete a single instance of a recurring event
+client.events.delete({
+    'provider': 'microsoft',
+    'calendarId': 'AAMkAGVmMDEz...',
+    'eventId': 'instance456',
+    'recurringEventId': 'series123',
+    'deleteMode': 'this',
+})
+
+# Delete entire recurring series
+client.events.delete({
+    'provider': 'apple',
+    'calendarId': 'https://caldav.icloud.com/.../calendars/...',
+    'eventId': 'recurring-event-id',
+    'deleteMode': 'all',
+})
 ```
 
 </TabItem>

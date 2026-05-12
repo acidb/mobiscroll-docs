@@ -84,6 +84,20 @@ $calendars = $client->calendars()->list();
 ```
 
 </TabItem>
+<TabItem value="dotnet" label=".NET SDK">
+
+```csharp
+var calendars = await client.Calendars.ListAsync();
+```
+
+</TabItem>
+<TabItem value="python" label="Python SDK">
+
+```python
+calendars = client.calendars.list()
+```
+
+</TabItem>
 </Tabs>
 
 ```json title="Response"

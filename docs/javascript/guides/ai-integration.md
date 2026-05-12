@@ -39,6 +39,42 @@ export const FileBlock = ({src}) => {
   return <pre style={{overflow: 'auto', maxHeight: '600px', background: 'var(--ifm-code-background)', padding: '1rem', borderRadius: 'var(--ifm-code-border-radius)', fontSize: '0.85em'}}><code>{content}</code></pre>;
 };
 
+export const useMcpBase = () => {
+  const {siteConfig} = useDocusaurusContext();
+  return siteConfig.url.replace('://', '://mcp.') + '/';
+};
+
+export const McpUrl = () => {
+  const base = useMcpBase();
+  return <code>{base}</code>;
+};
+
+export const McpConfigBlock = ({tool}) => {
+  const url = useMcpBase();
+  const configs = {
+    claude: { mcpServers: { mobiscroll: { type: 'http', url } } },
+    cursor: { mcpServers: { mobiscroll: { url } } },
+    vscode: { servers:    { mobiscroll: { type: 'http', url } } },
+  };
+  const json = JSON.stringify(configs[tool], null, 2);
+  return (
+    <pre style={{overflow: 'auto', background: 'var(--ifm-code-background)', padding: '1rem', borderRadius: 'var(--ifm-code-border-radius)', fontSize: '0.85em'}}>
+      <code>{json}</code>
+    </pre>
+  );
+};
+
+export const McpCliBlock = ({scope}) => {
+  const url = useMcpBase();
+  const scopeFlag = scope ? ` --scope ${scope}` : '';
+  const cmd = `claude mcp add --transport http${scopeFlag} mobiscroll ${url}`;
+  return (
+    <pre style={{overflow: 'auto', background: 'var(--ifm-code-background)', padding: '1rem', borderRadius: 'var(--ifm-code-border-radius)', fontSize: '0.85em'}}>
+      <code>{cmd}</code>
+    </pre>
+  );
+};
+
 # AI Integration
 
 Mobiscroll provides a set of machine-readable documentation files and AI behavior rules that enable coding assistants to generate accurate, framework-specific code. These files prevent common AI issues like hallucinated APIs, mixed framework imports, and outdated patterns.
@@ -281,3 +317,128 @@ The complete contents of each file are shown below. You can copy directly from t
 <summary>View <code>mobiscroll-javascript.mdc</code></summary>
 <FileBlock src="mobiscroll-javascript.mdc" />
 </details>
+
+## MCP Server
+
+The Mobiscroll MCP server gives AI coding assistants direct, queryable access to live Mobiscroll documentation. Instead of working from static snapshots, tools can ask the server about component options, TypeScript types, and initialization patterns on demand — and always get up-to-date answers.
+
+### Claude Code
+
+#### Add the server
+
+The fastest way is the CLI — run:
+
+<McpCliBlock />
+
+To share the server with your team automatically, use project scope:
+
+<McpCliBlock scope="project" />
+
+This creates or updates `.mcp.json` in your project root. You can also create that file manually:
+
+<McpConfigBlock tool="claude" />
+
+```
+your-project/
+├── .mcp.json
+├── src/
+└── package.json
+```
+
+#### Scope options
+
+| Scope | CLI flag | Config location | Shared with team |
+|:---|:---|:---|:---|
+| local (default) | `--scope local` | `~/.claude.json` | No |
+| project | `--scope project` | `.mcp.json` in project root | Yes, via version control |
+| user | `--scope user` | `~/.claude.json` | No, all your projects |
+
+:::info
+Use `--scope project` for team repos so everyone gets the MCP server automatically when they clone the project.
+:::
+
+#### Verify the connection
+
+Run `/mcp` inside Claude Code. The panel lists each connected server and its tool count. A healthy connection shows `mobiscroll` with at least one tool.
+
+### Cursor
+
+#### Add the server config
+
+Create or edit `.cursor/mcp.json` in your project root:
+
+<McpConfigBlock tool="cursor" />
+
+:::warning No `type` field
+Cursor infers the transport type from the URL. Do **not** add `"type": "http"` to Cursor's config — it causes an error.
+:::
+
+```
+your-project/
+├── .cursor/
+│   └── mcp.json
+├── src/
+└── package.json
+```
+
+#### Scope options
+
+| Scope | Config file | Shared with team |
+|:---|:---|:---|
+| project | `.cursor/mcp.json` in project root | Yes, if committed |
+| global | `~/.cursor/mcp.json` | No, all your projects |
+
+#### Verify the connection
+
+Open the **Output** panel in Cursor and select **MCP Logs** from the dropdown. A successful connection logs tool discovery messages for the `mobiscroll` server.
+
+### GitHub Copilot (VS Code)
+
+#### Add the server config
+
+Create or edit `.vscode/mcp.json` in your project root:
+
+<McpConfigBlock tool="vscode" />
+
+:::warning `"servers"` not `"mcpServers"`
+VS Code uses `"servers"` as the root key — not `"mcpServers"` like Claude Code and Cursor. Using the wrong key silently breaks the config with no error message.
+:::
+
+```
+your-project/
+├── .vscode/
+│   └── mcp.json
+├── src/
+└── package.json
+```
+
+Alternatively, open the **Command Palette** and run **MCP: Add Server** for a guided setup that generates the config automatically.
+
+#### Scope options
+
+| Scope | Config file | Shared with team |
+|:---|:---|:---|
+| workspace | `.vscode/mcp.json` in project root | Yes, if committed |
+| user profile | Opened via **MCP: Open User Configuration** | No, all your workspaces |
+
+#### Verify the connection
+
+Open the **Command Palette** and run **MCP: List Servers**. The `mobiscroll` server should appear with a connected status. A trust dialog appears on first use — approve it to allow the server to start.
+
+### Example queries
+
+These examples show the kind of questions the MCP server is designed to answer correctly.
+
+```
+How do I initialize a Mobiscroll eventcalendar on a DOM element?
+What options does mobiscroll.eventcalendar() accept?
+How do I load events from a remote URL in plain JavaScript?
+```
+
+### Troubleshooting
+
+#### Server does not appear after setup
+
+**Symptom:** The tool shows no MCP server or the `mobiscroll` entry is missing.
+
+**Fix:** Check that the config file is in the correct location and uses the correct root key — `mcpServers` for Claude Code and Cursor, `servers` for VS Code. Validate that the file is well-formed JSON.

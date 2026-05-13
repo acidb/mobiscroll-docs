@@ -330,6 +330,10 @@ The fastest way is the CLI — run:
 
 <McpCliBlock />
 
+:::warning VS Code extension
+If you are using the Claude Visual Studio Code extension, the server will not appear unless it is added with project scope. See the next command below.
+:::
+
 To share the server with your team automatically, use project scope:
 
 <McpCliBlock scope="project" />

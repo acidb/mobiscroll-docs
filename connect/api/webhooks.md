@@ -418,7 +418,7 @@ Additional webhook metadata.
 - Provider-side notifications may be emitted for changes regardless of where the change originated.
 - Connect applies built-in echo/loop filtering for very recent API-originated changes (short-lived in-memory dedup window, currently 30 seconds), so webhook echoes for your own immediate `POST /event` / `PUT /event` updates are suppressed in the common case.
 - In distributed or multi-instance setups, add an application-level origin marker in `custom` (for example `custom.source = "my-system"`) and ignore matching webhook events as an additional loop-prevention safeguard.
-- For Apple, event change detection is based on periodic synchronization rather than provider-native push.
+- For Apple, event change detection is based on periodic synchronization (polled every 5 minutes) rather than provider-native push.
 - For CalDAV, event change detection is based on periodic synchronization rather than provider-native push.
 - A single delivery may contain multiple event changes and return `changeType: "mixed"`.
 - When notifications are filtered out, no events may be delivered in that callback cycle.

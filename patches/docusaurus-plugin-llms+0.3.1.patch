@@ -1,0 +1,33 @@
+diff --git a/node_modules/docusaurus-plugin-llms/lib/utils.js b/node_modules/docusaurus-plugin-llms/lib/utils.js
+index ed9850c..407e3ac 100644
+--- a/node_modules/docusaurus-plugin-llms/lib/utils.js
++++ b/node_modules/docusaurus-plugin-llms/lib/utils.js
+@@ -555,10 +555,24 @@ function cleanMarkdownContent(content, excludeImports = false, removeDuplicateHe
+         // - import "..."; (side-effect imports)
+         cleaned = cleaned.replace(/^\s*import\s+.*?;?\s*$/gm, '');
+     }
+-    // Remove HTML tags, but preserve XML content in code blocks
+-    // We need to be selective to avoid removing XML content from code blocks
+-    // This regex targets common HTML tags while being more conservative about XML
+-    cleaned = cleaned.replace(/<\/?(?:div|span|p|br|hr|img|a|strong|em|b|i|u|h[1-6]|ul|ol|li|table|tr|td|th|thead|tbody)\b[^>]*>/gi, '');
++    // Remove HTML tags outside fenced code blocks only
++    {
++        const htmlTagRe = /<\/?(?:div|span|p|br|hr|img|a|strong|em|b|i|u|h[1-6]|ul|ol|li|table|tr|td|th|thead|tbody)\b[^>]*>/gi;
++        const lines = cleaned.split('\n');
++        let inFencedBlock = false;
++        const out = [];
++        for (const line of lines) {
++            if (/^\s*(`{3,}|~{3,})/.test(line)) {
++                inFencedBlock = !inFencedBlock;
++                out.push(line);
++            } else if (inFencedBlock) {
++                out.push(line);
++            } else {
++                out.push(line.replace(htmlTagRe, ''));
++            }
++        }
++        cleaned = out.join('\n');
++    }
+     // Remove redundant content that just repeats the heading (if requested)
+     if (removeDuplicateHeadings) {
+         // Split content into lines and process line by line

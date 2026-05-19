@@ -2,7 +2,6 @@
 
 ## Documentation Source
 
-- **Primary (complete docs):** {{DOCS_BASE_URL}}/llms-connect-full.txt
 - **TOC (links to .md pages):** {{DOCS_BASE_URL}}/llms-connect.txt
 - **Individual pages:** `{{DOCS_BASE_URL}}/connect/{section}/{page}.md`
 
@@ -36,7 +35,7 @@ Mobiscroll Connect is a REST API / SDK — not a UI framework. It has no compone
 
 ## Rules
 
-- Fetch `llms-connect-full.txt` for complete context
+- Fetch `llms-connect.txt` for complete context
 - Prefer `.md` pages over HTML — `.md` files are optimized for AI
 - Use official docs examples only — docs are the source of truth
 - Package (Node.js SDK): `@mobiscroll/connect-sdk`

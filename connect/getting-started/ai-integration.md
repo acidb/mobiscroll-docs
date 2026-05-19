@@ -64,7 +64,6 @@ Machine-readable documentation files containing the complete Mobiscroll Connect 
 
 | File | Description |
 |:---|:---|
-| `llms-connect-full.txt` | Complete Mobiscroll Connect documentation |
 | `llms-connect.txt` | Connect table of contents (links to individual pages) |
 
 :::info
@@ -87,9 +86,9 @@ A context file specifically for Claude Code that provides domain detection signa
 
 | AI Tool | Documentation Source | Behavior Rules | Routing |
 |:---|:---|:---|:---|
-| **Cursor** | `llms-connect-full.txt` via @docs | `mobiscroll-connect.mdc` | — |
+| **Cursor** | `llms-connect.txt` via @docs | `mobiscroll-connect.mdc` | — |
 | **GitHub Copilot** | `.mdc` file (contains doc URLs) | `.mdc` file | — |
-| **Claude Code** | `llms-connect-full.txt` | `CLAUDE.md` | `CLAUDE.md` |
+| **Claude Code** | `llms-connect.txt` | `CLAUDE.md` | `CLAUDE.md` |
 
 ## Cursor setup
 
@@ -99,7 +98,7 @@ Open **Cursor Settings → Indexing & Docs** and add the documentation source fo
 
 | Framework | Name | URL |
 |:---|:---|:---|
-| Connect | Mobiscroll Connect | <DocsUrl path="llms-connect-full.txt" /> |
+| Connect | Mobiscroll Connect | <DocsUrl path="llms-connect.txt" /> |
 
 Only register the source matching your use case. Do not register multiple sources — this prevents cross-domain contamination.
 
@@ -177,11 +176,11 @@ your-project/
 When Claude Code opens your project, it automatically reads `CLAUDE.md` from the project root. The file provides:
 
 - **Domain detection** — Claude detects Connect usage from `package.json`, import patterns, and API call signatures
-- **Routing rules** — deterministic IF/THEN rules that select `llms-connect-full.txt` and never route to UI framework docs
+- **Routing rules** — deterministic IF/THEN rules that select `llms-connect.txt` and never route to UI framework docs
 - **API mapping** — translates user intents to the correct Connect REST endpoints and OAuth flows
 - **Anti-patterns** — explicit WRONG → RIGHT examples that prevent mixing Connect API calls with UI component code
 
-Claude Code will fetch `llms-connect-full.txt` automatically based on the detected domain. No manual registration is needed.
+Claude Code will fetch `llms-connect.txt` automatically based on the detected domain. No manual registration is needed.
 
 ## Domain isolation
 
@@ -191,7 +190,7 @@ Mobiscroll Connect is a backend integration layer — OAuth 2.0, REST API, webho
 
 **Why this matters:**
 
-- Connect uses `mobiscroll-connect.mdc` and `llms-connect-full.txt` — never the UI framework files
+- Connect uses `mobiscroll-connect.mdc` and `llms-connect.txt` — never the UI framework files
 - Mixing Connect docs with UI docs causes the AI to conflate REST endpoints with component APIs
 - Connect has no JSX, no frontend framework bindings, no CSS
 
@@ -220,7 +219,7 @@ What scopes are required for read-write calendar access?
 
 **Symptom:** You asked about backend calendar sync or OAuth but the AI generates JSX components like `<Eventcalendar />` instead of Connect REST API calls.
 
-**Fix:** Verify that `mobiscroll-connect.mdc` is in place and that the registered @docs source in Cursor points to `llms-connect-full.txt` — not a UI framework file. Connect and Eventcalendar are entirely separate products.
+**Fix:** Verify that `mobiscroll-connect.mdc` is in place and that the registered @docs source in Cursor points to `llms-connect.txt` — not a UI framework file. Connect and Eventcalendar are entirely separate products.
 
 ### AI invents non-existent endpoints or parameters
 
@@ -243,7 +242,6 @@ All AI integration files are available at the following URLs:
 | File | URL |
 |:---|:---|
 | Connect | <DocsUrl path="llms-connect.txt" /> |
-| Connect (full) | <DocsUrl path="llms-connect-full.txt" /> |
 
 ### Rules files
 

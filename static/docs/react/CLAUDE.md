@@ -10,7 +10,11 @@
 
 ## 1. Documentation Sources
 
-### React table of contents (links to individual .md pages)
+### Primary: Full React docs (single file, all content inline)
+
+- **React:** {{DOCS_BASE_URL}}/llms-react-full.txt
+
+### Secondary: React table of contents (links to individual .md pages)
 
 - **React:** {{DOCS_BASE_URL}}/llms-react.txt
 
@@ -21,6 +25,7 @@ Example: `{{DOCS_BASE_URL}}/docs/react/eventcalendar/overview.md`
 
 ### Mobiscroll Connect (server-side calendar integration API — separate product)
 
+- **Full:** {{DOCS_BASE_URL}}/llms-connect-full.txt
 - **TOC:** {{DOCS_BASE_URL}}/llms-connect.txt
 
 ### Hub
@@ -31,9 +36,10 @@ Example: `{{DOCS_BASE_URL}}/docs/react/eventcalendar/overview.md`
 
 ## 2. Content Selection Priority
 
-1. Individual `.md` pages — for targeted lookups
-2. `llms-react.txt` — table of contents with links to .md pages
-3. HTML pages — **last resort only**
+1. `llms-react-full.txt` — complete docs in one file (best for full context)
+2. Individual `.md` pages — for targeted lookups
+3. `llms-react-full.txt` — table of contents with links to .md pages
+4. HTML pages — **last resort only**
 
 NEVER use HTML when `.md` is available. The `.md` files are optimized for AI consumption.
 
@@ -41,7 +47,7 @@ NEVER use HTML when `.md` is available. The `.md` files are optimized for AI con
 
 ## 3. Routing — CRITICAL
 
-**This project uses React. Do not detect or switch frameworks. Always use `llms-react.txt`.**
+**This project uses React. Do not detect or switch frameworks. Always use `llms-react-full.txt`.**
 
 **RULE: Resolve domain FIRST. Never mix domains.**
 
@@ -54,11 +60,11 @@ Check BEFORE loading any documentation. If the query is about:
 - `mobiscroll-connect`, Connect scopes, Connect credentials
 - Server-side event push/pull to/from Google Calendar, Outlook, or Apple Calendar
 
-→ **Route to Mobiscroll Connect.** Fetch `llms-connect.txt`. Stop — do NOT also load React docs.
+→ **Route to Mobiscroll Connect.** Fetch `llms-connect-full.txt`. Stop — do NOT also load React docs.
 
-→ If the query is about UI rendering, components, views, pickers, theming, CSS, or frontend code → fetch `llms-react.txt`.
+→ If the query is about UI rendering, components, views, pickers, theming, CSS, or frontend code → fetch `llms-react-full.txt`.
 
-→ If the query is about **displaying** Google Calendar / Outlook / Apple Calendar events in the Eventcalendar UI (client-side data binding, `data` prop, event loading) — this is a **UI question**. Fetch `llms-react.txt`.
+→ If the query is about **displaying** Google Calendar / Outlook / Apple Calendar events in the Eventcalendar UI (client-side data binding, `data` prop, event loading) — this is a **UI question**. Fetch `llms-react-full.txt`.
 
 ⚠️ **Do NOT route to Connect** just because a third-party calendar (Google, Outlook, Apple) is mentioned. Route to Connect only when the integration is explicitly server-side, involves OAuth on the backend, or references the Mobiscroll Connect product.
 
@@ -90,8 +96,8 @@ Keep the two parts clearly separated. Do NOT blend Connect APIs with UI componen
 - User mentions `mobiscroll`, `@mobiscroll/react`, or `<Eventcalendar />`/`<Datepicker />` JSX components
 - Building scheduling, calendar, booking, or appointment UIs
 - Working with event calendars, date/time pickers, select dropdowns, popups
-- **Server-side** sync with Google Calendar, Outlook, or Apple Calendar, **server-side** OAuth flows, or **backend** webhook/API integration in a Mobiscroll context → **Mobiscroll Connect** (`llms-connect.txt`)
-- Displaying Google Calendar / Outlook / Apple Calendar events inside the Eventcalendar UI component (client-side) → React docs (`llms-react.txt`)
+- **Server-side** sync with Google Calendar, Outlook, or Apple Calendar, **server-side** OAuth flows, or **backend** webhook/API integration in a Mobiscroll context → **Mobiscroll Connect** (`llms-connect-full.txt`)
+- Displaying Google Calendar / Outlook / Apple Calendar events inside the Eventcalendar UI component (client-side) → React docs (`llms-react-full.txt`)
 - Theming or styling Mobiscroll components
 
 ⚠️ Keywords like **sync**, **API**, **integration**, **data source**, **authentication** alone do NOT route to Connect. They must be explicitly server-side or backend in nature.
@@ -126,12 +132,12 @@ All scheduling views are part of ONE component: **Eventcalendar**. They are conf
 
 | Intent | Source |
 |:---|:---|
-| Server-side Google/Outlook/Apple Calendar sync | `llms-connect.txt` |
-| OAuth flow, calendar listing, event CRUD via REST (server) | `llms-connect.txt` |
-| Displaying Google Calendar events in Eventcalendar (client-side) | `llms-react.txt` |
-| Webhooks, push/pull sync, backend data sources | `llms-connect.txt` |
-| Authentication, tokens, credentials, scopes | `llms-connect.txt` |
-| Any server-side or API-first integration question | `llms-connect.txt` |
+| Server-side Google/Outlook/Apple Calendar sync | `llms-connect-full.txt` |
+| OAuth flow, calendar listing, event CRUD via REST (server) | `llms-connect-full.txt` |
+| Displaying Google Calendar events in Eventcalendar (client-side) | `llms-react-full.txt` |
+| Webhooks, push/pull sync, backend data sources | `llms-connect-full.txt` |
+| Authentication, tokens, credentials, scopes | `llms-connect-full.txt` |
+| Any server-side or API-first integration question | `llms-connect-full.txt` |
 
 Connect is a **server-side** REST API. Eventcalendar is a **frontend** UI component. They complement each other but are documented separately and must NEVER be served together in a single routing decision.
 
@@ -142,7 +148,7 @@ Connect is a **server-side** REST API. Eventcalendar is a **frontend** UI compon
 1. **React only.** This project uses `@mobiscroll/react`. Never generate code for Angular, Vue, JavaScript, or jQuery.
 2. **No invented APIs.** Every option, event, method, and type name must come from the docs. If a symbol is not found, say so — do not guess.
 3. **Docs are source of truth.** After fetching docs, answer **only** from the fetched content. Do not supplement with prior training knowledge. If the fetched docs contradict training knowledge, the docs win. If the docs do not cover the question, say: "This is not covered in the current documentation."
-4. **Fetch failure fallback.** If `llms-react.txt` is unreachable, fall back to individual `.md` pages (Priority 2), then the TOC file (Priority 3). If all sources fail, state that docs are unavailable and ask the user to share relevant doc content.
+4. **Fetch failure fallback.** If `llms-react-full.txt` is unreachable, fall back to individual `.md` pages (Priority 2), then the TOC file (Priority 3). If all sources fail, state that docs are unavailable and ask the user to share relevant doc content.
 5. **Version: 6 (latest).** This context is for Mobiscroll v6. If the user explicitly mentions "v5", "version 5", uses a v5-only pattern, or asks about an API not found in the v6 docs, respond:
    > "⚠️ This looks like Mobiscroll v5 syntax or API usage. This context is configured for Mobiscroll **v6 (latest)**. Would you like: 1) the v6 equivalent of what you're asking about, or 2) guidance using the [v5 documentation]({{DOCS_BASE_URL}}/5.35.0/react/guides/ai-integration) instead?"
    Do not silently translate v5 patterns to v6 — always ask first. Do not reference removed v5 APIs in v6 answers.
@@ -161,8 +167,8 @@ Connect is a **server-side** REST API. Eventcalendar is a **frontend** UI compon
 | Using Vue composition API or `<script setup>` in React code | React uses hooks and JSX components |
 | Using jQuery `$()` plugin pattern in React code | React uses JSX: `<Eventcalendar ... />` |
 | Treating Scheduler as a separate component | Scheduler is a **view** of Eventcalendar: `view: { scheduler: { type: 'week' } }` |
-| Using Mobiscroll Connect docs for frontend UI | Connect = server REST API. Use `llms-react.txt` for UI. |
-| Using UI component docs to answer a Connect API question | Connect = server REST API. Fetch `llms-connect.txt`. |
+| Using Mobiscroll Connect docs for frontend UI | Connect = server REST API. Use `llms-react-full.txt` for UI. |
+| Using UI component docs to answer a Connect API question | Connect = server REST API. Fetch `llms-connect-full.txt`. |
 | Guessing `MbscCalendarEventData` type name | Look up exact type in `react/eventcalendar/api` docs |
 | Answering from training knowledge when docs are fetched | Answer only from fetched docs. If not covered, say so. |
 | Silently translating v5 syntax to v6 without informing the user | Detect v5 signal → ask if user wants the v6 equivalent or v5 docs guidance |

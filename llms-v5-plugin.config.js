@@ -57,7 +57,8 @@ const llmsV5Options = {
     '**/connectLinks.js',
     '**/frameworkLinks.js',
     '**/ai-integration.md',
-    'llms-content.md'
+    'llms-content.md',
+    'llms-content-full.md',
   ],
 
   // v5 versioned docs are served at /{version}/... in Docusaurus
@@ -93,6 +94,17 @@ const llmsV5Options = {
         'This documentation refers to Mobiscroll version 5.35.0.',
       orderPatterns: ORDER_PATTERNS('javascript'),
     },
+    {
+      filename: '5.35.0/llms-javascript-full.txt',
+      includePatterns: ['javascript/**/*.md'],
+      ignorePatterns: ['javascript/**/_auto-generated/**'],
+      fullContent: true,
+      title: '[v5] Mobiscroll for JavaScript — Full Documentation',
+      description:
+        'Complete Mobiscroll v5 JavaScript documentation including Eventcalendar, Datepicker, Select, Popup, Forms, theming, and guides. ' +
+        'This documentation refers to Mobiscroll version 5.35.0.',
+      orderPatterns: ORDER_PATTERNS('javascript'),
+    },
 
     // ── React ────────────────────────────────────────────────────────────────
     {
@@ -103,6 +115,17 @@ const llmsV5Options = {
       title: '[v5] Mobiscroll for React',
       description:
         'Links to all Mobiscroll v5 React component docs. ' +
+        'This documentation refers to Mobiscroll version 5.35.0.',
+      orderPatterns: ORDER_PATTERNS('react'),
+    },
+    {
+      filename: '5.35.0/llms-react-full.txt',
+      includePatterns: ['react/**/*.md'],
+      ignorePatterns: ['react/**/_auto-generated/**'],
+      fullContent: true,
+      title: '[v5] Mobiscroll for React — Full Documentation',
+      description:
+        'Complete Mobiscroll v5 React documentation including Eventcalendar, Datepicker, Select, Popup, Forms, theming, and guides. ' +
         'This documentation refers to Mobiscroll version 5.35.0.',
       orderPatterns: ORDER_PATTERNS('react'),
     },
@@ -119,6 +142,17 @@ const llmsV5Options = {
         'This documentation refers to Mobiscroll version 5.35.0.',
       orderPatterns: ORDER_PATTERNS('angular'),
     },
+    {
+      filename: '5.35.0/llms-angular-full.txt',
+      includePatterns: ['angular/**/*.md'],
+      ignorePatterns: ['angular/**/_auto-generated/**'],
+      fullContent: true,
+      title: '[v5] Mobiscroll for Angular — Full Documentation',
+      description:
+        'Complete Mobiscroll v5 Angular documentation including Eventcalendar, Datepicker, Select, Popup, Forms, theming, and guides. ' +
+        'This documentation refers to Mobiscroll version 5.35.0.',
+      orderPatterns: ORDER_PATTERNS('angular'),
+    },
 
     // ── Vue ──────────────────────────────────────────────────────────────────
     {
@@ -132,6 +166,17 @@ const llmsV5Options = {
         'This documentation refers to Mobiscroll version 5.35.0.',
       orderPatterns: ORDER_PATTERNS('vue'),
     },
+    {
+      filename: '5.35.0/llms-vue-full.txt',
+      includePatterns: ['vue/**/*.md'],
+      ignorePatterns: ['vue/**/_auto-generated/**'],
+      fullContent: true,
+      title: '[v5] Mobiscroll for Vue — Full Documentation',
+      description:
+        'Complete Mobiscroll v5 Vue documentation including Eventcalendar, Datepicker, Select, Popup, Forms, theming, and guides. ' +
+        'This documentation refers to Mobiscroll version 5.35.0.',
+      orderPatterns: ORDER_PATTERNS('vue'),
+    },
 
     // ── jQuery ───────────────────────────────────────────────────────────────
     {
@@ -142,6 +187,17 @@ const llmsV5Options = {
       title: '[v5] Mobiscroll for jQuery',
       description:
         'Links to all Mobiscroll v5 jQuery component docs. ' +
+        'This documentation refers to Mobiscroll version 5.35.0.',
+      orderPatterns: ORDER_PATTERNS('jquery'),
+    },
+    {
+      filename: '5.35.0/llms-jquery-full.txt',
+      includePatterns: ['jquery/**/*.md'],
+      ignorePatterns: ['jquery/**/_auto-generated/**'],
+      fullContent: true,
+      title: '[v5] Mobiscroll for jQuery — Full Documentation',
+      description:
+        'Complete Mobiscroll v5 jQuery documentation including Eventcalendar, Datepicker, Select, Popup, Forms, theming, and guides. ' +
         'This documentation refers to Mobiscroll version 5.35.0.',
       orderPatterns: ORDER_PATTERNS('jquery'),
     },

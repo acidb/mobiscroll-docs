@@ -10,7 +10,11 @@
 
 ## 1. Documentation Sources
 
-### Connect table of contents (links to individual .md pages)
+### Primary: Full Connect docs (single file, all content inline)
+
+- **Connect:** {{DOCS_BASE_URL}}/llms-connect-full.txt
+
+### Secondary: Connect table of contents (links to individual .md pages)
 
 - **Connect:** {{DOCS_BASE_URL}}/llms-connect.txt
 
@@ -27,9 +31,10 @@ Example: `{{DOCS_BASE_URL}}/connect/api/events.md`
 
 ## 2. Content Selection Priority
 
-1. Individual `.md` pages — for targeted lookups
-2. `llms-connect.txt` — table of contents with links to .md pages
-3. HTML pages — **last resort only**
+1. `llms-connect-full.txt` — complete docs in one file (best for full context)
+2. Individual `.md` pages — for targeted lookups
+3. `llms-connect-full.txt` — table of contents with links to .md pages
+4. HTML pages — **last resort only**
 
 NEVER use HTML when `.md` is available. The `.md` files are optimized for AI consumption.
 
@@ -37,7 +42,7 @@ NEVER use HTML when `.md` is available. The `.md` files are optimized for AI con
 
 ## 3. Routing — CRITICAL
 
-**This project uses Mobiscroll Connect. Always fetch `llms-connect.txt`. Do not load UI framework docs.**
+**This project uses Mobiscroll Connect. Always fetch `llms-connect-full.txt`. Do not load UI framework docs.**
 
 **RULE: Mobiscroll Connect is a backend/server-side REST API. It has no UI components.**
 
@@ -54,7 +59,7 @@ NEVER use HTML when `.md` is available. The `.md` files are optimized for AI con
 
 ### Out-of-scope queries — UI framework questions
 
-→ If the query is about **displaying** data in a frontend UI component (Eventcalendar, Datepicker, etc.) — that is a UI framework question, not a Connect question. Detect the framework from project context (package.json, file extensions, import patterns). If identifiable, fetch `llms-{framework}.txt` for the UI part of the answer. If the framework cannot be determined, ask: "Which frontend framework are you using? (React, Angular, Vue, JavaScript, or jQuery)"
+→ If the query is about **displaying** data in a frontend UI component (Eventcalendar, Datepicker, etc.) — that is a UI framework question, not a Connect question. Detect the framework from project context (package.json, file extensions, import patterns). If identifiable, fetch `llms-{framework}-full.txt` for the UI part of the answer. If the framework cannot be determined, ask: "Which frontend framework are you using? (React, Angular, Vue, JavaScript, or jQuery)"
 
 **Re-fetch rule:** If the user shifts from Connect questions to UI component questions (or vice versa) during a session, re-fetch the appropriate docs before answering. Do not answer UI questions from Connect docs, or Connect questions from UI docs.
 
@@ -118,7 +123,7 @@ Mobiscroll Connect is a REST API / SDK — not a UI framework. It has no compone
 1. **Connect only.** This context covers Mobiscroll Connect — a server-side REST API. Never generate UI component code (Eventcalendar, Datepicker, etc.) as part of a Connect answer.
 2. **No invented APIs.** Every endpoint, parameter, response field, and method must come from the docs. If not found, say so — do not guess.
 3. **Docs are source of truth.** After fetching docs, answer **only** from the fetched content. Do not supplement with prior training knowledge. If the fetched docs contradict training knowledge, the docs win. If the docs do not cover the question, say: "This is not covered in the current documentation."
-4. **Fetch failure fallback.** If `llms-connect.txt` is unreachable, fall back to individual `.md` pages (Priority 2), then the TOC file (Priority 3). If all sources fail, state that docs are unavailable and ask the user to share relevant doc content.
+4. **Fetch failure fallback.** If `llms-connect-full.txt` is unreachable, fall back to individual `.md` pages (Priority 2), then the TOC file (Priority 3). If all sources fail, state that docs are unavailable and ask the user to share relevant doc content.
 5. **Version: current.** Do not invent endpoint paths or response shapes.
 6. **Authentication:** Bearer token via OAuth 2.0 authorization code flow. Base API URL is environment-specific — always check the API overview doc.
 7. **No UI types.** There are no `Mbsc`-prefixed types in Connect. Connect is a backend REST API — it has no TypeScript UI component types.
@@ -135,6 +140,6 @@ Mobiscroll Connect is a REST API / SDK — not a UI framework. It has no compone
 | Using `MbscModule`, `@Component`, or `<script setup>` in Connect context | Connect = Node.js / HTTP. No Angular, Vue, or React patterns. |
 | Referring to Eventcalendar `view` options, `data` prop, or CSS imports | Those are UI concerns — load the UI framework docs if needed. |
 | Inventing endpoint paths like `/api/sync` that aren't in the docs | Look up exact endpoint in `connect/api/` docs |
-| Answering Connect questions from UI framework docs | Always fetch `llms-connect.txt` for Connect questions |
+| Answering Connect questions from UI framework docs | Always fetch `llms-connect-full.txt` for Connect questions |
 | Mixing Connect REST calls with Eventcalendar configuration in one code block | Keep Connect (backend) and Eventcalendar (frontend) in separate, clearly labelled blocks |
 | Answering from training knowledge when docs are fetched | Answer only from fetched docs. If not covered, say so. |

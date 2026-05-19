@@ -100,6 +100,7 @@ Machine-readable documentation files containing the complete Mobiscroll API refe
 
 | File | Description |
 |:---|:---|
+| `llms-jquery-full.txt` | Complete jQuery documentation |
 | `llms-jquery.txt` | jQuery table of contents (links to individual pages) |
 
 :::info
@@ -122,9 +123,9 @@ A context file specifically for Claude Code that provides framework detection si
 
 | AI Tool | Documentation Source | Behavior Rules | Routing |
 |:---|:---|:---|:---|
-| **Cursor** | `llms-jquery.txt` via @docs | `.mdc` file | — |
+| **Cursor** | `llms-jquery-full.txt` via @docs | `.mdc` file | — |
 | **GitHub Copilot** | `.mdc` file (contains doc URLs) | `.mdc` file | — |
-| **Claude Code** | `llms-jquery.txt` | `CLAUDE.md` | `CLAUDE.md` |
+| **Claude Code** | `llms-jquery-full.txt` | `CLAUDE.md` | `CLAUDE.md` |
 
 ## Cursor setup
 
@@ -134,7 +135,7 @@ Open **Cursor Settings → Indexing & Docs** and add the documentation source fo
 
 | Framework | Name | URL |
 |:---|:---|:---|
-| jQuery | Mobiscroll jQuery | <DocsUrl path="llms-jquery.txt" /> |
+| jQuery | Mobiscroll jQuery | <DocsUrl path="llms-jquery-full.txt" /> |
 
 Only register the source matching your use case. Do not register multiple sources — this prevents cross-domain contamination.
 
@@ -216,7 +217,7 @@ When Claude Code opens your project, it automatically reads `CLAUDE.md` from the
 - **Component mapping** — translates user intents like "scheduler" or "timeline" to the correct Eventcalendar view configuration
 - **Anti-patterns** — explicit WRONG → RIGHT examples that prevent common mistakes
 
-Claude Code will fetch `llms-jquery.txt` automatically based on the detected framework. No manual registration is needed.
+Claude Code will fetch `llms-jquery-full.txt` automatically based on the detected framework. No manual registration is needed.
 
 ## Framework isolation
 
@@ -235,7 +236,7 @@ Each `.mdc` file and documentation source targets exactly **one** framework or d
 
 - Connect is a backend integration layer — OAuth 2.0, REST API, webhooks, calendar sync
 - It has no UI components, no JSX, no frontend framework bindings
-- Connect uses `mobiscroll-connect.mdc` and `llms-connect.txt` — never the UI framework files
+- Connect uses `mobiscroll-connect.mdc` and `llms-connect-full.txt` — never the UI framework files
 - Mixing Connect docs with UI docs causes the AI to conflate REST endpoints with component APIs
 
 **Rules:**
@@ -262,7 +263,7 @@ What options are available for the scheduler view?
 
 **Symptom:** You are using jQuery but the AI generates code for a different framework (e.g. `import { Eventcalendar } from '@mobiscroll/react'`).
 
-**Fix:** Verify that you have the correct `.mdc` file in place. For jQuery, use `mobiscroll-jquery.mdc`, not a different framework's `.mdc` file. In Cursor, check that the registered @docs source points to `llms-jquery.txt`.
+**Fix:** Verify that you have the correct `.mdc` file in place. For jQuery, use `mobiscroll-jquery.mdc`, not a different framework's `.mdc` file. In Cursor, check that the registered @docs source points to `llms-jquery-full.txt`.
 
 ### AI invents non-existent APIs
 
@@ -284,7 +285,7 @@ All AI integration files are available at the following URLs:
 
 | File | URL |
 |:---|:---|
-| jQuery | <DocsUrl path="llms-jquery.txt" /> |
+| jQuery | <DocsUrl path="llms-jquery-full.txt" /> |
 
 ### Rules files
 

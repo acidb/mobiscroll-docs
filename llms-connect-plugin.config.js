@@ -10,7 +10,7 @@ const llmsConnectOptions = {
   id: 'llms-connect',
 
   generateLLMsTxt: true,
-  generateLLMsFullTxt: false,
+  generateLLMsFullTxt: true,
   processingBatchSize: 50,
 
   generateMarkdownFiles: true,
@@ -22,6 +22,7 @@ const llmsConnectOptions = {
   removeDuplicateHeadings: true,
 
   llmsTxtFilename: 'llms-connect.txt',
+  llmsFullTxtFilename: 'llms-connect-full.txt',
 
   title: 'Mobiscroll Connect Documentation',
   description:

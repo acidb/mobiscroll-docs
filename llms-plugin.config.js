@@ -96,6 +96,29 @@ const llmsOptions = {
         'javascript/guides/**',
       ],
     },
+    {
+      filename: 'llms-javascript-full.txt',
+      includePatterns: ['javascript/**/*.md'],
+      ignorePatterns: ['javascript/**/_auto-generated/**'],
+      fullContent: true,
+      title: 'Mobiscroll for JavaScript — Full Documentation',
+      description:
+        'Complete Mobiscroll JavaScript documentation including Eventcalendar, Datepicker, Select, Popup, Forms, theming, and guides.',
+      orderPatterns: [
+        'getting-started.md',
+        'javascript/getting-started/**',
+        'javascript/core-concepts/**',
+        'javascript/eventcalendar/**',
+        'javascript/datepicker/**',
+        'javascript/select/**',
+        'javascript/forms/**',
+        'javascript/popup/**',
+        'javascript/notifications/**',
+        'javascript/gridlayout/**',
+        'javascript/theming/**',
+        'javascript/guides/**',
+      ],
+    },
 
     // ── React ────────────────────────────────────────────────────────────────
     {
@@ -121,16 +144,62 @@ const llmsOptions = {
         'react/guides/**',
       ],
     },
+    {
+      filename: 'llms-react-full.txt',
+      includePatterns: ['react/**/*.md'],
+      ignorePatterns: ['react/**/_auto-generated/**'],
+      fullContent: true,
+      title: 'Mobiscroll for React — Full Documentation',
+      description:
+        'Complete Mobiscroll React documentation including Eventcalendar, Datepicker, Select, Popup, Forms, theming, and guides.',
+      orderPatterns: [
+        'getting-started.md',
+        'react/getting-started/**',
+        'react/core-concepts/**',
+        'react/eventcalendar/**',
+        'react/datepicker/**',
+        'react/select/**',
+        'react/forms/**',
+        'react/popup/**',
+        'react/notifications/**',
+        'react/gridlayout/**',
+        'react/theming/**',
+        'react/guides/**',
+      ],
+    },
 
     // ── Angular ──────────────────────────────────────────────────────────────
     {
       filename: 'llms-angular.txt',
-      includePatterns: ['angular/**/*.md'], 
+      includePatterns: ['angular/**/*.md'],
       ignorePatterns: ['angular/**/_auto-generated/**'],
       fullContent: false,
       title: 'Mobiscroll for Angular',
       description:
         'Links to all Mobiscroll Angular component docs: Eventcalendar, Datepicker, Select, Forms, Popup, and more.',
+      orderPatterns: [
+        'getting-started.md',
+        'angular/getting-started/**',
+        'angular/core-concepts/**',
+        'angular/eventcalendar/**',
+        'angular/datepicker/**',
+        'angular/select/**',
+        'angular/forms/**',
+        'angular/popup/**',
+        'angular/notifications/**',
+        'angular/gridlayout/**',
+        'angular/theming/**',
+        'angular/guides/**',
+      ],
+    },
+    {
+      filename: 'llms-angular-full.txt',
+      includePatterns: ['angular/**/*.md'],
+      ignorePatterns: ['angular/**/_auto-generated/**'],
+      fullContent: true,
+      title: 'Mobiscroll for Angular — Full Documentation',
+      description:
+        'Complete Mobiscroll Angular documentation including Eventcalendar, Datepicker, Select, Popup, Forms, theming, and guides.',
       orderPatterns: [
         'getting-started.md',
         'angular/getting-started/**',
@@ -171,6 +240,29 @@ const llmsOptions = {
         'vue/guides/**',
       ],
     },
+    {
+      filename: 'llms-vue-full.txt',
+      includePatterns: ['vue/**/*.md'],
+      ignorePatterns: ['vue/**/_auto-generated/**'],
+      fullContent: true,
+      title: 'Mobiscroll for Vue — Full Documentation',
+      description:
+        'Complete Mobiscroll Vue documentation including Eventcalendar, Datepicker, Select, Popup, Forms, theming, and guides.',
+      orderPatterns: [
+        'getting-started.md',
+        'vue/getting-started/**',
+        'vue/core-concepts/**',
+        'vue/eventcalendar/**',
+        'vue/datepicker/**',
+        'vue/select/**',
+        'vue/forms/**',
+        'vue/popup/**',
+        'vue/notifications/**',
+        'vue/gridlayout/**',
+        'vue/theming/**',
+        'vue/guides/**',
+      ],
+    },
 
     // ── jQuery ───────────────────────────────────────────────────────────────
     {
@@ -181,6 +273,29 @@ const llmsOptions = {
       title: 'Mobiscroll for jQuery',
       description:
         'Links to all Mobiscroll jQuery component docs: Eventcalendar, Datepicker, Select, Forms, Popup, and more.',
+      orderPatterns: [
+        'getting-started.md',
+        'jquery/getting-started/**',
+        'jquery/core-concepts/**',
+        'jquery/eventcalendar/**',
+        'jquery/datepicker/**',
+        'jquery/select/**',
+        'jquery/forms/**',
+        'jquery/popup/**',
+        'jquery/notifications/**',
+        'jquery/gridlayout/**',
+        'jquery/theming/**',
+        'jquery/guides/**',
+      ],
+    },
+    {
+      filename: 'llms-jquery-full.txt',
+      includePatterns: ['jquery/**/*.md'],
+      ignorePatterns: ['jquery/**/_auto-generated/**'],
+      fullContent: true,
+      title: 'Mobiscroll for jQuery — Full Documentation',
+      description:
+        'Complete Mobiscroll jQuery documentation including Eventcalendar, Datepicker, Select, Popup, Forms, theming, and guides.',
       orderPatterns: [
         'getting-started.md',
         'jquery/getting-started/**',

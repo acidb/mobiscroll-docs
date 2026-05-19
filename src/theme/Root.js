@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from '@docusaurus/router';
 import useIsBrowser from '@docusaurus/useIsBrowser';
+import Head from '@docusaurus/Head';
 import { initializeHideSwitch } from '../util/tables';
 
 
@@ -36,7 +37,14 @@ export default function Root({children}) {
     }
   }, [pathname, isBrowser]);
 
-  return <>{children}</>
+  return (
+    <>
+      <Head>
+        <link rel="alternate" type="text/plain" title="Mobiscroll AI-friendly docs" href="https://mobiscroll.com/docs/llms.txt" />
+      </Head>
+      {children}
+    </>
+  );
 }
 
 function skipUrls(pathname) {

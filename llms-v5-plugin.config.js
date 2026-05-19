@@ -97,7 +97,7 @@ const llmsV5Options = {
     {
       filename: '5.35.0/llms-javascript-full.txt',
       includePatterns: ['javascript/**/*.md'],
-      ignorePatterns: ['javascript/**/_auto-generated/**'],
+      ignorePatterns: ['javascript/**/_auto-generated/**', 'javascript/core-concepts/icons.md'],
       fullContent: true,
       title: '[v5] Mobiscroll for JavaScript — Full Documentation',
       description:
@@ -121,7 +121,7 @@ const llmsV5Options = {
     {
       filename: '5.35.0/llms-react-full.txt',
       includePatterns: ['react/**/*.md'],
-      ignorePatterns: ['react/**/_auto-generated/**'],
+      ignorePatterns: ['react/**/_auto-generated/**', 'react/core-concepts/icons.md'],
       fullContent: true,
       title: '[v5] Mobiscroll for React — Full Documentation',
       description:
@@ -145,7 +145,7 @@ const llmsV5Options = {
     {
       filename: '5.35.0/llms-angular-full.txt',
       includePatterns: ['angular/**/*.md'],
-      ignorePatterns: ['angular/**/_auto-generated/**'],
+      ignorePatterns: ['angular/**/_auto-generated/**', 'angular/core-concepts/icons.md'],
       fullContent: true,
       title: '[v5] Mobiscroll for Angular — Full Documentation',
       description:
@@ -169,7 +169,7 @@ const llmsV5Options = {
     {
       filename: '5.35.0/llms-vue-full.txt',
       includePatterns: ['vue/**/*.md'],
-      ignorePatterns: ['vue/**/_auto-generated/**'],
+      ignorePatterns: ['vue/**/_auto-generated/**', 'vue/core-concepts/icons.md'],
       fullContent: true,
       title: '[v5] Mobiscroll for Vue — Full Documentation',
       description:
@@ -193,13 +193,26 @@ const llmsV5Options = {
     {
       filename: '5.35.0/llms-jquery-full.txt',
       includePatterns: ['jquery/**/*.md'],
-      ignorePatterns: ['jquery/**/_auto-generated/**'],
+      ignorePatterns: ['jquery/**/_auto-generated/**', 'jquery/core-concepts/icons.md'],
       fullContent: true,
       title: '[v5] Mobiscroll for jQuery — Full Documentation',
       description:
         'Complete Mobiscroll v5 jQuery documentation including Eventcalendar, Datepicker, Select, Popup, Forms, theming, and guides. ' +
         'This documentation refers to Mobiscroll version 5.35.0.',
       orderPatterns: ORDER_PATTERNS('jquery'),
+    },
+
+    // ── Icons (shared — identical across all frameworks) ──────────────────
+    {
+      filename: '5.35.0/llms-icons.txt',
+      includePatterns: ['react/core-concepts/icons.md'],
+      fullContent: true,
+      title: '[v5] Mobiscroll Icon Set',
+      description:
+        'Complete list of built-in Mobiscroll icons (IcoMoon, Font Awesome, Ionicons) for v5. ' +
+        'Use these icon names with the mbsc-font-icon mbsc-icon-{name} CSS classes. ' +
+        'Applicable to all frameworks (JavaScript, React, Angular, Vue, jQuery). ' +
+        'This documentation refers to Mobiscroll version 5.35.0.',
     },
   ],
 };

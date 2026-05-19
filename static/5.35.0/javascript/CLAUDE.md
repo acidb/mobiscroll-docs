@@ -32,6 +32,10 @@ Example: `{{DOCS_BASE_URL}}/javascript/eventcalendar/overview.md`
 
 - **Overview:** {{DOCS_BASE_URL}}/llms.txt
 
+### Supplementary: Icon set (fetch only when icon lookup is needed)
+
+- **Icons:** {{DOCS_BASE_URL}}/5.35.0/llms-icons.txt
+
 ---
 
 ## 2. Content Selection Priority

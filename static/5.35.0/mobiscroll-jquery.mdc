@@ -5,6 +5,7 @@
 - **Primary (complete v5 docs):** {{DOCS_BASE_URL}}/5.35.0/llms-jquery-full.txt
 - **TOC (links to .md pages):** {{DOCS_BASE_URL}}/5.35.0/llms-jquery.txt
 - **Individual pages:** `{{DOCS_BASE_URL}}/jquery/{section}/{page}.md`
+- **Icons (supplementary):** {{DOCS_BASE_URL}}/5.35.0/llms-icons.txt
 
 ## Scope
 

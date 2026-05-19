@@ -12,6 +12,8 @@ title: Table of contents
 
 - [Mobiscroll Connect](https://mobiscroll.com/docs/llms-connect.txt): Mobiscroll Connect API table of contents — server-side calendar integration (Google Calendar, Outlook, Apple Calendar, CalDAV), OAuth 2.0, REST API, webhooks, and event sync. Backend/server-side only — not a UI component library. See also the [full reference](https://mobiscroll.com/docs/llms-connect-full.txt).
 
+- [Mobiscroll Icons](https://mobiscroll.com/docs/llms-icons.txt): Complete built-in Mobiscroll icon set — IcoMoon, Font Awesome, Ionicons — with CSS class names (`mbsc-font-icon mbsc-icon-{name}`). Applicable to all frameworks. Excluded from per-framework full.txt files to keep token budget lean; fetch only when icon name lookup is needed.
+
 ## Optional
 
 Use these files only if your project is on Mobiscroll 5.x (5.35.0). For all new projects use the v6 files above.
@@ -21,3 +23,5 @@ Use these files only if your project is on Mobiscroll 5.x (5.35.0). For all new 
 - [Mobiscroll v5 for Angular](https://mobiscroll.com/docs/5.35.0/llms-angular.txt): Legacy v5 Angular table of contents (version 5.35.0). See also the [full reference](https://mobiscroll.com/docs/5.35.0/llms-angular-full.txt).
 - [Mobiscroll v5 for Vue](https://mobiscroll.com/docs/5.35.0/llms-vue.txt): Legacy v5 Vue table of contents (version 5.35.0). See also the [full reference](https://mobiscroll.com/docs/5.35.0/llms-vue-full.txt).
 - [Mobiscroll v5 for jQuery](https://mobiscroll.com/docs/5.35.0/llms-jquery.txt): Legacy v5 jQuery table of contents (version 5.35.0). See also the [full reference](https://mobiscroll.com/docs/5.35.0/llms-jquery-full.txt).
+
+- [Mobiscroll v5 Icons](https://mobiscroll.com/docs/5.35.0/llms-icons.txt): Same icon set for Mobiscroll v5 (5.35.0).

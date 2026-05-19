@@ -17,3 +17,5 @@ For detailed, framework-specific API references and guides, see:
 ### Mobiscroll Connect — Calendar Integration API
 
 [Mobiscroll Connect](https://mobiscroll.com/docs/llms-connect.txt) — [Full docs](https://mobiscroll.com/docs/llms-connect-full.txt)
+
+[Mobiscroll Icons](https://mobiscroll.com/docs/llms-icons.txt) — Icon set (IcoMoon, Font Awesome, Ionicons) excluded from per-framework full.txt files; fetch only for icon name lookup

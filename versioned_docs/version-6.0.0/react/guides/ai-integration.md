@@ -102,6 +102,7 @@ Machine-readable documentation files containing the complete Mobiscroll API refe
 |:---|:---|
 | `llms-react-full.txt` | Complete React documentation |
 | `llms-react.txt` | React table of contents (links to individual pages) |
+| `llms-icons.txt` | Icon names (IcoMoon, Font Awesome, Ionicons) — all frameworks |
 
 :::info
 You don't need to download or host these files — the rules and routing layers reference them directly and fetch their content automatically.

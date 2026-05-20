@@ -1,7 +1,7 @@
-### header {#slot-header}
+### popupHeader {#slot-popupHeader}
 
 ```html
-<template #header>...</template>
+<template #popupHeader>...</template>
 ```
 
 A render function to customize the header of the picker popup.

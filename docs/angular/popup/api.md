@@ -37,10 +37,14 @@ These methods are actions that can be performed on a component instance.
 
 <Methods />
 
+<div className="option-list-templates">
+
 ## Templates
 The display of the Popup component can be customized with different templates.
 
 <Slots />
+
+</div>
 
 ## Types
 

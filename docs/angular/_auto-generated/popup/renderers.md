@@ -1,7 +1,6 @@
-### renderHeader {#template-renderHeader}
+### headerTemplate {#template-headerTemplate}
 
-A render function to customize the header of the popup.
-It should return the desired markup for the header.
+Template reference for custom popup header rendering.
 Takes priority over the [headerText](#opt-headerText) option.
 
 **Default value**: `undefined`

@@ -1,0 +1,250 @@
+import CodeBlock from '@theme/CodeBlock';
+
+This page lists the Form components specific CSS variables that can be overridden to customize colors and visual states.
+For general theming concepts and shared theme variables, see the [CSS variables overview](../theming/css-variables).
+
+:::info
+Variable names and available options may differ between themes, so make sure to override the variables that correspond to the active theme.
+:::
+
+---
+
+## Form components variables
+
+Variables can be overridden globally on `:root` or scoped to a specific container.
+
+```css
+:root {
+  --mbsc-button-standard-bg-color: #6200ee;
+  --mbsc-button-standard-text-color: #ffffff;
+  --mbsc-button-outline-border-color: #9e9e9e;
+  --mbsc-button-outline-text-color: #6200ee;
+}
+
+.my-component {
+  --mbsc-button-standard-bg-color: #e91e63;
+}
+```
+
+:::info
+The variables in each section below apply only when the corresponding theme (`ios`, `windows`, or `material`) is active.
+:::
+
+## Button variables
+
+### iOS theme
+
+- `--mbsc-button-standard-bg-color`: Default button background
+- `--mbsc-button-standard-text-color`: Default button text color
+- `--mbsc-button-outline-border-color`: Outline button border color
+- `--mbsc-button-outline-text-color`: Outline button text color
+- `--mbsc-button-flat-text-color`: Flat button text color
+- `--mbsc-button-focus`: Focus outline color
+- `--mbsc-button-disabled-bg`: Disabled button background
+- `--mbsc-button-disabled-text`: Disabled button text color
+
+### Windows theme
+
+- `--mbsc-button-standard-bg-color`: Default button background
+- `--mbsc-button-standard-text-color`: Default button text color
+- `--mbsc-button-outline-border-color`: Outline button border color
+- `--mbsc-button-outline-text-color`: Outline button text color
+- `--mbsc-button-flat-text-color`: Flat button text color
+- `--mbsc-button-focus`: Focus color
+- `--mbsc-button-focus-contrast`: Contrast color for focus state
+- `--mbsc-button-disabled-bg`: Disabled button background
+- `--mbsc-button-disabled-text`: Disabled button text color
+
+### Material theme
+
+- `--mbsc-button-standard-bg-color`: Filled button background
+- `--mbsc-button-standard-text-color`: Filled button text color
+- `--mbsc-button-outline-border-color`: Outline button border color
+- `--mbsc-button-outline-text-color`: Outline button text color
+- `--mbsc-button-flat-text-color`: Flat button text color
+- `--mbsc-button-focus`: Focus outline/highlight color
+- `--mbsc-button-disabled-bg`: Disabled button background
+- `--mbsc-button-disabled-text`: Disabled button text color
+
+---
+
+## Checkbox variables
+
+### iOS theme
+
+- `--mbsc-checkbox-border-color`: Checkbox border color
+- `--mbsc-checkbox-selected-color`: Checkbox background when checked
+- `--mbsc-checkbox-checkmark-color`: Checkmark color
+- `--mbsc-checkbox-focus`: Focus outline color
+- `--mbsc-checkbox-disabled`: Disabled checkbox color
+
+### Windows theme
+
+- `--mbsc-checkbox-border-color`: Checkbox border color
+- `--mbsc-checkbox-border-hover`: Checkbox border color on hover
+- `--mbsc-checkbox-selected-color`: Checkbox background when checked
+- `--mbsc-checkbox-checkmark-color`: Checkmark color
+- `--mbsc-checkbox-focus`: Focus outline color
+
+### Material theme
+
+- `--mbsc-checkbox-border-color`: Checkbox border color
+- `--mbsc-checkbox-selected-color`: Checkbox background when checked
+- `--mbsc-checkbox-checkmark-color`: Checkmark color
+- `--mbsc-checkbox-focus`: Focus outline color
+
+---
+
+## Input variables
+
+### iOS theme
+
+- `--mbsc-textfield-focus`: Focus outline color
+- `--mbsc-textfield-icon-color`: Icon color
+- `--mbsc-textfield-tag-bg-color`: Tag/chip background color
+- `--mbsc-form-control-bg-color`: Input background color
+- `--mbsc-form-control-bg-color-popup`: Input background in popup
+- `--mbsc-form-control-text-color`: Input text color
+- `--mbsc-form-control-border-color`: Input border color
+- `--mbsc-form-control-error`: Error state color
+
+### Windows theme
+
+- `--mbsc-textfield-focus`: Focus color
+- `--mbsc-textfield-icon-color`: Icon color
+- `--mbsc-textfield-border`: Textfield border color
+- `--mbsc-textfield-border-hover`: Textfield border color on hover
+- `--mbsc-textfield-tag-bg-color`: Tag/chip background color
+- `--mbsc-form-control-bg-color`: Input background color
+- `--mbsc-form-control-text-color`: Input text color
+- `--mbsc-form-control-border-color`: Input border color
+- `--mbsc-form-control-border-hover`: Input border color on hover
+- `--mbsc-form-control-border-focus`: Input border color on focus
+- `--mbsc-form-control-error`: Error state color
+
+### Material theme
+
+- `--mbsc-textfield-bg-color`: Textfield background
+- `--mbsc-textfield-text-color`: Input text color
+- `--mbsc-textfield-label-color`: Label text color
+- `--mbsc-textfield-icon-color`: Icon color
+- `--mbsc-textfield-border-color`: Default border color
+- `--mbsc-textfield-outline-border-color`: Outline border color
+- `--mbsc-textfield-focus`: Focus color
+- `--mbsc-textfield-error`: Error state color
+
+---
+
+## Radio button variables
+
+### iOS theme
+
+- `--mbsc-radio-border-color`: Radio border color
+- `--mbsc-radio-selected-color`: Selected radio color
+- `--mbsc-radio-focus`: Focus outline color
+- `--mbsc-radio-disabled`: Disabled radio color
+
+### Windows theme
+
+- `--mbsc-radio-border-color`: Radio border color
+- `--mbsc-radio-border-hover`: Radio border color on hover
+- `--mbsc-radio-selected-color`: Selected radio color
+- `--mbsc-radio-focus`: Focus outline color
+
+### Material theme
+
+- `--mbsc-radio-border-color`: Radio border color
+- `--mbsc-radio-selected-color`: Selected radio color
+- `--mbsc-radio-focus`: Focus outline color
+
+---
+
+## Segmented variables
+
+### iOS theme
+
+- `--mbsc-segmented-bg-color`: Segmented background
+- `--mbsc-segmented-text-color`: Segment text color
+- `--mbsc-segmented-selected-color`: Selected segment background
+
+### Windows theme
+
+- `--mbsc-segmented-bg-color`: Segmented background
+- `--mbsc-segmented-text-color`: Segment text color
+- `--mbsc-segmented-selected-bg-color`: Selected segment background
+- `--mbsc-segmented-selected-text-color`: Selected segment text color
+- `--mbsc-segmented-border-color`: Segmented border color
+- `--mbsc-segmented-focus`: Focus outline/highlight color
+
+### Material theme
+
+- `--mbsc-segmented-bg-color`: Segmented background
+- `--mbsc-segmented-text-color`: Segment text color
+- `--mbsc-segmented-selected-bg-color`: Selected segment background
+- `--mbsc-segmented-selected-text-color`: Selected segment text color
+- `--mbsc-segmented-border-color`: Segmented border color
+- `--mbsc-segmented-focus`: Focus outline color
+- `--mbsc-segmented-disabled`: Disabled segment color
+
+---
+
+## Stepper variables
+
+### iOS theme
+
+- `--mbsc-stepper-bg-color`: Stepper background
+- `--mbsc-stepper-text-color`: Stepper text color
+- `--mbsc-stepper-divider-color`: Divider color
+- `--mbsc-stepper-focus`: Focus outline color
+- `--mbsc-stepper-disabled-bg`: Disabled stepper background
+- `--mbsc-stepper-disabled-text`: Disabled stepper text color
+
+### Windows theme
+
+- `--mbsc-stepper-bg-color`: Stepper background
+- `--mbsc-stepper-text-color`: Stepper text color
+- `--mbsc-stepper-border-color`: Stepper border color
+- `--mbsc-stepper-focus`: Focus outline color
+- `--mbsc-stepper-disabled-bg`: Disabled stepper background
+- `--mbsc-stepper-disabled-text`: Disabled stepper text color
+
+### Material theme
+
+- `--mbsc-stepper-bg-color`: Stepper background
+- `--mbsc-stepper-text-color`: Stepper text color
+- `--mbsc-stepper-border-color`: Stepper border color
+- `--mbsc-stepper-focus`: Focus outline/highlight color
+- `--mbsc-stepper-disabled-bg`: Disabled stepper background
+- `--mbsc-stepper-disabled-text`: Disabled stepper text color
+
+---
+
+## Switch variables
+
+### iOS theme
+
+- `--mbsc-switch-handle-color`: Switch handle color
+- `--mbsc-switch-track-color`: Switch track color
+- `--mbsc-switch-selected-handle-color`: Handle color when checked
+- `--mbsc-switch-selected-track-color`: Track color when checked
+- `--mbsc-switch-focus`: Focus outline color
+
+### Windows theme
+
+- `--mbsc-switch-handle-color`: Switch handle color
+- `--mbsc-switch-track-color`: Switch track background
+- `--mbsc-switch-selected-handle-color`: Handle color when checked
+- `--mbsc-switch-selected-track-color`: Track color when checked
+- `--mbsc-switch-border-color`: Switch border color
+- `--mbsc-switch-border-hover`: Switch border color on hover
+- `--mbsc-switch-border-active`: Switch border color in active state
+- `--mbsc-switch-focus`: Focus color
+
+### Material theme
+
+- `--mbsc-switch-handle-color`: Switch handle color
+- `--mbsc-switch-track-color`: Switch track background
+- `--mbsc-switch-border-color`: Switch border color
+- `--mbsc-switch-selected-handle-color`: Handle color when checked
+- `--mbsc-switch-selected-track-color`: Track color when checked
+- `--mbsc-switch-focus`: Focus outline/highlight color

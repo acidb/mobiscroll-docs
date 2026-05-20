@@ -1,0 +1,13 @@
+---
+sidebar_position: 11
+sidebar_label: Accessibility
+displayed_sidebar: reactSidebar
+title: Accessibility
+description: 'Accessibility support for the Mobiscroll Select component in React — ARIA roles, keyboard navigation, and screen reader guidance.'
+---
+
+import Content from '../../_shared/select/accessibility.mdx';
+import { toc as TOC } from '../../_shared/select/accessibility.mdx';
+export const toc = [...TOC];
+
+<Content />

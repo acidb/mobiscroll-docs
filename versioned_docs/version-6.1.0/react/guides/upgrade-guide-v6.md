@@ -1,0 +1,377 @@
+---
+sidebar_position: 5
+sidebar_label: Upgrade guide v6
+displayed_sidebar: reactSidebar
+title: Mobiscroll 6 upgrade guide
+description: 'Upgrade from Mobiscroll 5 to version 6 in React — breaking changes, removed features, renamed options, and migration examples.'
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Overview
+
+This guide outlines all the major changes, deprecations, and removals introduced in Mobiscroll version 6. It includes detailed explanations and practical migration examples to help you upgrade from v5.
+
+## Browser Support
+
+Starting with Mobiscroll 6.0, we dropped support for IE11. Additionally, we updated the minimum supported browser versions:
+
+* Chrome 56
+* Firefox 32
+* iOS/Safari 13
+* Edge 79
+
+## Frameworks
+
+Starting with Mobiscroll 6.0 we updated the minimum supported framework and language versions. Please upgrade to React 17+ to continue using Mobiscroll. Additionally, if you're using TypeScript, please make sure you're on version 4 or newer.
+
+## Packages
+
+To align with current ecosystem standards, we renamed several packages:
+
+* We renamed `react` to `react-legacy` (for React versions before 18).
+* We renamed `react-next` to `react`, now the default React package.
+
+To automatically handle the package updates and apply these changes, the simplest method is to re-run the [configuration command](/react/getting-started/installation#installing-from-npm) in your project. Navigate to your project's root folder and run:
+
+```bash
+mobiscroll config react
+```
+
+## General
+
+### Theme updates
+
+Mobiscroll 6.0 introduces redesigned themes based on the latest Fluent, Material, and iOS design systems. These updated themes are used by default and are exposed primarily through **CSS variables**.  
+For a complete list of theme-level variables and guidance on how to override them, see the [CSS variables overview](/react/theming/css-variables).
+
+If you prefer the previous (v5) appearance, you can continue using the legacy themes. Legacy themes are not part of the default styles, so you need to load an extra legacy stylesheet bundle.
+
+The legacy package contains:
+
+- `mobiscroll-legacy.min.css`
+- `mobiscroll-legacy.scss`
+
+#### Using legacy themes
+
+Regardless of whether Mobiscroll was installed from NPM or from a downloaded package, import the legacy styles from the React package:
+
+Using CSS:
+
+```ts
+import '@mobiscroll/react/dist/css/mobiscroll-legacy.min.css';
+```
+
+Using SCSS:
+
+```scss
+@import '@mobiscroll/react/dist/css/mobiscroll-legacy.scss';
+```
+
+**Then set the legacy theme:**
+
+After loading the styles, reference one of the legacy themes:
+
+```ts
+mobiscroll.setOptions({
+  theme: 'ios-legacy',
+  // theme: 'material-legacy'
+  // theme: 'windows-legacy'
+});
+```
+
+### Sass updates
+
+Starting with Mobiscroll 6.0, we updated our `Sass` code to remove deprecated functions. The minimum supported `Sass` version is now [1.80.0.](https://www.npmjs.com/package/sass), and we no longer support [node-sass](https://www.npmjs.com/package/node-sass). If you're currently using `node-sass`, we recommend switching to the [sass](https://www.npmjs.com/package/sass) package, which is now the primary implementation. For help with the migration, refer to the official [Sass upgrade guide](https://sass-lang.com/blog/libsass-is-deprecated/#how-do-i-migrate).
+
+### HTML support in strings 
+
+We dropped support for HTML markup in strings for improved security. It is only supported in jQuery and JavaScript render functions.
+
+
+## Datepicker
+
+### Changed
+
+We changed the default [refDate](/react/datepicker/api#opt-refDate) from 1970/01/01 to today.
+
+### Removed
+
+We removed the `weeks` option. Use [calendarSize](/react/datepicker/api#opt-calendarSize) instead.
+
+<Tabs>
+  <TabItem value="old" label="Old code" default>
+
+```jsx
+import { Datepicker } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
+<Datepicker
+  weeks={6}
+/>
+```
+
+  </TabItem>
+  <TabItem value="new" label="New code">
+
+```jsx
+import { Datepicker } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
+<Datepicker
+  calendarSize={2}
+/>
+```
+
+  </TabItem>
+</Tabs>
+
+## Agenda
+
+We performed a cleanup and standardization of renderer option names. This improves consistency across components. Deprecated names are still supported for now but will be removed in a future release.
+
+### Changed
+
+We changed the default [refDate](/react/eventcalendar/api#opt-refDate) from 1970/01/01 to today.  
+
+We renamed the `renderEvent` option to [renderAgendaEvent](/react/eventcalendar/api#renderer-renderAgendaEvent).    
+We renamed the `renderEventContent` option to [renderAgendaEventContent](/react/eventcalendar/api#renderer-renderAgendaEventContent).   
+We renamed the `renderDay` option to [renderAgendaDay](/react/eventcalendar/api#renderer-renderAgendaDay).    
+
+<Tabs>
+  <TabItem value="old" label="Old code" default>
+
+```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
+<Eventcalendar renderEvent={myRender} />
+```
+  </TabItem>
+  <TabItem value="new" label="New code">
+
+```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
+<Eventcalendar renderAgendaEvent={myRender} />
+```
+  </TabItem>
+</Tabs>
+
+
+## Eventcalendar
+
+We performed a cleanup and standardization of renderer option names. This improves consistency across components. Deprecated names are still supported for now but will be removed in a future release.
+
+### Changed
+
+We changed the default [refDate](/react/eventcalendar/api#opt-refDate) from 1970/01/01 to today.  
+
+We renamed the `renderLabel` option to [renderCalendarEvent](/react/eventcalendar/api#renderer-renderCalendarEvent).  
+We renamed the `renderLabelContent` option to [renderCalendarEventContent](/react/eventcalendar/api#renderer-renderCalendarEventContent).  
+We renamed the `renderEvent` option to [renderPopoverEvent](/react/eventcalendar/api#renderer-renderPopoverEvent).  
+We renamed the `renderEventContent` option to [renderPopoverEventContent](/react/eventcalendar/api#renderer-renderPopoverEventContent).  
+We renamed the `renderDay` option to [renderCalendarDay](/react/eventcalendar/api#renderer-renderCalendarDay).  
+We renamed the `renderDayContent` option to [renderCalendarDayContent](/react/eventcalendar/api#renderer-renderCalendarDayContent).  
+
+
+<Tabs>
+  <TabItem value="old" label="Old code" default>
+
+```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
+<Eventcalendar renderLabel={myRender} />
+```
+
+  </TabItem>
+  <TabItem value="new" label="New code">
+
+```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
+<Eventcalendar renderCalendarEvent={myRender} />
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Scheduler
+
+### Header consistency
+
+We unified the Scheduler header layout across different view configurations. The single-day view with resources now uses the same header structure as multi-day (e.g., weekly, monthly or daily) views. This ensures a consistent look and feel regardless of the selected view type.
+
+
+### Changed
+
+We performed a cleanup and standardization of renderer option names. This improves consistency across components. Deprecated names are still supported for now but will be removed in a future release.
+
+We renamed the `renderScheduleEvent` option to [renderSchedulerEvent](/react/eventcalendar/api#renderer-renderSchedulerEvent).  
+We renamed the `renderScheduleEventContent` option to [renderSchedulerEventContent](/react/eventcalendar/api#renderer-renderSchedulerEventContent).  
+We renamed the `renderDay` option to [renderSchedulerDay](/react/eventcalendar/api#renderer-renderSchedulerDay).  
+We renamed the `renderDayContent` option to [renderSchedulerDayContent](/react/eventcalendar/api#renderer-renderSchedulerDayContent).  
+
+
+<Tabs>
+  <TabItem value="old" label="Old code" default>
+
+```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
+<Eventcalendar renderScheduleEvent={myRender} />
+```
+
+  </TabItem>
+  <TabItem value="new" label="New code">
+
+```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
+<Eventcalendar renderSchedulerEvent={myRender} />
+```
+
+  </TabItem>
+</Tabs>
+
+We also renamed the `schedule` [view](/react/eventcalendar/api#opt-view) to `scheduler`:
+
+<Tabs>
+  <TabItem value="old" label="Old code" default>
+
+```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
+<Eventcalendar view={{ schedule: { type: 'day' } }} />
+```
+
+  </TabItem>
+  <TabItem value="new" label="New code">
+
+```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
+<Eventcalendar view={{ scheduler: { type: 'day' } }} />
+```
+
+  </TabItem>
+</Tabs>
+
+## Timeline
+
+We performed a cleanup and standardization of renderer option names. This improves consistency across components. Deprecated names are still supported for now but will be removed in a future release.
+
+### Changed
+
+We renamed the `renderScheduleEvent` option to [renderTimelineEvent](/react/eventcalendar/api#renderer-renderTimelineEvent).  
+We renamed the `renderScheduleEventContent` option to [renderTimelineEventContent](/react/eventcalendar/api#renderer-renderTimelineEventContent).  
+We renamed the `renderDay` option to [renderTimelineDay](/react/eventcalendar/api#renderer-renderTimelineDay).  
+
+
+<Tabs>
+  <TabItem value="old" label="Old code" default>
+
+```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
+<Eventcalendar renderScheduleEvent={myRender} />
+```
+
+  </TabItem>
+  <TabItem value="new" label="New code">
+
+```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
+<Eventcalendar renderTimelineEvent={myRender} />
+```
+
+  </TabItem>
+</Tabs>
+
+We added a new `eventDisplay` property to the [view](/react/eventcalendar/api#opt-view) option that takes `'exact'` or `'fill'` as values, and deprecated the `eventList` boolean property.
+
+<Tabs>
+  <TabItem value="old" label="Old code" default>
+
+```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
+<Eventcalendar view={{ timeline: { type: 'day', eventList: true } }} />
+```
+
+  </TabItem>
+  <TabItem value="new" label="New code">
+
+```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
+<Eventcalendar view={{ timeline: { type: 'day', eventDisplay: 'fill' } }} />
+```
+
+  </TabItem>
+</Tabs>
+
+### Removed
+
+We removed the deprecated `resolution` property from the [view](/react/eventcalendar/api#opt-view) option. Use the `resolutionHorizontal` property instead.
+
+<Tabs>
+  <TabItem value="old" label="Old code" default>
+
+```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
+<Eventcalendar view={{ timeline: { type: 'day', resolutiuon: 'hour' } }} />
+```
+
+  </TabItem>
+  <TabItem value="new" label="New code">
+
+```jsx
+import { Eventcalendar } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
+<Eventcalendar view={{ timeline: { type: 'day', resolutiuonHorizontal: 'hour' } }} />
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Forms
+
+### Removed
+
+We removed the legacy notification functions from React. From now on, only React components are supported for displaying notifications.
+
+<Tabs>
+  <TabItem value="old" label="Old code" default>
+
+```jsx
+mobiscroll.toast({message: "Saved"})
+```
+
+  </TabItem>
+  <TabItem value="new" label="New code">
+
+```jsx
+<MobiscrollToast message="Saved" />
+```
+
+  </TabItem>
+</Tabs>

@@ -1,0 +1,86 @@
+import CodeBlock from '@theme/CodeBlock';
+
+This page lists the Datepicker specific CSS variables that can be overridden to customize colors and visual states.
+For general theming concepts and shared theme variables, see the [CSS variables overview](../theming/css-variables).
+
+:::info
+Variable names and available options may differ between themes, so make sure to override the variables that correspond to the active theme.
+:::
+
+---
+
+## Datepicker variables
+
+Variables can be overridden globally on `:root` or scoped to a specific container.
+
+```scss
+:root {
+  --mbsc-datepicker-bg-color: #ffffff;
+  --mbsc-datepicker-text-color: #1a1a1a;
+}
+
+.my-datepicker {
+  --mbsc-datepicker-selected-color: #e91e63;
+  --mbsc-datepicker-highlight: #fde4ef;
+}
+```
+
+:::info
+**Theming & dark mode**
+
+Variables can be overridden globally on `:root`, which affects all active themes.
+
+To target a specific theme, use its theme selector:
+
+- `.mbsc-windows`
+- `.mbsc-windows-dark`
+- `.mbsc-ios`
+- `.mbsc-ios-dark`
+- `.mbsc-material`
+- `.mbsc-material-dark`
+:::
+
+### iOS theme
+
+These variables apply when the `ios` theme is active.
+
+- `--mbsc-datepicker-bg-color`: Datepicker surface background (wrapper and popup)
+- `--mbsc-datepicker-text-color`: Default datepicker text color
+- `--mbsc-datepicker-border-color`: Calendar grid / separator color
+- `--mbsc-datepicker-selected-color`: Selected day / primary accent color
+- `--mbsc-datepicker-selected-text`: Text/icons on selected day
+- `--mbsc-datepicker-highlight`: Datepicker range selection highlight
+- `--mbsc-datepicker-focus`: Focus outline color (keyboard navigation and active elements)
+- `--mbsc-datepicker-label-color`: Day label background color
+- `--mbsc-datepicker-label-text`: Day label text color
+- `--mbsc-datepicker-mark`: Day mark / dot / indicator color
+- `--mbsc-datepicker-text-soft`: Used for week numbers
+### Windows theme
+
+These variables apply when the `windows` theme is active.
+
+- `--mbsc-datepicker-bg-color`: Datepicker surface background
+- `--mbsc-datepicker-text-color`: Default datepicker text color
+- `--mbsc-datepicker-border-color`: Calendar grid / separator color
+- `--mbsc-datepicker-selected-color`: Selected day / primary accent color
+- `--mbsc-datepicker-selected-text`: Text/icons on selected day
+- `--mbsc-datepicker-highlight`: Datepicker range selection highlight
+- `--mbsc-datepicker-focus`: Focus outline color
+- `--mbsc-datepicker-label-color`: Day label background color
+- `--mbsc-datepicker-label-text`: Day label text color
+- `--mbsc-datepicker-mark`: Day mark / dot / indicator color
+- `--mbsc-datepicker-range-label-clear`: Range label “clear”/neutral background color
+### Material theme
+
+These variables apply when the `material` theme is active.
+
+- `--mbsc-datepicker-bg-color`: Datepicker surface background
+- `--mbsc-datepicker-text-color`: Default datepicker text color
+- `--mbsc-datepicker-border-color`: Calendar grid / separator color
+- `--mbsc-datepicker-selected-color`: Selected day / primary accent color
+- `--mbsc-datepicker-selected-text`: Text/icons on selected day
+- `--mbsc-datepicker-highlight`: Datepicker range selection highlight
+- `--mbsc-datepicker-focus`: Focus outline color
+- `--mbsc-datepicker-label-color`: Day label background color
+- `--mbsc-datepicker-label-text`: Day label text color
+- `--mbsc-datepicker-mark`: Day mark / dot / indicator color

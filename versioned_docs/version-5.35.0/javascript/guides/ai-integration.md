@@ -105,28 +105,26 @@ Machine-readable documentation files containing the complete Mobiscroll API refe
 | `5.35.0/llms-icons.txt` | Icon names for Mobiscroll v5 — all frameworks |
 
 :::info
-You don't need to download or host these files — the rules and routing layers reference them directly and fetch their content automatically.
+You don't need to download or host these files — the rules files and the Claude Code plugin reference them directly and fetch their content automatically.
 :::
 
-### Rules layer — .mdc files
+### Rules layer — .mdc and SKILL.md files
 
-Per-framework behavior rule files that tell AI assistants which package to use, how to import CSS, which APIs are available, and what to avoid. Each `.mdc` file targets exactly one framework.
+Per-framework behavior files that tell AI assistants which package to use, how to import CSS, which APIs are available, and what to avoid. Two formats are available — use one or the other:
 
-| File | Framework |
-|:---|:---|
-| <DocsLink path="5.35.0/mobiscroll-javascript.mdc" download /> | JavaScript |
+| File | Format | For |
+|:---|:---|:---|
+| <DocsLink path="5.35.0/mobiscroll-javascript.mdc" download /> | Cursor rule file | Cursor, GitHub Copilot |
+| `mobiscroll-ui/SKILL.md` + `docs/javascript/SKILL.md` + `mobiscroll-ui-theming/SKILL.md` | Claude Code skills | Cursor, GitHub Copilot, Claude Code (via plugin) |
 
-### Routing layer — CLAUDE.md
-
-A context file specifically for Claude Code that provides framework detection signals, deterministic routing rules, component mapping, and anti-pattern examples. It ensures Claude selects the correct framework documentation and never mixes APIs across frameworks.
 
 ## Which tool uses which files?
 
-| AI Tool | Documentation Source | Behavior Rules | Routing |
-|:---|:---|:---|:---|
-| **Cursor** | `llms-javascript-full.txt` via @docs | `.mdc` file | — |
-| **GitHub Copilot** | `.mdc` file (contains doc URLs) | `.mdc` file | — |
-| **Claude Code** | `llms-javascript-full.txt` | `CLAUDE.md` | `CLAUDE.md` |
+| AI Tool | Documentation Source | Behavior Rules |
+|:---|:---|:---|
+| **Cursor** | `llms-javascript-full.txt` via @docs | `.mdc` file or `SKILL.md` files |
+| **GitHub Copilot** | `.mdc` or `SKILL.md` file (contains doc URLs) | `.mdc` file or `SKILL.md` files |
+| **Claude Code** | MCP server (live schema lookup) | Plugin skills |
 
 ## Cursor setup
 
@@ -140,9 +138,13 @@ Open **Cursor Settings → Indexing & Docs** and add the documentation source fo
 
 Only register the source matching your use case. Do not register multiple sources — this prevents cross-domain contamination.
 
-### Step 2: Add the rules file
+### Step 2: Add behavior rules
 
-Download the <DocsLink path="5.35.0/mobiscroll-javascript.mdc" download><code>mobiscroll-javascript.mdc</code></DocsLink> file for your framework and place it in your project's `.cursor/rules/` directory:
+Choose one approach — both provide Mobiscroll API conventions and prevent hallucinated code.
+
+#### Option A — .mdc rules file
+
+Download the <DocsLink path="5.35.0/mobiscroll-javascript.mdc" download><code>mobiscroll-javascript.mdc</code></DocsLink> file and place it in `.cursor/rules/`:
 
 ```
 your-project/
@@ -150,9 +152,29 @@ your-project/
 │   └── rules/
 │       └── mobiscroll-javascript.mdc
 ├── src/
-├── package.json
-└── ...
+└── package.json
 ```
+
+#### Option B — SKILL.md skill files
+
+Download the three SKILL.md skill files and place them in `.cursor/rules/` (rename each to a unique `.mdc` name):
+
+- <DocsLink path="mobiscroll-ui/SKILL.md" download>mobiscroll-ui SKILL.md (orchestrator)</DocsLink>
+- <DocsLink path="docs/javascript/SKILL.md" download>mobiscroll-ui-javascript SKILL.md (JavaScript conventions)</DocsLink>
+- <DocsLink path="mobiscroll-ui-theming/SKILL.md" download>mobiscroll-ui-theming SKILL.md (theming)</DocsLink>
+
+```
+your-project/
+├── .cursor/
+│   └── rules/
+│       ├── mobiscroll-ui.mdc
+│       ├── mobiscroll-ui-javascript.mdc
+│       └── mobiscroll-ui-theming.mdc
+├── src/
+└── package.json
+```
+
+The SKILL.md files provide more detailed framework conventions than the `.mdc` file. Use them if you want deeper pattern and anti-pattern guidance.
 
 ### Step 3: Use @docs in queries
 
@@ -168,57 +190,84 @@ When asking Cursor about Mobiscroll, include `@docs` to ensure it reads the regi
 
 ## GitHub Copilot setup
 
-### Step 1: Add the rules file
+### Step 1: Add behavior rules
 
-Download the <DocsLink path="5.35.0/mobiscroll-javascript.mdc" download><code>mobiscroll-javascript.mdc</code></DocsLink> file for your framework and place it at the root of your project or alternatively [copy it's content](#rules-files-mdc) to the rules files under the `.github/` directory:
+Choose one approach — both provide Mobiscroll API conventions and prevent hallucinated code.
+
+#### Option A — .mdc rules file
+
+Download the <DocsLink path="5.35.0/mobiscroll-javascript.mdc" download><code>mobiscroll-javascript.mdc</code></DocsLink> file and place it at the root of your project, or copy [its content](#rules-files-mdc) into your `.github/` instruction files:
 
 ```
 your-project/
 ├── mobiscroll-javascript.mdc
 ├── .github/
-|   ├── copilot-instructions.md       <-- Global repo rules
+|   ├── copilot-instructions.md
 |   └── instructions/
-|       └── javascript-logic.instructions.md <-- Specific rules
+|       └── javascript-logic.instructions.md
 ├── src/
-├── package.json
-└── ...
+└── package.json
 ```
 
-The `.mdc` file will automatically influence Copilot responses when you work on files in that project. It tells Copilot which package to use, how to import CSS, and which APIs are available.
+#### Option B — SKILL.md skill files
 
-### How it works
+Download the three SKILL.md skill files and place them in `.github/instructions/` (rename each to a unique `.instructions.md` name). Add `applyTo: "**"` to the YAML frontmatter of each renamed file so Copilot applies them to all files in the project:
 
-The `.mdc` file contains:
-
-- **Documentation URLs** — points Copilot to the correct framework docs
-- **Component mapping** — maps user intents (e.g., "scheduler") to the correct Mobiscroll APIs
-- **Rules** — enforces correct package imports, CSS loading, and API usage
-- **Constraints** — prevents cross-framework mixing and API hallucination
-
-## Claude Code setup
-
-### Step 1: Add CLAUDE.md
-
-If you don't already have a `CLAUDE.md` in your project root, download <DocsLink path="5.35.0/javascript/CLAUDE.md" download><code>CLAUDE.md</code></DocsLink> and place it there. If you already have one, copy the contents into your existing file instead — see [File contents](#file-contents) below.
+- <DocsLink path="mobiscroll-ui/SKILL.md" download>mobiscroll-ui SKILL.md (orchestrator)</DocsLink>
+- <DocsLink path="docs/javascript/SKILL.md" download>mobiscroll-ui-javascript SKILL.md (JavaScript conventions)</DocsLink>
+- <DocsLink path="mobiscroll-ui-theming/SKILL.md" download>mobiscroll-ui-theming SKILL.md (theming)</DocsLink>
 
 ```
 your-project/
-├── CLAUDE.md
+├── .github/
+|   └── instructions/
+|       ├── mobiscroll-ui.instructions.md
+|       ├── mobiscroll-ui-javascript.instructions.md
+|       └── mobiscroll-ui-theming.instructions.md
 ├── src/
-├── package.json
-└── ...
+└── package.json
 ```
 
 ### How it works
 
-When Claude Code opens your project, it automatically reads `CLAUDE.md` from the project root. The file provides:
+Both the `.mdc` file and the SKILL.md files contain:
 
-- **Framework detection** — Claude detects your framework from `package.json`, file extensions, and import patterns
-- **Routing rules** — deterministic IF/THEN rules that select the correct documentation source
-- **Component mapping** — translates user intents like "scheduler" or "timeline" to the correct Eventcalendar view configuration
-- **Anti-patterns** — explicit WRONG → RIGHT examples that prevent common mistakes
+- **Documentation URLs** — point the AI to the correct framework docs
+- **Component mapping** — map user intents (e.g., "scheduler") to the correct Mobiscroll APIs
+- **Rules** — enforce correct package imports, CSS loading, and API usage
+- **Constraints** — prevent cross-framework mixing and API hallucination
 
-Claude Code will fetch `llms-javascript-full.txt` automatically based on the detected framework. No manual registration is needed.
+## Claude Code setup
+
+Install the Mobiscroll plugin for Claude Code. The plugin bundles framework coding skills and the MCP server in a single install — no per-project configuration files needed.
+
+### Step 1: Register the marketplace
+
+Run this once in Claude Code to register the Mobiscroll plugin marketplace:
+
+```
+/plugin marketplace add acidb/mobiscroll-marketplace
+```
+
+### Step 2: Install the plugin
+
+```
+/plugin install mobiscroll@mobiscroll
+```
+
+### How it works
+
+Once installed, the plugin provides:
+
+- **Skills** — `mobiscroll-ui` is the orchestrator skill that detects your framework (React, Angular, Vue, JavaScript, or jQuery) and loads the matching framework sub-skill. Theming questions are handled by `mobiscroll-ui-theming`. All skills are installed together.
+- **MCP server** — The bundled Mobiscroll MCP server provides live component schema lookup, code validation, and example search on demand — so Claude always uses the current API, never hallucinated or outdated options.
+
+When you ask Claude Code to write Mobiscroll code, it:
+
+1. Detects your framework and Mobiscroll version via `resolveEnvironment`
+2. Loads the matching framework skill with idiomatic conventions
+3. Looks up the component schema before writing any props or events
+4. Validates generated code before returning it to you
 
 ## Framework isolation
 
@@ -270,7 +319,7 @@ How do I load events from a remote URL?
 
 **Symptom:** The AI suggests options, events, or types that don't exist in the Mobiscroll documentation.
 
-**Fix:** The `.mdc` rules instruct the AI to only use APIs found in the docs. If this still happens, explicitly reference `@docs` in Cursor queries, or verify that `CLAUDE.md` is in the project root for Claude Code. You can also ask the AI to verify an option exists in the Mobiscroll docs.
+**Fix:** The `.mdc` rules instruct the AI to only use APIs found in the docs. If this still happens, explicitly reference `@docs` in Cursor queries, or verify that the Mobiscroll plugin is installed in Claude Code (`/plugin list`). You can also ask the AI to verify an option exists in the Mobiscroll docs.
 
 ### AI mixes Mobiscroll Connect with UI components
 
@@ -294,21 +343,33 @@ All AI integration files are available at the following URLs:
 |:---|:---|
 | JavaScript rules | <DocsLink path="5.35.0/mobiscroll-javascript.mdc" download /> |
 
-### Routing file
+### Skill files
 
 | File | URL |
 |:---|:---|
-| Claude Code context | <DocsLink path="5.35.0/javascript/CLAUDE.md" download /> |
+| Orchestrator skill | <DocsLink path="mobiscroll-ui/SKILL.md" download /> |
+| JavaScript conventions skill | <DocsLink path="docs/javascript/SKILL.md" download /> |
+| Theming skill | <DocsLink path="mobiscroll-ui-theming/SKILL.md" download /> |
 
 ## File contents {#file-contents}
 
 The complete contents of each file are shown below. You can copy directly from these blocks or use the download links above.
 
-### CLAUDE.md
+### Skill files {#skill-files}
 
 <details>
-<summary>View <code>CLAUDE.md</code></summary>
-<FileBlock src="5.35.0/javascript/CLAUDE.md" />
+<summary>View <code>SKILL.md</code> (mobiscroll-ui — orchestrator)</summary>
+<FileBlock src="mobiscroll-ui/SKILL.md" />
+</details>
+
+<details>
+<summary>View <code>SKILL.md</code> (mobiscroll-ui-javascript — JavaScript conventions)</summary>
+<FileBlock src="docs/javascript/SKILL.md" />
+</details>
+
+<details>
+<summary>View <code>SKILL.md</code> (mobiscroll-ui-theming — theming)</summary>
+<FileBlock src="mobiscroll-ui-theming/SKILL.md" />
 </details>
 
 ### Rules files (.mdc) {#rules-files-mdc}

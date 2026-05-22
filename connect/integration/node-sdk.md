@@ -1,6 +1,6 @@
 ---
 sidebar_label: Node.js SDK
-sidebar_position: 1
+sidebar_position: 2
 slug: /node-sdk
 description: Use the @mobiscroll/connect-sdk Node.js package to interact with Mobiscroll Connect — setup, authentication, and API method reference.
 ---

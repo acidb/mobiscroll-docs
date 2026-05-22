@@ -1,6 +1,6 @@
 ---
 sidebar_label: Python SDK
-sidebar_position: 4
+sidebar_position: 3
 slug: /python-sdk
 description: Use the mobiscroll-connect-sdk PyPI package to interact with Mobiscroll Connect — setup, authentication, and API method reference.
 ---

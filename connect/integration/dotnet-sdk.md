@@ -1,6 +1,6 @@
 ---
 sidebar_label: .NET SDK
-sidebar_position: 3
+sidebar_position: 5
 slug: /dotnet-sdk
 description: Use the Mobiscroll.Connect NuGet package to interact with Mobiscroll Connect — setup, authentication, and API method reference.
 ---

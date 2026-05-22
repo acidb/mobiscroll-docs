@@ -17,11 +17,12 @@ export const DocsUrl = ({path}) => {
   return <code>{base + path}</code>;
 };
 
-export const DocsLink = ({path, children, download: dl}) => {
+export const DocsLink = ({path, children, download: dl, filename}) => {
   const base = useDocsBase();
   const url = base + path;
+  const dlName = filename || path.split('/').pop();
   return dl
-    ? <a href={url} download={path.split('/').pop()}>{children || <code>{path}</code>}</a>
+    ? <a href={url} download={dlName}>{children || <code>{path}</code>}</a>
     : <a href={url}>{children || <code>{path}</code>}</a>;
 };
 
@@ -108,22 +109,23 @@ Machine-readable documentation files containing the complete Mobiscroll API refe
 You don't need to download or host these files — the rules files and the Claude Code plugin reference them directly and fetch their content automatically.
 :::
 
-### Rules layer — .mdc and SKILL.md files
+### Rules layer — rules files
 
 Per-framework behavior files that tell AI assistants which package to use, how to import CSS, which APIs are available, and what to avoid. Two formats are available — use one or the other:
 
 | File | Format | For |
 |:---|:---|:---|
-| <DocsLink path="mobiscroll-vue.mdc" download /> | Cursor rule file | Cursor, GitHub Copilot |
-| `mobiscroll-ui/SKILL.md` + `docs/vue/SKILL.md` + `mobiscroll-ui-theming/SKILL.md` | Claude Code skills | Cursor, GitHub Copilot, Claude Code (via plugin) |
+| <DocsLink path="mobiscroll-vue.mdc" download /> | Cursor rule file | Cursor |
+| <DocsLink path="copilot-instructions/mobiscroll-vue.instructions.md" download /> | Copilot instruction file | GitHub Copilot |
+| 3 extended rule files | Extended rules + MCP calls | Cursor, GitHub Copilot, Claude Code |
 
 
 ## Which tool uses which files?
 
 | AI Tool | Documentation Source | Behavior Rules |
 |:---|:---|:---|
-| **Cursor** | `llms-vue-full.txt` via @docs | `.mdc` file or `SKILL.md` files |
-| **GitHub Copilot** | `.mdc` or `SKILL.md` file (contains doc URLs) | `.mdc` file or `SKILL.md` files |
+| **Cursor** | `llms-vue-full.txt` via @docs | Option A: `.mdc` rules file — Option B: extended rule files + MCP |
+| **GitHub Copilot** | `.instructions.md` file or extended instruction files (contain doc URLs) | Option A: `.instructions.md` rules file — Option B: extended instruction files + MCP |
 | **Claude Code** | MCP server (live schema lookup) | Plugin skills |
 
 ## Cursor setup
@@ -140,7 +142,7 @@ Only register the source matching your use case. Do not register multiple source
 
 ### Step 2: Add behavior rules
 
-Choose one approach — both provide Mobiscroll API conventions and prevent hallucinated code.
+Choose one approach — Option A works immediately with no additional setup; Option B adds live MCP schema lookups for higher accuracy but requires the MCP server to be configured.
 
 #### Option A — .mdc rules file
 
@@ -155,13 +157,15 @@ your-project/
 └── package.json
 ```
 
-#### Option B — SKILL.md skill files
+The `.mdc` file provides text-based API rules — no additional setup required.
 
-Download the three SKILL.md skill files and place them in `.cursor/rules/` (rename each to a unique `.mdc` name):
+#### Option B — Extended rule files + MCP (3 files)
 
-- <DocsLink path="mobiscroll-ui/SKILL.md" download>mobiscroll-ui SKILL.md (orchestrator)</DocsLink>
-- <DocsLink path="docs/vue/SKILL.md" download>mobiscroll-ui-vue SKILL.md (Vue conventions)</DocsLink>
-- <DocsLink path="mobiscroll-ui-theming/SKILL.md" download>mobiscroll-ui-theming SKILL.md (theming)</DocsLink>
+Download the three extended rule files and place them in `.cursor/rules/`:
+
+- <DocsLink path="mobiscroll-ui/SKILL.md" download filename="mobiscroll-ui.mdc">mobiscroll-ui.mdc (orchestrator)</DocsLink>
+- <DocsLink path="docs/vue/SKILL.md" download filename="mobiscroll-ui-vue.mdc">mobiscroll-ui-vue.mdc (Vue conventions)</DocsLink>
+- <DocsLink path="mobiscroll-ui-theming/SKILL.md" download filename="mobiscroll-ui-theming.mdc">mobiscroll-ui-theming.mdc (theming)</DocsLink>
 
 ```
 your-project/
@@ -174,7 +178,7 @@ your-project/
 └── package.json
 ```
 
-The SKILL.md files provide more detailed framework conventions than the `.mdc` file. Use them if you want deeper pattern and anti-pattern guidance.
+Unlike Option A, these rule files also instruct Cursor's AI to call the Mobiscroll MCP server for live component schema lookups on every generation — so it always uses the current API instead of guessing from memory. You must [configure the MCP server](#mcp-server) to get the full benefit.
 
 ### Step 3: Use @docs in queries
 
@@ -192,30 +196,30 @@ When asking Cursor about Mobiscroll, include `@docs` to ensure it reads the regi
 
 ### Step 1: Add behavior rules
 
-Choose one approach — both provide Mobiscroll API conventions and prevent hallucinated code.
+Choose one approach — Option A works immediately with no additional setup; Option B adds live MCP schema lookups for higher accuracy but requires the MCP server to be configured.
 
-#### Option A — .mdc rules file
+#### Option A — .instructions.md rules file
 
-Download the <DocsLink path="mobiscroll-vue.mdc" download><code>mobiscroll-vue.mdc</code></DocsLink> file and place it at the root of your project, or copy [its content](#rules-files-mdc) into your `.github/` instruction files:
+Download the <DocsLink path="copilot-instructions/mobiscroll-vue.instructions.md" download><code>mobiscroll-vue.instructions.md</code></DocsLink> file and place it in `.github/instructions/`:
 
 ```
 your-project/
-├── mobiscroll-vue.mdc
 ├── .github/
-|   ├── copilot-instructions.md
 |   └── instructions/
-|       └── vue-logic.instructions.md
+|       └── mobiscroll-vue.instructions.md
 ├── src/
 └── package.json
 ```
 
-#### Option B — SKILL.md skill files
+The `.instructions.md` file provides text-based API rules — no additional setup required.
 
-Download the three SKILL.md skill files and place them in `.github/instructions/` (rename each to a unique `.instructions.md` name). Add `applyTo: "**"` to the YAML frontmatter of each renamed file so Copilot applies them to all files in the project:
+#### Option B — Extended instruction files + MCP (3 files)
 
-- <DocsLink path="mobiscroll-ui/SKILL.md" download>mobiscroll-ui SKILL.md (orchestrator)</DocsLink>
-- <DocsLink path="docs/vue/SKILL.md" download>mobiscroll-ui-vue SKILL.md (Vue conventions)</DocsLink>
-- <DocsLink path="mobiscroll-ui-theming/SKILL.md" download>mobiscroll-ui-theming SKILL.md (theming)</DocsLink>
+Download the three extended instruction files and place them in `.github/instructions/`:
+
+- <DocsLink path="copilot-instructions/mobiscroll-ui.instructions.md" download>mobiscroll-ui.instructions.md (orchestrator)</DocsLink>
+- <DocsLink path="copilot-instructions/mobiscroll-ui-vue.instructions.md" download>mobiscroll-ui-vue.instructions.md (Vue conventions)</DocsLink>
+- <DocsLink path="copilot-instructions/mobiscroll-ui-theming.instructions.md" download>mobiscroll-ui-theming.instructions.md (theming)</DocsLink>
 
 ```
 your-project/
@@ -230,7 +234,7 @@ your-project/
 
 ### How it works
 
-Both the `.mdc` file and the SKILL.md files contain:
+Both Option A (`.instructions.md` file) and Option B (extended instruction files) contain:
 
 - **Documentation URLs** — point the AI to the correct framework docs
 - **Component mapping** — map user intents (e.g., "scheduler") to the correct Mobiscroll APIs
@@ -272,7 +276,7 @@ When you ask Claude Code to write Mobiscroll code, it:
 ## Framework isolation
 
 :::warning Critical
-Each `.mdc` file and documentation source targets exactly **one** framework or domain. Never combine files from different frameworks, or mix UI framework files with Connect files.
+Each rules file and documentation source targets exactly **one** framework or domain. Never combine files from different frameworks, or mix UI framework files with Connect files.
 :::
 
 **Why this matters:**
@@ -291,11 +295,11 @@ Each `.mdc` file and documentation source targets exactly **one** framework or d
 
 **Rules:**
 
-1. Add only **one** `.mdc` file per project — the one matching your framework or domain
+1. Add only **one** rules file per project — the one matching your framework or domain (`.mdc` for Cursor, `.instructions.md` for Copilot)
 2. Register only **one** documentation source in Cursor
 3. If your project uses multiple frameworks (e.g., micro-frontends), set up separate directories with separate `.mdc` files
 4. If your project uses both a UI framework and Mobiscroll Connect, use separate AI context directories for each
-5. If an AI assistant generates code with wrong framework imports, check that the correct `.mdc` file is in place
+5. If an AI assistant generates code with wrong framework imports, check that the correct rules file is in place
 
 ## Example queries
 
@@ -313,7 +317,7 @@ What props does the Datepicker component accept?
 
 **Symptom:** You are using Vue but the AI generates code for a different framework (e.g. `import { Eventcalendar } from '@mobiscroll/react'`).
 
-**Fix:** Verify that you have the correct `.mdc` file in place. For Vue, use `mobiscroll-vue.mdc`, not a different framework's `.mdc` file. In Cursor, check that the registered @docs source points to `llms-vue-full.txt`.
+**Fix:** Verify that you have the correct rules file in place. For Vue in Cursor, use `mobiscroll-vue.mdc`; for Copilot, use `mobiscroll-vue.instructions.md`. In Cursor, check that the registered @docs source points to `llms-vue-full.txt`.
 
 ### AI invents non-existent APIs
 
@@ -339,23 +343,23 @@ All AI integration files are available at the following URLs:
 
 ### Rules files
 
-| File | URL |
-|:---|:---|
-| Vue rules | <DocsLink path="mobiscroll-vue.mdc" download /> |
+| File | Cursor (`.mdc`) | Copilot (`.instructions.md`) |
+|:---|:---|:---|
+| Vue rules | <DocsLink path="mobiscroll-vue.mdc" download /> | <DocsLink path="copilot-instructions/mobiscroll-vue.instructions.md" download /> |
 
-### Skill files
+### Extended rule files
 
-| File | URL |
-|:---|:---|
-| Orchestrator skill | <DocsLink path="mobiscroll-ui/SKILL.md" download /> |
-| Vue conventions skill | <DocsLink path="docs/vue/SKILL.md" download /> |
-| Theming skill | <DocsLink path="mobiscroll-ui-theming/SKILL.md" download /> |
+| File | Cursor (`.mdc`) | Copilot (`.instructions.md`) |
+|:---|:---|:---|
+| Orchestrator | <DocsLink path="mobiscroll-ui/SKILL.md" download filename="mobiscroll-ui.mdc" /> | <DocsLink path="copilot-instructions/mobiscroll-ui.instructions.md" download /> |
+| Vue conventions | <DocsLink path="docs/vue/SKILL.md" download filename="mobiscroll-ui-vue.mdc" /> | <DocsLink path="copilot-instructions/mobiscroll-ui-vue.instructions.md" download /> |
+| Theming | <DocsLink path="mobiscroll-ui-theming/SKILL.md" download filename="mobiscroll-ui-theming.mdc" /> | <DocsLink path="copilot-instructions/mobiscroll-ui-theming.instructions.md" download /> |
 
 ## File contents {#file-contents}
 
 The complete contents of each file are shown below. You can copy directly from these blocks or use the download links above.
 
-### Skill files {#skill-files}
+### Extended rule files {#extended-rule-files}
 
 <details>
 <summary>View <code>SKILL.md</code> (mobiscroll-ui — orchestrator)</summary>

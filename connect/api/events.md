@@ -258,6 +258,36 @@ const masters = await client.events.list({
 ```
 
 </TabItem>
+<TabItem value="python" label="Python SDK">
+
+```python
+# Fetch initial events with date range filter
+response = client.events.list(
+    page_size=50,
+    start='2025-10-01T00:00:00Z',
+    end='2025-10-31T23:59:59Z',
+)
+
+# Load more events using next_page_token
+next_response = client.events.list(
+    page_size=50,
+    next_page_token=response.next_page_token,
+)
+
+# Filter by specific calendars
+filtered_events = client.events.list(
+    page_size=25,
+    calendar_ids={'google': ['personal@gmail.com', 'work@company.com']},
+)
+
+# Get recurring event series masters (not expanded)
+masters = client.events.list(
+    page_size=50,
+    single_events=False,
+)
+```
+
+</TabItem>
 <TabItem value="php" label="PHP SDK">
 
 ```php
@@ -326,33 +356,83 @@ var masters = await client.Events.ListAsync(new EventListParams
 ```
 
 </TabItem>
-<TabItem value="python" label="Python SDK">
+<TabItem value="java" label="Java SDK">
 
-```python
-# Fetch initial events with date range filter
-response = client.events.list(
-    page_size=50,
-    start='2025-10-01T00:00:00Z',
-    end='2025-10-31T23:59:59Z',
+```java
+import com.mobiscroll.connect.Provider;
+import com.mobiscroll.connect.models.EventListParams;
+import com.mobiscroll.connect.models.EventsListResponse;
+import java.time.OffsetDateTime;
+import java.util.List;
+import java.util.Map;
+
+// Fetch initial events with date range filter
+EventsListResponse response = client.events().list(EventListParams.builder()
+    .pageSize(50)
+    .start(OffsetDateTime.parse("2025-10-01T00:00:00Z"))
+    .end(OffsetDateTime.parse("2025-10-31T23:59:59Z"))
+    .build());
+
+// Load more events using nextPageToken
+EventsListResponse nextResponse = client.events().list(EventListParams.builder()
+    .pageSize(50)
+    .nextPageToken(response.getNextPageToken())
+    .build());
+
+// Filter by specific calendars
+EventsListResponse filtered = client.events().list(EventListParams.builder()
+    .pageSize(25)
+    .calendarIds(Map.of(
+        Provider.GOOGLE, List.of("personal@gmail.com", "work@company.com")
+    ))
+    .build());
+
+// Get recurring event series masters (not expanded)
+EventsListResponse masters = client.events().list(EventListParams.builder()
+    .pageSize(50)
+    .singleEvents(false)
+    .build());
+```
+
+</TabItem>
+<TabItem value="go" label="Go SDK">
+
+```go
+import (
+    "time"
+
+    mobiscroll "github.com/acidb/mobiscroll-connect-sdks/sdks/go"
 )
 
-# Load more events using next_page_token
-next_response = client.events.list(
-    page_size=50,
-    next_page_token=response.next_page_token,
-)
+start, _ := time.Parse(time.RFC3339, "2025-10-01T00:00:00Z")
+end, _ := time.Parse(time.RFC3339, "2025-10-31T23:59:59Z")
 
-# Filter by specific calendars
-filtered_events = client.events.list(
-    page_size=25,
-    calendar_ids={'google': ['personal@gmail.com', 'work@company.com']},
-)
+// Fetch initial events with date range filter
+response, err := client.Events().List(ctx, &mobiscroll.EventListParams{
+    PageSize: mobiscroll.Ptr(50),
+    Start:    &start,
+    End:      &end,
+})
 
-# Get recurring event series masters (not expanded)
-masters = client.events.list(
-    page_size=50,
-    single_events=False,
-)
+// Load more events using NextPageToken
+nextResponse, err := client.Events().List(ctx, &mobiscroll.EventListParams{
+    PageSize:      mobiscroll.Ptr(50),
+    NextPageToken: response.NextPageToken,
+})
+
+// Filter by specific calendars
+filtered, err := client.Events().List(ctx, &mobiscroll.EventListParams{
+    PageSize: mobiscroll.Ptr(25),
+    CalendarIDs: map[mobiscroll.Provider][]string{
+        mobiscroll.ProviderGoogle: {"personal@gmail.com", "work@company.com"},
+    },
+})
+
+// Get recurring event series masters (not expanded)
+masters, err := client.Events().List(ctx, &mobiscroll.EventListParams{
+    PageSize:     mobiscroll.Ptr(50),
+    SingleEvents: mobiscroll.Ptr(false),
+})
 ```
 
 </TabItem>
@@ -698,6 +778,49 @@ const allDayEvent = await client.events.create({
 ```
 
 </TabItem>
+<TabItem value="python" label="Python SDK">
+
+```python
+# Create a simple event
+event = client.events.create({
+    'provider': 'google',
+    'calendarId': 'primary',
+    'title': 'Team Meeting',
+    'description': 'Discuss project updates',
+    'start': '2025-11-01T10:00:00Z',
+    'end': '2025-11-01T11:00:00Z',
+    'location': 'Conference Room A',
+})
+
+# Create a recurring event
+recurring_event = client.events.create({
+    'provider': 'microsoft',
+    'calendarId': 'AAMkAGVmMDEz...',
+    'title': 'Weekly Standup',
+    'start': '2025-11-01T09:00:00Z',
+    'end': '2025-11-01T09:30:00Z',
+    'allDay': False,
+    'recurrence': {
+        'frequency': 'WEEKLY',
+        'interval': 1,
+        'count': 10,
+        'byDay': ['MO', 'WE', 'FR'],
+    },
+})
+
+# Create an all-day event
+all_day_event = client.events.create({
+    'provider': 'apple',
+    'calendarId': 'https://caldav.icloud.com/.../calendars/...',
+    'title': 'Conference',
+    'start': '2025-11-15T00:00:00Z',
+    'end': '2025-11-16T00:00:00Z',
+    'allDay': True,
+    'description': 'Annual tech conference',
+})
+```
+
+</TabItem>
 <TabItem value="php" label="PHP SDK">
 
 ```php
@@ -782,45 +905,108 @@ var allDayEvent = await client.Events.CreateAsync(new CreateEventParams
 ```
 
 </TabItem>
-<TabItem value="python" label="Python SDK">
+<TabItem value="java" label="Java SDK">
 
-```python
-# Create a simple event
-event = client.events.create({
-    'provider': 'google',
-    'calendarId': 'primary',
-    'title': 'Team Meeting',
-    'description': 'Discuss project updates',
-    'start': '2025-11-01T10:00:00Z',
-    'end': '2025-11-01T11:00:00Z',
-    'location': 'Conference Room A',
+```java
+import com.mobiscroll.connect.Provider;
+import com.mobiscroll.connect.models.CalendarEvent;
+import com.mobiscroll.connect.models.EventCreateData;
+import com.mobiscroll.connect.models.RecurrenceRule;
+import java.time.OffsetDateTime;
+import java.util.List;
+
+// Create a simple event
+CalendarEvent event = client.events().create(EventCreateData.builder()
+    .provider(Provider.GOOGLE)
+    .calendarId("primary")
+    .title("Team Meeting")
+    .description("Discuss project updates")
+    .start(OffsetDateTime.parse("2025-11-01T10:00:00Z"))
+    .end(OffsetDateTime.parse("2025-11-01T11:00:00Z"))
+    .location("Conference Room A")
+    .build());
+
+// Create a recurring event
+CalendarEvent recurringEvent = client.events().create(EventCreateData.builder()
+    .provider(Provider.MICROSOFT)
+    .calendarId("AAMkAGVmMDEz...")
+    .title("Weekly Standup")
+    .start(OffsetDateTime.parse("2025-11-01T09:00:00Z"))
+    .end(OffsetDateTime.parse("2025-11-01T09:30:00Z"))
+    .allDay(false)
+    .recurrence(RecurrenceRule.builder()
+        .frequency("WEEKLY")
+        .interval(1)
+        .count(10)
+        .byDay(List.of("MO", "WE", "FR"))
+        .build())
+    .build());
+
+// Create an all-day event
+CalendarEvent allDayEvent = client.events().create(EventCreateData.builder()
+    .provider(Provider.APPLE)
+    .calendarId("https://caldav.icloud.com/.../calendars/...")
+    .title("Conference")
+    .start(OffsetDateTime.parse("2025-11-15T00:00:00Z"))
+    .end(OffsetDateTime.parse("2025-11-16T00:00:00Z"))
+    .allDay(true)
+    .description("Annual tech conference")
+    .build());
+```
+
+</TabItem>
+<TabItem value="go" label="Go SDK">
+
+```go
+import (
+    "time"
+
+    mobiscroll "github.com/acidb/mobiscroll-connect-sdks/sdks/go"
+)
+
+start, _ := time.Parse(time.RFC3339, "2025-11-01T10:00:00Z")
+end, _ := time.Parse(time.RFC3339, "2025-11-01T11:00:00Z")
+
+// Create a simple event
+event, err := client.Events().Create(ctx, &mobiscroll.EventCreateData{
+    Provider:    mobiscroll.ProviderGoogle,
+    CalendarID:  "primary",
+    Title:       "Team Meeting",
+    Description: "Discuss project updates",
+    Start:       start,
+    End:         end,
+    Location:    "Conference Room A",
 })
 
-# Create a recurring event
-recurring_event = client.events.create({
-    'provider': 'microsoft',
-    'calendarId': 'AAMkAGVmMDEz...',
-    'title': 'Weekly Standup',
-    'start': '2025-11-01T09:00:00Z',
-    'end': '2025-11-01T09:30:00Z',
-    'allDay': False,
-    'recurrence': {
-        'frequency': 'WEEKLY',
-        'interval': 1,
-        'count': 10,
-        'byDay': ['MO', 'WE', 'FR'],
+// Create a recurring event
+recurringStart, _ := time.Parse(time.RFC3339, "2025-11-01T09:00:00Z")
+recurringEnd, _ := time.Parse(time.RFC3339, "2025-11-01T09:30:00Z")
+recurringEvent, err := client.Events().Create(ctx, &mobiscroll.EventCreateData{
+    Provider:   mobiscroll.ProviderMicrosoft,
+    CalendarID: "AAMkAGVmMDEz...",
+    Title:      "Weekly Standup",
+    Start:      recurringStart,
+    End:        recurringEnd,
+    AllDay:     mobiscroll.Ptr(false),
+    Recurrence: &mobiscroll.RecurrenceRule{
+        Frequency: "WEEKLY",
+        Interval:  mobiscroll.Ptr(1),
+        Count:     mobiscroll.Ptr(10),
+        ByDay:     []string{"MO", "WE", "FR"},
     },
 })
 
-# Create an all-day event
-all_day_event = client.events.create({
-    'provider': 'apple',
-    'calendarId': 'https://caldav.icloud.com/.../calendars/...',
-    'title': 'Conference',
-    'start': '2025-11-15T00:00:00Z',
-    'end': '2025-11-16T00:00:00Z',
-    'allDay': True,
-    'description': 'Annual tech conference',
+// Create an all-day event
+allDayStart, _ := time.Parse(time.RFC3339, "2025-11-15T00:00:00Z")
+allDayEnd, _ := time.Parse(time.RFC3339, "2025-11-16T00:00:00Z")
+allDayEvent, err := client.Events().Create(ctx, &mobiscroll.EventCreateData{
+    Provider:    mobiscroll.ProviderApple,
+    CalendarID:  "https://caldav.icloud.com/.../calendars/...",
+    Title:       "Conference",
+    Start:       allDayStart,
+    End:         allDayEnd,
+    AllDay:      mobiscroll.Ptr(true),
+    Description: "Annual tech conference",
 })
 ```
 
@@ -1069,6 +1255,42 @@ const updatedFuture = await client.events.update({
 ```
 
 </TabItem>
+<TabItem value="python" label="Python SDK">
+
+```python
+# Update a simple event
+updated_event = client.events.update({
+    'provider': 'google',
+    'calendarId': 'primary',
+    'eventId': 'event123abc',
+    'title': 'Updated Team Meeting',
+    'start': '2025-11-01T14:00:00Z',
+    'end': '2025-11-01T15:00:00Z',
+})
+
+# Update a single instance of a recurring event
+updated_instance = client.events.update({
+    'provider': 'microsoft',
+    'eventId': 'instance456',
+    'recurringEventId': 'series123',
+    'calendarId': 'AAMkAGVmMDEz...',
+    'updateMode': 'this',
+    'title': 'Standup - Special Topic Today',
+    'start': '2025-11-01T09:00:00Z',
+    'end': '2025-11-01T10:00:00Z',
+})
+
+# Update all future occurrences
+updated_future = client.events.update({
+    'provider': 'apple',
+    'eventId': 'recurring-event-id',
+    'calendarId': 'https://caldav.icloud.com/.../calendars/...',
+    'updateMode': 'following',
+    'location': 'New Conference Room B',
+})
+```
+
+</TabItem>
 <TabItem value="php" label="PHP SDK">
 
 ```php
@@ -1142,38 +1364,90 @@ var updatedFuture = await client.Events.UpdateAsync(new UpdateEventParams
 ```
 
 </TabItem>
-<TabItem value="python" label="Python SDK">
+<TabItem value="java" label="Java SDK">
 
-```python
-# Update a simple event
-updated_event = client.events.update({
-    'provider': 'google',
-    'calendarId': 'primary',
-    'eventId': 'event123abc',
-    'title': 'Updated Team Meeting',
-    'start': '2025-11-01T14:00:00Z',
-    'end': '2025-11-01T15:00:00Z',
+```java
+import com.mobiscroll.connect.Provider;
+import com.mobiscroll.connect.models.CalendarEvent;
+import com.mobiscroll.connect.models.EventUpdateData;
+import java.time.OffsetDateTime;
+
+// Update a simple event
+CalendarEvent updatedEvent = client.events().update(EventUpdateData.builder()
+    .provider(Provider.GOOGLE)
+    .calendarId("primary")
+    .eventId("event123abc")
+    .title("Updated Team Meeting")
+    .start(OffsetDateTime.parse("2025-11-01T14:00:00Z"))
+    .end(OffsetDateTime.parse("2025-11-01T15:00:00Z"))
+    .build());
+
+// Update a single instance of a recurring event
+CalendarEvent updatedInstance = client.events().update(EventUpdateData.builder()
+    .provider(Provider.MICROSOFT)
+    .eventId("instance456")
+    .recurringEventId("series123")
+    .calendarId("AAMkAGVmMDEz...")
+    .updateMode("this")
+    .title("Standup - Special Topic Today")
+    .start(OffsetDateTime.parse("2025-11-01T09:00:00Z"))
+    .end(OffsetDateTime.parse("2025-11-01T10:00:00Z"))
+    .build());
+
+// Update all future occurrences
+CalendarEvent updatedFuture = client.events().update(EventUpdateData.builder()
+    .provider(Provider.APPLE)
+    .eventId("recurring-event-id")
+    .calendarId("https://caldav.icloud.com/.../calendars/...")
+    .updateMode("following")
+    .location("New Conference Room B")
+    .build());
+```
+
+</TabItem>
+<TabItem value="go" label="Go SDK">
+
+```go
+import (
+    "time"
+
+    mobiscroll "github.com/acidb/mobiscroll-connect-sdks/sdks/go"
+)
+
+start, _ := time.Parse(time.RFC3339, "2025-11-01T14:00:00Z")
+end, _ := time.Parse(time.RFC3339, "2025-11-01T15:00:00Z")
+
+// Update a simple event
+updatedEvent, err := client.Events().Update(ctx, &mobiscroll.EventUpdateData{
+    Provider:   mobiscroll.ProviderGoogle,
+    CalendarID: "primary",
+    EventID:    "event123abc",
+    Title:      "Updated Team Meeting",
+    Start:      &start,
+    End:        &end,
 })
 
-# Update a single instance of a recurring event
-updated_instance = client.events.update({
-    'provider': 'microsoft',
-    'eventId': 'instance456',
-    'recurringEventId': 'series123',
-    'calendarId': 'AAMkAGVmMDEz...',
-    'updateMode': 'this',
-    'title': 'Standup - Special Topic Today',
-    'start': '2025-11-01T09:00:00Z',
-    'end': '2025-11-01T10:00:00Z',
+// Update a single instance of a recurring event
+instanceStart, _ := time.Parse(time.RFC3339, "2025-11-01T09:00:00Z")
+instanceEnd, _ := time.Parse(time.RFC3339, "2025-11-01T10:00:00Z")
+updatedInstance, err := client.Events().Update(ctx, &mobiscroll.EventUpdateData{
+    Provider:         mobiscroll.ProviderMicrosoft,
+    EventID:          "instance456",
+    RecurringEventID: "series123",
+    CalendarID:       "AAMkAGVmMDEz...",
+    UpdateMode:       "this",
+    Title:            "Standup - Special Topic Today",
+    Start:            &instanceStart,
+    End:              &instanceEnd,
 })
 
-# Update all future occurrences
-updated_future = client.events.update({
-    'provider': 'apple',
-    'eventId': 'recurring-event-id',
-    'calendarId': 'https://caldav.icloud.com/.../calendars/...',
-    'updateMode': 'following',
-    'location': 'New Conference Room B',
+// Update all future occurrences
+updatedFuture, err := client.Events().Update(ctx, &mobiscroll.EventUpdateData{
+    Provider:   mobiscroll.ProviderApple,
+    EventID:    "recurring-event-id",
+    CalendarID: "https://caldav.icloud.com/.../calendars/...",
+    UpdateMode: "following",
+    Location:   "New Conference Room B",
 })
 ```
 
@@ -1327,6 +1601,35 @@ await client.events.delete({
 ```
 
 </TabItem>
+<TabItem value="python" label="Python SDK">
+
+```python
+# Delete a simple event
+client.events.delete({
+    'provider': 'google',
+    'calendarId': 'primary',
+    'eventId': 'event123abc',
+})
+
+# Delete a single instance of a recurring event
+client.events.delete({
+    'provider': 'microsoft',
+    'calendarId': 'AAMkAGVmMDEz...',
+    'eventId': 'instance456',
+    'recurringEventId': 'series123',
+    'deleteMode': 'this',
+})
+
+# Delete entire recurring series
+client.events.delete({
+    'provider': 'apple',
+    'calendarId': 'https://caldav.icloud.com/.../calendars/...',
+    'eventId': 'recurring-event-id',
+    'deleteMode': 'all',
+})
+```
+
+</TabItem>
 <TabItem value="php" label="PHP SDK">
 
 ```php
@@ -1388,31 +1691,63 @@ await client.Events.DeleteAsync(new DeleteEventParams
 ```
 
 </TabItem>
-<TabItem value="python" label="Python SDK">
+<TabItem value="java" label="Java SDK">
 
-```python
-# Delete a simple event
-client.events.delete({
-    'provider': 'google',
-    'calendarId': 'primary',
-    'eventId': 'event123abc',
+```java
+import com.mobiscroll.connect.Provider;
+import com.mobiscroll.connect.models.EventDeleteParams;
+
+// Delete a simple event
+client.events().delete(EventDeleteParams.builder()
+    .provider(Provider.GOOGLE)
+    .calendarId("primary")
+    .eventId("event123abc")
+    .build());
+
+// Delete a single instance of a recurring event
+client.events().delete(EventDeleteParams.builder()
+    .provider(Provider.MICROSOFT)
+    .calendarId("AAMkAGVmMDEz...")
+    .eventId("instance456")
+    .recurringEventId("series123")
+    .deleteMode("this")
+    .build());
+
+// Delete entire recurring series
+client.events().delete(EventDeleteParams.builder()
+    .provider(Provider.APPLE)
+    .calendarId("https://caldav.icloud.com/.../calendars/...")
+    .eventId("recurring-event-id")
+    .deleteMode("all")
+    .build());
+```
+
+</TabItem>
+<TabItem value="go" label="Go SDK">
+
+```go
+// Delete a simple event
+err := client.Events().Delete(ctx, &mobiscroll.EventDeleteParams{
+    Provider:   mobiscroll.ProviderGoogle,
+    CalendarID: "primary",
+    EventID:    "event123abc",
 })
 
-# Delete a single instance of a recurring event
-client.events.delete({
-    'provider': 'microsoft',
-    'calendarId': 'AAMkAGVmMDEz...',
-    'eventId': 'instance456',
-    'recurringEventId': 'series123',
-    'deleteMode': 'this',
+// Delete a single instance of a recurring event
+err = client.Events().Delete(ctx, &mobiscroll.EventDeleteParams{
+    Provider:         mobiscroll.ProviderMicrosoft,
+    CalendarID:       "AAMkAGVmMDEz...",
+    EventID:          "instance456",
+    RecurringEventID: "series123",
+    DeleteMode:       "this",
 })
 
-# Delete entire recurring series
-client.events.delete({
-    'provider': 'apple',
-    'calendarId': 'https://caldav.icloud.com/.../calendars/...',
-    'eventId': 'recurring-event-id',
-    'deleteMode': 'all',
+// Delete entire recurring series
+err = client.Events().Delete(ctx, &mobiscroll.EventDeleteParams{
+    Provider:   mobiscroll.ProviderApple,
+    CalendarID: "https://caldav.icloud.com/.../calendars/...",
+    EventID:    "recurring-event-id",
+    DeleteMode: "all",
 })
 ```
 

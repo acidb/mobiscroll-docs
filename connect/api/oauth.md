@@ -118,6 +118,22 @@ const authUrl = client.auth.generateAuthUrl({
 ```
 
 </TabItem>
+<TabItem value="python" label="Python SDK">
+
+```python
+# Generate the authorization URL
+auth_url = client.auth.generate_auth_url(
+    user_id='user-456',
+    # Optional parameters:
+    # scope='read-write',
+    # state='xyz789',
+)
+
+# Redirect the user to auth_url
+# return redirect(auth_url)
+```
+
+</TabItem>
 <TabItem value="php" label="PHP SDK">
 
 ```php
@@ -151,19 +167,37 @@ var authUrl = client.Auth.GenerateAuthUrl(new AuthorizeParams
 ```
 
 </TabItem>
-<TabItem value="python" label="Python SDK">
+<TabItem value="java" label="Java SDK">
 
-```python
-# Generate the authorization URL
-auth_url = client.auth.generate_auth_url(
-    user_id='user-456',
-    # Optional parameters:
-    # scope='read-write',
-    # state='xyz789',
-)
+```java
+import com.mobiscroll.connect.models.AuthUrlParams;
 
-# Redirect the user to auth_url
-# return redirect(auth_url)
+// Generate the authorization URL
+String authUrl = client.auth().generateAuthUrl(AuthUrlParams.builder()
+    .userId("user-456")
+    // Optional parameters:
+    // .scope("read-write")
+    // .state("xyz789")
+    .build());
+
+// Redirect the user to authUrl
+// response.sendRedirect(authUrl);
+```
+
+</TabItem>
+<TabItem value="go" label="Go SDK">
+
+```go
+// Generate the authorization URL
+authURL := client.Auth().GenerateAuthURL(&mobiscroll.AuthURLParams{
+    UserID: "user-456",
+    // Optional parameters:
+    // Scope: "read-write",
+    // State: "xyz789",
+})
+
+// Redirect the user to authURL
+// http.Redirect(w, r, authURL, http.StatusFound)
 ```
 
 </TabItem>
@@ -411,6 +445,19 @@ const tokenResponse = await client.auth.getToken(code);
 ```
 
 </TabItem>
+<TabItem value="python" label="Python SDK">
+
+```python
+# Exchange authorization code for access token
+# The client is automatically authenticated after get_token()
+token_response = client.auth.get_token(code)
+
+# Persist tokens for future requests
+session['access_token'] = token_response.access_token
+session['refresh_token'] = token_response.refresh_token
+```
+
+</TabItem>
 <TabItem value="php" label="PHP SDK">
 
 ```php
@@ -434,16 +481,34 @@ client.Auth.SetCredentials(tokenResponse);
 ```
 
 </TabItem>
-<TabItem value="python" label="Python SDK">
+<TabItem value="java" label="Java SDK">
 
-```python
-# Exchange authorization code for access token
-# The client is automatically authenticated after get_token()
-token_response = client.auth.get_token(code)
+```java
+import com.mobiscroll.connect.models.TokenResponse;
 
-# Persist tokens for future requests
-session['access_token'] = token_response.access_token
-session['refresh_token'] = token_response.refresh_token
+// Exchange authorization code for access token
+// The client is automatically authenticated with the new token
+TokenResponse tokens = client.auth().getToken(code);
+
+// Persist tokens server-side keyed by your user
+httpSession.setAttribute("access_token", tokens.getAccessToken());
+httpSession.setAttribute("refresh_token", tokens.getRefreshToken());
+```
+
+</TabItem>
+<TabItem value="go" label="Go SDK">
+
+```go
+// Exchange authorization code for access token
+// The client is automatically authenticated with the new token
+tokens, err := client.Auth().GetToken(ctx, code)
+if err != nil {
+    // handle error
+}
+
+// Persist tokens server-side keyed by your user
+session.Set("access_token", tokens.AccessToken)
+session.Set("refresh_token", tokens.RefreshToken)
 ```
 
 </TabItem>
@@ -568,6 +633,22 @@ grant_type=refresh_token&refresh_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 ```
 
 </TabItem>
+<TabItem value="python" label="Python SDK">
+
+```python
+# Token refresh is handled automatically by the SDK.
+# Register a callback to persist the new tokens whenever a refresh occurs.
+from mobiscroll_connect import TokenResponse
+
+def persist_tokens(tokens: TokenResponse) -> None:
+    # Persist in your database or session store
+    session['access_token'] = tokens.access_token
+    session['refresh_token'] = tokens.refresh_token
+
+client.on_tokens_refreshed(persist_tokens)
+```
+
+</TabItem>
 <TabItem value="php" label="PHP SDK">
 
 ```php
@@ -594,19 +675,29 @@ client.OnTokensRefreshed(updatedTokens =>
 ```
 
 </TabItem>
-<TabItem value="python" label="Python SDK">
+<TabItem value="java" label="Java SDK">
 
-```python
-# Token refresh is handled automatically by the SDK.
-# Register a callback to persist the new tokens whenever a refresh occurs.
-from mobiscroll_connect import TokenResponse
+```java
+// Token refresh is handled automatically by the SDK.
+// Register a callback to persist the new tokens whenever a refresh occurs.
+client.onTokensRefreshed(updatedTokens -> {
+    // Persist in your database or session store
+    httpSession.setAttribute("access_token", updatedTokens.getAccessToken());
+    httpSession.setAttribute("refresh_token", updatedTokens.getRefreshToken());
+});
+```
 
-def persist_tokens(tokens: TokenResponse) -> None:
-    # Persist in your database or session store
-    session['access_token'] = tokens.access_token
-    session['refresh_token'] = tokens.refresh_token
+</TabItem>
+<TabItem value="go" label="Go SDK">
 
-client.on_tokens_refreshed(persist_tokens)
+```go
+// Token refresh is handled automatically by the SDK.
+// Register a callback to persist the new tokens whenever a refresh occurs.
+client.OnTokensRefreshed(func(updated *mobiscroll.TokenResponse) {
+    // Persist in your database or session store
+    session.Set("access_token", updated.AccessToken)
+    session.Set("refresh_token", updated.RefreshToken)
+})
 ```
 
 </TabItem>
@@ -672,6 +763,11 @@ Content-Type: application/json
 ```
 
 </TabItem>
+<TabItem value="python" label="Python SDK">
+
+The Python SDK does not include a built-in revoke method. Use the REST endpoint directly to revoke tokens.
+
+</TabItem>
 <TabItem value="php" label="PHP SDK">
 
 The PHP SDK does not include a built-in revoke method. Use the REST endpoint directly to revoke tokens.
@@ -682,9 +778,14 @@ The PHP SDK does not include a built-in revoke method. Use the REST endpoint dir
 The .NET SDK does not include a built-in revoke method. Use the REST endpoint directly to revoke tokens.
 
 </TabItem>
-<TabItem value="python" label="Python SDK">
+<TabItem value="java" label="Java SDK">
 
-The Python SDK does not include a built-in revoke method. Use the REST endpoint directly to revoke tokens.
+The Java SDK does not include a built-in revoke method. Use the REST endpoint directly to revoke tokens.
+
+</TabItem>
+<TabItem value="go" label="Go SDK">
+
+The Go SDK does not include a built-in revoke method. Use the REST endpoint directly to revoke tokens.
 
 </TabItem>
 </Tabs>

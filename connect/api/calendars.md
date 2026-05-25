@@ -77,6 +77,13 @@ const calendars = await client.calendars.list();
 ```
 
 </TabItem>
+<TabItem value="python" label="Python SDK">
+
+```python
+calendars = client.calendars.list()
+```
+
+</TabItem>
 <TabItem value="php" label="PHP SDK">
 
 ```php
@@ -91,10 +98,17 @@ var calendars = await client.Calendars.ListAsync();
 ```
 
 </TabItem>
-<TabItem value="python" label="Python SDK">
+<TabItem value="java" label="Java SDK">
 
-```python
-calendars = client.calendars.list()
+```java
+List<Calendar> calendars = client.calendars().list();
+```
+
+</TabItem>
+<TabItem value="go" label="Go SDK">
+
+```go
+calendars, err := client.Calendars().List(ctx)
 ```
 
 </TabItem>

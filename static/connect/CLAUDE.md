@@ -33,7 +33,7 @@ Example: `{{DOCS_BASE_URL}}/connect/api/events.md`
 
 1. `llms-connect-full.txt` — complete docs in one file (best for full context)
 2. Individual `.md` pages — for targeted lookups
-3. `llms-connect.txt` — table of contents with links to .md pages
+3. `llms-connect-full.txt` — table of contents with links to .md pages
 4. HTML pages — **last resort only**
 
 NEVER use HTML when `.md` is available. The `.md` files are optimized for AI consumption.

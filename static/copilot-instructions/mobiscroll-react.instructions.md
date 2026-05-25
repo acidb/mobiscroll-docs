@@ -1,0 +1,71 @@
+---
+applyTo: "**"
+---
+# Mobiscroll for React — AI Rules
+
+## Documentation Source
+
+- **Primary (complete docs):** {{DOCS_BASE_URL}}/llms-react-full.txt
+- **TOC (links to .md pages):** {{DOCS_BASE_URL}}/llms-react.txt
+- **Individual pages:** `{{DOCS_BASE_URL}}/docs/react/{section}/{page}.md`
+- **Icons (supplementary):** {{DOCS_BASE_URL}}/llms-icons.txt
+
+## Scope
+
+USE this file when:
+- Project has `@mobiscroll/react` in package.json
+- Files use `.tsx` or `.jsx` extensions
+- Imports contain `from '@mobiscroll/react'`
+- User explicitly mentions React + Mobiscroll
+
+DO NOT use this file for Angular, Vue, JavaScript, or jQuery projects.
+
+## Component Mapping
+
+All scheduling views are ONE component: **Eventcalendar**, configured via the `view` option.
+
+| Intent | Component | Doc Path |
+|:---|:---|:---|
+| Event calendar / scheduling | Eventcalendar | `react/eventcalendar/overview` |
+| Monthly/weekly/daily grid | Eventcalendar (calendar view) | `react/eventcalendar/calendar` |
+| Event list / agenda | Eventcalendar (agenda view) | `react/eventcalendar/agenda` |
+| Resource scheduler | Eventcalendar (scheduler view) | `react/eventcalendar/scheduler` |
+| Horizontal timeline | Eventcalendar (timeline view) | `react/eventcalendar/timeline` |
+| Drag & drop | Eventcalendar | `react/eventcalendar/drag-and-drop` |
+| CRUD operations | Eventcalendar | `react/eventcalendar/crud` |
+| Recurring events | Eventcalendar | `react/core-concepts/recurrence` |
+| Date / time picker | Datepicker | `react/datepicker/overview` |
+| Dropdown select | Select | `react/select/overview` |
+| Modal / overlay | Popup | `react/popup/overview` |
+| Input, textarea, button | Forms | `react/forms/input` |
+| Toast, snackbar, alert | Notifications | `react/notifications/toast` |
+| Theming | Theming | `react/theming/sass-themes` |
+| Full API reference | Eventcalendar API | `react/eventcalendar/api` |
+
+## Rules
+
+- Fetch `llms-react-full.txt` for complete context
+- Prefer `.md` pages over HTML — `.md` files are optimized for AI
+- Use official docs examples only — docs are the source of truth
+- Package: `@mobiscroll/react` — no other Mobiscroll package
+- CSS: `import '@mobiscroll/react/dist/css/mobiscroll.min.css'`
+- Version: 6 (latest). Do not use deprecated v5 APIs.
+- Types are prefixed `Mbsc` (e.g., `MbscEventcalendarView`, `MbscCalendarEvent`)
+
+## Constraints
+
+- NEVER import from `@mobiscroll/angular`, `@mobiscroll/vue`, `@mobiscroll/javascript`, or `@mobiscroll/jquery`
+- NEVER use Angular decorators, Vue composition API, or jQuery patterns in React code
+- NEVER invent API options, events, methods, or types — if not found in docs, say so
+- NEVER treat Scheduler/Timeline/Agenda as separate components — they are views of Eventcalendar
+- NEVER use Mobiscroll Connect docs for frontend UI (Connect = server-side REST API)
+- If the framework is unclear, ASK — do not default to React
+- NEVER silently translate v5 patterns to v6 — detect and ask first
+
+## Version Mismatch
+
+If the user mentions "v5", "version 5", or uses a v5-only pattern, respond:
+
+> "⚠️ This looks like Mobiscroll v5 syntax or API usage. This file is configured for Mobiscroll **v6 (latest)**. Would you like: 1) the v6 equivalent of what you're asking about, or 2) guidance using the v5 documentation instead?"
+
+Do not proceed with a v6 answer until the user confirms. Do not assume backward compatibility.

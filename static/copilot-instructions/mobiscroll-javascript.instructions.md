@@ -1,0 +1,71 @@
+---
+applyTo: "**"
+---
+# Mobiscroll for JavaScript — AI Rules
+
+## Documentation Source
+
+- **Primary (complete docs):** {{DOCS_BASE_URL}}/llms-javascript-full.txt
+- **TOC (links to .md pages):** {{DOCS_BASE_URL}}/llms-javascript.txt
+- **Individual pages:** `{{DOCS_BASE_URL}}/docs/javascript/{section}/{page}.md`
+- **Icons (supplementary):** {{DOCS_BASE_URL}}/llms-icons.txt
+
+## Scope
+
+USE this file when:
+- Project has `@mobiscroll/javascript` in package.json
+- Code uses `import * as mobiscroll from '@mobiscroll/javascript'` or named imports from that package
+- User explicitly mentions plain/vanilla JavaScript + Mobiscroll
+
+DO NOT use this file for React, Angular, Vue, or jQuery projects.
+
+## Component Mapping
+
+All scheduling views are ONE component: **Eventcalendar**, configured via the `view` option.
+
+| Intent | Component | Doc Path |
+|:---|:---|:---|
+| Event calendar / scheduling | eventcalendar | `javascript/eventcalendar/overview` |
+| Monthly/weekly/daily grid | eventcalendar (calendar view) | `javascript/eventcalendar/calendar` |
+| Event list / agenda | eventcalendar (agenda view) | `javascript/eventcalendar/agenda` |
+| Resource scheduler | eventcalendar (scheduler view) | `javascript/eventcalendar/scheduler` |
+| Horizontal timeline | eventcalendar (timeline view) | `javascript/eventcalendar/timeline` |
+| Drag & drop | eventcalendar | `javascript/eventcalendar/drag-and-drop` |
+| CRUD operations | eventcalendar | `javascript/eventcalendar/crud` |
+| Recurring events | eventcalendar | `javascript/core-concepts/recurrence` |
+| Date / time picker | datepicker | `javascript/datepicker/overview` |
+| Dropdown select | select | `javascript/select/overview` |
+| Modal / overlay | popup | `javascript/popup/overview` |
+| Input, textarea, button | forms | `javascript/forms/input` |
+| Toast, snackbar, alert | notifications | `javascript/notifications/toast` |
+| Theming | theming | `javascript/theming/sass-themes` |
+| Full API reference | eventcalendar API | `javascript/eventcalendar/api` |
+
+## Rules
+
+- Fetch `llms-javascript-full.txt` for complete context
+- Prefer `.md` pages over HTML — `.md` files are optimized for AI
+- Use official docs examples only — docs are the source of truth
+- Package: `@mobiscroll/javascript` — no other Mobiscroll package
+- CSS: `import '@mobiscroll/javascript/dist/css/mobiscroll.min.css'`
+- Instances are created imperatively: `mobiscroll.eventcalendar('#element', { ... })`
+- No framework bindings — this is vanilla JS / DOM API
+- Version: 6 (latest). Do not use deprecated v5 APIs.
+
+## Constraints
+
+- NEVER import from `@mobiscroll/react`, `@mobiscroll/angular`, `@mobiscroll/vue`, or `@mobiscroll/jquery`
+- NEVER use React JSX, Angular templates, Vue SFC, or jQuery `$()` patterns
+- NEVER invent API options, events, methods, or types — if not found in docs, say so
+- NEVER treat Scheduler/Timeline/Agenda as separate components — they are views of Eventcalendar
+- NEVER use Mobiscroll Connect docs for frontend UI (Connect = server-side REST API)
+- If the framework is unclear, ASK — do not default
+- NEVER silently translate v5 patterns to v6 — detect and ask first
+
+## Version Mismatch
+
+If the user mentions "v5", "version 5", or uses a v5-only pattern, respond:
+
+> "⚠️ This looks like Mobiscroll v5 syntax or API usage. This file is configured for Mobiscroll **v6 (latest)**. Would you like: 1) the v6 equivalent of what you're asking about, or 2) guidance using the v5 documentation instead?"
+
+Do not proceed with a v6 answer until the user confirms. Do not assume backward compatibility.

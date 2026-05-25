@@ -8,12 +8,14 @@ title: Table of contents
 
 For detailed, framework-specific API references and guides, see:
 
-[Mobiscroll for JavaScript](llms-javascript.txt) — [Full docs](llms-javascript-full.txt)
-[Mobiscroll for React](llms-react.txt) — [Full docs](llms-react-full.txt)
-[Mobiscroll for Angular](llms-angular.txt) — [Full docs](llms-angular-full.txt)
-[Mobiscroll for Vue](llms-vue.txt) — [Full docs](llms-vue-full.txt)
-[Mobiscroll for jQuery](llms-jquery.txt) — [Full docs](llms-jquery-full.txt)
+[Mobiscroll for JavaScript](https://mobiscroll.com/docs/llms-javascript.txt) — [Full docs](https://mobiscroll.com/docs/llms-javascript-full.txt)
+[Mobiscroll for React](https://mobiscroll.com/docs/llms-react.txt) — [Full docs](https://mobiscroll.com/docs/llms-react-full.txt)
+[Mobiscroll for Angular](https://mobiscroll.com/docs/llms-angular.txt) — [Full docs](https://mobiscroll.com/docs/llms-angular-full.txt)
+[Mobiscroll for Vue](https://mobiscroll.com/docs/llms-vue.txt) — [Full docs](https://mobiscroll.com/docs/llms-vue-full.txt)
+[Mobiscroll for jQuery](https://mobiscroll.com/docs/llms-jquery.txt) — [Full docs](https://mobiscroll.com/docs/llms-jquery-full.txt)
 
 ### Mobiscroll Connect — Calendar Integration API
 
-[Mobiscroll Connect](llms-connect.txt) — [Full docs](llms-connect-full.txt)
+[Mobiscroll Connect](https://mobiscroll.com/docs/llms-connect.txt) — [Full docs](https://mobiscroll.com/docs/llms-connect-full.txt)
+
+[Mobiscroll Icons](https://mobiscroll.com/docs/llms-icons.txt) — Icon set (IcoMoon, Font Awesome, Ionicons) excluded from per-framework full.txt files; fetch only for icon name lookup

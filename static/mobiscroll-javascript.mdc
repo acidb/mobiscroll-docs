@@ -5,6 +5,7 @@
 - **Primary (complete docs):** {{DOCS_BASE_URL}}/llms-javascript-full.txt
 - **TOC (links to .md pages):** {{DOCS_BASE_URL}}/llms-javascript.txt
 - **Individual pages:** `{{DOCS_BASE_URL}}/docs/javascript/{section}/{page}.md`
+- **Icons (supplementary):** {{DOCS_BASE_URL}}/llms-icons.txt
 
 ## Scope
 

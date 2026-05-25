@@ -17,11 +17,12 @@ export const DocsUrl = ({path}) => {
   return <code>{base + path}</code>;
 };
 
-export const DocsLink = ({path, children, download: dl}) => {
+export const DocsLink = ({path, children, download: dl, filename}) => {
   const base = useDocsBase();
   const url = base + path;
+  const dlName = filename || path.split('/').pop();
   return dl
-    ? <a href={url} download={path.split('/').pop()}>{children || <code>{path}</code>}</a>
+    ? <a href={url} download={dlName}>{children || <code>{path}</code>}</a>
     : <a href={url}>{children || <code>{path}</code>}</a>;
 };
 
@@ -102,30 +103,30 @@ Machine-readable documentation files containing the complete Mobiscroll API refe
 |:---|:---|
 | `llms-react-full.txt` | Complete React documentation |
 | `llms-react.txt` | React table of contents (links to individual pages) |
+| `llms-icons.txt` | Icon names (IcoMoon, Font Awesome, Ionicons) — all frameworks |
 
 :::info
-You don't need to download or host these files — the rules and routing layers reference them directly and fetch their content automatically.
+You don't need to download or host these files — the rules files and the Claude Code plugin reference them directly and fetch their content automatically.
 :::
 
-### Rules layer — .mdc files
+### Rules layer — rules files
 
-Per-framework behavior rule files that tell AI assistants which package to use, how to import CSS, which APIs are available, and what to avoid. Each `.mdc` file targets exactly one framework.
+Per-framework behavior files that tell AI assistants which package to use, how to import CSS, which APIs are available, and what to avoid. Two formats are available — use one or the other:
 
-| File | Framework |
-|:---|:---|
-| <DocsLink path="mobiscroll-react.mdc" download /> | React |
+| File | Format | For |
+|:---|:---|:---|
+| <DocsLink path="mobiscroll-react.mdc" download /> | Cursor rule file | Cursor |
+| <DocsLink path="copilot-instructions/mobiscroll-react.instructions.md" download /> | Copilot instruction file | GitHub Copilot |
+| 3 extended rule files | Extended rules + MCP calls | Cursor, GitHub Copilot, Claude Code |
 
-### Routing layer — CLAUDE.md
-
-A context file specifically for Claude Code that provides framework detection signals, deterministic routing rules, component mapping, and anti-pattern examples. It ensures Claude selects the correct framework documentation and never mixes APIs across frameworks.
 
 ## Which tool uses which files?
 
-| AI Tool | Documentation Source | Behavior Rules | Routing |
-|:---|:---|:---|:---|
-| **Cursor** | `llms-react-full.txt` via @docs | `.mdc` file | — |
-| **GitHub Copilot** | `.mdc` file (contains doc URLs) | `.mdc` file | — |
-| **Claude Code** | `llms-react-full.txt` | `CLAUDE.md` | `CLAUDE.md` |
+| AI Tool | Documentation Source | Behavior Rules |
+|:---|:---|:---|
+| **Cursor** | `llms-react-full.txt` via @docs | Option A: `.mdc` rules file — Option B: extended rule files + MCP |
+| **GitHub Copilot** | `.instructions.md` file or extended instruction files (contain doc URLs) | Option A: `.instructions.md` rules file — Option B: extended instruction files + MCP |
+| **Claude Code** | MCP server (live schema lookup) | Plugin skills |
 
 ## Cursor setup
 
@@ -139,9 +140,13 @@ Open **Cursor Settings → Indexing & Docs** and add the documentation source fo
 
 Only register the source matching your use case. Do not register multiple sources — this prevents cross-domain contamination.
 
-### Step 2: Add the rules file
+### Step 2: Add behavior rules
 
-Download the <DocsLink path="mobiscroll-react.mdc" download><code>mobiscroll-react.mdc</code></DocsLink> file for your framework and place it in your project's `.cursor/rules/` directory:
+Choose one approach — Option A works immediately with no additional setup; Option B adds live MCP schema lookups for higher accuracy but requires the MCP server to be configured.
+
+#### Option A — .mdc rules file
+
+Download the <DocsLink path="mobiscroll-react.mdc" download><code>mobiscroll-react.mdc</code></DocsLink> file and place it in `.cursor/rules/`:
 
 ```
 your-project/
@@ -149,9 +154,31 @@ your-project/
 │   └── rules/
 │       └── mobiscroll-react.mdc
 ├── src/
-├── package.json
-└── ...
+└── package.json
 ```
+
+The `.mdc` file provides text-based API rules — no additional setup required.
+
+#### Option B — Extended rule files + MCP (3 files)
+
+Download the three extended rule files and place them in `.cursor/rules/`:
+
+- <DocsLink path="mobiscroll-ui/SKILL.md" download filename="mobiscroll-ui.mdc">mobiscroll-ui.mdc (orchestrator)</DocsLink>
+- <DocsLink path="docs/react/SKILL.md" download filename="mobiscroll-ui-react.mdc">mobiscroll-ui-react.mdc (React conventions)</DocsLink>
+- <DocsLink path="mobiscroll-ui-theming/SKILL.md" download filename="mobiscroll-ui-theming.mdc">mobiscroll-ui-theming.mdc (theming)</DocsLink>
+
+```
+your-project/
+├── .cursor/
+│   └── rules/
+│       ├── mobiscroll-ui.mdc
+│       ├── mobiscroll-ui-react.mdc
+│       └── mobiscroll-ui-theming.mdc
+├── src/
+└── package.json
+```
+
+Unlike Option A, these rule files also instruct Cursor's AI to call the Mobiscroll MCP server for live component schema lookups on every generation — so it always uses the current API instead of guessing from memory. You must [configure the MCP server](#mcp-server) to get the full benefit.
 
 ### Step 3: Use @docs in queries
 
@@ -167,62 +194,89 @@ When asking Cursor about Mobiscroll, include `@docs` to ensure it reads the regi
 
 ## GitHub Copilot setup
 
-### Step 1: Add the rules file
+### Step 1: Add behavior rules
 
-Download the <DocsLink path="mobiscroll-react.mdc" download><code>mobiscroll-react.mdc</code></DocsLink> file for your framework and place it at the root of your project or alternatively [copy it's content](#rules-files-mdc) to the rules files under the `.github/` directory:
+Choose one approach — Option A works immediately with no additional setup; Option B adds live MCP schema lookups for higher accuracy but requires the MCP server to be configured.
+
+#### Option A — .instructions.md rules file
+
+Download the <DocsLink path="copilot-instructions/mobiscroll-react.instructions.md" download><code>mobiscroll-react.instructions.md</code></DocsLink> file and place it in `.github/instructions/`:
 
 ```
 your-project/
-├── mobiscroll-react.mdc
 ├── .github/
-|   ├── copilot-instructions.md       <-- Global repo rules
 |   └── instructions/
-|       └── react-logic.instructions.md <-- Specific rules
+|       └── mobiscroll-react.instructions.md
 ├── src/
-├── package.json
-└── ...
+└── package.json
 ```
 
-The `.mdc` file will automatically influence Copilot responses when you work on files in that project. It tells Copilot which package to use, how to import CSS, and which APIs are available.
+The `.instructions.md` file provides text-based API rules — no additional setup required.
+
+#### Option B — Extended instruction files + MCP (3 files)
+
+Download the three extended instruction files and place them in `.github/instructions/`:
+
+- <DocsLink path="copilot-instructions/mobiscroll-ui.instructions.md" download>mobiscroll-ui.instructions.md (orchestrator)</DocsLink>
+- <DocsLink path="copilot-instructions/mobiscroll-ui-react.instructions.md" download>mobiscroll-ui-react.instructions.md (React conventions)</DocsLink>
+- <DocsLink path="copilot-instructions/mobiscroll-ui-theming.instructions.md" download>mobiscroll-ui-theming.instructions.md (theming)</DocsLink>
+
+```
+your-project/
+├── .github/
+|   └── instructions/
+|       ├── mobiscroll-ui.instructions.md
+|       ├── mobiscroll-ui-react.instructions.md
+|       └── mobiscroll-ui-theming.instructions.md
+├── src/
+└── package.json
+```
 
 ### How it works
 
-The `.mdc` file contains:
+Both Option A (`.instructions.md` file) and Option B (extended instruction files) contain:
 
-- **Documentation URLs** — points Copilot to the correct framework docs
-- **Component mapping** — maps user intents (e.g., "scheduler") to the correct Mobiscroll APIs
-- **Rules** — enforces correct package imports, CSS loading, and API usage
-- **Constraints** — prevents cross-framework mixing and API hallucination
+- **Documentation URLs** — point the AI to the correct framework docs
+- **Component mapping** — map user intents (e.g., "scheduler") to the correct Mobiscroll APIs
+- **Rules** — enforce correct package imports, CSS loading, and API usage
+- **Constraints** — prevent cross-framework mixing and API hallucination
 
 ## Claude Code setup
 
-### Step 1: Add CLAUDE.md
+Install the Mobiscroll plugin for Claude Code. The plugin bundles framework coding skills and the MCP server in a single install — no per-project configuration files needed.
 
-If you don't already have a `CLAUDE.md` in your project root, download <DocsLink path="docs/react/CLAUDE.md" download><code>CLAUDE.md</code></DocsLink> and place it there. If you already have one, copy the contents into your existing file instead — see [File contents](#file-contents) below.
+### Step 1: Register the marketplace
+
+Run this once in Claude Code to register the Mobiscroll plugin marketplace:
 
 ```
-your-project/
-├── CLAUDE.md
-├── src/
-├── package.json
-└── ...
+/plugin marketplace add acidb/mobiscroll-marketplace
+```
+
+### Step 2: Install the plugin
+
+```
+/plugin install mobiscroll@mobiscroll
 ```
 
 ### How it works
 
-When Claude Code opens your project, it automatically reads `CLAUDE.md` from the project root. The file provides:
+Once installed, the plugin provides:
 
-- **Framework detection** — Claude detects your framework from `package.json`, file extensions, and import patterns
-- **Routing rules** — deterministic IF/THEN rules that select the correct documentation source
-- **Component mapping** — translates user intents like "scheduler" or "timeline" to the correct Eventcalendar view configuration
-- **Anti-patterns** — explicit WRONG → RIGHT examples that prevent common mistakes
+- **Skills** — `mobiscroll-ui` is the orchestrator skill that detects your framework (React, Angular, Vue, JavaScript, or jQuery) and loads the matching framework sub-skill. Theming questions are handled by `mobiscroll-ui-theming`. All skills are installed together.
+- **MCP server** — The bundled Mobiscroll MCP server provides live component schema lookup, code validation, and example search on demand — so Claude always uses the current API, never hallucinated or outdated options.
 
-Claude Code will fetch `llms-react-full.txt` automatically based on the detected framework. No manual registration is needed.
+When you ask Claude Code to write Mobiscroll code, it:
+
+1. Detects your framework and Mobiscroll version via `resolveEnvironment`
+2. Loads the matching framework skill with idiomatic conventions
+3. Looks up the component schema before writing any props or events
+4. Validates generated code before returning it to you
 
 ## Framework isolation
 
 :::warning Critical
-Each `.mdc` file and documentation source targets exactly **one** framework or domain. Never combine files from different frameworks, or mix UI framework files with Connect files.
+Each rules file and documentation source targets exactly **one** framework or domain. Never combine files from different frameworks, or mix UI framework files with Connect files.
 :::
 
 **Why this matters:**
@@ -241,11 +295,11 @@ Each `.mdc` file and documentation source targets exactly **one** framework or d
 
 **Rules:**
 
-1. Add only **one** `.mdc` file per project — the one matching your framework or domain
+1. Add only **one** rules file per project — the one matching your framework or domain (`.mdc` for Cursor, `.instructions.md` for Copilot)
 2. Register only **one** documentation source in Cursor
 3. If your project uses multiple frameworks (e.g., micro-frontends), set up separate directories with separate `.mdc` files
 4. If your project uses both a UI framework and Mobiscroll Connect, use separate AI context directories for each
-5. If an AI assistant generates code with wrong framework imports, check that the correct `.mdc` file is in place
+5. If an AI assistant generates code with wrong framework imports, check that the correct rules file is in place
 
 ## Example queries
 
@@ -263,13 +317,13 @@ What is the type for calendar events in Mobiscroll React?
 
 **Symptom:** You are using React but the AI generates code for a different framework (e.g. `import { Eventcalendar } from '@mobiscroll/angular'`).
 
-**Fix:** Verify that you have the correct `.mdc` file in place. For React, use `mobiscroll-react.mdc`, not a different framework's `.mdc` file. In Cursor, check that the registered @docs source points to `llms-react-full.txt`.
+**Fix:** Verify that you have the correct rules file in place. For React in Cursor, use `mobiscroll-react.mdc`; for Copilot, use `mobiscroll-react.instructions.md`. In Cursor, check that the registered @docs source points to `llms-react-full.txt`.
 
 ### AI invents non-existent APIs
 
 **Symptom:** The AI suggests options, events, or types that don't exist in the Mobiscroll documentation.
 
-**Fix:** The `.mdc` rules instruct the AI to only use APIs found in the docs. If this still happens, explicitly reference `@docs` in Cursor queries, or verify that `CLAUDE.md` is in the project root for Claude Code. You can also ask the AI to verify an option exists in the Mobiscroll docs.
+**Fix:** The `.mdc` rules instruct the AI to only use APIs found in the docs. If this still happens, explicitly reference `@docs` in Cursor queries, or verify that the Mobiscroll plugin is installed in Claude Code (`/plugin list`). You can also ask the AI to verify an option exists in the Mobiscroll docs.
 
 ### AI mixes Mobiscroll Connect with UI components
 
@@ -285,30 +339,41 @@ All AI integration files are available at the following URLs:
 
 | File | URL |
 |:---|:---|
-| React | <DocsUrl path="llms-react.txt" /> |
-| React (full) | <DocsUrl path="llms-react-full.txt" /> |
+| React | <DocsUrl path="llms-react-full.txt" /> |
 
 ### Rules files
 
-| File | URL |
-|:---|:---|
-| React rules | <DocsLink path="mobiscroll-react.mdc" download /> |
+| File | Cursor (`.mdc`) | Copilot (`.instructions.md`) |
+|:---|:---|:---|
+| React rules | <DocsLink path="mobiscroll-react.mdc" download /> | <DocsLink path="copilot-instructions/mobiscroll-react.instructions.md" download /> |
 
-### Routing file
+### Extended rule files
 
-| File | URL |
-|:---|:---|
-| Claude Code context | <DocsLink path="docs/react/CLAUDE.md" download /> |
+| File | Cursor (`.mdc`) | Copilot (`.instructions.md`) |
+|:---|:---|:---|
+| Orchestrator | <DocsLink path="mobiscroll-ui/SKILL.md" download filename="mobiscroll-ui.mdc" /> | <DocsLink path="copilot-instructions/mobiscroll-ui.instructions.md" download /> |
+| React conventions | <DocsLink path="docs/react/SKILL.md" download filename="mobiscroll-ui-react.mdc" /> | <DocsLink path="copilot-instructions/mobiscroll-ui-react.instructions.md" download /> |
+| Theming | <DocsLink path="mobiscroll-ui-theming/SKILL.md" download filename="mobiscroll-ui-theming.mdc" /> | <DocsLink path="copilot-instructions/mobiscroll-ui-theming.instructions.md" download /> |
 
 ## File contents {#file-contents}
 
 The complete contents of each file are shown below. You can copy directly from these blocks or use the download links above.
 
-### CLAUDE.md
+### Extended rule files {#extended-rule-files}
 
 <details>
-<summary>View <code>CLAUDE.md</code></summary>
-<FileBlock src="docs/react/CLAUDE.md" />
+<summary>View <code>SKILL.md</code> (mobiscroll-ui — orchestrator)</summary>
+<FileBlock src="mobiscroll-ui/SKILL.md" />
+</details>
+
+<details>
+<summary>View <code>SKILL.md</code> (mobiscroll-ui-react — React conventions)</summary>
+<FileBlock src="docs/react/SKILL.md" />
+</details>
+
+<details>
+<summary>View <code>SKILL.md</code> (mobiscroll-ui-theming — theming)</summary>
+<FileBlock src="mobiscroll-ui-theming/SKILL.md" />
 </details>
 
 ### Rules files (.mdc) {#rules-files-mdc}

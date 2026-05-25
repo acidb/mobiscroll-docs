@@ -3,7 +3,7 @@
 // Each docusaurus.config.*.js should require() this file and spread it into
 // their plugins array alongside the main llms-plugin.config.js.
 //
-// Generates llms-connect.txt and llms-connect-full.txt from the connect/ folder.
+// Generates llms-connect.txt from the connect/ folder.
 
 /** @type {import('docusaurus-plugin-llms').PluginOptions} */
 const llmsConnectOptions = {
@@ -42,7 +42,7 @@ const llmsConnectOptions = {
     addPaths: ['connect'],
   },
 
-  // Section ordering for the combined llms-connect.txt / llms-connect-full.txt
+  // Section ordering for the combined llms-connect.txt
   includeOrder: [
     'getting-started/**',
     'api/**',

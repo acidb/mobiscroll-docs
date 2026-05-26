@@ -112,6 +112,13 @@ calendars, err := client.Calendars().List(ctx)
 ```
 
 </TabItem>
+<TabItem value="ruby" label="Ruby SDK">
+
+```ruby
+calendars = client.calendars.list
+```
+
+</TabItem>
 </Tabs>
 
 ```json title="Response"

@@ -436,6 +436,38 @@ masters, err := client.Events().List(ctx, &mobiscroll.EventListParams{
 ```
 
 </TabItem>
+<TabItem value="ruby" label="Ruby SDK">
+
+```ruby
+# Fetch initial events with date range filter
+response = client.events.list(
+  page_size: 50,
+  start:     '2025-10-01T00:00:00Z',
+  end:       '2025-10-31T23:59:59Z'
+)
+
+# Load more events using next_page_token
+next_response = client.events.list(
+  page_size:       50,
+  next_page_token: response.next_page_token
+)
+
+# Filter by specific calendars
+filtered = client.events.list(
+  page_size:    25,
+  calendar_ids: {
+    Mobiscroll::Connect::Provider::GOOGLE => ['personal@gmail.com', 'work@company.com']
+  }
+)
+
+# Get recurring event series masters (not expanded)
+masters = client.events.list(
+  page_size:     50,
+  single_events: false
+)
+```
+
+</TabItem>
 </Tabs>
 
 :::info
@@ -1011,6 +1043,49 @@ allDayEvent, err := client.Events().Create(ctx, &mobiscroll.EventCreateData{
 ```
 
 </TabItem>
+<TabItem value="ruby" label="Ruby SDK">
+
+```ruby
+# Create a simple event
+event = client.events.create(
+  provider:    Mobiscroll::Connect::Provider::GOOGLE,
+  calendar_id: 'primary',
+  title:       'Team Meeting',
+  description: 'Discuss project updates',
+  start:       '2025-11-01T10:00:00Z',
+  end:         '2025-11-01T11:00:00Z',
+  location:    'Conference Room A'
+)
+
+# Create a recurring event
+recurring_event = client.events.create(
+  provider:    Mobiscroll::Connect::Provider::MICROSOFT,
+  calendar_id: 'AAMkAGVmMDEz...',
+  title:       'Weekly Standup',
+  start:       '2025-11-01T09:00:00Z',
+  end:         '2025-11-01T09:30:00Z',
+  all_day:     false,
+  recurrence:  Mobiscroll::Connect::RecurrenceRule.new(
+    frequency: 'WEEKLY',
+    interval:  1,
+    count:     10,
+    by_day:    %w[MO WE FR]
+  )
+)
+
+# Create an all-day event
+all_day_event = client.events.create(
+  provider:    Mobiscroll::Connect::Provider::APPLE,
+  calendar_id: 'https://caldav.icloud.com/.../calendars/...',
+  title:       'Conference',
+  start:       '2025-11-15T00:00:00Z',
+  end:         '2025-11-16T00:00:00Z',
+  all_day:     true,
+  description: 'Annual tech conference'
+)
+```
+
+</TabItem>
 </Tabs>
 
 :::info
@@ -1452,6 +1527,42 @@ updatedFuture, err := client.Events().Update(ctx, &mobiscroll.EventUpdateData{
 ```
 
 </TabItem>
+<TabItem value="ruby" label="Ruby SDK">
+
+```ruby
+# Update a simple event
+updated_event = client.events.update(
+  provider:    Mobiscroll::Connect::Provider::GOOGLE,
+  calendar_id: 'primary',
+  event_id:    'event123abc',
+  title:       'Updated Team Meeting',
+  start:       '2025-11-01T14:00:00Z',
+  end:         '2025-11-01T15:00:00Z'
+)
+
+# Update a single instance of a recurring event
+updated_instance = client.events.update(
+  provider:           Mobiscroll::Connect::Provider::MICROSOFT,
+  event_id:           'instance456',
+  recurring_event_id: 'series123',
+  calendar_id:        'AAMkAGVmMDEz...',
+  update_mode:        'this',
+  title:              'Standup - Special Topic Today',
+  start:              '2025-11-01T09:00:00Z',
+  end:                '2025-11-01T10:00:00Z'
+)
+
+# Update all future occurrences
+updated_future = client.events.update(
+  provider:    Mobiscroll::Connect::Provider::APPLE,
+  event_id:    'recurring-event-id',
+  calendar_id: 'https://caldav.icloud.com/.../calendars/...',
+  update_mode: 'following',
+  location:    'New Conference Room B'
+)
+```
+
+</TabItem>
 </Tabs>
 
 :::info
@@ -1749,6 +1860,35 @@ err = client.Events().Delete(ctx, &mobiscroll.EventDeleteParams{
     EventID:    "recurring-event-id",
     DeleteMode: "all",
 })
+```
+
+</TabItem>
+<TabItem value="ruby" label="Ruby SDK">
+
+```ruby
+# Delete a simple event
+client.events.delete(
+  provider:    Mobiscroll::Connect::Provider::GOOGLE,
+  calendar_id: 'primary',
+  event_id:    'event123abc'
+)
+
+# Delete a single instance of a recurring event
+client.events.delete(
+  provider:           Mobiscroll::Connect::Provider::MICROSOFT,
+  calendar_id:        'AAMkAGVmMDEz...',
+  event_id:           'instance456',
+  recurring_event_id: 'series123',
+  delete_mode:        'this'
+)
+
+# Delete entire recurring series
+client.events.delete(
+  provider:    Mobiscroll::Connect::Provider::APPLE,
+  calendar_id: 'https://caldav.icloud.com/.../calendars/...',
+  event_id:    'recurring-event-id',
+  delete_mode: 'all'
+)
 ```
 
 </TabItem>

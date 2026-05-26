@@ -201,6 +201,22 @@ authURL := client.Auth().GenerateAuthURL(&mobiscroll.AuthURLParams{
 ```
 
 </TabItem>
+<TabItem value="ruby" label="Ruby SDK">
+
+```ruby
+# Generate the authorization URL
+auth_url = client.auth.generate_auth_url(
+  user_id: 'user-456'
+  # Optional parameters:
+  # scope: 'read-write',
+  # state: 'xyz789'
+)
+
+# Redirect the user to auth_url
+# redirect auth_url
+```
+
+</TabItem>
 </Tabs>
 
 :::info
@@ -512,6 +528,19 @@ session.Set("refresh_token", tokens.RefreshToken)
 ```
 
 </TabItem>
+<TabItem value="ruby" label="Ruby SDK">
+
+```ruby
+# Exchange authorization code for access token
+# The client is automatically authenticated with the new token
+tokens = client.auth.get_token(code)
+
+# Persist tokens server-side keyed by your user
+session[:access_token]  = tokens.access_token
+session[:refresh_token] = tokens.refresh_token
+```
+
+</TabItem>
 </Tabs>
 
 ```json title="Error Response - Client Mismatch"
@@ -701,6 +730,19 @@ client.OnTokensRefreshed(func(updated *mobiscroll.TokenResponse) {
 ```
 
 </TabItem>
+<TabItem value="ruby" label="Ruby SDK">
+
+```ruby
+# Token refresh is handled automatically by the SDK.
+# Register a callback to persist the new tokens whenever a refresh occurs.
+client.on_tokens_refreshed do |tokens|
+  # Persist in your database or session store
+  session[:access_token]  = tokens.access_token
+  session[:refresh_token] = tokens.refresh_token if tokens.refresh_token
+end
+```
+
+</TabItem>
 </Tabs>
 
 :::info
@@ -786,6 +828,11 @@ The Java SDK does not include a built-in revoke method. Use the REST endpoint di
 <TabItem value="go" label="Go SDK">
 
 The Go SDK does not include a built-in revoke method. Use the REST endpoint directly to revoke tokens.
+
+</TabItem>
+<TabItem value="ruby" label="Ruby SDK">
+
+The Ruby SDK does not include a built-in revoke method. Use the REST endpoint directly to revoke tokens.
 
 </TabItem>
 </Tabs>

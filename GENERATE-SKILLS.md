@@ -22,14 +22,6 @@ Clone the marketplace repo locally, then add a `config.json` to the root of this
 }
 ```
 
-Example (actual path on a dev machine):
-
-```json
-{
-  "marketplacePath": "C:/Users/IstvanCsiszer/Documents/Mobiscroll/mobiscroll-marketplace"
-}
-```
-
 `config.json` is gitignored — each developer sets their own local path.
 
 ## Syncing Skills

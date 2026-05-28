@@ -21,8 +21,20 @@ export const DocsLink = ({path, children, download: dl, filename}) => {
   const base = useDocsBase();
   const url = base + path;
   const dlName = filename || path.split('/').pop();
+  const handleDownload = async (e) => {
+    e.preventDefault();
+    const text = await fetch(url).then(r => r.text());
+    const replaced = text.replace(/\{\{DOCS_BASE_URL\}\}/g, base.replace(/\/$/, ''));
+    const blob = new Blob([replaced], { type: 'text/plain' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = dlName;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
   return dl
-    ? <a href={url} download={dlName}>{children || <code>{path}</code>}</a>
+    ? <a href={url} onClick={handleDownload}>{children || <code>{path}</code>}</a>
     : <a href={url}>{children || <code>{path}</code>}</a>;
 };
 

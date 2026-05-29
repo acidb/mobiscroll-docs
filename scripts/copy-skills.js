@@ -19,7 +19,9 @@ for (const [skillDir, dest] of copies) {
     const src = path.join(pluginSkills, skillDir, 'SKILL.md');
     const out = path.join(docsRoot, dest);
     fs.mkdirSync(path.dirname(out), { recursive: true });
-    fs.copyFileSync(src, out);
+    let content = fs.readFileSync(src, 'utf8');
+    content = content.replace(/^---\n/, '---\nalwaysApply: false\n');
+    fs.writeFileSync(out, content);
     console.log(`Copied ${skillDir}/SKILL.md → ${dest}`);
 }
 

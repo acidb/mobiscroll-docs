@@ -85,7 +85,7 @@ const config = {
               badge: false,
             },
           },
-          onlyIncludeVersions: ['6.0.0', '5.35.0', '5.34.0'],
+          onlyIncludeVersions: ['6.0.0'],
         },
         blog: false,
         theme: {

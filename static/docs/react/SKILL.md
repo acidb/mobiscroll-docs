@@ -1,4 +1,5 @@
 ---
+alwaysApply: false
 name: mobiscroll-ui-react
 description: |
   Mobiscroll React patterns — JSX components, render props, hooks, @mobiscroll/react

@@ -34,7 +34,9 @@ npm run copy-skills
 
 This runs `scripts/copy-skills.js`, which performs two sets of copies:
 
-### 1. SKILL.md files (Claude Code)
+### 1. SKILL.md files (Claude Code + Cursor)
+
+The source files are copied to `static/` as `SKILL.md` files with `alwaysApply: false` injected into the frontmatter for Cursor compatibility. These files are also served as `.mdc` downloads for Cursor users via the `filename` prop on `DocsLink` (the rename happens at link time, not on disk).
 
 | Skill (marketplace source) | Destination in docs project |
 |---|---|
@@ -98,7 +100,7 @@ The Copilot files are already named correctly by `copy-skills` and are served di
 | `static/copilot-instructions/mobiscroll-ui-jquery.instructions.md` | `mobiscroll-ui-jquery.instructions.md` |
 | `static/copilot-instructions/mobiscroll-ui-theming.instructions.md` | `mobiscroll-ui-theming.instructions.md` |
 
-These files also have `applyTo: "**"` injected into their frontmatter by `copy-skills` — the original SKILL.md files do not have this field.
+These files have `applyTo: "**"` injected into their frontmatter by `copy-skills`. They do not get `alwaysApply: false` — that field is Cursor-specific and belongs only in the SKILL.md copies.
 
 ## Editing Skills
 

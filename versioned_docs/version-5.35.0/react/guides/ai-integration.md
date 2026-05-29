@@ -342,6 +342,18 @@ Both Option A (`.instructions.md` file) and Option B (extended instruction files
 - **Rules** — enforce correct package imports, CSS loading, and API usage
 - **Constraints** — prevent cross-framework mixing and API hallucination
 
+### Step 2: Use in Copilot Chat
+
+The instruction files with `applyTo: "**"` apply automatically to all Copilot Chat queries — no manual reference needed. Ask Mobiscroll questions directly:
+
+```
+How do I set up a weekly scheduler with Mobiscroll?
+```
+
+```
+What options does the Eventcalendar timeline view accept?
+```
+
 ## Claude Code setup
 
 Install the Mobiscroll plugin for Claude Code. The plugin bundles framework coding skills and the MCP server in a single install — no per-project configuration files needed.

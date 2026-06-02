@@ -44,6 +44,37 @@ function App() {
 }
 ```
 
+## Custom content
+
+For rich or formatted content, pass JSX children directly to the Confirm component instead of the `message` prop.
+
+```jsx
+import { useState } from 'react';
+import { Confirm, Button } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
+function App() {
+  const [isOpen, setOpen] = useState(false);
+  const closeConfirm = (result) => {
+    console.log('Result: ', result);
+    setOpen(false);
+  }
+  const openConfirm = () => setOpen(true);
+  return <>
+    <Confirm
+      isOpen={isOpen}
+      onClose={closeConfirm}
+      title="Delete file?"
+      okText="Delete"
+      cancelText="Cancel"
+    >
+      This will permanently remove <strong>report.pdf</strong>.
+    </Confirm>
+    <Button onClick={openConfirm}>Please confirm!</Button>
+  </>
+}
+```
+
 <div className="option-list">
 
 ## Options

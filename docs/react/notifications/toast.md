@@ -39,6 +39,29 @@ function App() {
 }
 ```
 
+## Custom content
+
+For rich or formatted content, pass JSX children directly to the Toast component instead of the `message` prop.
+
+```jsx
+import { useState } from 'react';
+import { Toast, Button } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
+function App() {
+  const [isToastOpen, setToastOpen] = useState(false);
+  const closeMessage = () => setToastOpen(false);
+  const showMessage = () => setToastOpen(true);
+
+  return <>
+    <Toast isOpen={isToastOpen} onClose={closeMessage}>
+      Upload complete: <strong>3 files</strong> added
+    </Toast>
+    <Button onClick={showMessage}>Toast message!</Button>
+  </>
+}
+```
+
 <div className="option-list">
 
 ## Options

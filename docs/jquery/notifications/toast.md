@@ -24,6 +24,16 @@ mobiscroll.toast({
 });
 ```
 
+## Custom content
+
+For rich or formatted content, use the `renderMessage` option. The function can return an HTML string or a DOM node.
+
+```js
+mobiscroll.toast({
+  renderMessage: () => 'Upload complete: <strong>3 files</strong> added'
+});
+```
+
 <div className="option-list">
 
 ## Options

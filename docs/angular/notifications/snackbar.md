@@ -40,6 +40,32 @@ export class MyComponent {
 }
 ```
 
+## Custom content
+
+For rich or formatted content, use the `renderMessage` option. The function can return an HTML string or a DOM node.
+
+```ts
+import { Component } from '@angular/core';
+import { Notifications } from '@mobiscroll/angular';
+
+@Component({...})
+export class MyComponent {
+  constructor(public notify: Notifications) {}
+
+  showSnack() {
+    this.notify.snackbar({
+      renderMessage: () => 'Connection failed: <strong>check your network</strong>',
+      button: {
+        text: 'Retry',
+        action: () => {
+          console.log('Retrying...');
+        }
+      }
+    });
+  }
+}
+```
+
 <div className="option-list">
 
 ## Options

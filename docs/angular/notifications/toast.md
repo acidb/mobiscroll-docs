@@ -34,6 +34,26 @@ export class MyComponent {
 }
 ```
 
+## Custom content
+
+For rich or formatted content, use the `renderMessage` option. The function can return an HTML string or a DOM node.
+
+```ts
+import { Component } from '@angular/core';
+import { Notifications } from '@mobiscroll/angular';
+
+@Component({...})
+export class MyComponent {
+  constructor(public notify: Notifications) {}
+
+  showToast() {
+    this.notify.toast({
+      renderMessage: () => 'Upload complete: <strong>3 files</strong> added'
+    });
+  }
+}
+```
+
 <div className="option-list">
 
 ## Options

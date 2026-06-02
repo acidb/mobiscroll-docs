@@ -38,6 +38,32 @@ function App() {
 }
 ```
 
+## Custom content
+
+For rich or formatted content, pass JSX children directly to the Alert component instead of the `message` prop.
+
+```jsx
+import { useState } from 'react';
+import { Alert, Button } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
+function App() {
+  const [isAlertOpen, setAlertOpen] = useState(false);
+  const closeAlert = () => setAlertOpen(false);
+  const alert = () => setAlertOpen(true);
+  return <>
+    <Alert
+      isOpen={isAlertOpen}
+      onClose={closeAlert}
+      title="Storage almost full"
+    >
+      You have used <strong>4.8 GB</strong> of your 5 GB quota.
+    </Alert>
+    <Button onClick={alert}>Alert!</Button>
+  </>
+}
+```
+
 <div className="option-list">
 
 ## Options

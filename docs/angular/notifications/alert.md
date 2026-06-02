@@ -34,6 +34,27 @@ export class MyComponent {
 }
 ```
 
+## Custom content
+
+For rich or formatted content, use the `renderMessage` option. The function can return an HTML string or a DOM node.
+
+```ts
+import { Component } from '@angular/core';
+import { Notifications } from '@mobiscroll/angular';
+
+@Component({...})
+export class MyComponent {
+  constructor(public notify: Notifications) {}
+
+  showAlert() {
+    this.notify.alert({
+      title: "Storage almost full",
+      renderMessage: () => 'You have used <strong>4.8 GB</strong> of your 5 GB quota.'
+    });
+  }
+}
+```
+
 <div className="option-list">
 
 ## Options

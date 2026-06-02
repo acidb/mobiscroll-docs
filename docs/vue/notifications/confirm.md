@@ -45,6 +45,38 @@ The following example displays a confirm dialog on button click.
 </template>
 ```
 
+## Custom content
+
+For rich or formatted content, use the default slot instead of the `message` prop.
+
+```html
+<script setup>
+  import { ref } from 'vue';
+  import { MbscConfirm, MbscButton } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
+
+  const isConfirmOpen = ref(false);
+
+  const handleClose = (result) => {
+    console.log('Result:', result);
+    isConfirmOpen.value = false;
+  };
+</script>
+
+<template>
+  <MbscConfirm
+    title="Delete file?"
+    okText="Delete"
+    cancelText="Cancel"
+    :isOpen="isConfirmOpen"
+    @close="handleClose"
+  >
+    This will permanently remove <strong>report.pdf</strong>.
+  </MbscConfirm>
+  <MbscButton @click="isConfirmOpen = true">Confirm</MbscButton>
+</template>
+```
+
 <div className="option-list">
 
 ## Options

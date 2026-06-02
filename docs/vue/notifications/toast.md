@@ -33,6 +33,27 @@ The following example displays a toast message on button click.
 </template>
 ```
 
+## Custom content
+
+For rich or formatted content, use the default slot instead of the `message` prop.
+
+```html
+<script setup>
+  import { ref } from 'vue';
+  import { MbscToast, MbscButton } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
+
+  const isToastOpen = ref(false);
+</script>
+
+<template>
+  <MbscToast :isOpen="isToastOpen" @close="isToastOpen = false">
+    Upload complete: <strong>3 files</strong> added
+  </MbscToast>
+  <MbscButton @click="isToastOpen = true">Toast</MbscButton>
+</template>
+```
+
 <div className="option-list">
 
 ## Options

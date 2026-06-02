@@ -30,6 +30,22 @@ mobiscroll.prompt({
 });
 ```
 
+## Custom content
+
+For rich or formatted content, use the `renderMessage` option. The function can return an HTML string or a DOM node.
+
+```js
+mobiscroll.prompt({
+  title: "Sign in",
+  renderMessage: () => 'Enter the password for <strong>hello@mobiscroll.com</strong>.',
+  placeholder: "Enter password",
+  inputType: "password",
+  onClose: function(result) {
+    console.log('Result: ', result);
+  }
+});
+```
+
 <div className="option-list">
 
 ## Options

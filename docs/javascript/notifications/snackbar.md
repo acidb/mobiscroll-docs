@@ -30,6 +30,22 @@ mobiscroll.snackbar({
 });
 ```
 
+## Custom content
+
+For rich or formatted content, use the `renderMessage` option. The function can return an HTML string or a DOM node.
+
+```js
+mobiscroll.snackbar({
+  renderMessage: () => 'Connection failed: <strong>check your network</strong>',
+  button: {
+    text: 'Retry',
+    action: () => {
+      console.log('Retrying...');
+    }
+  }
+});
+```
+
 <div className="option-list">
 
 ## Options

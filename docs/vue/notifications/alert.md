@@ -37,6 +37,31 @@ The following example displays an Alert message on button click.
 </template>
 ```
 
+## Custom content
+
+For rich or formatted content, use the default slot instead of the `message` prop.
+
+```html
+<script setup>
+  import { ref } from 'vue';
+  import { MbscAlert, MbscButton } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
+
+  const isAlertOpen = ref(false);
+</script>
+
+<template>
+  <MbscAlert
+    title="Storage almost full"
+    :isOpen="isAlertOpen"
+    @close="isAlertOpen = false"
+  >
+    You have used <strong>4.8 GB</strong> of your 5 GB quota.
+  </MbscAlert>
+  <MbscButton @click="isAlertOpen = true">Alert</MbscButton>
+</template>
+```
+
 <div className="option-list">
 
 ## Options

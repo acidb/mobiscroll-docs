@@ -45,6 +45,38 @@ The following example displays a prompt dialog on button click.
 </template>
 ```
 
+## Custom content
+
+For rich or formatted content, use the default slot instead of the `message` prop.
+
+```html
+<script setup>
+  import { ref } from 'vue';
+  import { MbscPrompt, MbscButton } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
+
+  const isPromptOpen = ref(false);
+
+  const handleClose = (result) => {
+    console.log('Result:', result);
+    isPromptOpen.value = false;
+  };
+</script>
+
+<template>
+  <MbscPrompt
+    title="Sign in"
+    placeholder="Enter password"
+    inputType="password"
+    :isOpen="isPromptOpen"
+    @close="handleClose"
+  >
+    Enter the password for <strong>hello@mobiscroll.com</strong>.
+  </MbscPrompt>
+  <MbscButton @click="isPromptOpen = true">Prompt</MbscButton>
+</template>
+```
+
 <div className="option-list">
 
 ## Options

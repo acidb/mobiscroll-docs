@@ -40,6 +40,32 @@ export class MyComponent {
 }
 ```
 
+## Custom content
+
+For rich or formatted content, use the `renderMessage` option. The function can return an HTML string or a DOM node.
+
+```ts
+import { Component } from '@angular/core';
+import { Notifications } from '@mobiscroll/angular';
+
+@Component({...})
+export class MyComponent {
+  constructor(public notify: Notifications) {}
+
+  showConfirm() {
+    this.notify.confirm({
+      title: "Delete file?",
+      renderMessage: () => 'This will permanently remove <strong>report.pdf</strong>.',
+      okText: "Delete",
+      cancelText: "Cancel",
+      onClose: (result) => {
+        console.log('Result: ', result);
+      }
+    });
+  }
+}
+```
+
 <div className="option-list">
 
 ## Options

@@ -50,6 +50,29 @@ function App() {
 }
 ```
 
+## Custom content
+
+For rich or formatted content, pass JSX children directly to the Snackbar component instead of the `message` prop.
+
+```jsx
+import { useState } from 'react';
+import { Snackbar, Button } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
+function App() {
+  const [isSnackOpen, setSnackOpen] = useState(false);
+  const closeMessage = () => setSnackOpen(false);
+  const showMessage = () => setSnackOpen(true);
+
+  return <>
+    <Snackbar isOpen={isSnackOpen} onClose={closeMessage}>
+      Connection failed: <strong>check your network</strong>
+    </Snackbar>
+    <Button onClick={showMessage}>Snackbar message!</Button>
+  </>
+}
+```
+
 <div className="option-list">
 
 ## Options

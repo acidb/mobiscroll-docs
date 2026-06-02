@@ -45,6 +45,27 @@ The following example displays a Snackbar message on button click.
 </template>
 ```
 
+## Custom content
+
+For rich or formatted content, use the default slot instead of the `message` prop.
+
+```html
+<script setup>
+  import { ref } from 'vue';
+  import { MbscSnackbar, MbscButton } from '@mobiscroll/vue';
+  import '@mobiscroll/vue/dist/css/mobiscroll.min.css';
+
+  const isSnackbarOpen = ref(false);
+</script>
+
+<template>
+  <MbscSnackbar :isOpen="isSnackbarOpen" @close="isSnackbarOpen = false">
+    Connection failed: <strong>check your network</strong>
+  </MbscSnackbar>
+  <MbscButton @click="isSnackbarOpen = true">Snackbar</MbscButton>
+</template>
+```
+
 <div className="option-list">
 
 ## Options

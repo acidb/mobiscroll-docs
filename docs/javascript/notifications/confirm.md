@@ -30,6 +30,22 @@ mobiscroll.confirm({
 });
 ```
 
+## Custom content
+
+For rich or formatted content, use the `renderMessage` option. The function can return an HTML string or a DOM node.
+
+```js
+mobiscroll.confirm({
+  title: "Delete file?",
+  renderMessage: () => 'This will permanently remove <strong>report.pdf</strong>.',
+  okText: "Delete",
+  cancelText: "Cancel",
+  onClose: function(result) {
+    console.log('Result: ', result);
+  }
+});
+```
+
 <div className="option-list">
 
 ## Options

@@ -44,6 +44,37 @@ function App() {
 }
 ```
 
+## Custom content
+
+For rich or formatted content, pass JSX children directly to the Prompt component instead of the `message` prop.
+
+```jsx
+import { useState } from 'react';
+import { Prompt, Button } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
+function App() {
+  const [isOpen, setOpen] = useState(false);
+  const closePrompt = (result) => {
+    console.log('Result: ', result);
+    setOpen(false);
+  }
+  const openPrompt = () => setOpen(true);
+  return <>
+    <Prompt
+      isOpen={isOpen}
+      onClose={closePrompt}
+      title="Sign in"
+      placeholder="Enter password"
+      inputType="password"
+    >
+      Enter the password for <strong>hello@mobiscroll.com</strong>.
+    </Prompt>
+    <Button onClick={openPrompt}>Get password!</Button>
+  </>
+}
+```
+
 <div className="option-list">
 
 ## Options

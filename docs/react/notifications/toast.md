@@ -11,8 +11,8 @@ import Events from '../\_auto-generated/toast/events.md';
 # Toast
 
 The Toast component is a simple text only notification informing the user.
-They should be primarly used to display messages not necessarily related to a user action, such as background synchronization or similar.
-The Toast compoennt don't lock the app's main interface and are automatically dismissed after a while.
+They should be primarily used to display messages not necessarily related to a user action, such as background synchronization or similar.
+The Toast component doesn't lock the app's main interface and is automatically dismissed after a while.
 
 ## Usage
 

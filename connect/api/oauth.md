@@ -44,6 +44,10 @@ Callback URL after authorization completes. **Note:** This parameter is retrieve
 Optional state parameter to maintain across the OAuth flow. This is passed back to your redirect_uri and can be used to prevent CSRF attacks and maintain application state.
 </Parameter>
 
+<Parameter name="lng" type="string" defaultValue={<code>Accept-Language, then en</code>} id="authorize-lng">
+Language for the Connect pages (provider selection, consent, login, and error pages). Supported values: `en`, `es`, `fr`, `ar`. When omitted, the UI falls back to the browser's `Accept-Language` header, then English. Arabic (`ar`) renders right-to-left. Example: `?lng=es`.
+</Parameter>
+
 <Parameter name="response_type" type="string" defaultValue={<code>undefined</code>} id="authorize-response_type">
 OAuth2 response type. Typically set to `"code"` for the authorization code flow.
 </Parameter>
@@ -74,7 +78,7 @@ Sets `oauth_req` cookie containing the complete OAuth request for later retrieva
 
 - **httpOnly**: true
 - **path**: /
-- **maxAge**: 30 minutes
+- **maxAge**: 2 hours
 - **sameSite**: lax
 
 </Parameter>
@@ -92,13 +96,15 @@ Sets `oauth_req` cookie containing the complete OAuth request for later retrieva
 
 ```bash title="Initiate OAuth authorization"
 GET /authorize?client_id=proj-123&user_id=user-456&redirect_uri=https://app.example.com/callback&response_type=code&state=xyz789&scope=read-write
+
+# Optional: append &lng=es to localize the Connect pages (en | es | fr | ar)
 ```
 
 ```bash title="Redirects to authorization page"
 302 Redirect
 Location: /authorize?client_id=proj-123&user_id=user-456&redirect_uri=https://app.example.com/callback&response_type=code&state=xyz789&scope=read-write
 
-Set-Cookie: oauth_req={"client_id":"proj-123","user_id":"user-456",...}; HttpOnly; Path=/; Max-Age=1800; SameSite=Lax
+Set-Cookie: oauth_req={"client_id":"proj-123","user_id":"user-456",...}; HttpOnly; Path=/; Max-Age=7200; SameSite=Lax
 ```
 
 </TabItem>
@@ -110,7 +116,8 @@ const authUrl = client.auth.generateAuthUrl({
   userId: 'user-456',
   // Optional parameters
   // state: 'xyz789',
-  // scope: 'calendar.readonly'
+  // scope: 'calendar.readonly',
+  // lng: 'es', // localize the Connect pages: en | es | fr | ar
 });
 
 // Redirect the user to authUrl
@@ -127,6 +134,7 @@ auth_url = client.auth.generate_auth_url(
     # Optional parameters:
     # scope='read-write',
     # state='xyz789',
+    # lng='es',  # localize the Connect pages: en | es | fr | ar
 )
 
 # Redirect the user to auth_url
@@ -143,6 +151,7 @@ $authUrl = $client->auth()->generateAuthUrl(
     // Optional parameters:
     // scope: 'read-write',
     // state: 'xyz789',
+    // lng: 'es', // localize the Connect pages: en | es | fr | ar
 );
 
 // Redirect the user to $authUrl
@@ -160,6 +169,7 @@ var authUrl = client.Auth.GenerateAuthUrl(new AuthorizeParams
     // Optional parameters:
     // Scope = "read-write",
     // State = "xyz789",
+    // Lng = "es", // localize the Connect pages: en | es | fr | ar
 });
 
 // Redirect the user to authUrl
@@ -178,6 +188,7 @@ String authUrl = client.auth().generateAuthUrl(AuthUrlParams.builder()
     // Optional parameters:
     // .scope("read-write")
     // .state("xyz789")
+    // .lng("es") // localize the Connect pages: en | es | fr | ar
     .build());
 
 // Redirect the user to authUrl
@@ -194,6 +205,7 @@ authURL := client.Auth().GenerateAuthURL(&mobiscroll.AuthURLParams{
     // Optional parameters:
     // Scope: "read-write",
     // State: "xyz789",
+    // Lng: "es", // localize the Connect pages: en | es | fr | ar
 })
 
 // Redirect the user to authURL
@@ -209,7 +221,8 @@ auth_url = client.auth.generate_auth_url(
   user_id: 'user-456'
   # Optional parameters:
   # scope: 'read-write',
-  # state: 'xyz789'
+  # state: 'xyz789',
+  # lng: 'es' # localize the Connect pages: en | es | fr | ar
 )
 
 # Redirect the user to auth_url
@@ -226,8 +239,16 @@ auth_url = client.auth.generate_auth_url(
 - The OAuth request is stored in a cookie to maintain state across the authorization flow
 - If the user already exists in the database, their existing information is retrieved
 - Any existing provider tokens are loaded and initialized in the token store
-- The cookie expires after 30 minutes if the flow is not completed
+- The cookie expires after 2 hours if the flow is not completed
 - All query parameters plus the database `redirect_uri` are preserved and passed to the provider selection page
+:::
+
+:::tip Localizing the Connect pages
+Pass `lng` on the authorize URL to render the Connect pages (provider selection, consent, login, and error pages) in a specific language. Supported: English (`en`), Spanish (`es`), French (`fr`), and Arabic (`ar`).
+
+- If `lng` is omitted, the UI falls back to the browser's `Accept-Language` header, then English.
+- Arabic (`ar`) is right-to-left; the UI direction switches automatically.
+- Example: `/authorize?client_id=...&user_id=...&lng=es`. In the SDKs, pass `lng` to the auth-URL builder (see the examples above).
 :::
 
 :::info Re-authorizing an existing user
@@ -249,7 +270,7 @@ The following table summarizes the lifetime of every credential issued by Mobisc
 | **Authorization code** | 10 minutes | Single-use — deleted on first exchange |
 | **Access token (JWT)** | 1 hour (`3600 s`) | `exp` claim embedded in the JWT; rejected immediately after expiry even if the signature is valid |
 | **Refresh token** | No embedded expiry | The refresh token **does not** expire after a given time. Validity enforced server-side via JTI rotation (rotation happens on refresh call, not by time). Remains valid until used/rotated or explicitly revoked. If refresh returns `invalid_grant` or the newly issued refresh token is lost before persistence, the user must re-authorize. |
-| **OAuth session cookie** | 30 minutes | `oauth_req` cookie that carries the in-progress authorization state |
+| **OAuth session cookie** | 2 hours | `oauth_req` cookie that carries the in-progress authorization state |
 
 :::info Refresh Token Rotation
 Every `POST /token` call with `grant_type=refresh_token` issues a **new** refresh token and immediately invalidates the previous one.

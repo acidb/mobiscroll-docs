@@ -170,6 +170,8 @@ The client exposes resources that map directly to the API endpoints.
 
 The `client.Auth` resource handles the OAuth authorization flow, including generating authorization URLs, exchanging codes for tokens, managing connection status, and disconnecting providers.
 
+To localize the Connect pages, pass an optional `Lng` (`en`, `es`, `fr`, `ar`) to `GenerateAuthUrl`, e.g. `new AuthorizeParams { UserId = ..., Lng = "es" }`. When omitted, the UI falls back to the browser's `Accept-Language` header, then English; Arabic renders right-to-left.
+
 <DocCardList items={[
   {
     type: 'link',

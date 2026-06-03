@@ -25,7 +25,7 @@ Add the dependency using your build tool of choice:
 <dependency>
   <groupId>com.mobiscroll</groupId>
   <artifactId>connect-sdk</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
 </dependency>
 ```
 
@@ -183,6 +183,8 @@ The client exposes resources that map directly to the API endpoints.
 ### Auth
 
 The `client.auth()` resource handles the OAuth authorization flow, including generating authorization URLs, exchanging codes for tokens, managing connection status, and disconnecting providers.
+
+To localize the Connect pages, pass an optional `lng` (`en`, `es`, `fr`, `ar`) to `generateAuthUrl`, e.g. `AuthUrlParams.builder().userId(...).lng("es").build()`. When omitted, the UI falls back to the browser's `Accept-Language` header, then English; Arabic renders right-to-left.
 
 <DocCardList items={[
   {

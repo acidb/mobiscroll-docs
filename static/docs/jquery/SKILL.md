@@ -1,4 +1,5 @@
 ---
+alwaysApply: false
 name: mobiscroll-ui-jquery
 description: |
   Mobiscroll jQuery patterns — .mobiscroll() plugin chain, event callbacks, dynamic

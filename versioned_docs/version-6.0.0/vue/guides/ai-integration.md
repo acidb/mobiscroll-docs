@@ -21,8 +21,20 @@ export const DocsLink = ({path, children, download: dl, filename}) => {
   const base = useDocsBase();
   const url = base + path;
   const dlName = filename || path.split('/').pop();
+  const handleDownload = async (e) => {
+    e.preventDefault();
+    const text = await fetch(url).then(r => r.text());
+    const replaced = text.replace(/\{\{DOCS_BASE_URL\}\}/g, base.replace(/\/$/, ''));
+    const blob = new Blob([replaced], { type: 'text/plain' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = dlName;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
   return dl
-    ? <a href={url} download={dlName}>{children || <code>{path}</code>}</a>
+    ? <a href={url} onClick={handleDownload}>{children || <code>{path}</code>}</a>
     : <a href={url}>{children || <code>{path}</code>}</a>;
 };
 
@@ -111,22 +123,43 @@ You don't need to download or host these files — the rules files and the Claud
 
 ### Rules layer — rules files
 
-Per-framework behavior files that tell AI assistants which package to use, how to import CSS, which APIs are available, and what to avoid. Two formats are available — use one or the other:
+Rules files provide Mobiscroll context to **Cursor** and **GitHub Copilot** only. Claude Code uses the Mobiscroll plugin instead — no manual file setup needed.
+
+Two approaches are available:
+
+- **Option A** — file-based context loading. A rules file (`.mdc` for Cursor, `.instructions.md` for Copilot) contains API documentation and behavior rules. No MCP server required.
+- **Option B** — live schema fetching via MCP server. Extended rule files instruct the AI to call the Mobiscroll MCP server for live component schema lookups on each generation. Suited for interactive coding agents that need per-query precision.
+
+Choose based on your preference and setup.
+
+#### Files
+
+**Option A — file-based rules:**
 
 | File | Format | For |
 |:---|:---|:---|
 | <DocsLink path="mobiscroll-vue.mdc" download /> | Cursor rule file | Cursor |
 | <DocsLink path="copilot-instructions/mobiscroll-vue.instructions.md" download /> | Copilot instruction file | GitHub Copilot |
-| 3 extended rule files | Extended rules + MCP calls | Cursor, GitHub Copilot, Claude Code |
 
+**Option B — extended rules with MCP:**
 
-## Which tool uses which files?
-
-| AI Tool | Documentation Source | Behavior Rules |
+| File | Format | For |
 |:---|:---|:---|
-| **Cursor** | `llms-vue-full.txt` via @docs | Option A: `.mdc` rules file — Option B: extended rule files + MCP |
-| **GitHub Copilot** | `.instructions.md` file or extended instruction files (contain doc URLs) | Option A: `.instructions.md` rules file — Option B: extended instruction files + MCP |
-| **Claude Code** | MCP server (live schema lookup) | Plugin skills |
+| <DocsLink path="mobiscroll-ui/SKILL.md" download filename="mobiscroll-ui.mdc">mobiscroll-ui.mdc</DocsLink> | Cursor extended rule (orchestrator) | Cursor |
+| <DocsLink path="docs/vue/SKILL.md" download filename="mobiscroll-ui-vue.mdc">mobiscroll-ui-vue.mdc</DocsLink> | Cursor extended rule (Vue) | Cursor |
+| <DocsLink path="mobiscroll-ui-theming/SKILL.md" download filename="mobiscroll-ui-theming.mdc">mobiscroll-ui-theming.mdc</DocsLink> | Cursor extended rule (theming) | Cursor |
+| <DocsLink path="copilot-instructions/mobiscroll-ui.instructions.md" download>mobiscroll-ui.instructions.md</DocsLink> | Copilot extended instruction (orchestrator) | GitHub Copilot |
+| <DocsLink path="copilot-instructions/mobiscroll-ui-vue.instructions.md" download>mobiscroll-ui-vue.instructions.md</DocsLink> | Copilot extended instruction (Vue) | GitHub Copilot |
+| <DocsLink path="copilot-instructions/mobiscroll-ui-theming.instructions.md" download>mobiscroll-ui-theming.instructions.md</DocsLink> | Copilot extended instruction (theming) | GitHub Copilot |
+
+#### Which tool uses which files?
+
+| Tool | Approach | Files used |
+|:---|:---|:---|
+| **Cursor** | Option A | `mobiscroll-vue.mdc` |
+| **Cursor** | Option B | `mobiscroll-ui.mdc`, `mobiscroll-ui-vue.mdc`, `mobiscroll-ui-theming.mdc` |
+| **GitHub Copilot** | Option A | `mobiscroll-vue.instructions.md` |
+| **GitHub Copilot** | Option B | `mobiscroll-ui.instructions.md`, `mobiscroll-ui-vue.instructions.md`, `mobiscroll-ui-theming.instructions.md` |
 
 ## Cursor setup
 
@@ -178,9 +211,44 @@ your-project/
 └── package.json
 ```
 
-Unlike Option A, these rule files also instruct Cursor's AI to call the Mobiscroll MCP server for live component schema lookups on every generation — so it always uses the current API instead of guessing from memory. You must [configure the MCP server](#mcp-server) to get the full benefit.
+Unlike Option A, these rule files instruct Cursor's AI to call the Mobiscroll MCP server for live component schema lookups on each generation — so it always uses the current API instead of guessing from memory.
 
-### Step 3: Use @docs in queries
+#### Rule activation
+
+The extended `.mdc` files use `alwaysApply: false` with a `description` in their frontmatter. Cursor reads the description and activates the rule only when the context is relevant — the rule is not included in every message. You can also trigger it manually with `@rule-name` (e.g. `@mobiscroll-ui`). The `.mdc` format works in all Cursor modes including Agent mode.
+
+### Step 3: Configure MCP server (Optional)
+
+Configure the Mobiscroll MCP server so the extended rules can call it for live schema lookups.
+
+Create or edit `.cursor/mcp.json` in your project root:
+
+<McpConfigBlock tool="cursor" />
+
+:::warning No `type` field
+Cursor infers the transport type from the URL. Do **not** add `"type": "http"` to Cursor's config — it causes an error.
+:::
+
+```
+your-project/
+├── .cursor/
+│   ├── mcp.json
+│   └── rules/
+│       ├── mobiscroll-ui.mdc
+│       ├── mobiscroll-ui-vue.mdc
+│       └── mobiscroll-ui-theming.mdc
+├── src/
+└── package.json
+```
+
+| Scope | Config file | Shared with team |
+|:---|:---|:---|
+| project | `.cursor/mcp.json` in project root | Yes, if committed |
+| global | `~/.cursor/mcp.json` | No, all your projects |
+
+**Verify the connection:** Open the **Output** panel in Cursor and select **MCP Logs** from the dropdown. A successful connection logs tool discovery messages for the `mobiscroll` server.
+
+### How it works
 
 When asking Cursor about Mobiscroll, include `@docs` to ensure it reads the registered documentation:
 
@@ -232,14 +300,58 @@ your-project/
 └── package.json
 ```
 
+### Step 2: Configure MCP server (Optional)
+
+Configure the Mobiscroll MCP server so the extended instruction files can call it for live schema lookups.
+
+Create or edit `.vscode/mcp.json` in your project root:
+
+<McpConfigBlock tool="vscode" />
+
+:::warning `"servers"` not `"mcpServers"`
+VS Code uses `"servers"` as the root key — not `"mcpServers"` like Claude Code and Cursor. Using the wrong key silently breaks the config with no error message.
+:::
+
+```
+your-project/
+├── .vscode/
+│   └── mcp.json
+├── .github/
+│   └── instructions/
+│       ├── mobiscroll-ui.instructions.md
+│       ├── mobiscroll-ui-vue.instructions.md
+│       └── mobiscroll-ui-theming.instructions.md
+├── src/
+└── package.json
+```
+
+| Scope | Config file | Shared with team |
+|:---|:---|:---|
+| workspace | `.vscode/mcp.json` in project root | Yes, if committed |
+| user profile | Opened via **MCP: Open User Configuration** | No, all your workspaces |
+
+**Verify the connection:** Open the **Command Palette** and run **MCP: List Servers**. The `mobiscroll` server should appear with a connected status. A trust dialog appears on first use — approve it to allow the server to start.
+
+Alternatively, open the **Command Palette** and run **MCP: Add Server** for a guided setup.
+
 ### How it works
 
-Both Option A (`.instructions.md` file) and Option B (extended instruction files) contain:
+The instruction files with `applyTo: "**"` apply automatically to all Copilot Chat queries — no manual reference needed. Both options contain:
 
 - **Documentation URLs** — point the AI to the correct framework docs
 - **Component mapping** — map user intents (e.g., "scheduler") to the correct Mobiscroll APIs
 - **Rules** — enforce correct package imports, CSS loading, and API usage
 - **Constraints** — prevent cross-framework mixing and API hallucination
+
+Ask Mobiscroll questions directly:
+
+```
+How do I set up a weekly scheduler with Mobiscroll?
+```
+
+```
+What options does the Eventcalendar timeline view accept?
+```
 
 ## Claude Code setup
 
@@ -258,6 +370,36 @@ Run this once in Claude Code to register the Mobiscroll plugin marketplace:
 ```
 /plugin install mobiscroll@mobiscroll
 ```
+
+### Step 3: Configure MCP server (Optional)
+
+The plugin bundles the MCP server — no separate configuration is needed for most setups. To configure it manually or share it with your team:
+
+<McpCliBlock />
+
+:::warning VS Code extension
+If you are using the Claude Visual Studio Code extension, the server will not appear unless it is added with project scope. See the next command below.
+:::
+
+To share the server with your team automatically, use project scope:
+
+<McpCliBlock scope="project" />
+
+This creates or updates `.mcp.json` in your project root. You can also create that file manually:
+
+<McpConfigBlock tool="claude" />
+
+| Scope | CLI flag | Config location | Shared with team |
+|:---|:---|:---|:---|
+| local (default) | `--scope local` | `~/.claude.json` | No |
+| project | `--scope project` | `.mcp.json` in project root | Yes, via version control |
+| user | `--scope user` | `~/.claude.json` | No, all your projects |
+
+:::info
+Use `--scope project` for team repos so everyone gets the MCP server automatically when they clone the project.
+:::
+
+**Verify the connection:** Run `/mcp` inside Claude Code. The panel lists each connected server and its tool count. A healthy connection shows `mobiscroll` with at least one tool.
 
 ### How it works
 
@@ -281,10 +423,7 @@ Each rules file and documentation source targets exactly **one** framework or do
 
 **Why this matters:**
 
-- `@mobiscroll/react` and `@mobiscroll/angular` have completely different APIs
-- React uses JSX components (`<Eventcalendar />`), Angular uses template elements (`<mbsc-eventcalendar>`)
-- CSS loading differs: React/Vue/JavaScript/jQuery use JS imports, Angular uses `angular.json` styles array
-- Mixing frameworks causes broken code that is difficult to debug
+- Most API options are shared across frameworks, but component usage and templating differs for each — mixing them produces broken code
 
 **Mobiscroll Connect is a separate domain:**
 
@@ -295,7 +434,7 @@ Each rules file and documentation source targets exactly **one** framework or do
 
 **Rules:**
 
-1. Add only **one** rules file per project — the one matching your framework or domain (`.mdc` for Cursor, `.instructions.md` for Copilot)
+1. Use only rules files that match **one** framework or domain — never mix files from different frameworks
 2. Register only **one** documentation source in Cursor
 3. If your project uses multiple frameworks (e.g., micro-frontends), set up separate directories with separate `.mdc` files
 4. If your project uses both a UI framework and Mobiscroll Connect, use separate AI context directories for each
@@ -331,6 +470,12 @@ What props does the Datepicker component accept?
 
 **Fix:** Mobiscroll Connect is a backend integration layer (OAuth, REST, webhooks) and has no UI components. Eventcalendar is a frontend UI component with no REST API. They use entirely separate `.mdc` files and documentation sources. Verify that the correct `.mdc` file is active for your project. If you use both in the same codebase, keep separate AI context directories for each.
 
+### MCP server does not appear after setup
+
+**Symptom:** The MCP server panel shows no `mobiscroll` entry, or tools are not available.
+
+**Fix:** Check that the config file is in the correct location and uses the correct root key — `mcpServers` for Claude Code and Cursor, `servers` for VS Code. Validate that the file is well-formed JSON. For Claude Code, run `/mcp` to inspect connected servers.
+
 ## File reference
 
 All AI integration files are available at the following URLs:
@@ -351,9 +496,9 @@ All AI integration files are available at the following URLs:
 
 | File | Cursor (`.mdc`) | Copilot (`.instructions.md`) |
 |:---|:---|:---|
-| Orchestrator | <DocsLink path="mobiscroll-ui/SKILL.md" download filename="mobiscroll-ui.mdc" /> | <DocsLink path="copilot-instructions/mobiscroll-ui.instructions.md" download /> |
-| Vue conventions | <DocsLink path="docs/vue/SKILL.md" download filename="mobiscroll-ui-vue.mdc" /> | <DocsLink path="copilot-instructions/mobiscroll-ui-vue.instructions.md" download /> |
-| Theming | <DocsLink path="mobiscroll-ui-theming/SKILL.md" download filename="mobiscroll-ui-theming.mdc" /> | <DocsLink path="copilot-instructions/mobiscroll-ui-theming.instructions.md" download /> |
+| Orchestrator | <DocsLink path="mobiscroll-ui/SKILL.md" download filename="mobiscroll-ui.mdc"><code>mobiscroll-ui.mdc</code></DocsLink> | <DocsLink path="copilot-instructions/mobiscroll-ui.instructions.md" download /> |
+| Vue conventions | <DocsLink path="docs/vue/SKILL.md" download filename="mobiscroll-ui-vue.mdc"><code>mobiscroll-ui-vue.mdc</code></DocsLink> | <DocsLink path="copilot-instructions/mobiscroll-ui-vue.instructions.md" download /> |
+| Theming | <DocsLink path="mobiscroll-ui-theming/SKILL.md" download filename="mobiscroll-ui-theming.mdc"><code>mobiscroll-ui-theming.mdc</code></DocsLink> | <DocsLink path="copilot-instructions/mobiscroll-ui-theming.instructions.md" download /> |
 
 ## File contents {#file-contents}
 
@@ -362,17 +507,17 @@ The complete contents of each file are shown below. You can copy directly from t
 ### Extended rule files {#extended-rule-files}
 
 <details>
-<summary>View <code>SKILL.md</code> (mobiscroll-ui — orchestrator)</summary>
+<summary>View <code>mobiscroll-ui.mdc</code> (orchestrator)</summary>
 <FileBlock src="mobiscroll-ui/SKILL.md" />
 </details>
 
 <details>
-<summary>View <code>SKILL.md</code> (mobiscroll-ui-vue — Vue conventions)</summary>
+<summary>View <code>mobiscroll-ui-vue.mdc</code> (Vue conventions)</summary>
 <FileBlock src="docs/vue/SKILL.md" />
 </details>
 
 <details>
-<summary>View <code>SKILL.md</code> (mobiscroll-ui-theming — theming)</summary>
+<summary>View <code>mobiscroll-ui-theming.mdc</code> (theming)</summary>
 <FileBlock src="mobiscroll-ui-theming/SKILL.md" />
 </details>
 
@@ -383,132 +528,4 @@ The complete contents of each file are shown below. You can copy directly from t
 <FileBlock src="mobiscroll-vue.mdc" />
 </details>
 
-## MCP Server
-
-The Mobiscroll MCP server gives AI coding assistants direct, queryable access to live Mobiscroll documentation. Instead of working from static snapshots, tools can ask the server about component props, TypeScript types, and configuration options on demand — and always get up-to-date answers.
-
-### Claude Code
-
-#### Add the server
-
-The fastest way is the CLI — run:
-
-<McpCliBlock />
-
-:::warning VS Code extension
-If you are using the Claude Visual Studio Code extension, the server will not appear unless it is added with project scope. See the next command below.
-:::
-
-To share the server with your team automatically, use project scope:
-
-<McpCliBlock scope="project" />
-
-This creates or updates `.mcp.json` in your project root. You can also create that file manually:
-
-<McpConfigBlock tool="claude" />
-
-```
-your-project/
-├── .mcp.json
-├── src/
-└── package.json
-```
-
-#### Scope options
-
-| Scope | CLI flag | Config location | Shared with team |
-|:---|:---|:---|:---|
-| local (default) | `--scope local` | `~/.claude.json` | No |
-| project | `--scope project` | `.mcp.json` in project root | Yes, via version control |
-| user | `--scope user` | `~/.claude.json` | No, all your projects |
-
-:::info
-Use `--scope project` for team repos so everyone gets the MCP server automatically when they clone the project.
-:::
-
-#### Verify the connection
-
-Run `/mcp` inside Claude Code. The panel lists each connected server and its tool count. A healthy connection shows `mobiscroll` with at least one tool.
-
-### Cursor
-
-#### Add the server config
-
-Create or edit `.cursor/mcp.json` in your project root:
-
-<McpConfigBlock tool="cursor" />
-
-:::warning No `type` field
-Cursor infers the transport type from the URL. Do **not** add `"type": "http"` to Cursor's config — it causes an error.
-:::
-
-```
-your-project/
-├── .cursor/
-│   └── mcp.json
-├── src/
-└── package.json
-```
-
-#### Scope options
-
-| Scope | Config file | Shared with team |
-|:---|:---|:---|
-| project | `.cursor/mcp.json` in project root | Yes, if committed |
-| global | `~/.cursor/mcp.json` | No, all your projects |
-
-#### Verify the connection
-
-Open the **Output** panel in Cursor and select **MCP Logs** from the dropdown. A successful connection logs tool discovery messages for the `mobiscroll` server.
-
-### GitHub Copilot (VS Code)
-
-#### Add the server config
-
-Create or edit `.vscode/mcp.json` in your project root:
-
-<McpConfigBlock tool="vscode" />
-
-:::warning `"servers"` not `"mcpServers"`
-VS Code uses `"servers"` as the root key — not `"mcpServers"` like Claude Code and Cursor. Using the wrong key silently breaks the config with no error message.
-:::
-
-```
-your-project/
-├── .vscode/
-│   └── mcp.json
-├── src/
-└── package.json
-```
-
-Alternatively, open the **Command Palette** and run **MCP: Add Server** for a guided setup that generates the config automatically.
-
-#### Scope options
-
-| Scope | Config file | Shared with team |
-|:---|:---|:---|
-| workspace | `.vscode/mcp.json` in project root | Yes, if committed |
-| user profile | Opened via **MCP: Open User Configuration** | No, all your workspaces |
-
-#### Verify the connection
-
-Open the **Command Palette** and run **MCP: List Servers**. The `mobiscroll` server should appear with a connected status. A trust dialog appears on first use — approve it to allow the server to start.
-
-### Example queries
-
-These examples show the kind of questions the MCP server is designed to answer correctly.
-
-```
-What props does MbscEventcalendar accept in a script setup component?
-How do I create a timeline view with resource grouping in Vue?
-What is the correct import path for Mobiscroll Vue components?
-```
-
-### Troubleshooting
-
-#### Server does not appear after setup
-
-**Symptom:** The tool shows no MCP server or the `mobiscroll` entry is missing.
-
-**Fix:** Check that the config file is in the correct location and uses the correct root key — `mcpServers` for Claude Code and Cursor, `servers` for VS Code. Validate that the file is well-formed JSON.
 

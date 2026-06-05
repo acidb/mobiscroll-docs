@@ -1,4 +1,5 @@
 ---
+alwaysApply: false
 name: mobiscroll-ui-vue
 description: |
   Mobiscroll Vue patterns — MbscEventcalendar components, Vue 3 Composition API, named

@@ -1,4 +1,5 @@
 ---
+alwaysApply: false
 name: mobiscroll-ui
 description: |
   INVOKE THIS SKILL FIRST for any Mobiscroll UI work. It detects the framework and

@@ -1,4 +1,5 @@
 ---
+alwaysApply: false
 name: mobiscroll-ui-angular
 description: |
   Mobiscroll Angular patterns — mbsc- directives, MbscModule, ng-template customization,

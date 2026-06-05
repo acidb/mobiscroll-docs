@@ -1,4 +1,5 @@
 ---
+alwaysApply: false
 name: mobiscroll-ui-theming
 description: |
   Mobiscroll theming patterns — setOptions global theme, CSS variables, Sass customization.

@@ -1,4 +1,5 @@
 ---
+alwaysApply: false
 name: mobiscroll-ui-javascript
 description: |
   Mobiscroll JavaScript patterns — imperative initialization, render functions, dynamic

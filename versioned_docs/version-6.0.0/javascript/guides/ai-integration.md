@@ -123,7 +123,9 @@ You don't need to download or host these files — the rules files and the Claud
 
 ### Rules layer — rules files
 
-Two approaches are available for providing Mobiscroll context to AI coding assistants:
+Rules files provide Mobiscroll context to **Cursor** and **GitHub Copilot** only. Claude Code uses the Mobiscroll plugin instead — no manual file setup needed.
+
+Two approaches are available:
 
 - **Option A** — file-based context loading. A rules file (`.mdc` for Cursor, `.instructions.md` for Copilot) contains API documentation and behavior rules. No MCP server required.
 - **Option B** — live schema fetching via MCP server. Extended rule files instruct the AI to call the Mobiscroll MCP server for live component schema lookups on each generation. Suited for interactive coding agents that need per-query precision.
@@ -158,7 +160,6 @@ Choose based on your preference and setup.
 | **Cursor** | Option B | `mobiscroll-ui.mdc`, `mobiscroll-ui-javascript.mdc`, `mobiscroll-ui-theming.mdc` |
 | **GitHub Copilot** | Option A | `mobiscroll-javascript.instructions.md` |
 | **GitHub Copilot** | Option B | `mobiscroll-ui.instructions.md`, `mobiscroll-ui-javascript.instructions.md`, `mobiscroll-ui-theming.instructions.md` |
-| **Claude Code** | — | Plugin skills (installed via `/plugin install`) |
 
 ## Cursor setup
 
@@ -216,7 +217,7 @@ Unlike Option A, these rule files instruct Cursor's AI to call the Mobiscroll MC
 
 The extended `.mdc` files use `alwaysApply: false` with a `description` in their frontmatter. Cursor reads the description and activates the rule only when the context is relevant — the rule is not included in every message. You can also trigger it manually with `@rule-name` (e.g. `@mobiscroll-ui`). The `.mdc` format works in all Cursor modes including Agent mode.
 
-#### MCP server
+### Step 3: Configure MCP server (Optional)
 
 Configure the Mobiscroll MCP server so the extended rules can call it for live schema lookups.
 
@@ -247,7 +248,7 @@ your-project/
 
 **Verify the connection:** Open the **Output** panel in Cursor and select **MCP Logs** from the dropdown. A successful connection logs tool discovery messages for the `mobiscroll` server.
 
-### Step 3: Use @docs in queries
+### How it works?
 
 When asking Cursor about Mobiscroll, include `@docs` to ensure it reads the registered documentation:
 
@@ -299,7 +300,7 @@ your-project/
 └── package.json
 ```
 
-#### MCP server
+### Step 2: Configure MCP server (Optional)
 
 Configure the Mobiscroll MCP server so the extended instruction files can call it for live schema lookups.
 
@@ -335,16 +336,14 @@ Alternatively, open the **Command Palette** and run **MCP: Add Server** for a gu
 
 ### How it works
 
-Both Option A (`.instructions.md` file) and Option B (extended instruction files) contain:
+The instruction files with `applyTo: "**"` apply automatically to all Copilot Chat queries — no manual reference needed. Both options contain:
 
 - **Documentation URLs** — point the AI to the correct framework docs
 - **Component mapping** — map user intents (e.g., "scheduler") to the correct Mobiscroll APIs
 - **Rules** — enforce correct package imports, CSS loading, and API usage
 - **Constraints** — prevent cross-framework mixing and API hallucination
 
-### Step 2: Use in Copilot Chat
-
-The instruction files with `applyTo: "**"` apply automatically to all Copilot Chat queries — no manual reference needed. Ask Mobiscroll questions directly:
+Ask Mobiscroll questions directly:
 
 ```
 How do I set up a weekly scheduler with Mobiscroll?
@@ -372,21 +371,7 @@ Run this once in Claude Code to register the Mobiscroll plugin marketplace:
 /plugin install mobiscroll@mobiscroll
 ```
 
-### How it works
-
-Once installed, the plugin provides:
-
-- **Skills** — `mobiscroll-ui` is the orchestrator skill that detects your framework (React, Angular, Vue, JavaScript, or jQuery) and loads the matching framework sub-skill. Theming questions are handled by `mobiscroll-ui-theming`. All skills are installed together.
-- **MCP server** — The bundled Mobiscroll MCP server provides live component schema lookup, code validation, and example search on demand — so Claude always uses the current API, never hallucinated or outdated options.
-
-When you ask Claude Code to write Mobiscroll code, it:
-
-1. Detects your framework and Mobiscroll version via `resolveEnvironment`
-2. Loads the matching framework skill with idiomatic conventions
-3. Looks up the component schema before writing any props or events
-4. Validates generated code before returning it to you
-
-### MCP server
+### Step 3: Configure MCP server (Optional)
 
 The plugin bundles the MCP server — no separate configuration is needed for most setups. To configure it manually or share it with your team:
 
@@ -416,6 +401,20 @@ Use `--scope project` for team repos so everyone gets the MCP server automatical
 
 **Verify the connection:** Run `/mcp` inside Claude Code. The panel lists each connected server and its tool count. A healthy connection shows `mobiscroll` with at least one tool.
 
+### How it works
+
+Once installed, the plugin provides:
+
+- **Skills** — `mobiscroll-ui` is the orchestrator skill that detects your framework (React, Angular, Vue, JavaScript, or jQuery) and loads the matching framework sub-skill. Theming questions are handled by `mobiscroll-ui-theming`. All skills are installed together.
+- **MCP server** — The bundled Mobiscroll MCP server provides live component schema lookup, code validation, and example search on demand — so Claude always uses the current API, never hallucinated or outdated options.
+
+When you ask Claude Code to write Mobiscroll code, it:
+
+1. Detects your framework and Mobiscroll version via `resolveEnvironment`
+2. Loads the matching framework skill with idiomatic conventions
+3. Looks up the component schema before writing any props or events
+4. Validates generated code before returning it to you
+
 ## Framework isolation
 
 :::warning Critical
@@ -424,10 +423,7 @@ Each rules file and documentation source targets exactly **one** framework or do
 
 **Why this matters:**
 
-- `@mobiscroll/react` and `@mobiscroll/angular` have completely different APIs
-- React uses JSX components (`<Eventcalendar />`), Angular uses template elements (`<mbsc-eventcalendar>`)
-- CSS loading differs: React/Vue/JavaScript/jQuery use JS imports, Angular uses `angular.json` styles array
-- Mixing frameworks causes broken code that is difficult to debug
+- Most API options are shared across frameworks, but component usage and templating differs for each — mixing them produces broken code
 
 **Mobiscroll Connect is a separate domain:**
 
@@ -438,7 +434,7 @@ Each rules file and documentation source targets exactly **one** framework or do
 
 **Rules:**
 
-1. Add only **one** rules file per project — the one matching your framework or domain (`.mdc` for Cursor, `.instructions.md` for Copilot)
+1. Use only rules files that match **one** framework or domain — never mix files from different frameworks
 2. Register only **one** documentation source in Cursor
 3. If your project uses multiple frameworks (e.g., micro-frontends), set up separate directories with separate `.mdc` files
 4. If your project uses both a UI framework and Mobiscroll Connect, use separate AI context directories for each
@@ -500,9 +496,9 @@ All AI integration files are available at the following URLs:
 
 | File | Cursor (`.mdc`) | Copilot (`.instructions.md`) |
 |:---|:---|:---|
-| Orchestrator | <DocsLink path="mobiscroll-ui/SKILL.md" download filename="mobiscroll-ui.mdc" /> | <DocsLink path="copilot-instructions/mobiscroll-ui.instructions.md" download /> |
-| JavaScript conventions | <DocsLink path="docs/javascript/SKILL.md" download filename="mobiscroll-ui-javascript.mdc" /> | <DocsLink path="copilot-instructions/mobiscroll-ui-javascript.instructions.md" download /> |
-| Theming | <DocsLink path="mobiscroll-ui-theming/SKILL.md" download filename="mobiscroll-ui-theming.mdc" /> | <DocsLink path="copilot-instructions/mobiscroll-ui-theming.instructions.md" download /> |
+| Orchestrator | <DocsLink path="mobiscroll-ui/SKILL.md" download filename="mobiscroll-ui.mdc"><code>mobiscroll-ui.mdc</code></DocsLink> | <DocsLink path="copilot-instructions/mobiscroll-ui.instructions.md" download /> |
+| JavaScript conventions | <DocsLink path="docs/javascript/SKILL.md" download filename="mobiscroll-ui-javascript.mdc"><code>mobiscroll-ui-javascript.mdc</code></DocsLink> | <DocsLink path="copilot-instructions/mobiscroll-ui-javascript.instructions.md" download /> |
+| Theming | <DocsLink path="mobiscroll-ui-theming/SKILL.md" download filename="mobiscroll-ui-theming.mdc"><code>mobiscroll-ui-theming.mdc</code></DocsLink> | <DocsLink path="copilot-instructions/mobiscroll-ui-theming.instructions.md" download /> |
 
 ## File contents {#file-contents}
 
@@ -511,17 +507,17 @@ The complete contents of each file are shown below. You can copy directly from t
 ### Extended rule files {#extended-rule-files}
 
 <details>
-<summary>View <code>SKILL.md</code> (mobiscroll-ui — orchestrator)</summary>
+<summary>View <code>mobiscroll-ui.mdc</code> (orchestrator)</summary>
 <FileBlock src="mobiscroll-ui/SKILL.md" />
 </details>
 
 <details>
-<summary>View <code>SKILL.md</code> (mobiscroll-ui-javascript — JavaScript conventions)</summary>
+<summary>View <code>mobiscroll-ui-javascript.mdc</code> (JavaScript conventions)</summary>
 <FileBlock src="docs/javascript/SKILL.md" />
 </details>
 
 <details>
-<summary>View <code>SKILL.md</code> (mobiscroll-ui-theming — theming)</summary>
+<summary>View <code>mobiscroll-ui-theming.mdc</code> (theming)</summary>
 <FileBlock src="mobiscroll-ui-theming/SKILL.md" />
 </details>
 

@@ -248,7 +248,7 @@ your-project/
 
 **Verify the connection:** Open the **Output** panel in Cursor and select **MCP Logs** from the dropdown. A successful connection logs tool discovery messages for the `mobiscroll` server.
 
-### How it works?
+### How it works
 
 When asking Cursor about Mobiscroll, include `@docs` to ensure it reads the registered documentation:
 

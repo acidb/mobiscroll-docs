@@ -1,0 +1,17 @@
+import CodeBlock from '@theme/CodeBlock';
+
+On the [download page](https://download.mobiscroll.com/) a custom package can be built by picking only the components, themes, languages and additional modules you need.
+
+When [building your package](http://help.mobiscroll.com/en/articles/974201-download-builder), select the required components and other resources, then hit the download button.
+
+**1. Copy Mobiscroll into your app**
+
+Extract the zip file you just downloaded, then grab the `js`, `src` and `css` folders and copy it into src/lib/mobiscroll folder of your JavaScript app. If there is no such folder available, you can create it.
+
+**2. Run the config command**
+
+Run the config command in the root folder of your app in a terminal window.
+
+<CodeBlock language="bash">
+mobiscroll config {props.framework} --no-npm
+</CodeBlock>

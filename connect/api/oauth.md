@@ -44,6 +44,10 @@ Callback URL after authorization completes. **Note:** This parameter is retrieve
 Optional state parameter to maintain across the OAuth flow. This is passed back to your redirect_uri and can be used to prevent CSRF attacks and maintain application state.
 </Parameter>
 
+<Parameter name="lng" type="string" defaultValue={<code>Accept-Language, then en</code>} id="authorize-lng">
+Language for the Connect pages (provider selection, consent, login, and error pages). Supported values: `en`, `es`, `fr`, `ar`. When omitted, the UI falls back to the browser's `Accept-Language` header, then English. Arabic (`ar`) renders right-to-left. Example: `?lng=es`.
+</Parameter>
+
 <Parameter name="response_type" type="string" defaultValue={<code>undefined</code>} id="authorize-response_type">
 OAuth2 response type. Typically set to `"code"` for the authorization code flow.
 </Parameter>
@@ -74,7 +78,7 @@ Sets `oauth_req` cookie containing the complete OAuth request for later retrieva
 
 - **httpOnly**: true
 - **path**: /
-- **maxAge**: 30 minutes
+- **maxAge**: 2 hours
 - **sameSite**: lax
 
 </Parameter>
@@ -92,13 +96,15 @@ Sets `oauth_req` cookie containing the complete OAuth request for later retrieva
 
 ```bash title="Initiate OAuth authorization"
 GET /authorize?client_id=proj-123&user_id=user-456&redirect_uri=https://app.example.com/callback&response_type=code&state=xyz789&scope=read-write
+
+# Optional: append &lng=es to localize the Connect pages (en | es | fr | ar)
 ```
 
 ```bash title="Redirects to authorization page"
 302 Redirect
 Location: /authorize?client_id=proj-123&user_id=user-456&redirect_uri=https://app.example.com/callback&response_type=code&state=xyz789&scope=read-write
 
-Set-Cookie: oauth_req={"client_id":"proj-123","user_id":"user-456",...}; HttpOnly; Path=/; Max-Age=1800; SameSite=Lax
+Set-Cookie: oauth_req={"client_id":"proj-123","user_id":"user-456",...}; HttpOnly; Path=/; Max-Age=7200; SameSite=Lax
 ```
 
 </TabItem>
@@ -110,11 +116,29 @@ const authUrl = client.auth.generateAuthUrl({
   userId: 'user-456',
   // Optional parameters
   // state: 'xyz789',
-  // scope: 'calendar.readonly'
+  // scope: 'calendar.readonly',
+  // lng: 'es', // localize the Connect pages: en | es | fr | ar
 });
 
 // Redirect the user to authUrl
 // res.redirect(authUrl);
+```
+
+</TabItem>
+<TabItem value="python" label="Python SDK">
+
+```python
+# Generate the authorization URL
+auth_url = client.auth.generate_auth_url(
+    user_id='user-456',
+    # Optional parameters:
+    # scope='read-write',
+    # state='xyz789',
+    # lng='es',  # localize the Connect pages: en | es | fr | ar
+)
+
+# Redirect the user to auth_url
+# return redirect(auth_url)
 ```
 
 </TabItem>
@@ -127,10 +151,82 @@ $authUrl = $client->auth()->generateAuthUrl(
     // Optional parameters:
     // scope: 'read-write',
     // state: 'xyz789',
+    // lng: 'es', // localize the Connect pages: en | es | fr | ar
 );
 
 // Redirect the user to $authUrl
 header('Location: ' . $authUrl);
+```
+
+</TabItem>
+<TabItem value="dotnet" label=".NET SDK">
+
+```csharp
+// Generate the authorization URL
+var authUrl = client.Auth.GenerateAuthUrl(new AuthorizeParams
+{
+    UserId = "user-456",
+    // Optional parameters:
+    // Scope = "read-write",
+    // State = "xyz789",
+    // Lng = "es", // localize the Connect pages: en | es | fr | ar
+});
+
+// Redirect the user to authUrl
+// return Redirect(authUrl);
+```
+
+</TabItem>
+<TabItem value="java" label="Java SDK">
+
+```java
+import com.mobiscroll.connect.models.AuthUrlParams;
+
+// Generate the authorization URL
+String authUrl = client.auth().generateAuthUrl(AuthUrlParams.builder()
+    .userId("user-456")
+    // Optional parameters:
+    // .scope("read-write")
+    // .state("xyz789")
+    // .lng("es") // localize the Connect pages: en | es | fr | ar
+    .build());
+
+// Redirect the user to authUrl
+// response.sendRedirect(authUrl);
+```
+
+</TabItem>
+<TabItem value="go" label="Go SDK">
+
+```go
+// Generate the authorization URL
+authURL := client.Auth().GenerateAuthURL(&mobiscroll.AuthURLParams{
+    UserID: "user-456",
+    // Optional parameters:
+    // Scope: "read-write",
+    // State: "xyz789",
+    // Lng: "es", // localize the Connect pages: en | es | fr | ar
+})
+
+// Redirect the user to authURL
+// http.Redirect(w, r, authURL, http.StatusFound)
+```
+
+</TabItem>
+<TabItem value="ruby" label="Ruby SDK">
+
+```ruby
+# Generate the authorization URL
+auth_url = client.auth.generate_auth_url(
+  user_id: 'user-456'
+  # Optional parameters:
+  # scope: 'read-write',
+  # state: 'xyz789',
+  # lng: 'es' # localize the Connect pages: en | es | fr | ar
+)
+
+# Redirect the user to auth_url
+# redirect auth_url
 ```
 
 </TabItem>
@@ -143,8 +239,16 @@ header('Location: ' . $authUrl);
 - The OAuth request is stored in a cookie to maintain state across the authorization flow
 - If the user already exists in the database, their existing information is retrieved
 - Any existing provider tokens are loaded and initialized in the token store
-- The cookie expires after 30 minutes if the flow is not completed
+- The cookie expires after 2 hours if the flow is not completed
 - All query parameters plus the database `redirect_uri` are preserved and passed to the provider selection page
+:::
+
+:::tip Localizing the Connect pages
+Pass `lng` on the authorize URL to render the Connect pages (provider selection, consent, login, and error pages) in a specific language. Supported: English (`en`), Spanish (`es`), French (`fr`), and Arabic (`ar`).
+
+- If `lng` is omitted, the UI falls back to the browser's `Accept-Language` header, then English.
+- Arabic (`ar`) is right-to-left; the UI direction switches automatically.
+- Example: `/authorize?client_id=...&user_id=...&lng=es`. In the SDKs, pass `lng` to the auth-URL builder (see the examples above).
 :::
 
 :::info Re-authorizing an existing user
@@ -166,7 +270,7 @@ The following table summarizes the lifetime of every credential issued by Mobisc
 | **Authorization code** | 10 minutes | Single-use — deleted on first exchange |
 | **Access token (JWT)** | 1 hour (`3600 s`) | `exp` claim embedded in the JWT; rejected immediately after expiry even if the signature is valid |
 | **Refresh token** | No embedded expiry | The refresh token **does not** expire after a given time. Validity enforced server-side via JTI rotation (rotation happens on refresh call, not by time). Remains valid until used/rotated or explicitly revoked. If refresh returns `invalid_grant` or the newly issued refresh token is lost before persistence, the user must re-authorize. |
-| **OAuth session cookie** | 30 minutes | `oauth_req` cookie that carries the in-progress authorization state |
+| **OAuth session cookie** | 2 hours | `oauth_req` cookie that carries the in-progress authorization state |
 
 :::info Refresh Token Rotation
 Every `POST /token` call with `grant_type=refresh_token` issues a **new** refresh token and immediately invalidates the previous one.
@@ -378,6 +482,19 @@ const tokenResponse = await client.auth.getToken(code);
 ```
 
 </TabItem>
+<TabItem value="python" label="Python SDK">
+
+```python
+# Exchange authorization code for access token
+# The client is automatically authenticated after get_token()
+token_response = client.auth.get_token(code)
+
+# Persist tokens for future requests
+session['access_token'] = token_response.access_token
+session['refresh_token'] = token_response.refresh_token
+```
+
+</TabItem>
 <TabItem value="php" label="PHP SDK">
 
 ```php
@@ -387,6 +504,61 @@ $tokenResponse = $client->auth()->getToken($code);
 
 // Store the token and authenticate the client
 $client->auth()->setCredentials($tokenResponse);
+```
+
+</TabItem>
+<TabItem value="dotnet" label=".NET SDK">
+
+```csharp
+// Exchange authorization code for access token
+var tokenResponse = await client.Auth.GetTokenAsync(code);
+
+// The client is automatically authenticated with the new token
+client.Auth.SetCredentials(tokenResponse);
+```
+
+</TabItem>
+<TabItem value="java" label="Java SDK">
+
+```java
+import com.mobiscroll.connect.models.TokenResponse;
+
+// Exchange authorization code for access token
+// The client is automatically authenticated with the new token
+TokenResponse tokens = client.auth().getToken(code);
+
+// Persist tokens server-side keyed by your user
+httpSession.setAttribute("access_token", tokens.getAccessToken());
+httpSession.setAttribute("refresh_token", tokens.getRefreshToken());
+```
+
+</TabItem>
+<TabItem value="go" label="Go SDK">
+
+```go
+// Exchange authorization code for access token
+// The client is automatically authenticated with the new token
+tokens, err := client.Auth().GetToken(ctx, code)
+if err != nil {
+    // handle error
+}
+
+// Persist tokens server-side keyed by your user
+session.Set("access_token", tokens.AccessToken)
+session.Set("refresh_token", tokens.RefreshToken)
+```
+
+</TabItem>
+<TabItem value="ruby" label="Ruby SDK">
+
+```ruby
+# Exchange authorization code for access token
+# The client is automatically authenticated with the new token
+tokens = client.auth.get_token(code)
+
+# Persist tokens server-side keyed by your user
+session[:access_token]  = tokens.access_token
+session[:refresh_token] = tokens.refresh_token
 ```
 
 </TabItem>
@@ -511,6 +683,22 @@ grant_type=refresh_token&refresh_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 ```
 
 </TabItem>
+<TabItem value="python" label="Python SDK">
+
+```python
+# Token refresh is handled automatically by the SDK.
+# Register a callback to persist the new tokens whenever a refresh occurs.
+from mobiscroll_connect import TokenResponse
+
+def persist_tokens(tokens: TokenResponse) -> None:
+    # Persist in your database or session store
+    session['access_token'] = tokens.access_token
+    session['refresh_token'] = tokens.refresh_token
+
+client.on_tokens_refreshed(persist_tokens)
+```
+
+</TabItem>
 <TabItem value="php" label="PHP SDK">
 
 ```php
@@ -520,6 +708,59 @@ $client->onTokensRefreshed(function (TokenResponse $updatedTokens) {
     // Persist in your database or session store
     $_SESSION['tokens'] = $updatedTokens->toArray();
 });
+```
+
+</TabItem>
+<TabItem value="dotnet" label=".NET SDK">
+
+```csharp
+// Token refresh is handled automatically by the SDK.
+// Register a callback to persist the new tokens whenever a refresh occurs.
+client.OnTokensRefreshed(updatedTokens =>
+{
+    // Persist in your database or session store
+    HttpContext.Session.SetString("access_token", updatedTokens.AccessToken);
+    HttpContext.Session.SetString("refresh_token", updatedTokens.RefreshToken ?? "");
+});
+```
+
+</TabItem>
+<TabItem value="java" label="Java SDK">
+
+```java
+// Token refresh is handled automatically by the SDK.
+// Register a callback to persist the new tokens whenever a refresh occurs.
+client.onTokensRefreshed(updatedTokens -> {
+    // Persist in your database or session store
+    httpSession.setAttribute("access_token", updatedTokens.getAccessToken());
+    httpSession.setAttribute("refresh_token", updatedTokens.getRefreshToken());
+});
+```
+
+</TabItem>
+<TabItem value="go" label="Go SDK">
+
+```go
+// Token refresh is handled automatically by the SDK.
+// Register a callback to persist the new tokens whenever a refresh occurs.
+client.OnTokensRefreshed(func(updated *mobiscroll.TokenResponse) {
+    // Persist in your database or session store
+    session.Set("access_token", updated.AccessToken)
+    session.Set("refresh_token", updated.RefreshToken)
+})
+```
+
+</TabItem>
+<TabItem value="ruby" label="Ruby SDK">
+
+```ruby
+# Token refresh is handled automatically by the SDK.
+# Register a callback to persist the new tokens whenever a refresh occurs.
+client.on_tokens_refreshed do |tokens|
+  # Persist in your database or session store
+  session[:access_token]  = tokens.access_token
+  session[:refresh_token] = tokens.refresh_token if tokens.refresh_token
+end
 ```
 
 </TabItem>
@@ -585,9 +826,34 @@ Content-Type: application/json
 ```
 
 </TabItem>
+<TabItem value="python" label="Python SDK">
+
+The Python SDK does not include a built-in revoke method. Use the REST endpoint directly to revoke tokens.
+
+</TabItem>
 <TabItem value="php" label="PHP SDK">
 
 The PHP SDK does not include a built-in revoke method. Use the REST endpoint directly to revoke tokens.
+
+</TabItem>
+<TabItem value="dotnet" label=".NET SDK">
+
+The .NET SDK does not include a built-in revoke method. Use the REST endpoint directly to revoke tokens.
+
+</TabItem>
+<TabItem value="java" label="Java SDK">
+
+The Java SDK does not include a built-in revoke method. Use the REST endpoint directly to revoke tokens.
+
+</TabItem>
+<TabItem value="go" label="Go SDK">
+
+The Go SDK does not include a built-in revoke method. Use the REST endpoint directly to revoke tokens.
+
+</TabItem>
+<TabItem value="ruby" label="Ruby SDK">
+
+The Ruby SDK does not include a built-in revoke method. Use the REST endpoint directly to revoke tokens.
 
 </TabItem>
 </Tabs>

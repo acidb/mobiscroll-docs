@@ -1,0 +1,72 @@
+---
+applyTo: "**"
+---
+# Mobiscroll for jQuery — AI Rules
+
+## Documentation Source
+
+- **Primary (complete docs):** {{DOCS_BASE_URL}}/llms-jquery-full.txt
+- **TOC (links to .md pages):** {{DOCS_BASE_URL}}/llms-jquery.txt
+- **Individual pages:** `{{DOCS_BASE_URL}}/docs/jquery/{section}/{page}.md`
+- **Icons (supplementary):** {{DOCS_BASE_URL}}/llms-icons.txt
+
+## Scope
+
+USE this file when:
+- Project has `@mobiscroll/jquery` in package.json
+- Code uses `$('#element').mobiscroll()` or imports from `@mobiscroll/jquery`
+- Project depends on jQuery AND Mobiscroll together
+- User explicitly mentions jQuery + Mobiscroll
+
+DO NOT use this file for React, Angular, Vue, or plain JavaScript projects.
+
+## Component Mapping
+
+All scheduling views are ONE component: **Eventcalendar**, configured via the `view` option.
+
+| Intent | Component | Doc Path |
+|:---|:---|:---|
+| Event calendar / scheduling | eventcalendar | `jquery/eventcalendar/overview` |
+| Monthly/weekly/daily grid | eventcalendar (calendar view) | `jquery/eventcalendar/calendar` |
+| Event list / agenda | eventcalendar (agenda view) | `jquery/eventcalendar/agenda` |
+| Resource scheduler | eventcalendar (scheduler view) | `jquery/eventcalendar/scheduler` |
+| Horizontal timeline | eventcalendar (timeline view) | `jquery/eventcalendar/timeline` |
+| Drag & drop | eventcalendar | `jquery/eventcalendar/drag-and-drop` |
+| CRUD operations | eventcalendar | `jquery/eventcalendar/crud` |
+| Recurring events | eventcalendar | `jquery/core-concepts/recurrence` |
+| Date / time picker | datepicker | `jquery/datepicker/overview` |
+| Dropdown select | select | `jquery/select/overview` |
+| Modal / overlay | popup | `jquery/popup/overview` |
+| Input, textarea, button | forms | `jquery/forms/input` |
+| Toast, snackbar, alert | notifications | `jquery/notifications/toast` |
+| Theming | theming | `jquery/theming/sass-themes` |
+| Full API reference | eventcalendar API | `jquery/eventcalendar/api` |
+
+## Rules
+
+- Fetch `llms-jquery-full.txt` for complete context
+- Prefer `.md` pages over HTML — `.md` files are optimized for AI
+- Use official docs examples only — docs are the source of truth
+- Package: `@mobiscroll/jquery` — no other Mobiscroll package
+- CSS: `import '@mobiscroll/jquery/dist/css/mobiscroll.min.css'`
+- jQuery plugin pattern: `$('#element').mobiscroll().eventcalendar({ ... })`
+- Requires jQuery as peer dependency
+- Version: 6 (latest). Do not use deprecated v5 APIs.
+
+## Constraints
+
+- NEVER import from `@mobiscroll/react`, `@mobiscroll/angular`, `@mobiscroll/vue`, or `@mobiscroll/javascript`
+- NEVER use React JSX, Angular decorators, or Vue SFC patterns
+- NEVER invent API options, events, methods, or types — if not found in docs, say so
+- NEVER treat Scheduler/Timeline/Agenda as separate components — they are views of Eventcalendar
+- NEVER use Mobiscroll Connect docs for frontend UI (Connect = server-side REST API)
+- If the framework is unclear, ASK — do not default
+- NEVER silently translate v5 patterns to v6 — detect and ask first
+
+## Version Mismatch
+
+If the user mentions "v5", "version 5", or uses a v5-only pattern, respond:
+
+> "⚠️ This looks like Mobiscroll v5 syntax or API usage. This file is configured for Mobiscroll **v6 (latest)**. Would you like: 1) the v6 equivalent of what you're asking about, or 2) guidance using the v5 documentation instead?"
+
+Do not proceed with a v6 answer until the user confirms. Do not assume backward compatibility.

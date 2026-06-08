@@ -19,7 +19,9 @@
     "dev": "docusaurus start --config docusaurus.config.localhost.js",
     "check": "npm run build && npm run serve",
     "descriptions:add": "node scripts/add-descriptions.js",
-    "descriptions:validate": "node scripts/validate-descriptions.js"
+    "descriptions:validate": "node scripts/validate-descriptions.js",
+    "copy-skills": "node scripts/copy-skills.js",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@docusaurus/core": "^3.10.0",
@@ -36,7 +38,8 @@
     "@docusaurus/module-type-aliases": "^3.10.0",
     "@docusaurus/tsconfig": "^3.10.0",
     "@docusaurus/types": "^3.10.0",
-    "docusaurus-plugin-llms": "^0.3.0",
+    "docusaurus-plugin-llms": "0.3.0",
+    "patch-package": "^8.0.1",
     "typescript": "^5.8.3"
   },
   "browserslist": {

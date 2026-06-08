@@ -1,6 +1,6 @@
 ---
 sidebar_label: REST API
-sidebar_position: 3
+sidebar_position: 1
 slug: /rest-api-integration
 description: Integrate Mobiscroll Connect via direct HTTP requests — base URL, authentication, and endpoint examples for the REST API.
 ---
@@ -45,11 +45,14 @@ const params = new URLSearchParams({
   client_id: 'YOUR_CLIENT_ID',
   user_id: 'user-123',
   scope: 'read-write'
+  // lng: 'es' // optional: localize the Connect pages (en | es | fr | ar)
 });
 
 const authUrl = `https://connect.mobiscroll.com/api/oauth/authorize?${params.toString()}`;
 window.location.href = authUrl;
 ```
+
+The Connect pages are localized in English (`en`), Spanish (`es`), French (`fr`), and Arabic (`ar`). Pass an optional `lng` parameter to choose the language; when omitted it falls back to the browser's `Accept-Language` header, then English. Arabic renders right-to-left.
 
 **Example: Exchange Code for Token**
 

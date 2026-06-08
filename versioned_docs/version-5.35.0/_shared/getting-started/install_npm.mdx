@@ -6,6 +6,13 @@ To install the Mobiscroll library from NPM, you will need to open a terminal win
 mobiscroll config {props.framework}
 </CodeBlock>
 
+:::caution The CLI handles everything — don't do these manually
+
+- **Do not run `npm login`** — `mobiscroll config` sets up Mobiscroll's private NPM registry authentication automatically.
+- **Do not run `npm install @mobiscroll/...`** — the CLI adds and installs the Mobiscroll package for you.
+- **Do not set up a license key manually** — the CLI configures your license when you run `mobiscroll config`.
+:::
+
 :::info
 If you're working behind a proxy, additional configuration might be needed. Please check the [proxy configuration options](https://mobiscroll.com/docs/core-concepts/cli#using-the-cli-behind-a-proxy) of the CLI.
 :::

@@ -1,5 +1,20 @@
 import React from 'react';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './styles.module.css';
+
+interface ConnectDashboardLinkProps {
+  path?: string;
+  children: React.ReactNode;
+}
+
+export function ConnectDashboardLink({ path = '/connect', children }: ConnectDashboardLinkProps) {
+  const { siteConfig } = useDocusaurusContext();
+  const docsUrl = new URL(siteConfig.url);
+  const hostname = docsUrl.hostname;
+  const appHostname = hostname === 'localhost' ? 'app.mobiscroll.com' : `app.${hostname}`;
+  const href = `https://${appHostname}${path}`;
+  return <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>;
+}
 
 interface ParameterProps {
   name: string;

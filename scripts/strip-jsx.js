@@ -7,6 +7,18 @@ const path = require('path');
 
 const BUILD_DIR = path.join(__dirname, '..', 'build');
 
+const FRAMEWORKS = ['angular', 'react', 'vue', 'jquery', 'javascript'];
+
+function detectFramework(filePath) {
+  const normalized = filePath.replace(/\\/g, '/');
+  for (const fw of FRAMEWORKS) {
+    if (new RegExp(`[/\\-]${fw}[/\\-.]`).test(normalized)) {
+      return fw;
+    }
+  }
+  return null;
+}
+
 // Collect all .txt and .md files recursively
 function collectFiles(dir, result = []) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -47,7 +59,11 @@ const MULTI_LINE_SELF_CLOSING_START = /^\s*<(?:DocCardList|SupportedPlatforms)\b
 // These are UI-only components that produce no useful text for LLMs.
 const BLOCK_REMOVE_TAGS = ['ImgComparisonSlider'];
 
-function stripJsx(content) {
+function stripJsx(content, framework) {
+  // Resolve MDX prop {props.framework} before any other processing
+  if (framework) {
+    content = content.replace(/\{props\.framework\}/g, framework);
+  }
   const lines = content.split('\n');
   const out = [];
   let inFencedBlock = false;
@@ -198,8 +214,9 @@ const files = collectFiles(BUILD_DIR);
 let processed = 0;
 
 for (const file of files) {
+  const framework = detectFramework(file);
   const original = fs.readFileSync(file, 'utf8');
-  const cleaned = stripJsx(original);
+  const cleaned = stripJsx(original, framework);
   if (cleaned !== original) {
     fs.writeFileSync(file, cleaned, 'utf8');
     processed++;

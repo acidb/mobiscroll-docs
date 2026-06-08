@@ -124,6 +124,12 @@ Use the official .NET SDK for backend integrations in .NET 6+ applications. The 
 
 **[Get started with the .NET SDK](/connect/dotnet-sdk)**
 
+### Python SDK
+
+Use the official Python SDK for backend integrations in Python 3.9+ applications. The SDK provides both sync and async clients, typed models, automatic token management, and consistent exception handling.
+
+**[Get started with the Python SDK](/connect/python-sdk)**
+
 ### Demo Application
 
 Start with our complete working example that demonstrates the full OAuth flow, calendar synchronization, and event management using the Node.js SDK out of the box.

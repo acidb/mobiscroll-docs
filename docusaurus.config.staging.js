@@ -77,7 +77,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
           includeCurrentVersion: false,
-          lastVersion: '6.0.0',
+          lastVersion: '6.1.0',
           exclude: [
             '**/_*.{js,jsx,ts,tsx,md,mdx}',
             '**/_*/**',
@@ -87,11 +87,11 @@ const config = {
             'llms-content-full.md',
           ],
           versions: {
-            "6.0.0": {
+            "6.1.0": {
               badge: false,
             },
           },
-          onlyIncludeVersions: ['6.0.0', '5.35.0', '5.34.0'],
+          onlyIncludeVersions: ['6.1.0', '5.35.0'],
         },
         blog: false,
         theme: {

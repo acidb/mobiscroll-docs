@@ -1,0 +1,14 @@
+Exclusive end dates means that the last moment of a given range is not actually part of the range.
+
+Many of existing calendaring solutions (e.g. Google Calendar) and standards (e.g. [iCalendar](https://icalendar.org/)) are working with exclusive end dates, so this makes interoperabiliy with our Eventcalendar UI simpler.
+
+With the introduction of timezone support, this also became a necessity, e.g. if you have an event with start: `'2021-07-09T20:00Z'` and end: `'2021-07-09T21:00Z'`, defined in UTC, when displayed in Europe/Bucharest timezone, the end becomes '2021-07-10T00:00+03:00'. With inclusive end dates the event will show up on 10th of July as well, which is unexpected.
+
+The exclusive end dates mode can be enabled using the [`exclusiveEndDates`](api#opt-exclusiveEndDates) option. When timezones are used ([`displayTimezone`](api#opt-displayTimezone) and/or [`dataTimezone`](api#opt-dataTimezone) is set), exclusive end dates are automatically enabled.
+
+
+:::caution
+Enabling exclusive end dates can cause breaking changes, especially with all-day events with no time specified.
+
+With inclusive end dates an event with start: `'2021-07-09'` and end: `'2021-07-10'` will show as a two day event on the calendar view, expanded over 9th and 10th of July. With exclusive end dates the event will be a single day event, showing up only on 9th of July.
+:::

@@ -77,10 +77,45 @@ const calendars = await client.calendars.list();
 ```
 
 </TabItem>
+<TabItem value="python" label="Python SDK">
+
+```python
+calendars = client.calendars.list()
+```
+
+</TabItem>
 <TabItem value="php" label="PHP SDK">
 
 ```php
 $calendars = $client->calendars()->list();
+```
+
+</TabItem>
+<TabItem value="dotnet" label=".NET SDK">
+
+```csharp
+var calendars = await client.Calendars.ListAsync();
+```
+
+</TabItem>
+<TabItem value="java" label="Java SDK">
+
+```java
+List<Calendar> calendars = client.calendars().list();
+```
+
+</TabItem>
+<TabItem value="go" label="Go SDK">
+
+```go
+calendars, err := client.Calendars().List(ctx)
+```
+
+</TabItem>
+<TabItem value="ruby" label="Ruby SDK">
+
+```ruby
+calendars = client.calendars.list
 ```
 
 </TabItem>

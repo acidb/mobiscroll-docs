@@ -1,6 +1,6 @@
 ---
 sidebar_label: Node.js SDK
-sidebar_position: 1
+sidebar_position: 2
 slug: /node-sdk
 description: Use the @mobiscroll/connect-sdk Node.js package to interact with Mobiscroll Connect — setup, authentication, and API method reference.
 ---
@@ -171,6 +171,8 @@ The client exposes the following resources that map directly to the API endpoint
 ### Auth
 
 The `client.auth` resource handles the OAuth authorization flow, including generating authorization URLs, exchanging codes for tokens, and managing connection status. It corresponds to the `/authorize`, `/token`, and `/connection-status` endpoints.
+
+To localize the Connect pages, pass an optional `lng` (`en`, `es`, `fr`, `ar`) to `generateAuthUrl`, e.g. `generateAuthUrl({ userId, lng: 'es' })`. When omitted, the UI falls back to the browser's `Accept-Language` header, then English; Arabic renders right-to-left.
 
 <DocCardList items={[
   {

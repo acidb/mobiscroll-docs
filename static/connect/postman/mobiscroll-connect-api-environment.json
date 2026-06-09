@@ -38,6 +38,12 @@
       "enabled": true
     },
     {
+      "key": "lng",
+      "value": "en",
+      "type": "default",
+      "enabled": true
+    },
+    {
       "key": "accessToken",
       "value": "",
       "type": "default",

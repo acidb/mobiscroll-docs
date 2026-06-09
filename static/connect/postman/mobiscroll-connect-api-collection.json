@@ -16,7 +16,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/oauth/authorize?response_type=code&client_id={{clientId}}&user_id={{userId}}&scope={{scope}}&redirect_uri={{redirectUri}}",
+              "raw": "{{baseUrl}}/oauth/authorize?response_type=code&client_id={{clientId}}&user_id={{userId}}&scope={{scope}}&redirect_uri={{redirectUri}}&lng={{lng}}",
               "host": ["{{baseUrl}}"],
               "path": ["oauth", "authorize"],
               "query": [
@@ -39,6 +39,12 @@
                 {
                   "key": "redirect_uri",
                   "value": "{{redirectUri}}"
+                },
+                {
+                  "key": "lng",
+                  "value": "{{lng}}",
+                  "description": "Optional. Language code for the Connect UI (en, es, fr, ar). Falls back to Accept-Language header, then English.",
+                  "disabled": true
                 }
               ]
             },
@@ -409,7 +415,7 @@
       },
       {
         "key": "authUrl",
-        "value": "{{baseUrl}}/oauth/authorize?user_id={{userId}}&scope={{scope}}",
+        "value": "{{baseUrl}}/oauth/authorize?user_id={{userId}}&scope={{scope}}&lng={{lng}}",
         "type": "string"
       },
       {

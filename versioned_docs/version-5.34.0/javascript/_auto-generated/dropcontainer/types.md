@@ -1,3 +1,5 @@
+export const toc = []
+
 ### MbscLocale {#type-MbscLocale}
 
 Interface
@@ -63,7 +65,7 @@ Properties:
 Interface
 
 
-The `MbscResponsiveOptions<any>` supports custom properties in the form:
+The `MbscResponsiveOptions&lt;any&gt;` supports custom properties in the form:
 ```
 [key:string]: any & {breakpoint?: number}
 ```

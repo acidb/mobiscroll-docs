@@ -1,3 +1,5 @@
+export const toc = []
+
 ### getEvents {#method-getEvents}
 
 (start: MbscDateType, end: MbscDateType) => Array&lt;MbscCalendarEvent&gt;

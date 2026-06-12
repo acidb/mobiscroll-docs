@@ -1,8 +1,8 @@
----
+﻿---
 sidebar_position: 4
 sidebar_label: Controls
 displayed_sidebar: reactSidebar
-description: 'Choose which controls appear in the Mobiscroll Datepicker — calendar picker, time grid, date scroller, time scroller, or combinations thereof.'
+description: 'Choose which controls appear in the Mobiscroll Datepicker â€” calendar picker, time grid, date scroller, time scroller, or combinations thereof.'
 ---
 
 # Controls
@@ -16,8 +16,8 @@ The [`controls`](./api#opt-controls) option specifies which control is rendered 
 
 * The **Calendar view** can be used for single or multiple date selection as well as date range selection. It is represented by the `'calendar'` string. It is the **default** of the controls option.
   ```jsx
-import { Datepicker } from '@mobiscroll/react';
-import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+  import { Datepicker } from '@mobiscroll/react';
+  import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
   const MY_CALENDAR_CTRL = ['calendar'];
 
@@ -28,8 +28,8 @@ import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 * The **Date scroller** can be used for single date selection or date range selection. It is represented by the `'date'` string.
   ```jsx
-import { Datepicker } from '@mobiscroll/react';
-import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+  import { Datepicker } from '@mobiscroll/react';
+  import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
   const MY_DATE_CTRL = ['date'];
 
@@ -40,8 +40,8 @@ import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 * The **Time scroller** can be used for single time selection or time range selection. It can also be combined with other controls. It is represented by the `'time'` string.
   ```jsx
-import { Datepicker } from '@mobiscroll/react';
-import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+  import { Datepicker } from '@mobiscroll/react';
+  import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
   const MY_TIME_CTRL = ['time'];
 
@@ -52,8 +52,8 @@ import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 * The **Date & Time scroller** can be used for single date & time selection as well as date & time range selection. It is represented by the `'datetime'` string.
   ```jsx
-import { Datepicker } from '@mobiscroll/react';
-import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+  import { Datepicker } from '@mobiscroll/react';
+  import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
   const MY_DATETIME_CTRL = ['datetime'];
 
@@ -64,8 +64,8 @@ import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 * The **Timegrid** can be used for single time selection or time range selection. It can also be combined with the `'calendar'` or the `'date'` control. It is represented by the `'timegrid'` string.
   ```jsx
-import { Datepicker } from '@mobiscroll/react';
-import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+  import { Datepicker } from '@mobiscroll/react';
+  import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
   const MY_TIMEGRID_CTRL = ['timegrid'];
 
@@ -96,3 +96,4 @@ const MY_DATE_TIMEGRID = ['date', 'timegrid'];
 <Datepicker controls={MY_DATE_TIME} />
 <Datepicker controls={MY_DATE_TIMEGRID} />
 ```
+

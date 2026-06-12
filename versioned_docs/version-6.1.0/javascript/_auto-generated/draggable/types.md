@@ -1,3 +1,5 @@
+export const toc = []
+
 ### MbscCalendarEvent {#type-MbscCalendarEvent}
 
 Interface

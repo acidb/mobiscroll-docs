@@ -1,3 +1,5 @@
+export const toc = []
+
 ### agenda {#slot-agenda}
 
 ```html

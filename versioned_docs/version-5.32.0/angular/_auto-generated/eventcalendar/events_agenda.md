@@ -1,3 +1,5 @@
+export const toc = []
+
 ### onDestroy {#event-onDestroy}
 
 (args: any, inst: any) => void

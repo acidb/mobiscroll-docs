@@ -1,3 +1,5 @@
+export const toc = []
+
 ### bufferAfterTemplate {#template-bufferAfterTemplate}
 
 Template reference to fully customize the buffer area that is displayed at the end of the scheduler and timeline events.

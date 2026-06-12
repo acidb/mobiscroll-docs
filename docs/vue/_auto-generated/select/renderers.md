@@ -1,7 +1,9 @@
-### popupHeader {#slot-popupHeader}
+export const toc = []
+
+### header {#slot-header}
 
 ```html
-<template #popupHeader>...</template>
+<template #header>...</template>
 ```
 
 A render function to customize the header of the picker popup.

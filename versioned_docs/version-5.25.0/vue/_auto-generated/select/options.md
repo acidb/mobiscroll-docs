@@ -1,3 +1,5 @@
+export const toc = []
+
 ### anchor {#opt-anchor}
 
 HTMLElement
@@ -219,7 +221,7 @@ If `true` and [display](#opt-display) is not set to `'inline'`, focus won&#039;t
 string
 
 Specifies a custom string which appears in the picker header.
-If it contains the `'{value}'` string, it will be replaced with the selected value of the picker.
+If it contains the `'&#123;value&#125;'` string, it will be replaced with the selected value of the picker.
 
 **Default value**: `undefined`
 ### inputStyle {#opt-inputStyle}

@@ -1,3 +1,5 @@
+export const toc = []
+
 ### onCellClick {#event-onCellClick}
 
 (args: MbscCellClickEvent, inst: EventcalendarBase) => void

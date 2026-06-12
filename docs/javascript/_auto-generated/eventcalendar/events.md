@@ -1,3 +1,5 @@
+export const toc = []
+
 ### onCellClick {#event-onCellClick}
 
 (args: MbscCellClickEvent, inst: EventcalendarBase) => void
@@ -851,5 +853,4 @@ Parameters:
    - `oldTimeEnd`: *number* - The time in milliseconds where the previous virtual view ended on the scheduler view.
 
  - inst - The component instance.
-
 

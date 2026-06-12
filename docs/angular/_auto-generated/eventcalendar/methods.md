@@ -1,3 +1,5 @@
+export const toc = []
+
 
 ### getEvents {#method-getEvents}
 
@@ -48,5 +50,8 @@ Navigates to the specified event on the calendar.
 Parameters:
  - event - The event object. The `id`, `start` and `resource` properties (in case if resources
 are used in timeline or scheduler views) must be present in the object.
+
+
+
 
 

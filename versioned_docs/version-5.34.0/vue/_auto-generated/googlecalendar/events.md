@@ -1,3 +1,5 @@
+export const toc = []
+
 ### @init {#event-google-onInit}
 
 () => void

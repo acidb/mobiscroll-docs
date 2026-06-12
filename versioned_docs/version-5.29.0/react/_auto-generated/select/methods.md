@@ -1,3 +1,5 @@
+export const toc = []
+
 
 ### getTempVal {#method-getTempVal}
 

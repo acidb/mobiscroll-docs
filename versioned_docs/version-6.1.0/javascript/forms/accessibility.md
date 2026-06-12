@@ -8,6 +8,5 @@ description: Keyboard navigation, ARIA roles, and label pairing for Mobiscroll f
 
 import Content from '../../_shared/forms/accessibility.mdx';
 import { toc as TOC } from '../../_shared/forms/accessibility.mdx';
-export const toc = [...TOC];
 
 <Content />

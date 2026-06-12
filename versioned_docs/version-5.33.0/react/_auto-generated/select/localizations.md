@@ -1,3 +1,5 @@
+export const toc = []
+
 ### cancelText {#localization-cancelText}
 
 string

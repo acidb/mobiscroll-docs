@@ -1,3 +1,5 @@
+export const toc = []
+
 ### onCancel {#event-onCancel}
 
 (args: MbscSelectCancelEvent, inst: SelectBase) => void

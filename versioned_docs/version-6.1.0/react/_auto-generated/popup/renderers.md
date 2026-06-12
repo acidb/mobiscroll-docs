@@ -1,3 +1,5 @@
+export const toc = []
+
 ### renderHeader {#renderer-renderHeader}
 
 () => any

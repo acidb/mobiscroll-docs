@@ -1,3 +1,5 @@
+export const toc = []
+
 ### renderItem {#renderer-renderItem}
 
 (args: MbscSelectItemData) => any

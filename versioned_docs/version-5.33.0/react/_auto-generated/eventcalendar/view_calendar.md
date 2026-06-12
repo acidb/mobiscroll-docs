@@ -1,3 +1,5 @@
+export const toc = []
+
 ### count {#view-calendar-count}
 
 boolean

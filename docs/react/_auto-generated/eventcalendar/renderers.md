@@ -1,3 +1,5 @@
+export const toc = []
+
 ### renderAgenda {#renderer-renderAgenda}
 
 (events: Array&lt;MbscEventList&gt;, options: MbscEventcalendarOptions, dayRefs: &#123; [key:number]: HTMLElement &#124; null &#125;) => any
@@ -703,4 +705,3 @@ The following properties are available:
  - `isActive`: _boolean_ - True for the current year.
 
 **Default value**: `undefined`
-

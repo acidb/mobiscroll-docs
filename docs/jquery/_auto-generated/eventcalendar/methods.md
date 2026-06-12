@@ -1,3 +1,5 @@
+export const toc = []
+
 ### addEvent {#method-addEvent}
 
 (events: [MbscCalendarEvent](#type-MbscCalendarEvent) &#124; Array&lt;[MbscCalendarEvent](#type-MbscCalendarEvent)&gt;) => Array&lt;string&gt;

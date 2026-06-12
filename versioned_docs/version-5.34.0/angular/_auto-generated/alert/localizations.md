@@ -1,3 +1,5 @@
+export const toc = []
+
 ### okText {#localization-okText}
 
 string

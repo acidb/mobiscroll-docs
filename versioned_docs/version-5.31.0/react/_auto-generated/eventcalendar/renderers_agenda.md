@@ -1,3 +1,5 @@
+export const toc = []
+
 ### renderAgenda {#renderer-renderAgenda}
 
 (events: Array&lt;MbscEventList&gt;, options: MbscEventcalendarOptions, dayRefs: missing) => any

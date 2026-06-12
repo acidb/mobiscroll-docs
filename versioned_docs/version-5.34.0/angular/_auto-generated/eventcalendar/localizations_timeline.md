@@ -1,3 +1,5 @@
+export const toc = []
+
 ### allDayText {#localization-allDayText}
 
 string
@@ -88,7 +90,7 @@ Set the first day of the week: Sunday is 0, Monday is 1, etc.
 **Default value**: `0`
 ### locale {#localization-locale}
 
-MbscLocale
+[MbscLocale](#type-MbscLocale)
 
 Sets the language of the component. The locale object contains all the translations for a given language.
 The built in language modules are listed below. If a language is not listed, it can be provided as a

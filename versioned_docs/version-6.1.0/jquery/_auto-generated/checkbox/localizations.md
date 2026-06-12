@@ -1,3 +1,5 @@
+export const toc = []
+
 ### locale {#localization-locale}
 
 [MbscLocale](#type-MbscLocale)

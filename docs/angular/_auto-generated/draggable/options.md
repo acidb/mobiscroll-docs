@@ -1,3 +1,5 @@
+export const toc = []
+
 ### context {#opt-context}
 
 string &#124; HTMLElement

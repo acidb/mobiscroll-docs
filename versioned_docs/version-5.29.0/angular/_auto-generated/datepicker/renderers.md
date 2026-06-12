@@ -1,3 +1,5 @@
+export const toc = []
+
 ### calendarHeaderTemplate {#template-calendarHeaderTemplate}
 
 Template reference for custom calendar header rendering.

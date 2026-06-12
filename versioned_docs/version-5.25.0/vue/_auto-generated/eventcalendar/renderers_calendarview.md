@@ -1,3 +1,5 @@
+export const toc = []
+
 ### renderDay {#renderer-renderDay}
 
 (args: MbscCalendarDayData) => any

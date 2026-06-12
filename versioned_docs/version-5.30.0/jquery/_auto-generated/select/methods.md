@@ -1,3 +1,5 @@
+export const toc = []
+
 ### close {#method-close}
 
 () => void

@@ -1,3 +1,5 @@
+export const toc = []
+
 ### currentTimeIndicator {#view-timeline-currentTimeIndicator}
 
 boolean

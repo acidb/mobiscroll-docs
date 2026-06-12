@@ -1,3 +1,5 @@
+export const toc = []
+
 ### allDay {#view-schedule-allDay}
 
 boolean

@@ -1,3 +1,5 @@
+export const toc = []
+
 ### bufferAfter {#slot-bufferAfter}
 
 ```html

@@ -1,3 +1,5 @@
+export const toc = []
+
 ### calendarHeader {#slot-calendarHeader}
 
 ```html

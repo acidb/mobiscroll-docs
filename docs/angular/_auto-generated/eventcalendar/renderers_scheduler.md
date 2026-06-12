@@ -1,3 +1,5 @@
+export const toc = []
+
 ### bufferAfterTemplate {#template-bufferAfterTemplate}
 
 Template reference to fully customize the buffer area that is displayed at the end of the scheduler and timeline events.
@@ -71,12 +73,12 @@ The following properties are available:
 
 ```html
 <mbsc-eventcalendar [resourceTemplate]="myTemplate">
-  <ng-template #myTemplate let-resource>
-    <div>{{resource.name}}</div>
-    <p>{{resource.description}}</p>
+  <ng-template #myTemplate let-resource&gt;
+    &lt;div&gt;&#123;&#123;resource.name&#125;&#125;</div&gt;
+    &lt;p&gt;&#123;&#123;resource.description&#125;&#125;</p&gt;
     <img [src]="resource.img" />
-  </ng-template>
-</mbsc-eventcalendar>
+  </ng-template&gt;
+</mbsc-eventcalendar&gt;
 ```
 
 **Default value**: `undefined`

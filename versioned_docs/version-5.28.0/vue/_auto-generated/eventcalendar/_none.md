@@ -1,3 +1,5 @@
+export const toc = []
+
 ### view {#view}
 
 MbscEventcalendarView

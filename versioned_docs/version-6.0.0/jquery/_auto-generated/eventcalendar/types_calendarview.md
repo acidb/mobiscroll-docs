@@ -1,3 +1,5 @@
+export const toc = []
+
 ### MbscCalendarColor {#type-MbscCalendarColor}
 
 Interface
@@ -213,7 +215,7 @@ Properties:
 Interface
 
 
-The `MbscResponsiveOptions<MbscEventcalendarOptions>` supports custom properties in the form:
+The `MbscResponsiveOptions&lt;MbscEventcalendarOptions&gt;` supports custom properties in the form:
 ```
 [key:string]: MbscEventcalendarOptions & {breakpoint?: number}
 ```

@@ -1,3 +1,5 @@
+export const toc = []
+
 ### allDayText {#localization-allDayText}
 
 string
@@ -94,7 +96,7 @@ Set the first day of the week: Sunday is 0, Monday is 1, etc.
 **Default value**: `0`
 ### locale {#localization-locale}
 
-MbscLocale
+[MbscLocale](#type-MbscLocale)
 
 Sets the language of the component. The locale object contains all the translations for a given language.
 The built in language modules are listed below. If a language is not listed, it can be provided as a
@@ -159,7 +161,7 @@ string
 
 Text for the &quot;more&quot; label on the calendar, when there&#039;s not enough space to display all the labels for the day,
 and there are more than one extra labels.
-The `&#123;count&#125;` inside the string will be replaced with the number of extra labels.
+The `{count}` inside the string will be replaced with the number of extra labels.
 When not specified, the [moreEventsText](#localization-moreEventsText) option will be used for both plural and singular form.
 
 **Default value**: `undefined`
@@ -168,10 +170,10 @@ When not specified, the [moreEventsText](#localization-moreEventsText) option wi
 string
 
 Text for the &quot;more&quot; label on the calendar, when there&#039;s not enough space to display all the labels for the day.
-The `&#123;count&#125;` inside the string will be replaced with the number of extra labels.
+The `{count}` inside the string will be replaced with the number of extra labels.
 Use the [moreEventsPluralText](#localization-moreEventsPluralText) as well, if the plural form is different.
 
-**Default value**: `'&#123;count&#125; more'`
+**Default value**: `'{count} more'`
 ### newEventText {#localization-newEventText}
 
 string

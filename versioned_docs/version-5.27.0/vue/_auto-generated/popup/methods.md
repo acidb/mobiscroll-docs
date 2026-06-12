@@ -1,3 +1,5 @@
+export const toc = []
+
 ### position {#method-position}
 
 () => void

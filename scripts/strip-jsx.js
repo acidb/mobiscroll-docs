@@ -59,9 +59,27 @@ const MULTI_LINE_SELF_CLOSING_START = /^\s*<(?:DocCardList|SupportedPlatforms)\b
 // These are UI-only components that produce no useful text for LLMs.
 const BLOCK_REMOVE_TAGS = ['ImgComparisonSlider'];
 
+// Decode HTML entities introduced by MDX 3's JSX parser escaping and by the docs build.
+// includeAngleBrackets: also decode &lt;/&gt; — safe for framework files (angular, react,
+// vue, jquery, javascript) where they appear in type annotations and template examples,
+// but NOT for connect files where they protect XML attribute values like
+// <Parameter type="Array&lt;Calendar&gt;">.
+function decodeHtmlEntities(text, includeAngleBrackets = false) {
+  let result = text
+    .replace(/&#123;/g, '{')
+    .replace(/&#125;/g, '}');
+  if (includeAngleBrackets) {
+    result = result
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>');
+  }
+  return result;
+}
+
 function stripJsx(content, framework) {
   // Resolve MDX prop {props.framework} before any other processing
   if (framework) {
+    content = content.replace(/\$\{props\.framework\}/g, framework);
     content = content.replace(/\{props\.framework\}/g, framework);
   }
   const lines = content.split('\n');
@@ -76,7 +94,7 @@ function stripJsx(content, framework) {
   let blockRemoveTagName = '';
 
   for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
+    let line = lines[i];
 
     // ── Track fenced code blocks (```) ──────────────────────────────
     if (/^\s*(`{3,}|~{3,})/.test(line)) {
@@ -94,6 +112,25 @@ function stripJsx(content, framework) {
     // Inside a fenced code block: pass through untouched
     if (inFencedBlock) {
       out.push(line);
+      continue;
+    }
+
+    // ── JSX fragment open/close → remove ────────────────────────────────────
+    if (/^\s*<>\s*$/.test(line)) continue;
+    if (/^\s*<\/>\s*$/.test(line)) continue;
+    if (/^\s*<><\/>\s*$/.test(line)) continue;
+
+    // ── JSX space expression {' '} or {" "} → strip from line ───────────────
+    line = line.replace(/\{['"]\s*['"]\}/g, '');
+
+    // ── Heading anchor IDs → strip (MDX explicit anchors, noise in LLM output) ─
+    line = line.replace(/^(#{1,6}\s+.*?)\s*\{#[^}]+\}/, '$1');
+
+
+    // ── HTML tables with className (UI chrome, e.g. WCAG accessibility tables) ─
+    if (/^\s*<table\b[^>]*className=/.test(line)) {
+      inBlockRemoveTag = true;
+      blockRemoveTagName = 'table';
       continue;
     }
 
@@ -141,13 +178,31 @@ function stripJsx(content, framework) {
         out.push('**' + cbOpen[2] + '**');
         out.push('');
       }
+      // Capture inline template literal content on the same line as the opening tag
+      const restOfLine = line.slice(cbOpen[0].length);
+      const inlineMatch = restOfLine.match(/^\s*\{\s*`([\s\S]*)/);
+      if (inlineMatch && inlineMatch[1].trim()) codeBlockBody.push(inlineMatch[1]);
       continue;
     }
     if (inCodeBlockTag) {
-      if (/^\s*<\/CodeBlock>\s*$/.test(line)) {
-        // Emit as fenced code block
+      let closingMatched = false;
+      if (/^\s*\}?\s*<\/CodeBlock>\s*$/.test(line)) {
+        closingMatched = true;
+      } else if (/`\s*\}\s*<\/CodeBlock>\s*$/.test(line)) {
+        // Template literal closes on the same line as last content: extract content before `}
+        const contentPart = line.replace(/`\s*\}\s*<\/CodeBlock>\s*$/, '');
+        if (contentPart.trim()) codeBlockBody.push(contentPart);
+        closingMatched = true;
+      }
+      if (closingMatched) {
+        // Emit as fenced code block, stripping template literal backtick wrappers
+        let body = codeBlockBody.slice();
+        if (body.length > 0 && body[0].startsWith('`')) body[0] = body[0].slice(1);
+        if (body.length > 0 && body[body.length - 1].endsWith('`')) body[body.length - 1] = body[body.length - 1].slice(0, -1);
+        while (body.length > 0 && body[0].trim() === '') body.shift();
+        while (body.length > 0 && body[body.length - 1].trim() === '') body.pop();
         out.push('```' + codeBlockLang);
-        out.push(...codeBlockBody);
+        out.push(...body);
         out.push('```');
         inCodeBlockTag = false;
         codeBlockLang = '';
@@ -205,8 +260,9 @@ function stripJsx(content, framework) {
     out.push(line);
   }
 
-  // Clean up excessive blank lines (3+ → 2)
-  return out.join('\n').replace(/\n{3,}/g, '\n\n');
+  // Clean up excessive blank lines (3+ → 2), then decode HTML entities.
+  // Pass !!framework so &lt;/&gt; are decoded for framework files but preserved for connect/icons.
+  return decodeHtmlEntities(out.join('\n').replace(/\n{3,}/g, '\n\n'), !!framework);
 }
 
 // ─── Main ────────────────────────────────────────────────────────────────────

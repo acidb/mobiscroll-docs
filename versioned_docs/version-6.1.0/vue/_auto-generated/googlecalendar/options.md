@@ -1,3 +1,5 @@
+export const toc = []
+
 ### apiKey {#opt-google-apiKey}
 
 string

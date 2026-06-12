@@ -1,3 +1,5 @@
+export const toc = []
+
 ### headerTemplate {#template-headerTemplate}
 
 Template reference for custom picker popup header rendering.

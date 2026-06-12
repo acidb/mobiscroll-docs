@@ -1,3 +1,5 @@
+export const toc = []
+
 ### calendarDayContentTemplate {#template-calendarDayContentTemplate}
 
 Customize the day cells content of the event calendar. The Eventcalendar will take care of the styling and you can focus on

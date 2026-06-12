@@ -1,9 +1,11 @@
+export const toc = []
+
 ### onCellClick {#event-onCellClick}
 
 (args: MbscCellClickEvent, inst: EventcalendarBase) => void
 
 
-Triggered when a cell is clicked on the calendar view, scheduler grid, or timeline grid.
+Triggered when a cell is clicked on the calendar day, scheduler cell, or timeline cell.
 
 Parameters:
  - args - The event object has the following properties:
@@ -23,7 +25,7 @@ Parameters:
 (args: MbscCellClickEvent, inst: EventcalendarBase) => void
 
 
-Triggered when a cell is double-clicked on the calendar view, scheduler grid, or timeline grid.
+Triggered when a cell is double-clicked on the calendar day, scheduler cell, or timeline cell.
 
 Parameters:
  - args - The event argument with the following properties:
@@ -43,7 +45,7 @@ Parameters:
 (args: MbscCellHoverEvent, inst: EventcalendarBase) => void
 
 
-Triggered when the mouse pointer hovers on a calendar day, scheduler cell, or timeline cell.
+Triggered when the mouse pointer hovers a day on the calendar view (does not apply for agenda view).
 
 Parameters:
  - args - The event argument with the following properties:
@@ -65,7 +67,7 @@ Parameters:
 (args: MbscCellHoverEvent, inst: EventcalendarBase) => void
 
 
-Triggered when the mouse pointer leaves a calendar day, scheduler cell, or timeline cell.
+Triggered when the mouse pointer leaves a day on the calendar view (does not apply for agenda view).
 
 Parameters:
  - args - The event argument with the following properties:
@@ -87,7 +89,7 @@ Parameters:
 (args: MbscCellClickEvent, inst: EventcalendarBase) => void
 
 
-Triggered when a cell is right-clicked on the calendar view, scheduler grid, or timeline grid.
+Triggered when a cell is right-clicked on the calendar, scheduler, or timeline grid .
 
 Parameters:
  - args - The event argument with the following properties:
@@ -851,5 +853,4 @@ Parameters:
    - `oldTimeEnd`: *number* - The time in milliseconds where the previous virtual view ended on the scheduler view.
 
  - inst - The component instance.
-
 

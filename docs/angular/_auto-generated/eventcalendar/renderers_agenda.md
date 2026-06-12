@@ -1,3 +1,5 @@
+export const toc = []
+
 ### agendaDayTemplate {#template-agendaDayTemplate}
 
 Customize the day cells of the agenda view.
@@ -62,15 +64,15 @@ the days in your template with the day timestamp as parameter:
 
 ```html
 <mbsc-eventcalendar [agendaTemplate]="myTemplate">
-  <ng-template #myTemplate let-data>
+  <ng-template #myTemplate let-data&gt;
     <ul *ngFor="let day of data; trackBy: getDayKey" mbsc-event-list-day [timestamp]="day.timestamp">
-      <li>{{day.date}}</li>
+      &lt;li&gt;&#123;&#123;day.date&#125;&#125;&lt;/li&gt;
       <li *ngFor="let event of day.events; trackBy: getEventKey">
-        {{event.title}}
-      </li>
-    </ul>
-  </ng-template>
-</mbsc-eventcalendar>
+        &#123;&#123;event.title&#125;&#125;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  </ng-template&gt;
+</mbsc-eventcalendar&gt;
 ```
 
 The template data is an array containing the events of the current view, grouped by day. A day object has the following properties:

@@ -1,3 +1,5 @@
+export const toc = []
+
 ### agendaDayTemplate {#template-agendaDayTemplate}
 
 Customize the day cells of the agenda view.

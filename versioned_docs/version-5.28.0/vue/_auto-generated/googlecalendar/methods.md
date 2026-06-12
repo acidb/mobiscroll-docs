@@ -1,3 +1,5 @@
+export const toc = []
+
 ### addEvent {#method-google-addEvent}
 
 (calendarId: string, event: MbscCalendarEvent, callback: (addedEvent: MbscCalendarEvent) => void

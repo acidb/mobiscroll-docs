@@ -1,3 +1,5 @@
+export const toc = []
+
 ### allDayText {#localization-allDayText}
 
 string

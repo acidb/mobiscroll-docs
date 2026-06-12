@@ -1,3 +1,5 @@
+export const toc = []
+
 ### agendaEmptyTemplate {#template-agendaEmptyTemplate}
 
 Template to customize the agenda empty state.

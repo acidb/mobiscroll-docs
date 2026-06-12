@@ -1,3 +1,5 @@
+export const toc = []
+
 ### locale {#localization-locale}
 
 string &#124; MbscLocale

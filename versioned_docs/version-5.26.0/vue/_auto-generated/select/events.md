@@ -1,3 +1,5 @@
+export const toc = []
+
 ### @cancel {#event-onCancel}
 
 (args: any, inst: any) => void

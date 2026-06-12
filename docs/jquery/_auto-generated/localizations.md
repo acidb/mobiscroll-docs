@@ -1,3 +1,5 @@
+export const toc = []
+
 ### allDayText {#localization-allDayText}
 
 string
@@ -5,7 +7,6 @@ string
 Text for all day events.
 
 **Default value**: `'All-day'`
-
 ### amText {#localization-amText}
 
 string
@@ -13,19 +14,16 @@ string
 Text for AM.
 
 **Default value**: `'am'`
-
 ### calendarSystem {#localization-calendarSystem}
 
 MbscCalendarSystem
 
 Specifies the calendar system to be used. Supported calendars:
-
 - Gregorian - Gregorian calendar. This is the default calendar system.
 - Jalali - Persian calendar. The Farsi language needs to be included to the package.
 - Hijri - Hijri calendar. The Arabic language needs to be included to the package
 
 **Default value**: `undefined`
-
 ### cancelText {#localization-cancelText}
 
 string
@@ -33,7 +31,6 @@ string
 Text for the button which cancels the dialog.
 
 **Default value**: `'Cancel'`
-
 ### closeText {#localization-closeText}
 
 string
@@ -41,13 +38,11 @@ string
 Text for the &quot;Close&quot; button.
 
 **Default value**: `'Close'`
-
 ### dateFormat {#localization-dateFormat}
 
 string
 
 The format for parsed and displayed dates:
-
 - `M` - month of year (no leading zero)
 - `MM` - month of year (two digit)
 - `MMM` - month name short
@@ -63,7 +58,6 @@ The format for parsed and displayed dates:
 - anything else - literal text
 
 **Default value**: `'MM/DD/YYYY'`
-
 ### dateFormatFull {#localization-dateFormatFull}
 
 string
@@ -72,7 +66,6 @@ Human readable date format, used by screen readers to read out full dates.
 Characters have the same meaning as in the [dateFormat](#localization-dateFormat) option.
 
 **Default value**: `'DDDD, MMMM D, YYYY'`
-
 ### dateFormatLong {#localization-dateFormatLong}
 
 string
@@ -81,7 +74,6 @@ Long date format, used by the agenda view and timeline day headers.
 Characters have the same meaning as in the [dateFormat](#localization-dateFormat) option.
 
 **Default value**: `'D DDD MMM YYYY'`
-
 ### dateText {#localization-dateText}
 
 string
@@ -89,7 +81,6 @@ string
 Specifies the accessibility label for the date wheel.
 
 **Default value**: `'Date'`
-
 ### dateWheels {#localization-dateWheels}
 
 string
@@ -104,11 +95,10 @@ formatting will be defined by the [theme](#opt-theme).
 To display the whole date on one wheel, the format of the date should be specified between `|` characters:
 
 ```js
-dateWheels: "|DDD MMM D|"; // Will produce 'Sun Sep 9'
+dateWheels: '|DDD MMM D|' // Will produce 'Sun Sep 9'
 ```
 
 **Default value**: `undefined`
-
 ### dayNames {#localization-dayNames}
 
 Array&lt;string&gt;
@@ -116,7 +106,6 @@ Array&lt;string&gt;
 The list of long day names, starting from Sunday.
 
 **Default value**: `['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']`
-
 ### dayNamesMin {#localization-dayNamesMin}
 
 Array&lt;string&gt;
@@ -124,7 +113,6 @@ Array&lt;string&gt;
 The list of minimal day names, starting from Sunday.
 
 **Default value**: `['S', 'M', 'T', 'W', 'T', 'F', 'S']`
-
 ### dayNamesShort {#localization-dayNamesShort}
 
 Array&lt;string&gt;
@@ -132,7 +120,6 @@ Array&lt;string&gt;
 The list of abbreviated day names, starting from Sunday.
 
 **Default value**: `['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']`
-
 ### daySuffix {#localization-daySuffix}
 
 string
@@ -140,7 +127,6 @@ string
 Additional string to display after the day on the wheel.
 
 **Default value**: `undefined`
-
 ### dayText {#localization-dayText}
 
 string
@@ -148,7 +134,6 @@ string
 Specifies the accessibility label for the day wheel.
 
 **Default value**: `'Day'`
-
 ### eventsText {#localization-eventsText}
 
 string
@@ -156,7 +141,6 @@ string
 Text for the events word (plural).
 
 **Default value**: `'events'`
-
 ### eventText {#localization-eventText}
 
 string
@@ -164,7 +148,6 @@ string
 Text for the event word.
 
 **Default value**: `'event'`
-
 ### filterEmptyText {#localization-filterEmptyText}
 
 string
@@ -173,7 +156,6 @@ Text for the empty state of the Select. The Select will show this message,
 when [filtering](#opt-filter) is turned on and there are no results for the searched text.
 
 **Default value**: `'No results'`
-
 ### filterPlaceholderText {#localization-filterPlaceholderText}
 
 string
@@ -181,7 +163,6 @@ string
 Placeholder text for the filter input, when [filtering](#opt-filter) is turned on.
 
 **Default value**: `'Search'`
-
 ### firstDay {#localization-firstDay}
 
 number
@@ -189,7 +170,6 @@ number
 Set the first day of the week: Sunday is 0, Monday is 1, etc.
 
 **Default value**: `0`
-
 ### groupText {#localization-groupText}
 
 string
@@ -197,7 +177,6 @@ string
 Specifies the accessibility label for the group wheel, when present.
 
 **Default value**: `'Group'`
-
 ### hourText {#localization-hourText}
 
 string
@@ -205,7 +184,6 @@ string
 Specifies the accessibility label for the hour wheel.
 
 **Default value**: `'Hour'`
-
 ### locale {#localization-locale}
 
 MbscLocale
@@ -215,7 +193,6 @@ The built in language modules are listed below. If a language is not listed, it 
 [custom language module](https://mobiscroll.com/docs/core-concepts/localization#language-modules).
 
 Supported values:
-
 - Arabic: `localeAr`, `'ar'`
 - Bulgarian: `localeBg`, `'bg'`
 - Catalan: `localeCa`, `'ca'`
@@ -254,7 +231,6 @@ Supported values:
 - Ukrainian: `localeUa`, `'ua'`
 
 **Default value**: `undefined`
-
 ### minuteText {#localization-minuteText}
 
 string
@@ -262,7 +238,6 @@ string
 Specifies the accessibility label for the minute wheel.
 
 **Default value**: `'Minute'`
-
 ### monthNames {#localization-monthNames}
 
 Array&lt;string&gt;
@@ -270,7 +245,6 @@ Array&lt;string&gt;
 The list of full month names.
 
 **Default value**: `['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']`
-
 ### monthNamesShort {#localization-monthNamesShort}
 
 Array&lt;string&gt;
@@ -278,7 +252,6 @@ Array&lt;string&gt;
 The list of abbreviated month names.
 
 **Default value**: `['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']`
-
 ### monthSuffix {#localization-monthSuffix}
 
 string
@@ -286,7 +259,6 @@ string
 Additional string to display after the month on the wheel.
 
 **Default value**: `undefined`
-
 ### monthText {#localization-monthText}
 
 string
@@ -294,28 +266,25 @@ string
 Specifies the accessibility label for the month wheel.
 
 **Default value**: `'Month'`
-
 ### moreEventsPluralText {#localization-moreEventsPluralText}
 
 string
 
 Text for the &quot;more&quot; label on the calendar, when there&#039;s not enough space to display all the labels for the day,
 and there are more than one extra labels.
-The `&#123;count&#125;` inside the string will be replaced with the number of extra labels.
+The `{count}` inside the string will be replaced with the number of extra labels.
 When not specified, the [moreEventsText](#localization-moreEventsText) option will be used for both plural and singular form.
 
 **Default value**: `undefined`
-
 ### moreEventsText {#localization-moreEventsText}
 
 string
 
 Text for the &quot;more&quot; label on the calendar, when there&#039;s not enough space to display all the labels for the day.
-The `&#123;count&#125;` inside the string will be replaced with the number of extra labels.
+The `{count}` inside the string will be replaced with the number of extra labels.
 Use the [moreEventsPluralText](#localization-moreEventsPluralText) as well, if the plural form is different.
 
-**Default value**: `'&#123;count&#125; more'`
-
+**Default value**: `'{count} more'`
 ### newEventText {#localization-newEventText}
 
 string
@@ -324,7 +293,6 @@ Title for the newly created event with the [dragToCreate](#opt-dragToCreate) and
 [clickToCreate](#opt-clickToCreate) action.
 
 **Default value**: `'New event'`
-
 ### nextPageText {#localization-nextPageText}
 
 string
@@ -332,7 +300,6 @@ string
 Text for the next button in the calendar header, used as accessibility label.
 
 **Default value**: `'Next page'`
-
 ### noEventsText {#localization-noEventsText}
 
 string
@@ -340,7 +307,6 @@ string
 Text for empty event list.
 
 **Default value**: `'No events'`
-
 ### okText {#localization-okText}
 
 string
@@ -348,7 +314,6 @@ string
 Text for the button which closes the dialog.
 
 **Default value**: `'OK'`
-
 ### pmText {#localization-pmText}
 
 string
@@ -356,7 +321,6 @@ string
 Text for PM.
 
 **Default value**: `'pm'`
-
 ### prevPageText {#localization-prevPageText}
 
 string
@@ -364,15 +328,13 @@ string
 Text for the previous button in the calendar header, used as accessibility label.
 
 **Default value**: `'Previous page'`
-
 ### quarterText {#localization-quarterText}
 
 string
 
 Text for quarter numbers in the timeline header. The &#123;count&#125; inside the string will be replaced with the number of the current quarter.
 
-**Default value**: `'Q &#123;count&#125;'`
-
+**Default value**: `'Q {count}'`
 ### rangeEndHelp {#localization-rangeEndHelp}
 
 string
@@ -380,7 +342,6 @@ string
 When selecting a range, it specifies the placeholder text for the end value under the [end label](#opt-showRangeLabels).
 
 **Default value**: `'Please select'`
-
 ### rangeEndLabel {#localization-rangeEndLabel}
 
 string
@@ -388,7 +349,6 @@ string
 When selecting a range, it specifies the text of the [end label](#opt-showRangeLabels).
 
 **Default value**: `'End'`
-
 ### rangeStartHelp {#localization-rangeStartHelp}
 
 string
@@ -396,7 +356,6 @@ string
 When selecting a range, it specifies the placeholder text for the start value under the [start label](#opt-showRangeLabels).
 
 **Default value**: `'Please select'`
-
 ### rangeStartLabel {#localization-rangeStartLabel}
 
 string
@@ -404,7 +363,6 @@ string
 When selecting a range, it specifies the text of the [start label](#opt-showRangeLabels).
 
 **Default value**: `'Start'`
-
 ### rtl {#localization-rtl}
 
 boolean
@@ -412,7 +370,6 @@ boolean
 Enables right-to-left display.
 
 **Default value**: `false`
-
 ### secondText {#localization-secondText}
 
 string
@@ -420,7 +377,6 @@ string
 Specifies the accessibility label for the second wheel.
 
 **Default value**: `'Second'`
-
 ### selectedPluralText {#localization-selectedPluralText}
 
 string
@@ -428,8 +384,7 @@ string
 Specifies the plural form of the amount of selected items according to the rules of particular language. The &#039;&#123;count&#125;&#039; substring will
 be replaced with the number of selected items.
 
-**Default value**: `'&#123;count&#125; selected'`
-
+**Default value**: `'{count} selected'`
 ### selectedText {#localization-selectedText}
 
 string
@@ -437,8 +392,7 @@ string
 Specifies the amount of selected items according to the rules of particular language. The &#039;&#123;count&#125;&#039; substring will be replaced with
 the number of selected items.
 
-**Default value**: `'&#123;count&#125; selected'`
-
+**Default value**: `'{count} selected'`
 ### setText {#localization-setText}
 
 string
@@ -446,13 +400,11 @@ string
 Text for the &quot;Set&quot; button.
 
 **Default value**: `'Set'`
-
 ### timeFormat {#localization-timeFormat}
 
 string
 
 The format for parsed and displayed times:
-
 - `h` - 12 hour format (no leading zero)
 - `hh` - 12 hour format (leading zero)
 - `H` - 24 hour format (no leading zero)
@@ -468,7 +420,6 @@ The format for parsed and displayed times:
 - anything else - literal text
 
 **Default value**: `'hh:mm A'`
-
 ### timeText {#localization-timeText}
 
 string
@@ -476,7 +427,6 @@ string
 Specifies the accessibility label for the time wheel.
 
 **Default value**: `'Time'`
-
 ### timeWheels {#localization-timeWheels}
 
 string
@@ -490,11 +440,10 @@ and the formatting will be defined by the theme.
 To display the whole time on one wheel, the format of the time should be specified between `|` characters:
 
 ```js
-timeWheels: "|h:mm A|"; // Will produce '9:12 AM'
+timeWheels: '|h:mm A|' // Will produce '9:12 AM'
 ```
 
 **Default value**: `undefined`
-
 ### todayText {#localization-todayText}
 
 string
@@ -502,15 +451,13 @@ string
 Text for the &quot;Today&quot; button.
 
 **Default value**: `'Today'`
-
 ### weekText {#localization-weekText}
 
 string
 
 Text for week numbers in the timeline header. The &#123;count&#125; inside the string will be replaced with the number of the current week.
 
-**Default value**: `'Week &#123;count&#125;'`
-
+**Default value**: `'Week {count}'`
 ### yearSuffix {#localization-yearSuffix}
 
 string
@@ -518,7 +465,6 @@ string
 Additional string to display after the year on the wheel.
 
 **Default value**: `undefined`
-
 ### yearText {#localization-yearText}
 
 string

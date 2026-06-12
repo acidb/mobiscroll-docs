@@ -1,3 +1,5 @@
+export const toc = []
+
 ### onClose {#event-onClose}
 
 (result: boolean) => void

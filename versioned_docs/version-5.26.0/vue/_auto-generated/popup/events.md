@@ -1,3 +1,5 @@
+export const toc = []
+
 ### @close {#event-onClose}
 
 (args: any, inst: any) => void

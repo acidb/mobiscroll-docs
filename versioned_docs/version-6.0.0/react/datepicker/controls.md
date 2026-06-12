@@ -18,9 +18,9 @@ The [`controls`](./api#opt-controls) option specifies which control is rendered 
   ```jsx
   import { Datepicker } from '@mobiscroll/react';
   import '@mobiscroll/react/dist/css/mobiscroll.min.css';
-
+  
   const MY_CALENDAR_CTRL = ['calendar'];
-
+  
   function App() {
     return <Datepicker controls={MY_CALENDAR_CTRL} />
   }
@@ -30,9 +30,9 @@ The [`controls`](./api#opt-controls) option specifies which control is rendered 
   ```jsx
   import { Datepicker } from '@mobiscroll/react';
   import '@mobiscroll/react/dist/css/mobiscroll.min.css';
-
+  
   const MY_DATE_CTRL = ['date'];
-
+  
   function App() {
     return <Datepicker controls={MY_DATE_CTRL} />
   }
@@ -42,9 +42,9 @@ The [`controls`](./api#opt-controls) option specifies which control is rendered 
   ```jsx
   import { Datepicker } from '@mobiscroll/react';
   import '@mobiscroll/react/dist/css/mobiscroll.min.css';
-
+  
   const MY_TIME_CTRL = ['time'];
-
+  
   function App() {
     return <Datepicker controls={MY_TIME_CTRL} />
   }
@@ -54,9 +54,9 @@ The [`controls`](./api#opt-controls) option specifies which control is rendered 
   ```jsx
   import { Datepicker } from '@mobiscroll/react';
   import '@mobiscroll/react/dist/css/mobiscroll.min.css';
-
+  
   const MY_DATETIME_CTRL = ['datetime'];
-
+  
   function App() {
     return <Datepicker controls={MY_DATETIME_CTRL} />
   }
@@ -66,9 +66,9 @@ The [`controls`](./api#opt-controls) option specifies which control is rendered 
   ```jsx
   import { Datepicker } from '@mobiscroll/react';
   import '@mobiscroll/react/dist/css/mobiscroll.min.css';
-
+  
   const MY_TIMEGRID_CTRL = ['timegrid'];
-
+  
   function App() {
     return <Datepicker controls={MY_TIMEGRID_CTRL} />
   }

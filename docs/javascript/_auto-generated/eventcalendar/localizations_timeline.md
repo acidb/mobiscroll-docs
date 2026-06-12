@@ -1,3 +1,5 @@
+export const toc = []
+
 ### allDayText {#localization-allDayText}
 
 string
@@ -88,7 +90,7 @@ Set the first day of the week: Sunday is 0, Monday is 1, etc.
 **Default value**: `0`
 ### locale {#localization-locale}
 
-MbscLocale
+[MbscLocale](#type-MbscLocale)
 
 Sets the language of the component. The locale object contains all the translations for a given language.
 The built in language modules are listed below. If a language is not listed, it can be provided as a
@@ -182,7 +184,7 @@ string
 
 Text for quarter numbers in the timeline header. The &#123;count&#125; inside the string will be replaced with the number of the current quarter.
 
-**Default value**: `'Q &#123;count&#125;'`
+**Default value**: `'Q {count}'`
 ### rtl {#localization-rtl}
 
 boolean
@@ -223,4 +225,4 @@ string
 
 Text for week numbers in the timeline header. The &#123;count&#125; inside the string will be replaced with the number of the current week.
 
-**Default value**: `'Week &#123;count&#125;'`
+**Default value**: `'Week {count}'`

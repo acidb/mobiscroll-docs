@@ -1,3 +1,5 @@
+export const toc = []
+
 ### renderAgenda {#renderer-renderAgenda}
 
 (events: Array&lt;MbscEventList&gt;, options: MbscEventcalendarOptions, dayRefs: &#123; [key:number]: HTMLElement &#124; null &#125;) => any
@@ -104,4 +106,3 @@ Customize the header of the event calendar.
 You can use custom markup and the built in header components of the calendar.
 
 **Default value**: `undefined`
-

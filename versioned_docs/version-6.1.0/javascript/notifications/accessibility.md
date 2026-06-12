@@ -8,6 +8,5 @@ description: ARIA roles, focus management, and keyboard support for Mobiscroll A
 
 import Content from '../../_shared/alerts&notifications/accessibility.mdx';
 import { toc as TOC } from '../../_shared/alerts&notifications/accessibility.mdx';
-export const toc = [...TOC];
 
 <Content />

@@ -1,3 +1,5 @@
+export const toc = []
+
 ### item {#slot-item}
 
 ```html

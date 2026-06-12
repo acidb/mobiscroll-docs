@@ -1,3 +1,5 @@
+export const toc = []
+
 ### color {#opt-color}
 
 "success" &#124; "dark" &#124; "light" &#124; "primary" &#124; "secondary" &#124; "danger" &#124; "warning" &#124; "info"

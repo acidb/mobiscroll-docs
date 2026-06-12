@@ -1,3 +1,5 @@
+export const toc = []
+
 ### animation {#opt-animation}
 
 boolean &#124; "pop" &#124; "slide-down" &#124; "slide-up"

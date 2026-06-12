@@ -1,3 +1,5 @@
+export const toc = []
+
 ### scrollable {#view-agenda-scrollable}
 
 boolean

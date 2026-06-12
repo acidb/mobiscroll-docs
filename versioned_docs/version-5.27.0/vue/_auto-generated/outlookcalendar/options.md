@@ -1,3 +1,5 @@
+export const toc = []
+
 ### clientId {#opt-outlook-clientId}
 
 string

@@ -1,3 +1,5 @@
+export const toc = []
+
 ### ariaLabel {#opt-ariaLabel}
 
 string

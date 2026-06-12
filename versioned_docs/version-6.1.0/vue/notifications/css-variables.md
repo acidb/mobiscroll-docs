@@ -8,6 +8,5 @@ description: 'CSS custom properties for Mobiscroll notification components in Vu
 
 import Content from '../../_shared/alerts&notifications/css-variables.mdx';
 import { toc as TOC } from '../../_shared/alerts&notifications/css-variables.mdx';
-export const toc = [...TOC];
 
 <Content />

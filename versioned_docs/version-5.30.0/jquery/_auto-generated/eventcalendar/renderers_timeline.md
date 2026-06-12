@@ -1,3 +1,5 @@
+export const toc = []
+
 ### renderBufferAfter {#renderer-renderBufferAfter}
 
 (event: MbscCalendarEventData) => any

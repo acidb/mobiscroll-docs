@@ -1,3 +1,5 @@
+export const toc = []
+
 ### @init {#event-outlook-onInit}
 
 () => void

@@ -1,3 +1,5 @@
+export const toc = []
+
 ### header {#slot-header}
 
 ```html

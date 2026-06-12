@@ -1,3 +1,5 @@
+export const toc = []
+
 ### calendarHeaderTemplate {#template-calendarHeaderTemplate}
 
 Template reference for custom calendar header rendering.
@@ -23,9 +25,3 @@ The following day specific details are available:
 - `date`: _Date_ - The specific date as a Date object.
 - `selected`: _boolean_ - True if the date is selected. (In case of calendar view)
 - `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events of the day.
-### headerTemplate {#template-headerTemplate}
-
-Template reference for custom picker popup header rendering.
-Takes priority over the [headerText](#opt-headerText) option.
-
-**Default value**: `undefined`

@@ -1,6 +1,8 @@
+export const toc = []
+
 ### @active-date-change {#event-onActiveDateChange}
 
-(args: {active: "start" &#124; "end"}, inst: any) => void
+(args: &#123;active: "start" &#124; "end"&#125;, inst: any) => void
 
 
 Triggered when the active date changes from start to end or vice versa, in case of range selection mode.
@@ -182,7 +184,7 @@ Parameters:
 
 ### @temp-change {#event-onTempChange}
 
-(args: {value: DateType &#124; Array&lt;DateType&gt;}, inst: any) => void
+(args: &#123;value: DateType &#124; Array&lt;DateType&gt;&#125;, inst: any) => void
 
 
 Triggered when the temporary value is changed.

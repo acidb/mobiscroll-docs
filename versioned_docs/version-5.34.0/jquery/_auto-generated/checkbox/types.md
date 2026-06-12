@@ -1,3 +1,5 @@
+export const toc = []
+
 ### MbscLocale {#type-MbscLocale}
 
 Interface

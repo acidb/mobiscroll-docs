@@ -1,3 +1,5 @@
+export const toc = []
+
 ### onClose {#event-onClose}
 
 (args: MbscPopupCloseEvent, inst: PopupBase) => void

@@ -492,7 +492,7 @@ The [zoomLevel](#opt-zoomLevel) option determines which zoom level is currently 
 
 :::info
 To ensure the calendar view is correctly aligned when zooming, the getViewDate() method is used to retrieve the current middle date of the visible calendar view. Based on the zoom level, the [refDate](#opt-refDate) is set to a corresponding date, ensuring that the view date can always be scrolled to the center.
-:::info
+:::
 
 Learn how to implement and adjust zoom levels by checking [this example](https://demo.mobiscroll.com/timeline/calendar-zoom#).
 

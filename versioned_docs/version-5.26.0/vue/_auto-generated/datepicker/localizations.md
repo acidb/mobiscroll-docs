@@ -1,3 +1,5 @@
+export const toc = []
+
 ### amText {#localization-amText}
 
 string

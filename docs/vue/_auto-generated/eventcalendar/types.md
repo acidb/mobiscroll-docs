@@ -1,3 +1,5 @@
+export const toc = []
+
 ### MbscCalendarColor {#type-MbscCalendarColor}
 
 Interface
@@ -277,7 +279,7 @@ The `MbscResource` supports custom properties in the form:
 Interface
 
 
-The `MbscResponsiveOptions<MbscEventcalendarOptions>` supports custom properties in the form:
+The `MbscResponsiveOptions&lt;MbscEventcalendarOptions&gt;` supports custom properties in the form:
 ```
 [key:string]: MbscEventcalendarOptions & {breakpoint?: number}
 ```
@@ -318,5 +320,4 @@ Interface
 Properties:
  - `createDate`: *(s: any, year: string &#124; number &#124; Date &#124; MbscTimezonedDate, month: number, date: number, h: number, min: number, sec: number, ms: number) => MbscTimezonedDate* 
  - `parse`: *(date: string &#124; number, s: any) => MbscTimezonedDate* 
-
 

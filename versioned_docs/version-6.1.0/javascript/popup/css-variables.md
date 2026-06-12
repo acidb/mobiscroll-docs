@@ -8,6 +8,5 @@ description: CSS custom properties for the Mobiscroll Popup (JavaScript) to adju
 
 import Content from '../../_shared/popup/css-variables.mdx';
 import { toc as TOC } from '../../_shared/popup/css-variables.mdx';
-export const toc = [...TOC];
 
 <Content />

@@ -1,3 +1,5 @@
+export const toc = []
+
 ### cancelText {#localization-cancelText}
 
 string
@@ -36,7 +38,7 @@ Specifies the accessibility label for the group wheel, when present.
 **Default value**: `'Group'`
 ### locale {#localization-locale}
 
-MbscLocale
+[MbscLocale](#type-MbscLocale)
 
 Sets the language of the component. The locale object contains all the translations for a given language.
 The built in language modules are listed below. If a language is not listed, it can be provided as a

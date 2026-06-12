@@ -1,3 +1,5 @@
+export const toc = []
+
 ### calendarDay {#slot-calendarDay}
 
 ```html

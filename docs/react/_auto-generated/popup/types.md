@@ -1,3 +1,5 @@
+export const toc = []
+
 ### MbscLocale {#type-MbscLocale}
 
 Interface
@@ -89,7 +91,7 @@ multiple value passed as an array. Predefined string values are: `'enter'`, `'es
 Interface
 
 
-The `MbscResponsiveOptions<MbscPopupOptions>` supports custom properties in the form:
+The `MbscResponsiveOptions&lt;MbscPopupOptions&gt;` supports custom properties in the form:
 ```
 [key:string]: MbscPopupOptions & {breakpoint?: number}
 ```

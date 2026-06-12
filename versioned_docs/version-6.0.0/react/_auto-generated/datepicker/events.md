@@ -1,3 +1,5 @@
+export const toc = []
+
 ### onActiveDateChange {#event-onActiveDateChange}
 
 (args: MbscDatepickerActiveDateChangeEvent, inst: DatepickerBase) => void

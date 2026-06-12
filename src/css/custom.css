@@ -160,6 +160,11 @@
   padding: 10px;
 }
 
+.pdg-img img {
+  max-width: 100%;
+  height: auto;
+}
+
 .w70 {
   width: 70%;
 }
@@ -191,9 +196,27 @@
   --default-handle-opacity: 0;
 }
 
+img-comparison-slider:focus {
+  outline: none;
+}
+
+/* Fix: sidebar parent has will-change:width which causes newly-visible items to
+   briefly render with ClearType before GPU promotion, appearing darker/doubled.
+   Forcing the scrollable menu into its own compositing layer prevents this. */
+aside nav.menu {
+  backface-visibility: hidden;
+}
+
 .before,
 .after {
   margin: 0;
+}
+
+.before img,
+.after img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .before figcaption,

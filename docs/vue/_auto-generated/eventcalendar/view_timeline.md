@@ -1,3 +1,5 @@
+export const toc = []
+
 ### columnWidth {#view-timeline-columnWidth}
 
 MbscTimelineColumnWidth

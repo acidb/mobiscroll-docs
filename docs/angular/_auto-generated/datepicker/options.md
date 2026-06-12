@@ -1,3 +1,5 @@
+export const toc = []
+
 ### anchor {#opt-anchor}
 
 HTMLElement

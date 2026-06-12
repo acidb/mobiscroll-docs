@@ -1,3 +1,5 @@
+export const toc = []
+
 ### cssClass {#opt-cssClass}
 
 string

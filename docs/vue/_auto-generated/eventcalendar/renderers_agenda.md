@@ -1,3 +1,5 @@
+export const toc = []
+
 ### agenda {#slot-agenda}
 
 ```html
@@ -98,4 +100,3 @@ The following event specific properties are available:
 
 Customize the header of the event calendar.
 You can use custom markup and the built in header components of the calendar.
-

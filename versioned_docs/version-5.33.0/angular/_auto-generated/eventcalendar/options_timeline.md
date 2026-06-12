@@ -1,3 +1,5 @@
+export const toc = []
+
 ### clickToCreate {#opt-clickToCreate}
 
 boolean &#124; "double" &#124; "single"

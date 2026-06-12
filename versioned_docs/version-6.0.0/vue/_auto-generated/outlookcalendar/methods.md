@@ -1,3 +1,5 @@
+export const toc = []
+
 ### addEvent {#method-outlook-addEvent}
 
 (calendarId: string, event: [MbscCalendarEvent](#type-MbscCalendarEvent), callback: (addedEvent: [MbscCalendarEvent](#type-MbscCalendarEvent)) => void

@@ -8,6 +8,5 @@ description: 'Accessibility support for the Mobiscroll Select component in Angul
 
 import Content from '../../_shared/select/accessibility.mdx';
 import { toc as TOC } from '../../_shared/select/accessibility.mdx';
-export const toc = [...TOC];
 
 <Content />

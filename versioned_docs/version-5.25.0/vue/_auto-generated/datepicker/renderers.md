@@ -1,3 +1,5 @@
+export const toc = []
+
 ### renderCalendarHeader {#renderer-renderCalendarHeader}
 
 () => any

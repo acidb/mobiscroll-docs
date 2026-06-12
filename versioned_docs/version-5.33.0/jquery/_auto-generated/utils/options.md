@@ -1,3 +1,5 @@
+export const toc = []
+
 ### updateRecurringEvent {#updateRecurringEvent}
 
 (originalRecurringEvent: [MbscCalendarEvent](#type-MbscCalendarEvent), oldEventOccurrence: [MbscCalendarEvent](#type-MbscCalendarEvent), newEvent: [MbscCalendarEvent](#type-MbscCalendarEvent), updatedEvent: [MbscCalendarEvent](#type-MbscCalendarEvent), updateMode: "all" &#124; "current" &#124; "following", timezone: string, timezonePlugin: [MbscTimezonePlugin](#type-MbscTimezonePlugin)) => &#123;newEvent: [MbscCalendarEvent](#type-MbscCalendarEvent) &#124; null, updatedEvent: [MbscCalendarEvent](#type-MbscCalendarEvent)&#125;

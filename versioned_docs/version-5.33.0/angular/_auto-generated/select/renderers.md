@@ -1,3 +1,5 @@
+export const toc = []
+
 ### itemTemplate {#template-itemTemplate}
 
 Template to customize each selectable item on the wheel.

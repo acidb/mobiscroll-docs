@@ -37,6 +37,7 @@ const config = {
   projectName: 'mobiscroll-docs', // Usually your repo name.
 
   onBrokenLinks: 'warn',
+  onBrokenAnchors: 'ignore',
   markdown: {
     hooks: {
       onBrokenMarkdownLinks: 'warn',

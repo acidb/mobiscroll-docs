@@ -174,6 +174,8 @@ function DocSearch({contextualSearch, externalUrlRegex, ...props}) {
             transformItems={transformItems}
             hitComponent={Hit}
             transformSearchClient={transformSearchClient}
+            onAskAiToggle={() => {}}
+            isAskAiActive={false}
             {...(props.searchPagePath && {
               resultsFooterComponent,
             })}

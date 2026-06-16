@@ -18,8 +18,6 @@
     "typecheck": "tsc",
     "dev": "docusaurus start --config docusaurus.config.localhost.js",
     "check": "npm run build && npm run serve",
-    "descriptions:add": "node scripts/add-descriptions.js",
-    "descriptions:validate": "node scripts/validate-descriptions.js",
     "copy-skills": "node scripts/copy-skills.js",
     "postinstall": "patch-package"
   },

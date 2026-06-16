@@ -1,8 +1,9 @@
 # Docs AI Agent — System Definition
 
-Version: 1.0
+Version: 1.1
 Created: 2026-06-15
-Status: PENDING APPROVAL
+Updated: 2026-06-16
+Status: ACTIVE
 
 This file is the operating contract for the Mobiscroll docs AI agent.
 **Do not modify during Phase 2 without flagging as a system change and getting explicit human approval.**
@@ -14,9 +15,14 @@ This file is the operating contract for the Mobiscroll docs AI agent.
 On every session start, in this order:
 
 1. Read `.ai/SYSTEM.md` (this file) — reload operating rules
-2. Read `.ai/logs/YYYY-MM-DD.md` for the last 3 days — restore learning context
+2. Read `.ai/logs/YYYY-MM-DD.md` for the last 7 days — restore learning context.
+   On the first session of a week, also scan all older log files for entries with a `learnings` field.
 3. Read `.ai/knowledge/os-guidelines.md` — reload language and tone rules
 4. Read `.ai/knowledge/web-system-analysis.md` — reload system patterns reference
+5. Run session-start diff scan: `git log --since=<date-of-last-log-entry> --name-only`
+   Identify any files changed outside AI sessions. Log them as `source: human` entries.
+   Offer to validate any new or modified documentation files found.
+6. Check `.ai/knowledge/` for any files not referenced in this SYSTEM.md routing table. Alert if found.
 
 If `.ai/logs/session-state.md` exists, read it first — it means the previous session ended mid-task.
 
@@ -38,7 +44,7 @@ If `.ai/logs/session-state.md` exists, read it first — it means the previous s
 
 ### Knowledge file conventions (borrowed from MobiscrollOS)
 
-Every knowledge file should include frontmatter:
+Every knowledge file must include frontmatter:
 ```yaml
 ---
 last_updated: YYYY-MM-DD
@@ -46,6 +52,8 @@ source: [path to source project if distilled, or "original"]
 owner: [human who owns this rule set]
 ---
 ```
+
+This frontmatter is required, not optional. Apply it when creating or editing any knowledge file.
 
 When a knowledge file is updated, log the change as a `knowledge-update` action in the daily log.
 
@@ -55,6 +63,14 @@ When a knowledge file is updated, log the change as a `knowledge-update` action 
 
 **Location:** `.ai/logs/YYYY-MM-DD.md`
 One file per calendar day. Entries are appended chronologically within the file.
+
+### Log file session header
+
+Every log file must open with a one-line session header:
+```markdown
+# Agent Log — YYYY-MM-DD — [one-line session focus]
+```
+The session focus is a short phrase describing the main work of the day (e.g., "AI system bootstrap", "eventcalendar React docs update").
 
 ### Entry format
 
@@ -79,6 +95,20 @@ After every meaningful action:
 - Discovering a pattern or rule gap
 
 Trivial actions (reading a file to answer a question, one-word typo fix) do not need a log entry.
+
+### Human-sourced entries
+
+When the session-start diff scan finds changes made outside an AI session, log them as:
+```
+---
+timestamp: [time of git commit]
+action: human-change — [file or area]
+source: human
+context: reconstructed from git log
+outcome: [what changed, from git diff --stat]
+---
+```
+This ensures the log is a complete record of all changes, not only AI-assisted ones.
 
 ### Session-state file
 
@@ -203,6 +233,10 @@ type(scope): short imperative summary
 
 AI-assisted | session-log: .ai/logs/YYYY-MM-DD.md
 ```
+
+The `AI-assisted | session-log:` line is required on every commit proposed by the agent.
+It is the only machine-readable link between a commit and its session log.
+Omitting it breaks traceability. Do not omit it.
 
 **Types:** `docs`, `fix`, `refactor`, `chore`
 (In docs context: `docs` = new or updated content; `fix` = error correction; `refactor` = restructuring without content change; `chore` = system/config)

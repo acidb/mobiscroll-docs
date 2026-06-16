@@ -1,3 +1,9 @@
+---
+last_updated: 2026-06-16
+source: C:\projects\mobiscroll-os\knowledge\
+owner: istvan.csiszer@mobiscroll.com
+---
+
 # OS Guidelines — Distilled from MobiscrollOS
 
 Source: `C:\projects\mobiscroll-os\knowledge\`

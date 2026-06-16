@@ -1,3 +1,9 @@
+---
+last_updated: 2026-06-16
+source: C:\projects\mobiscroll-web\
+owner: istvan.csiszer@mobiscroll.com
+---
+
 # Web Monorepo AI System Analysis
 
 Source: `C:\projects\mobiscroll-web\`

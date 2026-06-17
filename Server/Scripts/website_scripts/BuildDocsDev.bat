@@ -17,10 +17,7 @@ if not [%branch%] == [main] pause
 set NODE_OPTIONS=--max-old-space-size=16384
 REM docusaurus 3 needs higher node version
 nvm use 20
-REM upgrade to docusaurus 3 needs node_modules and package-lock.json to be deleted
-REM rmdir /s /q node_modules
-REM del /s /q package-lock.json  
-npm install
+call npm install
 call npm run build-dev
 REM reset base node version
 nvm use 16

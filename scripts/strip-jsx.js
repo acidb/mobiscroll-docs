@@ -35,13 +35,15 @@ function collectFiles(dir, result = []) {
 // MDX import sources that should be removed (Docusaurus internals & local MDX partials).
 // Imports from actual packages (e.g. '@mobiscroll/...', 'jquery', 'luxon') are preserved.
 const MDX_IMPORT_PATTERNS = [
-  /^\s*import\s+.*from\s+['"]@theme\/.*['"]\s*;?\s*$/,
-  /^\s*import\s+.*from\s+['"]@site\/.*['"]\s*;?\s*$/,
-  /^\s*import\s+.*from\s+['"]\.\.?\/.*\.mdx?['"]\s*;?\s*$/,
-  /^\s*import\s+.*from\s+['"]\.\.?\/.*links\.js['"]\s*;?\s*$/,
-  /^\s*import\s+.*from\s+['"]\.\.?\/.*Links\.js['"]\s*;?\s*$/,
-  /^\s*import\s+\{.*toc\s+as\s+.*\}\s+from\s+['"].*['"]\s*;?\s*$/,
-  /^\s*import\s+.*from\s+['"]@img-comparison-slider\/.*['"]\s*;?\s*$/,
+  /^\s*>?\s*import\s+.*from\s+['"]@theme\/.*['"]\s*;?\s*$/,
+  /^\s*>?\s*import\s+.*from\s+['"]@site\/.*['"]\s*;?\s*$/,
+  /^\s*>?\s*import\s+.*from\s+['"]\.\.?\/.*\.mdx?['"]\s*;?\s*$/,
+  /^\s*>?\s*import\s+.*from\s+['"]\.\.?\/.*links\.js['"]\s*;?\s*$/,
+  /^\s*>?\s*import\s+.*from\s+['"]\.\.?\/.*Links\.js['"]\s*;?\s*$/,
+  /^\s*>?\s*import\s+\{.*toc\s+as\s+.*\}\s+from\s+['"].*['"]\s*;?\s*$/,
+  /^\s*>?\s*import\s+.*from\s+['"]@img-comparison-slider\/.*['"]\s*;?\s*$/,
+  /^\s*>?\s*import\s+.*from\s+['"]react['"]\s*;?\s*$/,
+  /^\s*>?\s*import\s+.*from\s+['"]@docusaurus\/.*['"]\s*;?\s*$/,
 ];
 
 function isMdxImport(line) {
@@ -77,6 +79,8 @@ function decodeHtmlEntities(text, includeAngleBrackets = false) {
 }
 
 function stripJsx(content, framework) {
+  // Normalize Windows CRLF to LF so blank-line collapse (\n{3,}) works correctly
+  content = content.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
   // Resolve MDX prop {props.framework} before any other processing
   if (framework) {
     content = content.replace(/\$\{props\.framework\}/g, framework);
@@ -92,6 +96,8 @@ function stripJsx(content, framework) {
   let selfClosingDepth = 0;
   let inBlockRemoveTag = false;
   let blockRemoveTagName = '';
+  let inExportFn = false;
+  let exportFnDepth = 0;
 
   for (let i = 0; i < lines.length; i++) {
     let line = lines[i];
@@ -112,6 +118,19 @@ function stripJsx(content, framework) {
     // Inside a fenced code block: pass through untouched
     if (inFencedBlock) {
       out.push(line);
+      continue;
+    }
+
+    // ── Skip lines inside export arrow function declarations ─────────────────
+    if (inExportFn) {
+      for (const ch of line) {
+        if (ch === '{') exportFnDepth++;
+        if (ch === '}') exportFnDepth--;
+      }
+      if (exportFnDepth <= 0) {
+        inExportFn = false;
+        exportFnDepth = 0;
+      }
       continue;
     }
 
@@ -247,6 +266,20 @@ function stripJsx(content, framework) {
     // ── MDX toc exports → remove ────────────────────────────────────
     if (/^\s*export\s+const\s+toc\b/.test(line)) continue;
 
+    // ── Export arrow function declarations → remove ──────────────────────────
+    if (/^\s*export\s+const\s+\w+\s*=.*=>/.test(line)) {
+      let depth = 0;
+      for (const ch of line) {
+        if (ch === '{') depth++;
+        if (ch === '}') depth--;
+      }
+      if (depth > 0) {
+        inExportFn = true;
+        exportFnDepth = depth;
+      }
+      continue;
+    }
+
     // ── table-hide UI wrapper block → remove ────────────────────────
     if (/^\s*<label\s+className="table-hide-wrapper">/.test(line)) {
       // Skip until </label>
@@ -260,9 +293,12 @@ function stripJsx(content, framework) {
     out.push(line);
   }
 
-  // Clean up excessive blank lines (3+ → 2), then decode HTML entities.
+  // Clean up excessive blank lines (3+ → 2), trim leading blank lines, then decode HTML entities.
   // Pass !!framework so &lt;/&gt; are decoded for framework files but preserved for connect/icons.
-  return decodeHtmlEntities(out.join('\n').replace(/\n{3,}/g, '\n\n'), !!framework);
+  return decodeHtmlEntities(
+    out.join('\n').replace(/\n{3,}/g, '\n\n').replace(/^\n+/, ''),
+    !!framework
+  );
 }
 
 // ─── Main ────────────────────────────────────────────────────────────────────

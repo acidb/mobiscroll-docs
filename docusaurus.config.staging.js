@@ -127,8 +127,6 @@ const config = {
         indexName: 'docs_mobiscroll',
       },
     }),
-
-  clientModules: [require.resolve('./src/clientModules/suppressHydrationErrors.js')],
 };
 
 module.exports = config;

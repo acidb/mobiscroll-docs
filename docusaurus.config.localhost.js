@@ -136,8 +136,6 @@ const config = {
       },
     }),
 
-  clientModules: [require.resolve('./src/clientModules/suppressHydrationErrors.js')],
-
   scripts: [
     {
       src: 'https://www.google.com/recaptcha/api.js?render=6Leu6BgpAAAAALbw6w2g5wS6qQDPMWGJ7kQXNXAx',

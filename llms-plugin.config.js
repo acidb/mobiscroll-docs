@@ -44,7 +44,6 @@ const llmsOptions = {
     '**/links.js',
     '**/connectLinks.js',
     '**/frameworkLinks.js',
-    '**/ai-integration.md',
   ],
 
   // Section ordering for the combined llms.txt

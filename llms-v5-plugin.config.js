@@ -56,7 +56,6 @@ const llmsV5Options = {
     '**/links.js',
     '**/connectLinks.js',
     '**/frameworkLinks.js',
-    '**/ai-integration.md',
     'llms-content.md',
     'llms-content-full.md',
   ],

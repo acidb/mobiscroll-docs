@@ -128,6 +128,8 @@ const config = {
         contextualSearch: true,
       },
     }),
+
+  clientModules: [require.resolve('./src/clientModules/suppressHydrationErrors.js')],
 };
 
 module.exports = config;

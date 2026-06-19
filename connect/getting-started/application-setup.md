@@ -25,11 +25,16 @@ To use Mobiscroll Connect services, you must register your application to genera
 2. Click the **Create new app**.
 3. You will be prompted to fill in the project details:
 
-- **Application Name**: A friendly name for your application (e.g., "My Scheduling App").
+- **Application Name**: An internal, descriptive name for your application (e.g., "My Scheduling App"). This is not shown to your users.
+- **Display Name (Optional)**: The public name shown to your users on the Connect authorization and connection-management screens. When set, the screens read "_&lt;Display Name&gt;_ is using Mobiscroll Connect ..." and the return button reads "Back to _&lt;Display Name&gt;_", so users always know which app they are connecting to and where they will return. When left empty, a generic wording ("The application ...") is used instead.
 - **Redirect URI (Callback URL)**: The URL where users will be redirected after successfully authorizing with a provider. This must match the route in your application that handles the OAuth callback.
 - **Webhook URL (Optional)**: If you plan to use webhooks for event notifications, provide the endpoint URL where Mobiscroll Connect can send these updates. See [Webhooks API](/connect/webhooks) for subscription and payload details.
 
 4. Click **Create application** to finalize the application setup.
+
+:::info
+Both the **Application Name** and **Display Name** can be changed later from the **Settings** menu of your application.
+:::
 
 ## Retrieving Client Credentials
 

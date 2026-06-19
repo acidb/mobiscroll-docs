@@ -251,6 +251,10 @@ Pass `lng` on the authorize URL to render the Connect pages (provider selection,
 - Example: `/authorize?client_id=...&user_id=...&lng=es`. In the SDKs, pass `lng` to the auth-URL builder (see the examples above).
 :::
 
+:::tip Personalizing the Connect pages
+Set a **Display Name** for your application in the [dashboard](/connect/application-setup#creating-the-first-application). When set, the authorization and connection-management screens are personalized with it (e.g. "_&lt;Display Name&gt;_ is using Mobiscroll Connect ..." and a "Back to _&lt;Display Name&gt;_" button) so users always know which app they are connecting to. When no display name is set, a generic wording is shown. No request parameter is required - the display name is resolved from the `client_id`.
+:::
+
 :::info Re-authorizing an existing user
 Calling `/authorize` again for a `user_id` that already has tokens **does not revoke** any existing access or refresh tokens. The existing tokens are loaded and remain valid. The authorization flow simply allows the user to connect additional calendar provider accounts on top of the ones already connected.
 

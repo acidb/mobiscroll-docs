@@ -34,7 +34,6 @@ const llmsConnectOptions = {
     '**/links.js',
     '**/connectLinks.js',
     '**/_category_.json',
-    '**/ai-integration.md',
   ],
 
   // Route connect docs under /connect/ path

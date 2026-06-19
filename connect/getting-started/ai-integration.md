@@ -2,6 +2,7 @@
 sidebar_position: 4
 sidebar_label: AI Integration
 title: AI Integration
+description: 'Set up AI coding assistants — Claude Code, Cursor, and GitHub Copilot — with Mobiscroll Connect docs and behavior rules to generate accurate Connect API calls, OAuth flows, and webhook integrations.'
 ---
 
 import { useState, useEffect } from 'react';

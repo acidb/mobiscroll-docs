@@ -128,6 +128,8 @@ const config = {
       },
     }),
 
+    clientModules: [require.resolve('./src/clientModules/suppressHydrationErrors.js')],
+
 };
 
 module.exports = config;

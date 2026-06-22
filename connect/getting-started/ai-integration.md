@@ -148,7 +148,7 @@ It is a **hosted HTTP server** at <McpUrl /> — no local install required.
 |:---|:---|:---|:---|:---|
 | **Cursor** | `llms-connect-full.txt` via @docs | `mobiscroll-connect.mdc` | — | `mobiscroll-connect` server (Option B) |
 | **GitHub Copilot** | `.mdc` file (contains doc URLs) | `.mdc` file | — | `mobiscroll-connect` server (Option B) |
-| **Claude Code** | `llms-connect-full.txt` | `CLAUDE.md` | `CLAUDE.md` | `mobiscroll-connect` server (bundled in plugin) |
+| **Claude Code** | `llms-connect-full.txt` | `CLAUDE.md` | `CLAUDE.md` | `mobiscroll-connect` server (manual config) |
 
 ## Cursor setup
 
@@ -280,25 +280,30 @@ With the MCP server configured, Copilot can additionally call the Connect tools 
 
 ## Claude Code setup
 
-Install the Mobiscroll plugin for Claude Code. The plugin bundles the Connect coding skills and the Connect MCP server in a single install — no per-project configuration files needed.
+There is no dedicated Claude Code plugin for Connect. The `mobiscroll@mobiscroll` plugin covers the Mobiscroll **UI** library and bundles the UI MCP server only — it does not apply to Connect. Set Connect up with config files instead: a `CLAUDE.md` routing context (Option A) and/or the Connect MCP server (Option B).
 
-### Step 1: Register the marketplace
+### Step 1: Add CLAUDE.md (Option A)
 
-Run this once in Claude Code to register the Mobiscroll plugin marketplace:
-
-```
-/plugin marketplace add acidb/mobiscroll-marketplace
-```
-
-### Step 2: Install the plugin
+If you don't already have a `CLAUDE.md` in your project root, download <DocsLink path="connect/CLAUDE.md" download><code>CLAUDE.md</code></DocsLink> and place it there. If you already have one, copy the contents into your existing file instead — see [File contents](#file-contents) below.
 
 ```
-/plugin install mobiscroll@mobiscroll
+your-project/
+├── CLAUDE.md
+├── src/
+├── package.json
+└── ...
 ```
 
-### Step 3: Configure the MCP server (Optional)
+When Claude Code opens your project, it automatically reads `CLAUDE.md` from the project root. The file provides:
 
-The plugin bundles the MCP server — no separate configuration is needed for most setups. To configure it manually or share it with your team:
+- **Domain detection** — Claude detects Connect usage from `package.json`, import patterns, and API call signatures
+- **Routing rules** — deterministic IF/THEN rules that select `llms-connect-full.txt` and never route to UI framework docs
+- **API mapping** — translates user intents to the correct Connect REST endpoints and OAuth flows
+- **Anti-patterns** — explicit WRONG → RIGHT examples that prevent mixing Connect API calls with UI component code
+
+### Step 2: Configure the MCP server (Option B, recommended)
+
+For live endpoint and SDK lookups, add the Connect MCP server:
 
 <McpCliBlock />
 
@@ -326,33 +331,13 @@ Use `--scope project` for team repos so everyone gets the MCP server automatical
 
 **Verify the connection:** Run `/mcp` inside Claude Code. The panel lists each connected server and its tool count. A healthy connection shows `mobiscroll-connect` with its tools.
 
-### Alternative: CLAUDE.md (file-based, Option A)
-
-If you prefer not to install the plugin, add a `CLAUDE.md` to your project root instead. If you don't already have one, download <DocsLink path="connect/CLAUDE.md" download><code>CLAUDE.md</code></DocsLink> and place it there. If you already have one, copy the contents into your existing file instead — see [File contents](#file-contents) below.
-
-```
-your-project/
-├── CLAUDE.md
-├── src/
-├── package.json
-└── ...
-```
-
-When Claude Code opens your project, it automatically reads `CLAUDE.md` from the project root. The file provides:
-
-- **Domain detection** — Claude detects Connect usage from `package.json`, import patterns, and API call signatures
-- **Routing rules** — deterministic IF/THEN rules that select `llms-connect-full.txt` and never route to UI framework docs
-- **API mapping** — translates user intents to the correct Connect REST endpoints and OAuth flows
-- **Anti-patterns** — explicit WRONG → RIGHT examples that prevent mixing Connect API calls with UI component code
-
 ### How it works
 
-Once the plugin is installed, when you ask Claude Code to write Connect code it:
+With `CLAUDE.md` in place and the MCP server configured, when you ask Claude Code to write Connect code it:
 
 1. Detects your SDK language and version via `resolveConnectEnvironment`
-2. Loads the Connect skill with idiomatic conventions
-3. Looks up the endpoint schema (`getEndpointSchema`) or SDK operation (`getSdkOperation`) before writing any call
-4. Uses `mapEndpointToSdk` when translating a REST endpoint into SDK code, and `getErrorTaxonomy` when writing error handling
+2. Looks up the endpoint schema (`getEndpointSchema`) or SDK operation (`getSdkOperation`) before writing any call
+3. Uses `mapEndpointToSdk` when translating a REST endpoint into SDK code, and `getErrorTaxonomy` when writing error handling
 
 So Claude always uses the current Connect API and SDK signatures, never hallucinated or outdated ones.
 

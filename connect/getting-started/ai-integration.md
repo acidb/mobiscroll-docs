@@ -88,13 +88,6 @@ AI coding assistants work best when they have access to structured, authoritativ
 
 The Mobiscroll AI integration solves these problems by providing Connect-specific documentation optimized for AI consumption, combined with behavior rules that enforce domain isolation, and an optional MCP server that serves live, version-stamped endpoint and SDK schemas on demand.
 
-## Two approaches
-
-- **Option A** — file-based context. Behavior rules (`mobiscroll-connect.mdc` for Cursor/Copilot, `CLAUDE.md` for Claude Code) point the AI at the Connect documentation. No MCP server required.
-- **Option B** — live schema fetching via the Connect MCP server. The AI calls the Mobiscroll Connect MCP server for live endpoint and SDK lookups on each generation — so it always uses the current REST API and SDK signatures instead of guessing from memory. Suited for interactive coding agents that need per-query precision.
-
-Choose based on your preference and setup. Option B requires the MCP server to be configured (steps below).
-
 ## Architecture overview
 
 The integration consists of four layers:
@@ -146,9 +139,9 @@ It is a **hosted HTTP server** at <McpUrl /> — no local install required.
 
 | AI Tool | Documentation Source | Behavior Rules | Routing | Live lookups (MCP) |
 |:---|:---|:---|:---|:---|
-| **Cursor** | `llms-connect-full.txt` via @docs | `mobiscroll-connect.mdc` | — | `mobiscroll-connect` server (Option B) |
-| **GitHub Copilot** | `.mdc` file (contains doc URLs) | `.mdc` file | — | `mobiscroll-connect` server (Option B) |
-| **Claude Code** | `llms-connect-full.txt` | `CLAUDE.md` | `CLAUDE.md` | `mobiscroll-connect` server (manual config) |
+| **Cursor** | `llms-connect-full.txt` via @docs | `mobiscroll-connect.mdc` | — | `mobiscroll-connect` server |
+| **GitHub Copilot** | `.mdc` file (contains doc URLs) | `.mdc` file | — | `mobiscroll-connect` server |
+| **Claude Code** | `llms-connect-full.txt` | `CLAUDE.md` | `CLAUDE.md` | `mobiscroll-connect` server |
 
 ## Cursor setup
 
@@ -178,7 +171,7 @@ your-project/
 
 ### Step 3: Configure the MCP server (Optional)
 
-For live endpoint and SDK lookups (Option B), configure the Mobiscroll Connect MCP server so Cursor can call it during generation.
+For live endpoint and SDK lookups, configure the Mobiscroll Connect MCP server so Cursor can call it during generation.
 
 Create or edit `.cursor/mcp.json` in your project root:
 
@@ -239,7 +232,7 @@ The `.mdc` file will automatically influence Copilot responses when you work on 
 
 ### Step 2: Configure the MCP server (Optional)
 
-For live endpoint and SDK lookups (Option B), configure the Mobiscroll Connect MCP server so VS Code can call it during generation.
+For live endpoint and SDK lookups, configure the Mobiscroll Connect MCP server so VS Code can call it during generation.
 
 Create or edit `.vscode/mcp.json` in your project root:
 
@@ -280,9 +273,9 @@ With the MCP server configured, Copilot can additionally call the Connect tools 
 
 ## Claude Code setup
 
-There is no dedicated Claude Code plugin for Connect. The `mobiscroll@mobiscroll` plugin covers the Mobiscroll **UI** library and bundles the UI MCP server only — it does not apply to Connect. Set Connect up with config files instead: a `CLAUDE.md` routing context (Option A) and/or the Connect MCP server (Option B).
+There is no dedicated Claude Code plugin for Connect. The `mobiscroll@mobiscroll` plugin covers the Mobiscroll **UI** library and bundles the UI MCP server only — it does not apply to Connect. Set Connect up with config files instead.
 
-### Step 1: Add CLAUDE.md (Option A)
+### Step 1: Add CLAUDE.md
 
 If you don't already have a `CLAUDE.md` in your project root, download <DocsLink path="connect/CLAUDE.md" download><code>CLAUDE.md</code></DocsLink> and place it there. If you already have one, copy the contents into your existing file instead — see [File contents](#file-contents) below.
 
@@ -301,7 +294,7 @@ When Claude Code opens your project, it automatically reads `CLAUDE.md` from the
 - **API mapping** — translates user intents to the correct Connect REST endpoints and OAuth flows
 - **Anti-patterns** — explicit WRONG → RIGHT examples that prevent mixing Connect API calls with UI component code
 
-### Step 2: Configure the MCP server (Option B, recommended)
+### Step 2: Configure the MCP server (Optional)
 
 For live endpoint and SDK lookups, add the Connect MCP server:
 
@@ -386,7 +379,7 @@ What scopes are required for read-write calendar access?
 
 **Symptom:** The AI suggests REST endpoints, request parameters, response fields, or SDK methods that don't exist in the Connect API.
 
-**Fix:** The `.mdc` rules instruct the AI to only use APIs found in the Connect docs. If this still happens, explicitly reference `@docs` in Cursor queries, or verify that `CLAUDE.md` is in the project root for Claude Code. For the highest accuracy, enable the Connect MCP server (Option B) so the AI fetches live endpoint and SDK schemas instead of guessing. You can also ask the AI to confirm an endpoint exists in the Mobiscroll Connect docs.
+**Fix:** The `.mdc` rules instruct the AI to only use APIs found in the Connect docs. If this still happens, explicitly reference `@docs` in Cursor queries, or verify that `CLAUDE.md` is in the project root for Claude Code. For the highest accuracy, enable the Connect MCP server so the AI fetches live endpoint and SDK schemas instead of guessing. You can also ask the AI to confirm an endpoint exists in the Mobiscroll Connect docs.
 
 ### MCP server does not appear after setup
 

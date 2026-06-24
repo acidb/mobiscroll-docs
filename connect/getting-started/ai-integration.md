@@ -129,14 +129,14 @@ It is a **hosted HTTP server** at <McpUrl /> — no local install required.
 
 | Tool | What it does |
 |:---|:---|
-| `resolveConnectEnvironment` | Detects which Connect SDK (language + version) a project uses from its dependency manifest, and echoes the served versions. Call first. |
-| `listConnectEndpoints` | Lists all Connect REST endpoints (method, path, summary, auth). |
-| `getConnectEndpointSchema` | Full endpoint schema — query/body params with types, auth, responses, status codes, and examples. |
-| `listConnectSdkMethods` | Lists a language's resources (`auth` / `calendars` / `events`) and their methods. |
-| `getConnectSdkMethod` | Full signature, doc, params, return type, and example of one SDK method in one language. |
-| `searchConnect` | Keyword search across REST endpoints and SDK methods in all languages at once. |
-| `mapConnectEndpointToSdk` | Given a REST endpoint, returns the equivalent SDK call in each language — built on the SDKs' shared surface. |
-| `getConnectErrorTaxonomy` | The shared error categories and the idiomatic exception type for each language. |
+| `resolveConnectEnvironment` | Detects which Connect SDK (language + version) a project uses from its dependency manifest, and echoes the served versions. **Call this first.** |
+| `listConnectEndpoints` | Lists every Connect REST endpoint with its method, path, summary, and authentication. |
+| `getConnectEndpointSchema` | Returns one endpoint's full schema — query/body params with types, authentication, responses, status codes, and examples. |
+| `listConnectSdkMethods` | Lists a language's resources (`auth` / `calendars` / `events`) and the methods on each. |
+| `getConnectSdkMethod` | Returns one SDK method's full signature, doc, params, return type, and example, in the language you pick. |
+| `searchConnect` | Searches REST endpoints and SDK methods across all languages by keyword, ranked by relevance. |
+| `mapConnectEndpointToSdk` | Maps a REST endpoint to its equivalent SDK call in each language — built on the SDKs' shared surface. |
+| `getConnectErrorTaxonomy` | Returns the shared error categories and the idiomatic exception type for each language. |
 
 ## Which tool uses which files?
 

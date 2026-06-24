@@ -276,25 +276,9 @@ With the MCP server configured, Copilot can additionally call the Connect tools 
 
 ## Claude Code setup
 
-Install the Mobiscroll plugin for Claude Code, then add the Connect `CLAUDE.md`. The plugin bundles the MCP server — and its Connect tools come with it — in a single install. The plugin does **not** provide Connect routing, so the `CLAUDE.md` file adds that.
+Set Connect up with config files: a `CLAUDE.md` routing file (Step 1) and the Mobiscroll MCP server (Step 2). Don't install the `mobiscroll@mobiscroll` plugin for Connect — its skills are currently UI-specific.
 
-### Step 1: Register the marketplace
-
-Run this once in Claude Code to register the Mobiscroll plugin marketplace:
-
-```
-/plugin marketplace add acidb/mobiscroll-marketplace
-```
-
-### Step 2: Install the plugin
-
-```
-/plugin install mobiscroll@mobiscroll
-```
-
-This installs the Mobiscroll MCP server, including the `Connect`-prefixed tools — no separate MCP configuration is needed for most setups.
-
-### Step 3: Add CLAUDE.md
+### Step 1: Add CLAUDE.md
 
 If you don't already have a `CLAUDE.md` in your project root, download <DocsLink path="connect/CLAUDE.md" download><code>CLAUDE.md</code></DocsLink> and place it there. If you already have one, copy the contents into your existing file instead — see [File contents](#file-contents) below.
 
@@ -313,9 +297,9 @@ When Claude Code opens your project, it automatically reads `CLAUDE.md` from the
 - **API mapping** — translates user intents to the correct Connect REST endpoints and OAuth flows
 - **Anti-patterns** — explicit WRONG → RIGHT examples that prevent mixing Connect API calls with UI component code
 
-### Step 4: Configure the MCP server (Optional)
+### Step 2: Configure the MCP server (Optional)
 
-The plugin bundles the MCP server — no separate configuration is needed for most setups. To configure it manually or share it with your team:
+For live endpoint and SDK lookups, add the Mobiscroll MCP server:
 
 <McpCliBlock />
 

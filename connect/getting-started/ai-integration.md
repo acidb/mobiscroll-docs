@@ -40,7 +40,10 @@ export const FileBlock = ({src}) => {
   return <pre style={{overflow: 'auto', maxHeight: '600px', background: 'var(--ifm-code-background)', padding: '1rem', borderRadius: 'var(--ifm-code-border-radius)', fontSize: '0.85em'}}><code>{content}</code></pre>;
 };
 
-export const useMcpBase = () => 'https://mcp-connect.mobiscroll.com/';
+export const useMcpBase = () => {
+  const {siteConfig} = useDocusaurusContext();
+  return siteConfig.url.replace('://', '://mcp.') + '/';
+};
 
 export const McpUrl = () => {
   const base = useMcpBase();
@@ -50,9 +53,9 @@ export const McpUrl = () => {
 export const McpConfigBlock = ({tool}) => {
   const url = useMcpBase();
   const configs = {
-    claude: { mcpServers: { 'mobiscroll-connect': { type: 'http', url } } },
-    cursor: { mcpServers: { 'mobiscroll-connect': { url } } },
-    vscode: { servers:    { 'mobiscroll-connect': { type: 'http', url } } },
+    claude: { mcpServers: { mobiscroll: { type: 'http', url } } },
+    cursor: { mcpServers: { mobiscroll: { url } } },
+    vscode: { servers:    { mobiscroll: { type: 'http', url } } },
   };
   const json = JSON.stringify(configs[tool], null, 2);
   return (
@@ -65,7 +68,7 @@ export const McpConfigBlock = ({tool}) => {
 export const McpCliBlock = ({scope}) => {
   const url = useMcpBase();
   const scopeFlag = scope ? ` --scope ${scope}` : '';
-  const cmd = `claude mcp add --transport http${scopeFlag} mobiscroll-connect ${url}`;
+  const cmd = `claude mcp add --transport http${scopeFlag} mobiscroll ${url}`;
   return (
     <pre style={{overflow: 'auto', background: 'var(--ifm-code-background)', padding: '1rem', borderRadius: 'var(--ifm-code-border-radius)', fontSize: '0.85em'}}>
       <code>{cmd}</code>
@@ -120,28 +123,28 @@ A context file specifically for Claude Code that provides domain detection signa
 
 ### Live schema layer — MCP server
 
-The **Mobiscroll Connect MCP server** serves structured, version-stamped Connect knowledge over the Model Context Protocol, generated directly from the Connect REST source and the 7-language SDK suite. Instead of relying on documentation snapshots, an assistant can call the server's tools to fetch the exact endpoint schema, SDK operation signature, or cross-language equivalent it needs at generation time.
+The **Mobiscroll MCP server** serves structured, version-stamped knowledge over the Model Context Protocol. It is a single, unified server: the same `mobiscroll` server that serves UI component schemas also exposes the Connect tools, generated directly from the Connect REST source and the 7-language SDK suite. The Connect tools are all prefixed `Connect` so they never collide with the UI component tools. Instead of relying on documentation snapshots, an assistant can call these tools to fetch the exact endpoint schema, SDK method signature, or cross-language equivalent it needs at generation time.
 
 It is a **hosted HTTP server** at <McpUrl /> — no local install required.
 
 | Tool | What it does |
 |:---|:---|
 | `resolveConnectEnvironment` | Detects which Connect SDK (language + version) a project uses from its dependency manifest, and echoes the served versions. Call first. |
-| `listEndpoints` | Lists all Connect REST endpoints (method, path, summary, auth). |
-| `getEndpointSchema` | Full endpoint schema — query/body params with types, auth, responses, status codes, and examples. |
-| `listSdkOperations` | Lists a language's resources (`auth` / `calendars` / `events`) and their operations. |
-| `getSdkOperation` | Full signature, doc, params, return type, and example of one SDK operation in one language. |
-| `searchConnect` | Keyword search across REST endpoints and SDK operations in all languages at once. |
-| `mapEndpointToSdk` | Given a REST endpoint, returns the equivalent SDK call in each language — built on the SDKs' shared surface. |
-| `getErrorTaxonomy` | The shared error categories and the idiomatic exception type for each language. |
+| `listConnectEndpoints` | Lists all Connect REST endpoints (method, path, summary, auth). |
+| `getConnectEndpointSchema` | Full endpoint schema — query/body params with types, auth, responses, status codes, and examples. |
+| `listConnectSdkMethods` | Lists a language's resources (`auth` / `calendars` / `events`) and their methods. |
+| `getConnectSdkMethod` | Full signature, doc, params, return type, and example of one SDK method in one language. |
+| `searchConnect` | Keyword search across REST endpoints and SDK methods in all languages at once. |
+| `mapConnectEndpointToSdk` | Given a REST endpoint, returns the equivalent SDK call in each language — built on the SDKs' shared surface. |
+| `getConnectErrorTaxonomy` | The shared error categories and the idiomatic exception type for each language. |
 
 ## Which tool uses which files?
 
 | AI Tool | Documentation Source | Behavior Rules | Routing | Live lookups (MCP) |
 |:---|:---|:---|:---|:---|
-| **Cursor** | `llms-connect-full.txt` via @docs | `mobiscroll-connect.mdc` | — | `mobiscroll-connect` server |
-| **GitHub Copilot** | `.mdc` file (contains doc URLs) | `.mdc` file | — | `mobiscroll-connect` server |
-| **Claude Code** | `llms-connect-full.txt` | `CLAUDE.md` | `CLAUDE.md` | `mobiscroll-connect` server |
+| **Cursor** | `llms-connect-full.txt` via @docs | `mobiscroll-connect.mdc` | — | `mobiscroll` server (Connect tools) |
+| **GitHub Copilot** | `.mdc` file (contains doc URLs) | `.mdc` file | — | `mobiscroll` server (Connect tools) |
+| **Claude Code** | `llms-connect-full.txt` | `CLAUDE.md` | `CLAUDE.md` | `mobiscroll` server (Connect tools) |
 
 ## Cursor setup
 
@@ -196,7 +199,7 @@ your-project/
 | project | `.cursor/mcp.json` in project root | Yes, if committed |
 | global | `~/.cursor/mcp.json` | No, all your projects |
 
-**Verify the connection:** Open the **Output** panel in Cursor and select **MCP Logs** from the dropdown. A successful connection logs tool discovery messages for the `mobiscroll-connect` server.
+**Verify the connection:** Open the **Output** panel in Cursor and select **MCP Logs** from the dropdown. A successful connection logs tool discovery messages for the `mobiscroll` server, including the `Connect`-prefixed tools.
 
 ### Step 4: Use @docs in queries
 
@@ -258,7 +261,7 @@ your-project/
 | workspace | `.vscode/mcp.json` in project root | Yes, if committed |
 | user profile | Opened via **MCP: Open User Configuration** | No, all your workspaces |
 
-**Verify the connection:** Open the **Command Palette** and run **MCP: List Servers**. The `mobiscroll-connect` server should appear with a connected status. A trust dialog appears on first use — approve it to allow the server to start.
+**Verify the connection:** Open the **Command Palette** and run **MCP: List Servers**. The `mobiscroll` server should appear with a connected status, exposing the `Connect`-prefixed tools. A trust dialog appears on first use — approve it to allow the server to start.
 
 ### How it works
 
@@ -273,9 +276,25 @@ With the MCP server configured, Copilot can additionally call the Connect tools 
 
 ## Claude Code setup
 
-There is no dedicated Claude Code plugin for Connect. The `mobiscroll@mobiscroll` plugin covers the Mobiscroll **UI** library and bundles the UI MCP server only — it does not apply to Connect. Set Connect up with config files instead.
+Install the Mobiscroll plugin for Claude Code, then add the Connect `CLAUDE.md`. The plugin bundles the MCP server — and its Connect tools come with it — in a single install. The plugin does **not** provide Connect routing, so the `CLAUDE.md` file adds that.
 
-### Step 1: Add CLAUDE.md
+### Step 1: Register the marketplace
+
+Run this once in Claude Code to register the Mobiscroll plugin marketplace:
+
+```
+/plugin marketplace add acidb/mobiscroll-marketplace
+```
+
+### Step 2: Install the plugin
+
+```
+/plugin install mobiscroll@mobiscroll
+```
+
+This installs the Mobiscroll MCP server, including the `Connect`-prefixed tools — no separate MCP configuration is needed for most setups.
+
+### Step 3: Add CLAUDE.md
 
 If you don't already have a `CLAUDE.md` in your project root, download <DocsLink path="connect/CLAUDE.md" download><code>CLAUDE.md</code></DocsLink> and place it there. If you already have one, copy the contents into your existing file instead — see [File contents](#file-contents) below.
 
@@ -294,9 +313,9 @@ When Claude Code opens your project, it automatically reads `CLAUDE.md` from the
 - **API mapping** — translates user intents to the correct Connect REST endpoints and OAuth flows
 - **Anti-patterns** — explicit WRONG → RIGHT examples that prevent mixing Connect API calls with UI component code
 
-### Step 2: Configure the MCP server (Optional)
+### Step 4: Configure the MCP server (Optional)
 
-For live endpoint and SDK lookups, add the Connect MCP server:
+The plugin bundles the MCP server — no separate configuration is needed for most setups. To configure it manually or share it with your team:
 
 <McpCliBlock />
 
@@ -322,15 +341,15 @@ This creates or updates `.mcp.json` in your project root. You can also create th
 Use `--scope project` for team repos so everyone gets the MCP server automatically when they clone the project.
 :::
 
-**Verify the connection:** Run `/mcp` inside Claude Code. The panel lists each connected server and its tool count. A healthy connection shows `mobiscroll-connect` with its tools.
+**Verify the connection:** Run `/mcp` inside Claude Code. The panel lists each connected server and its tool count. A healthy connection shows `mobiscroll` with its tools, including the `Connect`-prefixed ones.
 
 ### How it works
 
 With `CLAUDE.md` in place and the MCP server configured, when you ask Claude Code to write Connect code it:
 
 1. Detects your SDK language and version via `resolveConnectEnvironment`
-2. Looks up the endpoint schema (`getEndpointSchema`) or SDK operation (`getSdkOperation`) before writing any call
-3. Uses `mapEndpointToSdk` when translating a REST endpoint into SDK code, and `getErrorTaxonomy` when writing error handling
+2. Looks up the endpoint schema (`getConnectEndpointSchema`) or SDK method (`getConnectSdkMethod`) before writing any call
+3. Uses `mapConnectEndpointToSdk` when translating a REST endpoint into SDK code, and `getConnectErrorTaxonomy` when writing error handling
 
 So Claude always uses the current Connect API and SDK signatures, never hallucinated or outdated ones.
 
@@ -342,7 +361,7 @@ Mobiscroll Connect is a backend integration layer — OAuth 2.0, REST API, webho
 
 **Why this matters:**
 
-- Connect uses `mobiscroll-connect.mdc`, `llms-connect-full.txt`, and the `mobiscroll-connect` MCP server — never the UI framework files or the UI `mobiscroll` MCP server
+- Connect uses `mobiscroll-connect.mdc` and `llms-connect-full.txt` — never the UI framework files
 - Mixing Connect docs with UI docs causes the AI to conflate REST endpoints with component APIs
 - Connect has no JSX, no frontend framework bindings, no CSS
 
@@ -350,7 +369,7 @@ Mobiscroll Connect is a backend integration layer — OAuth 2.0, REST API, webho
 
 1. Add only **one** `.mdc` file per project — the one matching your framework or domain
 2. Register only **one** documentation source in Cursor
-3. Keep the MCP servers separate — the Connect server (`mobiscroll-connect`) serves REST/SDK schemas; the UI server (`mobiscroll`) serves component schemas. Configure only the one your task needs.
+3. The MCP server is unified — the single `mobiscroll` server serves both UI and Connect tools. Isolation happens at the tool level: the Connect tools are all prefixed `Connect` (`listConnectEndpoints`, `getConnectSdkMethod`, …), so they never collide with the UI component tools. The `.mdc` and `CLAUDE.md` rules keep the AI on the Connect tools for Connect work.
 4. If your project uses both a UI framework and Mobiscroll Connect, use separate AI context directories for each
 5. If an AI assistant generates UI component code when you asked about Connect, check that `mobiscroll-connect.mdc` is active
 
@@ -373,19 +392,19 @@ What scopes are required for read-write calendar access?
 
 **Symptom:** You asked about backend calendar sync or OAuth but the AI generates JSX components like `<Eventcalendar />` instead of Connect REST API calls.
 
-**Fix:** Verify that `mobiscroll-connect.mdc` is in place and that the registered @docs source in Cursor points to `llms-connect-full.txt` — not a UI framework file. If you configured an MCP server, confirm it is the `mobiscroll-connect` server, not the UI `mobiscroll` server. Connect and Eventcalendar are entirely separate products.
+**Fix:** Verify that `mobiscroll-connect.mdc` is in place and that the registered @docs source in Cursor points to `llms-connect-full.txt` — not a UI framework file. The `mobiscroll` MCP server exposes both UI and Connect tools, so make sure the AI is using the `Connect`-prefixed tools (e.g. `getConnectEndpointSchema`) rather than the UI component tools. Connect and Eventcalendar are entirely separate products.
 
 ### AI invents non-existent endpoints or parameters
 
 **Symptom:** The AI suggests REST endpoints, request parameters, response fields, or SDK methods that don't exist in the Connect API.
 
-**Fix:** The `.mdc` rules instruct the AI to only use APIs found in the Connect docs. If this still happens, explicitly reference `@docs` in Cursor queries, or verify that `CLAUDE.md` is in the project root for Claude Code. For the highest accuracy, enable the Connect MCP server so the AI fetches live endpoint and SDK schemas instead of guessing. You can also ask the AI to confirm an endpoint exists in the Mobiscroll Connect docs.
+**Fix:** The `.mdc` rules instruct the AI to only use APIs found in the Connect docs. If this still happens, explicitly reference `@docs` in Cursor queries, or verify that `CLAUDE.md` is in the project root for Claude Code. For the highest accuracy, enable the Mobiscroll MCP server so the AI fetches live endpoint and SDK schemas via the Connect tools instead of guessing. You can also ask the AI to confirm an endpoint exists in the Mobiscroll Connect docs.
 
 ### MCP server does not appear after setup
 
-**Symptom:** The MCP server panel shows no `mobiscroll-connect` entry, or its tools are not available.
+**Symptom:** The MCP server panel shows no `mobiscroll` entry, or its Connect tools are not available.
 
-**Fix:** Check that the config file is in the correct location and uses the correct root key — `mcpServers` for Claude Code and Cursor, `servers` for VS Code. Validate that the file is well-formed JSON, and that the server name is `mobiscroll-connect`. For Claude Code, run `/mcp` to inspect connected servers; for the VS Code extension, add the server with project scope.
+**Fix:** Check that the config file is in the correct location and uses the correct root key — `mcpServers` for Claude Code and Cursor, `servers` for VS Code. Validate that the file is well-formed JSON, and that the server name is `mobiscroll`. For Claude Code, run `/mcp` to inspect connected servers; for the VS Code extension, add the server with project scope. If the server connects but the `Connect`-prefixed tools are missing, your deployed server may predate the Connect merge — reconnect after it is updated.
 
 ### AI mixes Mobiscroll Connect with UI components
 
@@ -420,7 +439,7 @@ All AI integration files and endpoints are available at the following URLs:
 
 | Server | URL |
 |:---|:---|
-| Mobiscroll Connect MCP | <McpUrl /> |
+| Mobiscroll MCP (UI + Connect) | <McpUrl /> |
 
 ## File contents {#file-contents}
 

@@ -95,6 +95,20 @@ https://connect.mobiscroll.com/api/oauth/authorize?response_type=code&client_id=
 
 ---
 
+## Branding
+
+The Connect screens your users see when they link their calendars (authorization, provider login, and error pages) can be customized per application from the **Branding** menu of your application in the dashboard. You can set a logo and dark-mode logo, a primary color, a default theme, and optionally hide the "Powered by Mobiscroll Connect" footer.
+
+Branding is applied automatically based on the `client_id` in the authorization request - no request parameters or integration changes are required.
+
+:::info
+Branding is available on the **Grow** and **Scale** plans. On lower plans the Connect screens use the default Mobiscroll branding.
+:::
+
+See [Branding](/connect/branding) for the full list of fields, how the theme default is resolved, and how the display name and support contact appear on these screens.
+
+---
+
 ## Next Steps
 
 Now that your credentials are verified and the connection is established, you can proceed with integrating Mobiscroll Connect into your application. Choose the approach that best fits your workflow:

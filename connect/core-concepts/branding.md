@@ -3,7 +3,7 @@ sidebar_position: 3
 slug: /branding
 title: Branding
 sidebar_label: Branding
-description: Customize the Mobiscroll Connect screens per application - logo, dark-mode logo, primary color, default theme, and the Powered by Mobiscroll footer. Available on the Grow and Scale plans.
+description: Customize the Mobiscroll Connect screens per application - logo, dark-mode logo, primary color, default theme, and the Powered by Mobiscroll footer. Available on the Scale plan.
 ---
 
 # Branding
@@ -12,9 +12,9 @@ The Mobiscroll Connect screens your users see while linking their calendars - th
 
 ## Plan availability
 
-Branding is available on the **Grow** and **Scale** plans.
+Branding is available on the **Scale** plan.
 
-On lower plans the Connect screens always render the default Mobiscroll branding, and the **Branding** page in the dashboard shows an upgrade notice instead of the editor. Upgrading to Grow or Scale enables the branding fields and applies your saved values to the Connect screens.
+On lower plans the Connect screens always render the default Mobiscroll branding, and the **Branding** page in the dashboard shows an upgrade notice instead of the editor. Upgrading to Scale enables the branding fields and applies your saved values to the Connect screens.
 
 ## What you can customize
 

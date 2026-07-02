@@ -102,7 +102,7 @@ The Connect screens your users see when they link their calendars (authorization
 Branding is applied automatically based on the `client_id` in the authorization request - no request parameters or integration changes are required.
 
 :::info
-Branding is available on the **Grow** and **Scale** plans. On lower plans the Connect screens use the default Mobiscroll branding.
+Branding is available on the **Scale** plan. On lower plans the Connect screens use the default Mobiscroll branding.
 :::
 
 See [Branding](/connect/branding) for the full list of fields, how the theme default is resolved, and how the display name and support contact appear on these screens.

@@ -6,6 +6,8 @@ sidebar_label: Branding
 description: Customize the Mobiscroll Connect screens per application - logo, dark-mode logo, primary color, default theme, and the Powered by Mobiscroll footer. Available on the Scale plan or higher.
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 # Branding
 
 The Mobiscroll Connect screens your users see while linking their calendars - the authorization (consent) screen, the provider login screens, and the error screen - can carry your own logo, color, and theme instead of the default Mobiscroll appearance. Branding is configured per application and applied automatically, so every user who connects through your app sees a consistent set of screens.
@@ -38,11 +40,11 @@ The **enable branding** switch on the Branding page controls whether your saved 
 
 <div style={{display: "flex", gap: "1rem", flexWrap: "wrap"}}>
   <figure style={{flex: "1 1 300px", margin: 0}}>
-    <img src="/connect/branding_on.png" alt="Connect authorization screen with branding enabled" style={{width: "100%"}} />
+    <img src={useBaseUrl("/connect/branding_on.png")} alt="Connect authorization screen with branding enabled" style={{width: "100%"}} />
     <figcaption style={{textAlign: "center", fontSize: "1rem", fontWeight: "bold"}}>Branding on</figcaption>
   </figure>
   <figure style={{flex: "1 1 300px", margin: 0}}>
-    <img src="/connect/branding_off.png" alt="Connect authorization screen with branding disabled" style={{width: "100%"}} />
+    <img src={useBaseUrl("/connect/branding_off.png")} alt="Connect authorization screen with branding disabled" style={{width: "100%"}} />
     <figcaption style={{textAlign: "center", fontSize: "1rem", fontWeight: "bold"}}>Branding off (default appearance)</figcaption>
   </figure>
 </div>
@@ -60,11 +62,11 @@ The default is not the only input. The resolved scheme is chosen in this order, 
 
 <div style={{display: "flex", gap: "1rem", flexWrap: "wrap"}}>
   <figure style={{flex: "1 1 300px", margin: 0}}>
-    <img src="/connect/branding_light.png" alt="Connect authorization screen with branding enabled" style={{width: "100%"}} />
+    <img src={useBaseUrl("/connect/branding_light.png")} alt="Connect authorization screen with light theme" style={{width: "100%"}} />
     <figcaption style={{textAlign: "center", fontSize: "1rem", fontWeight: "bold"}}>Light theme</figcaption>
   </figure>
   <figure style={{flex: "1 1 300px", margin: 0}}>
-    <img src="/connect/branding_dark.png" alt="Connect authorization screen with branding enabled" style={{width: "100%"}} />
+    <img src={useBaseUrl("/connect/branding_dark.png")} alt="Connect authorization screen with dark theme" style={{width: "100%"}} />
     <figcaption style={{textAlign: "center", fontSize: "1rem", fontWeight: "bold"}}>Dark theme</figcaption>
   </figure>
 </div>

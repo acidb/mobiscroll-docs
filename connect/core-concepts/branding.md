@@ -28,9 +28,24 @@ Set these from the **Branding** menu of your application in the [Connect dashboa
 
 All fields are optional. Anything left empty falls back to the Mobiscroll default.
 
+![Branding page in the Connect dashboard](/connect/branding_dashboard.png)
+
 ## How branding is applied
 
 Branding is resolved from the `client_id` in the authorization request and injected into the Connect screens automatically. You do not pass any branding parameters and you do not change your integration - once branding is saved for an application, every authorization flow started with that `client_id` uses it.
+
+The **enable branding** switch on the Branding page controls whether your saved customization is actually applied - turning it off reverts the same screen to the default Mobiscroll appearance without discarding your settings:
+
+<div style={{display: "flex", gap: "1rem", flexWrap: "wrap"}}>
+  <figure style={{flex: "1 1 300px", margin: 0}}>
+    <img src="/connect/branding_on.png" alt="Connect authorization screen with branding enabled" style={{width: "100%"}} />
+    <figcaption style={{textAlign: "center", fontSize: "1rem", fontWeight: "bold"}}>Branding on</figcaption>
+  </figure>
+  <figure style={{flex: "1 1 300px", margin: 0}}>
+    <img src="/connect/branding_off.png" alt="Connect authorization screen with branding disabled" style={{width: "100%"}} />
+    <figcaption style={{textAlign: "center", fontSize: "1rem", fontWeight: "bold"}}>Branding off (default appearance)</figcaption>
+  </figure>
+</div>
 
 ## Theme precedence
 
@@ -42,6 +57,18 @@ The default is not the only input. The resolved scheme is chosen in this order, 
 2. The application's **Theme** default, when it is set to `light` or `dark`.
 3. The user's remembered choice on the screen - applied only when the application default is `auto`.
 4. `auto` (the device setting), as the final fallback.
+
+<div style={{display: "flex", gap: "1rem", flexWrap: "wrap"}}>
+  <figure style={{flex: "1 1 300px", margin: 0}}>
+    <img src="/connect/branding_light.png" alt="Connect authorization screen with branding enabled" style={{width: "100%"}} />
+    <figcaption style={{textAlign: "center", fontSize: "1rem", fontWeight: "bold"}}>Light theme</figcaption>
+  </figure>
+  <figure style={{flex: "1 1 300px", margin: 0}}>
+    <img src="/connect/branding_dark.png" alt="Connect authorization screen with branding enabled" style={{width: "100%"}} />
+    <figcaption style={{textAlign: "center", fontSize: "1rem", fontWeight: "bold"}}>Dark theme</figcaption>
+  </figure>
+</div>
+
 
 ## Display name and support contact
 

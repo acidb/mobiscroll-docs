@@ -13,6 +13,7 @@ const copies = [
     ['mobiscroll-ui-vue',        'static/docs/vue/SKILL.md'],
     ['mobiscroll-ui-javascript', 'static/docs/javascript/SKILL.md'],
     ['mobiscroll-ui-jquery',     'static/docs/jquery/SKILL.md'],
+    ['mobiscroll-connect',       'static/connect/SKILL.md'],
 ];
 
 for (const [skillDir, dest] of copies) {
@@ -34,6 +35,7 @@ const copilotCopies = [
     ['mobiscroll-ui-vue',        'static/copilot-instructions/mobiscroll-ui-vue.instructions.md'],
     ['mobiscroll-ui-javascript', 'static/copilot-instructions/mobiscroll-ui-javascript.instructions.md'],
     ['mobiscroll-ui-jquery',     'static/copilot-instructions/mobiscroll-ui-jquery.instructions.md'],
+    ['mobiscroll-connect',       'static/copilot-instructions/mobiscroll-connect.instructions.md'],
 ];
 
 for (const [skillDir, dest] of copilotCopies) {

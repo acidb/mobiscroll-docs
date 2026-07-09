@@ -22,7 +22,7 @@ On lower plans the Connect screens always render the default Mobiscroll branding
 
 Set these from the **Branding** menu of your application in the [Connect dashboard](https://app.mobiscroll.com/connect):
 
-- **Logo**: a square logo (recommended 128x128) shown on the Connect screens. Defaults to the Mobiscroll logo.
+- **Logo**: a square logo (recommended 128x128) shown on the Connect screens. Upload a file (PNG, JPG, or WebP - optimized and hosted for you) or paste your own hosted image URL. Defaults to the Mobiscroll logo.
 - **Dark mode logo** (optional): an alternate logo used when the dark theme is active. Falls back to the main logo when not set.
 - **Primary color**: a hex color (for example `#5DB4D8`) used for primary buttons and accents. Defaults to the Mobiscroll color.
 - **Theme**: the default color scheme - `auto`, `light`, or `dark`. See [Theme precedence](#theme-precedence) below.

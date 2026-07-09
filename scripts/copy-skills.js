@@ -20,7 +20,7 @@ for (const [skillDir, dest] of copies) {
     const src = path.join(pluginSkills, skillDir, 'SKILL.md');
     const out = path.join(docsRoot, dest);
     fs.mkdirSync(path.dirname(out), { recursive: true });
-    let content = fs.readFileSync(src, 'utf8');
+    let content = fs.readFileSync(src, 'utf8').replace(/\r\n/g, '\n');
     content = content.replace(/^---\n/, '---\nalwaysApply: false\n');
     fs.writeFileSync(out, content);
     console.log(`Copied ${skillDir}/SKILL.md → ${dest}`);
@@ -42,7 +42,7 @@ for (const [skillDir, dest] of copilotCopies) {
     const src = path.join(pluginSkills, skillDir, 'SKILL.md');
     const out = path.join(docsRoot, dest);
     fs.mkdirSync(path.dirname(out), { recursive: true });
-    let content = fs.readFileSync(src, 'utf8');
+    let content = fs.readFileSync(src, 'utf8').replace(/\r\n/g, '\n');
     content = content.replace(/^---\n/, '---\napplyTo: "**"\n');
     fs.writeFileSync(out, content);
     console.log(`Copied (Copilot) ${skillDir}/SKILL.md → ${dest}`);

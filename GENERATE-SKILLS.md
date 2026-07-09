@@ -62,7 +62,7 @@ The same source files are also copied to `static/copilot-instructions/` as `.ins
 | `mobiscroll-ui-vue` | `static/copilot-instructions/mobiscroll-ui-vue.instructions.md` |
 | `mobiscroll-ui-javascript` | `static/copilot-instructions/mobiscroll-ui-javascript.instructions.md` |
 | `mobiscroll-ui-jquery` | `static/copilot-instructions/mobiscroll-ui-jquery.instructions.md` |
-| `mobiscroll-connect` | `static/copilot-instructions/mobiscroll-connect.instructions.md` |
+| `mobiscroll-connect` | `static/copilot-instructions/mobiscroll-connect-skill.instructions.md` |
 
 ## Skill Architecture
 

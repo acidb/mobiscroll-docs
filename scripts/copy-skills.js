@@ -13,13 +13,14 @@ const copies = [
     ['mobiscroll-ui-vue',        'static/docs/vue/SKILL.md'],
     ['mobiscroll-ui-javascript', 'static/docs/javascript/SKILL.md'],
     ['mobiscroll-ui-jquery',     'static/docs/jquery/SKILL.md'],
+    ['mobiscroll-connect',       'static/connect/SKILL.md'],
 ];
 
 for (const [skillDir, dest] of copies) {
     const src = path.join(pluginSkills, skillDir, 'SKILL.md');
     const out = path.join(docsRoot, dest);
     fs.mkdirSync(path.dirname(out), { recursive: true });
-    let content = fs.readFileSync(src, 'utf8');
+    let content = fs.readFileSync(src, 'utf8').replace(/\r\n/g, '\n');
     content = content.replace(/^---\n/, '---\nalwaysApply: false\n');
     fs.writeFileSync(out, content);
     console.log(`Copied ${skillDir}/SKILL.md → ${dest}`);
@@ -34,13 +35,14 @@ const copilotCopies = [
     ['mobiscroll-ui-vue',        'static/copilot-instructions/mobiscroll-ui-vue.instructions.md'],
     ['mobiscroll-ui-javascript', 'static/copilot-instructions/mobiscroll-ui-javascript.instructions.md'],
     ['mobiscroll-ui-jquery',     'static/copilot-instructions/mobiscroll-ui-jquery.instructions.md'],
+    ['mobiscroll-connect',       'static/copilot-instructions/mobiscroll-connect-skill.instructions.md'],
 ];
 
 for (const [skillDir, dest] of copilotCopies) {
     const src = path.join(pluginSkills, skillDir, 'SKILL.md');
     const out = path.join(docsRoot, dest);
     fs.mkdirSync(path.dirname(out), { recursive: true });
-    let content = fs.readFileSync(src, 'utf8');
+    let content = fs.readFileSync(src, 'utf8').replace(/\r\n/g, '\n');
     content = content.replace(/^---\n/, '---\napplyTo: "**"\n');
     fs.writeFileSync(out, content);
     console.log(`Copied (Copilot) ${skillDir}/SKILL.md → ${dest}`);

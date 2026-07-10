@@ -47,6 +47,7 @@ The source files are copied to `static/` as `SKILL.md` files with `alwaysApply: 
 | `mobiscroll-ui-vue` | `static/docs/vue/SKILL.md` |
 | `mobiscroll-ui-javascript` | `static/docs/javascript/SKILL.md` |
 | `mobiscroll-ui-jquery` | `static/docs/jquery/SKILL.md` |
+| `mobiscroll-connect` | `static/connect/SKILL.md` |
 
 ### 2. Copilot instruction files (GitHub Copilot)
 
@@ -61,6 +62,7 @@ The same source files are also copied to `static/copilot-instructions/` as `.ins
 | `mobiscroll-ui-vue` | `static/copilot-instructions/mobiscroll-ui-vue.instructions.md` |
 | `mobiscroll-ui-javascript` | `static/copilot-instructions/mobiscroll-ui-javascript.instructions.md` |
 | `mobiscroll-ui-jquery` | `static/copilot-instructions/mobiscroll-ui-jquery.instructions.md` |
+| `mobiscroll-connect` | `static/copilot-instructions/mobiscroll-connect-skill.instructions.md` |
 
 ## Skill Architecture
 

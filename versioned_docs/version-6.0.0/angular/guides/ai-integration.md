@@ -433,6 +433,10 @@ Each rules file and documentation source targets exactly **one** framework or do
 - Connect uses `mobiscroll-connect.mdc` and `llms-connect-full.txt` — never the UI framework files
 - Mixing Connect docs with UI docs causes the AI to conflate REST endpoints with component APIs
 
+:::info
+The `mobiscroll@mobiscroll` plugin also bundles a `mobiscroll-connect` skill for server-side Connect (OAuth, REST, calendar sync). It activates only for backend Connect work and never mixes with UI component code. See the [Connect AI Integration guide](/connect/getting-started/ai-integration).
+:::
+
 **Rules:**
 
 1. Use only rules files that match **one** framework or domain — never mix files from different frameworks

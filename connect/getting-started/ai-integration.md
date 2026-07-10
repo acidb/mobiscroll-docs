@@ -109,17 +109,36 @@ Machine-readable documentation files containing the complete Mobiscroll Connect 
 You don't need to download or host these files — the rules and routing layers reference them directly and fetch their content automatically.
 :::
 
-### Rules layer — .mdc files
+### Rules layer — rules files
 
-Behavior rule files that tell AI assistants which package to use, which APIs are available, and what to avoid.
+Rules files provide Mobiscroll Connect context to **Cursor** and **GitHub Copilot**. Claude Code uses the Mobiscroll plugin instead — see [Claude Code setup](#claude-code-setup).
 
-| File | Domain |
-|:---|:---|
-| <DocsLink path="mobiscroll-connect.mdc" download /> | Mobiscroll Connect (backend / API) |
+Two approaches are available:
 
-### Routing layer — CLAUDE.md
+- **Option A** — file-based context loading. A single rules file (`.mdc` for Cursor, `.instructions.md` for Copilot) contains the Connect documentation URLs and behavior rules. No MCP server required.
+- **Option B** — live schema fetching via MCP server. An extended rule file instructs the AI to call the Mobiscroll MCP server for live Connect endpoint and SDK schema lookups on each generation.
 
-A context file specifically for Claude Code that provides domain detection signals, deterministic routing rules, API intent mapping, and anti-pattern examples. It ensures Claude selects the Connect documentation and never conflates Connect API calls with UI component code.
+Connect uses a **single** rule file per option — there is no framework split, because Connect is one backend domain.
+
+#### Files
+
+**Option A — file-based rules:**
+
+| File | Format | For |
+|:---|:---|:---|
+| <DocsLink path="mobiscroll-connect.mdc" download /> | Cursor rule file | Cursor |
+| <DocsLink path="copilot-instructions/mobiscroll-connect.instructions.md" download /> | Copilot instruction file | GitHub Copilot |
+
+**Option B — extended rule with MCP:**
+
+| File | Format | For |
+|:---|:---|:---|
+| <DocsLink path="connect/SKILL.md" download filename="mobiscroll-connect-skill.mdc">mobiscroll-connect-skill.mdc</DocsLink> | Cursor extended rule | Cursor |
+| <DocsLink path="copilot-instructions/mobiscroll-connect-skill.instructions.md" download>mobiscroll-connect-skill.instructions.md</DocsLink> | Copilot extended instruction | GitHub Copilot |
+
+### Routing layer — CLAUDE.md (manual Claude Code setup)
+
+A context file for Claude Code users who set Connect up manually **without** the plugin. It provides domain detection signals, deterministic routing rules, API intent mapping, and anti-pattern examples so Claude selects the Connect documentation and never conflates Connect API calls with UI component code. With the plugin installed (recommended), this file is not needed.
 
 ### Live schema layer — MCP server
 
@@ -140,11 +159,14 @@ It is a **hosted HTTP server** at <McpUrl /> — no local install required.
 
 ## Which tool uses which files?
 
-| AI Tool | Documentation Source | Behavior Rules | Routing | Live lookups (MCP) |
-|:---|:---|:---|:---|:---|
-| **Cursor** | `llms-connect-full.txt` via @docs | `mobiscroll-connect.mdc` | — | `mobiscroll` server (Connect tools) |
-| **GitHub Copilot** | `.mdc` file (contains doc URLs) | `.mdc` file | — | `mobiscroll` server (Connect tools) |
-| **Claude Code** | `llms-connect-full.txt` | `CLAUDE.md` | `CLAUDE.md` | `mobiscroll` server (Connect tools) |
+| Tool | Approach | Files used |
+|:---|:---|:---|
+| **Cursor** | Option A | `mobiscroll-connect.mdc` |
+| **Cursor** | Option B | `mobiscroll-connect-skill.mdc` |
+| **GitHub Copilot** | Option A | `mobiscroll-connect.instructions.md` |
+| **GitHub Copilot** | Option B | `mobiscroll-connect-skill.instructions.md` |
+| **Claude Code** | Alternative | `CLAUDE.md` — manual routing, no plugin, no MCP |
+| **Claude Code** | Plugin | `mobiscroll@mobiscroll` — bundles the `mobiscroll-connect` skill + MCP server |
 
 ## Cursor setup
 
@@ -158,9 +180,13 @@ Open **Cursor Settings → Indexing & Docs** and add the documentation source fo
 
 Only register the source matching your use case. Do not register multiple sources — this prevents cross-domain contamination.
 
-### Step 2: Add the rules file
+### Step 2: Add behavior rules
 
-Download the <DocsLink path="mobiscroll-connect.mdc" download><code>mobiscroll-connect.mdc</code></DocsLink> file and place it in your project's `.cursor/rules/` directory:
+Choose one approach — Option A works immediately with no additional setup; Option B adds live MCP schema lookups for higher accuracy but requires the MCP server to be configured.
+
+#### Option A — .mdc rules file
+
+Download the <DocsLink path="mobiscroll-connect.mdc" download><code>mobiscroll-connect.mdc</code></DocsLink> file and place it in `.cursor/rules/`:
 
 ```
 your-project/
@@ -168,9 +194,29 @@ your-project/
 │   └── rules/
 │       └── mobiscroll-connect.mdc
 ├── src/
-├── package.json
-└── ...
+└── package.json
 ```
+
+The `.mdc` file provides text-based API rules — no additional setup required.
+
+#### Option B — Extended rule file + MCP
+
+Download the <DocsLink path="connect/SKILL.md" download filename="mobiscroll-connect-skill.mdc">mobiscroll-connect-skill.mdc</DocsLink> file and place it in `.cursor/rules/`:
+
+```
+your-project/
+├── .cursor/
+│   └── rules/
+│       └── mobiscroll-connect-skill.mdc
+├── src/
+└── package.json
+```
+
+Unlike Option A, this rule file instructs Cursor's AI to call the Mobiscroll MCP server for live Connect endpoint and SDK schema lookups on each generation — so it always uses the current API instead of guessing from memory.
+
+#### Rule activation
+
+The extended `.mdc` file uses `alwaysApply: false` with a `description` in its frontmatter. Cursor reads the description and activates the rule only when the context is relevant — the rule is not included in every message. You can also trigger it manually with `@mobiscroll-connect-skill`. The `.mdc` format works in all Cursor modes including Agent mode.
 
 ### Step 3: Configure the MCP server (Optional)
 
@@ -189,7 +235,7 @@ your-project/
 ├── .cursor/
 │   ├── mcp.json
 │   └── rules/
-│       └── mobiscroll-connect.mdc
+│       └── mobiscroll-connect-skill.mdc
 ├── src/
 └── package.json
 ```
@@ -215,23 +261,39 @@ When asking Cursor about Mobiscroll Connect, include `@docs` to ensure it reads 
 
 ## GitHub Copilot setup
 
-### Step 1: Add the rules file
+### Step 1: Add behavior rules
 
-Download the <DocsLink path="mobiscroll-connect.mdc" download><code>mobiscroll-connect.mdc</code></DocsLink> file and place it at the root of your project or alternatively [copy it's content](#rules-files-mdc) to the rules files under the `.github/` directory:
+Choose one approach — Option A works immediately with no additional setup; Option B adds live MCP schema lookups for higher accuracy but requires the MCP server to be configured.
+
+#### Option A — .instructions.md rules file
+
+Download the <DocsLink path="copilot-instructions/mobiscroll-connect.instructions.md" download><code>mobiscroll-connect.instructions.md</code></DocsLink> file and place it in `.github/instructions/`:
 
 ```
 your-project/
-├── mobiscroll-connect.mdc
 ├── .github/
-|   ├── copilot-instructions.md       <-- Global repo rules
 |   └── instructions/
-|       └── connect-logic.instructions.md <-- Specific rules
+|       └── mobiscroll-connect.instructions.md
 ├── src/
-├── package.json
-└── ...
+└── package.json
 ```
 
-The `.mdc` file will automatically influence Copilot responses when you work on files in that project. It tells Copilot which APIs are available and how to use them correctly.
+The `.instructions.md` file provides text-based API rules — no additional setup required.
+
+#### Option B — Extended instruction file + MCP
+
+Download the <DocsLink path="copilot-instructions/mobiscroll-connect-skill.instructions.md" download><code>mobiscroll-connect-skill.instructions.md</code></DocsLink> file and place it in `.github/instructions/`:
+
+```
+your-project/
+├── .github/
+|   └── instructions/
+|       └── mobiscroll-connect-skill.instructions.md
+├── src/
+└── package.json
+```
+
+Unlike Option A, this instruction file tells Copilot to call the Mobiscroll MCP server for live Connect endpoint and SDK schema lookups on each generation.
 
 ### Step 2: Configure the MCP server (Optional)
 
@@ -251,7 +313,7 @@ your-project/
 │   └── mcp.json
 ├── .github/
 │   └── instructions/
-│       └── connect-logic.instructions.md
+│       └── mobiscroll-connect-skill.instructions.md
 ├── src/
 └── package.json
 ```
@@ -265,41 +327,40 @@ your-project/
 
 ### How it works
 
-The `.mdc` file contains:
+The instruction file contains:
 
 - **Documentation URLs** — points Copilot to the correct Connect docs
-- **Component mapping** — maps user intents to the correct Mobiscroll Connect APIs
+- **API mapping** — maps user intents to the correct Mobiscroll Connect APIs
 - **Rules** — enforces correct API usage, authentication flows, and webhook handling
 - **Constraints** — prevents conflation of Connect REST endpoints with UI component APIs
 
-With the MCP server configured, Copilot can additionally call the Connect tools for live endpoint and SDK schema lookups instead of relying on the documentation snapshot alone.
+With the MCP server configured (Option B), Copilot can additionally call the Connect tools for live endpoint and SDK schema lookups instead of relying on the documentation snapshot alone.
 
 ## Claude Code setup
 
-Set Connect up with config files: a `CLAUDE.md` routing file (Step 1) and the Mobiscroll MCP server (Step 2). Don't install the `mobiscroll@mobiscroll` plugin for Connect — its skills are currently UI-specific.
+Install the Mobiscroll plugin for Claude Code. The plugin bundles the `mobiscroll-connect` skill and the MCP server in a single install — no per-project configuration files needed.
 
-### Step 1: Add CLAUDE.md
+### Step 1: Register the marketplace
 
-If you don't already have a `CLAUDE.md` in your project root, download <DocsLink path="connect/CLAUDE.md" download><code>CLAUDE.md</code></DocsLink> and place it there. If you already have one, copy the contents into your existing file instead — see [File contents](#file-contents) below.
+Run this once in Claude Code to register the Mobiscroll plugin marketplace:
 
 ```
-your-project/
-├── CLAUDE.md
-├── src/
-├── package.json
-└── ...
+/plugin marketplace add acidb/mobiscroll-marketplace
 ```
 
-When Claude Code opens your project, it automatically reads `CLAUDE.md` from the project root. The file provides:
+### Step 2: Install the plugin
 
-- **Domain detection** — Claude detects Connect usage from `package.json`, import patterns, and API call signatures
-- **Routing rules** — deterministic IF/THEN rules that select `llms-connect-full.txt` and never route to UI framework docs
-- **API mapping** — translates user intents to the correct Connect REST endpoints and OAuth flows
-- **Anti-patterns** — explicit WRONG → RIGHT examples that prevent mixing Connect API calls with UI component code
+```
+/plugin install mobiscroll@mobiscroll
+```
 
-### Step 2: Configure the MCP server (Optional)
+:::info
+The `mobiscroll-connect` skill ships inside the same `mobiscroll` plugin as the UI skills. It activates only for backend Connect work (OAuth, REST, SDK, webhooks) and never mixes with UI component code — so installing the full plugin is safe even if you only use Connect.
+:::
 
-For live endpoint and SDK lookups, add the Mobiscroll MCP server:
+### Step 3: Configure the MCP server (Optional)
+
+The plugin bundles the MCP server — no separate configuration is needed for most setups. To configure it manually or share it with your team:
 
 <McpCliBlock />
 
@@ -329,13 +390,39 @@ Use `--scope project` for team repos so everyone gets the MCP server automatical
 
 ### How it works
 
-With `CLAUDE.md` in place and the MCP server configured, when you ask Claude Code to write Connect code it:
+Once installed, the plugin provides:
+
+- **Skill** — `mobiscroll-connect` detects backend Connect work from your dependency manifest (`@mobiscroll/connect-sdk` and the other language SDKs) and from Connect REST/OAuth usage, then loads the Connect conventions. It stays isolated from the UI skills.
+- **MCP server** — the bundled Mobiscroll MCP server provides live Connect endpoint and SDK schema lookup on demand.
+
+When you ask Claude Code to write Connect code, it:
 
 1. Detects your SDK language and version via `resolveConnectEnvironment`
 2. Looks up the endpoint schema (`getConnectEndpointSchema`) or SDK method (`getConnectSdkMethod`) before writing any call
 3. Uses `mapConnectEndpointToSdk` when translating a REST endpoint into SDK code, and `getConnectErrorTaxonomy` when writing error handling
 
 So Claude always uses the current Connect API and SDK signatures, never hallucinated or outdated ones.
+
+### Alternative: manual CLAUDE.md routing (no plugin)
+
+If you prefer not to install the plugin, download <DocsLink path="connect/CLAUDE.md" download><code>CLAUDE.md</code></DocsLink> and place it in your project root — or copy its contents into an existing `CLAUDE.md` (see [File contents](#file-contents) below). Claude Code reads it automatically when it opens your project.
+
+```
+your-project/
+├── CLAUDE.md
+├── src/
+├── package.json
+└── ...
+```
+
+The file provides:
+
+- **Domain detection** — Claude detects Connect usage from `package.json`, import patterns, and API call signatures
+- **Routing rules** — deterministic IF/THEN rules that select `llms-connect-full.txt` and never route to UI framework docs
+- **API mapping** — translates user intents to the correct Connect REST endpoints and OAuth flows
+- **Anti-patterns** — explicit WRONG → RIGHT examples that prevent mixing Connect API calls with UI component code
+
+Pair it with the MCP server (Step 3) for live schema lookups.
 
 ## Domain isolation
 
@@ -409,9 +496,15 @@ All AI integration files and endpoints are available at the following URLs:
 
 ### Rules files
 
-| File | URL |
-|:---|:---|
-| Connect rules | <DocsLink path="mobiscroll-connect.mdc" download /> |
+| File | Cursor (`.mdc`) | Copilot (`.instructions.md`) |
+|:---|:---|:---|
+| Connect rules | <DocsLink path="mobiscroll-connect.mdc" download /> | <DocsLink path="copilot-instructions/mobiscroll-connect.instructions.md" download /> |
+
+### Extended rule files
+
+| File | Cursor (`.mdc`) | Copilot (`.instructions.md`) |
+|:---|:---|:---|
+| Connect skill | <DocsLink path="connect/SKILL.md" download filename="mobiscroll-connect-skill.mdc"><code>mobiscroll-connect-skill.mdc</code></DocsLink> | <DocsLink path="copilot-instructions/mobiscroll-connect-skill.instructions.md" download /> |
 
 ### Routing file
 
@@ -441,4 +534,11 @@ The complete contents of each file are shown below. You can copy directly from t
 <details>
 <summary>View <code>mobiscroll-connect.mdc</code></summary>
 <FileBlock src="mobiscroll-connect.mdc" />
+</details>
+
+### Extended rule file {#extended-rule-files}
+
+<details>
+<summary>View <code>mobiscroll-connect-skill.mdc</code></summary>
+<FileBlock src="connect/SKILL.md" />
 </details>

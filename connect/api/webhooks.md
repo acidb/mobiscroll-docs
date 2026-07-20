@@ -345,7 +345,7 @@ Additional webhook metadata.
   </Parameter>
 
   <Parameter name="isInitialSync" type="boolean">
-  Indicates initial/sync-state delivery when applicable.
+  `true` only for a provider initial-sync delivery (when a channel is first established). Ordinary changes are always `false`, even large ones such as editing many occurrences of a recurring series.
   </Parameter>
 </Parameter>
 

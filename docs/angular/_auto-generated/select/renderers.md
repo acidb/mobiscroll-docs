@@ -1,5 +1,13 @@
 export const toc = []
 
+### headerTemplate {#template-headerTemplate}
+
+<span className="badge badge--secondary margin-bottom--sm">From: 6.1.0</span>
+
+Template reference for custom picker popup header rendering.
+Takes priority over the [headerText](#opt-headerText) option.
+
+**Default value**: `undefined`
 ### itemTemplate {#template-itemTemplate}
 
 Template to customize each selectable item on the wheel.

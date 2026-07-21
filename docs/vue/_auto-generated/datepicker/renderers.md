@@ -1,9 +1,9 @@
 export const toc = []
 
-### calendarHeader {#slot-calendarHeader}
+### header {#slot-header}
 
 ```html
-<template #calendarHeader>...</template>
+<template #header>...</template>
 ```
 
 Customize the header of the Datepicker.
@@ -47,10 +47,12 @@ The following day specific details are available:
 - `selected`: _boolean_ - True if the date is selected.
 - `events`: _Array&lt;MbscCalendarEvent&gt;_ - The list of events of the day.
 
-### header {#slot-header}
+### popupHeader {#slot-popupHeader}
+
+<span className="badge badge--secondary margin-bottom--sm">From: 6.1.0</span>
 
 ```html
-<template #header>...</template>
+<template #popupHeader>...</template>
 ```
 
 A render function to customize the header of the picker popup.

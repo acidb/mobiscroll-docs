@@ -2,6 +2,8 @@ export const toc = []
 
 ### popupHeader {#slot-popupHeader}
 
+<span className="badge badge--secondary margin-bottom--sm">From: 6.1.0</span>
+
 ```html
 <template #popupHeader>...</template>
 ```

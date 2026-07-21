@@ -73,12 +73,12 @@ The following properties are available:
 
 ```html
 <mbsc-eventcalendar [resourceTemplate]="myTemplate">
-  <ng-template #myTemplate let-resource&gt;
-    &lt;div&gt;&#123;&#123;resource.name&#125;&#125;</div&gt;
-    &lt;p&gt;&#123;&#123;resource.description&#125;&#125;</p&gt;
+  <ng-template #myTemplate let-resource>
+    <div>{{resource.name}}</div>
+    <p>{{resource.description}}</p>
     <img [src]="resource.img" />
-  </ng-template&gt;
-</mbsc-eventcalendar&gt;
+  </ng-template>
+</mbsc-eventcalendar>
 ```
 
 **Default value**: `undefined`

@@ -64,15 +64,15 @@ the days in your template with the day timestamp as parameter:
 
 ```html
 <mbsc-eventcalendar [agendaTemplate]="myTemplate">
-  <ng-template #myTemplate let-data&gt;
+  <ng-template #myTemplate let-data>
     <ul *ngFor="let day of data; trackBy: getDayKey" mbsc-event-list-day [timestamp]="day.timestamp">
-      &lt;li&gt;&#123;&#123;day.date&#125;&#125;&lt;/li&gt;
+      <li>{{day.date}}</li>
       <li *ngFor="let event of day.events; trackBy: getEventKey">
-        &#123;&#123;event.title&#125;&#125;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  </ng-template&gt;
-</mbsc-eventcalendar&gt;
+        {{event.title}}
+      </li>
+    </ul>
+  </ng-template>
+</mbsc-eventcalendar>
 ```
 
 The template data is an array containing the events of the current view, grouped by day. A day object has the following properties:

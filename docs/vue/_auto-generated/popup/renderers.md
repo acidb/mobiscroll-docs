@@ -2,6 +2,8 @@ export const toc = []
 
 ### header {#slot-header}
 
+<span className="badge badge--secondary margin-bottom--sm">From: 6.1.0</span>
+
 ```html
 <template #header>...</template>
 ```

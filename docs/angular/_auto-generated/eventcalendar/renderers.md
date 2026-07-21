@@ -64,15 +64,15 @@ the days in your template with the day timestamp as parameter:
 
 ```html
 <mbsc-eventcalendar [agendaTemplate]="myTemplate">
-  <ng-template #myTemplate let-data&gt;
+  <ng-template #myTemplate let-data>
     <ul *ngFor="let day of data; trackBy: getDayKey" mbsc-event-list-day [timestamp]="day.timestamp">
-      &lt;li&gt;&#123;&#123;day.date&#125;&#125;</li&gt;
+      <li>{{day.date}}</li>
       <li *ngFor="let event of day.events; trackBy: getEventKey">
-        &#123;&#123;event.title&#125;&#125;
-      </li&gt;
-    </ul&gt;
-  </ng-template&gt;
-</mbsc-eventcalendar&gt;
+        {{event.title}}
+      </li>
+    </ul>
+  </ng-template>
+</mbsc-eventcalendar>
 ```
 
 The template data is an array containing the events of the current view, grouped by day. A day object has the following properties:
@@ -330,10 +330,10 @@ It will receive the following parameter:
 
 ```html
 <mbsc-eventcalendar [resourceEmptyTemplate]="myEmptyTemplate">
-  <ng-template #myEmptyTemplate&gt;
+  <ng-template #myEmptyTemplate>
     <!-- content -->
-  </ng-template&gt;
-</mbsc-eventcalendar&gt;
+  </ng-template>
+</mbsc-eventcalendar>
 ```
 
 **Default value**: `undefined`
@@ -359,12 +359,12 @@ The following properties are available:
 
 ```html
 <mbsc-eventcalendar [resourceTemplate]="myTemplate">
-  <ng-template #myTemplate let-resource&gt;
-    &lt;div&gt;&#123;&#123;resource.name&#125;&#125;</div&gt;
-    &lt;p&gt;&#123;&#123;resource.description&#125;&#125;</p&gt;
+  <ng-template #myTemplate let-resource>
+    <div>{{resource.name}}</div>
+    <p>{{resource.description}}</p>
     <img [src]="resource.img" />
-  </ng-template&gt;
-</mbsc-eventcalendar&gt;
+  </ng-template>
+</mbsc-eventcalendar>
 ```
 
 **Default value**: `undefined`
@@ -476,12 +476,12 @@ It will receive an object as parameter that has the following properties:
 
 ```
 <mbsc-eventcalendar [slotTemplate]="myTemplate">
-  <ng-template #myTemplate let-slotdata&gt;
-    &lt;div&gt;&#123;&#123;slotdata.slot.name&#125;&#125;</div&gt;
-    &lt;p&gt;&#123;&#123;slotdata.slot.description&#125;&#125;</p&gt;
+  <ng-template #myTemplate let-slotdata>
+    <div>{{slotdata.slot.name}}</div>
+    <p>{{slotdata.slot.description}}</p>
     <img [src]="slotdata.slot.img" />
-  </ng-template&gt;
-</mbsc-eventcalendar&gt;
+  </ng-template>
+</mbsc-eventcalendar>
 ```
 
 **Default value**: `undefined`

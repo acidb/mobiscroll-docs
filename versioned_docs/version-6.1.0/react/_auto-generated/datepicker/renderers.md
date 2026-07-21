@@ -46,6 +46,8 @@ The following day specific details are available:
 
 ### renderHeader {#renderer-renderHeader}
 
+<span className="badge badge--secondary margin-bottom--sm">From: 6.1.0</span>
+
 () => any
 
 

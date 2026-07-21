@@ -2,6 +2,8 @@ export const toc = []
 
 ### renderHeader {#renderer-renderHeader}
 
+<span className="badge badge--secondary margin-bottom--sm">From: 6.1.0</span>
+
 () => any
 
 

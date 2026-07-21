@@ -1,9 +1,11 @@
 export const toc = []
 
-### header {#slot-header}
+### popupHeader {#slot-popupHeader}
+
+<span className="badge badge--secondary margin-bottom--sm">From: 6.1.0</span>
 
 ```html
-<template #header>...</template>
+<template #popupHeader>...</template>
 ```
 
 A render function to customize the header of the picker popup.

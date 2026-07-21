@@ -4,7 +4,7 @@ const config = {
       type: 'link',
       label: 'Mobiscroll Connect',
       href: '/connect',
-      icon: '/img/calendar.svg',
+      icon: '/img/connect-logo.svg',
     },
   ],
 };

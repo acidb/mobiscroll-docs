@@ -3,6 +3,9 @@
  * @param location the object returned from useLocation()
  * @returns
  */
+// Current ("latest") UI version — kept in sync with docusaurus.config.js's lastVersion.
+const CURRENT_VERSION = "6.1.0";
+
 export function getLocationInfo(location) {
   const frRegex = /(jquery|angular|javascript|react|vue)/g;
   const compRegex =
@@ -13,7 +16,7 @@ export function getLocationInfo(location) {
   let component = null;
 
   const docsBase = connectRegex.test(location.pathname) ? "connect" : "docs";
-  const version = versionRegex.test(location.pathname) ? "5.35.0" : "6.1.0";
+  const version = versionRegex.test(location.pathname) ? "5.35.0" : CURRENT_VERSION;
 
   if (docsBase === "docs") {
     const frMatches = frRegex.exec(location.pathname);
@@ -35,11 +38,13 @@ export function getLocationInfo(location) {
 }
 
 /**
- * Returns the docusaurus_tag facet value for the current location, matching the
+ * Returns the docusaurus_tag facet value(s) for the current location, matching the
  * `docs-<pluginId>-<versionName>` convention Docusaurus itself uses for the
  * `docsearch:docusaurus_tag` meta tag (see getDocsVersionSearchTag in
- * @docusaurus/plugin-content-docs). Returns null when the location has no specific
- * scope (e.g. the homepage), meaning no tag restriction should be applied.
+ * @docusaurus/plugin-content-docs).
+ * - A single string means "must match this exact tag".
+ * - An array of strings means "must match any one of these tags" (OR) — used for the
+ *   homepage, which should search Connect + the current UI version, but not 5.35.0.
  * @param locInfo the object returned from getLocationInfo
  * @returns
  */
@@ -50,18 +55,23 @@ export function getDocusaurusTag(locInfo) {
     if (locInfo.framework) {
         return `docs-default-${locInfo.version}`;
     }
-    return null;
+    // Homepage: Connect + current UI version, excluding 5.35.0.
+    return ["docs-connect-current", `docs-default-${CURRENT_VERSION}`];
 }
 
 /**
- * Returns a custom facets array to include in every search
- * @param locInfo the object returned from the getLocationInfo
+ * Returns a custom facets array to include in every search. Algolia's facetFilters
+ * treats top-level array entries as AND'd, and any entry that is itself an array as
+ * an OR group — used here so the homepage can match "Connect OR current version".
+ * @param locInfo the object returned from getLocationInfo
  * @returns
  */
 export function getCustomFacets(locInfo) {
-    const facets = ['type:content'];
+    const facets: (string | string[])[] = ['type:content'];
     const tag = getDocusaurusTag(locInfo);
-    if (tag) {
+    if (Array.isArray(tag)) {
+        facets.push(tag.map((t) => 'docusaurus_tag:' + t));
+    } else if (tag) {
         facets.push('docusaurus_tag:' + tag);
     }
     if (locInfo.docsBase === "docs" && locInfo.framework) {

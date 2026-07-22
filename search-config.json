@@ -23,12 +23,40 @@
     },
     {
       "url": "https://mobiscroll.com/docs"
+    },
+    {
+      "url": "https://mobiscroll.com/docs/5.35.0/(?P<framework>.*?)/(?P<component>.*?)/",
+      "variables": {
+        "framework": ["angular", "react", "vue", "javascript", "jquery"],
+        "component": ["eventcalendar", "datepicker", "select", "popup"]
+      }
+    },
+    {
+      "url": "https://mobiscroll.com/docs/5.35.0/(?P<framework>.*?)/forms/(?P<component>.*?)/",
+      "variables": {
+        "framework": ["angular", "react", "vue", "javascript", "jquery"],
+        "component": ["button", "checkbox", "dropdown", "input", "radio", "segmented", "stepper", "switch", "textarea"]
+      }
+    },
+    {
+      "url": "https://mobiscroll.com/docs/5.35.0/(?P<framework>.*?)/",
+      "variables": {
+        "framework": ["angular", "react", "vue", "javascript", "jquery"]
+      }
+    },
+    {
+      "url": "https://mobiscroll.com/docs/connect/(?P<component>.*?)/",
+      "variables": {
+        "component": ["overview", "getting-started", "application-setup", "oauth", "scopes", "calendars", "events", "webhooks", "branding", "localization", "rest-api-integration", "postman-collection", "node-sdk", "dotnet-sdk", "java-sdk", "php-sdk", "python-sdk", "go-sdk", "ruby-sdk", "best-practices"]
+      }
+    },
+    {
+      "url": "https://mobiscroll.com/docs/connect"
     }
   ],
   "sitemap_urls": ["https://mobiscroll.com/docs/sitemap.xml"],
   "sitemap_alternate_links": true,
   "stop_urls": [
-    "https://mobiscroll.com/docs/(?P<version>\\d+[\\-\\.]\\d+[\\-\\.]\\d+)",
     "/tests"
   ],
   "selectors": {

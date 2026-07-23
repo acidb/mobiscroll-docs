@@ -2,7 +2,7 @@ import { useCallback, useMemo } from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import type { ThemeConfig as AlgoliaThemeConfig } from "@docusaurus/theme-search-algolia";
 import { useLocation } from "@docusaurus/router";
-import { getLocationInfo, getDocusaurusTag } from "./util";
+import { getLocationInfo, getDocusaurusTag, useCurrentVersion } from "./util";
 
 const SEARCH_PARAM_QUERY = 'q';
 const FRAMEWORK_PARAM = 'framework';
@@ -17,8 +17,9 @@ export function useSearchLinkCreator(): (searchValue: string) => string {
   } = themeConfig as AlgoliaThemeConfig;
 
   const location = useLocation();
+  const currentVersion = useCurrentVersion();
   const { framework, tag } = useMemo(() => {
-    const info = getLocationInfo(location);
+    const info = getLocationInfo(location, currentVersion);
     const docusaurusTag = getDocusaurusTag(info);
     return {
       framework: info.framework,
@@ -27,7 +28,7 @@ export function useSearchLinkCreator(): (searchValue: string) => string {
       // to the full /search page, which otherwise has no way to know it.
       tag: Array.isArray(docusaurusTag) ? docusaurusTag.join(',') : docusaurusTag,
     };
-  }, [location]);
+  }, [location, currentVersion]);
 
   return useCallback(
     (searchValue: string) =>

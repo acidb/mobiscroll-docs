@@ -285,6 +285,10 @@ function SearchPageContent() {
   // for the homepage's Connect + current-version case). Not user-editable here; it just
   // preserves whatever scope "See all results" was clicked from.
   const tags = getDefaultTags();
+  // The homepage also carries 'docs-connect-current', but paired with a current-version
+  // tag (mixed Connect + UI results) — only hide the framework picker when Connect is the
+  // *sole* scope, since it has no framework concept at all.
+  const isConnectOnly = tags.length === 1 && tags[0] === 'docs-connect-current';
   const makeSearch = useEvent((page = 0) => {
     // Built as raw facetFilters (rather than via addDisjunctiveFacetRefinement) so this
     // stays a single request — declaring facets as disjunctive makes the helper issue an
@@ -345,8 +349,9 @@ function SearchPageContent() {
         <form className="row" onSubmit={(e) => e.preventDefault()}>
           <div
             className={clsx('col', styles.searchQueryColumn, {
-              'col--9': true,
-              'col--12': false,
+              'col--9': !isConnectOnly,
+              'col--12': isConnectOnly,
+              [styles.searchQueryColumnFull]: isConnectOnly,
             })}>
             <input
               type="search"
@@ -368,7 +373,9 @@ function SearchPageContent() {
               autoFocus
             />
           </div>
-          <FrameworkSelectDropdown defaultValue={defaultFramework} onChage={(ev) => { setFramework(ev.target.value); }} />
+          {!isConnectOnly && (
+            <FrameworkSelectDropdown defaultValue={defaultFramework} onChage={(ev) => { setFramework(ev.target.value); }} />
+          )}
           {/* {docsSearchVersionsHelpers.versioningEnabled && (
             <SearchVersionSelectList
               docsSearchVersionsHelpers={docsSearchVersionsHelpers}

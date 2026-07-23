@@ -60,6 +60,13 @@
     max-width: 60% !important;
   }
 
+  /* Applied alongside .searchQueryColumn when there's no framework dropdown sibling
+     (e.g. a Connect-only search) — without this, the 60% cap above still applies even
+     though there's no second column to share the row with, leaving a visible empty gap. */
+  .searchQueryColumn.searchQueryColumnFull {
+    max-width: 100% !important;
+  }
+
   .searchVersionColumn {
     max-width: 40% !important;
   }

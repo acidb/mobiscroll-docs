@@ -22,7 +22,7 @@ import {
 } from '@docusaurus/theme-search-algolia/client';
 import Layout from '@theme/Layout';
 import styles from './styles.module.css';
-import { getDefaultFramework } from '@site/src/components/Search/searchLink';
+import { getDefaultFramework, getDefaultTags } from '@site/src/components/Search/searchLink';
 // Very simple pluralization: probably good enough for now
 function useDocumentsFoundPlural() {
   const {selectMessage} = usePluralForm();
@@ -191,10 +191,11 @@ function SearchPageContent() {
   const algoliaHelper = algoliaSearchHelper(algoliaClient, indexName, {
     hitsPerPage: 15,
     advancedSyntax: true,
-    disjunctiveFacets: [
-      // 'language', 'docusaurus_tag',
-      'type', 'framework'
-    ],
+    // Not declared as disjunctiveFacets: that would make algoliasearch-helper issue one
+    // extra facet-count side-query per facet on every search (4 requests instead of 1),
+    // solely to compute per-value result counts — the UI here never displays those
+    // counts (framework select is a static list, not populated from them), so it's pure
+    // overhead. facetFilters below still scope results exactly the same either way.
   });
   algoliaHelper.on(
     'result',
@@ -279,12 +280,27 @@ function SearchPageContent() {
         });
   const defaultFramework = getDefaultFramework();
   const [framework, setFramework] = useState(defaultFramework);
+  // Same docusaurus_tag scope the originating page's search modal applied (single tag
+  // for a framework/version/Connect page, two tags — OR'd via disjunctive refinement —
+  // for the homepage's Connect + current-version case). Not user-editable here; it just
+  // preserves whatever scope "See all results" was clicked from.
+  const tags = getDefaultTags();
   const makeSearch = useEvent((page = 0) => {
-    algoliaHelper.addDisjunctiveFacetRefinement('type', 'content');
+    // Built as raw facetFilters (rather than via addDisjunctiveFacetRefinement) so this
+    // stays a single request — declaring facets as disjunctive makes the helper issue an
+    // extra facet-count side-query per facet, purely for counts this page never displays.
+    const facetFilters = [['type:content']];
     if (framework) {
-      algoliaHelper.addDisjunctiveFacetRefinement('framework', framework);
+      facetFilters.push([`framework:${framework}`]);
     }
-    algoliaHelper.setQuery(searchQuery).setPage(page).search();
+    if (tags.length > 0) {
+      facetFilters.push(tags.map((tag) => `docusaurus_tag:${tag}`));
+    }
+    algoliaHelper
+      .setQuery(searchQuery)
+      .setQueryParameter('facetFilters', facetFilters)
+      .setPage(page)
+      .search();
   });
   useEffect(() => {
     if (!loaderRef) {

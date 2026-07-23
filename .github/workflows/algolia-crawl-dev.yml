@@ -1,0 +1,30 @@
+name: Algolia crawl (dev/test index)
+
+# Manual-only trigger: run from the Actions tab whenever you want to (re)build the
+# test index. Never runs automatically, so it can't fire on a push/PR by accident.
+on:
+  workflow_dispatch: {}
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build minified crawl config
+        run: |
+          jq -c . search-config-dev.json > search-config-min.json
+          echo "index_name in this run: $(jq -r .index_name search-config-min.json)"
+
+      - name: Run docsearch-scraper
+        env:
+          APPLICATION_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
+        run: |
+          CONFIG=$(cat search-config-min.json)
+          docker run \
+            -e APPLICATION_ID="$APPLICATION_ID" \
+            -e API_KEY="$API_KEY" \
+            -e CONFIG="$CONFIG" \
+            algolia/docsearch-scraper

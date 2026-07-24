@@ -61,7 +61,7 @@
   ],
   "selectors": {
     "lvl0": {
-      "selector": "//ul[contains(@class,'menu__list')]//a[contains(@class, 'menu__link') and contains(@class, 'menu__link--sublist') and contains(@class, 'menu__link--active')]/text()[last()]",
+      "selector": "//ul[contains(@class,'menu__list')]//a[contains(@class, 'menu__link') and contains(@class, 'menu__link--sublist') and contains(@class, 'menu__link--active')]//text()[last()]",
       "type": "xpath",
       "global": true,
       "default_value": "Documentation"

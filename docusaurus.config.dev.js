@@ -124,7 +124,7 @@ const config = {
       algolia: {
         appId: '3NDU900UQH',
         apiKey: '63af4c8805116c77b6f64c291d3953c3',
-        indexName: 'docs_mobiscroll',
+        indexName: 'dev_docs_mobiscroll',
         contextualSearch: false,
       },
     }),

@@ -2,8 +2,14 @@ name: Algolia crawl (dev/test index)
 
 # Manual-only trigger: run from the Actions tab whenever you want to (re)build the
 # test index. Never runs automatically, so it can't fire on a push/PR by accident.
+#
+# To also run this automatically on a schedule (e.g. once a month), uncomment the
+# `schedule` block below. Left commented out for now until the dev-index results
+# (including the lvl0 selector fix) are fully verified.
 on:
   workflow_dispatch: {}
+  # schedule:
+  #   - cron: '0 3 1 * *'   # 03:00 UTC on the 1st of every month
 
 jobs:
   crawl:

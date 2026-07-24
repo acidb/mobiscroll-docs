@@ -70,7 +70,7 @@
     "lvl2": "article h2",
     "lvl3": "article h3",
     "lvl4": "article h4",
-    "text": "article :not(h3) + p, article li, article td:last-child"
+    "text": "article :not(h3):not(.badge--secondary) + p, article li, article td:last-child"
   },
   "strip_chars": " .,;:#",
   "custom_settings": {

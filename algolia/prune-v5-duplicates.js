@@ -6,15 +6,18 @@
 // algolia/generate-v5-anchor-sets.js). This deletes those duplicates, keeping only:
 //   - records with no `anchor` (guide/landing pages — genuinely version-specific, not
 //     auto-generated API duplication)
-//   - records whose `anchor` is in v5-only-anchors.json (content that only exists in v5.35.0)
+//   - records whose (page path, anchor) pair is in v5-only-anchors.json (content that
+//     only exists in v5.35.0 at that exact page — matched by page path, not anchor alone,
+//     so a v5.35.0 record is never mistakenly pruned just because its anchor string
+//     happens to also appear on a DIFFERENT page in v6)
 //
 // Required env: ALGOLIA_APP_ID, ALGOLIA_ADMIN_API_KEY, ALGOLIA_INDEX_NAME
 
 const fs = require('fs');
 const path = require('path');
-const { algoliaConfig, browseAll, runBatch } = require('./lib');
+const { algoliaConfig, browseAll, runBatch, pagePathFromUrl, toAnchorSetMap } = require('./lib');
 
-const v5OnlyAnchors = new Set(
+const v5OnlyByPage = toAnchorSetMap(
   JSON.parse(fs.readFileSync(path.join(__dirname, 'v5-only-anchors.json'), 'utf8')),
 );
 
@@ -22,8 +25,11 @@ async function main() {
   const config = algoliaConfig();
   const toDelete = [];
 
-  const scanned = await browseAll(config, 'docusaurus_tag:docs-default-5.35.0', (hit) => {
-    if (hit.anchor && !v5OnlyAnchors.has(hit.anchor)) {
+  const scanned = await browseAll(config, 'docusaurus_tag:"docs-default-5.35.0"', (hit) => {
+    if (!hit.anchor) return; // guide/landing page — always kept
+    const pagePath = pagePathFromUrl(hit.url);
+    const onlyAnchors = v5OnlyByPage[pagePath];
+    if (!onlyAnchors || !onlyAnchors.has(hit.anchor)) {
       toDelete.push({ action: 'deleteObject', body: { objectID: hit.objectID } });
     }
   });
@@ -34,7 +40,7 @@ async function main() {
 
   console.log(`Scanned ${scanned} v5.35.0-tagged records.`);
   console.log(`Deleted ${toDelete.length} duplicate records (kept in v6, pruned from v5.35.0).`);
-  console.log(`Remaining v5.35.0 records: guide/landing pages + ${v5OnlyAnchors.size} v5-only API entries.`);
+  console.log('Remaining v5.35.0 records: guide/landing pages + v5-only-anchors.json entries.');
 }
 
 main().catch((err) => {

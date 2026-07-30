@@ -59,4 +59,25 @@ async function runBatch(config, requests) {
   }
 }
 
-module.exports = { algoliaConfig, browseAll, runBatch };
+// Derives the page-path key used in algolia/v5-anchors.json / v5-only-anchors.json from a
+// crawled record's `url` (e.g. "https://mobiscroll.com/docs/5.35.0/react/eventcalendar/
+// scheduler#opt-x" -> "react/eventcalendar/scheduler") — strips domain, the "/docs/"
+// prefix, an optional "5.35.0/" version segment, and the URL fragment/trailing slash, so
+// v5.35.0-tagged and current-version-tagged records normalize to the same key shape.
+function pagePathFromUrl(url) {
+  const { pathname } = new URL(url);
+  return pathname
+    .replace(/^\/docs\//, '')
+    .replace(/^5\.35\.0\//, '')
+    .replace(/\/$/, '');
+}
+
+function toAnchorSetMap(pagePathToAnchors) {
+  const map = {};
+  for (const [pagePath, anchors] of Object.entries(pagePathToAnchors)) {
+    map[pagePath] = new Set(anchors);
+  }
+  return map;
+}
+
+module.exports = { algoliaConfig, browseAll, runBatch, pagePathFromUrl, toAnchorSetMap };

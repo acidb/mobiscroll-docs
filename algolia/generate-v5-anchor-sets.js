@@ -18,7 +18,13 @@ const V6_ROOT = path.join(REPO_ROOT, 'docs');
 const V5_ROOT = path.join(REPO_ROOT, 'versioned_docs', 'version-5.35.0');
 const FRAMEWORKS = ['react', 'angular', 'vue', 'javascript', 'jquery'];
 
-const ANCHOR_PATTERN = /\{#((?:opt|event|method|type|renderer)-[^}]+)\}/g;
+// Matches every anchor prefix actually used in _auto-generated content (confirmed via a
+// full scan, not just the opt/event/method/renderer/slot subset documented in
+// writing-docs.md/CLAUDE.md — localization/template/view entries also carry stable anchors
+// and were silently excluded here before, which would have made prune-v5-duplicates.js
+// delete them from v5.35.0 unconditionally and tag-present-in-v5.js never surface their v6
+// equivalents from a v5.35.0 page).
+const ANCHOR_PATTERN = /\{#((?:opt|event|method|type|renderer|slot|template|view|localization)-[^}]+)\}/g;
 
 function walk(dir) {
   const files = [];

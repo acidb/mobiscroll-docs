@@ -16,7 +16,7 @@ import Translate from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {createPortal} from 'react-dom';
 import translations from '@theme/SearchTranslations';
-import { getLocationInfo, getCustomFacets, useCurrentVersion } from '@site/src/components/Search/util';
+import { getLocationInfo, getSearchScope, transformItemsForLocation, useCurrentVersion } from '@site/src/components/Search/util';
 let DocSearchModal = null;
 function Hit({hit, children}) {
   return <Link to={hit.url}>{children}</Link>;
@@ -45,7 +45,8 @@ function DocSearch({contextualSearch, externalUrlRegex, ...props}) {
   const location = useLocation();
   const currentVersion = useCurrentVersion();
   const locationInfo = getLocationInfo(location, currentVersion);
-  const dynamicConfigFacetFilters = mergeFacetFilters(configFacetFilters, getCustomFacets(locationInfo));
+  const searchScope = getSearchScope(locationInfo, currentVersion);
+  const dynamicConfigFacetFilters = mergeFacetFilters(configFacetFilters, searchScope.facetFilters);
   const facetFilters = contextualSearch
     ? // Merge contextual search filters with config filters
       mergeFacetFilters(contextualSearchFacetFilters, dynamicConfigFacetFilters)
@@ -55,6 +56,7 @@ function DocSearch({contextualSearch, externalUrlRegex, ...props}) {
   const searchParameters = {
     ...props.searchParameters,
     facetFilters,
+    ...(searchScope.filters ? { filters: searchScope.filters } : {}),
   };
   const history = useHistory();
   const searchContainer = useRef(null);
@@ -107,16 +109,17 @@ function DocSearch({contextualSearch, externalUrlRegex, ...props}) {
       }
     },
   }).current;
-  const transformItems = useRef((items) =>
-    props.transformItems
+  const transformItems = useRef((items) => {
+    const withRewrittenUrls = transformItemsForLocation(items, locationInfo);
+    return props.transformItems
       ? // Custom transformItems
-        props.transformItems(items)
+        props.transformItems(withRewrittenUrls)
       : // Default transformItems
-        items.map((item) => ({
+        withRewrittenUrls.map((item) => ({
           ...item,
           url: processSearchResultUrl(item.url),
-        })),
-  ).current;
+        }));
+  }).current;
   const resultsFooterComponent = useMemo(
     () =>
       // eslint-disable-next-line react/no-unstable-nested-components

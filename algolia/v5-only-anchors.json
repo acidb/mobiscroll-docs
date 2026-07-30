@@ -1,0 +1,8 @@
+[
+  "renderer-renderEvent",
+  "renderer-renderEventContent",
+  "renderer-renderLabel",
+  "renderer-renderLabelContent",
+  "renderer-renderScheduleEvent",
+  "renderer-renderScheduleEventContent"
+]

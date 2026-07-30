@@ -81,7 +81,9 @@
       "type",
       "docusaurus_tag",
       "framework",
-      "component"
+      "component",
+      "anchor",
+      "presentInV5"
     ],
     "attributesToRetrieve": [
       "hierarchy",

@@ -21,7 +21,9 @@ jobs:
       - name: Build minified crawl config
         run: |
           jq -c . search-config-dev.json > search-config-min.json
-          echo "index_name in this run: $(jq -r .index_name search-config-min.json)"
+          INDEX_NAME=$(jq -r .index_name search-config-min.json)
+          echo "index_name in this run: $INDEX_NAME"
+          echo "ALGOLIA_INDEX_NAME=$INDEX_NAME" >> "$GITHUB_ENV"
 
       - name: Run docsearch-scraper
         env:
@@ -34,3 +36,20 @@ jobs:
             -e API_KEY="$API_KEY" \
             -e CONFIG="$CONFIG" \
             algolia/docsearch-scraper
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Prune v5.35.0 records that duplicate v6 content
+        env:
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          ALGOLIA_ADMIN_API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
+        run: node algolia/prune-v5-duplicates.js
+
+      - name: Tag current-version records with presentInV5
+        env:
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          ALGOLIA_ADMIN_API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
+        run: node algolia/tag-present-in-v5.js

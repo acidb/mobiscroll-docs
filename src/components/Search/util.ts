@@ -76,25 +76,83 @@ export function getDocusaurusTag(locInfo) {
     return ["docs-connect-current", `docs-default-${locInfo.version}`];
 }
 
+export const LEGACY_V5_VERSION = '5.35.0';
+export const LEGACY_V5_TAG = `docs-default-${LEGACY_V5_VERSION}`;
+
 /**
- * Returns a custom facets array to include in every search. Algolia's facetFilters
+ * True on a v5.35.0 framework/component page — the one context that searches v6's index
+ * for shared auto-generated content (see getSearchScope) instead of just its own tag.
+ */
+export function isLegacyV5Page(locInfo) {
+    return locInfo.docsBase === 'docs' && locInfo.version === LEGACY_V5_VERSION && !!locInfo.framework;
+}
+
+/**
+ * The `filters` string (see getSearchScope below) that scopes a search made in v5.35.0
+ * context to v5.35.0's own (pruned, unique-only) records OR v6 records tagged
+ * `presentInV5` post-crawl (see algolia/tag-present-in-v5.js). Shared by both the search
+ * modal (getSearchScope) and the full "See all results" page (SearchPage), which carries
+ * its scope across navigation via a URL param rather than re-deriving it from the location.
+ */
+export function getLegacyV5Filters(currentVersion) {
+    return `(docusaurus_tag:"${LEGACY_V5_TAG}" OR (docusaurus_tag:"docs-default-${currentVersion}" AND presentInV5:true))`;
+}
+
+/**
+ * Returns the facetFilters/filters to include in every search. Algolia's facetFilters
  * treats top-level array entries as AND'd, and any entry that is itself an array as
  * an OR group — used here so the homepage can match "Connect OR current version".
+ *
+ * On a v5.35.0 page, the scope is instead expressed as a `filters` string: v5.35.0's own
+ * (pruned, unique-only) records OR v6 records that are also present in v5.35.0 (tagged
+ * `presentInV5` post-crawl, see algolia/tag-present-in-v5.js). That's an OR of an AND,
+ * which facetFilters' array/OR-array format can't represent, so it can't be folded into
+ * the facetFilters array the way the homepage's OR-group above is.
  * @param locInfo the object returned from getLocationInfo
+ * @param currentVersion the current ("latest") UI version's name, from useCurrentVersion()
  * @returns
  */
-export function getCustomFacets(locInfo) {
-    const facets: (string | string[])[] = ['type:content'];
+export function getSearchScope(locInfo, currentVersion) {
+    const facetFilters: (string | string[])[] = ['type:content'];
+    if (locInfo.docsBase === "docs" && locInfo.framework) {
+        facetFilters.push('framework:' + locInfo.framework);
+    }
+    if (isLegacyV5Page(locInfo)) {
+        return {
+            facetFilters,
+            filters: getLegacyV5Filters(currentVersion),
+        };
+    }
     const tag = getDocusaurusTag(locInfo);
     if (Array.isArray(tag)) {
-        facets.push(tag.map((t) => 'docusaurus_tag:' + t));
+        facetFilters.push(tag.map((t) => 'docusaurus_tag:' + t));
     } else if (tag) {
-        facets.push('docusaurus_tag:' + tag);
+        facetFilters.push('docusaurus_tag:' + tag);
     }
-    if (locInfo.docsBase === "docs" && locInfo.framework) {
-        facets.push('framework:' + locInfo.framework);
+    return { facetFilters, filters: undefined };
+}
+
+/**
+ * Rewrites a hit's URL back to the equivalent v5.35.0 page when it was sourced from v6's
+ * index (via the presentInV5 scope above). Hits already tagged docs-default-5.35.0 already
+ * point at the correct v5.35.0 URL and pass through unchanged.
+ */
+export function rewriteUrlForLegacyV5(url: string): string {
+    if (url.includes(`/${LEGACY_V5_VERSION}/`)) {
+        return url;
     }
-    return facets;
+    return url.replace('/docs/', `/docs/${LEGACY_V5_VERSION}/`);
+}
+
+/**
+ * Applies rewriteUrlForLegacyV5 to every hit when on a v5.35.0 page; passes items through
+ * unchanged everywhere else.
+ */
+export function transformItemsForLocation(items, locInfo) {
+    if (!isLegacyV5Page(locInfo)) {
+        return items;
+    }
+    return items.map((item) => ({ ...item, url: rewriteUrlForLegacyV5(item.url) }));
 }
 
 // /**

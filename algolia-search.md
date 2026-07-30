@@ -8,8 +8,16 @@ Crawling now runs via GitHub Actions instead of the manual Docker flow below:
 - `.github/workflows/algolia-crawl.yml` — manual, gated (`confirm: CONFIRM`) crawl of the
   production index (`docs_mobiscroll`), using `search-config.json`.
 
-Both run `algolia/docsearch-scraper` the same way the manual steps below describe, then run
-two post-crawl scripts from the `algolia/` folder:
+Both run `algolia/docsearch-scraper` the same way the manual steps below describe, wrapped
+with a freshness gate and followed by two post-crawl scripts, all from the `algolia/` folder:
+- `algolia/plant-freshness-sentinel.js` (runs *before* the crawl) — plants a throwaway
+  object in the target index. `docsearch-scraper` crawls into a temporary index and
+  atomically swaps it into the real index name at the very end of its run; that swap is
+  async, so a read against the index right after the crawl step reports success can still
+  return stale pre-crawl data (or 404, if the index didn't exist before) with no error.
+- `algolia/wait-for-fresh-crawl.js` (runs right after the crawl) — blocks until that
+  sentinel is gone, which only happens once the swap has fully replaced the index. Times
+  out loudly (~2 min) rather than letting the next two scripts run against stale data.
 - `algolia/prune-v5-duplicates.js` — deletes v5.35.0-tagged records that duplicate v6 content
   (keeps only genuinely v5-only auto-generated entries, per `algolia/v5-only-anchors.json`).
 - `algolia/tag-present-in-v5.js` — stamps v6-tagged records with a `presentInV5` boolean (per

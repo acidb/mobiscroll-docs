@@ -25,6 +25,23 @@ jobs:
           echo "index_name in this run: $INDEX_NAME"
           echo "ALGOLIA_INDEX_NAME=$INDEX_NAME" >> "$GITHUB_ENV"
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # docsearch-scraper crawls into a temporary index and atomically swaps it into the
+      # real index name at the very end of its run — that swap is itself async, so the
+      # index can briefly still hold OLD data (or not exist at all) right after the crawl
+      # step below reports success. Planting a sentinel now and waiting for it to
+      # disappear afterwards (see "Wait for fresh crawl") is how Prune/Tag are kept from
+      # ever running against stale, pre-crawl data.
+      - name: Plant freshness sentinel
+        env:
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          ALGOLIA_ADMIN_API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
+        run: node algolia/plant-freshness-sentinel.js
+
       - name: Run docsearch-scraper
         env:
           APPLICATION_ID: ${{ secrets.ALGOLIA_APP_ID }}
@@ -37,10 +54,11 @@ jobs:
             -e CONFIG="$CONFIG" \
             algolia/docsearch-scraper
 
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+      - name: Wait for fresh crawl
+        env:
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          ALGOLIA_ADMIN_API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
+        run: node algolia/wait-for-fresh-crawl.js
 
       - name: Prune v5.35.0 records that duplicate v6 content
         env:

@@ -21,9 +21,11 @@ with a freshness gate and followed by two post-crawl scripts, all from the `algo
 - `algolia/prune-v5-duplicates.js` — deletes v5.35.0-tagged records that duplicate v6 content
   (keeps only genuinely v5-only auto-generated entries, per `algolia/v5-only-anchors.json`).
 - `algolia/tag-present-in-v5.js` — for v6 records shared with v5.35.0 (per
-  `algolia/v5-anchors.json`), adds `docs-default-5.35.0` directly onto that record's own
-  `docusaurus_tag` facet (an AddUnique array operation) and sets an informational
-  `presentInV5` boolean. The tag addition is what actually makes the record searchable from
+  `algolia/v5-anchors.json`), overwrites that record's own `docusaurus_tag` facet with
+  `[currentVersionTag, "docs-default-5.35.0"]` (a plain full-array write, not Algolia's
+  `AddUnique` operation — confirmed in practice that `AddUnique`'s write didn't persist,
+  while a plain field write did) and sets an informational `presentInV5` boolean. The tag
+  addition is what actually makes the record searchable from
   a v5.35.0 page — Algolia rejects expressing "v5.35.0 OR (v6 AND presentInV5)" as a query
   filter outright, so the record itself carries both versions' tags instead of the query
   needing to combine them (see `src/components/Search/util.ts`'s `getSearchScope`).

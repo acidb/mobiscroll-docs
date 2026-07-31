@@ -4,17 +4,26 @@
 // Stamps every current-version (v6) record whose (page path, anchor) pair is part of the
 // frozen v5.35.0 set (algolia/v5-anchors.json, see algolia/generate-v5-anchor-sets.js) with
 // a `presentInV5: true` marker AND, more importantly, adds "docs-default-5.35.0" to that
-// record's `docusaurus_tag` facet (an AddUnique array operation — Algolia facets can hold
-// multiple values, and a facetFilters/filters match succeeds if ANY value matches).
+// record's `docusaurus_tag` facet (Algolia facets can hold multiple values, and a
+// facetFilters/filters match succeeds if ANY value matches).
+//
+// Written as a plain full-array overwrite (`[currentTag, legacyTag]`), not Algolia's
+// `AddUnique` array operation — confirmed in practice that AddUnique's write didn't
+// persist (presentInV5, a plain field in the same request, DID apply; docusaurus_tag,
+// using AddUnique, did not), so this avoids depending on that operation's exact behavior.
+// Safe to overwrite outright rather than append: every record processed here was just
+// browsed via a `docusaurus_tag:"docs-default-<currentVersion>"` filter, so its current
+// value is already known to be exactly that single tag before this write.
 //
 // That tag addition is what actually makes a v5.35.0-page search find this content: it
 // turns "v5.35.0's own records OR (v6 records AND presentInV5:true)" — an OR-of-an-AND that
 // Algolia's `filters` grammar rejects outright ("(X AND Y) OR Z is not allowed") — into a
 // single plain `docusaurus_tag:"docs-default-5.35.0"` match, identical in shape to every
 // other page's query (see src/components/Search/util.ts). The record's OTHER
-// docusaurus_tag value (docs-default-<currentVersion>) is left in place via AddUnique, so
-// its own version's searches keep matching it exactly as before — nothing is removed, only
-// added. Matched by page path, not anchor alone, so a v6 page that happens to reuse an
+// docusaurus_tag value (docs-default-<currentVersion>) is explicitly included in the
+// overwritten array too, so its own version's searches keep matching it exactly as before
+// — nothing is removed, only added. Matched by page path, not anchor alone, so a v6 page
+// that happens to reuse an
 // anchor name from a page v5.35.0 doesn't have (e.g. a per-view split like
 // options_calendarview.md with no v5.35.0 equivalent page) is never mistakenly tagged just
 // because the anchor string exists somewhere else in v5.35.0's docs.
@@ -49,7 +58,7 @@ async function main() {
     const presentInV5 = !!(v5SharedByPage[pagePath] && v5SharedByPage[pagePath].has(hit.anchor));
     const body = { objectID: hit.objectID, presentInV5 };
     if (presentInV5) {
-      body.docusaurus_tag = { value: 'docs-default-5.35.0', _operation: 'AddUnique' };
+      body.docusaurus_tag = [`docs-default-${currentVersion}`, 'docs-default-5.35.0'];
     }
     updates.push({ action: 'partialUpdateObject', body });
   });

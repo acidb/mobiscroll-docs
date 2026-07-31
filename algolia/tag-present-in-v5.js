@@ -37,7 +37,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { algoliaConfig, browseAll, runBatch, pagePathFromUrl, toAnchorSetMap } = require('./lib');
+const { algoliaConfig, browseAll, runBatch, pagePathFromUrl, toAnchorSetMap, isTrackedAnchor } = require('./lib');
 
 const v5SharedByPage = toAnchorSetMap(
   JSON.parse(fs.readFileSync(path.join(__dirname, 'v5-anchors.json'), 'utf8')),
@@ -53,7 +53,7 @@ async function main() {
   const updates = [];
 
   const scanned = await browseAll(config, `docusaurus_tag:"docs-default-${currentVersion}"`, (hit) => {
-    if (!hit.anchor) return; // guide/landing content — not part of the v5/v6 API overlap
+    if (!isTrackedAnchor(hit.anchor)) return; // guide/landing content — not part of the v5/v6 API overlap
     const pagePath = pagePathFromUrl(hit.url);
     const presentInV5 = !!(v5SharedByPage[pagePath] && v5SharedByPage[pagePath].has(hit.anchor));
     const body = { objectID: hit.objectID, presentInV5 };

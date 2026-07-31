@@ -25,6 +25,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { TRACKED_ANCHOR_PREFIXES } = require('./lib');
 
 const REPO_ROOT = path.join(__dirname, '..');
 const V6_ROOT = path.join(REPO_ROOT, 'docs');
@@ -34,7 +35,11 @@ const FRAMEWORKS = ['react', 'angular', 'vue', 'javascript', 'jquery'];
 // Matches every anchor prefix actually used in _auto-generated content (confirmed via a
 // full scan, not just the opt/event/method/renderer/slot subset documented in
 // writing-docs.md/CLAUDE.md — localization/template/view entries also carry stable anchors).
-const ANCHOR_PATTERN = /\{#((?:opt|event|method|type|renderer|slot|template|view|localization)-[^}]+)\}/g;
+// Shares its prefix list with lib.js's isTrackedAnchor (used by prune-v5-duplicates.js /
+// tag-present-in-v5.js) so the two can't drift apart — this is also why hand-written guide
+// headings (e.g. accessibility.md's "1-perceivable") are correctly never extracted here:
+// they don't use any of these prefixes, so they're outside this whole comparison entirely.
+const ANCHOR_PATTERN = new RegExp(`\\{#((?:${TRACKED_ANCHOR_PREFIXES.join('|')})-[^}]+)\\}`, 'g');
 const AUTO_GEN_IMPORT_PATTERN = /from\s+['"]([^'"]*_auto-generated\/[^'"]+\.mdx?)['"]/g;
 
 function walk(dir, extensions) {

@@ -168,6 +168,27 @@ function toAnchorSetMap(pagePathToAnchors) {
   return map;
 }
 
+// The set of anchor prefixes that come from _auto-generated API reference content (see
+// generate-v5-anchor-sets.js, which extracts anchors matching this same prefix list from
+// {#prefix-name} heading ids). Every OTHER heading on the site — including hand-written
+// guide pages like accessibility.md's "1-perceivable"/"2-operable"/etc. sections — also
+// gets a real, non-empty `anchor` from docsearch-scraper (Docusaurus assigns an id to every
+// heading, not just auto-generated ones), so "does this record have an anchor at all" is
+// NOT a valid test for "is this auto-generated API content" — confirmed in practice: guide
+// headings have real anchors, so prune-v5-duplicates.js's old `if (!hit.anchor) return`
+// guide-page protection never applied to them, and they were being deleted as if they were
+// unverified API-content duplicates, even though they were never part of the v5/v6
+// comparison at all. isTrackedAnchor is the correct test: only these prefixes were ever
+// extracted into v5-anchors.json/v5-only-anchors.json, so only these should ever be
+// considered for pruning or tagging — anything else (no anchor, or a guide heading anchor)
+// must always be left untouched.
+const TRACKED_ANCHOR_PREFIXES = ['opt', 'event', 'method', 'type', 'renderer', 'slot', 'template', 'view', 'localization'];
+const TRACKED_ANCHOR_PATTERN = new RegExp(`^(?:${TRACKED_ANCHOR_PREFIXES.join('|')})-`);
+
+function isTrackedAnchor(anchor) {
+  return !!anchor && TRACKED_ANCHOR_PATTERN.test(anchor);
+}
+
 module.exports = {
   algoliaConfig,
   browseAll,
@@ -176,4 +197,6 @@ module.exports = {
   toAnchorSetMap,
   plantFreshnessSentinel,
   waitForFreshCrawl,
+  TRACKED_ANCHOR_PREFIXES,
+  isTrackedAnchor,
 };

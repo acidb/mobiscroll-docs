@@ -45,7 +45,7 @@ function DocSearch({contextualSearch, externalUrlRegex, ...props}) {
   const location = useLocation();
   const currentVersion = useCurrentVersion();
   const locationInfo = getLocationInfo(location, currentVersion);
-  const searchScope = getSearchScope(locationInfo, currentVersion);
+  const searchScope = getSearchScope(locationInfo);
   const dynamicConfigFacetFilters = mergeFacetFilters(configFacetFilters, searchScope.facetFilters);
   const facetFilters = contextualSearch
     ? // Merge contextual search filters with config filters
@@ -56,7 +56,6 @@ function DocSearch({contextualSearch, externalUrlRegex, ...props}) {
   const searchParameters = {
     ...props.searchParameters,
     facetFilters,
-    ...(searchScope.filters ? { filters: searchScope.filters } : {}),
   };
   const history = useHistory();
   const searchContainer = useRef(null);

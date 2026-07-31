@@ -89,7 +89,8 @@ algolia/               Algolia search tooling (kept separate from scripts/ — A
   wait-for-fresh-crawl.js     Post-crawl: blocks until that sentinel is gone (fails loudly
                                on timeout) before Prune/Tag are allowed to run
   prune-v5-duplicates.js      Post-crawl: deletes v5.35.0 records that duplicate v6 content
-  tag-present-in-v5.js        Post-crawl: stamps v6 records with the presentInV5 facet
+  tag-present-in-v5.js        Post-crawl: adds docs-default-5.35.0 to shared v6 records'
+                               own docusaurus_tag facet (+ an informational presentInV5 flag)
   lib.js               Shared Algolia REST API helper (browse/batch/object GET, freshness gate)
 search-config.json     Algolia crawler config — production index (docs_mobiscroll)
 search-config-dev.json Algolia crawler config — test index (dev_docs_mobiscroll)

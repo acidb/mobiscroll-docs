@@ -80,48 +80,38 @@ export const LEGACY_V5_VERSION = '5.35.0';
 export const LEGACY_V5_TAG = `docs-default-${LEGACY_V5_VERSION}`;
 
 /**
- * True on a v5.35.0 framework/component page — the one context that searches v6's index
- * for shared auto-generated content (see getSearchScope) instead of just its own tag.
+ * True on a v5.35.0 framework/component page. Used only to decide whether a hit's URL
+ * needs rewriting back to the v5.35.0 path (see rewriteUrlForLegacyV5 below) — the search
+ * *scope* itself needs no special-casing here (see getSearchScope's doc comment).
  */
 export function isLegacyV5Page(locInfo) {
     return locInfo.docsBase === 'docs' && locInfo.version === LEGACY_V5_VERSION && !!locInfo.framework;
 }
 
 /**
- * The `filters` string (see getSearchScope below) that scopes a search made in v5.35.0
- * context to v5.35.0's own (pruned, unique-only) records OR v6 records tagged
- * `presentInV5` post-crawl (see algolia/tag-present-in-v5.js). Shared by both the search
- * modal (getSearchScope) and the full "See all results" page (SearchPage), which carries
- * its scope across navigation via a URL param rather than re-deriving it from the location.
- */
-export function getLegacyV5Filters(currentVersion) {
-    return `(docusaurus_tag:"${LEGACY_V5_TAG}" OR (docusaurus_tag:"docs-default-${currentVersion}" AND presentInV5:true))`;
-}
-
-/**
- * Returns the facetFilters/filters to include in every search. Algolia's facetFilters
- * treats top-level array entries as AND'd, and any entry that is itself an array as
- * an OR group — used here so the homepage can match "Connect OR current version".
+ * Returns a facetFilters array to include in every search. Algolia's facetFilters treats
+ * top-level array entries as AND'd, and any entry that is itself an array as an OR group —
+ * used here so the homepage can match "Connect OR current version".
  *
- * On a v5.35.0 page, the scope is instead expressed as a `filters` string: v5.35.0's own
- * (pruned, unique-only) records OR v6 records that are also present in v5.35.0 (tagged
- * `presentInV5` post-crawl, see algolia/tag-present-in-v5.js). That's an OR of an AND,
- * which facetFilters' array/OR-array format can't represent, so it can't be folded into
- * the facetFilters array the way the homepage's OR-group above is.
+ * v5.35.0 needs no special branch here: v6 records that are also present in v5.35.0 get
+ * `docs-default-5.35.0` added directly onto their own `docusaurus_tag` facet post-crawl
+ * (see algolia/tag-present-in-v5.js — an AddUnique array operation, since Algolia facets
+ * can hold multiple values and a filter matches if ANY value matches). A plain
+ * `docusaurus_tag:"docs-default-5.35.0"` filter — exactly what getDocusaurusTag already
+ * returns for this page, same as any other framework page's tag — therefore matches both
+ * v5.35.0's own (pruned, unique-only) records and those tagged-in v6 records in one go.
+ * (An earlier version of this function built a `filters` string here instead, to express
+ * "v5.35.0's own records OR (v6 records AND presentInV5:true)" — Algolia rejects that
+ * shape outright, "(X AND Y) OR Z is not allowed", and separately rejects `filters` and
+ * `facetFilters` being set together at all. Tagging the record itself sidesteps both
+ * restrictions instead of working around them in the query.)
  * @param locInfo the object returned from getLocationInfo
- * @param currentVersion the current ("latest") UI version's name, from useCurrentVersion()
  * @returns
  */
-export function getSearchScope(locInfo, currentVersion) {
+export function getSearchScope(locInfo) {
     const facetFilters: (string | string[])[] = ['type:content'];
     if (locInfo.docsBase === "docs" && locInfo.framework) {
         facetFilters.push('framework:' + locInfo.framework);
-    }
-    if (isLegacyV5Page(locInfo)) {
-        return {
-            facetFilters,
-            filters: getLegacyV5Filters(currentVersion),
-        };
     }
     const tag = getDocusaurusTag(locInfo);
     if (Array.isArray(tag)) {
@@ -129,7 +119,7 @@ export function getSearchScope(locInfo, currentVersion) {
     } else if (tag) {
         facetFilters.push('docusaurus_tag:' + tag);
     }
-    return { facetFilters, filters: undefined };
+    return { facetFilters };
 }
 
 /**

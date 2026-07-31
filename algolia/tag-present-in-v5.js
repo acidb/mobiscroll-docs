@@ -1,19 +1,28 @@
 // Post-crawl step, run after every docsearch-scraper crawl (wired into
 // .github/workflows/algolia-crawl-dev.yml / algolia-crawl.yml).
 //
-// Stamps every current-version (v6) record with a `presentInV5` boolean, based on whether
-// its (page path, anchor) pair is part of the frozen v5.35.0 set (algolia/v5-anchors.json,
-// see algolia/generate-v5-anchor-sets.js). Matched by page path, not anchor alone, so a v6
-// page that happens to reuse an anchor name from a page v5.35.0 doesn't have (e.g. a
-// per-view split like options_calendarview.md with no v5.35.0 equivalent page) is never
-// mistakenly marked presentInV5 just because the anchor string exists somewhere else in
-// v5.35.0's docs.
+// Stamps every current-version (v6) record whose (page path, anchor) pair is part of the
+// frozen v5.35.0 set (algolia/v5-anchors.json, see algolia/generate-v5-anchor-sets.js) with
+// a `presentInV5: true` marker AND, more importantly, adds "docs-default-5.35.0" to that
+// record's `docusaurus_tag` facet (an AddUnique array operation — Algolia facets can hold
+// multiple values, and a facetFilters/filters match succeeds if ANY value matches).
 //
-// This is what lets a search made from a v5.35.0 page reuse v6's index for shared API
-// content (see src/components/Search/util.ts) without needing a large per-query whitelist
-// or any blacklist that would need updating every time v6's docs change: since v5.35.0 is
-// frozen, this script always recomputes the same classification from the same static
-// input — idempotent, no "did v6 change" logic.
+// That tag addition is what actually makes a v5.35.0-page search find this content: it
+// turns "v5.35.0's own records OR (v6 records AND presentInV5:true)" — an OR-of-an-AND that
+// Algolia's `filters` grammar rejects outright ("(X AND Y) OR Z is not allowed") — into a
+// single plain `docusaurus_tag:"docs-default-5.35.0"` match, identical in shape to every
+// other page's query (see src/components/Search/util.ts). The record's OTHER
+// docusaurus_tag value (docs-default-<currentVersion>) is left in place via AddUnique, so
+// its own version's searches keep matching it exactly as before — nothing is removed, only
+// added. Matched by page path, not anchor alone, so a v6 page that happens to reuse an
+// anchor name from a page v5.35.0 doesn't have (e.g. a per-view split like
+// options_calendarview.md with no v5.35.0 equivalent page) is never mistakenly tagged just
+// because the anchor string exists somewhere else in v5.35.0's docs.
+//
+// Since v5.35.0 is frozen, this script always recomputes the same classification from the
+// same static input — idempotent, no "did v6 change" logic, safe to run after every crawl
+// (each crawl's atomic swap resets docusaurus_tag to its plain single value, so there's no
+// stale-tag risk to clean up between runs).
 //
 // Required env: ALGOLIA_APP_ID, ALGOLIA_ADMIN_API_KEY, ALGOLIA_INDEX_NAME
 
@@ -37,11 +46,12 @@ async function main() {
   const scanned = await browseAll(config, `docusaurus_tag:"docs-default-${currentVersion}"`, (hit) => {
     if (!hit.anchor) return; // guide/landing content — not part of the v5/v6 API overlap
     const pagePath = pagePathFromUrl(hit.url);
-    const sharedAnchors = v5SharedByPage[pagePath];
-    updates.push({
-      action: 'partialUpdateObject',
-      body: { objectID: hit.objectID, presentInV5: !!(sharedAnchors && sharedAnchors.has(hit.anchor)) },
-    });
+    const presentInV5 = !!(v5SharedByPage[pagePath] && v5SharedByPage[pagePath].has(hit.anchor));
+    const body = { objectID: hit.objectID, presentInV5 };
+    if (presentInV5) {
+      body.docusaurus_tag = { value: 'docs-default-5.35.0', _operation: 'AddUnique' };
+    }
+    updates.push({ action: 'partialUpdateObject', body });
   });
 
   if (updates.length > 0) {
@@ -50,7 +60,7 @@ async function main() {
 
   const presentCount = updates.filter((u) => u.body.presentInV5).length;
   console.log(`Scanned ${scanned} docs-default-${currentVersion}-tagged records.`);
-  console.log(`Tagged ${updates.length} anchored records (${presentCount} presentInV5:true).`);
+  console.log(`Tagged ${updates.length} anchored records (${presentCount} presentInV5:true, tag added).`);
 }
 
 main().catch((err) => {

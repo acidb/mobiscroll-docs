@@ -23,7 +23,7 @@ import {
 import Layout from '@theme/Layout';
 import styles from './styles.module.css';
 import { getDefaultFramework, getDefaultTags } from '@site/src/components/Search/searchLink';
-import { LEGACY_V5_TAG, getLegacyV5Filters, rewriteUrlForLegacyV5, useCurrentVersion } from '@site/src/components/Search/util';
+import { LEGACY_V5_TAG, rewriteUrlForLegacyV5 } from '@site/src/components/Search/util';
 // Very simple pluralization: probably good enough for now
 function useDocumentsFoundPlural() {
   const {selectMessage} = usePluralForm();
@@ -141,7 +141,6 @@ function SearchPageContent() {
     algolia: {appId, apiKey, indexName},
   } = useAlgoliaThemeConfig();
   const processSearchResultUrl = useSearchResultUrlProcessor();
-  const currentVersion = useCurrentVersion();
   const documentsFoundPlural = useDocumentsFoundPlural();
   const docsSearchVersionsHelpers = useDocsSearchVersionsHelpers();
   const [searchQuery, setSearchQuery] = useSearchQueryString();
@@ -291,10 +290,11 @@ function SearchPageContent() {
   // tag (mixed Connect + UI results) — only hide the framework picker when Connect is the
   // *sole* scope, since it has no framework concept at all.
   const isConnectOnly = tags.length === 1 && tags[0] === 'docs-connect-current';
-  // Same v5.35.0-vs-v6 scope as the search modal (see getSearchScope in
-  // src/components/Search/util.ts) — a search that started on a v5.35.0 page and continued
-  // here via "See all results" should keep searching v6's presentInV5-tagged content too,
-  // not just v5.35.0's own (pruned, unique-only) records.
+  // Used only to decide whether a hit's URL needs rewriting back to the v5.35.0 path (see
+  // rewriteUrlForLegacyV5 below) — the query itself needs no special-casing: v6 records
+  // that are also present in v5.35.0 get "docs-default-5.35.0" added directly onto their
+  // own docusaurus_tag facet post-crawl (see algolia/tag-present-in-v5.js), so the plain
+  // `docusaurus_tag:docs-default-5.35.0` tag pushed below already matches them too.
   const isLegacyV5 = tags.length === 1 && tags[0] === LEGACY_V5_TAG;
   const makeSearch = useEvent((page = 0) => {
     // Built as raw facetFilters (rather than via addDisjunctiveFacetRefinement) so this
@@ -304,13 +304,7 @@ function SearchPageContent() {
     if (framework) {
       facetFilters.push([`framework:${framework}`]);
     }
-    // The v5.35.0-vs-v6 scope is an OR of an AND ("v5.35.0's own records OR (v6 records
-    // AND presentInV5:true)"), which facetFilters' array/OR-array format can't represent,
-    // so it goes into the `filters` string parameter instead (combined with facetFilters
-    // above via implicit AND) rather than being pushed onto facetFilters like other tags.
-    if (isLegacyV5) {
-      algoliaHelper.setQueryParameter('filters', getLegacyV5Filters(currentVersion));
-    } else if (tags.length > 0) {
+    if (tags.length > 0) {
       facetFilters.push(tags.map((tag) => `docusaurus_tag:${tag}`));
     }
     algoliaHelper

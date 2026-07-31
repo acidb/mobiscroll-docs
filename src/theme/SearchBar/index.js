@@ -108,7 +108,13 @@ function DocSearch({contextualSearch, externalUrlRegex, ...props}) {
       }
     },
   }).current;
-  const transformItems = useRef((items) => {
+  // Not wrapped in useRef: this component lives in the persistent navbar and doesn't
+  // remount on client-side navigation, so a useRef(...).current closure would freeze
+  // locationInfo at whatever page was current the first time this ever rendered —
+  // confirmed in practice: once frozen on a v5.35.0 page, every later search (even from a
+  // v6 page, with a correctly v6-scoped query) kept rewriting result URLs to /5.35.0/.
+  // Recomputing a plain function every render is cheap enough here to not need memoizing.
+  const transformItems = (items) => {
     const withRewrittenUrls = transformItemsForLocation(items, locationInfo);
     return props.transformItems
       ? // Custom transformItems
@@ -118,7 +124,7 @@ function DocSearch({contextualSearch, externalUrlRegex, ...props}) {
           ...item,
           url: processSearchResultUrl(item.url),
         }));
-  }).current;
+  };
   const resultsFooterComponent = useMemo(
     () =>
       // eslint-disable-next-line react/no-unstable-nested-components

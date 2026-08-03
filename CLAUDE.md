@@ -95,7 +95,8 @@ algolia/               Algolia search tooling (kept separate from scripts/ — A
 search-config.json     Algolia crawler config — production index (docs_mobiscroll)
 search-config-dev.json Algolia crawler config — test index (dev_docs_mobiscroll)
 algolia-search.md      Algolia crawl/indexing setup and workflow docs
-.github/workflows/     algolia-crawl.yml (prod, weekly + manual) / algolia-crawl-dev.yml (test, manual)
+.github/workflows/     algolia-crawl.yml (prod, weekly + manual) — algolia-crawl-dev.yml (test)
+                       removed 2026-08-03, extra Algolia cost; recreatable later, see algolia-search.md
 config.json            Local machine path to marketplace project (not committed to CI)
 .ai/                   AI agent infrastructure
   SYSTEM.md            Agent operating rules (read this every session)
@@ -123,7 +124,7 @@ versions.json          Tracked doc versions
 | Build | `npm run build*` | None — fully automated |
 | Version bump | Manual release process | None — read `versions.json` first if asked |
 | AI system update | Edit `.ai/SYSTEM.md` or `knowledge/` | Full — SYSTEM CHANGE gate applies |
-| Algolia search config update | Edit `search-config*.json`, `algolia/` | Full — verify on dev index before mirroring to prod |
+| Algolia search config update | Edit `search-config*.json`, `algolia/` | Full — dev-index verification workflow removed 2026-08-03 (cost); verify against prod directly |
 
 Full workflow details and per-workflow AI roles: `.ai/SYSTEM.md § 8`.
 

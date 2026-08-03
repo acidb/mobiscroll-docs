@@ -447,10 +447,14 @@ After applying to one branch: update the other branch via a fresh commit — nev
 
 ### Workflow J — Algolia search config update
 
-Steps: edit `search-config.json` / `search-config-dev.json` or `algolia/**` → verify on the
-dev index (`.github/workflows/algolia-crawl-dev.yml`, test index `dev_docs_mobiscroll`) →
-mirror to prod (`search-config.json` + `.github/workflows/algolia-crawl.yml`) only after the
-dev-index result is verified.
+Steps: edit `search-config.json` / `search-config-dev.json` or `algolia/**` → verify against
+`search-config.json` / `.github/workflows/algolia-crawl.yml` (prod) directly.
+
+`.github/workflows/algolia-crawl-dev.yml` (test index `dev_docs_mobiscroll`) was removed
+2026-08-03 — it was creating extra Algolia-side costs and dev-index verification isn't needed
+day-to-day now that the pipeline is stable. `search-config-dev.json` and the
+`dev_docs_mobiscroll` index are untouched; recreate the workflow (same shape as
+`algolia-crawl.yml`, minus the confirm gate and schedule) if dev-index testing is needed again.
 
 AI role: full — same treatment as a docs page update (§4 does not apply here since this isn't
 documentation copy, but the "verify before mirroring to prod" step is the equivalent gate).
@@ -485,5 +489,6 @@ search-config.json       Algolia crawler config — production index (docs_mobis
 search-config-dev.json   Algolia crawler config — test index (dev_docs_mobiscroll)
 algolia/                 Algolia post-crawl tooling (anchor diffing, pruning, tagging)
 algolia-search.md        Algolia crawl/indexing setup and workflow docs
-.github/workflows/       algolia-crawl.yml (prod) / algolia-crawl-dev.yml (test)
+.github/workflows/       algolia-crawl.yml (prod, weekly + manual) — algolia-crawl-dev.yml
+                         (test) removed 2026-08-03, extra Algolia cost; recreatable later
 ```

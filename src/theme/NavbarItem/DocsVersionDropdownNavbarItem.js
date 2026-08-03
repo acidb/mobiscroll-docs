@@ -10,6 +10,8 @@ import { useLocation } from '@docusaurus/router';
 import DefaultNavbarItem from '@theme/NavbarItem/DefaultNavbarItem';
 import DropdownNavbarItem from '@theme/NavbarItem/DropdownNavbarItem';
 import { compareVersionStringDesc, getSemVerInfo } from '@site/src/util/versioning';
+import { getDefaultTags } from '@site/src/components/Search/searchLink';
+import { LEGACY_V5_TAG, LEGACY_V5_VERSION } from '@site/src/components/Search/util';
 
 const versionMap = require('../../../version-map.json');
 
@@ -23,10 +25,18 @@ export default function DocsVersionDropdownNavbarItem({
   dropdownItemsAfter,
   ...props
 }) {
-  const { search, hash } = useLocation();
+  const { pathname, search, hash } = useLocation();
   const activeDocContext = useActiveDocContext(docsPluginId);
   const versions = useVersions(docsPluginId);
   const { savePreferredVersionName } = useDocsPreferredVersion(docsPluginId);
+  // The search results page (/search) carries no doc-route version context for
+  // useActiveDocContext/useDocsVersionCandidates below to read, so they silently default to
+  // the latest version even when the search itself was scoped from a v5.35.0 page.
+  // SearchPage/index.js already tracks that via a `tag` URL param (see getDefaultTags in
+  // searchLink.ts) — reuse that same signal here so the dropdown reflects where the search
+  // actually came from, instead of always showing latest.
+  const isLegacyV5SearchContext = pathname.endsWith('/search') && getDefaultTags().includes(LEGACY_V5_TAG);
+  const legacyV5Version = isLegacyV5SearchContext ? versions.find((version) => version.name === LEGACY_V5_VERSION) : null;
   const latestGroups = groupVersions(versions);
   const versionLinks = versions.filter((version) => latestGroups[getGroup(version.label)][0] === version.label).map((version) => {
     // We try to link to the same doc, in another version
@@ -39,7 +49,7 @@ export default function DocsVersionDropdownNavbarItem({
       label: label,
       // preserve ?search#hash suffix on version switches
       to: `${versionDoc.path}${search}${hash}`,
-      isActive: () => version === activeDocContext.activeVersion,
+      isActive: () => (legacyV5Version ? version === legacyV5Version : version === activeDocContext.activeVersion),
       onClick: () => savePreferredVersionName(version.name),
     };
   });
@@ -48,7 +58,11 @@ export default function DocsVersionDropdownNavbarItem({
     ...versionLinks,
     ...dropdownItemsAfter,
   ];
-  const dropdownVersion = useDocsVersionCandidates(docsPluginId)[0];
+  // useDocsVersionCandidates must always be called (Rules of Hooks) even when its result
+  // ends up unused below, so it's called unconditionally here rather than short-circuited
+  // by `??` inline (which would skip the hook call whenever legacyV5Version is set).
+  const defaultDropdownVersion = useDocsVersionCandidates(docsPluginId)[0];
+  const dropdownVersion = legacyV5Version ?? defaultDropdownVersion;
   const dropdownVersionLabel = mapVersion(versionMap, dropdownVersion.label);
   // Mobile dropdown is handled a bit differently
   const dropdownLabel =

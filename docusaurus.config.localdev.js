@@ -125,7 +125,7 @@ const config = {
         appId: 'K01Y8I3I2D',
         apiKey: '587e2708d07f2d26787dff9093a4ef83',
         indexName: 'dev_docs_mobiscroll',
-        contextualSearch: true,
+        contextualSearch: false,
       },
     }),
 

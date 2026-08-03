@@ -16,7 +16,7 @@ import Translate from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {createPortal} from 'react-dom';
 import translations from '@theme/SearchTranslations';
-import { getLocationInfo, getCustomFacets } from '@site/src/components/Search/util';
+import { getLocationInfo, getSearchScope, transformItemsForLocation, useCurrentVersion } from '@site/src/components/Search/util';
 let DocSearchModal = null;
 function Hit({hit, children}) {
   return <Link to={hit.url}>{children}</Link>;
@@ -43,8 +43,10 @@ function DocSearch({contextualSearch, externalUrlRegex, ...props}) {
   const contextualSearchFacetFilters = useAlgoliaContextualFacetFilters();
   const configFacetFilters = props.searchParameters?.facetFilters ?? [];
   const location = useLocation();
-  const locationInfo = getLocationInfo(location);
-  const dynamicConfigFacetFilters = mergeFacetFilters(configFacetFilters, getCustomFacets(locationInfo));
+  const currentVersion = useCurrentVersion();
+  const locationInfo = getLocationInfo(location, currentVersion);
+  const searchScope = getSearchScope(locationInfo);
+  const dynamicConfigFacetFilters = mergeFacetFilters(configFacetFilters, searchScope.facetFilters);
   const facetFilters = contextualSearch
     ? // Merge contextual search filters with config filters
       mergeFacetFilters(contextualSearchFacetFilters, dynamicConfigFacetFilters)
@@ -106,16 +108,23 @@ function DocSearch({contextualSearch, externalUrlRegex, ...props}) {
       }
     },
   }).current;
-  const transformItems = useRef((items) =>
-    props.transformItems
+  // Not wrapped in useRef: this component lives in the persistent navbar and doesn't
+  // remount on client-side navigation, so a useRef(...).current closure would freeze
+  // locationInfo at whatever page was current the first time this ever rendered —
+  // confirmed in practice: once frozen on a v5.35.0 page, every later search (even from a
+  // v6 page, with a correctly v6-scoped query) kept rewriting result URLs to /5.35.0/.
+  // Recomputing a plain function every render is cheap enough here to not need memoizing.
+  const transformItems = (items) => {
+    const withRewrittenUrls = transformItemsForLocation(items, locationInfo);
+    return props.transformItems
       ? // Custom transformItems
-        props.transformItems(items)
+        props.transformItems(withRewrittenUrls)
       : // Default transformItems
-        items.map((item) => ({
+        withRewrittenUrls.map((item) => ({
           ...item,
           url: processSearchResultUrl(item.url),
-        })),
-  ).current;
+        }));
+  };
   const resultsFooterComponent = useMemo(
     () =>
       // eslint-disable-next-line react/no-unstable-nested-components

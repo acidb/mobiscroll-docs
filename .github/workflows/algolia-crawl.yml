@@ -1,29 +1,42 @@
-name: Algolia crawl (dev/test index)
+name: Algolia crawl (PRODUCTION index)
 
-# Manual-only trigger: run from the Actions tab whenever you want to (re)build the
-# test index. Never runs automatically, so it can't fire on a push/PR by accident.
-#
-# To also run this automatically on a schedule (e.g. once a month), uncomment the
-# `schedule` block below. Left commented out for now until the dev-index results
-# (including the lvl0 selector fix) are fully verified.
+# Runs weekly on a schedule, and can also be triggered manually — manual runs are gated
+# behind a typed confirmation; a scheduled run has no input to type and skips that check
+# by design (see "Verify confirmation input" step's `if:` below).
 on:
-  workflow_dispatch: {}
-  # schedule:
-  #   - cron: '0 3 1 * *'   # 03:00 UTC on the 1st of every month
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Type CONFIRM to run a real crawl against the live docs_mobiscroll production index'
+        required: true
+  schedule:
+    - cron: '0 3 * * 1'   # 03:00 UTC every Monday
 
 jobs:
   crawl:
     runs-on: ubuntu-latest
     steps:
+      - name: Verify confirmation input
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.confirm != 'CONFIRM' }}
+        run: |
+          echo "::error::Confirmation input did not equal 'CONFIRM'. Aborting to avoid an accidental production crawl."
+          exit 1
+
       - name: Checkout
         uses: actions/checkout@v7
 
       - name: Build minified crawl config
         run: |
-          jq -c . search-config-dev.json > search-config-min.json
-          INDEX_NAME=$(jq -r .index_name search-config-min.json)
-          echo "index_name in this run: $INDEX_NAME"
-          echo "ALGOLIA_INDEX_NAME=$INDEX_NAME" >> "$GITHUB_ENV"
+          jq -c . search-config.json > search-config-min.json
+          echo "index_name in this run: $(jq -r .index_name search-config-min.json)"
+
+      - name: Guard against wrong index_name
+        run: |
+          ACTUAL_INDEX=$(jq -r .index_name search-config-min.json)
+          if [ "$ACTUAL_INDEX" != "docs_mobiscroll" ]; then
+            echo "::error::search-config.json index_name is '$ACTUAL_INDEX', expected 'docs_mobiscroll'. Refusing to run."
+            exit 1
+          fi
 
       - name: Set up Node
         uses: actions/setup-node@v7
@@ -32,10 +45,10 @@ jobs:
 
       # docsearch-scraper crawls into a temporary index and atomically swaps it into the
       # real index name at the very end of its run — that swap is itself async, so the
-      # index can briefly still hold OLD data (or not exist at all) right after the crawl
-      # step below reports success. Planting a sentinel now and waiting for it to
-      # disappear afterwards (see "Wait for fresh crawl") is how Prune/Tag are kept from
-      # ever running against stale, pre-crawl data.
+      # index can briefly still hold OLD data right after the crawl step below reports
+      # success. Planting a sentinel now and waiting for it to disappear afterwards (see
+      # "Wait for fresh crawl") is how Prune/Tag are kept from ever running against stale,
+      # pre-crawl data.
       - name: Plant freshness sentinel
         env:
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}

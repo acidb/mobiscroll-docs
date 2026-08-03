@@ -23,17 +23,45 @@
     },
     {
       "url": "https://mobiscroll.com/docs"
+    },
+    {
+      "url": "https://mobiscroll.com/docs/5.35.0/(?P<framework>.*?)/(?P<component>.*?)/",
+      "variables": {
+        "framework": ["angular", "react", "vue", "javascript", "jquery"],
+        "component": ["eventcalendar", "datepicker", "select", "popup"]
+      }
+    },
+    {
+      "url": "https://mobiscroll.com/docs/5.35.0/(?P<framework>.*?)/forms/(?P<component>.*?)/",
+      "variables": {
+        "framework": ["angular", "react", "vue", "javascript", "jquery"],
+        "component": ["button", "checkbox", "dropdown", "input", "radio", "segmented", "stepper", "switch", "textarea"]
+      }
+    },
+    {
+      "url": "https://mobiscroll.com/docs/5.35.0/(?P<framework>.*?)/",
+      "variables": {
+        "framework": ["angular", "react", "vue", "javascript", "jquery"]
+      }
+    },
+    {
+      "url": "https://mobiscroll.com/docs/connect/(?P<component>.*?)/",
+      "variables": {
+        "component": ["overview", "getting-started", "application-setup", "oauth", "scopes", "calendars", "events", "webhooks", "branding", "localization", "rest-api-integration", "postman-collection", "node-sdk", "dotnet-sdk", "java-sdk", "php-sdk", "python-sdk", "go-sdk", "ruby-sdk", "best-practices"]
+      }
+    },
+    {
+      "url": "https://mobiscroll.com/docs/connect"
     }
   ],
   "sitemap_urls": ["https://mobiscroll.com/docs/sitemap.xml"],
   "sitemap_alternate_links": true,
   "stop_urls": [
-     "https://mobiscroll.com/docs/(?P<version>\\d+[\\-\\.]\\d+[\\-\\.]\\d+)",
      "/tests"
   ],
   "selectors": {
     "lvl0": {
-      "selector": "//ul[contains(@class,'menu__list')]//a[contains(@class, 'menu__link') and contains(@class, 'menu__link--sublist') and contains(@class, 'menu__link--active')]/text()[last()]",
+      "selector": "//ul[contains(@class,'menu__list')]//a[contains(@class, 'menu__link') and contains(@class, 'menu__link--sublist') and contains(@class, 'menu__link--active')]//text()[last()]",
       "type": "xpath",
       "global": true,
       "default_value": "Documentation"
@@ -42,7 +70,7 @@
     "lvl2": "article h2",
     "lvl3": "article h3",
     "lvl4": "article h4",
-    "text": "article :not(h3) + p, article li, article td:last-child"
+    "text": "article :not(h3):not(.badge--secondary):not(input) + p, article li, article td:last-child"
   },
   "strip_chars": " .,;:#",
   "custom_settings": {
@@ -53,7 +81,8 @@
       "type",
       "docusaurus_tag",
       "framework",
-      "component"
+      "component",
+      "presentInV5"
     ],
     "attributesToRetrieve": [
       "hierarchy",

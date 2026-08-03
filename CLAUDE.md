@@ -81,6 +81,21 @@ static/                Static assets
 scripts/               Build utilities
   strip-jsx.js         Post-build: removes MDX/JSX from LLM context files
   copy-skills.js       Syncs skill definitions from marketplace (path in config.json)
+algolia/               Algolia search tooling (kept separate from scripts/ — Algolia-specific)
+  generate-v5-anchor-sets.js  One-time: diffs v6 vs v5.35.0 API anchors (rerun by hand only)
+  v5-anchors.json / v5-only-anchors.json  Generated artifacts from the script above
+  plant-freshness-sentinel.js Pre-crawl: plants a sentinel object so the next script can
+                               detect when the crawl's index swap has actually landed
+  wait-for-fresh-crawl.js     Post-crawl: blocks until that sentinel is gone (fails loudly
+                               on timeout) before Prune/Tag are allowed to run
+  prune-v5-duplicates.js      Post-crawl: deletes v5.35.0 records that duplicate v6 content
+  tag-present-in-v5.js        Post-crawl: adds docs-default-5.35.0 to shared v6 records'
+                               own docusaurus_tag facet (+ an informational presentInV5 flag)
+  lib.js               Shared Algolia REST API helper (browse/batch/object GET, freshness gate)
+search-config.json     Algolia crawler config — production index (docs_mobiscroll)
+search-config-dev.json Algolia crawler config — test index (dev_docs_mobiscroll)
+algolia-search.md      Algolia crawl/indexing setup and workflow docs
+.github/workflows/     algolia-crawl.yml (prod, weekly + manual) / algolia-crawl-dev.yml (test, manual)
 config.json            Local machine path to marketplace project (not committed to CI)
 .ai/                   AI agent infrastructure
   SYSTEM.md            Agent operating rules (read this every session)
@@ -108,6 +123,7 @@ versions.json          Tracked doc versions
 | Build | `npm run build*` | None — fully automated |
 | Version bump | Manual release process | None — read `versions.json` first if asked |
 | AI system update | Edit `.ai/SYSTEM.md` or `knowledge/` | Full — SYSTEM CHANGE gate applies |
+| Algolia search config update | Edit `search-config*.json`, `algolia/` | Full — verify on dev index before mirroring to prod |
 
 Full workflow details and per-workflow AI roles: `.ai/SYSTEM.md § 8`.
 

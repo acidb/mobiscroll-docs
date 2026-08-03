@@ -95,7 +95,7 @@ algolia/               Algolia search tooling (kept separate from scripts/ — A
 search-config.json     Algolia crawler config — production index (docs_mobiscroll)
 search-config-dev.json Algolia crawler config — test index (dev_docs_mobiscroll)
 algolia-search.md      Algolia crawl/indexing setup and workflow docs
-.github/workflows/     algolia-crawl.yml (prod) / algolia-crawl-dev.yml (test) — manual crawl
+.github/workflows/     algolia-crawl.yml (prod, weekly + manual) / algolia-crawl-dev.yml (test, manual)
 config.json            Local machine path to marketplace project (not committed to CI)
 .ai/                   AI agent infrastructure
   SYSTEM.md            Agent operating rules (read this every session)

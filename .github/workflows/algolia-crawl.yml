@@ -1,17 +1,16 @@
 name: Algolia crawl (PRODUCTION index)
 
-# Manual-only trigger, gated behind a typed confirmation for manual runs (a scheduled
-# run, once enabled, has no input to type and skips that check by design).
-#
-# To also run this automatically on a schedule, uncomment the `schedule` block below.
+# Runs weekly on a schedule, and can also be triggered manually — manual runs are gated
+# behind a typed confirmation; a scheduled run has no input to type and skips that check
+# by design (see "Verify confirmation input" step's `if:` below).
 on:
   workflow_dispatch:
     inputs:
       confirm:
         description: 'Type CONFIRM to run a real crawl against the live docs_mobiscroll production index'
         required: true
-  # schedule:
-  #   - cron: '0 3 1 * *'   # 03:00 UTC on the 1st of every month
+  schedule:
+    - cron: '0 3 * * 1'   # 03:00 UTC every Monday
 
 jobs:
   crawl:
@@ -39,6 +38,23 @@ jobs:
             exit 1
           fi
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # docsearch-scraper crawls into a temporary index and atomically swaps it into the
+      # real index name at the very end of its run — that swap is itself async, so the
+      # index can briefly still hold OLD data right after the crawl step below reports
+      # success. Planting a sentinel now and waiting for it to disappear afterwards (see
+      # "Wait for fresh crawl") is how Prune/Tag are kept from ever running against stale,
+      # pre-crawl data.
+      - name: Plant freshness sentinel
+        env:
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          ALGOLIA_ADMIN_API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
+        run: node algolia/plant-freshness-sentinel.js
+
       - name: Run docsearch-scraper
         env:
           APPLICATION_ID: ${{ secrets.ALGOLIA_APP_ID }}
@@ -50,3 +66,21 @@ jobs:
             -e API_KEY="$API_KEY" \
             -e CONFIG="$CONFIG" \
             algolia/docsearch-scraper
+
+      - name: Wait for fresh crawl
+        env:
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          ALGOLIA_ADMIN_API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
+        run: node algolia/wait-for-fresh-crawl.js
+
+      - name: Prune v5.35.0 records that duplicate v6 content
+        env:
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          ALGOLIA_ADMIN_API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
+        run: node algolia/prune-v5-duplicates.js
+
+      - name: Tag current-version records with presentInV5
+        env:
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          ALGOLIA_ADMIN_API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
+        run: node algolia/tag-present-in-v5.js

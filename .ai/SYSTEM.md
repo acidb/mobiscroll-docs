@@ -457,10 +457,13 @@ documentation copy, but the "verify before mirroring to prod" step is the equiva
 
 Key constraint: `search-config.json` (prod) and `search-config-dev.json` (dev/test) should be
 kept structurally identical except for `index_name` — a fix verified on dev should be mirrored
-to prod, not left dev-only, once trusted. `algolia/generate-v5-anchor-sets.js` is a one-time
-script (not part of either workflow) — rerun by hand only if v5.35.0's own docs are corrected;
-v5.35.0 is otherwise frozen so this shouldn't need to run often. See `algolia-search.md` for
-the full crawl/tagging/pruning flow.
+to prod, not left dev-only, once trusted. Same for the two workflow files: both now run the
+identical sentinel/crawl/prune/tag pipeline, so any pipeline-step change to one belongs in the
+other too. `algolia-crawl.yml` (prod) additionally runs on a weekly schedule (Monday 03:00
+UTC), on top of its manual, confirm-gated trigger. `algolia/generate-v5-anchor-sets.js` is a
+one-time script (not part of either workflow) — rerun by hand only if v5.35.0's own docs are
+corrected; v5.35.0 is otherwise frozen so this shouldn't need to run often. See
+`algolia-search.md` for the full crawl/tagging/pruning flow.
 
 ---
 

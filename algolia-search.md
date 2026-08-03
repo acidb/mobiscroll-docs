@@ -5,11 +5,14 @@
 Crawling now runs via GitHub Actions instead of the manual Docker flow below:
 - `.github/workflows/algolia-crawl-dev.yml` — manual (`workflow_dispatch`) crawl of the test
   index (`dev_docs_mobiscroll`), using `search-config-dev.json`.
-- `.github/workflows/algolia-crawl.yml` — manual, gated (`confirm: CONFIRM`) crawl of the
-  production index (`docs_mobiscroll`), using `search-config.json`.
+- `.github/workflows/algolia-crawl.yml` — crawl of the production index (`docs_mobiscroll`),
+  using `search-config.json`. Runs weekly (Monday 03:00 UTC) and can also be triggered
+  manually, gated behind a typed `confirm: CONFIRM` input (scheduled runs skip that gate by
+  design — there's no input to type).
 
-Both run `algolia/docsearch-scraper` the same way the manual steps below describe, wrapped
-with a freshness gate and followed by two post-crawl scripts, all from the `algolia/` folder:
+Both run the exact same pipeline — `algolia/docsearch-scraper` the same way the manual steps
+below describe, wrapped with a freshness gate and followed by two post-crawl scripts, all from
+the `algolia/` folder:
 - `algolia/plant-freshness-sentinel.js` (runs *before* the crawl) — plants a throwaway
   object in the target index. `docsearch-scraper` crawls into a temporary index and
   atomically swaps it into the real index name at the very end of its run; that swap is

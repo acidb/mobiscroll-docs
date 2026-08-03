@@ -28,7 +28,9 @@ jobs:
       - name: Build minified crawl config
         run: |
           jq -c . search-config.json > search-config-min.json
-          echo "index_name in this run: $(jq -r .index_name search-config-min.json)"
+          INDEX_NAME=$(jq -r .index_name search-config-min.json)
+          echo "index_name in this run: $INDEX_NAME"
+          echo "ALGOLIA_INDEX_NAME=$INDEX_NAME" >> "$GITHUB_ENV"
 
       - name: Guard against wrong index_name
         run: |

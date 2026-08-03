@@ -28,7 +28,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
 
       # docsearch-scraper crawls into a temporary index and atomically swaps it into the
       # real index name at the very end of its run — that swap is itself async, so the

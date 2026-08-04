@@ -43,6 +43,26 @@ Both artifact files (`v5-anchors.json`, `v5-only-anchors.json`) come from
 `algolia/generate-v5-anchor-sets.js`, a one-time script — rerun it by hand only if v5.35.0's
 own docs are corrected (v5.35.0 is otherwise frozen, so this shouldn't need to run often).
 
+### `text` selector notes
+
+`"text": "article :not(h3):not(.badge--secondary):not(input) + p, article h3[id^=\"template-\"] + p, article li, article td:last-child"`
+
+- `:not(h3):not(.badge--secondary):not(input) + p` — indexes a `<p>` only when its immediate
+  previous sibling isn't a heading, a version badge (`<span class="badge badge--secondary">`),
+  or a checkbox `<input>`. This deliberately skips the bare type-signature line
+  (`boolean`, `() => any`, `Interface`, ...) that auto-generated options/types/events/methods/
+  renderers always put as their first paragraph, so only the real description below it gets
+  indexed. Added 2024-03-28; the badge/input exclusions were added later (2026-07/2026-07-31)
+  after a version-badge feature and a checkbox caption started matching this rule unintentionally.
+- `h3[id^="template-"] + p` (added 2026-08-04) — Angular's `ng-template` customization props
+  (`#template-*` anchors) have no type-signature line at all, so the exclusion above was wrongly
+  dropping their entire (sometimes only) description paragraph — some entries (e.g.
+  `agendaEmptyTemplate`) had zero indexed content as a result. This clause always indexes the
+  paragraph right after a `template-` heading, regardless of what precedes it. Verified this
+  prefix is Angular-only (React/Vue/JS/jQuery use `renderer-`, which does have a type line) and
+  that every other tracked prefix (`opt-`, `type-`, `event-`, `method-`, `renderer-`, `view-`,
+  `localization-`) consistently has a type line worth skipping — so no other exception is needed.
+
 Required secrets (already configured): `ALGOLIA_APP_ID`, `ALGOLIA_ADMIN_API_KEY`.
 
 The manual Docker flow below is still useful for local debugging of `search-config.json`

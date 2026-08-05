@@ -124,8 +124,12 @@
   color: #011742;
 }
 
-/* individual options type */
-.option-list h3 + p {
+/* individual options type
+ * the h3 + .badge + p variant covers options/renderers that have a
+ * version badge (e.g. "From: 6.1.0") between the heading and the type line
+ */
+.option-list h3 + p,
+.option-list h3 + .badge + p {
   color: #777;
   font-style: italic;
   margin-bottom: 10px;
@@ -135,7 +139,8 @@
  * exception rule for the above - templates don't have a type so
  * the first p should bot be styled differently
  */
-.option-list-templates h3 + p {
+.option-list-templates h3 + p,
+.option-list-templates h3 + .badge + p {
   color: var(--ifm-font-color-base);
   font-style: normal;
   margin-bottom: var(--ifm-paragraph-margin-bottom);

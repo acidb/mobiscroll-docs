@@ -48,7 +48,7 @@ Never commit silently.
 npm install                    # install dependencies
 npm run dev                    # local dev server (localhost config)
 npm start                      # standard dev server
-npm run build                  # production build + strip-jsx postprocess
+npm run build                  # production build + strip-jsx + strip-nul-bytes postprocess
 npm run build-staging          # staging environment build
 npm run build-dev              # dev environment build
 npm run build-localdev         # local dev environment build
@@ -80,6 +80,9 @@ static/                Static assets
   copilot-instructions/ GitHub Copilot instruction files per framework
 scripts/               Build utilities
   strip-jsx.js         Post-build: removes MDX/JSX from LLM context files
+  strip-nul-bytes.js   Post-build: strips stray NUL bytes from generated HTML — a build-
+                       toolchain artifact (not isolated to a specific cause) that otherwise
+                       derails Algolia's crawler; see .ai/logs/2026-08-05.md
   copy-skills.js       Syncs skill definitions from marketplace (path in config.json)
 algolia/               Algolia search tooling (kept separate from scripts/ — Algolia-specific)
   generate-v5-anchor-sets.js  One-time: diffs v6 vs v5.35.0 API anchors (rerun by hand only)

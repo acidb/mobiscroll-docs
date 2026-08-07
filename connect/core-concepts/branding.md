@@ -80,3 +80,10 @@ The application's **display name** and its **support email / support URL** are s
 - The support email or URL appears as a "Need help?" contact on the error screen. When neither is set, the error screen tells the user to contact their system administrator.
 
 See the [Application Setup Guide](/connect/application-setup) for where to set these.
+
+## Branding and verification
+
+The logo, the display name, and the support contact are also the details Mobiscroll reviews when you submit an application for [verification](/connect/verification). Two consequences:
+
+- Changing the logo or dark-mode logo on a verified application returns it to unverified and it needs submitting again. The primary color, theme, and footer toggle are not reviewed, so changing those never affects verification status.
+- Branding is not withheld from an unverified application. Your logo and color apply as soon as they are saved; verification only controls whether your users are shown a notice that Mobiscroll has not verified the application.

@@ -564,6 +564,7 @@ Triggered when a parent resource is collapsed on the timeline.
 
 Parameters:
  - args - The event argument with the following properties:
+   - `day`: *Date* - The date of the row the resource was collapsed in, when using `resolutionVertical: 'day'`.
    - `domEvent`: *Event* - The DOM event of the click.
    - `resource`: *string | number* - The id of the collapsed [resource](#opt-resources).
    - `resourceObj`: *MbscResource* - The collapsed [resource](#opt-resources).
@@ -698,6 +699,7 @@ Triggered when a parent resource is expanded on the timeline.
 
 Parameters:
  - args - The event argument with the following properties:
+   - `day`: *Date* - The date of the row the resource was expanded in, when using `resolutionVertical: 'day'`.
    - `domEvent`: *Event* - The DOM event of the click.
    - `resource`: *string | number* - The id of the expanded [resource](#opt-resources).
    - `resourceObj`: *MbscResource* - The expanded [resource](#opt-resources).

@@ -17,6 +17,12 @@ Common issues fixed:
     2. Nested { [key:string]: Type } braces inside inline type strings.
     3. Unescaped {args: {...}} callback signatures in prose.
     4. Duplicate `export const toc = [...TOC]` (identifier already declared).
+    5. Over-escaped &#123;/&#125; entities that sit inside a fenced code block
+       or an inline backtick span, where the escaping was unnecessary (MDX
+       doesn't evaluate braces as JSX inside code) and just renders ugly.
+    6. Raw <h2/h3/h4 id="..."> HTML heading tags (no other attributes) that
+       should be markdown ATX headings with anchor syntax, so they're picked
+       up by Docusaurus's auto-generated table of contents.
 """
 
 import argparse
@@ -88,6 +94,109 @@ def fix_property_brace_lines(path, dry_run=False):
         if not dry_run:
             with open(path, "w", encoding="utf-8") as f:
                 f.writelines(new_lines)
+        return True, count
+
+    return False, 0
+
+
+def fix_code_context_entities(path, dry_run=False):
+    """
+    Unescape &#123;/&#125; back to {/} only where it's safe: inside a fenced
+    code block, or inside a single-backtick inline code span on the same
+    line. MDX doesn't evaluate braces as JSX inside code, so escaping there
+    was unnecessary and just renders as literal "&#123;" in the page.
+
+    Braces escaped in plain prose (e.g. property-list *{...}* type
+    annotations) are left untouched — those need to stay escaped or MDX 3's
+    acorn parser will try to evaluate them as a JS expression and fail to
+    build. `newline=""` on read/write preserves each file's original line
+    endings byte-for-byte (this tree is CRLF with no .gitattributes eol rule).
+    """
+    with open(path, "r", encoding="utf-8", newline="") as f:
+        original = f.read()
+
+    lines = original.splitlines(keepends=True)
+    in_code = False
+    count = 0
+    new_lines = []
+
+    for line in lines:
+        stripped = line.strip()
+        if stripped.startswith("```") or stripped.startswith("~~~"):
+            in_code = not in_code
+            new_lines.append(line)
+            continue
+
+        if in_code:
+            new_line = line.replace("&#123;", "{").replace("&#125;", "}")
+        else:
+            parts = line.split("`")
+            if len(parts) > 1 and len(parts) % 2 == 1:
+                for i in range(1, len(parts), 2):
+                    parts[i] = parts[i].replace("&#123;", "{").replace("&#125;", "}")
+                new_line = "`".join(parts)
+            else:
+                new_line = line
+
+        if new_line != line:
+            count += 1
+        new_lines.append(new_line)
+
+    content = "".join(new_lines)
+    if content != original:
+        if not dry_run:
+            with open(path, "w", encoding="utf-8", newline="") as f:
+                f.write(content)
+        return True, count
+
+    return False, 0
+
+
+HTML_HEADING_RE = re.compile(r'^<h([234]) id="([^"]+)">(.*)</h\1>$')
+
+
+def fix_html_headings(path, dry_run=False):
+    """
+    Convert bare <h2/h3/h4 id="..."> tags (no other attributes) to markdown
+    ATX headings with anchor syntax, e.g. <h2 id="x">Text</h2> -> ## Text {#x}.
+    Only markdown headings feed Docusaurus's auto-generated table of
+    contents; raw HTML heading tags are invisible to it.
+
+    The regex requires the closing '>' to immediately follow the id
+    attribute, so tags with extra attributes (e.g. className="api-heading",
+    used deliberately for font-size styling markdown headings can't express)
+    never match and are left untouched.
+    """
+    with open(path, "r", encoding="utf-8", newline="") as f:
+        original = f.read()
+
+    lines = original.splitlines(keepends=True)
+    count = 0
+    new_lines = []
+
+    for line in lines:
+        ending = ""
+        body = line
+        if body.endswith("\r\n"):
+            ending = "\r\n"
+            body = body[:-2]
+        elif body.endswith("\n"):
+            ending = "\n"
+            body = body[:-1]
+
+        m = HTML_HEADING_RE.match(body)
+        if m:
+            level, hid, text = m.groups()
+            new_lines.append(f"{'#' * int(level)} {text} {{#{hid}}}{ending}")
+            count += 1
+        else:
+            new_lines.append(line)
+
+    content = "".join(new_lines)
+    if content != original:
+        if not dry_run:
+            with open(path, "w", encoding="utf-8", newline="") as f:
+                f.write(content)
         return True, count
 
     return False, 0
@@ -165,6 +274,26 @@ def run_fixes(root, dry_run):
                 )
                 if changed:
                     report.append((rel, changes))
+
+    # ── Fix 4: unescape &#123;/&#125; when safely inside code context ────────
+    for dirpath, _, files in os.walk(root):
+        for fname in files:
+            if fname.endswith(".md") or fname.endswith(".mdx"):
+                fpath = os.path.join(dirpath, fname)
+                rel   = os.path.relpath(fpath, BASE)
+                changed, count = fix_code_context_entities(fpath, dry_run)
+                if changed:
+                    report.append((rel, [f"  [code-entity-unescape] {count} line(s)"]))
+
+    # ── Fix 5: raw <h2/h3/h4 id="..."> tags -> markdown headings ─────────────
+    for dirpath, _, files in os.walk(root):
+        for fname in files:
+            if fname.endswith(".md") or fname.endswith(".mdx"):
+                fpath = os.path.join(dirpath, fname)
+                rel   = os.path.relpath(fpath, BASE)
+                changed, count = fix_html_headings(fpath, dry_run)
+                if changed:
+                    report.append((rel, [f"  [html-heading-to-md] {count} line(s)"]))
 
     return report
 

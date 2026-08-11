@@ -13,7 +13,7 @@ export const toc = [...recTOC, { value: 'Full example', level: 2, id: 'full-exam
 
 <Recurrence />
 
-<h2 id="full-example">Full example</h2>
+## Full example {#full-example}
 
 ```html
 <div id="my-div"></div>

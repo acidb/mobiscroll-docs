@@ -5,8 +5,8 @@ displayed_sidebar: angularSidebar
 description: 'Show brief Toast notifications in Mobiscroll Angular — auto-dismiss success, warning, error, and info messages.'
 ---
 
-import Options from '../\_auto-generated/toast/options.md';
-import Events from '../\_auto-generated/toast/events.md';
+import Options from '../_auto-generated/toast/options.md';
+import Events from '../_auto-generated/toast/events.md';
 
 # Toast
 
@@ -47,3 +47,4 @@ The Toast component ships with different event hooks for deep customization. Eve
 <Events />
 
 </div>
+

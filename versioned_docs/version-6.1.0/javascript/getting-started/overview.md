@@ -8,7 +8,7 @@ description: Mobiscroll for JavaScript — a standalone UI component library for
 
 import DocCardList from "@theme/DocCardList";
 import { introLinks, componentLinks } from "../links.js";
-import SupportedPlatforms from '../../\_shared/getting-started/supported_platforms.mdx';
+import SupportedPlatforms from '../../_shared/getting-started/supported_platforms.mdx';
 
 # Mobiscroll for JavaScript
 

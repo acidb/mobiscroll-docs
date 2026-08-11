@@ -25,3 +25,4 @@ import '@mobiscroll/react/dist/css/mobiscroll.min.css';
   <p>Some content inside the popup!</p>
 </Popup>
 ```
+

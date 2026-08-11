@@ -10,3 +10,4 @@ import Content from '../../_shared/popup/accessibility.mdx';
 import { toc as TOC } from '../../_shared/popup/accessibility.mdx';
 
 <Content />
+

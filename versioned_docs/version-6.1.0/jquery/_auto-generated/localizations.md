@@ -186,7 +186,7 @@ Specifies the accessibility label for the hour wheel.
 **Default value**: `'Hour'`
 ### locale {#localization-locale}
 
-[MbscLocale](#type-MbscLocale)
+MbscLocale
 
 Sets the language of the component. The locale object contains all the translations for a given language.
 The built in language modules are listed below. If a language is not listed, it can be provided as a
@@ -272,7 +272,7 @@ string
 
 Text for the &quot;more&quot; label on the calendar, when there&#039;s not enough space to display all the labels for the day,
 and there are more than one extra labels.
-The `&#123;count&#125;` inside the string will be replaced with the number of extra labels.
+The `{count}` inside the string will be replaced with the number of extra labels.
 When not specified, the [moreEventsText](#localization-moreEventsText) option will be used for both plural and singular form.
 
 **Default value**: `undefined`
@@ -281,10 +281,10 @@ When not specified, the [moreEventsText](#localization-moreEventsText) option wi
 string
 
 Text for the &quot;more&quot; label on the calendar, when there&#039;s not enough space to display all the labels for the day.
-The `&#123;count&#125;` inside the string will be replaced with the number of extra labels.
+The `{count}` inside the string will be replaced with the number of extra labels.
 Use the [moreEventsPluralText](#localization-moreEventsPluralText) as well, if the plural form is different.
 
-**Default value**: `'&#123;count&#125; more'`
+**Default value**: `'{count} more'`
 ### newEventText {#localization-newEventText}
 
 string
@@ -334,7 +334,7 @@ string
 
 Text for quarter numbers in the timeline header. The &#123;count&#125; inside the string will be replaced with the number of the current quarter.
 
-**Default value**: `'Q &#123;count&#125;'`
+**Default value**: `'Q {count}'`
 ### rangeEndHelp {#localization-rangeEndHelp}
 
 string
@@ -384,7 +384,7 @@ string
 Specifies the plural form of the amount of selected items according to the rules of particular language. The &#039;&#123;count&#125;&#039; substring will
 be replaced with the number of selected items.
 
-**Default value**: `'&#123;count&#125; selected'`
+**Default value**: `'{count} selected'`
 ### selectedText {#localization-selectedText}
 
 string
@@ -392,7 +392,7 @@ string
 Specifies the amount of selected items according to the rules of particular language. The &#039;&#123;count&#125;&#039; substring will be replaced with
 the number of selected items.
 
-**Default value**: `'&#123;count&#125; selected'`
+**Default value**: `'{count} selected'`
 ### setText {#localization-setText}
 
 string
@@ -457,7 +457,7 @@ string
 
 Text for week numbers in the timeline header. The &#123;count&#125; inside the string will be replaced with the number of the current week.
 
-**Default value**: `'Week &#123;count&#125;'`
+**Default value**: `'Week {count}'`
 ### yearSuffix {#localization-yearSuffix}
 
 string

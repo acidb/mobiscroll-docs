@@ -1,6 +1,8 @@
 ---
 sidebar_label: API
 displayed_sidebar: javascriptSidebar
+toc_min_heading_level: 2
+toc_max_heading_level: 2
 description: Complete API reference for the Mobiscroll Popup in JavaScript — all options, methods, lifecycle events, and types.
 ---
 

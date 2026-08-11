@@ -89,3 +89,4 @@ $('#myInput').mobiscroll().datepicker({
   selectSize: 5,
 });
 ```
+

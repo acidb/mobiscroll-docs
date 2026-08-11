@@ -37,3 +37,4 @@ The following example will create a popup with static content. When clicked or t
   </MbscPopup>
 </template>
 ```
+

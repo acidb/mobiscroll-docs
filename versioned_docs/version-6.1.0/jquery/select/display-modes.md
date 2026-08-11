@@ -16,3 +16,4 @@ $('#myInput').mobiscroll().select({
   display: 'anchored',
 });
 ```
+

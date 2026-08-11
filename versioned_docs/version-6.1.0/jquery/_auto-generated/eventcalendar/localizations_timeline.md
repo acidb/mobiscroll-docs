@@ -184,7 +184,7 @@ string
 
 Text for quarter numbers in the timeline header. The &#123;count&#125; inside the string will be replaced with the number of the current quarter.
 
-**Default value**: `'Q &#123;count&#125;'`
+**Default value**: `'Q {count}'`
 ### rtl {#localization-rtl}
 
 boolean
@@ -225,4 +225,4 @@ string
 
 Text for week numbers in the timeline header. The &#123;count&#125; inside the string will be replaced with the number of the current week.
 
-**Default value**: `'Week &#123;count&#125;'`
+**Default value**: `'Week {count}'`

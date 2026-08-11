@@ -34,3 +34,4 @@ $('#myInput').mobiscroll().select({
   selectMultiple: true,
 });
 ```
+

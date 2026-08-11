@@ -1,6 +1,8 @@
 ---
 sidebar_label: API
 displayed_sidebar: jquerySidebar
+toc_min_heading_level: 2
+toc_max_heading_level: 2
 description: 'Complete API reference for the Mobiscroll Eventcalendar in jQuery — all options, events, methods, and template slots.'
 ---
 

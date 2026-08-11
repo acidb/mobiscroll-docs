@@ -5,10 +5,10 @@ displayed_sidebar: reactSidebar
 description: 'Use the Mobiscroll Checkbox component in React — standard and indeterminate states, label placement, and change event handling.'
 ---
 
-import Options from '../\_auto-generated/checkbox/options.md';
-import Events from '../\_auto-generated/checkbox/events.md';
-import Localizations from '../\_auto-generated/checkbox/localizations.md';
-import Types from '../\_auto-generated/checkbox/types.md';
+import Options from '../_auto-generated/checkbox/options.md';
+import Events from '../_auto-generated/checkbox/events.md';
+import Localizations from '../_auto-generated/checkbox/localizations.md';
+import Types from '../_auto-generated/checkbox/types.md';
 
 # Checkbox
 
@@ -34,7 +34,7 @@ function App() {
 
 ## Value binding
 
-Use the [`checked`](#opt-checked) and the [`onChange`](#events-onChange) props to work with the Checkbox in a controlled way or the [`defaultChecked`](#opt-defaultChecked) prop in an uncontrolled way.
+Use the [`checked`](#opt-checked) and the [`onChange`](#event-onChange) props to work with the Checkbox in a controlled way or the [`defaultChecked`](#opt-defaultChecked) prop in an uncontrolled way.
 
 ```jsx
 import { useState } from 'react';
@@ -70,3 +70,4 @@ The Checkbox component is fully localized. This covers date and time format, but
 <Localizations />
 
 </div>
+

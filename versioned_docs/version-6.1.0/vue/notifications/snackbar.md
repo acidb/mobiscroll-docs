@@ -5,8 +5,8 @@ displayed_sidebar: vueSidebar
 description: 'Display transient Snackbar notifications with the Mobiscroll Snackbar in Vue — auto-dismiss messages with optional action buttons.'
 ---
 
-import Options from '../\_auto-generated/snackbar/options.md';
-import Events from '../\_auto-generated/snackbar/events.md';
+import Options from '../_auto-generated/snackbar/options.md';
+import Events from '../_auto-generated/snackbar/events.md';
 
 # Snackbar
 
@@ -58,3 +58,4 @@ The Snackbar component ships with different event hooks for deep customization. 
 <Events />
 
 </div>
+

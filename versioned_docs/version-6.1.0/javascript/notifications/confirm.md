@@ -5,9 +5,9 @@ displayed_sidebar: javascriptSidebar
 description: Show a Mobiscroll Confirm dialog in JavaScript — a Promise-based, styleable alternative to the native window.confirm with OK/Cancel actions.
 ---
 
-import Options from '../\_auto-generated/confirm/options.md';
-import Events from '../\_auto-generated/confirm/events.md';
-import Localizations from '../\_auto-generated/confirm/localizations.md';
+import Options from '../_auto-generated/confirm/options.md';
+import Events from '../_auto-generated/confirm/events.md';
+import Localizations from '../_auto-generated/confirm/localizations.md';
 
 # Confirm
 
@@ -48,3 +48,4 @@ The Confirm component ships with different event hooks for deep customization. E
 <Events />
 
 </div>
+

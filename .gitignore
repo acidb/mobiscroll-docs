@@ -11,6 +11,7 @@
 # Misc
 config.json
 .DS_Store
+.ai/logs/.hook-errors.log
 .env.local
 .env.development.local
 .env.test.local

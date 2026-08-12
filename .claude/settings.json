@@ -6,7 +6,20 @@
         "hooks": [
           {
             "type": "command",
-            "command": "printf '[AI SYSTEM] Date: %s | Log: .ai/logs/%s.md | If this is your first response this session: follow the session-start protocol in CLAUDE.md before doing anything else.' \"$(date +%Y-%m-%d)\" \"$(date +%Y-%m-%d)\""
+            "command": "node",
+            "args": ["${CLAUDE_PROJECT_DIR}/.claude/hooks/user-prompt-submit.js"]
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node",
+            "args": ["${CLAUDE_PROJECT_DIR}/.claude/hooks/post-tool-use-log.js"]
           }
         ]
       }
@@ -17,7 +30,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "printf '[AI SYSTEM] If you made file changes this turn, append a log entry to .ai/logs/%s.md now.' \"$(date +%Y-%m-%d)\""
+            "command": "node",
+            "args": ["${CLAUDE_PROJECT_DIR}/.claude/hooks/stop.js"]
           }
         ]
       }

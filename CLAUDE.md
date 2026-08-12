@@ -15,14 +15,22 @@ Deployed at `mobiscroll.com/docs`.
 **This project has an AI agent system. Follow this protocol at the start of every session:**
 
 1. Read `.ai/SYSTEM.md` — loads operating rules, log format, validation pipeline
-2. Read `.ai/logs/` for the last 7 days — restores learning context
+2. Read `.ai/logs/manifest.json`, filtered to the current branch (fall back to the last
+   3–5 entries if the branch has no history yet) — restores learning context without
+   re-reading every log body. Logs from before 2026-08-12 (`YYYY-MM-DD.md`) are frozen and
+   not in the manifest; read one directly only if asked about a specific past date.
 3. Read `.ai/knowledge/os-guidelines.md` — loads language and tone rules
 4. If `.ai/logs/session-state.md` exists, read it first — mid-task resume
+5. Check the `UserPromptSubmit` hook output for an undocumented-changes warning
+   (uncommitted files not covered by any open log) before doing anything else.
 
 **Before finalizing any new or edited documentation content**, run the
 text validation pipeline defined in `.ai/SYSTEM.md § 4`.
 
-**After every meaningful action**, append a log entry to `.ai/logs/YYYY-MM-DD.md`.
+**After every meaningful action**, append a log entry to the current branch's open log
+(`.ai/logs/YYYY-MM-DD_<branch>_<topic>.md` — the `PostToolUse` hook creates/tracks the file
+automatically; Claude still writes the actual entry content). Full naming and lifecycle
+rules: `.ai/SYSTEM.md § 2`.
 
 **Before every commit**, propose a message in the format defined in `.ai/SYSTEM.md § 5`.
 Never commit silently.
@@ -101,10 +109,16 @@ algolia-search.md      Algolia crawl/indexing setup and workflow docs
 .github/workflows/     algolia-crawl.yml (prod, weekly + manual) — algolia-crawl-dev.yml (test)
                        removed 2026-08-03, extra Algolia cost; recreatable later, see algolia-search.md
 config.json            Local machine path to marketplace project (not committed to CI)
+.claude/
+  hooks/               Node scripts backing the AI logging hooks (lib.js, post-tool-use-log.js,
+                       user-prompt-submit.js, stop.js) — see .ai/SYSTEM.md § 2
+  settings.json        Hook wiring (UserPromptSubmit, PostToolUse, Stop)
 .ai/                   AI agent infrastructure
   SYSTEM.md            Agent operating rules (read this every session)
   knowledge/           Language rules, system analysis
-  logs/                Per-day agent action logs
+  logs/                Agent action logs, one file per unit of work since 2026-08-12
+                       (YYYY-MM-DD.md logs from before that date are frozen)
+    manifest.json      Index of logs (branch, filesTouched, topicSlug, commitHash)
 writing-docs.md        Doc authoring conventions (links, frontmatter, TOC)
 navbar.config.js       Navigation configuration
 sidebars.js            Sidebar config for current docs
@@ -119,8 +133,8 @@ versions.json          Tracked doc versions
 | Workflow | Trigger | AI Role |
 |---|---|---|
 | Docs page update | Edit `docs/` | Full — validation pipeline + commit proposal |
-| Auto-generated update | spark project syncs `_auto-generated/` | Detection only; no action required |
-| Skill files update | `npm run copy-skills` | Detection only; verify output visually |
+| Auto-generated update | spark project syncs `_auto-generated/` | Full — log + commit proposal (content itself must not be hand-edited) |
+| Skill files update | `npm run copy-skills` | Full — verify output visually, then log + commit proposal |
 | Rules files update | Edit `static/*.mdc` | Detection only; v6 and v5 maintained independently |
 | Shared partial edit | Edit `docs/_shared/` | Full — all 5 frameworks affected, always |
 | `writing-docs.md` update | Edit `writing-docs.md` | Re-read before next doc work |

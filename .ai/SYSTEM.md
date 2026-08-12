@@ -140,6 +140,14 @@ for the mechanical fields; Claude updates `topicSlug` (on rename) and sets `fina
 An **open** log is any entry with `finalizedAt: null`. Session start filters this file to
 the current branch (§Session Start step 2) instead of reading every log body.
 
+**`commitHash` is best-effort, not a gate.** The commit message's `AI-assisted |
+session-log:` footer (§5) is the real, durable link — it's part of the commit itself.
+`commitHash` is only a convenience backlink the other direction and can't be known until
+after the commit exists, so never create a commit just to fill it in. Set `finalizedAt`
+when proposing the commit; fill `commitHash` in whenever it's convenient (typically as part
+of the next commit that touches anything in `.ai/logs/` anyway). Leaving it `null` for a
+while is fine.
+
 ### Log file session header
 
 Every log file must open with a one-line session header:

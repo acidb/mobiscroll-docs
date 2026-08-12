@@ -21,7 +21,7 @@ function main() {
 
   try {
     const changed = lib.gitChangedFiles(root);
-    const covered = new Set(openEntry ? openEntry.filesTouched || [] : []);
+    const covered = lib.coveredFiles(manifest, branch);
     const undocumented = changed.filter(f => f && !covered.has(f) && !lib.isExcludedPath(f));
     if (undocumented.length > 0) {
       lines.push(

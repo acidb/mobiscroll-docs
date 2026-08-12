@@ -72,6 +72,20 @@ function findOpenEntry(manifest, branch) {
   return manifest.logs.find(l => l.branch === branch && !l.finalizedAt) || null;
 }
 
+// Coverage for the undocumented-change check must include finalized-but-not-yet-committed
+// logs too, not just the currently open one — otherwise finalizing a log ahead of its
+// commit (the normal flow) makes its files look "undocumented" for the gap in between.
+// Once a log actually has a commitHash, its files are committed and git status won't
+// show them dirty anyway, so they naturally drop out of coverage at that point.
+function coveredFiles(manifest, branch) {
+  if (!branch) return new Set();
+  const files = new Set();
+  manifest.logs
+    .filter(l => l.branch === branch && !l.commitHash)
+    .forEach(l => (l.filesTouched || []).forEach(f => files.add(f)));
+  return files;
+}
+
 function toRelative(root, p) {
   if (!p) return p;
   const rel = path.isAbsolute(p) ? path.relative(root, p) : p;
@@ -111,6 +125,7 @@ module.exports = {
   loadManifest,
   saveManifest,
   findOpenEntry,
+  coveredFiles,
   toRelative,
   isExcludedPath,
   gitChangedFiles

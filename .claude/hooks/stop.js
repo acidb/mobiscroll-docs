@@ -13,9 +13,8 @@ function main() {
   try {
     const branch = lib.getBranch(root);
     const manifest = lib.loadManifest(root);
-    const openEntry = lib.findOpenEntry(manifest, branch);
     const changed = lib.gitChangedFiles(root);
-    const covered = new Set(openEntry ? openEntry.filesTouched || [] : []);
+    const covered = lib.coveredFiles(manifest, branch);
     const undocumented = changed.filter(f => f && !covered.has(f) && !lib.isExcludedPath(f));
 
     if (undocumented.length > 0) {

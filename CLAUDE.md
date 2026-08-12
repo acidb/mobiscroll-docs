@@ -15,10 +15,12 @@ Deployed at `mobiscroll.com/docs`.
 **This project has an AI agent system. Follow this protocol at the start of every session:**
 
 1. Read `.ai/SYSTEM.md` — loads operating rules, log format, validation pipeline
-2. Read `.ai/logs/manifest.json`, filtered to the current branch (fall back to the last
-   3–5 entries if the branch has no history yet) — restores learning context without
-   re-reading every log body. Logs from before 2026-08-12 (`YYYY-MM-DD.md`) are frozen and
-   not in the manifest; read one directly only if asked about a specific past date.
+2. `.ai/logs/manifest.json` is a local, gitignored cache of currently uncommitted logs only
+   (self-prunes once a log is committed) — check it for in-flight work, but don't rely on it
+   for history. For past-session context, glob `.ai/logs/*_*_*.md`, read each file's header
+   line for its branch, and filter to the current branch (fall back to the last 3–5 by date
+   if none match). Logs from before 2026-08-12 (`YYYY-MM-DD.md`) are frozen; read one
+   directly only if asked about a specific past date.
 3. Read `.ai/knowledge/os-guidelines.md` — loads language and tone rules
 4. If `.ai/logs/session-state.md` exists, read it first — mid-task resume
 5. Check the `UserPromptSubmit` hook output for an undocumented-changes warning
@@ -118,7 +120,8 @@ config.json            Local machine path to marketplace project (not committed 
   knowledge/           Language rules, system analysis
   logs/                Agent action logs, one file per unit of work since 2026-08-12
                        (YYYY-MM-DD.md logs from before that date are frozen)
-    manifest.json      Index of logs (branch, filesTouched, topicSlug, commitHash)
+    manifest.json      LOCAL cache (gitignored) of in-flight logs only — self-prunes once
+                       committed; never a historical record
 writing-docs.md        Doc authoring conventions (links, frontmatter, TOC)
 navbar.config.js       Navigation configuration
 sidebars.js            Sidebar config for current docs

@@ -49,15 +49,52 @@ function todayISODate() {
   return new Date().toISOString().slice(0, 10);
 }
 
+// manifest.json is a LOCAL, gitignored cache, not a shared/committed index — see
+// .ai/SYSTEM.md § 2. It only ever needs to describe currently in-flight (uncommitted)
+// work, so every load prunes any entry whose log file is already committed (clean in
+// git) or missing (renamed/removed). This means entries never need explicit
+// finalizedAt/commitHash bookkeeping — once a log's file is actually committed, git
+// itself is the source of truth and the entry just disappears on the next load.
+function isFileCommitted(root, relPath) {
+  try {
+    const out = execSync(`git status --porcelain -- "${relPath}"`, { cwd: root, encoding: 'utf8' });
+    return out.trim().length === 0;
+  } catch (_) {
+    return false;
+  }
+}
+
+function pruneManifest(root, manifest) {
+  const { logDir } = paths(root);
+  const kept = manifest.logs.filter(l => {
+    const abs = path.join(root, l.file);
+    if (!fs.existsSync(abs)) return false;
+    return !isFileCommitted(root, l.file);
+  });
+  return { logs: kept };
+}
+
 function loadManifest(root) {
   const { manifestPath } = paths(root);
+  let manifest;
   try {
-    if (!fs.existsSync(manifestPath)) return { logs: [] };
-    const parsed = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
-    return Array.isArray(parsed.logs) ? parsed : { logs: [] };
+    if (!fs.existsSync(manifestPath)) manifest = { logs: [] };
+    else {
+      const parsed = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+      manifest = Array.isArray(parsed.logs) ? parsed : { logs: [] };
+    }
   } catch (err) {
     logError(root, 'lib', 'load-manifest', err);
-    return { logs: [] };
+    manifest = { logs: [] };
+  }
+
+  try {
+    const pruned = pruneManifest(root, manifest);
+    if (pruned.logs.length !== manifest.logs.length) saveManifest(root, pruned);
+    return pruned;
+  } catch (err) {
+    logError(root, 'lib', 'prune-manifest', err);
+    return manifest;
   }
 }
 
@@ -69,19 +106,16 @@ function saveManifest(root, manifest) {
 
 function findOpenEntry(manifest, branch) {
   if (!branch) return null;
-  return manifest.logs.find(l => l.branch === branch && !l.finalizedAt) || null;
+  return manifest.logs.find(l => l.branch === branch) || null;
 }
 
-// Coverage for the undocumented-change check must include finalized-but-not-yet-committed
-// logs too, not just the currently open one — otherwise finalizing a log ahead of its
-// commit (the normal flow) makes its files look "undocumented" for the gap in between.
-// Once a log actually has a commitHash, its files are committed and git status won't
-// show them dirty anyway, so they naturally drop out of coverage at that point.
+// Every remaining entry (post-prune) is by definition uncommitted, so coverage is just
+// the union of filesTouched across all of this branch's entries — normally just one.
 function coveredFiles(manifest, branch) {
   if (!branch) return new Set();
   const files = new Set();
   manifest.logs
-    .filter(l => l.branch === branch && !l.commitHash)
+    .filter(l => l.branch === branch)
     .forEach(l => (l.filesTouched || []).forEach(f => files.add(f)));
   return files;
 }

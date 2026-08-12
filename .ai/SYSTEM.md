@@ -15,14 +15,18 @@ This file is the operating contract for the Mobiscroll docs AI agent.
 On every session start, in this order:
 
 1. Read `.ai/SYSTEM.md` (this file) — reload operating rules
-2. Read `.ai/logs/manifest.json` and filter to entries whose `branch` matches the current
-   git branch (or its base branch, if determinable). Open the full body only of the
-   **matched** log(s) — do not blanket-read every log file. If the current branch has no
-   manifest history at all (new branch, or work happening on `main`), fall back to the
-   most recent 3–5 manifest entries by date instead of reading everything.
-   Historical logs from before this manifest existed (dated `YYYY-MM-DD.md`, no manifest
-   entry) are frozen as-is — do not backfill or re-annotate them; read one directly, by
-   date, only if a specific past session is asked about.
+2. For **in-flight work**, read `.ai/logs/manifest.json` — a local, gitignored cache that
+   only ever holds entries for currently uncommitted logs (see §2). It self-prunes on every
+   hook read, so anything listed there is real, active work on some branch right now.
+   For **past-session context**, don't rely on the manifest (it never retains committed
+   history) — glob `.ai/logs/*_*_*.md` (the post-2026-08-12 naming convention), read just
+   each file's one-line header to get its `[branch]`, and filter to the current branch (or
+   its base branch). Open full bodies only for matches. If nothing matches (new branch, or
+   work happening on `main`), fall back to the most recent 3–5 logs by filename date instead
+   of reading everything.
+   Historical logs from before this manifest existed (dated `YYYY-MM-DD.md`) are frozen as-is
+   — do not backfill or re-annotate them; read one directly, by date, only if a specific past
+   session is asked about.
 3. Read `.ai/knowledge/os-guidelines.md` — reload language and tone rules
 4. Read `.ai/knowledge/web-system-analysis.md` — reload system patterns reference
 5. The `UserPromptSubmit` hook (`.claude/hooks/user-prompt-submit.js`) already runs an
@@ -46,8 +50,9 @@ If `.ai/logs/session-state.md` exists, read it first — it means the previous s
     web-system-analysis.md       Reference: how the web monorepo AI system works
     [topic].md                   Future: additional topic-specific rules
   logs/
-    manifest.json                 Index of open/finalized logs since 2026-08-12 (branch,
-                                  filesTouched, topicSlug, commitHash) — read this first
+    manifest.json                 LOCAL, gitignored cache of in-flight logs only (branch,
+                                  filesTouched, topicSlug) — self-prunes once a log's file
+                                  is committed; never holds historical/committed entries
     YYYY-MM-DD_<branch>_<slug>.md  One log per unit of work, since 2026-08-12 (see §2)
     YYYY-MM-DD.md                 Pre-2026-08-12 logs, one per calendar day — frozen,
                                   not backfilled into the manifest
@@ -63,6 +68,15 @@ the first time a branch has no open log. `.claude/hooks/user-prompt-submit.js` a
 `.claude/hooks/stop.js` run the undocumented-change check (§Session Start step 5). None of
 these write narrative content (`action`/`context`/`outcome`/`learnings`) — that's still
 Claude's job, same as before.
+
+**Why the manifest is local and not committed:** a single shared, committed manifest file
+that every branch appends entries to is exactly the kind of shared-file git-conflict risk
+Problem 1 (date-only log filenames) already existed to solve — just moved onto a new file.
+Since branch/topic are already encoded in each log's filename and its header line, and
+`commitHash` is trivially re-derivable from `git log --grep`, the manifest doesn't need to
+be committed at all — it's a disposable cache, not a record. `lib.pruneManifest()` drops any
+entry whose log file is already clean in git (committed) or missing (renamed away from) on
+every load, so it never accumulates stale entries for deleted/merged branches either.
 
 ### Knowledge file conventions (borrowed from MobiscrollOS)
 
@@ -103,26 +117,28 @@ rename, backfill, or re-annotate them. The new convention applies going forward 
   touch (the `PostToolUse` hook creates or appends to it automatically) until that work is
   committed. Multiple tool calls, turns, even resumed sessions append to the same open log.
 - A log is **finalized** as part of proposing its commit: write the final entry, confirm
-  (and if needed rename) the topic-slug to match the accumulated scope, *then* write the
-  commit message referencing that exact filename. Finalizing sets `finalizedAt` and
-  `commitHash` on the log's manifest entry.
+  (and if needed rename) the topic-slug to match the accumulated scope — updating the
+  manifest entry's `file`/`topicSlug` to match if renamed — *then* write the commit message
+  referencing that exact filename. There's nothing else to set: once the commit actually
+  lands, the log file itself becomes clean in git, and the manifest entry is dropped
+  automatically the next time anything reads the manifest (§Manifest below). No separate
+  "finalizedAt"/"commitHash" bookkeeping step exists anymore.
 - **Bundled commit** (multiple open logs finalize into one commit): allowed — list every
   finalized log's path on its own `AI-assisted | session-log:` line in the commit message
   (§5).
-- **Split commit** (a human commits partway through one open log's lifespan): the open log
-  auto-finalizes against that first commit; a *new* log opens for whatever work continues
-  unstaged/uncommitted afterward. A manifest entry's `commitHash` is always a single value —
-  a split simply produces a second manifest entry, never a list on one entry.
+- **Split commit** (a human commits partway through one open log's lifespan): the first
+  commit takes that log's file with it — it's committed, so it drops out of the manifest on
+  its own. A *new* log opens (via the next file touch) for whatever work continues
+  unstaged/uncommitted afterward.
 - Amending or squashing a commit that already has a finalized log: update that same log
   file (append + rename if scope changed) rather than creating a new one. Squashing several
   commits' logs into one: concatenate their entries into one finalized file and note the
   merge in an entry, rather than rewriting history.
 
-### Manifest (`.ai/logs/manifest.json`)
+### Manifest (`.ai/logs/manifest.json`) — a local cache, not a record
 
-One entry per log file, kept in sync automatically by `.claude/hooks/post-tool-use-log.js`
-for the mechanical fields; Claude updates `topicSlug` (on rename) and sets `finalizedAt`/
-`commitHash` when proposing the commit:
+This file is **gitignored**. It only ever holds entries for logs that are still
+uncommitted; kept in sync automatically by `.claude/hooks/post-tool-use-log.js`:
 ```json
 {
   "file": ".ai/logs/2026-08-12_feature-foo_fix-nav-anchor.md",
@@ -132,21 +148,19 @@ for the mechanical fields; Claude updates `topicSlug` (on rename) and sets `fina
   "topicSlug": "fix-nav-anchor",
   "filesTouched": ["docs/react/navigation.md"],
   "createdAt": "2026-08-12T13:10:35.580Z",
-  "updatedAt": "2026-08-12T13:12:01.000Z",
-  "finalizedAt": null,
-  "commitHash": null
+  "updatedAt": "2026-08-12T13:12:01.000Z"
 }
 ```
-An **open** log is any entry with `finalizedAt: null`. Session start filters this file to
-the current branch (§Session Start step 2) instead of reading every log body.
+An **open** log is any entry present in the manifest for the current branch — there's no
+separate flag for it. Every load runs `lib.pruneManifest()`, which drops an entry the
+moment its log file is either already clean in git (committed) or no longer exists
+(renamed away from) — so a finalized-and-committed log simply vanishes from the cache on
+its own, with no manual bookkeeping. `.claude/hooks/user-prompt-submit.js` and
+`.claude/hooks/stop.js` use the union of `filesTouched` across a branch's remaining
+(therefore still-uncommitted) entries for the undocumented-change check.
 
-**`commitHash` is best-effort, not a gate.** The commit message's `AI-assisted |
-session-log:` footer (§5) is the real, durable link — it's part of the commit itself.
-`commitHash` is only a convenience backlink the other direction and can't be known until
-after the commit exists, so never create a commit just to fill it in. Set `finalizedAt`
-when proposing the commit; fill `commitHash` in whenever it's convenient (typically as part
-of the next commit that touches anything in `.ai/logs/` anyway). Leaving it `null` for a
-while is fine.
+If you need to know which commit closed a given log, that's always derivable after the
+fact via `git log --grep "session-log: <path>"` — no need to store it.
 
 ### Log file session header
 

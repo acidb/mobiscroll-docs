@@ -63,9 +63,7 @@ function main() {
         topicSlug,
         filesTouched: [relPath],
         createdAt: nowIso,
-        updatedAt: nowIso,
-        finalizedAt: null,
-        commitHash: null
+        updatedAt: nowIso
       };
       manifest.logs.push(entry);
       createdNew = true;

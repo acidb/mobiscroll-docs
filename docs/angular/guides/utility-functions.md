@@ -171,7 +171,7 @@ String
 
 The string value to parse
 
-### settings {#settingsp}
+### settings {#settings}
 
 Object
 

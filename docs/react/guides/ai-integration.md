@@ -372,6 +372,10 @@ Run this once in Claude Code to register the Mobiscroll plugin marketplace:
 /plugin install mobiscroll@mobiscroll
 ```
 
+:::warning Plugin skills don't auto-update
+Installing the plugin takes a snapshot of its skills — Claude Code won't pull in newer ones on its own unless you enable auto-update for the marketplace. To get the latest at any time, run `/plugin marketplace update mobiscroll && /plugin update mobiscroll@mobiscroll`, then `/reload-plugins`.
+:::
+
 ### Step 3: Configure MCP server (Optional)
 
 The plugin bundles the MCP server — no separate configuration is needed for most setups. To configure it manually or share it with your team:

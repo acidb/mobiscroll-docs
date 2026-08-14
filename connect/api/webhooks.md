@@ -276,7 +276,7 @@ Changed events list.
     </Parameter>
 
     <Parameter name="organizer" type="boolean">
-    Indicates if attendee is organizer.
+    Indicates if attendee is organizer. For Google, the organizer appears in this list only when Google lists them as a guest — see [attendees](./events.md#endpoint-get-events) in the events reference.
     </Parameter>
   </Parameter>
 

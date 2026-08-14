@@ -109,6 +109,16 @@ See [Branding](/connect/branding) for the full list of fields, how the theme def
 
 ---
 
+## App Verification
+
+Until an application is verified by Mobiscroll, the authorization screen tells your users that Mobiscroll has not verified it. Verification is a short review of your application - a reviewer confirms it is a real product and that the details your users see match it. It does not change any limit, and it does not withhold your branding.
+
+Submit for review from the **Verification** menu of your application in the dashboard, once your application URL, display name, redirect URI, and a support contact are set.
+
+See [Verification](/connect/verification) for what a reviewer checks, the statuses, and which later changes send an application back for review.
+
+---
+
 ## Next Steps
 
 Now that your credentials are verified and the connection is established, you can proceed with integrating Mobiscroll Connect into your application. Choose the approach that best fits your workflow:

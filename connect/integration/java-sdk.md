@@ -184,7 +184,7 @@ The client exposes resources that map directly to the API endpoints.
 
 The `client.auth()` resource handles the OAuth authorization flow, including generating authorization URLs, exchanging codes for tokens, managing connection status, and disconnecting providers.
 
-To localize the Connect pages, pass an optional `lng` (`en`, `es`, `fr`, `ar`) to `generateAuthUrl`, e.g. `AuthUrlParams.builder().userId(...).lng("es").build()`. When omitted, the UI falls back to the browser's `Accept-Language` header, then English; Arabic renders right-to-left.
+To localize the Connect pages, pass an optional `lng` to `generateAuthUrl`, e.g. `AuthUrlParams.builder().userId(...).lng("es").build()`. When omitted, the UI falls back to the browser's `Accept-Language` header, then English; Arabic renders right-to-left. See [Supported languages](../core-concepts/localization.md#supported-languages) for the languages Connect supports.
 
 <DocCardList items={[
   {

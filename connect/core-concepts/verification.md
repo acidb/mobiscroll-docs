@@ -3,7 +3,7 @@ sidebar_position: 4
 slug: /verification
 title: App Verification
 sidebar_label: Verification
-description: Get your Mobiscroll Connect application verified - what a reviewer checks, the required details, the four verification statuses, and which changes send a verified app back for review.
+description: Get your Mobiscroll Connect application verified - what a reviewer checks, the required details, how the application's status and its latest review are tracked separately, and which changes send a verified app back for review.
 ---
 
 import { ConnectDashboardLink } from '@site/src/components/Connect';
@@ -28,9 +28,11 @@ One thing, on the authorization screen:
 | Connected-account limit | Plan limit | Plan limit (unchanged) |
 | API access, scopes, rate limits | Unaffected | Unaffected |
 
-The notice reads:
+The notice is titled **Not verified by Mobiscroll** and reads:
 
-> Mobiscroll has not verified this application yet. Only connect your calendars if you trust it.
+> Mobiscroll hasn't reviewed this application yet. Connect your calendars only if you recognize it and trust who is asking.
+
+Once you set a display name, the notice names your application in place of "this application". A **What this means** link below it explains what a review covers, that the application only receives the access the user approves on that screen, and that accounts can be disconnected at any time.
 
 Two consequences worth being explicit about:
 
@@ -53,12 +55,23 @@ The **Verification** page lists each of these with its current value and lets yo
 
 ## Statuses
 
+The Verification page tracks two separate things: where the **application** stands, and where the **latest review** stands. They are not the same - an application that was verified once stays verified while you edit it and while a new review runs.
+
+### The application
+
 | Status | Meaning |
 |---|---|
-| **Unverified** | The starting state, and the state an application returns to after you change a reviewed detail. The unverified notice is shown to your users - unless the application was verified before, in which case see [Changing details after verification](#changing-details-after-verification). |
+| **Unverified** | Nothing on this application has been approved yet. The unverified notice is shown to your users. |
+| **Verified** | A reviewer approved this application, and what your users see is what was approved. The notice is gone. The page also shows the date it was verified. |
+
+### The latest review
+
+| Status | Meaning |
+|---|---|
+| **Not submitted** | Either the application has never been submitted, or you changed a reviewed detail since the last approval and have not submitted it again. |
 | **Under review** | Submitted and waiting for a decision. Nothing on your users' screens changes at the moment you submit. |
-| **Verified** | Accepted. The notice is gone. |
-| **Declined** | The reviewer asked for changes. The reason appears under **Verification activity** on the Verification page. Fix what it mentions and submit again. |
+| **Approved** | The details a reviewer signed off on are the details you have now. |
+| **Changes requested** | The reviewer asked for changes. The reason appears under **Verification activity** on the Verification page. Fix what it mentions and submit again. |
 
 Every submission, decision, and reviewer note is recorded under **Verification activity**, so the history of a review is visible on the page.
 
@@ -66,20 +79,20 @@ Every submission, decision, and reviewer note is recorded under **Verification a
 
 1. Open the **Verification** menu of your application in the <ConnectDashboardLink>Connect dashboard</ConnectDashboardLink>.
 2. Complete every required detail in **What we review**. **Submit for review** stays disabled until they all pass.
-3. Click **Submit for review**. The status becomes **Under review**.
-4. Watch **Verification activity** for the decision. If the application is declined, the reviewer's note says what to change; fix it and click **Resubmit for review**.
+3. Click **Submit for review**. The latest review becomes **Under review**.
+4. Watch **Verification activity** for the decision. If the reviewer requests changes, their note says what to change; fix it and click **Resubmit for review**.
 
 Approving or declining an application is a Mobiscroll action - there is nothing further to do on your side while a review is open.
 
 ## Changing details after verification
 
-Reviewed details are not locked. You can change them at any time, but changing one means the reviewed version and the live version no longer match, so the application returns to **Unverified** and needs submitting again.
+Reviewed details are not locked. You can change them at any time, but changing one means the reviewed version and the live version no longer match, so the application needs reviewing again: the latest review goes to **Not submitted** until you submit it.
 
-Your users are not shown the unverified notice again on an application that has been verified before, and there is no deadline or grace period to track while a re-review is open.
+The application itself stays **Verified** throughout. Your users keep seeing the details that were approved, they are not shown the unverified notice again, and there is no deadline or grace period to track while a re-review is open.
 
 ### Which changes send an application back for review
 
-| Change | Returns to unverified |
+| Change | Needs a new review |
 |---|---|
 | Display name | Yes |
 | Application URL | Yes |
@@ -94,15 +107,15 @@ Your users are not shown the unverified notice again on an application that has 
 
 Primary color, theme, and the footer toggle are not reviewed at all - a color cannot misrepresent who you are.
 
-The dashboard warns you before you save a change that would return the application to unverified, on both the **Settings** page and the logo editor.
+The dashboard warns you before you save a change that would call for a new review, on both the **Settings** page and the logo editor.
 
 ### Editing while a review is open
 
-Editing a reviewed detail while the application is **Under review** cancels that review. The application returns to **Unverified**, and you submit it again once you are done editing.
+Editing a reviewed detail while a review is **Under review** cancels that review. It goes back to **Not submitted**, and you submit it again once you are done editing.
 
-### Where to edit a verified application
+### Where to edit once a review is approved
 
-On a verified application the Verification page lists the reviewed details without edit buttons. Change them from **Settings**, or from **Branding** for the logo.
+While the latest review is **Approved**, the Verification page lists the reviewed details without edit buttons. Change them from **Settings**, or from **Branding** for the logo.
 
 ## Logos and verification
 

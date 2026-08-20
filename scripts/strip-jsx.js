@@ -116,6 +116,13 @@ const MULTI_LINE_SELF_CLOSING_START = /^\s*<(?:DocCardList|SupportedPlatforms|Po
 // actually renders. See each component's definition at the top of the relevant .md file.
 const DOCS_BASE_URL = 'https://mobiscroll.com/docs';
 const MCP_BASE_URL = 'https://mcp.mobiscroll.com/';
+// Mirrors the constants in src/components/Connect/PostmanRunButton.tsx, which the
+// component bakes into data-postman-* attributes for Postman's injected button.js to
+// read client-side — 0.5.1's blanket tag strip removes the whole self-closing tag (and
+// those attributes) with nothing left behind, so we reconstruct the equivalent plain
+// "Run in Postman" link Postman's own share-button feature generates for this scheme.
+const POSTMAN_COLLECTION_UID = '36449189-25b1b785-a0f3-484f-bb75-39f7a4682ea2';
+const POSTMAN_WORKSPACE_ID = '7234d326-907c-4419-9c94-9eecc5b58d7c';
 
 function mcpConfigJson(tool) {
   const configs = {
@@ -143,7 +150,7 @@ function parseMarkerParams(paramStr) {
 // `|`) since these markers sit inside GFM table cells, where an unescaped `|` would
 // split into a new column.
 function resolveInlineMarkers(content) {
-  content = content.replace(/\{\/\*\s*llms:(docsurl|mcpurl|mcpconfig|mcpcli|fileblock)(?:;(.*?))?\s*\*\/\}/g, (_m, type, paramStr) => {
+  content = content.replace(/\{\/\*\s*llms:(docsurl|mcpurl|mcpconfig|mcpcli|fileblock|postmanrun)(?:;(.*?))?\s*\*\/\}/g, (_m, type, paramStr) => {
     const params = parseMarkerParams(paramStr);
     switch (type) {
       case 'docsurl':
@@ -165,6 +172,12 @@ function resolveInlineMarkers(content) {
           return `[Could not load ${params.src}]`;
         }
         return fileContent.replace(/\{\{DOCS_BASE_URL\}\}/g, DOCS_BASE_URL);
+      }
+      case 'postmanrun': {
+        const url = `https://god.gw.postman.com/run-collection/${POSTMAN_COLLECTION_UID}` +
+          `?action=collection%2Ffork&collection-url=entityId%3D${POSTMAN_COLLECTION_UID}` +
+          `%26entityType%3Dcollection%26workspaceId%3D${POSTMAN_WORKSPACE_ID}`;
+        return `[Run in Postman](${url})`;
       }
       default:
         return '';

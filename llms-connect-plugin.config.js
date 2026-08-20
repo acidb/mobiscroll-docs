@@ -36,10 +36,17 @@ const llmsConnectOptions = {
     '**/_category_.json',
   ],
 
-  // Route connect docs under /connect/ path
-  pathTransformation: {
-    addPaths: ['connect'],
-  },
+  // No `pathTransformation` here: docsDir's implicit routeBasePath ('connect')
+  // is already prepended once by the plugin's own fallback URL-construction
+  // branch (lib/processor.js) whenever a page can't be matched to its real
+  // Docusaurus route by suffix (which, for the connect section, is every
+  // page — none of their slugs end in a path that matches their source file
+  // name, e.g. connect/api/calendars.md has slug: /calendars). A previously
+  // present `addPaths: ['connect']` double-applied that same segment,
+  // producing build/connect/connect/... for every connect API/guide page —
+  // self-consistent (link matched its own generated file) but not matching
+  // the real site route (e.g. the real page for calendars.md is
+  // /docs/connect/calendars, not /docs/connect/connect/api/calendars).
 
   // Section ordering for the combined llms-connect.txt
   includeOrder: [

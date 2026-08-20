@@ -20,8 +20,11 @@ const llmsOptions = {
 
   docsDir: 'docs',
 
-  // Clean up MDX import statements and redundant headings for LLM consumption
-  excludeImports: false,
+  // Clean up MDX import statements and redundant headings for LLM consumption.
+  // Fence-safe: only strips plumbing import lines outside code samples
+  // (maskCodeSegments runs first) — kept consistent with the connect and v5
+  // plugin configs, which both already set this to true.
+  excludeImports: true,
   removeDuplicateHeadings: true,
 
   title: 'Mobiscroll Documentation',

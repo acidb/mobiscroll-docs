@@ -36,7 +36,7 @@
     "@docusaurus/module-type-aliases": "^3.10.0",
     "@docusaurus/tsconfig": "^3.10.0",
     "@docusaurus/types": "^3.10.0",
-    "docusaurus-plugin-llms": "0.3.0",
+    "docusaurus-plugin-llms": "0.5.1",
     "patch-package": "^8.0.1",
     "typescript": "^5.8.3"
   },

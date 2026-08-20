@@ -34,21 +34,29 @@ To use the SDK, initialize `Client` with your client credentials.
 
 **Constructor:** `mobiscroll.NewClient(clientID, clientSecret, redirectURI string, opts ...ClientOption) *Client`
 
+{/* llms:param;name=clientID;type=string */}
 <Parameter name="clientID" type="string">
 Your Client ID obtained from the Mobiscroll Connect dashboard.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=clientSecret;type=string */}
 <Parameter name="clientSecret" type="string">
 Your Client Secret obtained from the Mobiscroll Connect dashboard.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=redirectURI;type=string */}
 <Parameter name="redirectURI" type="string">
 Your application's redirect URI that matches the one configured in the Mobiscroll Connect dashboard.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=opts;type=...ClientOption */}
 <Parameter name="opts" type="...ClientOption">
 Optional functional options: `WithBaseURL`, `WithTimeout`, `WithHTTPClient`, `WithTokensRefreshedCallback`.
 </Parameter>
+{/* /llms:param */}
 
 **Usage:**
 
@@ -89,9 +97,11 @@ Stores a token pair the SDK will use on subsequent requests. Typically called af
 
 **Method:** `client.SetCredentials(tokens *TokenResponse)`
 
+{/* llms:param;name=tokens;type=*TokenResponse */}
 <Parameter name="tokens" type="*TokenResponse" isObject>
 The token response returned by `client.Auth().GetToken(ctx, code)`.
 </Parameter>
+{/* /llms:param */}
 
 ### OnTokensRefreshed {#client-on-tokens-refreshed}
 
@@ -99,9 +109,11 @@ Registers a callback to be invoked whenever the SDK automatically refreshes the 
 
 **Method:** `client.OnTokensRefreshed(cb func(*TokenResponse))`
 
+{/* llms:param;name=cb;type=func(*TokenResponse) */}
 <Parameter name="cb" type="func(*TokenResponse)">
 A function that receives the updated `TokenResponse` after a successful automatic token refresh. Pass `nil` to clear the callback.
 </Parameter>
+{/* /llms:param */}
 
 ### Credentials {#client-credentials}
 

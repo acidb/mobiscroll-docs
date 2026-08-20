@@ -139,19 +139,19 @@ Choose based on your preference and setup.
 
 | File | Format | For |
 |:---|:---|:---|
-| <DocsLink path="mobiscroll-vue.mdc" download /> | Cursor rule file | Cursor |
-| <DocsLink path="copilot-instructions/mobiscroll-vue.instructions.md" download /> | Copilot instruction file | GitHub Copilot |
+| {/* llms:docslink;path=mobiscroll-vue.mdc */}{/* /llms:docslink */}<DocsLink path="mobiscroll-vue.mdc" download /> | Cursor rule file | Cursor |
+| {/* llms:docslink;path=copilot-instructions/mobiscroll-vue.instructions.md */}{/* /llms:docslink */}<DocsLink path="copilot-instructions/mobiscroll-vue.instructions.md" download /> | Copilot instruction file | GitHub Copilot |
 
 **Option B — extended rules with MCP:**
 
 | File | Format | For |
 |:---|:---|:---|
-| <DocsLink path="mobiscroll-ui/SKILL.md" download filename="mobiscroll-ui.mdc">mobiscroll-ui.mdc</DocsLink> | Cursor extended rule (orchestrator) | Cursor |
-| <DocsLink path="docs/vue/SKILL.md" download filename="mobiscroll-ui-vue.mdc">mobiscroll-ui-vue.mdc</DocsLink> | Cursor extended rule (Vue) | Cursor |
-| <DocsLink path="mobiscroll-ui-theming/SKILL.md" download filename="mobiscroll-ui-theming.mdc">mobiscroll-ui-theming.mdc</DocsLink> | Cursor extended rule (theming) | Cursor |
-| <DocsLink path="copilot-instructions/mobiscroll-ui.instructions.md" download>mobiscroll-ui.instructions.md</DocsLink> | Copilot extended instruction (orchestrator) | GitHub Copilot |
-| <DocsLink path="copilot-instructions/mobiscroll-ui-vue.instructions.md" download>mobiscroll-ui-vue.instructions.md</DocsLink> | Copilot extended instruction (Vue) | GitHub Copilot |
-| <DocsLink path="copilot-instructions/mobiscroll-ui-theming.instructions.md" download>mobiscroll-ui-theming.instructions.md</DocsLink> | Copilot extended instruction (theming) | GitHub Copilot |
+| {/* llms:docslink;path=mobiscroll-ui/SKILL.md;filename=mobiscroll-ui.mdc */}<DocsLink path="mobiscroll-ui/SKILL.md" download filename="mobiscroll-ui.mdc">mobiscroll-ui.mdc</DocsLink>{/* /llms:docslink */} | Cursor extended rule (orchestrator) | Cursor |
+| {/* llms:docslink;path=docs/vue/SKILL.md;filename=mobiscroll-ui-vue.mdc */}<DocsLink path="docs/vue/SKILL.md" download filename="mobiscroll-ui-vue.mdc">mobiscroll-ui-vue.mdc</DocsLink>{/* /llms:docslink */} | Cursor extended rule (Vue) | Cursor |
+| {/* llms:docslink;path=mobiscroll-ui-theming/SKILL.md;filename=mobiscroll-ui-theming.mdc */}<DocsLink path="mobiscroll-ui-theming/SKILL.md" download filename="mobiscroll-ui-theming.mdc">mobiscroll-ui-theming.mdc</DocsLink>{/* /llms:docslink */} | Cursor extended rule (theming) | Cursor |
+| {/* llms:docslink;path=copilot-instructions/mobiscroll-ui.instructions.md */}<DocsLink path="copilot-instructions/mobiscroll-ui.instructions.md" download>mobiscroll-ui.instructions.md</DocsLink>{/* /llms:docslink */} | Copilot extended instruction (orchestrator) | GitHub Copilot |
+| {/* llms:docslink;path=copilot-instructions/mobiscroll-ui-vue.instructions.md */}<DocsLink path="copilot-instructions/mobiscroll-ui-vue.instructions.md" download>mobiscroll-ui-vue.instructions.md</DocsLink>{/* /llms:docslink */} | Copilot extended instruction (Vue) | GitHub Copilot |
+| {/* llms:docslink;path=copilot-instructions/mobiscroll-ui-theming.instructions.md */}<DocsLink path="copilot-instructions/mobiscroll-ui-theming.instructions.md" download>mobiscroll-ui-theming.instructions.md</DocsLink>{/* /llms:docslink */} | Copilot extended instruction (theming) | GitHub Copilot |
 
 #### Which tool uses which files?
 
@@ -170,7 +170,7 @@ Open **Cursor Settings → Indexing & Docs** and add the documentation source fo
 
 | Framework | Name | URL |
 |:---|:---|:---|
-| Vue | Mobiscroll Vue | <DocsUrl path="llms-vue-full.txt" /> |
+| Vue | Mobiscroll Vue | {/* llms:docsurl;path=llms-vue-full.txt */}<DocsUrl path="llms-vue-full.txt" /> |
 
 Only register the source matching your use case. Do not register multiple sources — this prevents cross-domain contamination.
 
@@ -180,7 +180,7 @@ Choose one approach — Option A works immediately with no additional setup; Opt
 
 #### Option A — .mdc rules file
 
-Download the <DocsLink path="mobiscroll-vue.mdc" download><code>mobiscroll-vue.mdc</code></DocsLink> file and place it in `.cursor/rules/`:
+Download the {/* llms:docslink;path=mobiscroll-vue.mdc */}<DocsLink path="mobiscroll-vue.mdc" download><code>mobiscroll-vue.mdc</code></DocsLink>{/* /llms:docslink */} file and place it in `.cursor/rules/`:
 
 ```
 your-project/
@@ -197,9 +197,9 @@ The `.mdc` file provides text-based API rules — no additional setup required.
 
 Download the three extended rule files and place them in `.cursor/rules/`:
 
-- <DocsLink path="mobiscroll-ui/SKILL.md" download filename="mobiscroll-ui.mdc">mobiscroll-ui.mdc (orchestrator)</DocsLink>
-- <DocsLink path="docs/vue/SKILL.md" download filename="mobiscroll-ui-vue.mdc">mobiscroll-ui-vue.mdc (Vue conventions)</DocsLink>
-- <DocsLink path="mobiscroll-ui-theming/SKILL.md" download filename="mobiscroll-ui-theming.mdc">mobiscroll-ui-theming.mdc (theming)</DocsLink>
+- {/* llms:docslink;path=mobiscroll-ui/SKILL.md;filename=mobiscroll-ui.mdc */}<DocsLink path="mobiscroll-ui/SKILL.md" download filename="mobiscroll-ui.mdc">mobiscroll-ui.mdc (orchestrator)</DocsLink>{/* /llms:docslink */}
+- {/* llms:docslink;path=docs/vue/SKILL.md;filename=mobiscroll-ui-vue.mdc */}<DocsLink path="docs/vue/SKILL.md" download filename="mobiscroll-ui-vue.mdc">mobiscroll-ui-vue.mdc (Vue conventions)</DocsLink>{/* /llms:docslink */}
+- {/* llms:docslink;path=mobiscroll-ui-theming/SKILL.md;filename=mobiscroll-ui-theming.mdc */}<DocsLink path="mobiscroll-ui-theming/SKILL.md" download filename="mobiscroll-ui-theming.mdc">mobiscroll-ui-theming.mdc (theming)</DocsLink>{/* /llms:docslink */}
 
 ```
 your-project/
@@ -224,6 +224,7 @@ Configure the Mobiscroll MCP server so the extended rules can call it for live s
 
 Create or edit `.cursor/mcp.json` in your project root:
 
+{/* llms:mcpconfig;tool=cursor */}
 <McpConfigBlock tool="cursor" />
 
 :::warning No `type` field
@@ -269,7 +270,7 @@ Choose one approach — Option A works immediately with no additional setup; Opt
 
 #### Option A — .instructions.md rules file
 
-Download the <DocsLink path="copilot-instructions/mobiscroll-vue.instructions.md" download><code>mobiscroll-vue.instructions.md</code></DocsLink> file and place it in `.github/instructions/`:
+Download the {/* llms:docslink;path=copilot-instructions/mobiscroll-vue.instructions.md */}<DocsLink path="copilot-instructions/mobiscroll-vue.instructions.md" download><code>mobiscroll-vue.instructions.md</code></DocsLink>{/* /llms:docslink */} file and place it in `.github/instructions/`:
 
 ```
 your-project/
@@ -286,9 +287,9 @@ The `.instructions.md` file provides text-based API rules — no additional setu
 
 Download the three extended instruction files and place them in `.github/instructions/`:
 
-- <DocsLink path="copilot-instructions/mobiscroll-ui.instructions.md" download>mobiscroll-ui.instructions.md (orchestrator)</DocsLink>
-- <DocsLink path="copilot-instructions/mobiscroll-ui-vue.instructions.md" download>mobiscroll-ui-vue.instructions.md (Vue conventions)</DocsLink>
-- <DocsLink path="copilot-instructions/mobiscroll-ui-theming.instructions.md" download>mobiscroll-ui-theming.instructions.md (theming)</DocsLink>
+- {/* llms:docslink;path=copilot-instructions/mobiscroll-ui.instructions.md */}<DocsLink path="copilot-instructions/mobiscroll-ui.instructions.md" download>mobiscroll-ui.instructions.md (orchestrator)</DocsLink>{/* /llms:docslink */}
+- {/* llms:docslink;path=copilot-instructions/mobiscroll-ui-vue.instructions.md */}<DocsLink path="copilot-instructions/mobiscroll-ui-vue.instructions.md" download>mobiscroll-ui-vue.instructions.md (Vue conventions)</DocsLink>{/* /llms:docslink */}
+- {/* llms:docslink;path=copilot-instructions/mobiscroll-ui-theming.instructions.md */}<DocsLink path="copilot-instructions/mobiscroll-ui-theming.instructions.md" download>mobiscroll-ui-theming.instructions.md (theming)</DocsLink>{/* /llms:docslink */}
 
 ```
 your-project/
@@ -307,6 +308,7 @@ Configure the Mobiscroll MCP server so the extended instruction files can call i
 
 Create or edit `.vscode/mcp.json` in your project root:
 
+{/* llms:mcpconfig;tool=vscode */}
 <McpConfigBlock tool="vscode" />
 
 :::warning `"servers"` not `"mcpServers"`
@@ -380,6 +382,7 @@ Installing the plugin takes a snapshot of its skills — Claude Code won't pull 
 
 The plugin bundles the MCP server — no separate configuration is needed for most setups. To configure it manually or share it with your team:
 
+{/* llms:mcpcli */}
 <McpCliBlock />
 
 :::warning VS Code extension
@@ -388,10 +391,12 @@ If you are using the Claude Visual Studio Code extension, the server will not ap
 
 To share the server with your team automatically, use project scope:
 
+{/* llms:mcpcli;scope=project */}
 <McpCliBlock scope="project" />
 
 This creates or updates `.mcp.json` in your project root. You can also create that file manually:
 
+{/* llms:mcpconfig;tool=claude */}
 <McpConfigBlock tool="claude" />
 
 | Scope | CLI flag | Config location | Shared with team |
@@ -493,21 +498,21 @@ All AI integration files are available at the following URLs:
 
 | File | URL |
 |:---|:---|
-| Vue | <DocsUrl path="llms-vue-full.txt" /> |
+| Vue | {/* llms:docsurl;path=llms-vue-full.txt */}<DocsUrl path="llms-vue-full.txt" /> |
 
 ### Rules files
 
 | File | Cursor (`.mdc`) | Copilot (`.instructions.md`) |
 |:---|:---|:---|
-| Vue rules | <DocsLink path="mobiscroll-vue.mdc" download /> | <DocsLink path="copilot-instructions/mobiscroll-vue.instructions.md" download /> |
+| Vue rules | {/* llms:docslink;path=mobiscroll-vue.mdc */}{/* /llms:docslink */}<DocsLink path="mobiscroll-vue.mdc" download /> | {/* llms:docslink;path=copilot-instructions/mobiscroll-vue.instructions.md */}{/* /llms:docslink */}<DocsLink path="copilot-instructions/mobiscroll-vue.instructions.md" download /> |
 
 ### Extended rule files
 
 | File | Cursor (`.mdc`) | Copilot (`.instructions.md`) |
 |:---|:---|:---|
-| Orchestrator | <DocsLink path="mobiscroll-ui/SKILL.md" download filename="mobiscroll-ui.mdc"><code>mobiscroll-ui.mdc</code></DocsLink> | <DocsLink path="copilot-instructions/mobiscroll-ui.instructions.md" download /> |
-| Vue conventions | <DocsLink path="docs/vue/SKILL.md" download filename="mobiscroll-ui-vue.mdc"><code>mobiscroll-ui-vue.mdc</code></DocsLink> | <DocsLink path="copilot-instructions/mobiscroll-ui-vue.instructions.md" download /> |
-| Theming | <DocsLink path="mobiscroll-ui-theming/SKILL.md" download filename="mobiscroll-ui-theming.mdc"><code>mobiscroll-ui-theming.mdc</code></DocsLink> | <DocsLink path="copilot-instructions/mobiscroll-ui-theming.instructions.md" download /> |
+| Orchestrator | {/* llms:docslink;path=mobiscroll-ui/SKILL.md;filename=mobiscroll-ui.mdc */}<DocsLink path="mobiscroll-ui/SKILL.md" download filename="mobiscroll-ui.mdc"><code>mobiscroll-ui.mdc</code></DocsLink>{/* /llms:docslink */} | {/* llms:docslink;path=copilot-instructions/mobiscroll-ui.instructions.md */}{/* /llms:docslink */}<DocsLink path="copilot-instructions/mobiscroll-ui.instructions.md" download /> |
+| Vue conventions | {/* llms:docslink;path=docs/vue/SKILL.md;filename=mobiscroll-ui-vue.mdc */}<DocsLink path="docs/vue/SKILL.md" download filename="mobiscroll-ui-vue.mdc"><code>mobiscroll-ui-vue.mdc</code></DocsLink>{/* /llms:docslink */} | {/* llms:docslink;path=copilot-instructions/mobiscroll-ui-vue.instructions.md */}{/* /llms:docslink */}<DocsLink path="copilot-instructions/mobiscroll-ui-vue.instructions.md" download /> |
+| Theming | {/* llms:docslink;path=mobiscroll-ui-theming/SKILL.md;filename=mobiscroll-ui-theming.mdc */}<DocsLink path="mobiscroll-ui-theming/SKILL.md" download filename="mobiscroll-ui-theming.mdc"><code>mobiscroll-ui-theming.mdc</code></DocsLink>{/* /llms:docslink */} | {/* llms:docslink;path=copilot-instructions/mobiscroll-ui-theming.instructions.md */}{/* /llms:docslink */}<DocsLink path="copilot-instructions/mobiscroll-ui-theming.instructions.md" download /> |
 
 ## File contents {#file-contents}
 
@@ -517,16 +522,19 @@ The complete contents of each file are shown below. You can copy directly from t
 
 <details>
 <summary>View <code>mobiscroll-ui.mdc</code> (orchestrator)</summary>
+{/* llms:fileblock;src=mobiscroll-ui/SKILL.md */}
 <FileBlock src="mobiscroll-ui/SKILL.md" />
 </details>
 
 <details>
 <summary>View <code>mobiscroll-ui-vue.mdc</code> (Vue conventions)</summary>
+{/* llms:fileblock;src=docs/vue/SKILL.md */}
 <FileBlock src="docs/vue/SKILL.md" />
 </details>
 
 <details>
 <summary>View <code>mobiscroll-ui-theming.mdc</code> (theming)</summary>
+{/* llms:fileblock;src=mobiscroll-ui-theming/SKILL.md */}
 <FileBlock src="mobiscroll-ui-theming/SKILL.md" />
 </details>
 
@@ -534,6 +542,7 @@ The complete contents of each file are shown below. You can copy directly from t
 
 <details>
 <summary>View <code>mobiscroll-vue.mdc</code></summary>
+{/* llms:fileblock;src=mobiscroll-vue.mdc */}
 <FileBlock src="mobiscroll-vue.mdc" />
 </details>
 

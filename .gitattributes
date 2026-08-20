@@ -1,1 +1,6 @@
-docs/*/_auto-generated/**/*.md text eol=lf
+docs/**/*.md text eol=lf
+docs/**/*.mdx text eol=lf
+connect/**/*.md text eol=lf
+connect/**/*.mdx text eol=lf
+versioned_docs/**/*.md text eol=lf
+versioned_docs/**/*.mdx text eol=lf

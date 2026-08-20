@@ -121,6 +121,7 @@ Customize the events that appear on the agenda with the [renderAgendaEvent](#ren
 
 Check out how you can style events in [this example](https://demo.mobiscroll.com/agenda/full-event-customization#) or just play with the slider below to see the differences.
 
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1256" height="891" src={require('@site/static/img/v6/normal-event-templating-agenda.png').default} />
@@ -134,12 +135,14 @@ Check out how you can style events in [this example](https://demo.mobiscroll.com
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 ### The event content
 Customize the event content that appears on the agenda by using the [renderAgendaEventContent](#renderer-renderAgendaEventContent) option. The event calendar will take care of styling and you can focus on what you show inside of the event.
 
 Check out how you can style event content in [this example](https://demo.mobiscroll.com/agenda/event-content-customization#) or just play with the slider below to see the differences.
 
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1256" height="528" src={require('@site/static/img/v6/normal-event-content-template-agenda.png').default} />
@@ -153,6 +156,7 @@ Check out how you can style event content in [this example](https://demo.mobiscr
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 ### The agenda header
 Customize how the header of the event calendar looks and how the components are arranged with the [renderHeader](#renderer-renderHeader) option. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well as the built in header components of the calendar.
@@ -161,6 +165,7 @@ While fully customizing the header is very usefull, sometimes it's desireable to
 
 Check out how you can style the header in [this example](https://demo.mobiscroll.com/agenda/customizing-header#) or just play with the slider below to see the differences.
 
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1241" height="622" src={require('@site/static/img/v6/normal-header-templating-agenda.png').default} />
@@ -174,12 +179,14 @@ Check out how you can style the header in [this example](https://demo.mobiscroll
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 ### The agenda day header
 Customize the day headers that appear on the agenda with the [renderAgendaDay](#renderer-renderAgendaDay) option. It should return the markup of the day header.
 
 Check out how you can style the day headers in [this example](https://demo.mobiscroll.com/javascript/agenda/customizing-day-header#) or just play with the slider below to see the differences.
 
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1241" height="622" src={require('@site/static/img/v6/agenda-day-header-default.png').default} />
@@ -193,12 +200,14 @@ Check out how you can style the day headers in [this example](https://demo.mobis
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 ### The agenda empty state
 Customize the look of the empty state through [renderAgendaEmpty](#renderer-renderAgendaEmpty) function. Give a more purposeful feedback to the user and optionally add further actions to it. The template can be totally custom or dynamic based on any criteria.
 
 Check out how you can style the empty state in [this example](https://demo.mobiscroll.com/agenda/empty-state#) or just play with the slider below to see the differences.
 
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1256" height="605" src={require('@site/static/img/v6/normal-empty-state-agenda.png').default} />
@@ -212,6 +221,7 @@ Check out how you can style the empty state in [this example](https://demo.mobis
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 ## Event order
 

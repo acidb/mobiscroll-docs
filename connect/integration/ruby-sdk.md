@@ -55,30 +55,42 @@ To use the SDK, initialize `Mobiscroll::Connect::Client` with your client creden
 
 **Class:** `Mobiscroll::Connect::Client`
 
+{/* llms:param;name=constructor;type=Client */}
 <Parameter name="constructor" type="Client" id="client-config" isObject>
 Constructor keyword arguments.
 
+{/* llms:param;name=client_id;type=String */}
 <Parameter name="client_id" type="String">
 Your Client ID obtained from the Mobiscroll Connect dashboard.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=client_secret;type=String */}
 <Parameter name="client_secret" type="String">
 Your Client Secret obtained from the Mobiscroll Connect dashboard.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=redirect_uri;type=String */}
 <Parameter name="redirect_uri" type="String">
 Your application's redirect URI that matches the one configured in the Mobiscroll Connect dashboard.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=base_url;type=String */}
 <Parameter name="base_url" type="String" isOptional>
 Override the API base URL. Defaults to `https://connect.mobiscroll.com/api`.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=timeout;type=Integer */}
 <Parameter name="timeout" type="Integer" isOptional>
 HTTP timeout in seconds. Defaults to `30`.
 </Parameter>
+{/* /llms:param */}
 
 </Parameter>
+{/* /llms:param */}
 
 **Usage:**
 
@@ -112,9 +124,11 @@ Stores a token pair the SDK will use on subsequent requests. Typically called af
 
 **Method:** `client.set_credentials(tokens)`
 
+{/* llms:param;name=tokens;type=TokenResponse */}
 <Parameter name="tokens" type="TokenResponse" isObject>
 The token response returned by `client.auth.get_token(code)`.
 </Parameter>
+{/* /llms:param */}
 
 ### on_tokens_refreshed {#client-on-tokens-refreshed}
 
@@ -122,9 +136,11 @@ Registers a callback to be invoked whenever the SDK automatically refreshes the 
 
 **Method:** `client.on_tokens_refreshed { |tokens| ... }`
 
+{/* llms:param;name=block;type=Proc */}
 <Parameter name="block" type="Proc">
 A block that receives the updated `TokenResponse` after a successful automatic token refresh.
 </Parameter>
+{/* /llms:param */}
 
 ### credentials {#client-credentials}
 

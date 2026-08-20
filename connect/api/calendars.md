@@ -22,38 +22,54 @@ Fetches the list of calendars from all connected calendar providers and returns 
 ### Response
 
 
+{/* llms:param;name=calendars;type=Array&lt;Calendar&gt; */}
 <Parameter name="calendars" type="Array&lt;Calendar&gt;" id="calendars-response" isObject>
 Array of calendar objects from all connected providers. Each Calendar object contains:
 
+  {/* llms:param;name=provider;type=string */}
   <Parameter name="provider" type="string">
   Provider name: `'google'`, `'microsoft'`, `'apple'`, or `'caldav'`
   </Parameter>
+  {/* /llms:param */}
 
+  {/* llms:param;name=id;type=string */}
   <Parameter name="id" type="string">
   Unique calendar identifier from the provider
   </Parameter>
+  {/* /llms:param */}
 
+  {/* llms:param;name=title;type=string */}
   <Parameter name="title" type="string">
   Display name of the calendar
   </Parameter>
+  {/* /llms:param */}
 
+  {/* llms:param;name=timeZone;type=string */}
   <Parameter name="timeZone" type="string">
   Calendar timezone (e.g., "America/New_York")
   </Parameter>
+  {/* /llms:param */}
 
+  {/* llms:param;name=color;type=string */}
   <Parameter name="color" type="string">
   Calendar color code
   </Parameter>
+  {/* /llms:param */}
 
+  {/* llms:param;name=description;type=string */}
   <Parameter name="description" type="string">
   Calendar description
   </Parameter>
+  {/* /llms:param */}
 
+  {/* llms:param;name=original;type=object */}
   <Parameter name="original" type="object">
   Original calendar object from the provider
   </Parameter>
+  {/* /llms:param */}
 
 </Parameter>
+{/* /llms:param */}
 
 ### Error Responses
 

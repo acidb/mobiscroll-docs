@@ -305,6 +305,7 @@ Since cells are rendered frequently while scrolling, keep the customization ligh
 
 Check out how you can style the cell in [this example](https://demo.mobiscroll.com/scheduler/cell-content-template#) or just play with the slider below to see the differences.
 
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1480" height="975" src={require('@site/static/img/normal-cell-templating-scheduler.png').default} />
@@ -318,6 +319,7 @@ Check out how you can style the cell in [this example](https://demo.mobiscroll.c
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 ### The event, their content and buffer areas
 The events can be customized in two ways:
@@ -328,6 +330,7 @@ The buffers can be customized through the [bufferBefore](#slot-bufferBefore) and
 
 Check out how you can style event, their content and buffer areas in [this example](https://demo.mobiscroll.com/vue/scheduler/customizing-events#) or just play with the slider below to see the differences.
 
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1480" height="975" src={require('@site/static/img/normal-event-buffer-templating-scheduler.png').default} />
@@ -341,6 +344,7 @@ Check out how you can style event, their content and buffer areas in [this examp
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 ### The date header
 There are two approaches you can take:
@@ -349,6 +353,7 @@ There are two approaches you can take:
 
 Check out how you can style the date header in [this example](https://demo.mobiscroll.com/vue/scheduler/date-header-template#) or just play with the slider below to see the differences.
 
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1480" height="575" src={require('@site/static/img/normal-date-header-template-scheduler.png').default} />
@@ -362,12 +367,14 @@ Check out how you can style the date header in [this example](https://demo.mobis
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 ### The resource header
 Use the [resource](#slot-resource) option to customize the resource template of the Scheduler. Customize how the resource headers look and what they show. Utilize properties passed in the [resources](#opt-resources) array. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well.
 
 Check out how you can style the resources in [this example](https://demo.mobiscroll.com/vue/scheduler/custom-resource-header-template#) or just play with the slider below to see the differences.
 
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1480" height="753" src={require('@site/static/img/normal-resource-template-scheduler.png').default} />
@@ -381,6 +388,7 @@ Check out how you can style the resources in [this example](https://demo.mobiscr
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 ### The scheduler header
 Customize how the header of the Scheduler looks and how the components are arranged with the [header](#slot-header) option. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well as the built in header components of the calendar.
@@ -389,6 +397,7 @@ While fully customizing the header is very usefull, sometimes it's desireable to
 
 Check out how you can style the header in [this example](https://demo.mobiscroll.com/vue/scheduler/customizing-header#) or just play with the slider below to see the differences.
 
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1480" height="625" src={require('@site/static/img/normal-header-template-scheduler.png').default} />
@@ -402,6 +411,7 @@ Check out how you can style the header in [this example](https://demo.mobiscroll
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 ## Event order
 

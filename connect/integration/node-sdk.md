@@ -48,22 +48,30 @@ To use the SDK, you need to initialize the `MobiscrollConnectClient` with your c
 
 **Class:** `MobiscrollConnectClient`
 
+{/* llms:param;name=config;type=MobiscrollConnectConfig */}
 <Parameter name="config" type="MobiscrollConnectConfig" id="client-config" isObject>
 Configuration object.
 
+{/* llms:param;name=clientId;type=string */}
 <Parameter name="clientId" type="string">
 Your Client ID obtained from the Mobiscroll Connect dashboard.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=clientSecret;type=string */}
 <Parameter name="clientSecret" type="string">
 Your Client Secret obtained from the Mobiscroll Connect dashboard.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=redirectUri;type=string */}
 <Parameter name="redirectUri" type="string">
 Your application's redirect URI that matches the one configured in the Mobiscroll Connect dashboard.
 </Parameter>
+{/* /llms:param */}
 
 </Parameter>
+{/* /llms:param */}
 
 **Usage:**
 
@@ -85,9 +93,11 @@ Sets the access token for the client. This is required before making any API cal
 
 **Method:** `client.setCredentials(tokens)`
 
+{/* llms:param;name=tokens;type=TokenResponse */}
 <Parameter name="tokens" type="TokenResponse" isObject>
 The tokens object received from the `auth.getToken` method.
 </Parameter>
+{/* /llms:param */}
 
 ### on {#client-on}
 
@@ -95,13 +105,17 @@ Registers an event listener for client events.
 
 **Method:** `client.on(event, listener)`
 
+{/* llms:param;name=event;type=string */}
 <Parameter name="event" type="string">
 The name of the event to listen for.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=listener;type=function */}
 <Parameter name="listener" type="function">
 The callback function to execute when the event is triggered.
 </Parameter>
+{/* /llms:param */}
 
 ### getConfig {#client-get-config}
 

@@ -34,22 +34,30 @@ To use the SDK, initialize `MobiscrollConnectClient` with your client credential
 
 **Class:** `Mobiscroll\Connect\MobiscrollConnectClient`
 
+{/* llms:param;name=constructor;type=MobiscrollConnectClient::__construct */}
 <Parameter name="constructor" type="MobiscrollConnectClient::__construct" id="client-config" isObject>
 Constructor arguments.
 
+{/* llms:param;name=clientId;type=string */}
 <Parameter name="clientId" type="string">
 Your Client ID obtained from the Mobiscroll Connect dashboard.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=clientSecret;type=string */}
 <Parameter name="clientSecret" type="string">
 Your Client Secret obtained from the Mobiscroll Connect dashboard.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=redirectUri;type=string */}
 <Parameter name="redirectUri" type="string">
 Your application's redirect URI that matches the one configured in the Mobiscroll Connect dashboard.
 </Parameter>
+{/* /llms:param */}
 
 </Parameter>
+{/* /llms:param */}
 
 **Usage:**
 
@@ -73,9 +81,11 @@ Sets the access token for the client. This is required before making any API cal
 
 **Method:** `client->auth()->setCredentials(tokens)`
 
+{/* llms:param;name=tokens;type=TokenResponse */}
 <Parameter name="tokens" type="TokenResponse" isObject>
 The token response object returned by `client->auth()->getToken(code)`.
 </Parameter>
+{/* /llms:param */}
 
 ### onTokensRefreshed {#client-on-tokens-refreshed}
 
@@ -83,9 +93,11 @@ Registers a callback to be invoked whenever the SDK automatically refreshes the 
 
 **Method:** `client->onTokensRefreshed(callback)`
 
+{/* llms:param;name=callback;type=callable(TokenResponse): void */}
 <Parameter name="callback" type="callable(TokenResponse): void">
 A callable that receives the updated `TokenResponse` after a successful automatic token refresh.
 </Parameter>
+{/* /llms:param */}
 
 ## Token Refresh
 

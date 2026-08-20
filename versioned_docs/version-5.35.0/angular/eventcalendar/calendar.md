@@ -132,6 +132,7 @@ There are two approaches you can take:
 
 Check out how you can style labels and their content in [this example](https://demo.mobiscroll.com/angular/eventcalendar/customize-label-look-and-feel#) or just play with the slider below to see the differences.
 
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1256" height="547" src={require('@site/static/img/normal-label-content-calendar.png').default} />
@@ -145,6 +146,7 @@ Check out how you can style labels and their content in [this example](https://d
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 ### The event in popover and their content
 The events can be customized in two ways:
@@ -153,6 +155,7 @@ The events can be customized in two ways:
 
 Check out how you can style events and their content in [this example](https://demo.mobiscroll.com/angular/eventcalendar/customize-event-popover#) or just play with the slider below to see the differences.
 
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1256" height="373" src={require('@site/static/img/normal-event-content-calendar.png').default} />
@@ -166,6 +169,7 @@ Check out how you can style events and their content in [this example](https://d
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 ### The event calendar header
 Customize how the header of the Event Calendar looks and how the components are arranged with the [headerTemplate](#template-headerTemplate) option. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well as the built in header components of the calendar.
@@ -174,6 +178,7 @@ While fully customizing the header is very usefull, sometimes it's desireable to
 
 Check out how you can style the header in [this example](https://demo.mobiscroll.com/angular/eventcalendar/customizing-header#) or just play with the slider below to see the differences.
 
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1256" height="547" src={require('@site/static/img/normal-header-calendar.png').default} />
@@ -187,6 +192,7 @@ Check out how you can style the header in [this example](https://demo.mobiscroll
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 ## Event order
 

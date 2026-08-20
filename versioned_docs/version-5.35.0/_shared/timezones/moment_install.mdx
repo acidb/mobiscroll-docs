@@ -8,16 +8,20 @@ npm install moment-timezone
 
 **2.** After the library is installed, you will have to import it with the `momentTimezone` object from mobiscroll:
 
+<!-- llms-fence: javascript | Moment library import -->
 <CodeBlock language="javascript" title="Moment library import">{
 `import moment from 'moment-timezone';
 import { momentTimezone } from '@mobiscroll/${props.framework}';`
 }</CodeBlock>
+<!-- /llms-fence -->
 
 **3.** Then set the mobiscroll's reference to the imported library:
 
+<!-- llms-fence: javascript | Moment library setup -->
 <CodeBlock language="javascript" title="Moment library setup">{
 `import moment from 'moment-timezone';
 import { momentTimezone } from '@mobiscroll/${props.framework}';
 // highlight-next-line
 momentTimezone.moment = moment;`
 }</CodeBlock>
+<!-- /llms-fence -->

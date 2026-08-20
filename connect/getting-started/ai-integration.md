@@ -126,15 +126,15 @@ Connect uses a **single** rule file per option — there is no framework split, 
 
 | File | Format | For |
 |:---|:---|:---|
-| <DocsLink path="mobiscroll-connect.mdc" download /> | Cursor rule file | Cursor |
-| <DocsLink path="copilot-instructions/mobiscroll-connect.instructions.md" download /> | Copilot instruction file | GitHub Copilot |
+| {/* llms:docslink;path=mobiscroll-connect.mdc */}{/* /llms:docslink */}<DocsLink path="mobiscroll-connect.mdc" download /> | Cursor rule file | Cursor |
+| {/* llms:docslink;path=copilot-instructions/mobiscroll-connect.instructions.md */}{/* /llms:docslink */}<DocsLink path="copilot-instructions/mobiscroll-connect.instructions.md" download /> | Copilot instruction file | GitHub Copilot |
 
 **Option B — extended rule with MCP:**
 
 | File | Format | For |
 |:---|:---|:---|
-| <DocsLink path="connect/SKILL.md" download filename="mobiscroll-connect-skill.mdc">mobiscroll-connect-skill.mdc</DocsLink> | Cursor extended rule | Cursor |
-| <DocsLink path="copilot-instructions/mobiscroll-connect-skill.instructions.md" download>mobiscroll-connect-skill.instructions.md</DocsLink> | Copilot extended instruction | GitHub Copilot |
+| {/* llms:docslink;path=connect/SKILL.md;filename=mobiscroll-connect-skill.mdc */}<DocsLink path="connect/SKILL.md" download filename="mobiscroll-connect-skill.mdc">mobiscroll-connect-skill.mdc</DocsLink>{/* /llms:docslink */} | Cursor extended rule | Cursor |
+| {/* llms:docslink;path=copilot-instructions/mobiscroll-connect-skill.instructions.md */}<DocsLink path="copilot-instructions/mobiscroll-connect-skill.instructions.md" download>mobiscroll-connect-skill.instructions.md</DocsLink>{/* /llms:docslink */} | Copilot extended instruction | GitHub Copilot |
 
 ### Routing layer — CLAUDE.md (manual Claude Code setup)
 
@@ -144,7 +144,7 @@ A context file for Claude Code users who set Connect up manually **without** the
 
 The **Mobiscroll MCP server** serves structured, version-stamped knowledge over the Model Context Protocol. It is a single, unified server: the same `mobiscroll` server that serves UI component schemas also exposes the Connect tools, generated directly from the Connect REST source and the 7-language SDK suite. The Connect tools are all prefixed `Connect` so they never collide with the UI component tools. Instead of relying on documentation snapshots, an assistant can call these tools to fetch the exact endpoint schema, SDK method signature, or cross-language equivalent it needs at generation time.
 
-It is a **hosted HTTP server** at <McpUrl /> — no local install required.
+It is a **hosted HTTP server** at {/* llms:mcpurl */}<McpUrl /> — no local install required.
 
 | Tool | What it does |
 |:---|:---|
@@ -176,7 +176,7 @@ Open **Cursor Settings → Indexing & Docs** and add the documentation source fo
 
 | Framework | Name | URL |
 |:---|:---|:---|
-| Connect | Mobiscroll Connect | <DocsUrl path="llms-connect-full.txt" /> |
+| Connect | Mobiscroll Connect | {/* llms:docsurl;path=llms-connect-full.txt */}<DocsUrl path="llms-connect-full.txt" /> |
 
 Only register the source matching your use case. Do not register multiple sources — this prevents cross-domain contamination.
 
@@ -186,7 +186,7 @@ Choose one approach — Option A works immediately with no additional setup; Opt
 
 #### Option A — .mdc rules file
 
-Download the <DocsLink path="mobiscroll-connect.mdc" download><code>mobiscroll-connect.mdc</code></DocsLink> file and place it in `.cursor/rules/`:
+Download the {/* llms:docslink;path=mobiscroll-connect.mdc */}<DocsLink path="mobiscroll-connect.mdc" download><code>mobiscroll-connect.mdc</code></DocsLink>{/* /llms:docslink */} file and place it in `.cursor/rules/`:
 
 ```
 your-project/
@@ -201,7 +201,7 @@ The `.mdc` file provides text-based API rules — no additional setup required.
 
 #### Option B — Extended rule file + MCP
 
-Download the <DocsLink path="connect/SKILL.md" download filename="mobiscroll-connect-skill.mdc">mobiscroll-connect-skill.mdc</DocsLink> file and place it in `.cursor/rules/`:
+Download the {/* llms:docslink;path=connect/SKILL.md;filename=mobiscroll-connect-skill.mdc */}<DocsLink path="connect/SKILL.md" download filename="mobiscroll-connect-skill.mdc">mobiscroll-connect-skill.mdc</DocsLink>{/* /llms:docslink */} file and place it in `.cursor/rules/`:
 
 ```
 your-project/
@@ -224,6 +224,7 @@ For live endpoint and SDK lookups, configure the Mobiscroll Connect MCP server s
 
 Create or edit `.cursor/mcp.json` in your project root:
 
+{/* llms:mcpconfig;tool=cursor */}
 <McpConfigBlock tool="cursor" />
 
 :::warning No `type` field
@@ -267,7 +268,7 @@ Choose one approach — Option A works immediately with no additional setup; Opt
 
 #### Option A — .instructions.md rules file
 
-Download the <DocsLink path="copilot-instructions/mobiscroll-connect.instructions.md" download><code>mobiscroll-connect.instructions.md</code></DocsLink> file and place it in `.github/instructions/`:
+Download the {/* llms:docslink;path=copilot-instructions/mobiscroll-connect.instructions.md */}<DocsLink path="copilot-instructions/mobiscroll-connect.instructions.md" download><code>mobiscroll-connect.instructions.md</code></DocsLink>{/* /llms:docslink */} file and place it in `.github/instructions/`:
 
 ```
 your-project/
@@ -282,7 +283,7 @@ The `.instructions.md` file provides text-based API rules — no additional setu
 
 #### Option B — Extended instruction file + MCP
 
-Download the <DocsLink path="copilot-instructions/mobiscroll-connect-skill.instructions.md" download><code>mobiscroll-connect-skill.instructions.md</code></DocsLink> file and place it in `.github/instructions/`:
+Download the {/* llms:docslink;path=copilot-instructions/mobiscroll-connect-skill.instructions.md */}<DocsLink path="copilot-instructions/mobiscroll-connect-skill.instructions.md" download><code>mobiscroll-connect-skill.instructions.md</code></DocsLink>{/* /llms:docslink */} file and place it in `.github/instructions/`:
 
 ```
 your-project/
@@ -301,6 +302,7 @@ For live endpoint and SDK lookups, configure the Mobiscroll Connect MCP server s
 
 Create or edit `.vscode/mcp.json` in your project root:
 
+{/* llms:mcpconfig;tool=vscode */}
 <McpConfigBlock tool="vscode" />
 
 :::warning `"servers"` not `"mcpServers"`
@@ -366,6 +368,7 @@ Installing the plugin takes a snapshot of its skills — Claude Code won't pull 
 
 The plugin bundles the MCP server — no separate configuration is needed for most setups. To configure it manually or share it with your team:
 
+{/* llms:mcpcli */}
 <McpCliBlock />
 
 :::warning VS Code extension
@@ -374,10 +377,12 @@ If you are using the Claude Visual Studio Code extension, the server will not ap
 
 To share the server with your team automatically, use project scope:
 
+{/* llms:mcpcli;scope=project */}
 <McpCliBlock scope="project" />
 
 This creates or updates `.mcp.json` in your project root. You can also create that file manually:
 
+{/* llms:mcpconfig;tool=claude */}
 <McpConfigBlock tool="claude" />
 
 | Scope | CLI flag | Config location | Shared with team |
@@ -409,7 +414,7 @@ So Claude always uses the current Connect API and SDK signatures, never hallucin
 
 ### Alternative: manual CLAUDE.md routing (no plugin)
 
-If you prefer not to install the plugin, download <DocsLink path="connect/CLAUDE.md" download><code>CLAUDE.md</code></DocsLink> and place it in your project root — or copy its contents into an existing `CLAUDE.md` (see [File contents](#file-contents) below). Claude Code reads it automatically when it opens your project.
+If you prefer not to install the plugin, download {/* llms:docslink;path=connect/CLAUDE.md */}<DocsLink path="connect/CLAUDE.md" download><code>CLAUDE.md</code></DocsLink>{/* /llms:docslink */} and place it in your project root — or copy its contents into an existing `CLAUDE.md` (see [File contents](#file-contents) below). Claude Code reads it automatically when it opens your project.
 
 ```
 your-project/
@@ -495,32 +500,32 @@ All AI integration files and endpoints are available at the following URLs:
 
 | File | URL |
 |:---|:---|
-| Connect | <DocsUrl path="llms-connect.txt" /> |
-| Connect (full) | <DocsUrl path="llms-connect-full.txt" /> |
+| Connect | {/* llms:docsurl;path=llms-connect.txt */}<DocsUrl path="llms-connect.txt" /> |
+| Connect (full) | {/* llms:docsurl;path=llms-connect-full.txt */}<DocsUrl path="llms-connect-full.txt" /> |
 
 ### Rules files
 
 | File | Cursor (`.mdc`) | Copilot (`.instructions.md`) |
 |:---|:---|:---|
-| Connect rules | <DocsLink path="mobiscroll-connect.mdc" download /> | <DocsLink path="copilot-instructions/mobiscroll-connect.instructions.md" download /> |
+| Connect rules | {/* llms:docslink;path=mobiscroll-connect.mdc */}{/* /llms:docslink */}<DocsLink path="mobiscroll-connect.mdc" download /> | {/* llms:docslink;path=copilot-instructions/mobiscroll-connect.instructions.md */}{/* /llms:docslink */}<DocsLink path="copilot-instructions/mobiscroll-connect.instructions.md" download /> |
 
 ### Extended rule files
 
 | File | Cursor (`.mdc`) | Copilot (`.instructions.md`) |
 |:---|:---|:---|
-| Connect skill | <DocsLink path="connect/SKILL.md" download filename="mobiscroll-connect-skill.mdc"><code>mobiscroll-connect-skill.mdc</code></DocsLink> | <DocsLink path="copilot-instructions/mobiscroll-connect-skill.instructions.md" download /> |
+| Connect skill | {/* llms:docslink;path=connect/SKILL.md;filename=mobiscroll-connect-skill.mdc */}<DocsLink path="connect/SKILL.md" download filename="mobiscroll-connect-skill.mdc"><code>mobiscroll-connect-skill.mdc</code></DocsLink>{/* /llms:docslink */} | {/* llms:docslink;path=copilot-instructions/mobiscroll-connect-skill.instructions.md */}{/* /llms:docslink */}<DocsLink path="copilot-instructions/mobiscroll-connect-skill.instructions.md" download /> |
 
 ### Routing file
 
 | File | URL |
 |:---|:---|
-| Claude Code context | <DocsLink path="connect/CLAUDE.md" download /> |
+| Claude Code context | {/* llms:docslink;path=connect/CLAUDE.md */}{/* /llms:docslink */}<DocsLink path="connect/CLAUDE.md" download /> |
 
 ### MCP server
 
 | Server | URL |
 |:---|:---|
-| Mobiscroll MCP (UI + Connect) | <McpUrl /> |
+| Mobiscroll MCP (UI + Connect) | {/* llms:mcpurl */}<McpUrl /> |
 
 ## File contents {#file-contents}
 
@@ -530,6 +535,7 @@ The complete contents of each file are shown below. You can copy directly from t
 
 <details>
 <summary>View <code>CLAUDE.md</code></summary>
+{/* llms:fileblock;src=connect/CLAUDE.md */}
 <FileBlock src="connect/CLAUDE.md" />
 </details>
 
@@ -537,6 +543,7 @@ The complete contents of each file are shown below. You can copy directly from t
 
 <details>
 <summary>View <code>mobiscroll-connect.mdc</code></summary>
+{/* llms:fileblock;src=mobiscroll-connect.mdc */}
 <FileBlock src="mobiscroll-connect.mdc" />
 </details>
 
@@ -544,5 +551,6 @@ The complete contents of each file are shown below. You can copy directly from t
 
 <details>
 <summary>View <code>mobiscroll-connect-skill.mdc</code></summary>
+{/* llms:fileblock;src=connect/SKILL.md */}
 <FileBlock src="connect/SKILL.md" />
 </details>

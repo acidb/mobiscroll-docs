@@ -56,6 +56,7 @@ In most cases you only want to customize the content section of the event. In th
 ```
 
 Play with the slider below to see the differences.
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1256" height="528" src={require('@site/static/img/v6/normal-event-content-template-agenda.png').default} />
@@ -69,6 +70,7 @@ Play with the slider below to see the differences.
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 ### Full event templating
 
@@ -81,6 +83,7 @@ In case of full event templating, whenever there is an event (in the agenda, sch
 - For the timeline - use the [`timelineEvent`](api#slot-timelineEvent) template for the custom template
 
 Play with the slider below to see the differences.
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1920" height="950" src={require('@site/static/img/v6/normal-event-templating-scheduler.png').default} />
@@ -94,6 +97,7 @@ Play with the slider below to see the differences.
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 ## Resource templating
 
@@ -113,6 +117,7 @@ In case of the timeline view there are other parts of the Eventcalendar that can
 
 Play with the slider below to see the differences.
 
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1480" height="753" src={require('@site/static/img/v6/normal-resource-template-scheduler.png').default} />
@@ -126,6 +131,7 @@ Play with the slider below to see the differences.
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 ## Header templating
 
@@ -163,6 +169,7 @@ The above components can be used inside of the custom header. The following exam
 </MbscEventcalendar>
 ```
 Play with the slider below to see the differences.
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1256" height="547" src={require('@site/static/img/v6/normal-header-calendar.png').default} />
@@ -176,4 +183,5 @@ Play with the slider below to see the differences.
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 

@@ -48,9 +48,11 @@ When you are asked, please provide your credentials. If you haven't set a passwo
 
 **2. Configure the project**
 
+<!-- llms-fence: bash -->
 <CodeBlock language="bash">
 mobiscroll config {props.framework}
 </CodeBlock>
+<!-- /llms-fence -->
 
 At this point the trial package should be replaced with the commercial package, and building and running your project should work.
 
@@ -74,15 +76,19 @@ Extract the zip file you just downloaded, then grab the `js`, `src` and `css` fo
 
 Run the config command in your project's root folder with the `--no-npm` flag to proceed with the upgrade.
 
+<!-- llms-fence: bash -->
 <CodeBlock language="bash">
 mobiscroll config {props.framework} --no-npm
 </CodeBlock>
+<!-- /llms-fence -->
 
 The Mobiscroll CLI under the hood will create and install a local NPM package from the lib folder. After the installation is complete, your package.json file should have an entry for a dependency like this:
 
+<!-- llms-fence: json -->
 <CodeBlock language="json">
 "@mobiscroll/{props.framework}": "file:./src/lib/mobiscroll-package/mobiscroll-{props.framework}-5.27.1.tgz",
 </CodeBlock>
+<!-- /llms-fence -->
 
 The `.tgz` file referenced here is the Mobiscroll package and it should be added to your repository too.
 

@@ -139,19 +139,19 @@ Choose based on your preference and setup.
 
 | File | Format | For |
 |:---|:---|:---|
-| <DocsLink path="mobiscroll-jquery.mdc" download /> | Cursor rule file | Cursor |
-| <DocsLink path="copilot-instructions/mobiscroll-jquery.instructions.md" download /> | Copilot instruction file | GitHub Copilot |
+| {/* llms:docslink;path=mobiscroll-jquery.mdc */}{/* /llms:docslink */}<DocsLink path="mobiscroll-jquery.mdc" download /> | Cursor rule file | Cursor |
+| {/* llms:docslink;path=copilot-instructions/mobiscroll-jquery.instructions.md */}{/* /llms:docslink */}<DocsLink path="copilot-instructions/mobiscroll-jquery.instructions.md" download /> | Copilot instruction file | GitHub Copilot |
 
 **Option B — extended rules with MCP:**
 
 | File | Format | For |
 |:---|:---|:---|
-| <DocsLink path="mobiscroll-ui/SKILL.md" download filename="mobiscroll-ui.mdc">mobiscroll-ui.mdc</DocsLink> | Cursor extended rule (orchestrator) | Cursor |
-| <DocsLink path="docs/jquery/SKILL.md" download filename="mobiscroll-ui-jquery.mdc">mobiscroll-ui-jquery.mdc</DocsLink> | Cursor extended rule (jQuery) | Cursor |
-| <DocsLink path="mobiscroll-ui-theming/SKILL.md" download filename="mobiscroll-ui-theming.mdc">mobiscroll-ui-theming.mdc</DocsLink> | Cursor extended rule (theming) | Cursor |
-| <DocsLink path="copilot-instructions/mobiscroll-ui.instructions.md" download>mobiscroll-ui.instructions.md</DocsLink> | Copilot extended instruction (orchestrator) | GitHub Copilot |
-| <DocsLink path="copilot-instructions/mobiscroll-ui-jquery.instructions.md" download>mobiscroll-ui-jquery.instructions.md</DocsLink> | Copilot extended instruction (jQuery) | GitHub Copilot |
-| <DocsLink path="copilot-instructions/mobiscroll-ui-theming.instructions.md" download>mobiscroll-ui-theming.instructions.md</DocsLink> | Copilot extended instruction (theming) | GitHub Copilot |
+| {/* llms:docslink;path=mobiscroll-ui/SKILL.md;filename=mobiscroll-ui.mdc */}<DocsLink path="mobiscroll-ui/SKILL.md" download filename="mobiscroll-ui.mdc">mobiscroll-ui.mdc</DocsLink>{/* /llms:docslink */} | Cursor extended rule (orchestrator) | Cursor |
+| {/* llms:docslink;path=docs/jquery/SKILL.md;filename=mobiscroll-ui-jquery.mdc */}<DocsLink path="docs/jquery/SKILL.md" download filename="mobiscroll-ui-jquery.mdc">mobiscroll-ui-jquery.mdc</DocsLink>{/* /llms:docslink */} | Cursor extended rule (jQuery) | Cursor |
+| {/* llms:docslink;path=mobiscroll-ui-theming/SKILL.md;filename=mobiscroll-ui-theming.mdc */}<DocsLink path="mobiscroll-ui-theming/SKILL.md" download filename="mobiscroll-ui-theming.mdc">mobiscroll-ui-theming.mdc</DocsLink>{/* /llms:docslink */} | Cursor extended rule (theming) | Cursor |
+| {/* llms:docslink;path=copilot-instructions/mobiscroll-ui.instructions.md */}<DocsLink path="copilot-instructions/mobiscroll-ui.instructions.md" download>mobiscroll-ui.instructions.md</DocsLink>{/* /llms:docslink */} | Copilot extended instruction (orchestrator) | GitHub Copilot |
+| {/* llms:docslink;path=copilot-instructions/mobiscroll-ui-jquery.instructions.md */}<DocsLink path="copilot-instructions/mobiscroll-ui-jquery.instructions.md" download>mobiscroll-ui-jquery.instructions.md</DocsLink>{/* /llms:docslink */} | Copilot extended instruction (jQuery) | GitHub Copilot |
+| {/* llms:docslink;path=copilot-instructions/mobiscroll-ui-theming.instructions.md */}<DocsLink path="copilot-instructions/mobiscroll-ui-theming.instructions.md" download>mobiscroll-ui-theming.instructions.md</DocsLink>{/* /llms:docslink */} | Copilot extended instruction (theming) | GitHub Copilot |
 
 #### Which tool uses which files?
 
@@ -170,7 +170,7 @@ Open **Cursor Settings → Indexing & Docs** and add the documentation source fo
 
 | Framework | Name | URL |
 |:---|:---|:---|
-| jQuery | Mobiscroll jQuery | <DocsUrl path="llms-jquery-full.txt" /> |
+| jQuery | Mobiscroll jQuery | {/* llms:docsurl;path=llms-jquery-full.txt */}<DocsUrl path="llms-jquery-full.txt" /> |
 
 Only register the source matching your use case. Do not register multiple sources — this prevents cross-domain contamination.
 
@@ -180,7 +180,7 @@ Choose one approach — Option A works immediately with no additional setup; Opt
 
 #### Option A — .mdc rules file
 
-Download the <DocsLink path="mobiscroll-jquery.mdc" download><code>mobiscroll-jquery.mdc</code></DocsLink> file and place it in `.cursor/rules/`:
+Download the {/* llms:docslink;path=mobiscroll-jquery.mdc */}<DocsLink path="mobiscroll-jquery.mdc" download><code>mobiscroll-jquery.mdc</code></DocsLink>{/* /llms:docslink */} file and place it in `.cursor/rules/`:
 
 ```
 your-project/
@@ -197,9 +197,9 @@ The `.mdc` file provides text-based API rules — no additional setup required.
 
 Download the three extended rule files and place them in `.cursor/rules/`:
 
-- <DocsLink path="mobiscroll-ui/SKILL.md" download filename="mobiscroll-ui.mdc">mobiscroll-ui.mdc (orchestrator)</DocsLink>
-- <DocsLink path="docs/jquery/SKILL.md" download filename="mobiscroll-ui-jquery.mdc">mobiscroll-ui-jquery.mdc (jQuery conventions)</DocsLink>
-- <DocsLink path="mobiscroll-ui-theming/SKILL.md" download filename="mobiscroll-ui-theming.mdc">mobiscroll-ui-theming.mdc (theming)</DocsLink>
+- {/* llms:docslink;path=mobiscroll-ui/SKILL.md;filename=mobiscroll-ui.mdc */}<DocsLink path="mobiscroll-ui/SKILL.md" download filename="mobiscroll-ui.mdc">mobiscroll-ui.mdc (orchestrator)</DocsLink>{/* /llms:docslink */}
+- {/* llms:docslink;path=docs/jquery/SKILL.md;filename=mobiscroll-ui-jquery.mdc */}<DocsLink path="docs/jquery/SKILL.md" download filename="mobiscroll-ui-jquery.mdc">mobiscroll-ui-jquery.mdc (jQuery conventions)</DocsLink>{/* /llms:docslink */}
+- {/* llms:docslink;path=mobiscroll-ui-theming/SKILL.md;filename=mobiscroll-ui-theming.mdc */}<DocsLink path="mobiscroll-ui-theming/SKILL.md" download filename="mobiscroll-ui-theming.mdc">mobiscroll-ui-theming.mdc (theming)</DocsLink>{/* /llms:docslink */}
 
 ```
 your-project/
@@ -224,6 +224,7 @@ Configure the Mobiscroll MCP server so the extended rules can call it for live s
 
 Create or edit `.cursor/mcp.json` in your project root:
 
+{/* llms:mcpconfig;tool=cursor */}
 <McpConfigBlock tool="cursor" />
 
 :::warning No `type` field
@@ -269,7 +270,7 @@ Choose one approach — Option A works immediately with no additional setup; Opt
 
 #### Option A — .instructions.md rules file
 
-Download the <DocsLink path="copilot-instructions/mobiscroll-jquery.instructions.md" download><code>mobiscroll-jquery.instructions.md</code></DocsLink> file and place it in `.github/instructions/`:
+Download the {/* llms:docslink;path=copilot-instructions/mobiscroll-jquery.instructions.md */}<DocsLink path="copilot-instructions/mobiscroll-jquery.instructions.md" download><code>mobiscroll-jquery.instructions.md</code></DocsLink>{/* /llms:docslink */} file and place it in `.github/instructions/`:
 
 ```
 your-project/
@@ -286,9 +287,9 @@ The `.instructions.md` file provides text-based API rules — no additional setu
 
 Download the three extended instruction files and place them in `.github/instructions/`:
 
-- <DocsLink path="copilot-instructions/mobiscroll-ui.instructions.md" download>mobiscroll-ui.instructions.md (orchestrator)</DocsLink>
-- <DocsLink path="copilot-instructions/mobiscroll-ui-jquery.instructions.md" download>mobiscroll-ui-jquery.instructions.md (jQuery conventions)</DocsLink>
-- <DocsLink path="copilot-instructions/mobiscroll-ui-theming.instructions.md" download>mobiscroll-ui-theming.instructions.md (theming)</DocsLink>
+- {/* llms:docslink;path=copilot-instructions/mobiscroll-ui.instructions.md */}<DocsLink path="copilot-instructions/mobiscroll-ui.instructions.md" download>mobiscroll-ui.instructions.md (orchestrator)</DocsLink>{/* /llms:docslink */}
+- {/* llms:docslink;path=copilot-instructions/mobiscroll-ui-jquery.instructions.md */}<DocsLink path="copilot-instructions/mobiscroll-ui-jquery.instructions.md" download>mobiscroll-ui-jquery.instructions.md (jQuery conventions)</DocsLink>{/* /llms:docslink */}
+- {/* llms:docslink;path=copilot-instructions/mobiscroll-ui-theming.instructions.md */}<DocsLink path="copilot-instructions/mobiscroll-ui-theming.instructions.md" download>mobiscroll-ui-theming.instructions.md (theming)</DocsLink>{/* /llms:docslink */}
 
 ```
 your-project/
@@ -307,6 +308,7 @@ Configure the Mobiscroll MCP server so the extended instruction files can call i
 
 Create or edit `.vscode/mcp.json` in your project root:
 
+{/* llms:mcpconfig;tool=vscode */}
 <McpConfigBlock tool="vscode" />
 
 :::warning `"servers"` not `"mcpServers"`
@@ -380,6 +382,7 @@ Installing the plugin takes a snapshot of its skills — Claude Code won't pull 
 
 The plugin bundles the MCP server — no separate configuration is needed for most setups. To configure it manually or share it with your team:
 
+{/* llms:mcpcli */}
 <McpCliBlock />
 
 :::warning VS Code extension
@@ -388,10 +391,12 @@ If you are using the Claude Visual Studio Code extension, the server will not ap
 
 To share the server with your team automatically, use project scope:
 
+{/* llms:mcpcli;scope=project */}
 <McpCliBlock scope="project" />
 
 This creates or updates `.mcp.json` in your project root. You can also create that file manually:
 
+{/* llms:mcpconfig;tool=claude */}
 <McpConfigBlock tool="claude" />
 
 | Scope | CLI flag | Config location | Shared with team |
@@ -493,21 +498,21 @@ All AI integration files are available at the following URLs:
 
 | File | URL |
 |:---|:---|
-| jQuery | <DocsUrl path="llms-jquery-full.txt" /> |
+| jQuery | {/* llms:docsurl;path=llms-jquery-full.txt */}<DocsUrl path="llms-jquery-full.txt" /> |
 
 ### Rules files
 
 | File | Cursor (`.mdc`) | Copilot (`.instructions.md`) |
 |:---|:---|:---|
-| jQuery rules | <DocsLink path="mobiscroll-jquery.mdc" download /> | <DocsLink path="copilot-instructions/mobiscroll-jquery.instructions.md" download /> |
+| jQuery rules | {/* llms:docslink;path=mobiscroll-jquery.mdc */}{/* /llms:docslink */}<DocsLink path="mobiscroll-jquery.mdc" download /> | {/* llms:docslink;path=copilot-instructions/mobiscroll-jquery.instructions.md */}{/* /llms:docslink */}<DocsLink path="copilot-instructions/mobiscroll-jquery.instructions.md" download /> |
 
 ### Extended rule files
 
 | File | Cursor (`.mdc`) | Copilot (`.instructions.md`) |
 |:---|:---|:---|
-| Orchestrator | <DocsLink path="mobiscroll-ui/SKILL.md" download filename="mobiscroll-ui.mdc"><code>mobiscroll-ui.mdc</code></DocsLink> | <DocsLink path="copilot-instructions/mobiscroll-ui.instructions.md" download /> |
-| jQuery conventions | <DocsLink path="docs/jquery/SKILL.md" download filename="mobiscroll-ui-jquery.mdc"><code>mobiscroll-ui-jquery.mdc</code></DocsLink> | <DocsLink path="copilot-instructions/mobiscroll-ui-jquery.instructions.md" download /> |
-| Theming | <DocsLink path="mobiscroll-ui-theming/SKILL.md" download filename="mobiscroll-ui-theming.mdc"><code>mobiscroll-ui-theming.mdc</code></DocsLink> | <DocsLink path="copilot-instructions/mobiscroll-ui-theming.instructions.md" download /> |
+| Orchestrator | {/* llms:docslink;path=mobiscroll-ui/SKILL.md;filename=mobiscroll-ui.mdc */}<DocsLink path="mobiscroll-ui/SKILL.md" download filename="mobiscroll-ui.mdc"><code>mobiscroll-ui.mdc</code></DocsLink>{/* /llms:docslink */} | {/* llms:docslink;path=copilot-instructions/mobiscroll-ui.instructions.md */}{/* /llms:docslink */}<DocsLink path="copilot-instructions/mobiscroll-ui.instructions.md" download /> |
+| jQuery conventions | {/* llms:docslink;path=docs/jquery/SKILL.md;filename=mobiscroll-ui-jquery.mdc */}<DocsLink path="docs/jquery/SKILL.md" download filename="mobiscroll-ui-jquery.mdc"><code>mobiscroll-ui-jquery.mdc</code></DocsLink>{/* /llms:docslink */} | {/* llms:docslink;path=copilot-instructions/mobiscroll-ui-jquery.instructions.md */}{/* /llms:docslink */}<DocsLink path="copilot-instructions/mobiscroll-ui-jquery.instructions.md" download /> |
+| Theming | {/* llms:docslink;path=mobiscroll-ui-theming/SKILL.md;filename=mobiscroll-ui-theming.mdc */}<DocsLink path="mobiscroll-ui-theming/SKILL.md" download filename="mobiscroll-ui-theming.mdc"><code>mobiscroll-ui-theming.mdc</code></DocsLink>{/* /llms:docslink */} | {/* llms:docslink;path=copilot-instructions/mobiscroll-ui-theming.instructions.md */}{/* /llms:docslink */}<DocsLink path="copilot-instructions/mobiscroll-ui-theming.instructions.md" download /> |
 
 ## File contents {#file-contents}
 
@@ -517,16 +522,19 @@ The complete contents of each file are shown below. You can copy directly from t
 
 <details>
 <summary>View <code>mobiscroll-ui.mdc</code> (orchestrator)</summary>
+{/* llms:fileblock;src=mobiscroll-ui/SKILL.md */}
 <FileBlock src="mobiscroll-ui/SKILL.md" />
 </details>
 
 <details>
 <summary>View <code>mobiscroll-ui-jquery.mdc</code> (jQuery conventions)</summary>
+{/* llms:fileblock;src=docs/jquery/SKILL.md */}
 <FileBlock src="docs/jquery/SKILL.md" />
 </details>
 
 <details>
 <summary>View <code>mobiscroll-ui-theming.mdc</code> (theming)</summary>
+{/* llms:fileblock;src=mobiscroll-ui-theming/SKILL.md */}
 <FileBlock src="mobiscroll-ui-theming/SKILL.md" />
 </details>
 
@@ -534,6 +542,7 @@ The complete contents of each file are shown below. You can copy directly from t
 
 <details>
 <summary>View <code>mobiscroll-jquery.mdc</code></summary>
+{/* llms:fileblock;src=mobiscroll-jquery.mdc */}
 <FileBlock src="mobiscroll-jquery.mdc" />
 </details>
 

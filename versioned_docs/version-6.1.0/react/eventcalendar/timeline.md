@@ -571,6 +571,7 @@ Since cells are rendered frequently while scrolling, keep the customization ligh
 
 Check out how you can style the cell in [this example](https://demo.mobiscroll.com/scheduler/dynamic-cell-content-template#) or just play with the slider below to see the differences.
 
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1480" height="975" src={require('@site/static/img/v6/normal-cell-templating-timeline.png').default} />
@@ -584,6 +585,7 @@ Check out how you can style the cell in [this example](https://demo.mobiscroll.c
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 ### The resource, their header and footer
 There are three approaches you can take:
@@ -593,6 +595,7 @@ There are three approaches you can take:
 
 Check out how you can style these resource parts in [this example](https://demo.mobiscroll.com/timeline/timeline-resource-details-side-panel-footer#) or just play with the slider below to see the differences.
 
+{/* llms:blockremove */}
  <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1770" height="507" src={require('@site/static/img/v6/normal-resource-header-footer-timeline.png').default} />
@@ -606,6 +609,7 @@ Check out how you can style these resource parts in [this example](https://demo.
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 ### The sidebar, their header and footer
 Besides the resource template, an additional sidebar can be rendered on the opposite end of the row and there are three approaches you can take:
@@ -615,6 +619,7 @@ Besides the resource template, an additional sidebar can be rendered on the oppo
 
 Check out how you can style the sidebar parts in [this example](https://demo.mobiscroll.com/timeline/timeline-resource-details-side-panel-footer#) or just play with the slider below to see the differences.
 
+{/* llms:blockremove */}
  <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1770" height="507" src={require('@site/static/img/v6/normal-sidebar-header-footer-timeline.png').default} />
@@ -628,6 +633,7 @@ Check out how you can style the sidebar parts in [this example](https://demo.mob
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 ### The date header and footer
 
@@ -638,6 +644,7 @@ Depending on the resolution, the first Timeline row under the navigation header 
 #### Hourly header/footer template
 With an hourly (or sub-hourly) resolution the [renderHour](#renderer-renderHour) and [renderHourFooter](#renderer-renderHourFooter) options can be used for customizing the header and footer.
 
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1767" height="633" src={require('@site/static/img/v6/normal-hourly-header-timeline.png').default} />
@@ -651,10 +658,12 @@ With an hourly (or sub-hourly) resolution the [renderHour](#renderer-renderHour)
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 #### Daily header/footer template
 With a daily resolution, the [renderTimelineDay](#renderer-renderTimelineDay) and [renderDayFooter](#renderer-renderDayFooter) options can come in handy for customizing the header and footer.
 
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1767" height="635" src={require('@site/static/img/v6/normal-daily-header-timeline.png').default} />
@@ -668,10 +677,12 @@ With a daily resolution, the [renderTimelineDay](#renderer-renderTimelineDay) an
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 #### Weekly header/footer template
 When the resolution is weekly, the [renderWeek](#renderer-renderWeek) and [renderWeekFooter](#renderer-renderWeekFooter) options can be used.
 
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1767" height="593" src={require('@site/static/img/v6/normal-weekly-header-timeline.png').default} />
@@ -685,10 +696,12 @@ When the resolution is weekly, the [renderWeek](#renderer-renderWeek) and [rende
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 #### Monthly header/footer template
 When displaying multiple months, the [renderMonth](#renderer-renderMonth) and [renderMonthFooter](#renderer-renderMonthFooter) options can be used for customizing the header and footer per month.
 
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1767" height="593" src={require('@site/static/img/v6/normal-monthly-header-template.png').default} />
@@ -702,10 +715,12 @@ When displaying multiple months, the [renderMonth](#renderer-renderMonth) and [r
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 #### Quarter header/footer template
 When displaying multiple quarters, the [renderQuarter](#renderer-renderQuarter) and [renderQuarterFooter](#renderer-renderQuarterFooter) options can be used for customizing the header and footer per quarter.
 
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1767" height="593" src={require('@site/static/img/v6/normal-quarter-header-timeline.png').default} />
@@ -719,10 +734,12 @@ When displaying multiple quarters, the [renderQuarter](#renderer-renderQuarter) 
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 #### Yearly header/footer template
 With a yearly resolution, the [renderYear](#renderer-renderYear) and [renderYearFooter](#renderer-renderYearFooter) options can be used for customizing the header and footer.
 
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1767" height="593" src={require('@site/static/img/v6/normal-yearly-header-timeline.png').default} />
@@ -736,6 +753,7 @@ With a yearly resolution, the [renderYear](#renderer-renderYear) and [renderYear
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 Check out how you can style the date header and footer in [this example](https://demo.mobiscroll.com/timeline/hour-day-week-month-quarter-year-header-footer-template#) or just play with the sliders above to see the differences.
 
@@ -746,6 +764,7 @@ The buffers can be customized through the [renderBufferBefore](#renderer-renderB
 
 Check out how you can style the events and the buffer areas in [this example](https://demo.mobiscroll.com/timeline/timeline-custom-event-rendering#) or just play with the slider below to see the differences.
 
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1793" height="401" src={require('@site/static/img/v6/normal-event-buffer-templating-timeline.png').default} />
@@ -759,12 +778,14 @@ Check out how you can style the events and the buffer areas in [this example](ht
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 ### The event content
 If you are looking to customize only the content and don't want to bother with the styling of the event, you can use the [renderTimelineEventContent](#renderer-renderTimelineEventContent) option. Mobiscroll will position the event to the right place and will render essential information like the color of the event, the time and if it's an all day event or not. The title, description and any other fields you want to show (like participants or an avatar) will be coming from your custom function.
 
 Check out how you can style the event content in [this example](https://demo.mobiscroll.com/timeline/meal-planner#) or just play with the slider below to see the differences.
 
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1793" height="380" src={require('@site/static/img/v6/normal-event-content-timeline.png').default} />
@@ -778,12 +799,14 @@ Check out how you can style the event content in [this example](https://demo.mob
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 ### The event slots
 Use the [renderSlot](#renderer-renderSlot) option to customize the slot template of the Timeline view. Customize how the time slots look and what they show. Utilize properties passed in the [slots](#opt-slots) array. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well.
 
 Check out how you can style the slots in [this example](https://demo.mobiscroll.com/timeline/shift-template#) or just play with the slider below to see the differences.
 
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1539" height="274" src={require('@site/static/img/v6/normal-slot-template-timeline.png').default} />
@@ -797,6 +820,7 @@ Check out how you can style the slots in [this example](https://demo.mobiscroll.
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 ### The timeline header
 Customize how the header of the Timeline looks and how the components are arranged with the [renderHeader](#renderer-renderHeader) option. It takes a function that should return the desired markup. In the returned markup, you can use custom html as well as the built in header components of the calendar.
@@ -805,6 +829,7 @@ While fully customizing the header is very usefull, sometimes it's desireable to
 
 Check out how you can style the Timeline header in [this example](https://demo.mobiscroll.com/timeline/switching-day-week-work-week-timeline) or just play with the slider below to see the differences.
 
+{/* llms:blockremove */}
 <ImgComparisonSlider className="slider-example-split-line slider-with-animated-handle">
   <figure slot="first" className="before">
     <img width="1766" height="468" src={require('@site/static/img/v6/normal-header-template-timeline.png').default} />
@@ -818,6 +843,7 @@ Check out how you can style the Timeline header in [this example](https://demo.m
     <path stroke="#011742" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#011742" vectorEffect="non-scaling-stroke"></path>
   </svg>
 </ImgComparisonSlider>
+{/* /llms:blockremove */}
 
 ### Variable event height {#variable-event-height}
 

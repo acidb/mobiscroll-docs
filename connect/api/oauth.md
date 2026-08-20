@@ -24,37 +24,52 @@ This endpoint does not require authentication. It initiates the OAuth2 authoriza
 ### Request Parameters
 
 
+{/* llms:param;name=client_id;type=string;required=1 */}
 <Parameter name="client_id" type="string" required id="authorize-client_id">
 Project/application identifier. This uniquely identifies your application in the Mobiscroll Connect system.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=user_id;type=string;required=1 */}
 <Parameter name="user_id" type="string" required id="authorize-user_id">
 Your own unique identifier for the user in your system who is being authorized.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=scope;type=string;default=read-write */}
 <Parameter name="scope" type="string" defaultValue={<code>read-write</code>} id="authorize-scope">
 The scope of access requested from the user. Can be one of `free-busy`, `read`, or `read-write`. If not specified, defaults to `read-write`.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=redirect_uri;type=string;default=Retrieved from database */}
 <Parameter name="redirect_uri" type="string" defaultValue="Retrieved from database" id="authorize-redirect_uri">
 Callback URL after authorization completes. **Note:** This parameter is retrieved from the database based on the `client_id`, not from the query parameter. The user will be redirected to this URL with the authorization code.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=state;type=string;default=undefined */}
 <Parameter name="state" type="string" defaultValue={<code>undefined</code>} id="authorize-state">
 Optional state parameter to maintain across the OAuth flow. This is passed back to your redirect_uri and can be used to prevent CSRF attacks and maintain application state.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=lng;type=string;default=Accept-Language, then en */}
 <Parameter name="lng" type="string" defaultValue={<code>Accept-Language, then en</code>} id="authorize-lng">
 Language for the Connect pages (provider selection, consent, login, and error pages). Supported values: `en`, `es`, `fr`, `ar`. When omitted, the UI falls back to the browser's `Accept-Language` header, then English. Arabic (`ar`) renders right-to-left. Example: `?lng=es`.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=response_type;type=string;default=undefined */}
 <Parameter name="response_type" type="string" defaultValue={<code>undefined</code>} id="authorize-response_type">
 OAuth2 response type. Typically set to `"code"` for the authorization code flow.
 </Parameter>
+{/* /llms:param */}
 
 ### Response
 
 
+{/* llms:param;name=Redirect;type=302 - Redirect */}
 <Parameter name="Redirect" type="302 - Redirect" id="authorize-redirect">
 Redirects to the provider selection page (`/authorize`) with all query parameters preserved (including the resolved `redirect_uri` from the database). The provider selection page allows the user to:
 
@@ -72,7 +87,9 @@ After the user successfully authenticates and approves the authorization, they w
 https://app.example.com/callback?code=user-456&state=xyz789
 ```
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=Cookie;type=httpOnly */}
 <Parameter name="Cookie" type="httpOnly" id="authorize-cookie">
 Sets `oauth_req` cookie containing the complete OAuth request for later retrieval. The cookie has the following properties:
 
@@ -82,6 +99,7 @@ Sets `oauth_req` cookie containing the complete OAuth request for later retrieva
 - **sameSite**: lax
 
 </Parameter>
+{/* /llms:param */}
 
 ### Error Responses
 
@@ -327,30 +345,41 @@ Authorization: Basic base64(client_id:client_secret)
 ### Request Parameters
 
 
+{/* llms:param;name=grant_type;type=string;required=1 */}
 <Parameter name="grant_type" type="string" required id="token-grant_type">
 The OAuth2 grant type. Must be set to `"authorization_code"` for the authorization code flow.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=code;type=string;required=1 */}
 <Parameter name="code" type="string" required id="token-code">
 The authorization code received from the authorization endpoint. This code is the `user_id` and is returned to your `redirect_uri` after the user completes the authorization flow.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=redirect_uri;type=string;required=1 */}
 <Parameter name="redirect_uri" type="string" required id="token-redirect_uri">
 The redirect URI used in the authorization request. This must match exactly with the redirect URI used when obtaining the authorization code.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=client_id;type=string;default=undefined */}
 <Parameter name="client_id" type="string" defaultValue={<code>undefined</code>} id="token-client_id">
 Your application's client identifier. Required if not using HTTP Basic authentication.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=client_secret;type=string;default=undefined */}
 <Parameter name="client_secret" type="string" defaultValue={<code>undefined</code>} id="token-client_secret">
 Your application's client secret. Required if not using HTTP Basic authentication.
 </Parameter>
+{/* /llms:param */}
 
 ### Response
 
 
 
+{/* llms:param;name=access_token;type=string */}
 <Parameter name="access_token" type="string" id="token-response-access_token">
 The access token (JWT) that can be used to authenticate API requests. This token contains the user ID, client ID, and project ID in the payload.
 
@@ -362,15 +391,21 @@ An **access token** is a credential (usually a string) that your application rec
 A **JWT** is a secure, compact, URL-safe token format that encodes claims about the user and the application. Mobiscroll Connect uses JWTs as access tokens, which include information such as the user ID, client ID, and expiration time. The server verifies the JWT to ensure requests are authentic and authorized.
 :::
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=token_type;type=string */}
 <Parameter name="token_type" type="string" id="token-response-token_type">
 The type of token returned. Always `"Bearer"`.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=expires_in;type=number */}
 <Parameter name="expires_in" type="number" id="token-response-expires_in">
 The lifetime in seconds of the access token. `3600` (1 hour).
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=refresh_token;type=string */}
 <Parameter name="refresh_token" type="string" id="token-response-refresh_token">
 A refresh token that can be used to obtain a new access token when the current one expires. Refresh tokens do not expire on their own — they remain valid until used or explicitly revoked. Each use of a refresh token issues a new access token **and** a new refresh token (token rotation), and the previous refresh token is invalidated. Store this token securely on the server side.
 
@@ -384,6 +419,7 @@ If you lose the refresh token (e.g. it was never persisted, or was overwritten b
 Mobiscroll Connect implements **refresh token rotation**: every time you exchange a refresh token for a new access token, the server issues a brand-new refresh token and invalidates the old one. If an already-used (revoked) refresh token is presented again, the request is rejected with `invalid_grant`.
 :::
 </Parameter>
+{/* /llms:param */}
 
 ### Error Responses
 
@@ -604,36 +640,51 @@ Same as [Get Access Token](#endpoint-token) — HTTP Basic or request body crede
 
 ### Request Parameters
 
+{/* llms:param;name=grant_type;type=string;required=1 */}
 <Parameter name="grant_type" type="string" required id="refresh-grant_type">
 Must be `"refresh_token"`.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=refresh_token;type=string;required=1 */}
 <Parameter name="refresh_token" type="string" required id="refresh-refresh_token">
 The refresh token obtained from a previous token exchange.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=client_id;type=string;default=undefined */}
 <Parameter name="client_id" type="string" defaultValue={<code>undefined</code>} id="refresh-client_id">
 Your application's client identifier. Required if not using HTTP Basic authentication.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=client_secret;type=string;default=undefined */}
 <Parameter name="client_secret" type="string" defaultValue={<code>undefined</code>} id="refresh-client_secret">
 Your application's client secret. Required if not using HTTP Basic authentication.
 </Parameter>
+{/* /llms:param */}
 
 ### Response
 
+{/* llms:param;name=access_token;type=string */}
 <Parameter name="access_token" type="string" id="refresh-response-access_token">
 A new access token (JWT) valid for 1 hour.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=token_type;type=string */}
 <Parameter name="token_type" type="string" id="refresh-response-token_type">
 Always `"Bearer"`.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=expires_in;type=number */}
 <Parameter name="expires_in" type="number" id="refresh-response-expires_in">
 The lifetime in seconds of the new access token. `3600` (1 hour).
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=refresh_token;type=string */}
 <Parameter name="refresh_token" type="string" id="refresh-response-refresh_token">
 A new refresh token. The previously used refresh token is immediately invalidated. Store this new token in place of the old one.
 
@@ -650,6 +701,7 @@ The moment this endpoint responds successfully, the **old** refresh token is gon
 To mitigate this, persist the new token atomically (e.g. in a database transaction) before acknowledging success, and avoid concurrent refresh calls for the same user.
 :::
 </Parameter>
+{/* /llms:param */}
 
 ### Error Responses
 
@@ -791,9 +843,11 @@ This endpoint does not require authentication. The token itself is used to ident
 
 ### Request Body
 
+{/* llms:param;name=token;type=string;required=1 */}
 <Parameter name="token" type="string" required id="revoke-token">
 Either an access token or a refresh token. The server decodes it to extract the user and client identifiers, then revokes all active tokens for that user/client combination.
 </Parameter>
+{/* /llms:param */}
 
 ### Response
 

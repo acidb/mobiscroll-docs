@@ -21,18 +21,25 @@ Fetches events from multiple calendar providers simultaneously with support for 
 
 ### Request Parameters
 
+{/* llms:param;name=pageSize;type=number;default=250 */}
 <Parameter name="pageSize" type="number" defaultValue={<code>250</code>} id="param-pageSize">
 Number of events to fetch per request. Maximum value is capped at 1000.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=start;type=string;default=First day of the current month at 00:00:00 UTC */}
 <Parameter name="start" type="string" defaultValue="First day of the current month at 00:00:00 UTC" id="param-start">
 ISO date string to filter events starting from this date. Date strings are automatically normalized to handle malformed ISO 8601 formats.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=end;type=string;default=Last day of the current month at 23:59:59 UTC */}
 <Parameter name="end" type="string" defaultValue="Last day of the current month at 23:59:59 UTC" id="param-end">
 ISO date string to filter events ending before this date. Date strings are automatically normalized to handle malformed ISO 8601 formats.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=calendarIds;type=string;default=undefined */}
 <Parameter name="calendarIds" type="string" defaultValue={<code>undefined</code>} id="param-calendarIds">
 JSON stringified object of calendar IDs per provider. If not provided, events from all calendars will be fetched.
 
@@ -43,11 +50,15 @@ Calendar IDs that are not associated with the authenticated user's connected acc
 ```
 
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=nextPageToken;type=string;default=undefined */}
 <Parameter name="nextPageToken" type="string" defaultValue={<code>undefined</code>} id="param-nextPageToken">
 Base64 encoded JSON pagination state object containing token information for each provider (Google, Microsoft, Apple, CalDAV). This parameter should be passed as-is from the previous response when loading more events.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=singleEvents;type=boolean;default=true */}
 <Parameter name="singleEvents" type="boolean" defaultValue={<code>true</code>} id="param-singleEvents">
 Controls how recurring events are returned:
 
@@ -55,87 +66,126 @@ Controls how recurring events are returned:
 - <code>false</code> - Returns only the master recurring event (series definition) without individual occurrences
 
 </Parameter>
+{/* /llms:param */}
 
 ### Response
 
+{/* llms:param;name=events;type=Array&lt;CalendarEvent&gt; */}
 <Parameter name="events" type="Array&lt;CalendarEvent&gt;" id="response-events" isObject>
 Array of calendar events from all providers, sorted chronologically by start time. Each CalendarEvent object contains:
 
+  {/* llms:param;name=provider;type=string */}
   <Parameter name="provider" type="string">
   Provider name: <code>'google'</code>, <code>'microsoft'</code>, <code>'apple'</code>, or <code>'caldav'</code>
   </Parameter>
+  {/* /llms:param */}
 
+  {/* llms:param;name=id;type=string */}
   <Parameter name="id" type="string">
   Event ID
   </Parameter>
+  {/* /llms:param */}
 
+  {/* llms:param;name=calendarId;type=string */}
   <Parameter name="calendarId" type="string">
   Calendar ID
   </Parameter>
+  {/* /llms:param */}
 
+  {/* llms:param;name=title;type=string */}
   <Parameter name="title" type="string">
   Event title/summary
   </Parameter>
+  {/* /llms:param */}
 
+  {/* llms:param;name=description;type=string */}
   <Parameter name="description" type="string">
   Event description or notes (optional)
   </Parameter>
+  {/* /llms:param */}
 
+  {/* llms:param;name=start;type=Date */}
   <Parameter name="start" type="Date">
   Event start date/time
   </Parameter>
+  {/* /llms:param */}
 
+  {/* llms:param;name=end;type=Date */}
   <Parameter name="end" type="Date">
   Event end date/time
   </Parameter>
+  {/* /llms:param */}
 
+  {/* llms:param;name=allDay;type=boolean */}
   <Parameter name="allDay" type="boolean">
   True if all-day event
   </Parameter>
+  {/* /llms:param */}
 
+  {/* llms:param;name=recurringEventId;type=string */}
   <Parameter name="recurringEventId" type="string">
   ID of the recurring event series (if this is an instance of a recurring event) (optional)
   </Parameter>
+  {/* /llms:param */}
 
+  {/* llms:param;name=color;type=string */}
   <Parameter name="color" type="string">
   Event background color (optional)
   </Parameter>
+  {/* /llms:param */}
 
+  {/* llms:param;name=location;type=string */}
   <Parameter name="location" type="string">
   Event location (optional)
   </Parameter>
+  {/* /llms:param */}
 
+  {/* llms:param;name=attendees;type=Array&lt;EventAttendee&gt; */}
   <Parameter name="attendees" type="Array&lt;EventAttendee&gt;" isObject>
   Array of event attendees (optional). Each object contains:
 
+  {/* llms:param;name=email;type=string */}
   <Parameter name="email" type="string">
   Attendee email address
   </Parameter>
+  {/* /llms:param */}
 
+  {/* llms:param;name=status;type=string */}
   <Parameter name="status" type="string">
   Response status: <code>'accepted'</code>, <code>'declined'</code>, <code>'tentative'</code>, or <code>'none'</code>
   </Parameter>
+  {/* /llms:param */}
 
+  {/* llms:param;name=organizer;type=boolean */}
   <Parameter name="organizer" type="boolean">
   True if this attendee is the event organizer (optional)
   </Parameter>
+  {/* /llms:param */}
 
   </Parameter>
+  {/* /llms:param */}
 
+{/* llms:param;name=custom;type=object */}
 <Parameter name="custom" type="object">
 Custom key-value pairs for additional event data (optional)
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=conference;type=string */}
 <Parameter name="conference" type="string">
 Conference meeting URL (optional).
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=conferenceData;type=object */}
 <Parameter name="conferenceData" type="object" isObject>
 Provider-specific conference metadata returned by the API (optional). Use this when you need details beyond the <code>conference</code> link.
 
+  {/* llms:param;name=provider;type=string */}
   <Parameter name="provider" type="string">
   Conference provider identifier. Typical values: <code>google-meet</code>, <code>microsoft-teams</code>, <code>zoom</code>, <code>webex</code>.
   </Parameter>
+  {/* /llms:param */}
 
   Additional fields vary by provider and are returned as-is when available.
   Typical examples:
@@ -144,40 +194,58 @@ Provider-specific conference metadata returned by the API (optional). Use this w
   - Apple/CalDAV: usually only <code>provider</code>
 
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=availability;type=string */}
 <Parameter name="availability" type="string">
 Event availability: <code>'busy'</code> or <code>'free'</code> (optional)
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=privacy;type=string */}
 <Parameter name="privacy" type="string">
 Event privacy: <code>'public'</code>, <code>'private'</code>, or <code>'confidential'</code> (optional)
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=status;type=string */}
 <Parameter name="status" type="string">
 Event status: <code>'confirmed'</code>, <code>'tentative'</code>, or <code>'cancelled'</code> (optional)
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=lastModified;type=string */}
 <Parameter name="lastModified" type="string">
 ISO 8601 timestamp of when the event was last modified (optional)
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=link;type=string */}
 <Parameter name="link" type="string">
 Public event link (optional)
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=original;type=object */}
 <Parameter name="original" type="object">
 Original event object from the provider
 </Parameter>
+{/* /llms:param */}
 
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=pageSize;type=number */}
 <Parameter name="pageSize" type="number" id="response-pageSize">
 Number of events per page.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=nextPageToken;type=string */}
 <Parameter name="nextPageToken" type="string" id="response-nextPageToken">
 Base64 encoded pagination state for the next request. Pass this value as the [nextPageToken](#param-nextPageToken) parameter when loading more events. Only included in the response if more events are available.
 </Parameter>
+{/* /llms:param */}
 
 ### Error Responses
 
@@ -522,138 +590,200 @@ Supports creating single events or recurring events with recurrence rules. The e
 
 ### Request Body
 
+{/* llms:param;name=provider;type=string;required=1 */}
 <Parameter name="provider" type="string" required id="create-provider">
 Calendar provider where the event will be created. One of: <code>'google'</code>, <code>'microsoft'</code>, <code>'apple'</code>, or <code>'caldav'</code>.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=calendarId;type=string;required=1 */}
 <Parameter name="calendarId" type="string" required id="create-calendarId">
 The calendar identifier where the event will be created.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=title;type=string;required=1 */}
 <Parameter name="title" type="string" required id="create-title">
 The event title/summary.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=start;type=string;required=1 */}
 <Parameter name="start" type="string" required id="create-start">
 ISO date string for the event start time.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=end;type=string;required=1 */}
 <Parameter name="end" type="string" required id="create-end">
 ISO date string for the event end time.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=description;type=string;default=undefined */}
 <Parameter name="description" type="string" defaultValue={<code>undefined</code>} id="create-description">
 Event description or notes.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=location;type=string;default=undefined */}
 <Parameter name="location" type="string" defaultValue={<code>undefined</code>} id="create-location">
 Event location (address, meeting room, etc.).
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=allDay;type=boolean;default=false */}
 <Parameter name="allDay" type="boolean" defaultValue={<code>false</code>} id="create-allDay">
 Whether this is an all-day event.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=attendees;type=string[];default=undefined */}
 <Parameter name="attendees" type="string[]" defaultValue={<code>undefined</code>} id="create-attendees">
 Array of attendee email addresses.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=recurrence;type=object;default=undefined */}
 <Parameter name="recurrence" type="object" defaultValue={<code>undefined</code>} id="create-recurrence">
 Recurrence rule for creating a recurring event series. Object with the following properties:
 
+{/* llms:param;name=frequency;type=string;required=1 */}
 <Parameter name="frequency" type="string" required>
 Recurrence frequency: <code>'DAILY'</code>, <code>'WEEKLY'</code>, <code>'MONTHLY'</code>, or <code>'YEARLY'</code>
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=interval;type=number */}
 <Parameter name="interval" type="number">
 Interval between occurrences (e.g., 2 for every 2 weeks)
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=count;type=number */}
 <Parameter name="count" type="number">
 Number of occurrences (mutually exclusive with <code>until</code>)
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=until;type=string */}
 <Parameter name="until" type="string">
 End date in format <code>YYYYMMDDTHHMMSSZ</code> (mutually exclusive with <code>count</code>)
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=byDay;type=string[] */}
 <Parameter name="byDay" type="string[]">
 Array of weekday codes: <code>['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU']</code>
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=byMonthDay;type=number[] */}
 <Parameter name="byMonthDay" type="number[]">
 Array of days of the month (1-31)
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=byMonth;type=number[] */}
 <Parameter name="byMonth" type="number[]">
 Array of months (1-12)
 </Parameter>
+{/* /llms:param */}
 
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=custom;type=object;default=undefined */}
 <Parameter name="custom" type="object" defaultValue={<code>undefined</code>} id="create-custom">
 Custom key-value pairs for additional event data.
 </Parameter>
+{/* /llms:param */}
 
 :::info External IDs
 If you need to associate provider-generated event IDs with your own domain entities, store your external/business ID in <code>custom</code> (for example <code>custom.externalEventId = "icoll-rdv-123"</code>).
 :::
 
+{/* llms:param;name=conference;type=string;default=undefined */}
 <Parameter name="conference" type="string" defaultValue={<code>undefined</code>} id="create-conference">
 Conference meeting URL (optional). Backward compatibility is preserved for legacy <code>conference</code> string usage.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=conferenceData;type=object;default=undefined */}
 <Parameter name="conferenceData" type="object" defaultValue={<code>undefined</code>} id="create-conferenceData" isObject>
 Extra conference options and provider-specific metadata (optional).
 
+{/* llms:param;name=provider;type=string */}
 <Parameter name="provider" type="string">
 Conference provider identifier. Typical values: <code>google-meet</code>, <code>microsoft-teams</code>, <code>zoom</code>, <code>webex</code>.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=autoGenerate;type=boolean */}
 <Parameter name="autoGenerate" type="boolean">
 Set to <code>true</code> to auto-generate a provider meeting link when supported.
 When <code>autoGenerate</code> is <code>true</code>, <code>conference</code> and other <code>conferenceData</code> fields are ignored.
 </Parameter>
+{/* /llms:param */}
 
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=availability;type=string;default=undefined */}
 <Parameter name="availability" type="string" defaultValue={<code>undefined</code>} id="create-availability">
 Event availability: <code>'free'</code> or <code>'busy'</code>.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=privacy;type=string;default=undefined */}
 <Parameter name="privacy" type="string" defaultValue={<code>undefined</code>} id="create-privacy">
 Event privacy: <code>'public'</code>, <code>'private'</code>, or <code>'confidential'</code>.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=status;type=string;default=undefined */}
 <Parameter name="status" type="string" defaultValue={<code>undefined</code>} id="create-status">
 Event status: <code>'confirmed'</code>, <code>'tentative'</code>, or <code>'cancelled'</code>.
 </Parameter>
+{/* /llms:param */}
 
 ### Response
 
+{/* llms:param;name=success;type=boolean */}
 <Parameter name="success" type="boolean" id="create-response-success">
 Indicates whether the event was created successfully.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=id;type=string */}
 <Parameter name="id" type="string" id="create-response-id">
 The event ID.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=title;type=string */}
 <Parameter name="title" type="string" id="create-response-title">
 The event title.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=start;type=Date */}
 <Parameter name="start" type="Date" id="create-response-start">
 The event start date/time.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=end;type=Date */}
 <Parameter name="end" type="Date" id="create-response-end">
 The event end date/time.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=message;type=string */}
 <Parameter name="message" type="string" id="create-response-message">
 Error or status message (included on failure).
 </Parameter>
+{/* /llms:param */}
 
 :::info
 The response includes all properties of the created [CalendarEvent](#response-events) object merged at the root level.
@@ -1108,22 +1238,31 @@ Supports updating single events, recurring event series, or individual instances
 
 ### Request Body
 
+{/* llms:param;name=provider;type=string;required=1 */}
 <Parameter name="provider" type="string" required id="update-provider">
 Calendar provider where the event exists. One of: <code>'google'</code>, <code>'microsoft'</code>, <code>'apple'</code>, or <code>'caldav'</code>.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=eventId;type=string;required=1 */}
 <Parameter name="eventId" type="string" required id="update-eventId">
 The event identifier to update.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=calendarId;type=string;required=1 */}
 <Parameter name="calendarId" type="string" required id="update-calendarId">
 The calendar identifier containing the event.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=recurringEventId;type=string;default=undefined */}
 <Parameter name="recurringEventId" type="string" defaultValue={<code>undefined</code>} id="update-recurringEventId">
 The ID of the recurring event series. Required when updating an instance of a recurring event.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=updateMode;type=string;default=undefined */}
 <Parameter name="updateMode" type="string" defaultValue={<code>undefined</code>} id="update-updateMode">
 Controls which events in a recurring series are updated:
 
@@ -1133,56 +1272,81 @@ Controls which events in a recurring series are updated:
 
 Only applicable for recurring events. If not specified, updates the single event or series master.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=title;type=string */}
 <Parameter name="title" type="string" id="update-title">
 The event title/summary.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=start;type=string */}
 <Parameter name="start" type="string" id="update-start">
 ISO date string for the event start time.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=end;type=string */}
 <Parameter name="end" type="string" id="update-end">
 ISO date string for the event end time.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=description;type=string */}
 <Parameter name="description" type="string" id="update-description">
 Event description or notes.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=location;type=string */}
 <Parameter name="location" type="string" id="update-location">
 Event location.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=allDay;type=boolean */}
 <Parameter name="allDay" type="boolean" id="update-allDay">
 Whether this is an all-day event.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=attendees;type=string[] */}
 <Parameter name="attendees" type="string[]" id="update-attendees">
 Array of attendee email addresses.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=custom;type=object */}
 <Parameter name="custom" type="object" id="update-custom">
 Custom key-value pairs for additional event data.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=conference;type=string */}
 <Parameter name="conference" type="string" id="update-conference">
 Conference meeting URL update (optional).
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=conferenceData;type=object */}
 <Parameter name="conferenceData" type="object" id="update-conferenceData" isObject>
 Extra conference options and provider-specific metadata update (optional).
 
+{/* llms:param;name=provider;type=string */}
 <Parameter name="provider" type="string">
 Conference provider identifier. Typical values: <code>google-meet</code>, <code>microsoft-teams</code>, <code>zoom</code>, <code>webex</code>.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=autoGenerate;type=boolean */}
 <Parameter name="autoGenerate" type="boolean">
 Set to <code>true</code> to auto-generate a provider meeting link when supported.
 When <code>autoGenerate</code> is <code>true</code>, <code>conference</code> and other <code>conferenceData</code> fields are ignored.
 </Parameter>
+{/* /llms:param */}
 
 </Parameter>
+{/* /llms:param */}
 
 :::info Conference update behavior by provider
 - <code>google</code>: supports <code>conference</code> and <code>conferenceData.autoGenerate</code>
@@ -1192,33 +1356,45 @@ When <code>autoGenerate</code> is <code>true</code>, <code>conference</code> and
 - <code>conferenceData.provider</code> identifies the conference system (for example <code>google-meet</code>, <code>microsoft-teams</code>)
 :::
 
+{/* llms:param;name=availability;type=string */}
 <Parameter name="availability" type="string" id="update-availability">
 Event availability: <code>'free'</code> or <code>'busy'</code>.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=privacy;type=string */}
 <Parameter name="privacy" type="string" id="update-privacy">
 Event privacy: <code>'public'</code>, <code>'private'</code>, or <code>'confidential'</code>.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=status;type=string */}
 <Parameter name="status" type="string" id="update-status">
 Event status: <code>'confirmed'</code>, <code>'tentative'</code>, or <code>'cancelled'</code>.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=recurrence;type=object */}
 <Parameter name="recurrence" type="object" id="update-recurrence">
 Recurrence rule for updating recurring event properties. Same structure as [create recurrence](#create-recurrence).
 </Parameter>
+{/* /llms:param */}
 
 ### Response
 
 Same structure as [Create Event response](#create-response-success).
 
+{/* llms:param;name=success;type=boolean */}
 <Parameter name="success" type="boolean" id="update-response-success">
 Indicates whether the event was updated successfully.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=message;type=string */}
 <Parameter name="message" type="string" id="update-response-message">
 Error or status message (included on failure).
 </Parameter>
+{/* /llms:param */}
 
 :::info
 The response includes all properties of the updated [CalendarEvent](#response-events) object merged at the root level.
@@ -1585,22 +1761,31 @@ Supports deleting single events, recurring event series, or individual instances
 
 ### Request Body
 
+{/* llms:param;name=provider;type=string;required=1 */}
 <Parameter name="provider" type="string" required id="delete-provider">
 Calendar provider where the event exists. One of: <code>'google'</code>, <code>'microsoft'</code>, <code>'apple'</code>, or <code>'caldav'</code>.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=eventId;type=string;required=1 */}
 <Parameter name="eventId" type="string" required id="delete-eventId">
 The event identifier to delete.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=calendarId;type=string;required=1 */}
 <Parameter name="calendarId" type="string" required id="delete-calendarId">
 The calendar identifier containing the event.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=recurringEventId;type=string;default=undefined */}
 <Parameter name="recurringEventId" type="string" defaultValue={<code>undefined</code>} id="delete-recurringEventId">
 The ID of the recurring event series. Required when deleting an instance of a recurring event.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=deleteMode;type=string;default=undefined */}
 <Parameter name="deleteMode" type="string" defaultValue={<code>undefined</code>} id="delete-deleteMode">
 Controls which events in a recurring series are deleted:
 
@@ -1610,16 +1795,21 @@ Controls which events in a recurring series are deleted:
 
 Only applicable for recurring events. If not specified, deletes the single event or entire series.
 </Parameter>
+{/* /llms:param */}
 
 ### Response
 
+{/* llms:param;name=success;type=boolean */}
 <Parameter name="success" type="boolean" id="delete-response-success">
 Indicates whether the event was deleted successfully.
 </Parameter>
+{/* /llms:param */}
 
+{/* llms:param;name=message;type=string */}
 <Parameter name="message" type="string" id="delete-response-message">
 Confirmation or error message.
 </Parameter>
+{/* /llms:param */}
 
 ### Error Responses
 

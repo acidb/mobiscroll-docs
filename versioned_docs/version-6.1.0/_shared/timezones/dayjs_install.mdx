@@ -8,6 +8,7 @@ npm install dayjs
 
 **2.** After installing the library, the `utc` and `timezone` plugins need to be included. You'll also need to import the `dayjsTimezone` plugin from mobiscroll:
 
+<!-- llms-fence: javascript | Day.js library import -->
 <CodeBlock language="javascript" title="Day.js library import">{
 `import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
@@ -18,9 +19,11 @@ import '@mobiscroll/${props.framework}/dist/css/mobiscroll.min.css';
 dayjs.extend(utc);
 dayjs.extend(timezone);`
 }</CodeBlock>
+<!-- /llms-fence -->
 
 **3.** Then set the mobiscroll's reference to the imported library:
 
+<!-- llms-fence: javascript | Day.js library setup -->
 <CodeBlock language="javascript" title="Day.js library setup">{
 `import dayjs from 'dayjs';
 import { dayjsTimezone } from '@mobiscroll/${props.framework}';
@@ -28,3 +31,4 @@ import '@mobiscroll/${props.framework}/dist/css/mobiscroll.min.css';
 // highlight-next-line
 dayjsTimezone.dayjs = dayjs;`
 }</CodeBlock>
+<!-- /llms-fence -->

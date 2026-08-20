@@ -19,6 +19,56 @@ function detectFramework(filePath) {
   return null;
 }
 
+// Versioned llms output (e.g. build/5.35.0/...) sits alongside the main
+// unversioned build/ output. Returns the version segment ('5.35.0') for
+// files under such a subtree, else null.
+const VERSION_DIRS = ['5.35.0'];
+
+function detectVersionPrefix(filePath) {
+  const relative = path.relative(BUILD_DIR, filePath).replace(/\\/g, '/');
+  for (const v of VERSION_DIRS) {
+    if (relative === v || relative.startsWith(`${v}/`)) {
+      return v;
+    }
+  }
+  return null;
+}
+
+// docusaurus-plugin-llms's `versions` option resolves page-to-page links via
+// a route-scoping filter that compares against a bare version prefix
+// ('/5.35.0') while this site's real routes include the baseUrl
+// ('/docs/5.35.0/...') — the filter never matches, so every v5 cross-link
+// falls back to a version-blind URL, e.g. `](https://mobiscroll.com/docs/
+// react/eventcalendar/calendar.md)` instead of `.../docs/5.35.0/react/...`.
+// See llms-v5-plugin.config.js for the full root-cause writeup and why this
+// is fixed here (post-build text rewrite) instead of in the plugin itself.
+//
+// Rewriting is existence-checked against the real build output rather than
+// guessing from path shape, so links that are correctly unversioned (shared
+// static assets like copilot-instructions/... or mobiscroll-ui/SKILL.md,
+// which aren't duplicated per version) are never touched.
+function rewriteVersionedLinks(content, versionPrefix) {
+  if (!versionPrefix) return content;
+  const linkRe = /(\]\(https:\/\/mobiscroll\.com\/docs\/)([^)\s]+)(\))/g;
+  // Skip fenced code blocks — only rewrite links in prose/table text.
+  const segments = content.split(/(```[\s\S]*?```)/);
+  for (let i = 0; i < segments.length; i += 2) {
+    segments[i] = segments[i].replace(linkRe, (m, prefix, linkPath, suffix) => {
+      if (linkPath.startsWith(`${versionPrefix}/`)) return m;
+      const [pathOnly] = linkPath.split(/[?#]/);
+      let candidate;
+      try {
+        candidate = path.join(BUILD_DIR, versionPrefix, decodeURIComponent(pathOnly));
+      } catch {
+        return m; // malformed percent-encoding — leave untouched
+      }
+      if (!fs.existsSync(candidate)) return m;
+      return `${prefix}${versionPrefix}/${linkPath}${suffix}`;
+    });
+  }
+  return segments.join('');
+}
+
 // Collect all .txt and .md files recursively
 function collectFiles(dir, result = []) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -154,7 +204,7 @@ function decodeHtmlEntities(text, includeAngleBrackets = false) {
   return result;
 }
 
-function stripJsx(content, framework) {
+function stripJsx(content, framework, versionPrefix) {
   // Normalize Windows CRLF to LF so blank-line collapse (\n{3,}) works correctly
   content = content.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
   // Resolve MDX prop {props.framework} before any other processing
@@ -428,10 +478,14 @@ function stripJsx(content, framework) {
 
   // Clean up excessive blank lines (3+ → 2), trim leading blank lines, then decode HTML entities.
   // Pass !!framework so &lt;/&gt; are decoded for framework files but preserved for connect/icons.
-  return decodeHtmlEntities(
+  let result = decodeHtmlEntities(
     out.join('\n').replace(/\n{3,}/g, '\n\n').replace(/^\n+/, ''),
     !!framework
   );
+  if (versionPrefix) {
+    result = rewriteVersionedLinks(result, versionPrefix);
+  }
+  return result;
 }
 
 // ─── Main ────────────────────────────────────────────────────────────────────
@@ -440,8 +494,9 @@ let processed = 0;
 
 for (const file of files) {
   const framework = detectFramework(file);
+  const versionPrefix = detectVersionPrefix(file);
   const original = fs.readFileSync(file, 'utf8');
-  const cleaned = stripJsx(original, framework);
+  const cleaned = stripJsx(original, framework, versionPrefix);
   if (cleaned !== original) {
     fs.writeFileSync(file, cleaned, 'utf8');
     processed++;

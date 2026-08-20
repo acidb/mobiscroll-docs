@@ -15,17 +15,30 @@
 // Deliberately does NOT set `pathTransformation` here. This site's baseUrl
 // is '/docs', so Docusaurus's real routesPaths include that segment (e.g.
 // '/docs/5.35.0/react/...'), but the plugin's `versions` routePrefix scoping
-// compares against a bare '/5.35.0' — it never matches, so link resolution
-// always falls back to unscoped suffix-matching (which prefers the shorter,
-// unversioned 6.1.0 route for any page that exists in both versions) UNLESS
-// that fallback path is itself forced via pathTransformation — but doing so
-// double-applies the version segment together with `versions`' own
-// outputSubdir, corrupting individual file paths to build/5.35.0/5.35.0/...
-// So: this config only fixes file placement (via versions/outputSubdir);
-// the resulting wrong (unversioned) links inside the generated content are
-// corrected afterward by scripts/fix-v5-links.js as a plain text rewrite —
-// see that script for why a post-process fix was chosen over a plugin-level
-// one.
+// (lib/index.js) builds routePrefix as a bare '/5.35.0' — it never matches
+// any real route, so resolveDocumentUrl returns undefined for every v5 doc
+// and link resolution falls back to a legacy, version-blind path-construction
+// branch (lib/processor.js). That's why every cross-reference link inside
+// v5's generated content is missing its '5.35.0/' segment.
+//
+// The obvious plugin-side fix (patch routePrefix to include baseUrl) was
+// rejected: the write path for each per-page file already derives from the
+// same doc.url this would change, joined onto versionedOutDir (which already
+// contains '5.35.0' via `versions`' own outputSubdir). Making resolveDocumentUrl
+// succeed would make doc.url correctly include '5.35.0/...' too, and the two
+// would stack into build/5.35.0/5.35.0/... — the same doubling bug already
+// seen once with a pathTransformation.addPaths workaround, just triggered
+// from the other direction. Fixing it at the source would need a second,
+// coordinated patch in generator.js, re-verified on every plugin upgrade.
+//
+// So: this config only fixes file placement (via versions/outputSubdir); the
+// resulting wrong (unversioned) links inside the generated content are
+// corrected afterward, as a post-build text rewrite, by
+// scripts/strip-jsx.js's rewriteVersionedLinks() — it only rewrites a link
+// when the versioned target actually exists on disk under build/5.35.0/,
+// so it can't accidentally version a link that's correctly unversioned
+// (e.g. shared static assets like copilot-instructions/... or
+// mobiscroll-ui/SKILL.md, which aren't duplicated per version).
 //
 // Run scripts/copy-v5-descriptions.js before building to ensure description
 // frontmatter is populated in versioned_docs/version-5.35.0.

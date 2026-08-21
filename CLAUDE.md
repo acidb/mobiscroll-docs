@@ -115,7 +115,9 @@ algolia-search.md      Algolia crawl/indexing setup and workflow docs
 config.json            Local machine path to marketplace project (not committed to CI)
 .claude/
   hooks/               Node scripts backing the AI logging hooks (lib.js, post-tool-use-log.js,
-                       user-prompt-submit.js, stop.js) — see .ai/SYSTEM.md § 2
+                       user-prompt-submit.js, stop.js) — see .ai/SYSTEM.md § 2. Also
+                       post-tool-use-marker-check.js — auto-inserts/flags missing llms markers
+                       on doc edits per scripts/llms-marker-rules.js, see .ai/SYSTEM.md § 4
   settings.json        Hook wiring (UserPromptSubmit, PostToolUse, Stop)
 .ai/                   AI agent infrastructure
   SYSTEM.md            Agent operating rules (read this every session)

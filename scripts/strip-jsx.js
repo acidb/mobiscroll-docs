@@ -1,6 +1,10 @@
 #!/usr/bin/env node
 // Post-build script: strips MDX/JSX artifacts from generated LLM files.
 // Handles imports and component tags while preserving code block content.
+// The components needing a marker (and why) are catalogued in
+// scripts/llms-marker-rules.js — the canonical list also used by
+// .claude/hooks/post-tool-use-marker-check.js at edit time. Keep both in
+// sync if a component is added, removed, or reclassified.
 
 const fs = require('fs');
 const path = require('path');

@@ -296,9 +296,23 @@ Run this on all new or edited documentation content before finalizing.
 6. **Generic claims** — flag sentences that make unverifiable claims (e.g., "the best", "the fastest") that are not banned vocabulary but are weak copy.
 7. **Structural inconsistency** — if the page is part of a series (same component, different framework), check that headings and section order match sibling pages.
 
+### llms marker check (hook-enforced, not manual)
+
+Unlike rules 1–7 above, this one isn't Claude's judgment call — `.claude/hooks/post-tool-use-marker-check.js`
+runs automatically after every `Edit`/`Write`/`MultiEdit` on a `.md`/`.mdx` file and checks it against
+`scripts/llms-marker-rules.js`, the canonical list of components that need an `{/* llms:TYPE */}` (or
+`<!-- llms-fence -->`) marker or their content silently disappears from the generated llms output — see
+`writing-docs.md`'s "Marking up component content the llms plugin would otherwise delete" section for the
+full marker table. For mechanically unambiguous cases (`DocsUrl`, `McpUrl`, `McpConfigBlock`, `McpCliBlock`,
+`FileBlock`, `PostmanRunButton`, `ImgComparisonSlider`) the hook inserts the marker itself and reports it via
+exit 2; for cases needing judgment (`CodeBlock` fence wrapping, `DocsLink`, `Parameter`) it only flags them,
+never edits. When this hook's output appears: verify every auto-inserted marker actually looks correct
+(don't just trust it), add a marker by hand for anything flagged, and mention both in the log entry's
+`outcome` before finalizing — the hook enforces detection, not correctness.
+
 ### How to invoke
 
-The validation pipeline is manual — run it as part of the review step before every commit proposal.
+The validation pipeline (rules 1–7) is manual — run it as part of the review step before every commit proposal.
 
 Validation report format:
 ```markdown

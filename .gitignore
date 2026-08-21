@@ -13,10 +13,13 @@ config.json
 .DS_Store
 .ai/logs/.hook-errors.log
 .ai/logs/manifest.json
+.env
+.env-dev
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+search-config-min.txt
 
 npm-debug.log*
 yarn-debug.log*

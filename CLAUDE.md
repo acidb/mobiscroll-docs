@@ -126,11 +126,18 @@ config.json            Local machine path to marketplace project (not committed 
                        (YYYY-MM-DD.md logs from before that date are frozen)
     manifest.json      LOCAL cache (gitignored) of in-flight logs only — self-prunes once
                        committed; never a historical record
+    archive/           Retired one-off reports superseded by later work (not session logs)
 writing-docs.md        Doc authoring conventions (links, frontmatter, TOC)
+GENERATE-SKILLS.md     Explains how static/docs/{fw}/SKILL.md files are generated from the
+                       marketplace repo via scripts/copy-skills.js (see npm run copy-skills)
 navbar.config.js       Navigation configuration
 sidebars.js            Sidebar config for current docs
 sidebarsConnect.js     Sidebar config for Connect docs
 versions.json          Tracked doc versions
+Server/                Windows build/deploy scripts and shortcuts for the production build
+                       machine (Scripts/website_scripts/*.bat, website_shortcuts/*.lnk) —
+                       not part of the docs content; do not change these paths without
+                       confirming the build machine's setup
 ```
 
 ---

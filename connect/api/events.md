@@ -142,7 +142,15 @@ Array of calendar events from all providers, sorted chronologically by start tim
 
   {/* llms:param;name=attendees;type=Array&lt;EventAttendee&gt; */}
   <Parameter name="attendees" type="Array&lt;EventAttendee&gt;" isObject>
-  Array of event attendees (optional). Each object contains:
+  Array of event attendees (optional).
+
+  For **Google** this mirrors the event's guest list exactly as Google returns it: nothing is added and nothing is inferred. An event with no guests has an empty array, and the organizer appears only when Google itself lists them among the guests.
+
+  One consequence worth planning for: when an event is organised by a group calendar, Google often does list that calendar's address among the guests, flagged <code>organizer: true</code>. Those addresses end in <code>@group.calendar.google.com</code> with a varying prefix, and they are not mailboxes. If you render or count guests, or send mail to them, filter them out on your side — this happens whenever the event was organised by a group calendar, regardless of which calendar you read the event from.
+
+  For **Microsoft**, **iCloud** and **CalDAV**, where the protocol keeps the organizer outside the guest list, the organizer is added as an entry flagged <code>organizer: true</code>. The provider's full organizer record is always available under <code>original</code>.
+
+  Each object contains:
 
   {/* llms:param;name=email;type=string */}
   <Parameter name="email" type="string">

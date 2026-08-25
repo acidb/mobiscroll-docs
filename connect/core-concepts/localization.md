@@ -3,7 +3,7 @@ sidebar_position: 2
 slug: /localization
 title: Localization
 sidebar_label: Localization
-description: Localize the Mobiscroll Connect pages — set the language with the lng parameter (en, es, fr, ar), with Accept-Language fallback and right-to-left support.
+description: Localize the Mobiscroll Connect pages — set the language with the lng parameter, with Accept-Language fallback and right-to-left support.
 ---
 
 import Tabs from '@theme/Tabs';
@@ -22,7 +22,24 @@ Localization applies to the **user-facing Connect pages only**. API JSON respons
 | **`en`** | English | Left-to-right |
 | **`es`** | Spanish | Left-to-right |
 | **`fr`** | French | Left-to-right |
+| **`de`** | German | Left-to-right |
+| **`it`** | Italian | Left-to-right |
+| **`pt-PT`** | Portuguese (European) | Left-to-right |
+| **`pt-BR`** | Portuguese (Brazilian) | Left-to-right |
 | **`ar`** | Arabic | Right-to-left |
+
+### Region-qualified codes
+
+`lng` accepts region-qualified codes in the `xx-YY` form. European and Brazilian Portuguese are separate languages here, not one shared Portuguese — they differ in vocabulary, grammar and how the progressive is formed, so pick the one that matches your users.
+
+Codes are written with a hyphen, as in `pt-BR`. Matching is case-insensitive, and an underscore is accepted in place of the hyphen, so `pt-BR`, `pt-br`, `PT-BR` and `pt_BR` all select Brazilian Portuguese.
+
+When a code does not match a language in the table exactly, Connect falls back in this order:
+
+1. **A region variant we ship** — `?lng=pt-BR` uses Brazilian Portuguese.
+2. **The bare language, if we ship it** — `?lng=de-CH` and `?lng=es-MX` use German and Spanish.
+3. **The language's default variant** — a bare `?lng=pt`, or a Portuguese region we do not ship separately such as `pt-AO`, uses European Portuguese.
+4. **English.**
 
 ## Setting the language
 
@@ -100,6 +117,8 @@ If `lng` is not provided, Connect resolves the language in the following order:
 2. The user's browser `Accept-Language` header.
 3. English (`en`) as the final default.
 
+`Accept-Language` is matched the same way as `lng`, so a browser sending `pt-BR,pt;q=0.9` gets Brazilian Portuguese and one sending `pt-PT` gets European Portuguese. See [Region-qualified codes](#region-qualified-codes) for the order Connect tries.
+
 Existing integrations that do not pass `lng` continue to work without changes — users whose browser language is supported now see the Connect pages in that language automatically. To force English regardless of the browser, pass `lng=en` explicitly.
 
 ## Right-to-left (RTL)
@@ -107,7 +126,7 @@ Existing integrations that do not pass `lng` continue to work without changes �
 Arabic (`ar`) is the first right-to-left locale. When `ar` is active, the Connect UI direction switches to right-to-left automatically — no extra configuration is required.
 
 :::info What gets localized
-The localized pages are the provider selection (`authorize`), consent, Apple and CalDAV login, error, and session-lost pages. Anything your application consumes programmatically — API responses and webhook notifications — stays in English regardless of `lng`.
+The localized pages are the provider selection (`authorize`), the iCloud and CalDAV login pages, and the error page. Anything your application consumes programmatically — API responses and webhook notifications — stays in English regardless of `lng`.
 :::
 
 :::tip Related

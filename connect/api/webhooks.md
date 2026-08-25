@@ -351,7 +351,7 @@ Changed events list.
 
     {/* llms:param;name=organizer;type=boolean */}
     <Parameter name="organizer" type="boolean">
-    Indicates if attendee is organizer.
+    Indicates if attendee is organizer. For Google, the organizer appears in this list only when Google lists them as a guest — see [attendees](./events.md#endpoint-get-events) in the events reference.
     </Parameter>
     {/* /llms:param */}
   </Parameter>

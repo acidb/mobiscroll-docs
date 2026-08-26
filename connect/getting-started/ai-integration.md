@@ -2,7 +2,7 @@
 sidebar_position: 4
 sidebar_label: AI Integration
 title: AI Integration
-description: 'Set up AI coding assistants — Claude Code, Cursor, and GitHub Copilot — with Mobiscroll Connect docs, behavior rules, and the live Connect MCP server to generate accurate Connect API calls, SDK code, OAuth flows, and webhook integrations.'
+description: 'Set up AI coding assistants — Claude Code, Codex, Cursor, and GitHub Copilot — with Mobiscroll Connect docs, behavior rules, and the live Connect MCP server to generate accurate Connect API calls, SDK code, OAuth flows, and webhook integrations.'
 ---
 
 import { useState, useEffect } from 'react';
@@ -111,7 +111,7 @@ You don't need to download or host these files — the rules and routing layers 
 
 ### Rules layer — rules files
 
-Rules files provide Mobiscroll Connect context to **Cursor** and **GitHub Copilot**. Claude Code uses the Mobiscroll plugin instead — see [Claude Code setup](#claude-code-setup).
+Rules files provide Mobiscroll Connect context to **Cursor** and **GitHub Copilot**. Claude Code and Codex use the Mobiscroll plugin instead — see [Claude Code setup](#claude-code-setup) or [Codex setup](#codex-setup).
 
 Two approaches are available:
 
@@ -136,9 +136,9 @@ Connect uses a **single** rule file per option — there is no framework split, 
 | {/* llms:docslink;path=connect/SKILL.md;filename=mobiscroll-connect-skill.mdc */}<DocsLink path="connect/SKILL.md" download filename="mobiscroll-connect-skill.mdc">mobiscroll-connect-skill.mdc</DocsLink>{/* /llms:docslink */} | Cursor extended rule | Cursor |
 | {/* llms:docslink;path=copilot-instructions/mobiscroll-connect-skill.instructions.md */}<DocsLink path="copilot-instructions/mobiscroll-connect-skill.instructions.md" download>mobiscroll-connect-skill.instructions.md</DocsLink>{/* /llms:docslink */} | Copilot extended instruction | GitHub Copilot |
 
-### Routing layer — CLAUDE.md (manual Claude Code setup)
+### Routing layer — CLAUDE.md / AGENTS.md (manual setup)
 
-A context file for Claude Code users who set Connect up manually **without** the plugin. It provides domain detection signals, deterministic routing rules, API intent mapping, and anti-pattern examples so Claude selects the Connect documentation and never conflates Connect API calls with UI component code. With the plugin installed (recommended), this file is not needed.
+A context file for Claude Code or Codex users who set Connect up manually **without** the plugin (`CLAUDE.md` for Claude Code, `AGENTS.md` for Codex). It provides domain detection signals, deterministic routing rules, API intent mapping, and anti-pattern examples so the AI selects the Connect documentation and never conflates Connect API calls with UI component code. With the plugin installed (recommended), neither file is needed.
 
 ### Live schema layer — MCP server
 
@@ -167,6 +167,8 @@ It is a **hosted HTTP server** at {/* llms:mcpurl */}<McpUrl /> — no local ins
 | **GitHub Copilot** | Option B | `mobiscroll-connect-skill.instructions.md` |
 | **Claude Code** | Alternative | `CLAUDE.md` — manual routing, no plugin, no MCP |
 | **Claude Code** | Plugin | `mobiscroll@mobiscroll` — bundles the `mobiscroll-connect` skill + MCP server |
+| **Codex** | Alternative | `AGENTS.md` — manual routing, no plugin, no MCP |
+| **Codex** | Plugin | `mobiscroll@mobiscroll` — bundles the `mobiscroll-connect` skill + MCP server |
 
 ## Cursor setup
 
@@ -433,6 +435,87 @@ The file provides:
 
 Pair it with the MCP server (Step 3) for live schema lookups.
 
+## Codex setup
+
+Install the Mobiscroll plugin for OpenAI Codex. The plugin bundles the `mobiscroll-connect` skill and the MCP server in a single install — no per-project configuration files needed.
+
+### Step 1: Register the marketplace
+
+Run this once in Codex to register the Mobiscroll plugin marketplace:
+
+```
+/plugins marketplace add acidb/mobiscroll-marketplace
+```
+
+### Step 2: Install the plugin
+
+```
+/plugins install mobiscroll@mobiscroll
+```
+
+:::info
+The `mobiscroll-connect` skill ships inside the same `mobiscroll` plugin as the UI skills. It activates only for backend Connect work (OAuth, REST, SDK, webhooks) and never mixes with UI component code — so installing the full plugin is safe even if you only use Connect.
+:::
+
+:::warning Plugin skills don't auto-update
+Installing the plugin takes a snapshot of its skills — Codex won't pull in newer ones on its own. To get the latest at any time, update the marketplace catalog and reinstall the plugin: `/plugins marketplace update mobiscroll`, then `/plugins install mobiscroll@mobiscroll`.
+:::
+
+### Step 3: Configure the MCP server (Optional)
+
+The plugin bundles the MCP server — no separate configuration is needed for most setups. To configure it manually or share it with your team, add it to `~/.codex/config.toml` (global) or `.codex/config.toml` (project):
+
+```toml
+[mcp_servers.mobiscroll]
+url = "https://mcp.mobiscroll.com/"
+```
+
+You can also register it from the command line:
+
+```
+codex mcp add mobiscroll --url https://mcp.mobiscroll.com/
+```
+
+| Scope | Config location | Shared with team |
+|:---|:---|:---|
+| global | `~/.codex/config.toml` | No, all your projects |
+| project | `.codex/config.toml` in project root (trusted projects only) | Yes, via version control |
+
+:::info
+Use the project-level `.codex/config.toml` for team repos so everyone gets the MCP server automatically when they clone the project.
+:::
+
+**Verify the connection:** Run `/mcp` inside Codex. The panel lists each connected server and its tool count. A healthy connection shows `mobiscroll` with its tools, including the `Connect`-prefixed ones.
+
+### How it works
+
+Once installed, the plugin provides:
+
+- **Skill** — `mobiscroll-connect` detects backend Connect work from your dependency manifest (`@mobiscroll/connect-sdk` and the other language SDKs) and from Connect REST/OAuth usage, then loads the Connect conventions. It stays isolated from the UI skills.
+- **MCP server** — the bundled Mobiscroll MCP server provides live Connect endpoint and SDK schema lookup on demand.
+
+When you ask Codex to write Connect code, it:
+
+1. Detects your SDK language and version via `resolveConnectEnvironment`
+2. Looks up the endpoint schema (`getConnectEndpointSchema`) or SDK method (`getConnectSdkMethod`) before writing any call
+3. Uses `mapConnectEndpointToSdk` when translating a REST endpoint into SDK code, and `getConnectErrorTaxonomy` when writing error handling
+
+So Codex always uses the current Connect API and SDK signatures, never hallucinated or outdated ones.
+
+### Alternative: manual AGENTS.md routing (no plugin)
+
+If you prefer not to install the plugin, add an `AGENTS.md` file to your project root — Codex reads it automatically when it opens your project. Use the same domain detection, routing rules, API mapping, and anti-pattern approach described in {/* llms:docslink;path=connect/CLAUDE.md */}<DocsLink path="connect/CLAUDE.md" download><code>CLAUDE.md</code></DocsLink>{/* /llms:docslink */} (see [File contents](#file-contents) below) as a starting point.
+
+```
+your-project/
+├── AGENTS.md
+├── src/
+├── package.json
+└── ...
+```
+
+Pair it with the MCP server (Step 3) for live schema lookups.
+
 ## Domain isolation
 
 :::warning Critical
@@ -478,13 +561,13 @@ What scopes are required for read-write calendar access?
 
 **Symptom:** The AI suggests REST endpoints, request parameters, response fields, or SDK methods that don't exist in the Connect API.
 
-**Fix:** The `.mdc` rules instruct the AI to only use APIs found in the Connect docs. If this still happens, explicitly reference `@docs` in Cursor queries, or verify that `CLAUDE.md` is in the project root for Claude Code. For the highest accuracy, enable the Mobiscroll MCP server so the AI fetches live endpoint and SDK schemas via the Connect tools instead of guessing. You can also ask the AI to confirm an endpoint exists in the Mobiscroll Connect docs.
+**Fix:** The `.mdc` rules instruct the AI to only use APIs found in the Connect docs. If this still happens, explicitly reference `@docs` in Cursor queries, or verify that `CLAUDE.md` (Claude Code) or `AGENTS.md` (Codex) is in the project root, or that the Mobiscroll plugin is installed. For the highest accuracy, enable the Mobiscroll MCP server so the AI fetches live endpoint and SDK schemas via the Connect tools instead of guessing. You can also ask the AI to confirm an endpoint exists in the Mobiscroll Connect docs.
 
 ### MCP server does not appear after setup
 
 **Symptom:** The MCP server panel shows no `mobiscroll` entry, or its Connect tools are not available.
 
-**Fix:** Check that the config file is in the correct location and uses the correct root key — `mcpServers` for Claude Code and Cursor, `servers` for VS Code. Validate that the file is well-formed JSON, and that the server name is `mobiscroll`. For Claude Code, run `/mcp` to inspect connected servers; for the VS Code extension, add the server with project scope. If the server connects but the `Connect`-prefixed tools are missing, your deployed server may predate the Connect merge — reconnect after it is updated.
+**Fix:** Check that the config file is in the correct location and uses the correct root key — `mcpServers` for Claude Code, Codex, and Cursor, `servers` for VS Code. Validate that the file is well-formed JSON, and that the server name is `mobiscroll`. For Claude Code or Codex, run `/mcp` to inspect connected servers; for the VS Code extension, add the server with project scope. If the server connects but the `Connect`-prefixed tools are missing, your deployed server may predate the Connect merge — reconnect after it is updated.
 
 ### AI mixes Mobiscroll Connect with UI components
 

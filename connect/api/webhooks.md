@@ -528,7 +528,8 @@ Additional webhook metadata.
 
 - Delivery forwarding to your webhook URL is best-effort and should be handled with idempotent processing on your side.
 - Provider-side notifications may be emitted for changes regardless of where the change originated.
-- Connect applies built-in echo/loop filtering for very recent API-originated changes (short-lived in-memory dedup window, currently 30 seconds), so webhook echoes for your own immediate `POST /event` / `PUT /event` updates are suppressed in the common case.
+- A single change can produce more than one provider notification — Microsoft may write the event several times for one user action, and providers deliver at least once — so expect the same event to arrive more than once.
+- Changes you make through the Connect API do not come back to you as deliveries. Every provider notification caused by your own `POST /event`, `PUT /event` or `DELETE /event` call is filtered for 30 seconds after the write (short-lived in-memory dedup window), including notifications that arrive before the API call returns.
 - In distributed or multi-instance setups, add an application-level origin marker in `custom` (for example `custom.source = "my-system"`) and ignore matching webhook events as an additional loop-prevention safeguard.
 - For Apple, event change detection is based on periodic synchronization (polled every 5 minutes) rather than provider-native push.
 - For CalDAV, event change detection is based on periodic synchronization rather than provider-native push.

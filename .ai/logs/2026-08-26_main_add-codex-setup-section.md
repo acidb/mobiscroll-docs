@@ -99,3 +99,34 @@ action: propose commit
 context: human asked for a commit message for the MCP-layer-section addition
 outcome: commit message drafted and handed to the human as text (see chat), not executed
 ---
+
+---
+timestamp: 2026-08-27T00:20:00Z
+action: backported both prior changes (Codex setup section + Live schema layer/MCP server section) into versioned_docs/version-5.35.0 and versioned_docs/version-6.1.0, all 5 UI-framework ai-integration.md pages in each
+context: human request — bring the last two main-branch commits' worth of changes into both versioned doc snapshots. Connect's ai-integration.md is not versioned (no `connect/` directory exists under versioned_docs) so no versioned Connect changes were needed.
+outcome: |
+  Files changed (10 total):
+  - versioned_docs/version-5.35.0/{react,angular,vue,javascript,jquery}/guides/ai-integration.md
+  - versioned_docs/version-6.1.0/{react,angular,vue,javascript,jquery}/guides/ai-integration.md
+  Before editing, confirmed version-6.1.0's 5 files were byte-identical copies of main's pre-Codex-edit content (exact size match against the originals read at the start of this session), and version-5.35.0's 5 files differ only in version-specific file paths (`5.35.0/` prefixes on llms/rules-file URLs) and framework-specific prose — none of which overlaps the Codex/MCP-layer edit anchors. Verified this empirically: the same exact-match strings used for the main-branch edits were each found exactly once in all 10 versioned files before any edit was applied (the edit script asserts this and aborts on any mismatch), so the same edit content was applied unchanged across both versions and all 5 frameworks.
+  Applied, per file: the "## Codex setup" section (identical to main's), all Codex-related wording additions (frontmatter description, data-layer info box, rules-layer paragraph, two troubleshooting fixes), and the "### Live schema layer — MCP server" section (identical to main's, including its `<McpUrl />` usage and `{/* llms:mcpurl */}` marker).
+learnings: when a doc family has version snapshots, check whether pre-edit content is byte-identical to the current version before assuming version-specific wording differences — here it meant one shared edit script could safely target all 10 files instead of hand-adapting content per version.
+---
+
+---
+timestamp: 2026-08-27T00:25:00Z
+action: text-validation
+context: validated all 10 versioned ai-integration.md pages against .ai/SYSTEM.md §4 before proposing a commit
+outcome: |
+  BLOCKING checks — PASSED on all 10 files: no banned vocabulary, no placeholders, frontmatter `description` intact, no new #opt-/#event-/#method- style links.
+  WARNING checks — PASSED: no discouraged framing, no generic/unverifiable claims; confirmed via diff that all 5 UI-framework pages within each version set have identical `##` heading structure and order.
+  llms marker check: `{/* llms:mcpurl */}` present in all 10 files (grep count = 10, expected 10).
+learnings: none new this pass
+---
+
+---
+timestamp: 2026-08-27T00:27:00Z
+action: propose commit
+context: human asked for a commit message covering the versioned_docs backport
+outcome: commit message drafted and handed to the human as text (see chat), not executed
+---

@@ -2,7 +2,7 @@
 sidebar_position: 0
 sidebar_label: AI Integration
 title: AI Integration
-description: 'Set up AI coding assistants — Claude Code, Cursor, and GitHub Copilot — with Mobiscroll Vue docs and behavior rules to generate accurate, framework-specific component code.'
+description: 'Set up AI coding assistants — Claude Code, Codex, Cursor, and GitHub Copilot — with Mobiscroll Vue docs and behavior rules to generate accurate, framework-specific component code.'
 ---
 
 import { useState, useEffect } from 'react';
@@ -119,12 +119,12 @@ Machine-readable documentation files containing the complete Mobiscroll API refe
 | `llms-icons.txt` | Icon names (IcoMoon, Font Awesome, Ionicons) — all frameworks |
 
 :::info
-You don't need to download or host these files — the rules files and the Claude Code plugin reference them directly and fetch their content automatically.
+You don't need to download or host these files — the rules files and the Claude Code and Codex plugins reference them directly and fetch their content automatically.
 :::
 
 ### Rules layer — rules files
 
-Rules files provide Mobiscroll context to **Cursor** and **GitHub Copilot** only. Claude Code uses the Mobiscroll plugin instead — no manual file setup needed.
+Rules files provide Mobiscroll context to **Cursor** and **GitHub Copilot** only. Claude Code and Codex use the Mobiscroll plugin instead — no manual file setup needed.
 
 Two approaches are available:
 
@@ -161,6 +161,12 @@ Choose based on your preference and setup.
 | **Cursor** | Option B | `mobiscroll-ui.mdc`, `mobiscroll-ui-vue.mdc`, `mobiscroll-ui-theming.mdc` |
 | **GitHub Copilot** | Option A | `mobiscroll-vue.instructions.md` |
 | **GitHub Copilot** | Option B | `mobiscroll-ui.instructions.md`, `mobiscroll-ui-vue.instructions.md`, `mobiscroll-ui-theming.instructions.md` |
+
+### Live schema layer — MCP server
+
+The **Mobiscroll MCP server** serves structured, version-stamped API knowledge over the Model Context Protocol. It is a single, unified server: the same `mobiscroll` server that exposes these UI component tools also serves the Mobiscroll Connect tools, prefixed `Connect` so they never collide. Instead of relying on documentation snapshots, an assistant can call these tools to fetch the exact component schema, valid props/events, or a working example at generation time — so it never hallucinates or drifts from the current API.
+
+It is a **hosted HTTP server** at {/* llms:mcpurl */}<McpUrl /> — no local install required. It's optional for Cursor and GitHub Copilot (only used if you choose Option B), and bundled/always-on for Claude Code and Codex via the plugin.
 
 ## Cursor setup
 
@@ -425,6 +431,68 @@ When you ask Claude Code to write Mobiscroll code, it:
 3. Looks up the component schema before writing any props or events
 4. Validates generated code before returning it to you
 
+## Codex setup
+
+Install the Mobiscroll plugin for OpenAI Codex. The plugin bundles framework coding skills and the MCP server in a single install — no per-project configuration files needed.
+
+### Step 1: Register the marketplace
+
+Run this once in Codex to register the Mobiscroll plugin marketplace:
+
+```
+/plugins marketplace add acidb/mobiscroll-marketplace
+```
+
+### Step 2: Install the plugin
+
+```
+/plugins install mobiscroll@mobiscroll
+```
+
+:::warning Plugin skills don't auto-update
+Installing the plugin takes a snapshot of its skills — Codex won't pull in newer ones on its own. To get the latest at any time, update the marketplace catalog and reinstall the plugin: `/plugins marketplace update mobiscroll`, then `/plugins install mobiscroll@mobiscroll`.
+:::
+
+### Step 3: Configure MCP server (Optional)
+
+The plugin bundles the MCP server — no separate configuration is needed for most setups. To configure it manually or share it with your team, add it to `~/.codex/config.toml` (global) or `.codex/config.toml` (project):
+
+```toml
+[mcp_servers.mobiscroll]
+url = "https://mcp.mobiscroll.com/"
+```
+
+You can also register it from the command line:
+
+```
+codex mcp add mobiscroll --url https://mcp.mobiscroll.com/
+```
+
+| Scope | Config location | Shared with team |
+|:---|:---|:---|
+| global | `~/.codex/config.toml` | No, all your projects |
+| project | `.codex/config.toml` in project root (trusted projects only) | Yes, via version control |
+
+:::info
+Use the project-level `.codex/config.toml` for team repos so everyone gets the MCP server automatically when they clone the project.
+:::
+
+**Verify the connection:** Run `/mcp` inside Codex. The panel lists each connected server and its tool count. A healthy connection shows `mobiscroll` with its tools listed.
+
+### How it works
+
+Once installed, the plugin provides:
+
+- **Skills** — `mobiscroll-ui` is the orchestrator skill that detects your framework (React, Angular, Vue, JavaScript, or jQuery) and loads the matching framework sub-skill. Theming questions are handled by `mobiscroll-ui-theming`. All skills are installed together.
+- **MCP server** — The bundled Mobiscroll MCP server provides live component schema lookup, code validation, and example search on demand — so Codex always uses the current API, never hallucinated or outdated options.
+
+When you ask Codex to write Mobiscroll code, it:
+
+1. Detects your framework and Mobiscroll version via `resolveEnvironment`
+2. Loads the matching framework skill with idiomatic conventions
+3. Looks up the component schema before writing any props or events
+4. Validates generated code before returning it to you
+
 ## Framework isolation
 
 :::warning Critical
@@ -476,7 +544,7 @@ What props does the Datepicker component accept?
 
 **Symptom:** The AI suggests options, events, or types that don't exist in the Mobiscroll documentation.
 
-**Fix:** The `.mdc` rules instruct the AI to only use APIs found in the docs. If this still happens, explicitly reference `@docs` in Cursor queries, or verify that the Mobiscroll plugin is installed in Claude Code (`/plugin list`). You can also ask the AI to verify an option exists in the Mobiscroll docs.
+**Fix:** The `.mdc` rules instruct the AI to only use APIs found in the docs. If this still happens, explicitly reference `@docs` in Cursor queries, or verify that the Mobiscroll plugin is installed in Claude Code (`/plugin list`) or Codex (`codex plugin list`). You can also ask the AI to verify an option exists in the Mobiscroll docs.
 
 ### AI mixes Mobiscroll Connect with UI components
 
@@ -488,7 +556,7 @@ What props does the Datepicker component accept?
 
 **Symptom:** The MCP server panel shows no `mobiscroll` entry, or tools are not available.
 
-**Fix:** Check that the config file is in the correct location and uses the correct root key — `mcpServers` for Claude Code and Cursor, `servers` for VS Code. Validate that the file is well-formed JSON. For Claude Code, run `/mcp` to inspect connected servers.
+**Fix:** Check that the config file is in the correct location and uses the correct root key — `mcpServers` for Claude Code, Codex, and Cursor, `servers` for VS Code. Validate that the file is well-formed JSON. For Claude Code or Codex, run `/mcp` to inspect connected servers.
 
 ## File reference
 

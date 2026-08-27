@@ -147,6 +147,7 @@ All SDK errors satisfy the `mobiscroll.MobiscrollError` interface. Use `errors.A
 | Error type | HTTP Status | Extra field |
 |---|---|---|
 | `*AuthenticationError` | 401, 403 | — (returned after refresh + retry has been exhausted) |
+| `*CalendarPermissionError` | 403 | `Accounts` — the accounts that must reconnect; unwraps to `*AuthenticationError` |
 | `*ValidationError` | 400, 422 | `Details` (`json.RawMessage`) |
 | `*NotFoundError` | 404 | — |
 | `*RateLimitError` | 429 | `RetryAfter` (`int`, seconds) |
@@ -197,6 +198,10 @@ The client exposes resources that map directly to the API endpoints.
 ### Auth
 
 The `client.Auth()` resource handles the OAuth authorization flow, including generating authorization URLs, exchanging codes for tokens, managing connection status, and disconnecting providers.
+
+Each account returned by `GetConnectionStatus` reports `GrantedScopes` and `CalendarPermissionGranted`. A `false` flag means the account connected but withheld calendar access on the provider's consent screen, so it can list no calendars until the user reconnects — see [Partial consent](../core-concepts/scopes.md#partial-consent).
+
+When *no* connected account has calendar access, calendar and event calls raise `*CalendarPermissionError` — `Accounts` names the accounts that must reconnect. It unwraps to `*AuthenticationError`, so existing handlers keep working.
 
 To localize the Connect pages, pass an optional `Lng` to `GenerateAuthURL`, e.g. `&mobiscroll.AuthURLParams{ UserID: ..., Lng: "es" }`. When omitted, the UI falls back to the browser's `Accept-Language` header, then English; Arabic renders right-to-left. See [Supported languages](../core-concepts/localization.md#supported-languages) for the languages Connect supports.
 

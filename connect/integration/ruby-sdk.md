@@ -174,6 +174,7 @@ All SDK errors are subclasses of `Mobiscroll::Connect::Error`. Rescue the specif
 | Error class | HTTP Status | Extra attribute |
 |---|---|---|
 | `AuthenticationError` | 401, 403 | — (raised after refresh + retry has been exhausted) |
+| `CalendarPermissionError` | 403 | `accounts` — the accounts that must reconnect |
 | `ValidationError` | 400, 422 | `details` |
 | `NotFoundError` | 404 | — |
 | `RateLimitError` | 429 | `retry_after` (seconds) |
@@ -205,6 +206,10 @@ The client exposes resources that map directly to the API endpoints.
 ### Auth
 
 The `client.auth` resource handles the OAuth authorization flow, including generating authorization URLs, exchanging codes for tokens, managing connection status, and disconnecting providers.
+
+Each account returned by `get_connection_status` reports `granted_scopes` and `calendar_permission_granted`. A `false` flag means the account connected but withheld calendar access on the provider's consent screen, so it can list no calendars until the user reconnects — see [Partial consent](../core-concepts/scopes.md#partial-consent).
+
+When *no* connected account has calendar access, calendar and event calls raise `CalendarPermissionError` — `accounts` names the accounts that must reconnect. It subclasses `AuthenticationError`, so existing handlers keep working.
 
 To localize the Connect pages, pass an optional `lng` to `generate_auth_url`, e.g. `generate_auth_url(user_id: ..., lng: 'es')`. When omitted, the UI falls back to the browser's `Accept-Language` header, then English; Arabic renders right-to-left. See [Supported languages](../core-concepts/localization.md#supported-languages) for the languages Connect supports.
 

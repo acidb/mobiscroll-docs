@@ -69,6 +69,58 @@ This is the default scope if none is specified. It provides complete control ove
 *   **Calendar List:** ALLOWED.
 *   **Write Access:** ALLOWED. Can create, update, and delete events.
 
+## Partial Consent {#partial-consent}
+
+The scope you request is not always the access you get. Google's consent screen presents the calendar permission as a **separate checkbox**. If the user leaves it unticked and continues, Google still returns a valid grant — sign-in succeeds, the account appears connected, and only the calendar permission is missing.
+
+Such an account can list no calendars. Rather than returning an empty array — indistinguishable from a user who genuinely has no calendars — `GET /calendars`, `GET /events` and the `/event` write endpoints answer **`403`** when *every* connected account is in this state:
+
+```json
+{
+  "error": "Forbidden",
+  "code": "calendar_permission_required",
+  "message": "No connected account has calendar access. The account completed sign-in but the calendar permission was not granted, which cannot be repaired server-side — the user must connect again and allow calendar access.",
+  "accounts": [{ "provider": "google", "account": "user@gmail.com" }]
+}
+```
+
+The `accounts` list is the actionable part: those are the users to prompt for a reconnect.
+
+If *some* accounts still work, the request succeeds and returns what they hold. The accounts left out are named in the **`X-Connect-Calendar-Permission-Missing`** response header as comma-separated `provider:account` pairs, so a partial result is never silently partial.
+
+For writes the check is scoped to the provider you are writing to — a working Outlook connection does not authorize a write to a Google calendar the user never granted access to.
+
+To detect the problem before issuing a call, read the per-account fields on the connection status response:
+
+| Field | Type | Meaning |
+| :--- | :--- | :--- |
+| `grantedScopes` | `string[]` | The scopes the provider actually granted for this account. |
+| `calendarPermissionGranted` | `boolean \| null` | Whether the granted scopes cover calendar access at the scope your project requested. |
+
+```json
+{
+  "connections": {
+    "google": [
+      {
+        "id": "user@gmail.com",
+        "display": "user@gmail.com",
+        "grantedScopes": ["openid", "https://www.googleapis.com/auth/userinfo.email"],
+        "calendarPermissionGranted": false
+      }
+    ]
+  },
+  "limitReached": false
+}
+```
+
+`calendarPermissionGranted` is evaluated against the scope of the calling request, so a grant that satisfies `free-busy` can still report `false` for `read-write`. It is `null` when the question does not apply — Apple and CalDAV authenticate with a username and app password and have no scopes — or when no scopes were recorded for the account.
+
+A `false` cannot be repaired server-side: providers only issue scopes at consent time. The user has to run the connect flow again and allow calendar access. Connect now detects this at the end of the Google flow and shows the user what is missing with a retry button, so new connections should not reach your application in this state — but accounts connected earlier still can.
+
+:::tip Best Practice
+After a user connects, check `calendarPermissionGranted` before showing a calendar picker. If it is `false`, prompt the user to reconnect rather than rendering an empty list — that turns the `403` above into something you never hit.
+:::
+
 ## Access Escalation
 
 You can upgrade an existing connection to a higher scope (e.g., from `free-busy` to `read-write`) if the user enables features that require more permissions.

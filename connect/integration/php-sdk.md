@@ -122,6 +122,7 @@ All SDK methods throw exceptions that extend `Mobiscroll\Connect\Exceptions\Mobi
 | Exception | HTTP Status | `getCodeString()` |
 |---|---|---|
 | `AuthenticationError` | 401, 403 | `AUTHENTICATION_ERROR` |
+| `CalendarPermissionError` | 403 | `CALENDAR_PERMISSION_REQUIRED` |
 | `ValidationError` | 400, 422 | `VALIDATION_ERROR` |
 | `NotFoundError` | 404 | `NOT_FOUND_ERROR` |
 | `RateLimitError` | 429 | `RATE_LIMIT_ERROR` |
@@ -159,6 +160,10 @@ The client exposes resources that map directly to the API endpoints.
 ### Auth
 
 The `client->auth()` resource handles the OAuth authorization flow, including generating authorization URLs, exchanging codes for tokens, managing connection status, and disconnecting providers.
+
+Each account returned by `getConnectionStatus` reports `grantedScopes` and `calendarPermissionGranted`. A `false` flag means the account connected but withheld calendar access on the provider's consent screen, so it can list no calendars until the user reconnects — see [Partial consent](../core-concepts/scopes.md#partial-consent).
+
+When *no* connected account has calendar access, calendar and event calls raise `CalendarPermissionError` — `getAccounts()` names the accounts that must reconnect. It subclasses `AuthenticationError`, so existing handlers keep working.
 
 To localize the Connect pages, pass an optional `lng` to `generateAuthUrl`, e.g. `generateAuthUrl(userId: ..., lng: 'es')`. When omitted, the UI falls back to the browser's `Accept-Language` header, then English; Arabic renders right-to-left. See [Supported languages](../core-concepts/localization.md#supported-languages) for the languages Connect supports.
 

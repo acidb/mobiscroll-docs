@@ -151,6 +151,43 @@
           "response": []
         },
         {
+          "name": "Get Connection Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/oauth/connection-status",
+              "host": ["{{baseUrl}}"],
+              "path": ["oauth", "connection-status"]
+            },
+            "description": "Connected accounts per provider for the authenticated user.\n\nEach account reports `grantedScopes` — what the provider actually granted — and `calendarPermissionGranted`. The latter is `false` when the account connected but withheld calendar access (Google's consent screen lets the user untick that permission and still sign in), which means it can list no calendars until the user reconnects. It is `null` for Apple and CalDAV, which have no scopes, and for accounts with no scopes recorded.\n\nThe flag is evaluated against the scope of this request, so a grant that satisfies `free-busy` can still report `false` for `read-write`."
+          },
+          "response": [
+            {
+              "name": "An account that withheld calendar access",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/oauth/connection-status",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["oauth", "connection-status"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"connections\": {\n    \"google\": [\n      {\n        \"id\": \"granted@gmail.com\",\n        \"display\": \"granted@gmail.com\",\n        \"grantedScopes\": [\n          \"openid\",\n          \"https://www.googleapis.com/auth/userinfo.email\",\n          \"https://www.googleapis.com/auth/calendar\"\n        ],\n        \"calendarPermissionGranted\": true\n      },\n      {\n        \"id\": \"withheld@gmail.com\",\n        \"display\": \"withheld@gmail.com\",\n        \"grantedScopes\": [\n          \"openid\",\n          \"https://www.googleapis.com/auth/userinfo.email\"\n        ],\n        \"calendarPermissionGranted\": false\n      }\n    ],\n    \"microsoft\": [],\n    \"apple\": [\n      {\n        \"id\": \"user@icloud.com\",\n        \"display\": \"user@icloud.com\",\n        \"grantedScopes\": [],\n        \"calendarPermissionGranted\": null\n      }\n    ],\n    \"caldav\": []\n  },\n  \"limitReached\": false,\n  \"limit\": 0\n}"
+            }
+          ]
+        },
+        {
           "name": "Revoke Token",
           "request": {
             "method": "POST",

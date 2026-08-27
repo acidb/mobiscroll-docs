@@ -160,6 +160,7 @@ All SDK methods throw exceptions that extend `com.mobiscroll.connect.exceptions.
 | Exception | HTTP Status | Extra |
 |---|---|---|
 | `AuthenticationException` | 401, 403 | — (raised after refresh + retry has been exhausted) |
+| `CalendarPermissionException` | 403 | `getAccounts()` — the accounts that must reconnect |
 | `ValidationException` | 400, 422 | `getDetails()` (`JsonNode`) |
 | `NotFoundException` | 404 | — |
 | `RateLimitException` | 429 | `getRetryAfter()` (`Integer`, seconds) |
@@ -195,6 +196,10 @@ The client exposes resources that map directly to the API endpoints.
 ### Auth
 
 The `client.auth()` resource handles the OAuth authorization flow, including generating authorization URLs, exchanging codes for tokens, managing connection status, and disconnecting providers.
+
+Each account returned by `getConnectionStatus` reports `getGrantedScopes()` and `getCalendarPermissionGranted()`. A `false` flag means the account connected but withheld calendar access on the provider's consent screen, so it can list no calendars until the user reconnects — see [Partial consent](../core-concepts/scopes.md#partial-consent).
+
+When *no* connected account has calendar access, calendar and event calls raise `CalendarPermissionException` — `getAccounts()` names the accounts that must reconnect. It subclasses `AuthenticationException`, so existing handlers keep working.
 
 To localize the Connect pages, pass an optional `lng` to `generateAuthUrl`, e.g. `AuthUrlParams.builder().userId(...).lng("es").build()`. When omitted, the UI falls back to the browser's `Accept-Language` header, then English; Arabic renders right-to-left. See [Supported languages](../core-concepts/localization.md#supported-languages) for the languages Connect supports.
 

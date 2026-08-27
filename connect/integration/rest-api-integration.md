@@ -37,6 +37,8 @@ The REST API exposes the following endpoints for integrating with Mobiscroll Con
 
 The OAuth endpoints handle the authorization flow, including initiating user authorization, exchanging codes for access tokens, and managing connection status. Start here to authenticate users and obtain access tokens.
 
+Each account returned by `GET /api/oauth/connection-status` reports `grantedScopes` and `calendarPermissionGranted`. A `false` flag means the account connected but withheld calendar access on the provider's consent screen, so it can list no calendars until the user reconnects — see [Partial consent](../core-concepts/scopes.md#partial-consent).
+
 **Example: Initiate Authorization**
 
 ```javascript

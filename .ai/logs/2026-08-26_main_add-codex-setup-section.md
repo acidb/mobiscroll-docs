@@ -50,3 +50,52 @@ action: propose commit
 context: human asked for a commit message for this change; edits were written to the working tree via the device bridge (not via git commit — per established session practice, changes are left uncommitted for the human to review and commit)
 outcome: commit message drafted and handed to the human as text (see chat), not executed
 ---
+
+---
+timestamp: 2026-08-27T00:00:00Z
+action: audit — reviewed docs/vue/guides/ai-integration.md in full (representative of all 5 structurally-identical UI pages, confirmed earlier) for any remaining spots that should mention Codex but don't
+context: human asked for a full re-check of one UI page, having flagged a sentence they believed was still Claude-Code-only; that sentence was already fixed (confirmed via fresh device re-stage), so treated as a request for a broader audit
+outcome: |
+  No edits made this pass (recommendation-only, per human instruction "do not touch the files").
+  Confirmed correct as-is (no change needed): the "Which tool uses which files?" table (Cursor/Copilot only — Claude Code and Codex both use the plugin, not files, so no row needed for either); the VS Code `"servers"` vs `"mcpServers"` warning (does not name Codex — correctly so, since Codex's actual config format is TOML `[mcp_servers.name]`, not the JSON key this warning is about); File reference / File contents tables (no Claude Code row, so no Codex row either, same reasoning).
+  Two findings recommended but not applied:
+  1. Troubleshooting → "AI generates code with the wrong framework" only gives a fix for Cursor/Copilot rule files; Claude Code and Codex users get no guidance for this symptom, even though skill/framework misdetection is equally plausible for them. Pre-existing gap for Claude Code, now doubly relevant with Codex. Recommended addition: point users to verify `resolveEnvironment` detected the right framework and that the matching framework sub-skill (e.g. `mobiscroll-ui-vue`) actually loaded.
+  2. "## Architecture overview" intro says "The integration consists of three layers" but only two `###` subsections existed (Data layer, Rules layer) — a pre-existing mismatch unrelated to Codex. Human confirmed the missing third layer is the MCP server and asked for a recommendation on how to add it (see next entry).
+learnings: when auditing, always re-fetch and re-read the live file from the device rather than trusting memory of earlier edits — the human's report of stale-looking content matched the deployed site, not the local (already-corrected) file. Confirming state directly avoided a redundant/conflicting re-edit.
+---
+
+---
+timestamp: 2026-08-27T00:05:00Z
+action: added "### Live schema layer — MCP server" section to all 5 UI-framework ai-integration.md pages
+context: human approved exact title + content for a new third Architecture-overview layer (resolving the "three layers" / two-heading mismatch from the prior audit), explicitly asked to omit a tool-name table for now, and to add the section without touching anything else
+outcome: |
+  Files changed:
+  - docs/react/guides/ai-integration.md
+  - docs/angular/guides/ai-integration.md
+  - docs/vue/guides/ai-integration.md
+  - docs/javascript/guides/ai-integration.md
+  - docs/jquery/guides/ai-integration.md
+  (connect/getting-started/ai-integration.md was not touched — it already has an equivalent "Live schema layer — MCP server" section.)
+  Inserted `### Live schema layer — MCP server` immediately after the "Which tool uses which files?" table and before `## Cursor setup`, in all 5 files at the identical anchor (confirmed unique per file before editing). Content: unified-server description (same `mobiscroll` server, `Connect`-prefixed tools kept separate), the hosted URL via the existing `<McpUrl />` component, and a line noting it's optional for Cursor/Copilot (Option B only) but bundled/always-on for Claude Code and Codex.
+  This is the first use of `<McpUrl />` on any of the 5 UI pages (previously only used on the Connect page) — added its required `{/* llms:mcpurl */}` marker per writing-docs.md's marker table; no new marker type needed, reused the existing `mcpurl` case.
+  The Architecture-overview intro sentence ("three layers") is now literally accurate — no wording change needed there, only the missing heading.
+learnings: none new this pass
+---
+
+---
+timestamp: 2026-08-27T00:10:00Z
+action: text-validation
+context: validated all 5 edited ai-integration.md pages against .ai/SYSTEM.md §4 before proposing a commit
+outcome: |
+  BLOCKING checks — PASSED on all 5 files: no banned vocabulary, no placeholders, frontmatter `description` intact (unchanged this pass), no new #opt-/#event-/#method- style links.
+  WARNING checks — PASSED: no discouraged framing, no generic/unverifiable claims; confirmed via diff that all 5 UI-framework pages still have identical `##`/`###` heading structure and order after the edit.
+  llms marker check: one new component usage (`<McpUrl />`), correctly wrapped with `{/* llms:mcpurl */}` in all 5 files — verified by grep, not just assumed from the hook (no hook ran in this session; edits were applied via the device bridge, not local git-tracked Edit).
+learnings: none new this pass
+---
+
+---
+timestamp: 2026-08-27T00:12:00Z
+action: propose commit
+context: human asked for a commit message for the MCP-layer-section addition
+outcome: commit message drafted and handed to the human as text (see chat), not executed
+---

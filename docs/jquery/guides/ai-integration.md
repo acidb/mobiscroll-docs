@@ -162,6 +162,12 @@ Choose based on your preference and setup.
 | **GitHub Copilot** | Option A | `mobiscroll-jquery.instructions.md` |
 | **GitHub Copilot** | Option B | `mobiscroll-ui.instructions.md`, `mobiscroll-ui-jquery.instructions.md`, `mobiscroll-ui-theming.instructions.md` |
 
+### Live schema layer — MCP server
+
+The **Mobiscroll MCP server** serves structured, version-stamped API knowledge over the Model Context Protocol. It is a single, unified server: the same `mobiscroll` server that exposes these UI component tools also serves the Mobiscroll Connect tools, prefixed `Connect` so they never collide. Instead of relying on documentation snapshots, an assistant can call these tools to fetch the exact component schema, valid props/events, or a working example at generation time — so it never hallucinates or drifts from the current API.
+
+It is a **hosted HTTP server** at {/* llms:mcpurl */}<McpUrl /> — no local install required. It's optional for Cursor and GitHub Copilot (only used if you choose Option B), and bundled/always-on for Claude Code and Codex via the plugin.
+
 ## Cursor setup
 
 ### Step 1: Register documentation sources

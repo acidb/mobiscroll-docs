@@ -211,7 +211,7 @@ Each account returned by `get_connection_status` reports `granted_scopes` and `c
 
 When *no* connected account has calendar access, calendar and event calls raise `CalendarPermissionError` — `accounts` names the accounts that must reconnect. It subclasses `AuthenticationError`, so existing handlers keep working.
 
-To localize the Connect pages, pass an optional `lng` to `generate_auth_url`, e.g. `generate_auth_url(user_id: ..., lng: 'es')`. When omitted, the UI falls back to the browser's `Accept-Language` header, then English; Arabic renders right-to-left. See [Supported languages](../core-concepts/localization.md#supported-languages) for the languages Connect supports.
+To localize the Connect pages, pass an optional `lng` to `generate_auth_url`, e.g. `generate_auth_url(user_id: ..., lng: 'es')`. When omitted, the UI falls back to the browser's `Accept-Language` header, then English; Arabic, Hebrew and Persian render right-to-left. See [Supported languages](../core-concepts/localization.md#supported-languages) for the languages Connect supports.
 
 <DocCardList items={[
   {

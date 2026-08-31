@@ -56,7 +56,7 @@ Optional state parameter to maintain across the OAuth flow. This is passed back 
 
 {/* llms:param;name=lng;type=string;default=Accept-Language, then en */}
 <Parameter name="lng" type="string" defaultValue={<code>Accept-Language, then en</code>} id="authorize-lng">
-Language for the Connect pages (provider selection, consent, login, and error pages). See [Supported languages](../core-concepts/localization.md#supported-languages) for the values Connect accepts. When omitted, the UI falls back to the browser's `Accept-Language` header, then English. Arabic (`ar`) renders right-to-left. Example: `?lng=es`.
+Language for the Connect pages (provider selection, consent, login, and error pages). See [Supported languages](../core-concepts/localization.md#supported-languages) for the values Connect accepts. When omitted, the UI falls back to the browser's `Accept-Language` header, then English. Arabic (`ar`), Hebrew (`he`) and Persian (`fa`) render right-to-left. Example: `?lng=es`.
 </Parameter>
 {/* /llms:param */}
 
@@ -265,7 +265,7 @@ auth_url = client.auth.generate_auth_url(
 Pass `lng` on the authorize URL to render the Connect pages (provider selection, consent, login, and error pages) in a specific language. See [Supported languages](../core-concepts/localization.md#supported-languages) for the current list.
 
 - If `lng` is omitted, the UI falls back to the browser's `Accept-Language` header, then English.
-- Arabic (`ar`) is right-to-left; the UI direction switches automatically.
+- Arabic (`ar`), Hebrew (`he`) and Persian (`fa`) are right-to-left; the UI direction switches automatically.
 - Example: `/authorize?client_id=...&user_id=...&lng=es`. In the SDKs, pass `lng` to the auth-URL builder (see the examples above).
 :::
 

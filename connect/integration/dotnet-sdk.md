@@ -187,7 +187,7 @@ Each account returned by `GetConnectionStatusAsync` reports `GrantedScopes` and 
 
 When *no* connected account has calendar access, calendar and event calls raise `CalendarPermissionException` — `Accounts` names the accounts that must reconnect. It subclasses `AuthenticationException`, so existing handlers keep working.
 
-To localize the Connect pages, pass an optional `Lng` to `GenerateAuthUrl`, e.g. `new AuthorizeParams { UserId = ..., Lng = "es" }`. When omitted, the UI falls back to the browser's `Accept-Language` header, then English; Arabic renders right-to-left. See [Supported languages](../core-concepts/localization.md#supported-languages) for the languages Connect supports.
+To localize the Connect pages, pass an optional `Lng` to `GenerateAuthUrl`, e.g. `new AuthorizeParams { UserId = ..., Lng = "es" }`. When omitted, the UI falls back to the browser's `Accept-Language` header, then English; Arabic, Hebrew and Persian render right-to-left. See [Supported languages](../core-concepts/localization.md#supported-languages) for the languages Connect supports.
 
 <DocCardList items={[
   {

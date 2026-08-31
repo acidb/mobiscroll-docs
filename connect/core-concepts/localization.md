@@ -20,13 +20,42 @@ Localization applies to the **user-facing Connect pages only**. API JSON respons
 | Code | Language | Direction |
 | :--- | :--- | :--- |
 | **`en`** | English | Left-to-right |
+| **`en-GB`** | English (British) | Left-to-right |
 | **`es`** | Spanish | Left-to-right |
 | **`fr`** | French | Left-to-right |
 | **`de`** | German | Left-to-right |
 | **`it`** | Italian | Left-to-right |
+| **`nl`** | Dutch | Left-to-right |
+| **`ca`** | Catalan | Left-to-right |
 | **`pt-PT`** | Portuguese (European) | Left-to-right |
 | **`pt-BR`** | Portuguese (Brazilian) | Left-to-right |
+| **`ro`** | Romanian | Left-to-right |
+| **`pl`** | Polish | Left-to-right |
+| **`cs`** | Czech | Left-to-right |
+| **`sk`** | Slovak | Left-to-right |
+| **`hu`** | Hungarian | Left-to-right |
+| **`hr`** | Croatian | Left-to-right |
+| **`sr`** | Serbian | Left-to-right |
+| **`bg`** | Bulgarian | Left-to-right |
+| **`ru`** | Russian | Left-to-right |
+| **`uk`** | Ukrainian | Left-to-right |
+| **`lt`** | Lithuanian | Left-to-right |
+| **`el`** | Greek | Left-to-right |
+| **`tr`** | Turkish | Left-to-right |
+| **`sv`** | Swedish | Left-to-right |
+| **`da`** | Danish | Left-to-right |
+| **`no`** | Norwegian (Bokmål) | Left-to-right |
+| **`fi`** | Finnish | Left-to-right |
+| **`hi`** | Hindi | Left-to-right |
+| **`th`** | Thai | Left-to-right |
+| **`vi`** | Vietnamese | Left-to-right |
+| **`ja`** | Japanese | Left-to-right |
+| **`ko`** | Korean | Left-to-right |
+| **`zh-Hans`** | Chinese (Simplified) | Left-to-right |
+| **`zh-Hant`** | Chinese (Traditional) | Left-to-right |
 | **`ar`** | Arabic | Right-to-left |
+| **`he`** | Hebrew | Right-to-left |
+| **`fa`** | Persian | Right-to-left |
 
 ### Region-qualified codes
 
@@ -36,10 +65,21 @@ Codes are written with a hyphen, as in `pt-BR`. Matching is case-insensitive, an
 
 When a code does not match a language in the table exactly, Connect falls back in this order:
 
-1. **A region variant we ship** — `?lng=pt-BR` uses Brazilian Portuguese.
-2. **The bare language, if we ship it** — `?lng=de-CH` and `?lng=es-MX` use German and Spanish.
-3. **The language's default variant** — a bare `?lng=pt`, or a Portuguese region we do not ship separately such as `pt-AO`, uses European Portuguese.
-4. **English.**
+1. **A region or script variant we ship** — `?lng=pt-BR` uses Brazilian Portuguese, `?lng=zh-Hant` Traditional Chinese.
+2. **A mapped equivalent** — some languages are commonly requested under a code they do not ship under, and those are matched too:
+
+   | You send | You get | Why |
+   | :--- | :--- | :--- |
+   | `zh-CN`, `zh-SG`, `zh-MY` | `zh-Hans` | These regions write Simplified Chinese |
+   | `zh-TW`, `zh-HK`, `zh-MO` | `zh-Hant` | These regions write Traditional Chinese |
+   | `nb`, `nb-NO`, `nn` | `no` | `nb` is Bokmål, which is what browsers send for Norwegian |
+   | `iw` | `he` | `iw` is the deprecated code for Hebrew, still sent by older clients |
+   | `ua` | `uk` | `uk` is the language code for Ukrainian; `ua` is the country code |
+   | `en-AU`, `en-NZ`, `en-IE`, `en-ZA` | `en-GB` | These regions use British spelling |
+
+3. **The bare language, if we ship it** — `?lng=de-CH` and `?lng=es-MX` use German and Spanish; `?lng=ru-UA` uses Russian.
+4. **The language's default variant** — a bare `?lng=pt`, or a Portuguese region we do not ship separately such as `pt-AO`, uses European Portuguese. A bare `?lng=zh` uses Simplified Chinese.
+5. **English.**
 
 ## Setting the language
 

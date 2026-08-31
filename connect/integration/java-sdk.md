@@ -201,7 +201,7 @@ Each account returned by `getConnectionStatus` reports `getGrantedScopes()` and 
 
 When *no* connected account has calendar access, calendar and event calls raise `CalendarPermissionException` — `getAccounts()` names the accounts that must reconnect. It subclasses `AuthenticationException`, so existing handlers keep working.
 
-To localize the Connect pages, pass an optional `lng` to `generateAuthUrl`, e.g. `AuthUrlParams.builder().userId(...).lng("es").build()`. When omitted, the UI falls back to the browser's `Accept-Language` header, then English; Arabic renders right-to-left. See [Supported languages](../core-concepts/localization.md#supported-languages) for the languages Connect supports.
+To localize the Connect pages, pass an optional `lng` to `generateAuthUrl`, e.g. `AuthUrlParams.builder().userId(...).lng("es").build()`. When omitted, the UI falls back to the browser's `Accept-Language` header, then English; Arabic, Hebrew and Persian render right-to-left. See [Supported languages](../core-concepts/localization.md#supported-languages) for the languages Connect supports.
 
 <DocCardList items={[
   {

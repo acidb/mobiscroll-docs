@@ -54,7 +54,7 @@ const authUrl = `https://connect.mobiscroll.com/api/oauth/authorize?${params.toS
 window.location.href = authUrl;
 ```
 
-Pass an optional `lng` parameter to choose the language; when omitted it falls back to the browser's `Accept-Language` header, then English. Right-to-left languages such as Arabic switch the UI direction automatically. See [Supported languages](../core-concepts/localization.md#supported-languages) for the current list.
+Pass an optional `lng` parameter to choose the language; when omitted it falls back to the browser's `Accept-Language` header, then English. Right-to-left languages — Arabic, Hebrew and Persian — switch the UI direction automatically. See [Supported languages](../core-concepts/localization.md#supported-languages) for the current list.
 
 **Example: Exchange Code for Token**
 

@@ -141,6 +141,12 @@ Use the official Node.js SDK for a streamlined integration experience. The SDK p
 
 **[Get started with the Node.js SDK](/connect/node-sdk)**
 
+### Python SDK
+
+Use the official Python SDK for backend integrations in Python 3.9+ applications. The SDK provides both sync and async clients, typed models, automatic token management, and consistent exception handling.
+
+**[Get started with the Python SDK](/connect/python-sdk)**
+
 ### PHP SDK
 
 Use the official PHP SDK for backend integrations in PHP applications. The SDK provides resource-based API access, typed models, and consistent exception handling.
@@ -153,11 +159,23 @@ Use the official .NET SDK for backend integrations in .NET 6+ applications. The 
 
 **[Get started with the .NET SDK](/connect/dotnet-sdk)**
 
-### Python SDK
+### Java SDK
 
-Use the official Python SDK for backend integrations in Python 3.9+ applications. The SDK provides both sync and async clients, typed models, automatic token management, and consistent exception handling.
+Use the official Java SDK for backend integrations in Java applications. The SDK targets Java 11 and provides typed methods, automatic token management, and consistent exception handling.
 
-**[Get started with the Python SDK](/connect/python-sdk)**
+**[Get started with the Java SDK](/connect/java-sdk)**
+
+### Go SDK
+
+Use the official Go SDK for backend integrations in Go applications. The SDK requires Go 1.22 or higher and provides typed methods, automatic token management, and consistent error handling.
+
+**[Get started with the Go SDK](/connect/go-sdk)**
+
+### Ruby SDK
+
+Use the official Ruby SDK for backend integrations in Ruby applications. The SDK requires Ruby 3.1 or higher and provides typed methods, automatic token management, and consistent error handling.
+
+**[Get started with the Ruby SDK](/connect/ruby-sdk)**
 
 ### Demo Application
 
